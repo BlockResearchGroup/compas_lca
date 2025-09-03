@@ -1,0 +1,2 @@
+class LcaCalculationWorkflow:
+    pass
