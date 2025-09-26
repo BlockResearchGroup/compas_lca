@@ -1,0 +1,141 @@
+{
+    "Element Metadata": {
+        "Name": "BSH Stütze - rechteckig:KVH 60 x 60:7575996",
+        "UID": "1098287",
+        "GlobalId": "10a1LVtQ99hAiuvboonYd6",
+        "Type": "IfcColumn",
+        "ObjectType": "BSH Stütze - rechteckig:KVH 60 x 60",
+        "Classification": "Not defined",
+        "Decomposes": {},
+        "Is Decomposed By": []
+    },
+    "Element Material Data": [
+        {
+            "IfcEntity": "IfcMaterial",
+            "Material Name": "Holz Brettschicht - C24 Cl.1",
+            "Material Description": "Unknown",
+            "Material Category": "Unknown",
+            "Thickness": "Unknown",
+            "Thickness unit": "Unknown"
+        }
+    ],
+    "Element Geometry Data": {
+        "Quantities (IFC)": {
+            "Net Volume": 0.0101,
+            "Net Volume unit": "CUBIC_METRE"
+        },
+        "Geometric Representation": [
+            "MappedRepresentation"
+        ],
+        "Quantities (COMPAS)": {
+            "Net Volume": 0.0101124,
+            "Net Volume unit": "CUBIC_METRE",
+            "Entire Surface Area": 0.68136,
+            "Entire Surface Area unit": "SQUARE_METRE"
+        },
+        "Bounding Box Dimensions (OBB - local frame)": {
+            "X": 0.06,
+            "Y": 2.81,
+            "Z": 0.06,
+            "Bounding Box Dimensions Unit": "METRE"
+        },
+        "Bounding Box Volume": 0.0101,
+        "Real Volume to Bounding Box Volume Ratio": 1.001,
+        "Face Count (tessellated element)": {
+            "Face Count": 12
+        },
+        "Vertex Count (tessellated element)": {
+            "Vertex Count": 24
+        },
+        "Edge Count (tessellated element)": {
+            "Edge Count": 30
+        },
+        "Primary Object Axis (Cardinal Direction)": "Undefined"
+    },
+    "Element Property Sets": {
+        "Psets Element": {
+            "Level": "Level: 00_Eingang",
+            "Column Style": "Vertical",
+            "Moves With Grids": "True",
+            "Base Level": "Level: 00_Eingang",
+            "Top Level": "Level: 00_Eingang",
+            "Base Offset": "-4.0",
+            "Column Location Mark": "E(1 054)-18(-151)",
+            "Top Offset": "2805.0",
+            "Length": "2809.0",
+            "Volume": "0.0101124000000002",
+            "Edited by": "",
+            "Workset": "Innenausbau",
+            "Comments": "",
+            "Category": "Structural Columns",
+            "Family": "BSH Stütze - rechteckig: KVH 60 x 60",
+            "Family and Type": "BSH Stütze - rechteckig: KVH 60 x 60",
+            "Type": "BSH Stütze - rechteckig: KVH 60 x 60",
+            "Type Id": "BSH Stütze - rechteckig: KVH 60 x 60",
+            "Phase Created": "Zu Bauen",
+            "Enable Analytical Model": "False"
+        },
+        "Psets Object Type": {
+            "Data.Unternehmer": "",
+            "Dimensions.B": "60.0",
+            "Dimensions.H": "60.0",
+            "Identity Data.Edited by": "",
+            "Identity Data.Assembly Code": "",
+            "Identity Data.Assembly Description": "",
+            "Identity Data.Code Name": "",
+            "Identity Data.OmniClass Number": "",
+            "Identity Data.OmniClass Title": "",
+            "Identity Data.Workset": "Family  : Structural Columns : BSH Stütze - rechteckig",
+            "Identity Data.Type Comments": "B/H=",
+            "Identity Data.Type Name": "KVH 60 x 60",
+            "Materials and Finishes.Structural Material": "Holz Brettschicht - C24 Cl.1",
+            "Other.Category": "Structural Columns",
+            "Other.Family Name": "BSH Stütze - rechteckig",
+            "Structural.Section Shape": "0",
+            "Structural.Filter Tragend / Nichttragend": "False"
+        }
+    },
+    "Element Relationships": {
+        "Nests": null,
+        "Is Nested By": null,
+        "Covers": null,
+        "Is Covered By": null,
+        "Has Openings": null,
+        "Assigned Groups": null
+    },
+    "Element Location": {
+        "Storeys Map": {
+            "00_Betonplatte": {
+                "Elevation": -0.54,
+                "Unit": "meters"
+            },
+            "00_Eingang": {
+                "Elevation": 0.0,
+                "Unit": "meters"
+            },
+            "01_Galerie": {
+                "Elevation": 2.92,
+                "Unit": "meters"
+            }
+        },
+        "Element Located in Storey": "00_Eingang",
+        "Spatial Relationship": [
+            {
+                "name": "1072",
+                "type": "IfcProject"
+            },
+            {
+                "name": "Default",
+                "type": "IfcSite"
+            },
+            {
+                "name": "",
+                "type": "IfcBuilding"
+            },
+            {
+                "name": "00_Eingang",
+                "type": "IfcBuildingStorey"
+            }
+        ]
+    }
+}

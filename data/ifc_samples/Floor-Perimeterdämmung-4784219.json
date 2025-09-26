@@ -1,0 +1,155 @@
+{
+    "Element Metadata": {
+        "Name": "Floor:Perimeterdämmung:4784219",
+        "UID": "90418",
+        "GlobalId": "30RxpADCrAnvK_DVyOL06y",
+        "Type": "IfcSlab",
+        "ObjectType": "Floor:Perimeterdämmung",
+        "Classification": "Not defined",
+        "Decomposes": {},
+        "Is Decomposed By": []
+    },
+    "Element Material Data": [
+        {
+            "IfcEntity": "IfcMaterialLayerSetUsage",
+            "Layer Set Name": "Floor:Perimeterdämmung",
+            "Layer Set Description": "Unknown",
+            "Layer Set Total Thickness": "Unknown",
+            "Layers": [
+                {
+                    "IfcEntity": "IfcMaterialLayer",
+                    "Material Name": "Wärmedämmung XPS",
+                    "Description": "Unknown",
+                    "Category": "Unknown",
+                    "Thickness": 0.08,
+                    "Thickness unit": "METRE"
+                }
+            ],
+            "Layer Direction and Growth description": "Layers are stacked vertically, defining the element’s buildup."
+        }
+    ],
+    "Element Geometry Data": {
+        "Quantities (IFC)": {
+            "Width": 0.08,
+            "Width unit": "METRE",
+            "Gross Volume": 0.1618,
+            "Gross Volume unit": "CUBIC_METRE",
+            "Net Volume": 0.1618,
+            "Net Volume unit": "CUBIC_METRE"
+        },
+        "Geometric Representation": [
+            "SweptSolid"
+        ],
+        "Quantities (COMPAS)": {
+            "Net Volume": 0.16181898194209998,
+            "Net Volume unit": "CUBIC_METRE",
+            "Entire Surface Area": 4.5291125124,
+            "Entire Surface Area unit": "SQUARE_METRE"
+        },
+        "Bounding Box Dimensions (OBB - local frame)": {
+            "X": 2.02,
+            "Y": 1.0,
+            "Z": 0.08,
+            "Bounding Box Dimensions Unit": "METRE"
+        },
+        "Bounding Box Volume": 0.1616,
+        "Real Volume to Bounding Box Volume Ratio": 1.001,
+        "Face Count (tessellated element)": {
+            "Face Count": 12
+        },
+        "Vertex Count (tessellated element)": {
+            "Vertex Count": 24
+        },
+        "Edge Count (tessellated element)": {
+            "Edge Count": 30
+        },
+        "Primary Object Axis (Cardinal Direction)": "E"
+    },
+    "Element Property Sets": {
+        "Psets Element": {
+            "Related to Mass": "False",
+            "Room Bounding": "True",
+            "Level": "Level: 00_Betonplatte",
+            "Height Offset From Level": "200.0",
+            "Area": "2.02273727427621",
+            "Elevation at Bottom": "-419.999999999999",
+            "Elevation at Top": "-339.999999999999",
+            "Perimeter": "6045.47454855243",
+            "Thickness": "80.0",
+            "Volume": "0.161818981942097",
+            "Edited by": "",
+            "Workset": "Architecture",
+            "Category": "Floors",
+            "Family": "Floor: Perimeterdämmung",
+            "Family and Type": "Floor: Perimeterdämmung",
+            "Type": "Floor: Perimeterdämmung",
+            "Type Id": "Floor: Perimeterdämmung",
+            "Phase Created": "Zu Bauen",
+            "Enable Analytical Model": "False",
+            "Structural": "False"
+        },
+        "Psets Object Type": {
+            "Analytical Properties.Roughness": "3",
+            "Analytical Properties.Absorptance": "0.7",
+            "Analytical Properties.Heat Transfer Coefficient (U)": "0.125",
+            "Analytical Properties.Thermal Mass": "0.251284142592",
+            "Analytical Properties.Thermal Resistance (R)": "8.0",
+            "Construction.Function": "Interior",
+            "Construction.Default Thickness": "80.0",
+            "Data.Unternehmer": "Offen",
+            "Graphics.Coarse Scale Fill Pattern": "<Solid fill",
+            "Graphics.Coarse Scale Fill Color": "16777215",
+            "Identity Data.Edited by": "",
+            "Identity Data.Assembly Code": "",
+            "Identity Data.Assembly Description": "",
+            "Identity Data.Workset": "Floor Types",
+            "Identity Data.Cost": "0.0",
+            "Identity Data.Type Name": "Perimeterdämmung",
+            "Other.Category": "Floors",
+            "Other.Family Name": "Floor"
+        }
+    },
+    "Element Relationships": {
+        "Nests": null,
+        "Is Nested By": null,
+        "Covers": null,
+        "Is Covered By": null,
+        "Has Openings": null,
+        "Assigned Groups": null
+    },
+    "Element Location": {
+        "Storeys Map": {
+            "00_Betonplatte": {
+                "Elevation": -0.54,
+                "Unit": "meters"
+            },
+            "00_Eingang": {
+                "Elevation": 0.0,
+                "Unit": "meters"
+            },
+            "01_Galerie": {
+                "Elevation": 2.92,
+                "Unit": "meters"
+            }
+        },
+        "Element Located in Storey": "00_Betonplatte",
+        "Spatial Relationship": [
+            {
+                "name": "1072",
+                "type": "IfcProject"
+            },
+            {
+                "name": "Default",
+                "type": "IfcSite"
+            },
+            {
+                "name": "",
+                "type": "IfcBuilding"
+            },
+            {
+                "name": "00_Betonplatte",
+                "type": "IfcBuildingStorey"
+            }
+        ]
+    }
+}

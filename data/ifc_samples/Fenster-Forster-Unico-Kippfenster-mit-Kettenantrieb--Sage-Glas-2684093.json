@@ -1,0 +1,116 @@
+{
+    "Element Metadata": {
+        "Name": "Fenster Forster Unico:Kippfenster mit Kettenantrieb, Sage Glas:2684093",
+        "UID": "67962",
+        "GlobalId": "1RSpNUafD2EO7VqckljMs8",
+        "Type": "IfcWindow",
+        "ObjectType": "Fenster Forster Unico:Kippfenster mit Kettenantrieb, Sage Glas",
+        "Classification": "Not defined",
+        "Decomposes": {
+            "Name": "Curtain Wall:Fassade 250:2668447",
+            "IfcEntity": "IfcCurtainWall",
+            "GlobalId": "1a1$QVmKz8nRXZVkIMOOAE"
+        },
+        "Is Decomposed By": []
+    },
+    "Element Material Data": [
+        {
+            "IfcEntity": "IfcMaterial",
+            "Material Name": "<Unnamed>",
+            "Material Description": "Unknown",
+            "Material Category": "Unknown",
+            "Thickness": "Unknown",
+            "Thickness unit": "Unknown"
+        }
+    ],
+    "Element Geometry Data": {
+        "Quantities (IFC)": {
+            "Width": 0.0,
+            "Width unit": "METRE",
+            "Height": 0.0,
+            "Height unit": "METRE"
+        },
+        "Geometric Representation": "Not defined",
+        "Quantities (COMPAS)": {},
+        "Bounding Box Dimensions (OBB - local frame)": {},
+        "Bounding Box Volume": null,
+        "Real Volume to Bounding Box Volume Ratio": null,
+        "Face Count (tessellated element)": {},
+        "Vertex Count (tessellated element)": {},
+        "Edge Count (tessellated element)": {},
+        "Primary Object Axis (Cardinal Direction)": "Not defined"
+    },
+    "Element Property Sets": {
+        "Psets Element": {
+            "Level": "Level: 00_Eingang",
+            "SOFiSTiK_HeadProject": "3047999.96952",
+            "SOFiSTiK_HeadShared": "3047999.96952",
+            "SOFiSTiK_SillProject": "3047999.96952",
+            "SOFiSTiK_SillShared": "3047999.96952",
+            "Width": "0.0",
+            "Height": "0.0",
+            "Edited by": "",
+            "Workset": "Architecture",
+            "Mark": "40",
+            "Category": "Windows",
+            "Family": "Fenster Forster Unico: Kippfenster mit Kettenantrieb, Sage Glas",
+            "Family and Type": "Fenster Forster Unico: Kippfenster mit Kettenantrieb, Sage Glas",
+            "Type": "Fenster Forster Unico: Kippfenster mit Kettenantrieb, Sage Glas",
+            "Type Id": "Fenster Forster Unico: Kippfenster mit Kettenantrieb, Sage Glas",
+            "Host Id": "Curtain Wall: Fassade 250",
+            "Phase Created": "Zu Bauen"
+        },
+        "Psets Object Type": {
+            "Analytical Properties.Define Thermal Properties by": "Schematic Type",
+            "Analytical Properties.Analytic Construction": "<None",
+            "Dimensions.Offset": "9.0",
+            "Dimensions.Offset_Profil": "25.0",
+            "Dimensions.Profil_Ausse_Tiefe": "70.0",
+            "Dimensions.Profil_Aussen_Breite": "74.0",
+            "Dimensions.Profil_Innen_Breite": "58.0",
+            "Identity Data.Edited by": "",
+            "Identity Data.Assembly Code": "",
+            "Identity Data.Assembly Description": "",
+            "Identity Data.Code Name": "",
+            "Identity Data.OmniClass Number": "23.30.20.00",
+            "Identity Data.OmniClass Title": "Windows",
+            "Identity Data.Type Mark": "35",
+            "Identity Data.Type Name": "Kippfenster mit Kettenantrieb, Sage Glas",
+            "Identity Data.Workset": "Family  : Windows : Fenster Forster Unico",
+            "Materials and Finishes.Material_Glas": "Glas SageGlassClimatop",
+            "Other.Category": "Windows",
+            "Other.Family Name": "Fenster Forster Unico"
+        }
+    },
+    "Element Relationships": {
+        "Nests": null,
+        "Is Nested By": null,
+        "Covers": null,
+        "Is Covered By": null,
+        "Has Openings": null,
+        "Assigned Groups": null
+    },
+    "Element Location": {
+        "Storeys Map": {
+            "00_Betonplatte": {
+                "Elevation": -0.54,
+                "Unit": "meters"
+            },
+            "00_Eingang": {
+                "Elevation": 0.0,
+                "Unit": "meters"
+            },
+            "01_Galerie": {
+                "Elevation": 2.92,
+                "Unit": "meters"
+            }
+        },
+        "Element Located in Storey": "00_Eingang",
+        "Spatial Relationship": [
+            {
+                "name": "Unknown",
+                "type": "Unknown"
+            }
+        ]
+    }
+}

@@ -1,0 +1,176 @@
+{
+    "Element Metadata": {
+        "Name": "Basic Wall:Brandschutzplatte 28mm:1935617",
+        "UID": "55187",
+        "GlobalId": "1EtLIM2yvAKfyWWneb$zXE",
+        "Type": "IfcWallStandardCase",
+        "ObjectType": "Basic Wall:Brandschutzplatte 28mm",
+        "Classification": "Not defined",
+        "Decomposes": {},
+        "Is Decomposed By": []
+    },
+    "Element Material Data": [
+        {
+            "IfcEntity": "IfcMaterialLayerSetUsage",
+            "Layer Set Name": "Basic Wall:Brandschutzplatte 28mm",
+            "Layer Set Description": "Unknown",
+            "Layer Set Total Thickness": "Unknown",
+            "Layers": [
+                {
+                    "IfcEntity": "IfcMaterialLayer",
+                    "Material Name": "Gipsfaserplatte",
+                    "Description": "Unknown",
+                    "Category": "Unknown",
+                    "Thickness": 0.028,
+                    "Thickness unit": "METRE"
+                }
+            ],
+            "Layer Direction and Growth description": "Layers are stacked perpendicular to the element's length, growing in the opposite direction from its reference surface."
+        }
+    ],
+    "Element Geometry Data": {
+        "Quantities (IFC)": {
+            "Width": 0.028,
+            "Width unit": "METRE",
+            "Length": 1.6293,
+            "Length unit": "METRE",
+            "Height": 1.865,
+            "Height unit": "METRE",
+            "Gross Side Area": 3.0387,
+            "Gross Side Area unit": "SQUARE_METRE",
+            "Net Side Area": 3.0387,
+            "Net Side Area unit": "SQUARE_METRE",
+            "Gross Footprint Area": 0.0455,
+            "Gross Footprint Area unit": "SQUARE_METRE",
+            "Gross Volume": 0.0851,
+            "Gross Volume unit": "CUBIC_METRE",
+            "Net Volume": 0.0849,
+            "Net Volume unit": "CUBIC_METRE"
+        },
+        "Geometric Representation": [
+            "Curve2D",
+            "SweptSolid"
+        ],
+        "Quantities (COMPAS)": {
+            "Net Volume": 0.08492304017560001,
+            "Net Volume unit": "CUBIC_METRE",
+            "Entire Surface Area": 6.2626706018,
+            "Entire Surface Area unit": "SQUARE_METRE"
+        },
+        "Bounding Box Dimensions (OBB - local frame)": {
+            "X": 1.63,
+            "Y": 0.03,
+            "Z": 1.86,
+            "Bounding Box Dimensions Unit": "METRE"
+        },
+        "Bounding Box Volume": 0.091,
+        "Real Volume to Bounding Box Volume Ratio": 0.933,
+        "Face Count (tessellated element)": {
+            "Face Count": 16
+        },
+        "Vertex Count (tessellated element)": {
+            "Vertex Count": 30
+        },
+        "Edge Count (tessellated element)": {
+            "Edge Count": 39
+        },
+        "Primary Object Axis (Cardinal Direction)": "E"
+    },
+    "Element Property Sets": {
+        "Psets Element": {
+            "Related to Mass": "False",
+            "Room Bounding": "True",
+            "Base Extension Distance": "0.0",
+            "Base is Attached": "False",
+            "Cross-Section": "Vertical",
+            "Location Line": "Core Face: Exterior",
+            "Top Extension Distance": "0.0",
+            "Top is Attached": "False",
+            "Base Constraint": "Level: 01_Galerie",
+            "Top Constraint": "Level: 01_TragstrukturRückwand",
+            "Base Offset": "-475.000000000092",
+            "Top Offset": "159.999999999974",
+            "Unconnected Height": "1865.0000000001",
+            "Area": "3.03866339508372",
+            "Length": "1554.60779075322",
+            "Volume": "0.0849230401756229",
+            "Edited by": "",
+            "Workset": "Tragwerk",
+            "Category": "Walls",
+            "Family": "Basic Wall: Brandschutzplatte 28mm",
+            "Family and Type": "Basic Wall: Brandschutzplatte 28mm",
+            "Type": "Basic Wall: Brandschutzplatte 28mm",
+            "Type Id": "Basic Wall: Brandschutzplatte 28mm",
+            "Phase Created": "Zu Bauen",
+            "Enable Analytical Model": "False",
+            "Rebar Cover - Other Faces": "Rebar Cover Settings: Bewehrungsüberdeckung 1",
+            "Structural": "True",
+            "Rebar Cover - Exterior Face": "Rebar Cover Settings: Bewehrungsüberdeckung 1",
+            "Rebar Cover - Interior Face": "Rebar Cover Settings: Bewehrungsüberdeckung 1",
+            "Structural Usage": "Bearing"
+        },
+        "Psets Object Type": {
+            "Analytical Properties.Roughness": "3",
+            "Analytical Properties.Absorptance": "0.7",
+            "Construction.Function": "Exterior",
+            "Construction.Wrapping at Ends": "None",
+            "Construction.Wrapping at Inserts": "Do not wrap",
+            "Construction.Width": "28.0",
+            "Data.Unternehmer": "Künzli",
+            "Graphics.Coarse Scale Fill Pattern": "<Solid fill",
+            "Graphics.Coarse Scale Fill Color": "8421504",
+            "Identity Data.Edited by": "",
+            "Identity Data.Assembly Code": "",
+            "Identity Data.Assembly Description": "",
+            "Identity Data.Workset": "Wall Types",
+            "Identity Data.Cost": "0.0",
+            "Identity Data.Type Name": "Brandschutzplatte 28mm",
+            "Materials and Finishes.Structural Material": "Gipsfaserplatte",
+            "Other.Category": "Walls",
+            "Other.Family Name": "Basic Wall"
+        }
+    },
+    "Element Relationships": {
+        "Nests": null,
+        "Is Nested By": null,
+        "Covers": null,
+        "Is Covered By": null,
+        "Has Openings": null,
+        "Assigned Groups": null
+    },
+    "Element Location": {
+        "Storeys Map": {
+            "00_Betonplatte": {
+                "Elevation": -0.54,
+                "Unit": "meters"
+            },
+            "00_Eingang": {
+                "Elevation": 0.0,
+                "Unit": "meters"
+            },
+            "01_Galerie": {
+                "Elevation": 2.92,
+                "Unit": "meters"
+            }
+        },
+        "Element Located in Storey": "01_Galerie",
+        "Spatial Relationship": [
+            {
+                "name": "1072",
+                "type": "IfcProject"
+            },
+            {
+                "name": "Default",
+                "type": "IfcSite"
+            },
+            {
+                "name": "",
+                "type": "IfcBuilding"
+            },
+            {
+                "name": "01_Galerie",
+                "type": "IfcBuildingStorey"
+            }
+        ]
+    }
+}
