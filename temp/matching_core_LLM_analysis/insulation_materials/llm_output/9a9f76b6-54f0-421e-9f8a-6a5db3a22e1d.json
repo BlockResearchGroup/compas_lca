@@ -1,0 +1,94 @@
+{
+  "document_id": "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
+  "fields": [
+    {
+      "name": "bio_based_content",
+      "type": "float",
+      "rationale": "The product is composed of 85% hemp fibers, which are bio-based materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "bio_based",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "The insulation fleece consists of 85% hemp fibres and 15% polyester fibres as support fibre."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "support_fiber_content",
+      "type": "float",
+      "rationale": "The product contains 15% polyester fibers, which act as a support fiber.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "The insulation fleece consists of 85% hemp fibres and 15% polyester fibres as support fibre."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "impregnation_chemical",
+      "type": "string",
+      "rationale": "The fleece is impregnated with soda, which is a chemical treatment applied to the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "At the end, the raw fleece is impregnated with 4% soda, referring to the weight of the raw fleece."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_treatment",
+      "type": "bool",
+      "rationale": "The product undergoes thermal treatment during its lifecycle, specifically in module C3.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Module C3 takes into account the grinding and thermal treatment (combustion) of the material."
+      ],
+      "inference_basis": [
+        "Thermal treatment is a common process for managing end-of-life insulation materials."
+      ]
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "The dataset is representative of the German market, as indicated by the location code 'DE'.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "document_id": "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness is a critical property for steel sheets, affecting their application in construction joints.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "layer_thickness: 0.0013"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "coating_type",
+      "type": "string",
+      "rationale": "The type of coating on the metal waterstop is important for its sealing properties and application in construction.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "reactive polymer coating on one of its side"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The application type helps categorize the product based on its use in construction joints, which is a key functional property.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "construction joints",
+        "crack inducing joints"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "suitable for all typical constructions- and crack inducing joints"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_location",
+      "type": "string",
+      "rationale": "Knowing the manufacturing location can be important for logistical and regulatory reasons.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "The product is manufactured at Junghansring 52 in Rottenburg a. N."
+      ],
+      "inference_basis": [
+        "Manufacturing location is often relevant for supply chain and compliance purposes."
+      ]
+    },
+    {
+      "name": "coating_position",
+      "type": "enum",
+      "rationale": "The position of the coating is crucial for the product's functionality in preventing water infiltration.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": [
+        "one-sided",
+        "two-sided"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "coating on one of its side"
+      ],
+      "inference_basis": [
+        "The description specifies a one-sided coating, which is relevant for its application."
+      ]
+    }
+  ]
+}

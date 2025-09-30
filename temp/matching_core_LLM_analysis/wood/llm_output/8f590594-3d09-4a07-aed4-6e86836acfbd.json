@@ -1,0 +1,28 @@
+{
+  "document_id": "8f590594-3d09-4a07-aed4-6e86836acfbd",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a 'dry underlayment system' and 'multilayer modular floor covering', indicating its form as a panel or sheet product.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "panel",
+        "sheet",
+        "roll"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Jumpax® Strong is a dry underlayment system",
+        "multilayer modular floor coverings"
+      ],
+      "inference_basis": [
+        "'dry underlayment system' and 'multilayer modular floor covering' suggest panel or sheet form"
+      ]
+    }
+  ]
+}

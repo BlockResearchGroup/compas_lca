@@ -1,0 +1,581 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/doors/llm_output",
+    "total_documents_scanned": 15,
+    "total_unique_fields": 28,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "door_type": {
+      "count": 4,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "4085dd2a-f8db-437a-b43b-040c31849209",
+        "9e98fbef-56d5-4ce5-ab09-21a6c1fee6e8",
+        "e3be2902-cafa-43b4-b70a-ed8b9daaa7b3"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes a 'side door' for a garage, which is a specific type of door used in conjunction with garage doors.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "side_door",
+        "garage_door",
+        "entry_door",
+        "patio_door"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Technical purpose of product or process: Side door (NT 500) for N 500 up-and-over garage door"
+      ],
+      "inference_basis": null
+    },
+    "thermal_transmittance": {
+      "count": 4,
+      "document_ids": [
+        "007c726a-b8ee-4b80-a57a-6c4fd54a0c17",
+        "28bd87f7-6a55-481f-9725-01a94e5ed8ce",
+        "5743021d-617d-4916-960e-1e4c73149203",
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ],
+      "type": "float",
+      "rationale": "Thermal transmittance is a key performance indicator for doors, indicating how well the door insulates against heat transfer.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m²·K",
+      "applicability": null,
+      "evidence": [
+        "thermal transmittance of 0,99 W/(m2*K)"
+      ],
+      "inference_basis": null
+    },
+    "layer_thickness": {
+      "count": 3,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "5743021d-617d-4916-960e-1e4c73149203",
+        "f0005215-20c5-4fa0-96fc-019d8f682e7b"
+      ],
+      "type": "float",
+      "rationale": "Layer thickness can affect the door's insulation properties and structural integrity, making it a relevant characteristic for categorization.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": null,
+      "evidence": [
+        "layer_thickness: 0.105"
+      ],
+      "inference_basis": null
+    },
+    "application_area": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "enum",
+      "rationale": "The product is designed for specific applications such as airports, which is a key factor in categorizing the product based on its intended use.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "airports",
+        "business lounge",
+        "security area"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Argus Air sensor gates can be used for convenient entry into: Airports",
+        "control when entering the business lounge or access control at the passenger entrance to the security area."
+      ],
+      "inference_basis": null
+    },
+    "fire_resistance": {
+      "count": 2,
+      "document_ids": [
+        "0ccfd2d1-817a-409e-88d4-b228a3db9580",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ],
+      "type": "bool",
+      "rationale": "The product is described as an 'Aluminium fire door', indicating it is designed to resist fire.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Aluminium fire door"
+      ],
+      "inference_basis": null
+    },
+    "installation_location": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ],
+      "type": "enum",
+      "rationale": "The location code 'DE' suggests the primary market or installation location for the product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "Germany"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": [
+        "Location code 'DE' typically refers to Germany."
+      ]
+    },
+    "material_composition": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ],
+      "type": "enum",
+      "rationale": "The category indicates the product is made of steel, which is a key material property.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "category: 'Components for windows and curtain walls' / 'Doors' / 'Steel'"
+      ],
+      "inference_basis": null
+    },
+    "adjustable_spring_power": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ],
+      "type": "range",
+      "rationale": "The door closers have adjustable spring power, which is crucial for controlling the door's closing speed and force, making it suitable for various door weights and sizes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "size",
+      "applicability": null,
+      "evidence": [
+        "adjustable spring power (size 1-6 and size 5-6)"
+      ],
+      "inference_basis": null
+    },
+    "anti_finger_trap": {
+      "count": 1,
+      "document_ids": [
+        "e3be2902-cafa-43b4-b70a-ed8b9daaa7b3"
+      ],
+      "type": "bool",
+      "rationale": "The product is explicitly described as an 'anti-finger-trap' door, which is a key safety feature for preventing injuries.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Jansen-Economy 60 anti-finger-trap door"
+      ],
+      "inference_basis": null
+    },
+    "application_type": {
+      "count": 1,
+      "document_ids": [
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ],
+      "type": "enum",
+      "rationale": "The product is used in various building types such as office buildings, industrial buildings, and hotels, indicating different application contexts.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "office_buildings",
+        "industrial_buildings",
+        "public_buildings",
+        "hotels",
+        "underground_garages",
+        "counter_closures"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Technical purpose of product or process: Fire protection curtain doors are used, for example, in office and administration buildings, industrial buildings, public buildings, hotels, underground garages and as counter closures."
+      ],
+      "inference_basis": null
+    },
+    "backcheck_feature": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ],
+      "type": "bool",
+      "rationale": "The presence of a backcheck feature helps control the door's opening motion, preventing damage from abrupt or forceful openings.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "backcheck that controls opening motion during abusive or abrupt opening"
+      ],
+      "inference_basis": null
+    },
+    "biometric_capability": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "bool",
+      "rationale": "The product includes biometric face recognition, which is a significant feature for security applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Argus Air Security with its biometric face recognition, combines a high level of security with a smooth and effective passenger flow."
+      ],
+      "inference_basis": null
+    },
+    "contactless_operation": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "bool",
+      "rationale": "The product is described as having intuitive, contactless operation, which is a key feature for user convenience and hygiene.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The Argus Air Lounge with its intuitive, contactless operation guarantees easy access to lounges, even with luggage, children or wheelchairs."
+      ],
+      "inference_basis": null
+    },
+    "cover_material": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ],
+      "type": "enum",
+      "rationale": "The door closers are available with either plastic or metal covers, which can affect durability and aesthetic preferences.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "plastic",
+        "metal"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "door closers are available with plastic and metal cover"
+      ],
+      "inference_basis": null
+    },
+    "glazing_type": {
+      "count": 1,
+      "document_ids": [
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies 'triple-glazed', which is a common specification for doors and windows affecting thermal performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "single",
+        "double",
+        "triple"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "triple-glazed"
+      ],
+      "inference_basis": null
+    },
+    "material": {
+      "count": 1,
+      "document_ids": [
+        "53321062-f8ec-4efb-b2d2-7b12fe83623b"
+      ],
+      "type": "enum",
+      "rationale": "The product is made of aluminum, which is a key material property for categorization.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "aluminum",
+        "wood",
+        "steel",
+        "composite"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Sliding windows made of aluminum"
+      ],
+      "inference_basis": null
+    },
+    "material_type": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ],
+      "type": "enum",
+      "rationale": "The category indicates the door is made of steel, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "category: 'Components for windows and curtain walls' / 'Doors' / 'Steel'"
+      ],
+      "inference_basis": null
+    },
+    "maximum_door_weight": {
+      "count": 1,
+      "document_ids": [
+        "4085dd2a-f8db-437a-b43b-040c31849209"
+      ],
+      "type": "range",
+      "rationale": "The maximum door weight is a critical performance parameter for door operators, indicating the load capacity.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Maximum door weight: 300 kg",
+        "Maximum door weight: 150 kg"
+      ],
+      "inference_basis": null
+    },
+    "maximum_door_width": {
+      "count": 1,
+      "document_ids": [
+        "4085dd2a-f8db-437a-b43b-040c31849209"
+      ],
+      "type": "range",
+      "rationale": "The maximum door width is a key specification for sliding doors, affecting installation and usability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Maximum door width: 3000 mm",
+        "Maximum door width: 1500 mm"
+      ],
+      "inference_basis": null
+    },
+    "module_coverage": {
+      "count": 1,
+      "document_ids": [
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ],
+      "type": "string",
+      "rationale": "The dataset covers specific life cycle modules (A1-A3, A4, A5, B2-B7, C1-C4, D), which is important for understanding the environmental impact scope.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Use advice for data set: Dieser Datensatz beinhaltet die Ergebnisse für die Module A1-A3 sowie die Module A4, A5, B2, B3, B4, B5, B6, B7, C1, C2, C3, C4 und D gemäß EN 15804 + A2."
+      ],
+      "inference_basis": null
+    },
+    "opening_direction": {
+      "count": 1,
+      "document_ids": [
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ],
+      "type": "enum",
+      "rationale": "The dataset mentions 'outward / inward opened', indicating the direction in which the door can be opened, which is a key functional property for doors.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "outward",
+        "inward"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "outward / inward opened"
+      ],
+      "inference_basis": null
+    },
+    "operation_mode": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "enum",
+      "rationale": "The product features different operation modes such as boarding, security, and lounge access, which are important for understanding its functional capabilities.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "boarding",
+        "security",
+        "lounge"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The Argus Air series includes the gates for boarding pass control Argus Air Security, lounge access Argus Air Lounge and for self-boarding Argus Air Boarding."
+      ],
+      "inference_basis": null
+    },
+    "performance_features": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ],
+      "type": "bool",
+      "rationale": "The product description mentions 'optional performance features', suggesting additional capabilities beyond basic functionality.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technical purpose of product or process: Safety door with optional performance features."
+      ],
+      "inference_basis": null
+    },
+    "power_supply_integration": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "bool",
+      "rationale": "The control system and power supply are integrated into the unit, which is important for installation and operational efficiency.",
+      "confidence": 0.7,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Control system and power supply integrated into the unit."
+      ],
+      "inference_basis": null
+    },
+    "product_type": {
+      "count": 1,
+      "document_ids": [
+        "53321062-f8ec-4efb-b2d2-7b12fe83623b"
+      ],
+      "type": "enum",
+      "rationale": "The product is described as 'sliding windows made of aluminum for outdoor use', which suggests a specific type of door or window product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "sliding_window",
+        "hinged_door",
+        "revolving_door",
+        "sliding_door"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Sliding windows made of aluminum for outdoor use"
+      ],
+      "inference_basis": null
+    },
+    "product_weight": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ],
+      "type": "float",
+      "rationale": "The weight of the product is explicitly stated as 256.05 kg, which is a critical factor in determining the structural and installation requirements for the door product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "The declared unit is 1 piece of product: 256.05 kg"
+      ],
+      "inference_basis": null
+    },
+    "safety_features": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ],
+      "type": "bool",
+      "rationale": "The product is explicitly described as a 'safety door', indicating it has safety features.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technical purpose of product or process: Safety door with optional performance features."
+      ],
+      "inference_basis": null
+    },
+    "surface_finish": {
+      "count": 1,
+      "document_ids": [
+        "f0005215-20c5-4fa0-96fc-019d8f682e7b"
+      ],
+      "type": "enum",
+      "rationale": "The surface finish of a door can affect its aesthetic appeal and durability. Options like lacquered and Durat surfaces are explicitly mentioned.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "lacquered",
+        "Durat"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Both lacquered and Durat surfaces"
+      ],
+      "inference_basis": null
+    }
+  }
+}

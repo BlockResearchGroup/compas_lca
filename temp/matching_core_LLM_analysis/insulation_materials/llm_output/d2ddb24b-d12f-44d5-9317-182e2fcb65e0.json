@@ -1,0 +1,80 @@
+{
+  "document_id": "d2ddb24b-d12f-44d5-9317-182e2fcb65e0",
+  "fields": [
+    {
+      "name": "insulation_core_type",
+      "type": "enum",
+      "rationale": "The insulation core type is explicitly mentioned as 'rigid thermoset polyisocyanurate (PIR) fibre-free insulation core', which is crucial for understanding the material properties and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "PIR",
+        "PUR",
+        "EPS",
+        "XPS",
+        "mineral_fibre"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TW55 R is an insulation board with a rigid thermoset polyisocyanurate (PIR) fibre-free insulation core."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "facing_material",
+      "type": "enum",
+      "rationale": "The facing material is explicitly described as 'coated glass tissue based facing', which affects the durability and application of the insulation product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "glass_tissue",
+        "aluminum_foil",
+        "kraft_paper",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "faced on both sides with a coated glass tissue based facing."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "range",
+      "rationale": "The product is available in variable thicknesses from 30 mm up to 100 mm, which is important for determining its suitability for different applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is available in variable thicknesses from 30 mm up to 100 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_resistance",
+      "type": "float",
+      "rationale": "The RD-value of 2,55 m²·K/W is a key performance indicator for insulation materials, indicating its thermal resistance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²·K/W",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "RD-value of 2,55 m²·K/W."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

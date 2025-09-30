@@ -1,0 +1,92 @@
+{
+  "document_id": "e7d4ceb7-da5f-4341-b8f3-ea47bd1fb4bc",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 2404.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is crucial for determining the structural capacity and application suitability of concrete paving stones.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.08"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "bool",
+      "rationale": "Surface treatment affects the aesthetic and functional properties of concrete products, such as slip resistance and durability.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The surface is not treated."
+      ],
+      "inference_basis": [
+        "'The surface is not treated.' implies a boolean field for surface treatment."
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area helps categorize the product based on its intended use, which is important for selecting the right product for specific environments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "outdoor",
+        "indoor"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Concrete paving stones or slaps for use outdoor, i.e. driveways, terraces, gardens, paths, on roofs and indoor."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "colour",
+      "type": "bool",
+      "rationale": "Colour is a distinguishing feature for concrete products, especially for aesthetic applications.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "multi-coloured"
+      ],
+      "inference_basis": [
+        "'multi-coloured' suggests a boolean field for colour presence."
+      ]
+    }
+  ]
+}

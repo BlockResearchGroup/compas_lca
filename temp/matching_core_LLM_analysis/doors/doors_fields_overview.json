@@ -1,0 +1,190 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/doors/llm_output",
+    "total_documents_scanned": 15,
+    "total_unique_fields": 28,
+    "note": "count = number of distinct documents containing this field name"
+  },
+  "fields": {
+    "door_type": {
+      "count": 4,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "4085dd2a-f8db-437a-b43b-040c31849209",
+        "9e98fbef-56d5-4ce5-ab09-21a6c1fee6e8",
+        "e3be2902-cafa-43b4-b70a-ed8b9daaa7b3"
+      ]
+    },
+    "thermal_transmittance": {
+      "count": 4,
+      "document_ids": [
+        "007c726a-b8ee-4b80-a57a-6c4fd54a0c17",
+        "28bd87f7-6a55-481f-9725-01a94e5ed8ce",
+        "5743021d-617d-4916-960e-1e4c73149203",
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ]
+    },
+    "layer_thickness": {
+      "count": 3,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "5743021d-617d-4916-960e-1e4c73149203",
+        "f0005215-20c5-4fa0-96fc-019d8f682e7b"
+      ]
+    },
+    "application_area": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "fire_resistance": {
+      "count": 2,
+      "document_ids": [
+        "0ccfd2d1-817a-409e-88d4-b228a3db9580",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ]
+    },
+    "installation_location": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ]
+    },
+    "material_composition": {
+      "count": 2,
+      "document_ids": [
+        "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ]
+    },
+    "adjustable_spring_power": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ]
+    },
+    "anti_finger_trap": {
+      "count": 1,
+      "document_ids": [
+        "e3be2902-cafa-43b4-b70a-ed8b9daaa7b3"
+      ]
+    },
+    "application_type": {
+      "count": 1,
+      "document_ids": [
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ]
+    },
+    "backcheck_feature": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ]
+    },
+    "biometric_capability": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "contactless_operation": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "cover_material": {
+      "count": 1,
+      "document_ids": [
+        "928ac8c7-e221-470e-977c-08085a92af26"
+      ]
+    },
+    "glazing_type": {
+      "count": 1,
+      "document_ids": [
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ]
+    },
+    "material": {
+      "count": 1,
+      "document_ids": [
+        "53321062-f8ec-4efb-b2d2-7b12fe83623b"
+      ]
+    },
+    "material_type": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ]
+    },
+    "maximum_door_weight": {
+      "count": 1,
+      "document_ids": [
+        "4085dd2a-f8db-437a-b43b-040c31849209"
+      ]
+    },
+    "maximum_door_width": {
+      "count": 1,
+      "document_ids": [
+        "4085dd2a-f8db-437a-b43b-040c31849209"
+      ]
+    },
+    "module_coverage": {
+      "count": 1,
+      "document_ids": [
+        "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4"
+      ]
+    },
+    "opening_direction": {
+      "count": 1,
+      "document_ids": [
+        "b60de41b-f163-43ec-b1d8-9902ddcb8927"
+      ]
+    },
+    "operation_mode": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "performance_features": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ]
+    },
+    "power_supply_integration": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "product_type": {
+      "count": 1,
+      "document_ids": [
+        "53321062-f8ec-4efb-b2d2-7b12fe83623b"
+      ]
+    },
+    "product_weight": {
+      "count": 1,
+      "document_ids": [
+        "38444b37-76cb-4ae3-80af-9de49c2b0ea5"
+      ]
+    },
+    "safety_features": {
+      "count": 1,
+      "document_ids": [
+        "3e94b994-e173-44ae-9e7b-c77bf9918bb1"
+      ]
+    },
+    "surface_finish": {
+      "count": 1,
+      "document_ids": [
+        "f0005215-20c5-4fa0-96fc-019d8f682e7b"
+      ]
+    }
+  }
+}

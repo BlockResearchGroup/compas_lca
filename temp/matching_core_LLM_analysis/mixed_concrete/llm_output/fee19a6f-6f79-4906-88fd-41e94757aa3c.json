@@ -1,0 +1,53 @@
+{
+  "document_id": "fee19a6f-6f79-4906-88fd-41e94757aa3c",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class (e.g., C16/20) is a key property of concrete that determines its load-bearing capacity and is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Druckfestigkeitsklasse C16/20"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2400.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "Concrete is used in various construction applications, and categorizing by application area helps in selecting the right type for specific projects.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "building_construction",
+        "civil_engineering",
+        "structural_engineering"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Concrete is a versatile building material in the construction industry. It is used in building construction, above all for ceilings, walls, stairs, foundations, columns and trusses, in civil engineering for components in contact with the ground, foundations, floor slabs, bored piles and in civil engineering, e.g. for bridges."
+      ],
+      "inference_basis": [
+        "Mention of specific applications like building construction, civil engineering, and structural engineering."
+      ]
+    }
+  ]
+}

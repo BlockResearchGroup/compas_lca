@@ -1,0 +1,21 @@
+{
+  "document_id": "28bd87f7-6a55-481f-9725-01a94e5ed8ce",
+  "fields": [
+    {
+      "name": "thermal_transmittance",
+      "type": "float",
+      "rationale": "Thermal transmittance is a key performance indicator for doors, especially in terms of energy efficiency and insulation properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m²·K",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "thermal transmittance of 0,98 W/(m2*K)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "document_id": "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f",
+  "fields": [
+    {
+      "name": "heat_treatment",
+      "type": "bool",
+      "rationale": "The dataset mentions that the rails are either naturally hardened or heat treated, which is a key property affecting the mechanical characteristics of steel products.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "rails"
+      ],
+      "evidence": [
+        "The considered products are naturally hardened or heat treated (head hardened) rails."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "rail_application",
+      "type": "enum",
+      "rationale": "The dataset specifies different applications for the rails, such as high-speed railways and urban public transportation, which are important for categorizing the product's use case.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": [
+        "high_speed",
+        "mixed_traffic",
+        "heavy_loads",
+        "urban_transportation",
+        "railway_switches"
+      ],
+      "unit": null,
+      "applicability": [
+        "rails"
+      ],
+      "evidence": [
+        "The products of voestalpine Rail Technology GmbH are used in railway systems, particularly in the following areas: ▪ High-speed railways ▪ Mixed railways (passenger and freight traffic) ▪ Heavy loads (including railways for ore transports) ▪ Urban public transportation (subways and trams) ▪ Railway switches (individual parts used in switch production)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "The production process, including the use of a blast furnace and LD steelmaking plant, is detailed and affects the product's properties and environmental impact.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "rails"
+      ],
+      "evidence": [
+        "The starting material for the production of rails at voestalpine is crude steel made in the primary route (blast furnace, LD steelmaking plant) at the Donawitz site."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

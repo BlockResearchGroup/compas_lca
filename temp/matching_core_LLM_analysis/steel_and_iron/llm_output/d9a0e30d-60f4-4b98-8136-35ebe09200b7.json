@@ -1,0 +1,42 @@
+{
+  "document_id": "d9a0e30d-60f4-4b98-8136-35ebe09200b7",
+  "fields": [
+    {
+      "name": "product_condition",
+      "type": "enum",
+      "rationale": "The product is described as 'fully processed', which is a key characteristic of electrical steel, indicating its readiness for use in applications like motors and transformers.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "fully_processed",
+        "semi_processed"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The declared product is non-grain-oriented electrical steel in fully processed condition."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulating_coating",
+      "type": "bool",
+      "rationale": "The product is often supplied with an insulating coating, which is a significant feature for electrical steel used in electrical machinery.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The product is often supplied with an insulating coating."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

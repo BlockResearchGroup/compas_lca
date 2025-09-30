@@ -1,0 +1,93 @@
+{
+  "document_id": "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd",
+  "fields": [
+    {
+      "name": "flame_retardant_inclusion",
+      "type": "bool",
+      "rationale": "The dataset mentions the inclusion of flame retardants in the urea formaldehyde foam, which is a key property for safety and performance in insulation materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Various additives as for example flame retardants were mixed into the solutions to manipulate the characteristics."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation method is a critical factor for insulation materials, affecting both performance and application suitability. This dataset describes the use of a transportable foaming device for installation.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "foamed_in_place",
+        "preformed_panels",
+        "spray_applied"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Foam materials made of urea formaldehyde foam are foamed with transportable foaming device and are dumped into the parts to be dammed by tube or pipe lines."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_treatment",
+      "type": "bool",
+      "rationale": "The dataset includes information about the thermal treatment of the material, which is relevant for understanding end-of-life processing and recycling.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Module C3 takes into account the grinding and thermal treatment (combustion) of the material."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "Understanding the geographic representativeness of the dataset helps in assessing its applicability to different regions, which is crucial for environmental impact assessments.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Technological, temporal and geographic representativeness partly given."
+      ],
+      "inference_basis": [
+        "The mention of geographic representativeness suggests the dataset is intended to be applicable to specific regions, likely influenced by local standards and practices."
+      ]
+    },
+    {
+      "name": "combustion_emissions_credits",
+      "type": "bool",
+      "rationale": "The dataset discusses credits for combustion emissions, which is important for lifecycle analysis and environmental impact assessments.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "When calculating combustion emissions and credits, the specific calorific value of each material and the material composition are taken into account."
+      ],
+      "inference_basis": [
+        "The mention of combustion emissions and credits implies a focus on lifecycle emissions management, relevant for environmental assessments."
+      ]
+    }
+  ]
+}

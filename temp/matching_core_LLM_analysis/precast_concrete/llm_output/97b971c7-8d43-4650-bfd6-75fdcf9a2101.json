@@ -1,0 +1,53 @@
+{
+  "document_id": "97b971c7-8d43-4650-bfd6-75fdcf9a2101",
+  "fields": [
+    {
+      "name": "reinforcement_content",
+      "type": "float",
+      "rationale": "The dataset specifies a minimum reinforcement content of 0.5 Vol.-%, which is crucial for understanding the structural properties of the precast concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "Vol.-%",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "a minimum reinforcement content of 0.5 Vol.-% are assumed."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "concrete_strength_class",
+      "type": "string",
+      "rationale": "The dataset mentions the concrete class C20/25, which indicates the compressive strength of the concrete used in the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "production of concrete (C20/25)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density_concrete",
+      "type": "float",
+      "rationale": "The average density of concrete is given as 2.4t/m3, which is important for calculating the weight and structural load of the concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "t/m³",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "An average density of concrete of 2.4t/m3"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

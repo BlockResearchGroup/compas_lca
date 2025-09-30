@@ -1,0 +1,55 @@
+{
+  "document_id": "2810972e-799c-49d9-8791-070ff84c5f57",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 272.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the application and structural capacity of the concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.18"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "suitable_for_load_bearing",
+      "type": "bool",
+      "rationale": "Indicates whether the product can be used for load-bearing applications, which is critical for structural design.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls"
+      ],
+      "inference_basis": [
+        "Mention of suitability for load-bearing walls suggests this property."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "document_id": "8ac2bbda-d98a-4e1f-8fe1-81d7695b9341",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 311.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the structural and insulation properties of the concrete blocks.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.25"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "suitable_for_load_bearing",
+      "type": "bool",
+      "rationale": "The product's suitability for load-bearing applications is crucial for its use in construction, affecting design and safety considerations.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls"
+      ],
+      "inference_basis": [
+        "Mention of suitability for load-bearing walls implies it can be used in such applications."
+      ]
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "Understanding the material composition is essential for assessing the product's performance and environmental impact.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The product is made from wood chips, cement, and water."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The application type helps categorize the product based on its intended use, which is important for selecting the right product for specific construction needs.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior_walls",
+        "exterior_walls",
+        "noise_barriers",
+        "free-standing_walls"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls",
+        "can also be used as free-standing walls or noise barriers"
+      ],
+      "inference_basis": [
+        "The technical purpose description lists various applications, suggesting these as potential categories."
+      ]
+    }
+  ]
+}

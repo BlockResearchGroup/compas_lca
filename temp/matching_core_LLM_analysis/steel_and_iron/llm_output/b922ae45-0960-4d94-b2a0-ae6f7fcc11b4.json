@@ -1,0 +1,70 @@
+{
+  "document_id": "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4",
+  "fields": [
+    {
+      "name": "production_process",
+      "type": "enum",
+      "rationale": "The production process is crucial for understanding the properties and applications of steel products. It includes thermomechanically-rolled, heat-treated, normalized, and high-strength processes.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "thermomechanically-rolled",
+        "heat-treated",
+        "normalized",
+        "high-strength"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "thermomechanically-rolled, heat-treated, normalized and high-strength heavy plates"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The application areas help categorize the product based on its end-use, which is important for selecting the right type of steel for specific engineering needs.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel and bridge construction",
+        "tank and plant construction",
+        "wind industry",
+        "boiler and pressure vessel engineering",
+        "yellow goods",
+        "mechanical engineering",
+        "shipbuilding",
+        "pipelines"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The areas of application for heavy plate include: Steel and bridge construction, Tank and plant construction, Wind industry, Boiler and pressure vessel engineering, Yellow Goods, Mechanical engineering, Shipbuilding, Pipelines"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "rolling_technology",
+      "type": "string",
+      "rationale": "The rolling technology, such as 'quarto rolling stands', affects the mechanical properties and dimensions of the steel product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The rolling stands are so-called quarto rolling stands, consisting of four rolls: two work rolls and two back-up rolls."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

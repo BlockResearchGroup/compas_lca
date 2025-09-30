@@ -1,0 +1,61 @@
+{
+  "document_id": "43b998a6-a505-4044-acbc-e7f52cd8facb",
+  "fields": [
+    {
+      "name": "recycling_content",
+      "type": "float",
+      "rationale": "The dataset explicitly states that the concrete paving stones have a recycling content of over 40%. This is a key material property that can influence environmental impact and sustainability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "zweischichtige Betonpflastersteine mit einem Recyclingzuschlag von über 40%"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the concrete paving stones is explicitly mentioned as 8 cm, which is a critical dimension for structural and functional purposes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "cm",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Die Steine weisen eine Dicke von 8 cm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "enum",
+      "rationale": "The surface treatment of the paving stones is described as friction milled, which affects the texture and appearance of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "friction_milled",
+        "not_sanded",
+        "not_polished",
+        "smooth"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Die Vorsatzschicht ist friktionsgefräst, und nicht geschliffen oder poliert"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "document_id": "04a5ee66-d6be-4b69-bcbc-f6ec63dd5189",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly described as 'ductile centrifugally cast pile tubes', which is a specific form of steel product used in construction.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "pile_tube",
+        "sheet",
+        "coil",
+        "bar",
+        "rod",
+        "section",
+        "hollow_section",
+        "stainless_sheet",
+        "cast_iron"
+      ],
+      "unit": null,
+      "applicability": [
+        "cast_iron"
+      ],
+      "evidence": [
+        "TRM pile systems are ductile centrifugally cast pile tubes"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application areas are explicitly mentioned, including foundations for buildings and engineering structures, slope and excavation protection.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "building_foundation",
+        "engineering_structures",
+        "slope_protection",
+        "excavation_protection"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The TRM pile system is used as a full displacement pile for the foundation of buildings, for the foundation of engineering structures (such as bridges, wind power and photovoltaic plants, noise barriers, pipelines, masts) and for the construction of slope and excavation protection."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

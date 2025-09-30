@@ -1,0 +1,65 @@
+| Key Data Set Information | |||
+| Location | DE | ||
+| Geographical representativeness description | The data set represents the country specific situation in Germany, focusing on the main technologies, the region specific characteristics and / or import statistics. | ||
+| Reference year | 2023 | ||
+| Name |
+| ||
+| Use advice for data set | This data set refers to the production of 1m³ foam concrete insulation board. The density is 80 kg/m³ with a thermal conductivity of ~ 0.038 W/(mK). The data set can be scaled linearly (over mass) for estimating other densities between 75 and 85 kg/m³. The data set can only be used for the calculation of chemically foamed cement foam. Information from a manufacturing company (primary data) was used for the modeling, both in terms of recipe and manufacturing efforts. Estimates and assumptions: The main binder is calcium- sulfo- aluminate cement (CSA cement). In the absence of a specific background data set, CEM I was used as an estimate for CSA cement. A conservative estimate can be assumed here, since lower burning temperatures are required for CSA cement compared with CEM I. Gross emissions were used for cement clinker (i.e., including emissions from the use of secondary fuels). Carbonation: Measured values from a manufacturing company were used to determine carbonation rates. Based on the measured values, the carbonation rates were set as follows: 40% in the manufacturing phase, 50% in the use phase (total carbonation 90%). The chemical characteristics of CSA were used to calculate CO2 sequestration. A maximum carbonation potential of 0.1255 kg CO2/kg CSA cement was determined stoichiometrically. Overall, a very good representativeness can be assumed under life cycle assessment conservative boundary conditions. | ||
+| Technical purpose of product or process | Cement foam boards are used as an insulating material both for exterior and interior insulation. The material must be protected from weathering. Due to the low compressive strength of ~ 25 kPa, use is only possible in statically non-loaded applications (e.g. exterior wall). Use as part of a thermal insulation composite system is possible. | ||
+| Classification number | 2.27.01 | ||
+| Classification |
+Class name
+:
+Hierarchy level
+| ||
+| General comment on data set | Dieser Datensatz wurde nach dem European Standard EN 15804+A2 für Nachhaltiges Bauen modelliert. Ergebnisse werden in Modulen abgebildet, die den strukturierten Ausdruck von Ergebnissen über den gesamten Lebenszyklus zulassen. | ||
+| Scenarios |
+| ||
+| Copyright | Yes | ||
+| Owner of data set | |||
+| Quantitative reference | |||
+| Reference flow(s) |
+| ||
+| Time representativeness | |||
+| Data set valid until | 2026 | ||
+| Time representativeness description | Annual average | ||
+| Technological representativeness | |||
+| Technology description including background system | Cement foam is a highly porous artificial stone with low compressive strength and good insulating properties, which is formed from a mixture of binders, fillers and water repellent. In the production process, the dry mortar (compound) is mixed with water and hydrogen peroxide. After the foaming process, natural curing/drying takes place. This is followed by cutting to the finished product. Description of the life cycle stages modeled: Modules A1-A3: Cement foam is produced from a mixture (compound) consisting of calcium- sulfo-aluminate cement (30-40 wt.%), calcined kaolin (15-25 wt.%), fly ash (15-25 wt.%), stabilizers (5-15 wt.%), gypsum (5-10 wt.%) mineral fillers (0-10 wt.%) and auxiliary materials (<1 wt.% each). The production of cement and calcined kaolin dominates the life cycle assessment . Module A4: A truck transport to the construction site at a distance of 100 kilometers was considered. The transport distance can be adjusted at the building level if necessary. Module A5: Emissions from thermal packaging treatment. Module C1: For dismantling, manual dismantling (load-free) was assumed. Module C2: 50 km (truck, 40 tons EURO6) were assumed for transport to the construction waste processing plant. Module C3/1 (material recycling as filler in foamed concrete production): average expenses for sorting/crushing were assumed. Furthermore, a waste loss of 3% was assumed. Landfilling of the losses (module C4) was neglected (cut-off criterion). Module C3/2 (material recycling as backfill material): as module C3/1. Module D/1: credits for net flow quantity (foamed concrete minus losses and minus unloaded materials, here fly ash) by substitution of calcined kaolin and limestone powder. Module D/2: Credits for net flow quantity (foamed concrete minus losses and minus unloaded materials, here fly ash) by substitution of natural rock as fill material. |
+| Subtype | generic dataset | ||||||||
+| Data sources, treatment and representativeness | |||||||||
+| Data source(s) used for this data set | |||||||||
+| Completeness | |||||||||
+| Validation | |||||||||
+| |||||||||
+| Compliance Declarations |
+| Compliance |
+Compliance system name
+|
+Approval of overall compliance
+Fully compliant |
+Nomenclature compliance
+|
+Methodological compliance
+|
+Review compliance
+|
+Documentation compliance
+|
+Quality compliance
+|
+| Data generator | |
+| Data set generator / modeller | |
+| Data entry by | |
+| Time stamp (last saved) | 2024-09-18T15:06:31+01:00 |
+| Data set format(s) | |
+| Data entry by | |
+| Publication and ownership | |
+| UUID | 9b619143-9ea3-4573-9839-b6ebd75c71a1 |
+| Data set version | 20.24.090 |
+| Preceding Data set version | |
+| Registration authority | |
+| Owner of data set | |
+| Copyright | Yes |
+| License type | Free of charge for all users and uses |
+| Access and use restrictions | The license conditions as stated on https://www.oekobaudat.de/apply. |
+Indicators of life cycle

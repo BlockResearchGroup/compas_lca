@@ -1,0 +1,49 @@
+{
+  "document_id": "da3bb9b5-ffef-4b54-8559-bb3a4b05af70",
+  "fields": [
+    {
+      "name": "board_type",
+      "type": "enum",
+      "rationale": "The dataset describes different board types based on their application and load-bearing capacity, which is crucial for categorizing wood products by their functional properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The board types are primarily differentiated or classified in their application as non-load-bearing and load-bearing elements in dry and humid conditions: P1, P2, P3, P4, P5, P6, P7."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "formaldehyde_emission_class",
+      "type": "enum",
+      "rationale": "The dataset specifies formaldehyde emission classes for certain board types, which is important for health and safety standards in interior applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "E1E05",
+        "TSCA P2",
+        "JP F0.3 F**** MR"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Raw chipboards Eurospan E1E05 TSCA P2 and Eurospan JP F0.3 F**** MR are used especially for furniture and interior design with increased requirements for formaldehyde emission."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The dataset describes an external thermal insulation composite system using EPS (expanded polystyrene), which is a common type of insulation material.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "EPS",
+        "XPS",
+        "mineral_wool",
+        "fiberglass",
+        "polyurethane"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "composite_systems"
+      ],
+      "evidence": [
+        "External thermal insulation composite system EPS with rail fastening"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The insulation system is applied to exterior walls, which suggests specific application methods such as rail fastening or adhesive application.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "rail_fastening",
+        "adhesive_application",
+        "mechanical_fastening"
+      ],
+      "unit": null,
+      "applicability": [
+        "composite_systems"
+      ],
+      "evidence": [
+        "External thermal insulation composite systems are applied to masonry and concrete with or without plaster"
+      ],
+      "inference_basis": [
+        "rail fastening mentioned implies specific application method"
+      ]
+    },
+    {
+      "name": "component_composition",
+      "type": "string",
+      "rationale": "The dataset provides a detailed breakdown of the components and their percentages in the insulation system, which is crucial for understanding material properties.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "composite_systems"
+      ],
+      "evidence": [
+        "Interior and exterior plaster (20 % each), EPS (18 %), PVC (6 %), mineral adhesive (34 %), reinforcement fibers (1 %), dowels (<1 %)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_performance",
+      "type": "ordinal_enum",
+      "rationale": "Thermal performance is a key property of insulation materials, and while not explicitly stated, the use of EPS suggests a certain level of thermal resistance.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "composite_systems"
+      ],
+      "evidence": [
+        "EPS is known for its thermal insulation properties"
+      ],
+      "inference_basis": [
+        "EPS is typically used for its thermal insulation capabilities"
+      ]
+    },
+    {
+      "name": "installation_location",
+      "type": "enum",
+      "rationale": "The dataset specifies that the insulation is used for exterior walls, which is a critical factor in its application and performance.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "interior",
+        "exterior"
+      ],
+      "unit": null,
+      "applicability": [
+        "composite_systems"
+      ],
+      "evidence": [
+        "External thermal insulation composite systems are used for the protection and thermal insulation of exterior walls"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

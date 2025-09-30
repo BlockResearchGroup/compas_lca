@@ -1,0 +1,26 @@
+{
+  "document_id": "9e98fbef-56d5-4ce5-ab09-21a6c1fee6e8",
+  "fields": [
+    {
+      "name": "door_type",
+      "type": "enum",
+      "rationale": "The dataset describes a 'side door' for a garage, which is a specific type of door used in conjunction with garage doors.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "side_door",
+        "garage_door",
+        "entry_door",
+        "patio_door"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Technical purpose of product or process: Side door (NT 500) for N 500 up-and-over garage door"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

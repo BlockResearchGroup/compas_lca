@@ -1,0 +1,59 @@
+{
+  "document_id": "6f434481-207d-41f6-a543-372030f84470",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 393.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the application and structural capacity of the concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.15"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "suitable_applications",
+      "type": "enum",
+      "rationale": "The technical purpose of the product indicates its suitable applications, which is crucial for categorizing its use in construction.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "load-bearing walls",
+        "non-load-bearing walls",
+        "free-standing walls",
+        "noise barriers"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls",
+        "used as free-standing walls or noise barriers"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

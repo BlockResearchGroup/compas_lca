@@ -1,0 +1,56 @@
+{
+  "document_id": "bcf5c14e-f6c1-4a53-bfd0-32dd6b493028",
+  "fields": [
+    {
+      "name": "thermal_insulation",
+      "type": "bool",
+      "rationale": "The product is explicitly described as being used for thermal insulation in roofs, ceilings, and walls.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "wood_fibre",
+        "loose_fill"
+      ],
+      "evidence": [
+        "HOIZ - wood shaving insulation is used as thermal and sound insulation for roofs, ceilings and walls"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "sound_insulation",
+      "type": "bool",
+      "rationale": "The product is explicitly described as being used for sound insulation in roofs, ceilings, and walls.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "wood_fibre",
+        "loose_fill"
+      ],
+      "evidence": [
+        "HOIZ - wood shaving insulation is used as thermal and sound insulation for roofs, ceilings and walls"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "flame_retardant_treatment",
+      "type": "bool",
+      "rationale": "The wood shavings are impregnated with whey and soda as a flame retardant.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "wood_fibre",
+        "loose_fill"
+      ],
+      "evidence": [
+        "The shavings are impregnated with whey and soda as a flame retardant"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

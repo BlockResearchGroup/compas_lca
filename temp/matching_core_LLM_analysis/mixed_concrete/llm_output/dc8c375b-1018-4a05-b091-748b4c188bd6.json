@@ -1,0 +1,77 @@
+{
+  "document_id": "dc8c375b-1018-4a05-b091-748b4c188bd6",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class is a key property for categorizing concrete, indicating its load-bearing capacity. It is explicitly mentioned as C40/50 in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "reinforced concrete, C40/50"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance. It is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2350.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The application type helps categorize the concrete based on its intended use, which is crucial for selecting the right material for specific construction needs. It is inferred from the technical purpose description.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "pipe",
+        "shaft",
+        "general"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Pipe and shaft systems made of reinforced concrete"
+      ],
+      "inference_basis": [
+        "Technical purpose description indicates use in pipe and shaft systems."
+      ]
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "Exposure class indicates the environmental conditions the concrete is designed to withstand, which is critical for durability. It is inferred from the context of use in rainwater and wastewater systems.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "XC",
+        "XD",
+        "XS",
+        "XF",
+        "XA"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "for the collection, storage and discharge of rainwater, wastewater and mixed water"
+      ],
+      "inference_basis": [
+        "Use in water systems suggests exposure to chemical and environmental factors."
+      ]
+    }
+  ]
+}

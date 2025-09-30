@@ -1,0 +1,47 @@
+{
+  "document_id": "76c44e98-da73-4111-b5d7-80a5c8617e03",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class is a key property of concrete that determines its load-bearing capacity and is explicitly mentioned as a variable characteristic in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "compressive strength class"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "consistency_class",
+      "type": "string",
+      "rationale": "Consistency class is a critical property for concrete workability and is explicitly mentioned as a variable characteristic in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "consistency class"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "maximum_aggregate_diameter",
+      "type": "float",
+      "rationale": "The maximum diameter of aggregates affects the concrete's texture and strength, and is explicitly mentioned as a variable characteristic in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": null,
+      "evidence": [
+        "maximum diameter"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

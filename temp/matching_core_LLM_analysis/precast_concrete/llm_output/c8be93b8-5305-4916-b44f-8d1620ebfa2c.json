@@ -1,0 +1,103 @@
+{
+  "document_id": "c8be93b8-5305-4916-b44f-8d1620ebfa2c",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of precast concrete elements.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 238.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the structural and thermal properties of the concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.365"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The type of insulation integrated into the concrete affects its thermal performance and application suitability.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "EPS",
+        "none",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "integrated EPS insulation"
+      ],
+      "inference_basis": [
+        "EPS mentioned as integrated insulation"
+      ]
+    },
+    {
+      "name": "load_bearing_capability",
+      "type": "enum",
+      "rationale": "Knowing whether the product is load-bearing or non-load-bearing is crucial for its application in construction projects.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "load-bearing",
+        "non-load-bearing",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls"
+      ],
+      "inference_basis": [
+        "Technical purpose description indicates suitability for both load-bearing and non-load-bearing applications"
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area (interior, exterior, both) helps categorize the product based on its intended use in construction.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior",
+        "exterior",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls"
+      ],
+      "inference_basis": [
+        "Technical purpose description indicates suitability for both interior and exterior applications"
+      ]
+    }
+  ]
+}

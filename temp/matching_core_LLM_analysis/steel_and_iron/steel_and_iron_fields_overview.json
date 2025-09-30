@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/steel_and_iron/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 35,
+    "note": "count = number of distinct documents containing this field name"
+  },
+  "fields": {
+    "product_form": {
+      "count": 11,
+      "document_ids": [
+        "04a5ee66-d6be-4b69-bcbc-f6ec63dd5189",
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "650ea55e-5071-45f6-adfc-df41acad90e1",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "aa089b30-7862-4001-9286-9cb41058dba0",
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+        "d08267c6-2bf6-4e5b-81a9-e681798e7b0b",
+        "e0fef4a8-9553-4a36-9320-79d5a84e949c",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ]
+    },
+    "coating_type": {
+      "count": 7,
+      "document_ids": [
+        "227a89fa-3287-4ede-95f5-be88584ea490",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "717f4a1c-0df0-49e6-8169-528b50b01e56",
+        "abcf7f49-e100-45dc-9c26-3012d94dec91",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "c72f24ff-9562-4527-8191-ed0bda3ebab0",
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ]
+    },
+    "diameter_range": {
+      "count": 4,
+      "document_ids": [
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ]
+    },
+    "layer_thickness": {
+      "count": 4,
+      "document_ids": [
+        "227a89fa-3287-4ede-95f5-be88584ea490",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ]
+    },
+    "manufacturing_standard": {
+      "count": 4,
+      "document_ids": [
+        "abcf7f49-e100-45dc-9c26-3012d94dec91",
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "c72f24ff-9562-4527-8191-ed0bda3ebab0"
+      ]
+    },
+    "production_process": {
+      "count": 4,
+      "document_ids": [
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "650ea55e-5071-45f6-adfc-df41acad90e1",
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4",
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ]
+    },
+    "application_type": {
+      "count": 3,
+      "document_ids": [
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33"
+      ]
+    },
+    "corrosion_resistance": {
+      "count": 3,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "aa089b30-7862-4001-9286-9cb41058dba0",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6"
+      ]
+    },
+    "manufacturing_process": {
+      "count": 3,
+      "document_ids": [
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ]
+    },
+    "acoustic_fleece_inclusion": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ]
+    },
+    "application_area": {
+      "count": 2,
+      "document_ids": [
+        "04a5ee66-d6be-4b69-bcbc-f6ec63dd5189",
+        "d08267c6-2bf6-4e5b-81a9-e681798e7b0b"
+      ]
+    },
+    "application_environment": {
+      "count": 2,
+      "document_ids": [
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "e0fef4a8-9553-4a36-9320-79d5a84e949c"
+      ]
+    },
+    "fire_resistance": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ]
+    },
+    "perforation_pattern": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ]
+    },
+    "surface_weight": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ]
+    },
+    "alloy_type": {
+      "count": 1,
+      "document_ids": [
+        "650ea55e-5071-45f6-adfc-df41acad90e1"
+      ]
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4"
+      ]
+    },
+    "application_industry": {
+      "count": 1,
+      "document_ids": [
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ]
+    },
+    "cladding_material": {
+      "count": 1,
+      "document_ids": [
+        "e7b98886-9ac9-4e77-990b-3e60c2ef0e5a"
+      ]
+    },
+    "coating_position": {
+      "count": 1,
+      "document_ids": [
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1"
+      ]
+    },
+    "coating_weight": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ]
+    },
+    "exc_class": {
+      "count": 1,
+      "document_ids": [
+        "abcf7f49-e100-45dc-9c26-3012d94dec91"
+      ]
+    },
+    "heat_treatment": {
+      "count": 1,
+      "document_ids": [
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ]
+    },
+    "insulating_coating": {
+      "count": 1,
+      "document_ids": [
+        "d9a0e30d-60f4-4b98-8136-35ebe09200b7"
+      ]
+    },
+    "manufacturing_location": {
+      "count": 1,
+      "document_ids": [
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1"
+      ]
+    },
+    "processing_technique": {
+      "count": 1,
+      "document_ids": [
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9"
+      ]
+    },
+    "product_condition": {
+      "count": 1,
+      "document_ids": [
+        "d9a0e30d-60f4-4b98-8136-35ebe09200b7"
+      ]
+    },
+    "production_route": {
+      "count": 1,
+      "document_ids": [
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ]
+    },
+    "profile_shape": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ]
+    },
+    "rail_application": {
+      "count": 1,
+      "document_ids": [
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ]
+    },
+    "rolling_technology": {
+      "count": 1,
+      "document_ids": [
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4"
+      ]
+    },
+    "steel_grade": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ]
+    },
+    "surface_treatment": {
+      "count": 1,
+      "document_ids": [
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3"
+      ]
+    },
+    "tensile_strength": {
+      "count": 1,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039"
+      ]
+    },
+    "thermal_conductivity": {
+      "count": 1,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039"
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "document_id": "f987073a-40b5-4a09-8c77-0a70368c137f",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly described as 'welded mesh panels', which is a specific form of steel product used for reinforcement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "welded_mesh_panels",
+        "wire_rod",
+        "steel_billets"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "Welded mesh panels consist of longitudinal and transverse bars..."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "diameter_range",
+      "type": "range",
+      "rationale": "The diameter range of the mesh is explicitly stated, which is critical for understanding the mesh's application in reinforcement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "a range of diameters from 5mm to 12mm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "enum",
+      "rationale": "The manufacturing process is described, indicating the method used to produce the mesh, which is important for categorizing the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "electric_resistance_spot_welding",
+        "hot_rolling",
+        "continuous_casting"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "joined at all crossing points by automatic machines in the factory by electric resistance spot welding."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is available in specific diameters, indicating different forms or sizes of the reinforcing bar.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "8 mm",
+        "12 mm",
+        "16 mm",
+        "20 mm",
+        "25 mm",
+        "32 mm"
+      ],
+      "unit": null,
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "Combar® is available in diameters of 8, 12, 16, 20, 25 and 32 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "corrosion_resistance",
+      "type": "bool",
+      "rationale": "The product is noted for its corrosion resistance, which is a key property for reinforcing materials used in construction.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "The glass fibre composite material achieves its specific properties in terms of resistance to alkali, ease of machining, corrosion resistance, electro-magnetic neutrality, and its extremely low thermal conductivity."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "The product is described as having extremely low thermal conductivity, which is a critical property for materials used in construction to prevent heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "extremely low thermal conductivity"
+      ],
+      "inference_basis": [
+        "Materials with low thermal conductivity are often used in construction to improve energy efficiency."
+      ]
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "string",
+      "rationale": "The manufacturing process is explicitly described as 'pultrusion', which is a specific method used for producing composite materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "The product is manufactured in a “pultrusion” process."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "tensile_strength",
+      "type": "float",
+      "rationale": "The product's high tensile strength is highlighted, which is a critical property for reinforcing bars used in construction.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "The extremely high packing density of the fibres means the tensile strength achieved is many times greater than that of the basic materials."
+      ],
+      "inference_basis": [
+        "High packing density of fibres typically results in high tensile strength."
+      ]
+    }
+  ]
+}

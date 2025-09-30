@@ -1,0 +1,61 @@
+{
+  "document_id": "2f7669ef-ca88-4b93-a103-798ba52e6600",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a 'magnesite bonded wood wool panel', indicating its form as a panel.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "panel",
+        "board",
+        "sheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is a magnesite bonded wood wool panel."
+      ],
+      "inference_basis": [
+        "'wood wool panel' suggests a panel form."
+      ]
+    },
+    {
+      "name": "binding_agent",
+      "type": "string",
+      "rationale": "The product uses a magnesite binding agent, which is a key material property.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is a magnesite bonded wood wool panel."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "bool",
+      "rationale": "The product undergoes a dyeing process, indicating a surface treatment.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The requisite colour is applied in a dyeing plant."
+      ],
+      "inference_basis": [
+        "Dyeing implies surface treatment."
+      ]
+    }
+  ]
+}

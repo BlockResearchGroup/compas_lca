@@ -1,0 +1,50 @@
+{
+  "document_id": "928ac8c7-e221-470e-977c-08085a92af26",
+  "fields": [
+    {
+      "name": "adjustable_spring_power",
+      "type": "range",
+      "rationale": "The door closers have adjustable spring power, which is crucial for controlling the door's closing speed and force, making it suitable for various door weights and sizes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "size",
+      "applicability": null,
+      "evidence": [
+        "adjustable spring power (size 1-6 and size 5-6)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "backcheck_feature",
+      "type": "bool",
+      "rationale": "The presence of a backcheck feature helps control the door's opening motion, preventing damage from abrupt or forceful openings.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "backcheck that controls opening motion during abusive or abrupt opening"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "cover_material",
+      "type": "enum",
+      "rationale": "The door closers are available with either plastic or metal covers, which can affect durability and aesthetic preferences.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "plastic",
+        "metal"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "door closers are available with plastic and metal cover"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

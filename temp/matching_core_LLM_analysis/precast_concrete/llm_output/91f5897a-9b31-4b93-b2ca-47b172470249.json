@@ -1,0 +1,57 @@
+{
+  "document_id": "91f5897a-9b31-4b93-b2ca-47b172470249",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness of the concrete product is explicitly stated as 0.08, which is a critical dimension for construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.08"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The dataset provides a detailed list of application areas for the concrete paving stones and slabs, which helps categorize the product by its functional use.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "residential_roads",
+        "traffic_roads",
+        "bus_areas",
+        "parking_areas",
+        "industrial_areas",
+        "railroad_platforms",
+        "armored_roads",
+        "agricultural_roads",
+        "forestry_roads",
+        "pedestrian_zones",
+        "footpaths",
+        "cycle_paths",
+        "private_driveways",
+        "courtyards",
+        "private_residential_areas",
+        "harbor_roads",
+        "bank_reinforcement",
+        "embankment_reinforcement",
+        "solar_ballast_elements"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Concrete paving block and slab systems are mainly suitable for the following areas of application: Residential and traffic roads; bus stop areas and bus traffic areas; parking and rest areas; industrial areas, railroad platforms, armored roads; agricultural and forestry roads; pedestrian zones, footpaths and cycle paths; private driveways, courtyards; areas in private residential surroundings; parking areas and harbor roads; bank and embankment reinforcement; ballast elements for solar systems on flat roofs."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

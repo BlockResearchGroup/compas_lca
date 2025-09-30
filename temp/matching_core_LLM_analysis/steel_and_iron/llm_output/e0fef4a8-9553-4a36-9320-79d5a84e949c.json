@@ -1,0 +1,41 @@
+{
+  "document_id": "e0fef4a8-9553-4a36-9320-79d5a84e949c",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is crucial for understanding the application and handling of the steel product, such as whether it is cast or forged.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "cast",
+        "forged"
+      ],
+      "unit": null,
+      "applicability": [
+        "cast_or_forged_steel_and_iron_items"
+      ],
+      "evidence": [
+        "'Cast or forged steel and iron items'"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_environment",
+      "type": "enum",
+      "rationale": "The environment where the product is used (inside or outside buildings) affects its performance requirements and durability.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "inside",
+        "outside"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Transportation of media inside/outside buildings."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

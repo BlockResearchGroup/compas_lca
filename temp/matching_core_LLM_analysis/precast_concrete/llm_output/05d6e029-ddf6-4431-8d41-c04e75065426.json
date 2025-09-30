@@ -1,0 +1,83 @@
+{
+  "document_id": "05d6e029-ddf6-4431-8d41-c04e75065426",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 238.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the thermal and structural characteristics of the product, especially in wall applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.365"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The type of insulation integrated into the concrete affects its thermal performance and application suitability.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "EPS",
+        "none",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "integrated EPS insulation"
+      ],
+      "inference_basis": [
+        "EPS mentioned as integrated insulation"
+      ]
+    },
+    {
+      "name": "suitable_applications",
+      "type": "enum",
+      "rationale": "Identifying suitable applications helps in categorizing the product based on its functional use in construction.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "load-bearing walls",
+        "non-load-bearing walls",
+        "noise barriers",
+        "free-standing walls"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls",
+        "used as free-standing walls or noise barriers"
+      ],
+      "inference_basis": [
+        "Technical purpose of product or process description"
+      ]
+    }
+  ]
+}

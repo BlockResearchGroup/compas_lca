@@ -1,0 +1,37 @@
+{
+  "document_id": "b6d7f775-acab-4589-9d39-c4c205eb0ffd",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"density\": 186.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the thermal and structural characteristics of the product, especially in wall applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"layer_thickness\": 0.365"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

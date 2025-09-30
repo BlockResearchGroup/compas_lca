@@ -1,0 +1,86 @@
+{
+  "document_id": "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'reinforcing steel in coils', indicating its form as a coil, which is a common form for steel products used in construction.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "coil",
+        "bar",
+        "sheet",
+        "plate"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Reinforcing steel in coils is used, among other things, as a semi-finished product for further processing."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "diameter_range",
+      "type": "range",
+      "rationale": "The diameter range of the steel coils is explicitly stated, which is important for categorizing the product based on size specifications.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Durchmesserbereich von 6 mm bis 20 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "processing_technique",
+      "type": "enum",
+      "rationale": "The product undergoes specific processing techniques such as cold drawing, which are critical for understanding its mechanical properties and applications.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "hot rolling",
+        "cold drawing",
+        "annealing"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Betonstahl in Ringen wird aus warmgewalztem und geripptem Walzdraht durch ein nachträgliches Kaltrecken hergestellt."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The product is used for concrete reinforcement, which is a specific application type relevant for construction materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "concrete reinforcement",
+        "structural",
+        "decorative"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Reinforcing steel in coils is used, among other things, as a semi-finished product for further processing into finished concrete reinforcement."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

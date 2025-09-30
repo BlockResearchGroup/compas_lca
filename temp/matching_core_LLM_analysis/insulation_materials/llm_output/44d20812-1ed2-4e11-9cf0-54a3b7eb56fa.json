@@ -1,0 +1,43 @@
+{
+  "document_id": "44d20812-1ed2-4e11-9cf0-54a3b7eb56fa",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a key property for insulation materials, affecting their efficiency in reducing heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "foam",
+        "boards"
+      ],
+      "evidence": [
+        "The technical specifications of FOAMGLAS® T3+ within the scope of this EPD and within the CE marking, is according to EN 13167 and EN 14305."
+      ],
+      "inference_basis": [
+        "Thermal insulation products typically have specified thermal conductivity values."
+      ]
+    },
+    {
+      "name": "compressive_strength",
+      "type": "float",
+      "rationale": "Compressive strength is important for insulation materials used in load-bearing applications, such as under floors or roofs.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kPa",
+      "applicability": [
+        "foam",
+        "boards"
+      ],
+      "evidence": [
+        "The product is declared with a density of 95 kg/m³ (±15%) and is supplied in thicknesses of 40 mm to 200 mm."
+      ],
+      "inference_basis": [
+        "Insulation materials often specify compressive strength, especially when used in structural applications."
+      ]
+    }
+  ]
+}

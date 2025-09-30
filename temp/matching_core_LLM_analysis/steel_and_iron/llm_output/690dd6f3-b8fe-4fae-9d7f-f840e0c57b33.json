@@ -1,0 +1,82 @@
+{
+  "document_id": "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'reinforcing steel mesh', which indicates its form as a mesh structure, useful for categorizing products based on their physical form.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "mesh",
+        "bar",
+        "coil",
+        "sheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "reinforcing_steel"
+      ],
+      "evidence": [
+        "Reinforcing steel meshes are used, among other things, for the reinforcement of plate-shaped reinforced concrete components."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "diameter_range",
+      "type": "range",
+      "rationale": "The diameter range of the steel mesh is explicitly stated, which is critical for understanding the size and application suitability of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "reinforcing_steel"
+      ],
+      "evidence": [
+        "Durchmesserbereich von 5 mm bis 14 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "enum",
+      "rationale": "The manufacturing process is described as electric resistance spot welding, which is a key process characteristic for steel mesh products.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "electric_resistance_welding",
+        "arc_welding",
+        "laser_welding"
+      ],
+      "unit": null,
+      "applicability": [
+        "reinforcing_steel"
+      ],
+      "evidence": [
+        "durch elektrisches Widerstandpunktschweißen verbunden werden."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The product is used for reinforcing concrete, which is a specific application type that helps in categorizing the product's use.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "concrete_reinforcement",
+        "structural_support",
+        "decorative"
+      ],
+      "unit": null,
+      "applicability": [
+        "reinforcing_steel"
+      ],
+      "evidence": [
+        "Reinforcing steel meshes are used, among other things, for the reinforcement of plate-shaped reinforced concrete components."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -26,12 +26,12 @@ class MatchingCore(BaseModel):
     material_name: Optional[str] = Field(
         None,
         description=(
-            "Normalized name of the main material or material system of the building element."
+            "Verbatim name name of the main material or material system of the building element."
             "This is typically a high-level label such as 'concrete', 'brick', 'timber', 'steel', 'glass', 'insulation'."
             "Avoid overly specific trade names or product codes."
             "If the element is a composite, use the dominant material by volume or weight."
         ),
-        examples=["concrete", "brick", "timber", "steel", "glass", "insulation"]
+        examples=["Stone mastic asphalt (SMA)", "3-Schicht-Platte", "Gypsum plasterboard", "OSB", "Reinforced concrete", "SwissPor XPS insulation"]
     ),
     material_category: Optional[MaterialCategories] = Field(
         None,
@@ -46,7 +46,8 @@ class MatchingCore(BaseModel):
         None,
         description=(
             "Intended functional use of the building element within the building structure."
-            "This helps to contextualize the material choice and may influence the selection of appropriate LCA datasets."
+            "This is either explicitly stated in the source data or can be reasonably inferred."
+            "It can either be one "
             "If uncertain, leave as null."
         ),
         examples=["slab", "wall", "roof", "flooring"]
@@ -110,11 +111,11 @@ class MatchingCore(BaseModel):
         ),
         examples=["OmniClass 21-02 10 20", "UniClass Ss_20_10_25"]
     ),
-    u_value: Optional[float] = Field(
+    thermal_conductivity: Optional[float] = Field(
         None,
         ge=0,
         description=(
-            "Thermal transmittance (U-value) of the building element in W/m²K if explicitly specified."
+            "Thermal or heat conductivity of the material in W/mK if explicitly specified."
             "This can help in identifying elements with specific thermal performance requirements."
             "If unknown or not applicable, leave as null."
         ),
@@ -137,16 +138,16 @@ class MatchingCore(BaseModel):
             "This can help in selecting region-specific LCA datasets that account for local production impacts."
             "If unknown, leave as null."
         ),
-        examples=["DE", "RER", "EU", "NA"]
+        examples=["DE", "RER", "EU", "NA","RO", "Singapore"]
     ),
-    description: Optional[str] = Field(
+    additional_constraints: Optional[str] = Field(
         None,
         description=(
             "Free-text description of the building element to capture any additional relevant details not covered by other fields."
-            "This can include specific product features, special treatments, or contextual information that may aid in dataset matching."
+            "This can include specific product features (such as cement mixes, strength classes), special treatments, or contextual information that may aid precisely describing the material properties."
             "If no additional details, leave as null."
         ),
-        examples=["Cast-in-place concrete wall for core enclosure."]
+        examples=["Cast-in-place concrete wall for core enclosure.", "Cement type CEM III/A 42.5N", "Reinforced concrete with B500B rebar"]
     ),
     data_resolution: DataResolution = Field(
         DataResolution.unknown,

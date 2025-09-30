@@ -1,0 +1,51 @@
+{
+  "document_id": "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class (e.g., C32/40) is a key property of concrete that indicates its load-bearing capacity and is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C32/40"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C32/40 CIIIA ECOPact concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "Exposure class (e.g., CIIIA) indicates the environmental conditions the concrete is designed to withstand, such as freeze-thaw cycles or chemical exposure.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "CIIIA"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C32/40 CIIIA ECOPact concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2344.4"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

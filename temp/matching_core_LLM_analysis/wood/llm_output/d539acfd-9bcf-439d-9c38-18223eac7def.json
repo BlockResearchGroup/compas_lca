@@ -1,0 +1,41 @@
+{
+  "document_id": "d539acfd-9bcf-439d-9c38-18223eac7def",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'medium density fibreboards' which indicates a specific form of wood product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "board",
+        "panel",
+        "sheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "medium density fibreboards EGGER MDF"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_system",
+      "type": "string",
+      "rationale": "The dataset mentions an 'average glue mix' used in the production of the MDF boards, which is a key material property.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "produced with an average glue mix"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

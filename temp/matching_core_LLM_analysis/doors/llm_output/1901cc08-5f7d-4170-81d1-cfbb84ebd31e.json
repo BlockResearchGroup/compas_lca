@@ -1,0 +1,103 @@
+{
+  "document_id": "1901cc08-5f7d-4170-81d1-cfbb84ebd31e",
+  "fields": [
+    {
+      "name": "door_type",
+      "type": "enum",
+      "rationale": "The dataset describes sectional garage doors, sectional industrial doors, rolling doors, and rolling shutters, which are distinct types of doors used in various applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "sectional_garage_door",
+        "sectional_industrial_door",
+        "rolling_door",
+        "rolling_shutter"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Teckentrup sectional garage doors, sectional industrial doors, rolling doors and rolling shutters for exterior (as well as interior) use"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The doors are used for closures in industrial, commercial, and residential sectors, indicating different application areas.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "industrial",
+        "commercial",
+        "residential"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "closures for building openings and access roads in the industrial, commercial and residential sectors"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the door layer is a critical performance characteristic, affecting insulation and structural properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "layer_thickness: 0.04"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_location",
+      "type": "enum",
+      "rationale": "The doors are suitable for both exterior and interior use, which affects their design and material requirements.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "exterior",
+        "interior"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "for exterior (as well as interior) use"
+      ],
+      "inference_basis": [
+        "Exterior and interior use implies different environmental exposure and durability requirements."
+      ]
+    },
+    {
+      "name": "material_composition",
+      "type": "enum",
+      "rationale": "The category indicates the door is made of steel, which is a key material property affecting durability and strength.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "steel"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "'Components for windows and curtain walls' / 'Doors' / 'Steel'"
+      ],
+      "inference_basis": [
+        "Steel is a common material for doors, providing strength and security."
+      ]
+    }
+  ]
+}

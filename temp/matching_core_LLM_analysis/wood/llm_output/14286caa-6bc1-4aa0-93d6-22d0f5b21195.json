@@ -1,0 +1,29 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'laminate flooring', which suggests a specific form factor used in flooring applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "laminate",
+        "solid_wood",
+        "engineered_wood",
+        "plywood",
+        "particle_board"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The DPL laminate flooring consists of approximately the following components: Hardboard (90 %), resin (7 %), paper (2 %) and aluminium oxide (1 %)."
+      ],
+      "inference_basis": [
+        "Laminate flooring is a common form of wood-based product used in flooring applications."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "document_id": "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e",
+  "fields": [
+    {
+      "name": "recycled_content",
+      "type": "float",
+      "rationale": "The product is made of 100% recycled glass, which is a key environmental and functional property for insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "foam",
+        "granulate"
+      ],
+      "evidence": [
+        "GLAPOR CELLULAR glass gravel is an insulating and light construction material for the construction industry made of 100 % recycled glass."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compression_strength",
+      "type": "range",
+      "rationale": "Compression strength is a critical property for load-bearing insulation materials, especially in construction applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "foam",
+        "granulate"
+      ],
+      "evidence": [
+        "Lifetime characteristics: high compression strength made of 100% recycled glass"
+      ],
+      "inference_basis": [
+        "High compression strength is typically quantified in kg/m³ for construction materials."
+      ]
+    },
+    {
+      "name": "thermal_insulation",
+      "type": "bool",
+      "rationale": "The product is explicitly described as providing thermal insulation, which is a primary function of insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam",
+        "granulate"
+      ],
+      "evidence": [
+        "GLAPOR insulation gravel is a load bearing filling of foamed recycled glass, for use as thermal insulation"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "cell_structure",
+      "type": "enum",
+      "rationale": "The closed-cell structure is a defining characteristic of foam glass, affecting its insulation properties and moisture resistance.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "closed-cell",
+        "open-cell"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "granulate"
+      ],
+      "evidence": [
+        "combines the structural-physical properties of glass with the insulation properties of a closed-cell structure"
+      ],
+      "inference_basis": [
+        "Foam glass typically has a closed-cell structure, which is crucial for its insulation properties."
+      ]
+    },
+    {
+      "name": "application_scenario",
+      "type": "enum",
+      "rationale": "The product can be reused or landfilled after deconstruction, which affects its lifecycle and environmental impact.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "reuse",
+        "landfill"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "granulate"
+      ],
+      "evidence": [
+        "After de-construction, 2 scenarios are declared: Scenario 1: reuse as cellular glass gravel... Scenario 2: landfilling"
+      ],
+      "inference_basis": [
+        "The EPD outlines two end-of-life scenarios, indicating potential reuse or disposal methods."
+      ]
+    }
+  ]
+}

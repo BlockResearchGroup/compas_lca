@@ -1,0 +1,61 @@
+{
+  "document_id": "8ede9ece-bea3-493d-bc17-ccca81ae897c",
+  "fields": [
+    {
+      "name": "thermal_performance",
+      "type": "ordinal_enum",
+      "rationale": "The product is designed to provide thermal insulation with minimal thermal bridging, influencing the U value of outer walls by less than 3%.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "unit": null,
+      "applicability": [
+        "thermal_insulation"
+      ],
+      "evidence": [
+        "a façade design which is free of thermal bridges is always possible with Schöck Isolink® due to its static and thermal insulation parameters"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation involves specific methods such as using an approved injection system and stainless steel screws, which are critical for its application.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "injection_system",
+        "screw_fixation"
+      ],
+      "unit": null,
+      "applicability": [
+        "thermal_insulation"
+      ],
+      "evidence": [
+        "anchoring to the substructure is achieved with an approved injection system",
+        "Add-on components are fixed using stainless steel screws"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "The product is made from a glass fibre composite material, specifically Combar, which is a key characteristic of its composition.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "thermal_insulation"
+      ],
+      "evidence": [
+        "The Schöck Isolink® made from the Combar® material with a nominal diameter of 12 mm is an anchor comprising a glass fibre composite material."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

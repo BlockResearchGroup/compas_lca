@@ -1,0 +1,64 @@
+{
+  "document_id": "ba8b9e96-e813-4e80-97d7-6a30496a4a47",
+  "fields": [
+    {
+      "name": "steel_grade",
+      "type": "string",
+      "rationale": "The steel grade provides information about the mechanical properties and chemical composition of the steel, which is crucial for determining its suitability for specific applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Quality steel grade: DX51 D+Z100"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "coating_weight",
+      "type": "float",
+      "rationale": "The coating weight is important for understanding the corrosion resistance of the steel product, especially in environments where it may be exposed to moisture or chemicals.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "g/m²",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "zinc coating (100 g/m2 as minimum weight)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "profile_shape",
+      "type": "enum",
+      "rationale": "The shape of the steel profile (U, C, etc.) is critical for its structural application, influencing how it can be used in construction projects.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "U",
+        "C",
+        "S"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "profiles that, on the floor and ceiling, block the foot and head of the vertical studs of the wall warps",
+        "profiles that constitute the vertical structures of the wall frames",
+        "profiles used to form the frame for a suspended ceiling system"
+      ],
+      "inference_basis": [
+        "U tracks Guide, C studs Montanti, C channels Profili"
+      ]
+    }
+  ]
+}

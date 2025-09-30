@@ -1,0 +1,47 @@
+{
+  "document_id": "53321062-f8ec-4efb-b2d2-7b12fe83623b",
+  "fields": [
+    {
+      "name": "product_type",
+      "type": "enum",
+      "rationale": "The product is described as 'sliding windows made of aluminum for outdoor use', which suggests a specific type of door or window product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "sliding_window",
+        "hinged_door",
+        "revolving_door",
+        "sliding_door"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Sliding windows made of aluminum for outdoor use"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material",
+      "type": "enum",
+      "rationale": "The product is made of aluminum, which is a key material property for categorization.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "aluminum",
+        "wood",
+        "steel",
+        "composite"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Sliding windows made of aluminum"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

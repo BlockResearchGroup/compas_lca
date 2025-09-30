@@ -1,0 +1,58 @@
+{
+  "document_id": "4085dd2a-f8db-437a-b43b-040c31849209",
+  "fields": [
+    {
+      "name": "door_type",
+      "type": "enum",
+      "rationale": "The product is designed for both single and double-leaf sliding doors, which are common types in commercial settings.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "single_leaf",
+        "double_leaf"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "The following parameter are applicable for single and double-leaf doors"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "maximum_door_weight",
+      "type": "range",
+      "rationale": "The maximum door weight is a critical performance parameter for door operators, indicating the load capacity.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Maximum door weight: 300 kg",
+        "Maximum door weight: 150 kg"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "maximum_door_width",
+      "type": "range",
+      "rationale": "The maximum door width is a key specification for sliding doors, affecting installation and usability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Maximum door width: 3000 mm",
+        "Maximum door width: 1500 mm"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "document_id": "e131431f-4d99-4d7a-ae0a-744a06de3524",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is important for categorizing wood products based on their shape and intended use, such as beams, planks, or laths, which are mentioned in the technical purpose.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "beam",
+        "plank",
+        "square_timber",
+        "lath"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Kiln dried hardwood lumber comes in all typical dimensions as a beam, plank, square timber or lath."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "intended_use",
+      "type": "enum",
+      "rationale": "Understanding the intended use helps in categorizing the product for specific applications like construction or furniture manufacturing.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "construction",
+        "furniture",
+        "indoor",
+        "outdoor"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "It is used in the construction sector and for furniture manufacturing.",
+        "It is less often used for outdoor applications."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

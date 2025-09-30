@@ -1,0 +1,61 @@
+{
+  "document_id": "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The dataset specifies 'C16/20' which indicates the compressive strength class of the concrete, a key property for categorizing concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C16/20 CIIIA ECOPact concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "string",
+      "rationale": "The dataset mentions 'CIIIA', which refers to an exposure class, indicating the environmental conditions the concrete is designed to withstand.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C16/20 CIIIA ECOPact concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its strength and durability, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2307.05"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for applications where the thickness of the concrete layer impacts its performance, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": null,
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

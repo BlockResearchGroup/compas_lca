@@ -1,0 +1,64 @@
+{
+  "document_id": "abcf7f49-e100-45dc-9c26-3012d94dec91",
+  "fields": [
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The dataset specifies that the steel structures are primed and painted, indicating a specific type of coating applied to the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "primed",
+        "painted"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Primed and painted steel structures"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_standard",
+      "type": "string",
+      "rationale": "The dataset mentions that the steel structures are manufactured according to EN 1090-2, which is a specific standard for steel construction.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "manufactured according to EN 1090-2"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exc_class",
+      "type": "ordinal_enum",
+      "rationale": "The dataset specifies that the steel structures are up to EXC 4, indicating the execution class which is a measure of the complexity and risk level of the construction.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "EXC 1",
+        "EXC 2",
+        "EXC 3",
+        "EXC 4"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "up to EXC 4"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

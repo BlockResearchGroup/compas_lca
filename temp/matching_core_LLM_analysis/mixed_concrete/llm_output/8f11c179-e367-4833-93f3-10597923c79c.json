@@ -1,0 +1,61 @@
+{
+  "document_id": "8f11c179-e367-4833-93f3-10597923c79c",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class (e.g., C20/25) is a key property that defines the load-bearing capacity of the concrete, which is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C20/25",
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "This data set refers to the production of 1m³ recycling ready-mix concrete of compressive strength class C20/25."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "The density is 2296.9 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "Exposure class indicates the environmental conditions the concrete is designed to withstand, which is critical for durability and application suitability.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "X0",
+        "XC1",
+        "XC2",
+        "XC3",
+        "XC4"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The concrete mix design used for this data set can be used for exposure class X0 applications."
+      ],
+      "inference_basis": [
+        "Exposure class X0 is mentioned, suggesting other classes may be relevant."
+      ]
+    }
+  ]
+}

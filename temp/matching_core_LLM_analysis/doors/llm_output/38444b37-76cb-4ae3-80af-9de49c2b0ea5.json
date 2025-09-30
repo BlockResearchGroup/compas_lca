@@ -1,0 +1,98 @@
+{
+  "document_id": "38444b37-76cb-4ae3-80af-9de49c2b0ea5",
+  "fields": [
+    {
+      "name": "product_weight",
+      "type": "float",
+      "rationale": "The weight of the product is explicitly stated as 256.05 kg, which is a critical factor in determining the structural and installation requirements for the door product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "The declared unit is 1 piece of product: 256.05 kg"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The product is designed for specific applications such as airports, which is a key factor in categorizing the product based on its intended use.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "airports",
+        "business lounge",
+        "security area"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Argus Air sensor gates can be used for convenient entry into: Airports",
+        "control when entering the business lounge or access control at the passenger entrance to the security area."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "operation_mode",
+      "type": "enum",
+      "rationale": "The product features different operation modes such as boarding, security, and lounge access, which are important for understanding its functional capabilities.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "boarding",
+        "security",
+        "lounge"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The Argus Air series includes the gates for boarding pass control Argus Air Security, lounge access Argus Air Lounge and for self-boarding Argus Air Boarding."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "biometric_capability",
+      "type": "bool",
+      "rationale": "The product includes biometric face recognition, which is a significant feature for security applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Argus Air Security with its biometric face recognition, combines a high level of security with a smooth and effective passenger flow."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "contactless_operation",
+      "type": "bool",
+      "rationale": "The product is described as having intuitive, contactless operation, which is a key feature for user convenience and hygiene.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The Argus Air Lounge with its intuitive, contactless operation guarantees easy access to lounges, even with luggage, children or wheelchairs."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "power_supply_integration",
+      "type": "bool",
+      "rationale": "The control system and power supply are integrated into the unit, which is important for installation and operational efficiency.",
+      "confidence": 0.7,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Control system and power supply integrated into the unit."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

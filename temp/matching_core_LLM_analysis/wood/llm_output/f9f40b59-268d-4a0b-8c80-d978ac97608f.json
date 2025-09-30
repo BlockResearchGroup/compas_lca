@@ -1,0 +1,46 @@
+{
+  "document_id": "f9f40b59-268d-4a0b-8c80-d978ac97608f",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly described as 'High density fibreboards', which are a type of wood panel product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "fibreboard",
+        "particleboard",
+        "plywood",
+        "OSB",
+        "MDF"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "High density fibreboards are used for interior work."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "enum",
+      "rationale": "The manufacturing process is described as 'im Trockenverfahren', indicating a dry process typical for HDF production.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "dry_process",
+        "wet_process"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Hochdichte Faserplatten (HDF) sind im Trockenverfahren hergestellte Holzwerkstoffe."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

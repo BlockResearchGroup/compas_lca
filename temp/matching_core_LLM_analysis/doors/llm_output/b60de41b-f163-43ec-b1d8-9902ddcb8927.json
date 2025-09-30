@@ -1,0 +1,60 @@
+{
+  "document_id": "b60de41b-f163-43ec-b1d8-9902ddcb8927",
+  "fields": [
+    {
+      "name": "opening_direction",
+      "type": "enum",
+      "rationale": "The dataset mentions 'outward / inward opened', indicating the direction in which the door can be opened, which is a key functional property for doors.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "outward",
+        "inward"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "outward / inward opened"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "glazing_type",
+      "type": "enum",
+      "rationale": "The dataset specifies 'triple-glazed', which is a common specification for doors and windows affecting thermal performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "single",
+        "double",
+        "triple"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "triple-glazed"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_transmittance",
+      "type": "float",
+      "rationale": "Thermal transmittance is explicitly mentioned as 1.0 W/(m²·K), which is a critical performance metric for energy efficiency in doors.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m²·K",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "thermal transmittance of 1,0 W/(m2*K)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

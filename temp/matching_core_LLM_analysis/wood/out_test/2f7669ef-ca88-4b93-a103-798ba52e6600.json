@@ -1,0 +1,137 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "Identifies the product geometry/use class (panels/boards) which is a primary discriminator for wood-based products and important for selection and comparisons.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": [
+        "wood_wool_panel",
+        "acoustic_panel",
+        "board",
+        "other_panel"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "panels"
+      ],
+      "evidence": [
+        "\"Heradesign acoustic panels are primarily used as acoustic/decorative wall and ceiling panelling\"",
+        "\"Heradesign panels are wood wool panels in accordance with EN 13168\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "bonding_system",
+      "type": "enum",
+      "rationale": "Type of binder (mineral vs organic) strongly affects performance and environmental behaviour; here the EPD names a magnesite/mineral system.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": [
+        "magnesite (magnesium-based)",
+        "cement (portland)",
+        "gypsum",
+        "polymer_resin/adhesive",
+        "other/unknown"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "panels"
+      ],
+      "evidence": [
+        "\"The product is a magnesite bonded wood wool panel.\"",
+        "\"magnesium sulphate solution\"",
+        "\"mineral binding agents\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "declared_surface_weight_kg_per_m",
+      "type": "float",
+      "rationale": "Surface (areal) weight is a key material metric for boards/panels used to compare mass per unit area and impacts per functional area; the EPD provides a surface weight value.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m",
+      "applicability": null,
+      "evidence": [
+        "\"surface weight of 13.3 kg/m\"",
+        "\"The declared unit refers to a surface weight of 13.3 kg/m.\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "euroclass_fire_rating",
+      "type": "enum",
+      "rationale": "Fire classification (Euroclass) is commonly used to filter/sort building products by fire performance; the EPD declares Euroclass B.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": [
+        "A1",
+        "A2",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "unknown"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"Heradesign Fine Alpha+ 25 mm (Euroclass B)\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_finish_type",
+      "type": "enum",
+      "rationale": "Surface finishing (e.g., dyed/painted, laminated backing) affects aesthetics, durability and end-of-life; the EPD describes dyeing and a back fleece, allowing inference of typical finishes.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": [
+        "dyed/painted",
+        "backing_fleece_laminated",
+        "raw/uncoated",
+        "laminated_surface",
+        "other"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"Dyeing: Possible in many RAL colours\"",
+        "\"The production of the acoustic fleece laminated to the back of the Heradesign panels is declared in a separate appendix to the EPD.\""
+      ],
+      "inference_basis": [
+        "Presence of a dyeing plant and RAL colour options implies dyed/painted decorative finishes are offered.",
+        "Reference to acoustic fleece laminated to the back implies a laminated backing option is used as a standard accessory."
+      ]
+    },
+    {
+      "name": "forming_method",
+      "type": "enum",
+      "rationale": "Forming/production method (continuous twin-belt vs. pressing) affects product properties and comparability; text describes a twin-belt continuous forming line allowing an inferred forming method classification.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": [
+        "twin_belt_continuous_forming",
+        "pressing/moulding",
+        "panel_mat_press",
+        "other"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"The mixture is scattered onto a steel band and passed through a binding channel... An endless product is produced on leaving the twin belt.\"",
+        "\"The raw goods are then cut to the desired length.\""
+      ],
+      "inference_basis": [
+        "Description of scattering onto a steel band and reference to a 'twin belt' implies a continuous twin-belt forming process rather than batch pressing."
+      ]
+    }
+  ]
+}

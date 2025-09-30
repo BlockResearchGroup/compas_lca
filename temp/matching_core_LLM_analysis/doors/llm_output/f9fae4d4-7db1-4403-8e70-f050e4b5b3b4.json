@@ -1,0 +1,98 @@
+{
+  "document_id": "f9fae4d4-7db1-4403-8e70-f050e4b5b3b4",
+  "fields": [
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "The product is a fire protection curtain, indicating its primary function is to resist fire.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Technical purpose of product or process: Fire protection curtain doors are used..."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The product is used in various building types such as office buildings, industrial buildings, and hotels, indicating different application contexts.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "office_buildings",
+        "industrial_buildings",
+        "public_buildings",
+        "hotels",
+        "underground_garages",
+        "counter_closures"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Technical purpose of product or process: Fire protection curtain doors are used, for example, in office and administration buildings, industrial buildings, public buildings, hotels, underground garages and as counter closures."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "enum",
+      "rationale": "The category indicates the product is made of steel, which is a key material property.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "category: 'Components for windows and curtain walls' / 'Doors' / 'Steel'"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_location",
+      "type": "enum",
+      "rationale": "The location code 'DE' suggests the primary market or installation location for the product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "Germany"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": [
+        "Location code 'DE' typically refers to Germany."
+      ]
+    },
+    {
+      "name": "module_coverage",
+      "type": "string",
+      "rationale": "The dataset covers specific life cycle modules (A1-A3, A4, A5, B2-B7, C1-C4, D), which is important for understanding the environmental impact scope.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Use advice for data set: Dieser Datensatz beinhaltet die Ergebnisse für die Module A1-A3 sowie die Module A4, A5, B2, B3, B4, B5, B6, B7, C1, C2, C3, C4 und D gemäß EN 15804 + A2."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

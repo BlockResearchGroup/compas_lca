@@ -1,0 +1,43 @@
+{
+  "document_id": "f7cbaa24-2080-4bef-9aa1-f276c076468e",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a 'magnesite bonded wood wool panel', indicating its form as a panel.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "panel",
+        "board",
+        "sheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is a magnesite bonded wood wool panel."
+      ],
+      "inference_basis": [
+        "'wood wool panel' suggests a panel form."
+      ]
+    },
+    {
+      "name": "binding_agent",
+      "type": "string",
+      "rationale": "The product uses a magnesite binding agent, which is a key material property.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is a magnesite bonded wood wool panel."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

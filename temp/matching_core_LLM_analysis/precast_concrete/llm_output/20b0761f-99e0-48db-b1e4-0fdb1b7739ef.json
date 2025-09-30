@@ -1,0 +1,53 @@
+{
+  "document_id": "20b0761f-99e0-48db-b1e4-0fdb1b7739ef",
+  "fields": [
+    {
+      "name": "product_dimensions",
+      "type": "string",
+      "rationale": "The dataset specifies the dimensions of the stairs as 1.1 m wide with 9 steps each 16 cm high, which are critical for understanding the product's size and application.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "dataset_name: 'Precast concrete part, stairs, (1,1 m wide, 9 steps each 16 cm)'"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "reinforcement_content",
+      "type": "float",
+      "rationale": "The reinforcement content is explicitly stated as 0.6 Vol.-%, which is important for structural properties and performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "Vol.-%",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "reinforcement content of 0.6 Vol.-% are assumed"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "concrete_grade",
+      "type": "string",
+      "rationale": "The concrete grade C30/37 is specified, which is crucial for understanding the strength and durability of the concrete used.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "production of concrete (C30/37)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

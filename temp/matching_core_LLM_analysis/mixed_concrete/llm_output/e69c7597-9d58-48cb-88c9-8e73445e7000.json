@@ -1,0 +1,61 @@
+{
+  "document_id": "e69c7597-9d58-48cb-88c9-8e73445e7000",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class (e.g., C8/10) is a key property of concrete that indicates its load-bearing capacity, which is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C8/10"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "string",
+      "rationale": "The exposure class (e.g., X0) indicates the environmental conditions the concrete is designed to withstand, which is important for durability and longevity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "X0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "consistency_class",
+      "type": "string",
+      "rationale": "The consistency class (e.g., F3) describes the workability of the concrete mix, which affects how it can be placed and compacted on site.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "F3"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2278.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

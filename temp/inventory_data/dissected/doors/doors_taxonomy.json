@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "_count_definition": "Number of CSV rows that fall under the category (including all nested subcategories).",
+    "column_source": "Kategorie (en)"
+  },
+  "taxonomy": {
+    "Components for windows and curtain walls": {
+      "_count": 127,
+      "children": {
+        "Doors": {
+          "_count": 127,
+          "children": {
+            "Aluminium": {
+              "_count": 40
+            },
+            "Plastic": {
+              "_count": 3
+            },
+            "Steel": {
+              "_count": 51
+            },
+            "Wood": {
+              "_count": 33
+            }
+          }
+        }
+      }
+    }
+  }
+}

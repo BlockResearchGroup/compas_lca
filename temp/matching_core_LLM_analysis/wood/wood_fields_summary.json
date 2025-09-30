@@ -1,0 +1,417 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/wood/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 17,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "product_form": {
+      "count": 21,
+      "document_ids": [
+        "14286caa-6bc1-4aa0-93d6-22d0f5b21195",
+        "213e5ce7-fb2b-46e2-bcdc-02289a461575",
+        "22527f3b-5985-41a7-8028-655142979cfd",
+        "2f7669ef-ca88-4b93-a103-798ba52e6600",
+        "4dadfb92-ba5d-48de-bb7b-394c28911a90",
+        "55a6caa5-0c2f-410f-b752-f78e20ed93fa",
+        "60e7796e-cd49-4d03-a930-014271b30144",
+        "7a100a55-391e-4f7e-bca1-5b117c626a5d",
+        "7c828537-8009-4ee4-9ef1-e6fd71d9421f",
+        "8f590594-3d09-4a07-aed4-6e86836acfbd",
+        "9cd7c3e7-6959-4f28-aa80-ede9b40bf22f",
+        "9f6cf0e4-7455-4c31-a99f-552926c4040e",
+        "a1e9bc09-e3de-4da6-b332-c0c1e7d09e32",
+        "abe011eb-d475-4bd6-86c7-15e993cfd2ef",
+        "d0a11ffa-3f0f-435b-9f93-ff3821869335",
+        "d539acfd-9bcf-439d-9c38-18223eac7def",
+        "e131431f-4d99-4d7a-ae0a-744a06de3524",
+        "efa55966-4f29-4f15-bfec-8c08b3945923",
+        "f7cbaa24-2080-4bef-9aa1-f276c076468e",
+        "f88ae566-9066-4399-83fa-52cc5bcbd5e6",
+        "f9f40b59-268d-4a0b-8c80-d978ac97608f"
+      ],
+      "type": "enum",
+      "rationale": "The product form is explicitly described as 'High density fibreboards', which are a type of wood panel product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "fibreboard",
+        "particleboard",
+        "plywood",
+        "OSB",
+        "MDF"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "High density fibreboards are used for interior work."
+      ],
+      "inference_basis": null
+    },
+    "adhesive_system": {
+      "count": 6,
+      "document_ids": [
+        "22527f3b-5985-41a7-8028-655142979cfd",
+        "27f20dc1-5529-4194-8a06-1ae5b7ba6a51",
+        "55a6caa5-0c2f-410f-b752-f78e20ed93fa",
+        "7a100a55-391e-4f7e-bca1-5b117c626a5d",
+        "9d0f1390-089c-4352-87d0-ff0ea5599b12",
+        "d539acfd-9bcf-439d-9c38-18223eac7def"
+      ],
+      "type": "string",
+      "rationale": "The adhesive system is mentioned as part of the production process, which is crucial for the structural integrity and performance of the wood panels.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Lumber production includes direct emissions from drying processes based on a worst-case approximation. Upstream emissions from the use of binding agents rely on supplier-specific data complemented by secondary data."
+      ],
+      "inference_basis": [
+        "Adhesive systems are typically used in multi-layered wood products to bond layers together."
+      ]
+    },
+    "binding_agent": {
+      "count": 5,
+      "document_ids": [
+        "213e5ce7-fb2b-46e2-bcdc-02289a461575",
+        "2f7669ef-ca88-4b93-a103-798ba52e6600",
+        "a1e9bc09-e3de-4da6-b332-c0c1e7d09e32",
+        "abe011eb-d475-4bd6-86c7-15e993cfd2ef",
+        "f7cbaa24-2080-4bef-9aa1-f276c076468e"
+      ],
+      "type": "string",
+      "rationale": "The product uses a magnesite binding agent, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product is a magnesite bonded wood wool panel."
+      ],
+      "inference_basis": null
+    },
+    "species_group": {
+      "count": 3,
+      "document_ids": [
+        "4dadfb92-ba5d-48de-bb7b-394c28911a90",
+        "9f6cf0e4-7455-4c31-a99f-552926c4040e",
+        "efa55966-4f29-4f15-bfec-8c08b3945923"
+      ],
+      "type": "enum",
+      "rationale": "The dataset mentions the use of 'coniferous wood', which indicates the species group used in the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "coniferous"
+      ],
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "made from kiln dried coniferous wood according to EN 1912"
+      ],
+      "inference_basis": null
+    },
+    "core_material": {
+      "count": 2,
+      "document_ids": [
+        "7c828537-8009-4ee4-9ef1-e6fd71d9421f",
+        "f88ae566-9066-4399-83fa-52cc5bcbd5e6"
+      ],
+      "type": "string",
+      "rationale": "The core material of the product is explicitly stated as high density wood fibre board, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "A high density wood fibre board is used as coreboard."
+      ],
+      "inference_basis": null
+    },
+    "installation_method": {
+      "count": 2,
+      "document_ids": [
+        "60e7796e-cd49-4d03-a930-014271b30144",
+        "9cd7c3e7-6959-4f28-aa80-ede9b40bf22f"
+      ],
+      "type": "enum",
+      "rationale": "The parquet can be installed as a floating installation or glued to the screed, which are common methods for wood flooring.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "floating",
+        "glued"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The floor coverings are laid on screeds, tiles or wooden substructures in conjunction with suitable laying underlays (insulation underlays) as a floating installation or glued to the screed over the entire surface."
+      ],
+      "inference_basis": [
+        "floating installation and glued installation are standard methods for parquet flooring"
+      ]
+    },
+    "layer_count": {
+      "count": 2,
+      "document_ids": [
+        "27f20dc1-5529-4194-8a06-1ae5b7ba6a51",
+        "9d0f1390-089c-4352-87d0-ff0ea5599b12"
+      ],
+      "type": "range",
+      "rationale": "The product is described as having one to five layers, which is a key characteristic of the panel's structure and affects its mechanical properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "layers",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The results refer to a representative average of one- to five-layered nordpan solid wood panels."
+      ],
+      "inference_basis": null
+    },
+    "surface_treatment": {
+      "count": 2,
+      "document_ids": [
+        "2f7669ef-ca88-4b93-a103-798ba52e6600",
+        "f88ae566-9066-4399-83fa-52cc5bcbd5e6"
+      ],
+      "type": "bool",
+      "rationale": "The product undergoes a dyeing process, indicating a surface treatment.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The requisite colour is applied in a dyeing plant."
+      ],
+      "inference_basis": [
+        "Dyeing implies surface treatment."
+      ]
+    },
+    "application_environment": {
+      "count": 1,
+      "document_ids": [
+        "0dec19c7-53db-4cb9-bbba-4d44d3da62a9"
+      ],
+      "type": "enum",
+      "rationale": "The product is suitable for outdoor use, including soil and water contact, due to its enhanced durability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "indoor",
+        "outdoor",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "acetylated wood is mainly used outdoors, as well as for applications with soil and water contact."
+      ],
+      "inference_basis": null
+    },
+    "board_type": {
+      "count": 1,
+      "document_ids": [
+        "da3bb9b5-ffef-4b54-8559-bb3a4b05af70"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes different board types based on their application and load-bearing capacity, which is crucial for categorizing wood products by their functional properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The board types are primarily differentiated or classified in their application as non-load-bearing and load-bearing elements in dry and humid conditions: P1, P2, P3, P4, P5, P6, P7."
+      ],
+      "inference_basis": null
+    },
+    "formaldehyde_emission_class": {
+      "count": 1,
+      "document_ids": [
+        "da3bb9b5-ffef-4b54-8559-bb3a4b05af70"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies formaldehyde emission classes for certain board types, which is important for health and safety standards in interior applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "E1E05",
+        "TSCA P2",
+        "JP F0.3 F**** MR"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Raw chipboards Eurospan E1E05 TSCA P2 and Eurospan JP F0.3 F**** MR are used especially for furniture and interior design with increased requirements for formaldehyde emission."
+      ],
+      "inference_basis": null
+    },
+    "intended_use": {
+      "count": 1,
+      "document_ids": [
+        "e131431f-4d99-4d7a-ae0a-744a06de3524"
+      ],
+      "type": "enum",
+      "rationale": "Understanding the intended use helps in categorizing the product for specific applications like construction or furniture manufacturing.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "construction",
+        "furniture",
+        "indoor",
+        "outdoor"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "It is used in the construction sector and for furniture manufacturing.",
+        "It is less often used for outdoor applications."
+      ],
+      "inference_basis": null
+    },
+    "manufacturing_process": {
+      "count": 1,
+      "document_ids": [
+        "f9f40b59-268d-4a0b-8c80-d978ac97608f"
+      ],
+      "type": "enum",
+      "rationale": "The manufacturing process is described as 'im Trockenverfahren', indicating a dry process typical for HDF production.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "dry_process",
+        "wet_process"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Hochdichte Faserplatten (HDF) sind im Trockenverfahren hergestellte Holzwerkstoffe."
+      ],
+      "inference_basis": null
+    },
+    "modification_type": {
+      "count": 1,
+      "document_ids": [
+        "0dec19c7-53db-4cb9-bbba-4d44d3da62a9"
+      ],
+      "type": "enum",
+      "rationale": "The wood is chemically modified through acetylation, which enhances its durability against environmental factors.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "acetylated",
+        "non-acetylated"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "The chemical modification of the wood increases the durability of the wood against rot, fungal attack and insect attack."
+      ],
+      "inference_basis": null
+    },
+    "moisture_content": {
+      "count": 1,
+      "document_ids": [
+        "9f6cf0e4-7455-4c31-a99f-552926c4040e"
+      ],
+      "type": "float",
+      "rationale": "The dataset mentions '12% moisture / 10.7% H2O content', which is crucial for determining the wood's physical properties and suitability for various applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "12% moisture / 10.7% H2O content"
+      ],
+      "inference_basis": null
+    },
+    "panel_thickness_range": {
+      "count": 1,
+      "document_ids": [
+        "27f20dc1-5529-4194-8a06-1ae5b7ba6a51"
+      ],
+      "type": "range",
+      "rationale": "The thickness of the panels is a critical dimension that affects their application and structural properties. The range is explicitly stated as 12 to 100 mm.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Die Plattendicke beträgt normalerweise zwischen 12 und 100 mm."
+      ],
+      "inference_basis": null
+    },
+    "surface_finish": {
+      "count": 1,
+      "document_ids": [
+        "9cd7c3e7-6959-4f28-aa80-ede9b40bf22f"
+      ],
+      "type": "enum",
+      "rationale": "The parquet products feature an oiled or varnished surface, which affects the appearance and maintenance of the flooring.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "oiled",
+        "varnished"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The products feature an oiled or varnished surface ready for residential use"
+      ],
+      "inference_basis": null
+    }
+  }
+}

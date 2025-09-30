@@ -1,0 +1,97 @@
+{
+  "document_id": "e880811f-f90f-472c-8257-7ad04cceec5f",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the steel layer is a critical property for determining the structural and acoustic performance of the ceiling membrane.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_weight",
+      "type": "float",
+      "rationale": "Surface weight is important for understanding the load and installation requirements of the ceiling membrane.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm and a surface weight of 7.81 kg/m"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "perforation_pattern",
+      "type": "enum",
+      "rationale": "Perforation patterns affect the acoustic properties and aesthetic design of the ceiling membranes.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "unperforated",
+        "various"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The membranes (tiles, panels, bulkheads) are offered with various edge details and delivered unperforated or with a range of perforation patterns"
+      ],
+      "inference_basis": [
+        "Perforation patterns are typically used to enhance acoustic performance and design aesthetics."
+      ]
+    },
+    {
+      "name": "acoustic_fleece_inclusion",
+      "type": "bool",
+      "rationale": "The inclusion of acoustic fleece is a key feature for sound absorption and attenuation in ceiling membranes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm and a surface weight of 7.81 kg/m (with acoustic fleece)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "Fire resistance is a critical safety feature for ceiling membranes used in buildings.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The described metal solutions are typically used internally as design elements, to cover the ceiling void, as well as acoustic solutions for sound absorption and sound attenuation, for fire resistance and against fire spreading"
+      ],
+      "inference_basis": [
+        "Fire resistance is a common requirement for building materials to ensure safety against fire hazards."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "document_id": "60e7796e-cd49-4d03-a930-014271b30144",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'Mehrschichtparkettböden', 'Mehrschichtmassivholzplatten', and 'Mehrschichtakustikelemente', indicating different forms of multilayer wood products.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "parkettboden",
+        "massivholzplatte",
+        "akustikelement"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Mehrschichtparkettböden, Mehrschichtmassivholzplatten und Mehrschichtakustikelemente"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The text specifies that the flooring can be either glued or installed as floating floors, which are common installation methods for multilayer wood flooring.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "glued",
+        "floating"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Die Parkettböden können je nach Produkt entweder verklebt oder schwimmend verlegt werden"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "document_id": "f0005215-20c5-4fa0-96fc-019d8f682e7b",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the door layer is a critical dimension that affects its thermal and acoustic performance, as well as its structural integrity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "layer_thickness: 0.04"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_finish",
+      "type": "enum",
+      "rationale": "The surface finish of a door can affect its aesthetic appeal and durability. Options like lacquered and Durat surfaces are explicitly mentioned.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "lacquered",
+        "Durat"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Both lacquered and Durat surfaces"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

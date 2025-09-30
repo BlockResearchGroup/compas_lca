@@ -1,0 +1,49 @@
+{
+  "document_id": "3e94b994-e173-44ae-9e7b-c77bf9918bb1",
+  "fields": [
+    {
+      "name": "safety_features",
+      "type": "bool",
+      "rationale": "The product is explicitly described as a 'safety door', indicating it has safety features.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technical purpose of product or process: Safety door with optional performance features."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "performance_features",
+      "type": "bool",
+      "rationale": "The product description mentions 'optional performance features', suggesting additional capabilities beyond basic functionality.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technical purpose of product or process: Safety door with optional performance features."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_type",
+      "type": "enum",
+      "rationale": "The category indicates the door is made of steel, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "category: 'Components for windows and curtain walls' / 'Doors' / 'Steel'"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

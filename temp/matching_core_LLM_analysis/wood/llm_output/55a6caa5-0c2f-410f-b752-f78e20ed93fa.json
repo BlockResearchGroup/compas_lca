@@ -1,0 +1,43 @@
+{
+  "document_id": "55a6caa5-0c2f-410f-b752-f78e20ed93fa",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'structural finger jointed solid timber', indicating a specific form of wood product used in construction.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "solid_timber",
+        "laminated_timber",
+        "plywood",
+        "particleboard"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "RUBNER structural finger jointed solid timber is mainly used as a structural component for buildings and bridges.",
+        "RUBNER structural finger jointed solid timber consists of single squared structured timber made from softwood according to EN 1912."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_system",
+      "type": "string",
+      "rationale": "The dataset mentions the use of an adhesive system in the production process, which is crucial for finger jointed timber.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Upstream emissions from the use of adhesive systems rely on supplier-specific data."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

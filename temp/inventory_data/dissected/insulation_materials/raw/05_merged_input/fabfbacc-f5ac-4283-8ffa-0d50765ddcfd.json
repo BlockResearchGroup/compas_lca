@@ -1,0 +1,16 @@
+{
+  "uuid": "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd",
+  "dataset_name": "Urea formaldehyde resin in-situ foam",
+  "category": "'Insulation materials' / 'Urea formaldehyde resin' / 'Urea-formaldehyde foam insulation (UFFI)'",
+  "location_code": "DE",
+  "dataset_type": "generic dataset",
+  "dataset_owner": "Sphera Solutions GmbH",
+  "density": 10.0,
+  "layer_thickness": null,
+  "Use advice for data set": "The data set represents a cradle to gate inventory. It can be used to characterise the supply chain situation of the respective commodity in a representative manner. Combination with individual unit processes using this commodity enables the generation of user-specific (product) LCAs. | |",
+  "Technical purpose of product or process": "This product can be used in construction. | |",
+  "Classification number": "2.16.01 | |",
+  "General comment on data set": "This data set has been modeled according to the European Standard EN 15804+A2 for Sustainable Building. Results are depicted in modules that allow the structured expression of results over the entire life cycle. | |",
+  "Description": "Product system depicted except for a few missing processes / flows. Technological, temporal and geographic representativeness partly given. | |",
+  "Technology description including background system": "Urea formaldehyde resin foam is produced by mixing an aqueous resin solution with a foamed up aqueous surfactant solution and by tempering catalytically . Various additives as for example flame retardants were mixed into the solutions to manipulate the characteristics. Foam materials made of urea formaldehyde foam are foamed with transportable foaming device and are dumped into the parts to be dammed by tube or pipe lines. The dataset considers the raw materials, flame retardants as well as the surfactants for the production of the raw material. The foaming device is not included in the dataset. Transports from the factory to the building site are not considered and must be included according to the system boundaries. In module C1, a manual dismantling (no loads) is assumed, collecting losses are neglected. The transport in module C2 to the recycling plant takes place with a truck (50km). Module C3 takes into account the grinding and thermal treatment (combustion) of the material. When calculating combustion emissions and credits, the specific calorific value of each material and the material composition are taken into account. In module D credits for the substitution of electricity (German electricity mix) and thermal energy (from natural gas) are given. | |"
+}

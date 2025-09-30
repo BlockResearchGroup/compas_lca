@@ -1,0 +1,836 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/steel_and_iron/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 35,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "product_form": {
+      "count": 11,
+      "document_ids": [
+        "04a5ee66-d6be-4b69-bcbc-f6ec63dd5189",
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "650ea55e-5071-45f6-adfc-df41acad90e1",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "aa089b30-7862-4001-9286-9cb41058dba0",
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+        "d08267c6-2bf6-4e5b-81a9-e681798e7b0b",
+        "e0fef4a8-9553-4a36-9320-79d5a84e949c",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ],
+      "type": "enum",
+      "rationale": "The product form is explicitly described as 'welded mesh panels', which is a specific form of steel product used for reinforcement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "welded_mesh_panels",
+        "wire_rod",
+        "steel_billets"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "Welded mesh panels consist of longitudinal and transverse bars..."
+      ],
+      "inference_basis": null
+    },
+    "coating_type": {
+      "count": 7,
+      "document_ids": [
+        "227a89fa-3287-4ede-95f5-be88584ea490",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "717f4a1c-0df0-49e6-8169-528b50b01e56",
+        "abcf7f49-e100-45dc-9c26-3012d94dec91",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "c72f24ff-9562-4527-8191-ed0bda3ebab0",
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ],
+      "type": "enum",
+      "rationale": "The product is coated with a zinc/aluminium or zinc/aluminium/magnesium alloy, which is crucial for its corrosion resistance properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "zinc_aluminium",
+        "zinc_aluminium_magnesium"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "coated with a zinc/aluminium or zinc/aluminium/magnesium alloy"
+      ],
+      "inference_basis": null
+    },
+    "diameter_range": {
+      "count": 4,
+      "document_ids": [
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ],
+      "type": "range",
+      "rationale": "The diameter range of the mesh is explicitly stated, which is critical for understanding the mesh's application in reinforcement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "a range of diameters from 5mm to 12mm"
+      ],
+      "inference_basis": null
+    },
+    "layer_thickness": {
+      "count": 4,
+      "document_ids": [
+        "227a89fa-3287-4ede-95f5-be88584ea490",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ],
+      "type": "float",
+      "rationale": "The thickness of the steel layer is a critical property for determining the structural and acoustic performance of the ceiling membrane.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm"
+      ],
+      "inference_basis": null
+    },
+    "manufacturing_standard": {
+      "count": 4,
+      "document_ids": [
+        "abcf7f49-e100-45dc-9c26-3012d94dec91",
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "c72f24ff-9562-4527-8191-ed0bda3ebab0"
+      ],
+      "type": "string",
+      "rationale": "The manufacturing standard is explicitly stated as EN 1090-2, which is relevant for categorizing the quality and compliance of the steel product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "structural_steel"
+      ],
+      "evidence": [
+        "The steel structures are manufactured according to EN 1090-2"
+      ],
+      "inference_basis": null
+    },
+    "production_process": {
+      "count": 4,
+      "document_ids": [
+        "06894083-4e59-4191-962e-d67bfcacef10",
+        "650ea55e-5071-45f6-adfc-df41acad90e1",
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4",
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ],
+      "type": "enum",
+      "rationale": "The production process is a key differentiator for steel products, affecting properties like strength and recyclability. The document mentions the Basic Oxygen Furnace (BOF)/Blast Furnace (BF) route.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "BOF/BF",
+        "EAF",
+        "Other"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The steel products are produced via the Basic Oxygen Furnace (BOF)/Blast Furnace (BF) steel making route."
+      ],
+      "inference_basis": null
+    },
+    "application_type": {
+      "count": 3,
+      "document_ids": [
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9",
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1",
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33"
+      ],
+      "type": "enum",
+      "rationale": "The product is used for concrete reinforcement, which is a specific application type relevant for construction materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "concrete reinforcement",
+        "structural",
+        "decorative"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Reinforcing steel in coils is used, among other things, as a semi-finished product for further processing into finished concrete reinforcement."
+      ],
+      "inference_basis": null
+    },
+    "corrosion_resistance": {
+      "count": 3,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "aa089b30-7862-4001-9286-9cb41058dba0",
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6"
+      ],
+      "type": "ordinal_enum",
+      "rationale": "The product is used in environments requiring high corrosion protection, indicating varying levels of corrosion resistance.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "The area of application of zinc coated steel structure includes mostly outdoor residential and commercial construction elements, where high corrosion protection is needed."
+      ],
+      "inference_basis": [
+        "Zinc coating implies enhanced corrosion resistance."
+      ]
+    },
+    "manufacturing_process": {
+      "count": 3,
+      "document_ids": [
+        "690dd6f3-b8fe-4fae-9d7f-f840e0c57b33",
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039",
+        "f987073a-40b5-4a09-8c77-0a70368c137f"
+      ],
+      "type": "enum",
+      "rationale": "The manufacturing process is described, indicating the method used to produce the mesh, which is important for categorizing the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "electric_resistance_spot_welding",
+        "hot_rolling",
+        "continuous_casting"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_reinforcement_mesh"
+      ],
+      "evidence": [
+        "joined at all crossing points by automatic machines in the factory by electric resistance spot welding."
+      ],
+      "inference_basis": null
+    },
+    "acoustic_fleece_inclusion": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ],
+      "type": "bool",
+      "rationale": "The inclusion of acoustic fleece is a key feature for sound absorption and attenuation in ceiling membranes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm and a surface weight of 7.81 kg/m (with acoustic fleece)."
+      ],
+      "inference_basis": null
+    },
+    "application_area": {
+      "count": 2,
+      "document_ids": [
+        "04a5ee66-d6be-4b69-bcbc-f6ec63dd5189",
+        "d08267c6-2bf6-4e5b-81a9-e681798e7b0b"
+      ],
+      "type": "enum",
+      "rationale": "The application areas are explicitly mentioned, including foundations for buildings and engineering structures, slope and excavation protection.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "building_foundation",
+        "engineering_structure",
+        "slope_protection",
+        "excavation_protection"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The TRM pile system is used as a full displacement pile for the foundation of buildings, for the foundation of engineering structures (such as bridges, wind power and photovoltaic plants, noise barriers, pipelines, masts) and for the construction of slope and excavation protection."
+      ],
+      "inference_basis": null
+    },
+    "application_environment": {
+      "count": 2,
+      "document_ids": [
+        "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+        "e0fef4a8-9553-4a36-9320-79d5a84e949c"
+      ],
+      "type": "enum",
+      "rationale": "The product is used in specific environments, which helps in categorizing its suitability for different applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "residential",
+        "commercial",
+        "industrial",
+        "agricultural",
+        "energy"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "Zinc coated or hot-dip galvanized steel structures are used in various areas of construction, for example construction of bridges, telecommunications towers, engineering, industrial and public buildings, as well as in the agriculture and energy industry."
+      ],
+      "inference_basis": [
+        "The mention of various environments suggests different application categories."
+      ]
+    },
+    "fire_resistance": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ],
+      "type": "bool",
+      "rationale": "Fire resistance is a critical safety feature for ceiling membranes used in buildings.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The described metal solutions are typically used internally as design elements, to cover the ceiling void, as well as acoustic solutions for sound absorption and sound attenuation, for fire resistance and against fire spreading"
+      ],
+      "inference_basis": [
+        "Fire resistance is a common requirement for building materials to ensure safety against fire hazards."
+      ]
+    },
+    "perforation_pattern": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ],
+      "type": "enum",
+      "rationale": "Perforation patterns affect the acoustic properties and aesthetic design of the ceiling membranes.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "unperforated",
+        "various"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The membranes (tiles, panels, bulkheads) are offered with various edge details and delivered unperforated or with a range of perforation patterns"
+      ],
+      "inference_basis": [
+        "Perforation patterns are typically used to enhance acoustic performance and design aesthetics."
+      ]
+    },
+    "surface_weight": {
+      "count": 2,
+      "document_ids": [
+        "e880811f-f90f-472c-8257-7ad04cceec5f",
+        "eebfc74f-5651-4d43-a2aa-f04b66ff8a4c"
+      ],
+      "type": "float",
+      "rationale": "Surface weight is important for understanding the load and installation requirements of the ceiling membrane.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Scope: This document refers to average steel ceiling membranes with a thickness of 1.0 mm and a surface weight of 7.81 kg/m"
+      ],
+      "inference_basis": null
+    },
+    "alloy_type": {
+      "count": 1,
+      "document_ids": [
+        "650ea55e-5071-45f6-adfc-df41acad90e1"
+      ],
+      "type": "enum",
+      "rationale": "Different alloy types (e.g., low, medium, high strength) determine the mechanical properties and applications of the steel. The document mentions low and medium alloy steels and high strength steels.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "This includes low and medium alloy steels and high strength steels."
+      ],
+      "inference_basis": null
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4"
+      ],
+      "type": "enum",
+      "rationale": "The application areas help categorize the product based on its end-use, which is important for selecting the right type of steel for specific engineering needs.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "steel and bridge construction",
+        "tank and plant construction",
+        "wind industry",
+        "boiler and pressure vessel engineering",
+        "yellow goods",
+        "mechanical engineering",
+        "shipbuilding",
+        "pipelines"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The areas of application for heavy plate include: Steel and bridge construction, Tank and plant construction, Wind industry, Boiler and pressure vessel engineering, Yellow Goods, Mechanical engineering, Shipbuilding, Pipelines"
+      ],
+      "inference_basis": null
+    },
+    "application_industry": {
+      "count": 1,
+      "document_ids": [
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ],
+      "type": "enum",
+      "rationale": "The product is used in various industries such as automotive, construction, and domestic appliances, which helps in categorizing the product based on its end-use.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "automotive",
+        "domestic_appliance",
+        "construction",
+        "ventilation",
+        "furniture"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "areas of application for hot-dip galvanised cold-rolled products include the following: Automobile and automotive industry, Domestic appliance industry, Construction industry"
+      ],
+      "inference_basis": null
+    },
+    "cladding_material": {
+      "count": 1,
+      "document_ids": [
+        "e7b98886-9ac9-4e77-990b-3e60c2ef0e5a"
+      ],
+      "type": "string",
+      "rationale": "The product is specifically described as having a cladding material made of ferritic stainless steels, which is a key characteristic of roll-bonded clad plates.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "roll-bonded clad plate with cladding made of ferritic stainless steels"
+      ],
+      "inference_basis": null
+    },
+    "coating_position": {
+      "count": 1,
+      "document_ids": [
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1"
+      ],
+      "type": "enum",
+      "rationale": "The position of the coating is crucial for the product's functionality in preventing water infiltration.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": [
+        "one-sided",
+        "two-sided"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "coating on one of its side"
+      ],
+      "inference_basis": [
+        "The description specifies a one-sided coating, which is relevant for its application."
+      ]
+    },
+    "coating_weight": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ],
+      "type": "float",
+      "rationale": "The coating weight is important for understanding the corrosion resistance of the steel product, especially in environments where it may be exposed to moisture or chemicals.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "g/m²",
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "zinc coating (100 g/m2 as minimum weight)"
+      ],
+      "inference_basis": null
+    },
+    "exc_class": {
+      "count": 1,
+      "document_ids": [
+        "abcf7f49-e100-45dc-9c26-3012d94dec91"
+      ],
+      "type": "ordinal_enum",
+      "rationale": "The dataset specifies that the steel structures are up to EXC 4, indicating the execution class which is a measure of the complexity and risk level of the construction.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "EXC 1",
+        "EXC 2",
+        "EXC 3",
+        "EXC 4"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "up to EXC 4"
+      ],
+      "inference_basis": null
+    },
+    "heat_treatment": {
+      "count": 1,
+      "document_ids": [
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions that the rails are either naturally hardened or heat treated, which is a key property affecting the mechanical characteristics of steel products.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "rails"
+      ],
+      "evidence": [
+        "The considered products are naturally hardened or heat treated (head hardened) rails."
+      ],
+      "inference_basis": null
+    },
+    "insulating_coating": {
+      "count": 1,
+      "document_ids": [
+        "d9a0e30d-60f4-4b98-8136-35ebe09200b7"
+      ],
+      "type": "bool",
+      "rationale": "The product is often supplied with an insulating coating, which is a significant feature for electrical steel used in electrical machinery.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The product is often supplied with an insulating coating."
+      ],
+      "inference_basis": null
+    },
+    "manufacturing_location": {
+      "count": 1,
+      "document_ids": [
+        "57884fa3-a923-4803-9ee6-8d2250aaafe1"
+      ],
+      "type": "string",
+      "rationale": "Knowing the manufacturing location can be important for logistical and regulatory reasons.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel sheets"
+      ],
+      "evidence": [
+        "The product is manufactured at Junghansring 52 in Rottenburg a. N."
+      ],
+      "inference_basis": [
+        "Manufacturing location is often relevant for supply chain and compliance purposes."
+      ]
+    },
+    "processing_technique": {
+      "count": 1,
+      "document_ids": [
+        "1fa429e6-921d-4db7-9c91-a742cd0bdab9"
+      ],
+      "type": "enum",
+      "rationale": "The product undergoes specific processing techniques such as cold drawing, which are critical for understanding its mechanical properties and applications.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "hot rolling",
+        "cold drawing",
+        "annealing"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Betonstahl in Ringen wird aus warmgewalztem und geripptem Walzdraht durch ein nachträgliches Kaltrecken hergestellt."
+      ],
+      "inference_basis": null
+    },
+    "product_condition": {
+      "count": 1,
+      "document_ids": [
+        "d9a0e30d-60f4-4b98-8136-35ebe09200b7"
+      ],
+      "type": "enum",
+      "rationale": "The product is described as 'fully processed', which is a key characteristic of electrical steel, indicating its readiness for use in applications like motors and transformers.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "fully_processed",
+        "semi_processed"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The declared product is non-grain-oriented electrical steel in fully processed condition."
+      ],
+      "inference_basis": null
+    },
+    "production_route": {
+      "count": 1,
+      "document_ids": [
+        "d1e98488-d8ed-49db-abd1-baf2e9465f30"
+      ],
+      "type": "enum",
+      "rationale": "The production route (ore-based blast furnace) is a key factor in determining the environmental and mechanical properties of the steel product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "ore_based_blast_furnace",
+        "electric_arc_furnace"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "produced via an ore-based blast furnace route"
+      ],
+      "inference_basis": null
+    },
+    "profile_shape": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ],
+      "type": "enum",
+      "rationale": "The shape of the steel profile (U, C, etc.) is critical for its structural application, influencing how it can be used in construction projects.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "U",
+        "C",
+        "S"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "profiles that, on the floor and ceiling, block the foot and head of the vertical studs of the wall warps",
+        "profiles that constitute the vertical structures of the wall frames",
+        "profiles used to form the frame for a suspended ceiling system"
+      ],
+      "inference_basis": [
+        "U tracks Guide, C studs Montanti, C channels Profili"
+      ]
+    },
+    "rail_application": {
+      "count": 1,
+      "document_ids": [
+        "f4cb5dd7-367c-48ff-aa3b-b7831db3cc6f"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies different applications for the rails, such as high-speed railways and urban public transportation, which are important for categorizing the product's use case.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": [
+        "high_speed",
+        "mixed_traffic",
+        "heavy_loads",
+        "urban_transportation",
+        "railway_switches"
+      ],
+      "unit": null,
+      "applicability": [
+        "rails"
+      ],
+      "evidence": [
+        "The products of voestalpine Rail Technology GmbH are used in railway systems, particularly in the following areas: ▪ High-speed railways ▪ Mixed railways (passenger and freight traffic) ▪ Heavy loads (including railways for ore transports) ▪ Urban public transportation (subways and trams) ▪ Railway switches (individual parts used in switch production)"
+      ],
+      "inference_basis": null
+    },
+    "rolling_technology": {
+      "count": 1,
+      "document_ids": [
+        "b922ae45-0960-4d94-b2a0-ae6f7fcc11b4"
+      ],
+      "type": "string",
+      "rationale": "The rolling technology, such as 'quarto rolling stands', affects the mechanical properties and dimensions of the steel product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The rolling stands are so-called quarto rolling stands, consisting of four rolls: two work rolls and two back-up rolls."
+      ],
+      "inference_basis": null
+    },
+    "steel_grade": {
+      "count": 1,
+      "document_ids": [
+        "ba8b9e96-e813-4e80-97d7-6a30496a4a47"
+      ],
+      "type": "string",
+      "rationale": "The steel grade provides information about the mechanical properties and chemical composition of the steel, which is crucial for determining its suitability for specific applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "Quality steel grade: DX51 D+Z100"
+      ],
+      "inference_basis": null
+    },
+    "surface_treatment": {
+      "count": 1,
+      "document_ids": [
+        "ad911be4-fabd-4ae1-8a81-a4dda81184f3"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions that the steel structures are welded and painted, indicating surface treatment is applied.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "structural_steel"
+      ],
+      "evidence": [
+        "custom made welded and painted steel structures"
+      ],
+      "inference_basis": null
+    },
+    "tensile_strength": {
+      "count": 1,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039"
+      ],
+      "type": "float",
+      "rationale": "The product's high tensile strength is highlighted, which is a critical property for reinforcing bars used in construction.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "The extremely high packing density of the fibres means the tensile strength achieved is many times greater than that of the basic materials."
+      ],
+      "inference_basis": [
+        "High packing density of fibres typically results in high tensile strength."
+      ]
+    },
+    "thermal_conductivity": {
+      "count": 1,
+      "document_ids": [
+        "7f7348b9-fb2f-4d11-aa3d-70fabdd67039"
+      ],
+      "type": "float",
+      "rationale": "The product is described as having extremely low thermal conductivity, which is a critical property for materials used in construction to prevent heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "reinforcing_bar"
+      ],
+      "evidence": [
+        "extremely low thermal conductivity"
+      ],
+      "inference_basis": [
+        "Materials with low thermal conductivity are often used in construction to improve energy efficiency."
+      ]
+    }
+  }
+}

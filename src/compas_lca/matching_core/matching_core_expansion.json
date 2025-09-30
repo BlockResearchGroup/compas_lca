@@ -1,4 +1,20 @@
 {
+  "Doors": [
+    {
+      "name": "Width",
+      "example": "1230 mm"
+    },
+    {
+      "name": "Height",
+      "example": "2180 mm"
+    },
+    {
+      "name": "Fire protection",
+      "example": "EI2 30",
+      "description": "Any explicit fire resistance/protection information found within the dataset."
+    }
+
+  ],
   "Mineral building products": [
     {
       "name": "Strength class",

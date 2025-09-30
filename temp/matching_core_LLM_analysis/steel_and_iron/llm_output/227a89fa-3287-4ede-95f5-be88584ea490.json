@@ -1,0 +1,43 @@
+{
+  "document_id": "227a89fa-3287-4ede-95f5-be88584ea490",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness is a critical property for steel sheets as it affects the product's application and performance in construction joints.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "layer_thickness: 0.002"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The type of coating on steel products can significantly affect their performance, especially in terms of adhesion and protection against environmental factors.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "flexible",
+        "rigid",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "flexible, adherent coating on one side"
+      ],
+      "inference_basis": [
+        "Presence of 'flexible, adherent coating' suggests coating type."
+      ]
+    }
+  ]
+}

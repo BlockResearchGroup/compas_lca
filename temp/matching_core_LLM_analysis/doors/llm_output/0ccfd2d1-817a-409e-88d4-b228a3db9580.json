@@ -1,0 +1,21 @@
+{
+  "document_id": "0ccfd2d1-817a-409e-88d4-b228a3db9580",
+  "fields": [
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "The product is described as an 'Aluminium fire door', indicating it is designed to resist fire.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Aluminium fire door"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

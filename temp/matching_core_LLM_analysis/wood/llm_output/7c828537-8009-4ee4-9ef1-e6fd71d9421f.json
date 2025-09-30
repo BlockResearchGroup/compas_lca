@@ -1,0 +1,40 @@
+{
+  "document_id": "7c828537-8009-4ee4-9ef1-e6fd71d9421f",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a semi-rigid, decorative floor covering in the form of a flooring board or tile, indicating its form factor.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "flooring_board",
+        "tile"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "EGGER Comfort Flooring is a semi-rigid, decorative floor covering in the form of a flooring board or tile"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "core_material",
+      "type": "string",
+      "rationale": "The core material of the product is explicitly stated as high density wood fibre board, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "A high density wood fibre board is used as coreboard."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "document_id": "bffa680c-3a79-4401-b8d0-36eb720b21e6",
+  "fields": [
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The product is described as zinc coated, which is a key characteristic for categorizing steel products based on their corrosion resistance properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "zinc_coated",
+        "zinc_coated_and_painted"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "The average EPD is based on LCA of the custom made zinc coated steel structures.",
+        "This EPD contains results of two sub-types: zinc coated steel structures and zinc coated and additionally painted steel structures."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "corrosion_resistance",
+      "type": "ordinal_enum",
+      "rationale": "The product is used in environments requiring high corrosion protection, indicating varying levels of corrosion resistance.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "The area of application of zinc coated steel structure includes mostly outdoor residential and commercial construction elements, where high corrosion protection is needed."
+      ],
+      "inference_basis": [
+        "Zinc coating implies enhanced corrosion resistance."
+      ]
+    },
+    {
+      "name": "manufacturing_standard",
+      "type": "string",
+      "rationale": "The product is manufactured according to specific standards, which is crucial for quality assurance and compliance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "The steel structures are manufactured according to EN 1090-2, up to EXC 4, and are CE marked."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_environment",
+      "type": "enum",
+      "rationale": "The product is used in specific environments, which helps in categorizing its suitability for different applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "residential",
+        "commercial",
+        "industrial",
+        "agricultural",
+        "energy"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "Zinc coated or hot-dip galvanized steel structures are used in various areas of construction, for example construction of bridges, telecommunications towers, engineering, industrial and public buildings, as well as in the agriculture and energy industry."
+      ],
+      "inference_basis": [
+        "The mention of various environments suggests different application categories."
+      ]
+    }
+  ]
+}

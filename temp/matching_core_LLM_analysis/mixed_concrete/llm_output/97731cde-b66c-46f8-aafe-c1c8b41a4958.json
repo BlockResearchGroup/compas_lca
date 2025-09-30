@@ -1,0 +1,47 @@
+{
+  "document_id": "97731cde-b66c-46f8-aafe-c1c8b41a4958",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class C30/37 is explicitly mentioned, which is a key property for categorizing concrete by its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Güte C30/37"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "string",
+      "rationale": "Exposure classes XC4, XF1, XA1 are specified, indicating the environmental conditions the concrete is designed to withstand, such as carbonation, freeze/thaw, and chemical attack.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Expositionsklassen XC4 XF1 XA1"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "maximum_aggregate_size",
+      "type": "float",
+      "rationale": "The maximum aggregate size of 32 mm is explicitly stated, which affects the concrete's workability and strength characteristics.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": null,
+      "evidence": [
+        "Größtkorn 32 mm"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

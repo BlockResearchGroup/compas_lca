@@ -1,0 +1,44 @@
+{
+  "document_id": "22527f3b-5985-41a7-8028-655142979cfd",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly mentioned as 'Oriented Strand Board (OSB)', which is a specific type of wood panel product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "OSB",
+        "plywood",
+        "MDF",
+        "particleboard"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Oriented Strand Board (OSB)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_system",
+      "type": "string",
+      "rationale": "The adhesive system is inferred from the mention of 'water-resistant resin' used to bond the wood strands in OSB.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "bonded with water-resistant resin"
+      ],
+      "inference_basis": [
+        "OSB typically uses a water-resistant resin adhesive system."
+      ]
+    }
+  ]
+}

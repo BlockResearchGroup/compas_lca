@@ -1,0 +1,39 @@
+{
+  "document_id": "9d0f1390-089c-4352-87d0-ff0ea5599b12",
+  "fields": [
+    {
+      "name": "layer_count",
+      "type": "range",
+      "rationale": "The product is described as having one to five layers, which is a key characteristic of the panel's structure and affects its mechanical properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "layers",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The results refer to a representative average of one- to five-layered nordpan solid wood panels."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_system",
+      "type": "string",
+      "rationale": "The adhesive system is mentioned as part of the production process, which is crucial for the structural integrity and performance of the wood panels.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Lumber production includes direct emissions from drying processes based on a worst-case approximation. Upstream emissions from the use of binding agents rely on supplier-specific data complemented by secondary data."
+      ],
+      "inference_basis": [
+        "Adhesive systems are typically used in multi-layered wood products to bond layers together."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "document_id": "c72f24ff-9562-4527-8191-ed0bda3ebab0",
+  "fields": [
+    {
+      "name": "coating_type",
+      "type": "string",
+      "rationale": "The dataset mentions that the steel structures are painted, indicating a specific type of coating applied to the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The calculation is based on 1 metric ton of welded and surface treated steel structure with a share of 99% steel materials."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_standard",
+      "type": "string",
+      "rationale": "The steel structures are manufactured according to EN 1090-2, which is a specific standard for steel construction.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The steel structures are manufactured according to EN 1090-2, up to EXC 3, and are CE- marked."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

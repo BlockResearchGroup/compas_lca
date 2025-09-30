@@ -1,0 +1,100 @@
+{
+  "document_id": "757297f1-9325-4df4-af51-96510be76bf3",
+  "fields": [
+    {
+      "name": "compressive_strength",
+      "type": "ordinal_enum",
+      "rationale": "The text mentions 'medium compressive load capacity' for certain applications, indicating that compressive strength is a relevant property for these insulation products.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "medium compressive load capacity"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a key property of insulation materials, and the text refers to 'Wärmeleitfähigkeit' (thermal conductivity) as an essential characteristic.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "boards",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Wesentliche kennzeichnende Eigenschaften sind die Wärmeleitfähigkeit"
+      ],
+      "inference_basis": [
+        "Thermal insulation products typically specify thermal conductivity"
+      ]
+    },
+    {
+      "name": "installation_location",
+      "type": "enum",
+      "rationale": "The text specifies different installation locations such as 'flat roof' and 'floor insulation', which are important for categorizing the product's application.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "flat_roof",
+        "floor",
+        "wall"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The main areas of application for the products declared here are flat roof and floor insulation."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "recycling_content",
+      "type": "bool",
+      "rationale": "The text mentions the use of recycling processes and the reuse of production waste, indicating the presence of recycled content in the product.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Zuführung von Recyclingmaterial aus Produktionsabschnitten",
+        "Production waste is 100% reused"
+      ],
+      "inference_basis": [
+        "Recycling processes and reuse of production waste suggest recycled content"
+      ]
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "string",
+      "rationale": "The text describes the manufacturing process in detail, which is crucial for understanding the product's properties and environmental impact.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "EPS insulation boards are produced in a multi-stage manufacturing process."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

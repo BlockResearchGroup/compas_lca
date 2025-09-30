@@ -1,0 +1,22 @@
+{
+  "document_id": "e7b98886-9ac9-4e77-990b-3e60c2ef0e5a",
+  "fields": [
+    {
+      "name": "cladding_material",
+      "type": "string",
+      "rationale": "The product is specifically described as having a cladding material made of ferritic stainless steels, which is a key characteristic of roll-bonded clad plates.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "roll-bonded clad plate with cladding made of ferritic stainless steels"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

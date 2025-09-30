@@ -1,0 +1,46 @@
+ (species/group, panel class, standards, "
+            "  product form, adhesive/treatment)
+
+            "\n"
+            "Helpful cues & typical wood properties (examples, not a mandatory list):\n"
+            "- Product form: product_form (enum: solid_sawn, glulam, clt, lvl, plywood, osb, particleboard, mdf, hdf, hardboard, edge_glued_panel).\n"
+            "- Species/group: wood_species (string), species_group (enum: spruce_pine_fir, larch, oak, beech, birch, poplar, mixed_softwood, mixed_hardwood).\n"
+            "- Structural performance (if structural): strength_class (enum: C14–C50, D18–D70; GL24–GL32 for glulam), "
+            "  service_class (enum: sc1, sc2, sc3 per EN 1995-1-1), moisture_content_pct (float, %), "
+            "  modulus_of_elasticity_mpa (float, MPa), bending_strength_mpa (float, MPa).\n"
+            "- Panels & classes: panel_class (enum; e.g., OSB/2, OSB/3, OSB/4 per EN 300; P1–P7 per EN 312; "
+            "  MDF/HDF per EN 622; plywood per EN 636), veneer_count (integer), face_species (string).\n"
+            "- Adhesives & emissions: adhesive_type (enum: muf, pf, prf, pur, epi, uf), "
+            "  formaldehyde_emission_class (ordinal_enum: E0, E1, E2; or CARB/TSCA where applicable), "
+            "  no_added_formaldehyde (bool).\n"
+            "- Treatments & durability: treatment_type (enum: none, heat_treated, fire_retardant, preservative_impregnated), "
+            "  durability_class (ordinal_enum: 1–5 per EN 350), use_hazard_class (ordinal_enum: 1–5 per EN 335), "
+            "  reaction_to_fire (ordinal_enum per EN 13501-1).\n"
+            "- Geometry/config: thickness_mm (float), width_mm (float), length_mm (float), edge_profile (enum: square, tongue_groove, shiplap), "
+            "  surface_finish (enum: sanded, planed, lacquered, oiled, melamine_faced, laminate).\n"
+            "- Standards cues for inference: EN 14081 (structural timber), EN 338 (strength classes), EN 14080 (glulam), EN 16351 (CLT), "
+            "  EN 14374 (LVL), EN 300 (OSB classes), EN 312 (particleboard P classes), EN 622 (fibreboard), EN 636 (plywood), "
+            "  EN 13986 (panel characteristics), EN 13501-1 (reaction to fire). Use these to motivate inferred fields when explicit values aren’t stated."
+
+
+drying_method: ["green", "air_dried", "kiln_dried", "unknown"]
+green = undried/fresh-sawn (MC ≳ 30%)
+
+air_dried = luftgetrocknet
+
+kiln_dried = kammergetrocknet (artificial/forced drying)
+
+unknown = not stated
+
+kiln_technology (only if kiln_dried)
+["conventional_hot_air", "dehumidification", "vacuum", "solar", "microwave", "steam_conditioned"]
+
+
+ADD ON:
+moisture_content_pct (float, unit “%”) — target MC at delivery (e.g., 8–12% for interior products).
+
+
+
+surface_texture: ["rough_sawn", "planed", "fine_planed", "sanded", "brushed", "hewn", "unknown"]
+
+edge_profile = ["square", "eased_edge", "chamfered", "tongue_groove", "shiplap", "micro_bevel", "profiled_other", "unknown"]

@@ -1,0 +1,45 @@
+{
+  "document_id": "4f0df91e-dbc6-457b-bdd9-bf6ca0b518d3",
+  "fields": [
+    {
+      "name": "insulation_form",
+      "type": "enum",
+      "rationale": "The product is described as being produced in rolls, which is a common form for insulation materials, allowing for easy categorization.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "rolls",
+        "batts",
+        "boards",
+        "loose_fill",
+        "spray"
+      ],
+      "unit": null,
+      "applicability": [
+        "sheep_wool"
+      ],
+      "evidence": [
+        "ISOLENA, is a sheep's wool insulation produced in rolls"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is a key property for insulation materials, affecting their efficiency in reducing heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "sheep_wool"
+      ],
+      "evidence": [
+        "sheep's wool insulation can be used for all conceivable building construction projects"
+      ],
+      "inference_basis": [
+        "Insulation materials typically have specified thermal conductivity values."
+      ]
+    }
+  ]
+}

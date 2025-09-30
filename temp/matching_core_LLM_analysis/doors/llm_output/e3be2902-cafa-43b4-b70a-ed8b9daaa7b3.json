@@ -1,0 +1,43 @@
+{
+  "document_id": "e3be2902-cafa-43b4-b70a-ed8b9daaa7b3",
+  "fields": [
+    {
+      "name": "anti_finger_trap",
+      "type": "bool",
+      "rationale": "The product is explicitly described as an 'anti-finger-trap' door, which is a key safety feature for preventing injuries.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "Jansen-Economy 60 anti-finger-trap door"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "door_type",
+      "type": "enum",
+      "rationale": "The door is described as suitable for both interior and exterior use, which is a common categorization for doors.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior",
+        "exterior",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "doors"
+      ],
+      "evidence": [
+        "meets all the requirements of an interior or exterior wall"
+      ],
+      "inference_basis": [
+        "Interior/exterior use is a common classification for doors."
+      ]
+    }
+  ]
+}

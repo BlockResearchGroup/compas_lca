@@ -1,0 +1,56 @@
+{
+  "document_id": "bce411da-4a65-4d3a-93b6-d91ed7560a4e",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class of the concrete is explicitly mentioned as C 55/67, which is a key property for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The concrete type 66b has compressive strength class of C 55/67."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "reinforcement_type",
+      "type": "enum",
+      "rationale": "The dataset mentions the use of reinforcing and prestressed steel, which are common reinforcement types in precast concrete.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "reinforcing_steel",
+        "prestressed_steel"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "a share of 6 m% reinforcing and prestressed steel."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental material property that affects the weight and structural performance of concrete elements.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 2417.1"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/mixed_concrete/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 24,
+    "note": "count = number of distinct documents containing this field name"
+  },
+  "fields": {
+    "compressive_strength_class": {
+      "count": 23,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "0a1fa7f9-ad49-4942-a173-cb8c4ad99c9b",
+        "0ac90196-213a-460b-9a2c-090eebf30eaa",
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "7180425d-0e35-47f5-84d9-cbf39486b411",
+        "76c44e98-da73-4111-b5d7-80a5c8617e03",
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "97345f6c-b4f4-4761-8863-14fc279ada34",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "d5d98d4b-a9ba-4fb3-b2d2-6766f8ef5a59",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ]
+    },
+    "density": {
+      "count": 21,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "0ac90196-213a-460b-9a2c-090eebf30eaa",
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "97345f6c-b4f4-4761-8863-14fc279ada34",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "cf2e106f-ddf5-4265-ae3e-5df9b1297c48",
+        "d5d98d4b-a9ba-4fb3-b2d2-6766f8ef5a59",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000",
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ]
+    },
+    "exposure_class": {
+      "count": 11,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000"
+      ]
+    },
+    "application_area": {
+      "count": 5,
+      "document_ids": [
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ]
+    },
+    "layer_thickness": {
+      "count": 5,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6"
+      ]
+    },
+    "consistency_class": {
+      "count": 3,
+      "document_ids": [
+        "76c44e98-da73-4111-b5d7-80a5c8617e03",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000"
+      ]
+    },
+    "application_type": {
+      "count": 2,
+      "document_ids": [
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6"
+      ]
+    },
+    "maximum_aggregate_size": {
+      "count": 2,
+      "document_ids": [
+        "7180425d-0e35-47f5-84d9-cbf39486b411",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958"
+      ]
+    },
+    "aggregate_content": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ]
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ]
+    },
+    "binder_type": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ]
+    },
+    "cement_content": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ]
+    },
+    "cement_type": {
+      "count": 1,
+      "document_ids": [
+        "0ac90196-213a-460b-9a2c-090eebf30eaa"
+      ]
+    },
+    "chloride_class": {
+      "count": 1,
+      "document_ids": [
+        "85d8df7d-4741-4fdf-b494-60274968ae2e"
+      ]
+    },
+    "exposure_classes": {
+      "count": 1,
+      "document_ids": [
+        "7180425d-0e35-47f5-84d9-cbf39486b411"
+      ]
+    },
+    "maximum_aggregate_diameter": {
+      "count": 1,
+      "document_ids": [
+        "76c44e98-da73-4111-b5d7-80a5c8617e03"
+      ]
+    },
+    "mix_code": {
+      "count": 1,
+      "document_ids": [
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644"
+      ]
+    },
+    "production_location": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ]
+    },
+    "production_method": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ]
+    },
+    "reinforcement": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ]
+    },
+    "reinforcement_inclusion": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ]
+    },
+    "reinforcement_type": {
+      "count": 1,
+      "document_ids": [
+        "cf2e106f-ddf5-4265-ae3e-5df9b1297c48"
+      ]
+    },
+    "transport_method": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ]
+    },
+    "water_cement_ratio": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "document_id": "0dec19c7-53db-4cb9-bbba-4d44d3da62a9",
+  "fields": [
+    {
+      "name": "modification_type",
+      "type": "enum",
+      "rationale": "The wood is chemically modified through acetylation, which enhances its durability against environmental factors.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "acetylated",
+        "non-acetylated"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "The chemical modification of the wood increases the durability of the wood against rot, fungal attack and insect attack."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_environment",
+      "type": "enum",
+      "rationale": "The product is suitable for outdoor use, including soil and water contact, due to its enhanced durability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "indoor",
+        "outdoor",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "acetylated wood is mainly used outdoors, as well as for applications with soil and water contact."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

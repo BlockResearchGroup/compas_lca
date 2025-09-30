@@ -1,0 +1,98 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "species_group",
+      "type": "enum",
+      "rationale": "The dataset explicitly names the product as coniferous lumber, which distinguishes timber by species group and is widely usable for filtering wood products.",
+      "confidence": 0.97,
+      "provenance": "explicit",
+      "enum_options": [
+        "coniferous",
+        "deciduous",
+        "mixed"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: \"Planed coniferous lumber (German average)\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "moisture_content_pct",
+      "type": "float",
+      "rationale": "The EPD gives a specific product moisture content value (important for storage, performance and further processing).",
+      "confidence": 0.99,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": null,
+      "evidence": [
+        "Die Holzfeuchte des Produktes liegt bei 12%"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "kiln_dried",
+      "type": "bool",
+      "rationale": "The production description states the sawn timber is chamber-dried, which affects dimensional stability and suitability for indoor applications.",
+      "confidence": 0.98,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Zur Herstellung von Hobelware aus Nadelholz wird kammergetrocknetes Nadelschnittholz ...",
+        "kammergetrocknetes Nadelschnittholz"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "raw_material_transport_distance_km",
+      "type": "float",
+      "rationale": "The dataset provides an average transport distance for the raw materials, useful for distinguishing logistics impact and regionality.",
+      "confidence": 0.98,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "km",
+      "applicability": null,
+      "evidence": [
+        "Für die Herstellung von Hobelware aus Nadelholz wurden die Rohstoffe durchschnittlich über eine Distanz von 111 km transportiert."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_common_four_sided_machining",
+      "type": "bool",
+      "rationale": "The text indicates that in most cases a four-sided planing operation is assumed; this infers a common machining process that distinguishes planing complexity and surface finish.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "wobei in den meisten Fällen von einem vierseitigen Hobelvorgang ausgegangen werden kann."
+      ],
+      "inference_basis": [
+        "Phrase 'in den meisten Fällen von einem vierseitigen Hobelvorgang ausgegangen werden kann' ⇒ product typically produced by four‑sided machining; treat as a common manufacturing attribute."
+      ]
+    },
+    {
+      "name": "suitable_for_structural_use",
+      "type": "bool",
+      "rationale": "The dataset category includes 'Structural timber', so the product is intended or suitable for structural applications; this helps filter products by functional use class.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "category: \"'Wood' / 'Solid wood' / 'Structural timber'\""
+      ],
+      "inference_basis": [
+        "Category label 'Structural timber' ⇒ product is intended/suitable for load‑bearing or structural uses in building contexts."
+      ]
+    }
+  ]
+}

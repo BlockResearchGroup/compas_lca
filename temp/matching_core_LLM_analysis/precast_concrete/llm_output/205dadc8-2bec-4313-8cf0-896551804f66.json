@@ -1,0 +1,80 @@
+{
+  "document_id": "205dadc8-2bec-4313-8cf0-896551804f66",
+  "fields": [
+    {
+      "name": "color",
+      "type": "string",
+      "rationale": "The color of the concrete paving stone is explicitly mentioned as anthracite, which is a key distinguishing feature for aesthetic and functional purposes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "anthrazitfarbene Betonpflastersteine"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the concrete paving stone is explicitly stated as 6 cm, which is crucial for structural and application purposes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "cm",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Steinstrke 6 cm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "bool",
+      "rationale": "The surface of the concrete paving stones is described as untreated, which affects the product's texture and potential applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Die Oberflche ist unbehandelt."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The product is intended for various outdoor and indoor applications, which helps in categorizing its use cases.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "driveways",
+        "terraces",
+        "gardens",
+        "paths",
+        "roofs",
+        "indoor"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Concrete paving stones or slaps for use outdoor, i.e. driveways, terraces, gardens, paths, on roofs and indoor."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

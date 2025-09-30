@@ -1,0 +1,119 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "modification_type",
+      "type": "enum",
+      "rationale": "The dataset explicitly identifies the product as acetylated wood in the dataset name and category, which is a primary discriminating material property.",
+      "confidence": 0.98,
+      "provenance": "explicit",
+      "enum_options": [
+        "acetylated",
+        "thermally_modified",
+        "impregnated",
+        "untreated",
+        "other"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: \"Acetylated wood (1 m3, 510 kg/m3)\"",
+        "category: \"'Wood' / 'Modified wood' / 'Acetylated wood'\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "feedstock_species_group",
+      "type": "enum",
+      "rationale": "The technology description states that dried softwood is used as the feedstock, which differentiates mechanical/biological properties and supply-chain impacts.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "softwood",
+        "hardwood",
+        "mixed",
+        "unspecified"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technology description: \"For the production of acetylated wood, dried softwood is used for this data set.\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "outdoor_suitable",
+      "type": "bool",
+      "rationale": "The technical purpose notes that acetylated wood is mainly used outdoors and in soil/water contact due to improved durability, indicating suitability for outdoor applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technical purpose of product or process: \"Acetylated wood can be used for structural and non-structural applications. Due to the improved durability, acetylated wood is mainly used outdoors, as well as for applications with soil and water contact.\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "uses_acetic_anhydride",
+      "type": "bool",
+      "rationale": "The acetylation process description explains that an acetic anhydride solution is injected and reacted with the wood, indicating acetic anhydride is a key chemical input.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technology description: \"For the acetylation process, an acetic anhydride solution is injected into special stainless steel reactors filled with the wood to be treated.\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "end_of_life_primary_treatment",
+      "type": "enum",
+      "rationale": "Module C3 explicitly accounts for grinding and thermal treatment (combustion) of the material and Module D contains credits from energy substitution, so the primary EoL pathway modeled is combustion with energy recovery.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "combustion_with_energy_recovery",
+        "material_recycling",
+        "landfill",
+        "reuse",
+        "unknown"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Technology description: \"Module C3 takes into account the grinding and thermal treatment (combustion) of the material.\"",
+        "Technology description: \"Module D contains the credits for the substitution of electricity (German electricity mix) and thermal energy (from natural gas).\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "Although not stated as a single explicit label, cues in the dataset (reference to EN 16485 for round and sawn timber, a declared volume of 1 m3, and description of reactors filled with wood pieces) suggest the product is solid sawn/round timber rather than panels.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "sawn_timber_solid",
+        "roundwood",
+        "panel_board",
+        "engineered_wood",
+        "unspecified"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "General comment: reference to EN 16485: \"Round and sawn timber - Environmental Product Declarations - Product category rules for wood and wood-based products for use in construction, 2014\"",
+        "dataset_name: \"Acetylated wood (1 m3, 510 kg/m3)\"",
+        "Technology description: \"... reactors filled with the wood to be treated.\""
+      ],
+      "inference_basis": [
+        "Reference to EN 16485 (round and sawn timber) implies the product belongs to the sawn/solid timber category.",
+        "Declared functional unit as 1 m3 and process description (reactors filled with wood) are more consistent with solid wood pieces than panels or engineered products."
+      ]
+    }
+  ]
+}

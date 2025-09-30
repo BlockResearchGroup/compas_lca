@@ -1,0 +1,1239 @@
+{
+  "_meta": {
+    "_count_definition": "Number of CSV rows that fall under the category (including all nested subcategories).",
+    "column_source": "Kategorie (en)"
+  },
+  "taxonomy": {
+    "Building service engineering": {
+      "_count": 416,
+      "children": {
+        "Air conditioning and ventilation": {
+          "_count": 32,
+          "children": {
+            "Accessory": {
+              "_count": 4
+            },
+            "Air conditioning/cooling machines": {
+              "_count": 4
+            },
+            "Refrigerants": {
+              "_count": 11
+            },
+            "Ventilation system": {
+              "_count": 13
+            }
+          }
+        },
+        "Conveyance": {
+          "_count": 4,
+          "children": {
+            "Elevator": {
+              "_count": 2
+            },
+            "Escalator": {
+              "_count": 2
+            }
+          }
+        },
+        "Electrical": {
+          "_count": 196,
+          "children": {
+            "Batteries": {
+              "_count": 1
+            },
+            "Cable": {
+              "_count": 8
+            },
+            "Fuse and switch boxes": {
+              "_count": 4
+            },
+            "Lighting": {
+              "_count": 180
+            },
+            "Switches and sockets": {
+              "_count": 3
+            }
+          }
+        },
+        "Fire protection": {
+          "_count": 2,
+          "children": {
+            "Protection systems for cable and duct insulation": {
+              "_count": 2
+            }
+          }
+        },
+        "Heating": {
+          "_count": 118,
+          "children": {
+            "Heat distribution and dissipation": {
+              "_count": 49
+            },
+            "Heat generator": {
+              "_count": 46
+            },
+            "Storage": {
+              "_count": 23
+            }
+          }
+        },
+        "Sanitary": {
+          "_count": 42,
+          "children": {
+            "Mountings": {
+              "_count": 32
+            },
+            "Sanitary ware": {
+              "_count": 8
+            },
+            "Shower and bath tubs": {
+              "_count": 2
+            }
+          }
+        },
+        "Use": {
+          "_count": 22,
+          "children": {
+            "Use conveyor": {
+              "_count": 4
+            },
+            "Use heat generator (EnEV)": {
+              "_count": 13
+            },
+            "Use lighting": {
+              "_count": 1
+            },
+            "Use ventilation and air conitioning": {
+              "_count": 4
+            }
+          }
+        }
+      }
+    },
+    "Components for windows and curtain walls": {
+      "_count": 469,
+      "children": {
+        "Accessories for windows, walling and doors": {
+          "_count": 23,
+          "children": {
+            "Finger protection devices": {
+              "_count": 5
+            },
+            "Fire resistance and smoke control devices": {
+              "_count": 1
+            },
+            "Solar protection devices": {
+              "_count": 17
+            }
+          }
+        },
+        "Daylight systems and smoke/heat control systems": {
+          "_count": 24,
+          "children": {
+            "Roof lights": {
+              "_count": 13
+            },
+            "Smoke and heat control systems": {
+              "_count": 11
+            }
+          }
+        },
+        "Doors": {
+          "_count": 127,
+          "children": {
+            "Aluminium": {
+              "_count": 40
+            },
+            "Plastic": {
+              "_count": 3
+            },
+            "Steel": {
+              "_count": 51
+            },
+            "Wood": {
+              "_count": 33
+            }
+          }
+        },
+        "Drive system": {
+          "_count": 39,
+          "children": {
+            "electrical": {
+              "_count": 27
+            },
+            "mechanical": {
+              "_count": 12
+            }
+          }
+        },
+        "Frames / Profiles": {
+          "_count": 34,
+          "children": {
+            "Aluminium": {
+              "_count": 18
+            },
+            "Aluminium thermally separated": {
+              "_count": 8
+            },
+            "PVC": {
+              "_count": 4
+            },
+            "Steel": {
+              "_count": 2
+            },
+            "Wood": {
+              "_count": 2
+            }
+          }
+        },
+        "Infill": {
+          "_count": 23,
+          "children": {
+            "Opaque fillings": {
+              "_count": 3
+            },
+            "Transparent infill": {
+              "_count": 20
+            }
+          }
+        },
+        "Sealing components / materials": {
+          "_count": 41,
+          "children": {
+            "Joint sealing tapes": {
+              "_count": 4
+            },
+            "Rubber seal": {
+              "_count": 3
+            },
+            "Sealing profiles": {
+              "_count": 34
+            }
+          }
+        },
+        "Walling": {
+          "_count": 8,
+          "children": {
+            "Curtain walling - stick construction": {
+              "_count": 2
+            },
+            "Curtain walling - unitized walling": {
+              "_count": 2
+            },
+            "Other walling": {
+              "_count": 4
+            }
+          }
+        },
+        "Window fittings": {
+          "_count": 67,
+          "children": {
+            "Aluminium window fittings": {
+              "_count": 5
+            },
+            "Brass window fittings": {
+              "_count": 5
+            },
+            "Fastening materials": {
+              "_count": 32
+            },
+            "Plastic fittings": {
+              "_count": 1
+            },
+            "Stainless steal window fittings": {
+              "_count": 3
+            },
+            "Steel window fittings": {
+              "_count": 15
+            },
+            "Window handles": {
+              "_count": 4
+            },
+            "Zinc fittings": {
+              "_count": 2
+            }
+          }
+        },
+        "Windows": {
+          "_count": 83,
+          "children": {
+            "Metal windows": {
+              "_count": 18
+            },
+            "Other windows": {
+              "_count": 12
+            },
+            "Plastic windows": {
+              "_count": 21
+            },
+            "Timber windows": {
+              "_count": 23
+            },
+            "Timber-metal windows": {
+              "_count": 9
+            }
+          }
+        }
+      }
+    },
+    "Composites": {
+      "_count": 42,
+      "children": {
+        "System components": {
+          "_count": 42,
+          "children": {
+            "Ceilings": {
+              "_count": 13
+            },
+            "Flooring": {
+              "_count": 1
+            },
+            "Inner walls": {
+              "_count": 13
+            },
+            "Outer walls": {
+              "_count": 9
+            },
+            "Reinforcement": {
+              "_count": 3
+            },
+            "Roof superstructures": {
+              "_count": 3
+            }
+          }
+        }
+      }
+    },
+    "Coverings": {
+      "_count": 87,
+      "children": {
+        "Bituminous paint": {
+          "_count": 1,
+          "children": {
+            "Bituminous paint": {
+              "_count": 1
+            }
+          }
+        },
+        "Facade paint": {
+          "_count": 4,
+          "children": {
+            "Dispersion": {
+              "_count": 2
+            },
+            "Silicate dispersion": {
+              "_count": 1
+            },
+            "Silicone resin": {
+              "_count": 1
+            }
+          }
+        },
+        "Interior covering": {
+          "_count": 30,
+          "children": {
+            "Dispersion glue": {
+              "_count": 12
+            },
+            "Interior paint": {
+              "_count": 2
+            },
+            "Wall and ceiling covering": {
+              "_count": 16
+            }
+          }
+        },
+        "Primer": {
+          "_count": 11,
+          "children": {
+            "Primer for paints and plasters": {
+              "_count": 11
+            }
+          }
+        },
+        "Reactive resin": {
+          "_count": 22,
+          "children": {
+            "Reaction resin on methacrylate basis": {
+              "_count": 6
+            },
+            "Reaction resin on polyurethane basis": {
+              "_count": 9
+            },
+            "Reactive resin on epoxy basis": {
+              "_count": 7
+            }
+          }
+        },
+        "Varnishes and stains": {
+          "_count": 19,
+          "children": {
+            "Parquet varnish": {
+              "_count": 4
+            },
+            "Varnish systems for metals": {
+              "_count": 9
+            },
+            "Varnish systems for wooden facade": {
+              "_count": 2
+            },
+            "Varnish systems for wooden windows": {
+              "_count": 4
+            }
+          }
+        }
+      }
+    },
+    "End of Life": {
+      "_count": 17,
+      "children": {
+        "Generic": {
+          "_count": 17,
+          "children": {
+            "Building service engineering": {
+              "_count": 3
+            },
+            "Construction waste": {
+              "_count": 3
+            },
+            "Consumer waste": {
+              "_count": 2
+            },
+            "Metals": {
+              "_count": 4
+            },
+            "Plastics": {
+              "_count": 3
+            },
+            "Wood": {
+              "_count": 2
+            }
+          }
+        }
+      }
+    },
+    "Insulation materials": {
+      "_count": 192,
+      "children": {
+        "Calcium silicate / Calcium-": {
+          "_count": 9,
+          "children": {
+            "Aerated concrete": {
+              "_count": 1
+            },
+            "Calcium silicate": {
+              "_count": 8
+            }
+          }
+        },
+        "Cellulose fibre": {
+          "_count": 3,
+          "children": {
+            "Cellulose insulation (loose fill)": {
+              "_count": 2
+            },
+            "Cellulose insulation (panels)": {
+              "_count": 1
+            }
+          }
+        },
+        "Cotton": {
+          "_count": 2,
+          "children": {
+            "Conventional Cotton": {
+              "_count": 1
+            },
+            "Organic cotton": {
+              "_count": 1
+            }
+          }
+        },
+        "Expanded cork": {
+          "_count": 1,
+          "children": {
+            "Expanded cork": {
+              "_count": 1
+            }
+          }
+        },
+        "Expanded perlit": {
+          "_count": 4,
+          "children": {
+            "Panels": {
+              "_count": 4
+            }
+          }
+        },
+        "Expanded polystyrene": {
+          "_count": 19,
+          "children": {
+            "EPS grey": {
+              "_count": 9
+            },
+            "EPS grey-white": {
+              "_count": 3
+            },
+            "EPS white": {
+              "_count": 7
+            }
+          }
+        },
+        "Extruded polystyrene": {
+          "_count": 7,
+          "children": {
+            "XPS white": {
+              "_count": 7
+            }
+          }
+        },
+        "Flax fibre": {
+          "_count": 1,
+          "children": {
+            "Flax fibre mat": {
+              "_count": 1
+            }
+          }
+        },
+        "Foam glass": {
+          "_count": 10,
+          "children": {
+            "Granulate": {
+              "_count": 1
+            },
+            "Panels": {
+              "_count": 9
+            }
+          }
+        },
+        "Foamed concrete": {
+          "_count": 1,
+          "children": {
+            "Foamed concrete insulation panels": {
+              "_count": 1
+            }
+          }
+        },
+        "Hemp": {
+          "_count": 2,
+          "children": {
+            "Hemp fibre mat": {
+              "_count": 1
+            }
+          }
+        },
+        "Insulation elements": {
+          "_count": 4,
+          "children": {
+            "Isokorb thermal breaks": {
+              "_count": 4
+            }
+          }
+        },
+        "Insulation foam": {
+          "_count": 1,
+          "children": {
+            "mineral": {
+              "_count": 1
+            }
+          }
+        },
+        "Melamine resin": {
+          "_count": 1,
+          "children": {
+            "Melamine foam": {
+              "_count": 1
+            }
+          }
+        },
+        "Mineral wool": {
+          "_count": 28,
+          "children": {
+            "Glass wool": {
+              "_count": 3
+            },
+            "Mineral wool": {
+              "_count": 12
+            },
+            "Rock wool": {
+              "_count": 13
+            }
+          }
+        },
+        "Polyethylene": {
+          "_count": 9,
+          "children": {
+            "Foam": {
+              "_count": 9
+            }
+          }
+        },
+        "Polyurethane rigid foam": {
+          "_count": 28,
+          "children": {
+            "PIR rigid foam": {
+              "_count": 18
+            },
+            "PU slabstock foam": {
+              "_count": 6
+            },
+            "PU with aluminium": {
+              "_count": 3
+            },
+            "PU with mineral fibre": {
+              "_count": 1
+            }
+          }
+        },
+        "Rigid phenolic foam": {
+          "_count": 16,
+          "children": {
+            "Phenolic foam boards": {
+              "_count": 16
+            }
+          }
+        },
+        "Rubber": {
+          "_count": 8,
+          "children": {
+            "Foam": {
+              "_count": 8
+            }
+          }
+        },
+        "Sheep wool": {
+          "_count": 1
+        },
+        "Silicium dioxide based": {
+          "_count": 2,
+          "children": {
+            "Hydrophobic panels": {
+              "_count": 1
+            },
+            "Vacuum insulation panels": {
+              "_count": 1
+            }
+          }
+        },
+        "Straw": {
+          "_count": 4,
+          "children": {
+            "Straw bale": {
+              "_count": 2
+            },
+            "Straw fiber": {
+              "_count": 1
+            },
+            "Straw panels": {
+              "_count": 1
+            }
+          }
+        },
+        "Thermal insulation composite system": {
+          "_count": 12,
+          "children": {
+            "ETICS completely": {
+              "_count": 3
+            },
+            "ETICS dowel": {
+              "_count": 1
+            },
+            "Thermal insulation composite system": {
+              "_count": 8
+            }
+          }
+        },
+        "Urea formaldehyde resin": {
+          "_count": 1,
+          "children": {
+            "Urea-formaldehyde foam insulation (UFFI)": {
+              "_count": 1
+            }
+          }
+        },
+        "Wood fibre": {
+          "_count": 10,
+          "children": {
+            "Wood fibre and wood chips, loose": {
+              "_count": 2
+            },
+            "Wood fibre insulation boards": {
+              "_count": 8
+            }
+          }
+        },
+        "Wood wool panels": {
+          "_count": 8,
+          "children": {
+            "Wood wool panels": {
+              "_count": 8
+            }
+          }
+        }
+      }
+    },
+    "Metals": {
+      "_count": 263,
+      "children": {
+        "Aluminium": {
+          "_count": 35,
+          "children": {
+            "Aluminium foil": {
+              "_count": 1
+            },
+            "Aluminium profiles": {
+              "_count": 17
+            },
+            "Aluminium sheets": {
+              "_count": 4
+            },
+            "Cast aluminium": {
+              "_count": 13
+            }
+          }
+        },
+        "Copper": {
+          "_count": 20,
+          "children": {
+            "Cast or forged copper and brass items": {
+              "_count": 12
+            },
+            "Copper pipes": {
+              "_count": 7
+            },
+            "Copper sheets": {
+              "_count": 1
+            }
+          }
+        },
+        "Lead": {
+          "_count": 1,
+          "children": {
+            "Lead sheets": {
+              "_count": 1
+            }
+          }
+        },
+        "Stainless steel": {
+          "_count": 19,
+          "children": {
+            "Fastener": {
+              "_count": 2
+            },
+            "Stainless steel profiles": {
+              "_count": 2
+            },
+            "Stainless steel sheets": {
+              "_count": 1
+            },
+            "Stainless steel tap water tubes": {
+              "_count": 14
+            }
+          }
+        },
+        "Steel and iron": {
+          "_count": 178,
+          "children": {
+            "Cast or forged steel and iron items": {
+              "_count": 31
+            },
+            "Fixing material": {
+              "_count": 5
+            },
+            "Steel reinforcement mesh": {
+              "_count": 7
+            },
+            "Steel reinforcing bar": {
+              "_count": 22
+            },
+            "Steel sheets": {
+              "_count": 49
+            },
+            "Structural steel profile": {
+              "_count": 64
+            }
+          }
+        },
+        "Surface treatment and coating of metals": {
+          "_count": 4,
+          "children": {
+            "(Wet) varnishing of metals": {
+              "_count": 2
+            },
+            "Anodising of aluminium": {
+              "_count": 1
+            },
+            "Powder coating": {
+              "_count": 1
+            }
+          }
+        },
+        "Zinc": {
+          "_count": 6,
+          "children": {
+            "Zinc sheets": {
+              "_count": 6
+            }
+          }
+        }
+      }
+    },
+    "Mineral building products": {
+      "_count": 770,
+      "children": {
+        "Asphalt": {
+          "_count": 6,
+          "children": {
+            "Asphalt binder": {
+              "_count": 1
+            },
+            "Base courses": {
+              "_count": 2
+            },
+            "Mastic asphalt": {
+              "_count": 2
+            },
+            "Split mastic asphalt": {
+              "_count": 1
+            }
+          }
+        },
+        "Binder": {
+          "_count": 387,
+          "children": {
+            "Cement": {
+              "_count": 374
+            },
+            "Clay": {
+              "_count": 1
+            },
+            "Gypsum": {
+              "_count": 7
+            },
+            "Lime": {
+              "_count": 5
+            }
+          }
+        },
+        "Bricks, blocks and elements": {
+          "_count": 180,
+          "children": {
+            "Aerated concrete": {
+              "_count": 10
+            },
+            "Air-dried brick (adobe)": {
+              "_count": 3
+            },
+            "Artificial stone": {
+              "_count": 1
+            },
+            "Ceiling panel": {
+              "_count": 35
+            },
+            "Ceramic roof tile": {
+              "_count": 2
+            },
+            "Concrete roof tiles": {
+              "_count": 1
+            },
+            "Dry screed": {
+              "_count": 4
+            },
+            "Fibre Cement": {
+              "_count": 9
+            },
+            "Fired brick": {
+              "_count": 13
+            },
+            "Glass block": {
+              "_count": 2
+            },
+            "Gypsum plasterboard": {
+              "_count": 18
+            },
+            "Light concrete": {
+              "_count": 7
+            },
+            "Natural cut stone": {
+              "_count": 7
+            },
+            "Precast concrete elements and goods": {
+              "_count": 53
+            },
+            "Sand lime brick": {
+              "_count": 3
+            },
+            "Slate": {
+              "_count": 1
+            },
+            "Stoneware": {
+              "_count": 2
+            },
+            "Substrate": {
+              "_count": 4
+            },
+            "Tiles and cladding panels": {
+              "_count": 5
+            }
+          }
+        },
+        "Concrete aggregates": {
+          "_count": 35,
+          "children": {
+            "Byproducts from power plant": {
+              "_count": 8
+            },
+            "Dry filling material": {
+              "_count": 2
+            },
+            "Expanded clay": {
+              "_count": 2
+            },
+            "Expanded shale": {
+              "_count": 1
+            },
+            "Granulated foam glass": {
+              "_count": 1
+            },
+            "Natural stone": {
+              "_count": 9
+            },
+            "Perlite": {
+              "_count": 2
+            },
+            "Pumice": {
+              "_count": 6
+            },
+            "Sand and gravel": {
+              "_count": 4
+            }
+          }
+        },
+        "Mortar and Concrete": {
+          "_count": 160,
+          "children": {
+            "Adhesive and adhesive mortar": {
+              "_count": 16
+            },
+            "Concrete additive": {
+              "_count": 21
+            },
+            "Mortar (masonry)": {
+              "_count": 13
+            },
+            "Ready mixed concrete": {
+              "_count": 74
+            },
+            "Renders and plasters": {
+              "_count": 30
+            },
+            "Screed dry mortar": {
+              "_count": 6
+            }
+          }
+        },
+        "Pigments": {
+          "_count": 2,
+          "children": {
+            "Inorganic pigments": {
+              "_count": 2
+            }
+          }
+        }
+      }
+    },
+    "Others": {
+      "_count": 56,
+      "children": {
+        "Energy carrier - delivery free user": {
+          "_count": 40,
+          "children": {
+            "Biogas": {
+              "_count": 1
+            },
+            "District heat": {
+              "_count": 8
+            },
+            "Drinking water": {
+              "_count": 1
+            },
+            "Electricity": {
+              "_count": 23
+            },
+            "Fuel from vegetable oil": {
+              "_count": 1
+            },
+            "Heating oil": {
+              "_count": 3
+            },
+            "Liquid gas": {
+              "_count": 1
+            },
+            "Natural gas": {
+              "_count": 1
+            },
+            "Wood pellets": {
+              "_count": 1
+            }
+          }
+        },
+        "Passenger transport [person km]": {
+          "_count": 4,
+          "children": {
+            "Passenger car": {
+              "_count": 4
+            }
+          }
+        },
+        "Processes at building site": {
+          "_count": 3,
+          "children": {
+            "Concreting": {
+              "_count": 1
+            },
+            "Digger/digging": {
+              "_count": 2
+            }
+          }
+        },
+        "Transport of goods [t km]": {
+          "_count": 9,
+          "children": {
+            "Inland water transport": {
+              "_count": 1
+            },
+            "Ocean transport": {
+              "_count": 3
+            },
+            "Train": {
+              "_count": 1
+            },
+            "Truck": {
+              "_count": 4
+            }
+          }
+        }
+      }
+    },
+    "Plastics": {
+      "_count": 310,
+      "children": {
+        "Elastic plastic profiles": {
+          "_count": 6,
+          "children": {
+            "Resin-composite facade panels": {
+              "_count": 2
+            },
+            "Transparent panels": {
+              "_count": 4
+            }
+          }
+        },
+        "Floorings": {
+          "_count": 99,
+          "children": {
+            "Linoleum flooring": {
+              "_count": 2
+            },
+            "Multilayer Modular Floor Coverings": {
+              "_count": 16
+            },
+            "PVC flooring": {
+              "_count": 6
+            },
+            "Rubber flooring": {
+              "_count": 14
+            },
+            "Textile flooring": {
+              "_count": 61
+            }
+          }
+        },
+        "Foils and fleeces": {
+          "_count": 113,
+          "children": {
+            "Building papers": {
+              "_count": 1
+            },
+            "Fleeces": {
+              "_count": 3
+            },
+            "Sealing foils": {
+              "_count": 19
+            },
+            "Secondary water-shedding membrane": {
+              "_count": 35
+            },
+            "Technical textiles": {
+              "_count": 36
+            },
+            "Vapour barriers and brakes": {
+              "_count": 19
+            }
+          }
+        },
+        "Profiles": {
+          "_count": 17,
+          "children": {
+            "Elastic plastic profiles": {
+              "_count": 9
+            },
+            "Rigid plastic profiles": {
+              "_count": 8
+            }
+          }
+        },
+        "Roofing membranes": {
+          "_count": 30,
+          "children": {
+            "Bituminous sheet": {
+              "_count": 6
+            },
+            "ECB roofing membrane (Ethylene Copolymer Bitumen)": {
+              "_count": 1
+            },
+            "EVA sheet (Ehylene Vinyl Acetate)": {
+              "_count": 1
+            },
+            "Elastomer sheet": {
+              "_count": 3
+            },
+            "PIB sheeting (Polyisobutylene)": {
+              "_count": 2
+            },
+            "PVC sheet": {
+              "_count": 11
+            },
+            "TPO roofing membranes": {
+              "_count": 6
+            }
+          }
+        },
+        "Sealing materials": {
+          "_count": 16,
+          "children": {
+            "Acrylate": {
+              "_count": 3
+            },
+            "Bitumen": {
+              "_count": 2
+            },
+            "PVC": {
+              "_count": 1
+            },
+            "Polysulphide": {
+              "_count": 1
+            },
+            "Polyurethane": {
+              "_count": 1
+            },
+            "Rubber": {
+              "_count": 1
+            },
+            "Silicone": {
+              "_count": 7
+            }
+          }
+        },
+        "Tubes": {
+          "_count": 29,
+          "children": {
+            "Rainwater/Grey water tubes": {
+              "_count": 3
+            },
+            "Sewer tube": {
+              "_count": 14
+            },
+            "Tab water tubes": {
+              "_count": 12
+            }
+          }
+        }
+      }
+    },
+    "Wood": {
+      "_count": 143,
+      "children": {
+        "Derived timber products": {
+          "_count": 68,
+          "children": {
+            "3- and 5-ply wood": {
+              "_count": 4
+            },
+            "Oriented strand board": {
+              "_count": 4
+            },
+            "Particle boards": {
+              "_count": 10
+            },
+            "Plywood": {
+              "_count": 4
+            },
+            "Veneer layer wood": {
+              "_count": 3
+            },
+            "Wood cement boards": {
+              "_count": 26
+            },
+            "Wood fibre boards": {
+              "_count": 11
+            },
+            "Wood plastic composties": {
+              "_count": 3
+            },
+            "Wood-based elements": {
+              "_count": 3
+            }
+          }
+        },
+        "Modified wood": {
+          "_count": 2,
+          "children": {
+            "Acetylated wood": {
+              "_count": 1
+            },
+            "Thermally modified timber": {
+              "_count": 1
+            }
+          }
+        },
+        "Solid wood": {
+          "_count": 35,
+          "children": {
+            "Duo and trio laminated beams": {
+              "_count": 2
+            },
+            "Glue-laminated timber": {
+              "_count": 9
+            },
+            "Glue-laminated timber board": {
+              "_count": 3
+            },
+            "Solid structural timber (KVH)": {
+              "_count": 7
+            },
+            "Structural timber": {
+              "_count": 14
+            }
+          }
+        },
+        "Wooden floor": {
+          "_count": 38,
+          "children": {
+            "Cork": {
+              "_count": 3
+            },
+            "Laminate flooring": {
+              "_count": 5
+            },
+            "Multilayer Modular Floor Coverings": {
+              "_count": 21
+            },
+            "Parquet": {
+              "_count": 9
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "document_id": "52d4092b-b220-4850-9179-4f11094da94e",
+  "fields": [
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "The dataset mentions the use of fire-retardant components like borax salt, indicating the product has fire resistance properties.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "use of fire-retardent and antifungal components (e.g. borax salt)"
+      ],
+      "inference_basis": [
+        "Fire-retardant components imply fire resistance"
+      ]
+    },
+    {
+      "name": "antifungal_treatment",
+      "type": "bool",
+      "rationale": "The mention of antifungal components suggests the product is treated to resist fungal growth.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "use of fire-retardent and antifungal components (e.g. borax salt)"
+      ],
+      "inference_basis": [
+        "Antifungal components imply resistance to fungal growth"
+      ]
+    },
+    {
+      "name": "geographic_origin",
+      "type": "string",
+      "rationale": "The dataset specifies that the cotton is farmed in the USA and transported to Germany, indicating its geographic origin.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "cotton farming according to conventional agriculture in the USA and following transport via bulk carrier to Germany"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "end_of_life_treatment",
+      "type": "enum",
+      "rationale": "The dataset describes the end-of-life treatment including dismantling, grinding, and thermal treatment, which are key for lifecycle analysis.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "manual_dismantling",
+        "grinding",
+        "thermal_treatment"
+      ],
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "manual dismantling (no loads) is assumed",
+        "grinding and thermal treatment (combustion) of the material"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

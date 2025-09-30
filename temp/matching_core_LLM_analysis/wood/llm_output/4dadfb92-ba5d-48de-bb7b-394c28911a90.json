@@ -1,0 +1,50 @@
+{
+  "document_id": "4dadfb92-ba5d-48de-bb7b-394c28911a90",
+  "fields": [
+    {
+      "name": "species_group",
+      "type": "enum",
+      "rationale": "The product is described as 'Planed coniferous lumber', indicating it is made from coniferous species, which is a common classification in wood products.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "coniferous",
+        "deciduous"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "Planed coniferous lumber (German average)"
+      ],
+      "inference_basis": [
+        "'coniferous' indicates species group"
+      ]
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as 'planed lumber', which suggests it is a solid wood product typically used in construction or finishing.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "lumber",
+        "panel",
+        "veneer",
+        "particleboard",
+        "fiberboard"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "Planed coniferous lumber can be used versatilely i.a. as floor covering or wall and ceiling cladding in the form of profiled boards."
+      ],
+      "inference_basis": [
+        "'planed lumber' indicates a solid wood form"
+      ]
+    }
+  ]
+}

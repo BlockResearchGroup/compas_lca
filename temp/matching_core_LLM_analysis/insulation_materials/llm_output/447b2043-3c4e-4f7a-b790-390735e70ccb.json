@@ -1,0 +1,21 @@
+{
+  "document_id": "447b2043-3c4e-4f7a-b790-390735e70ccb",
+  "fields": [
+    {
+      "name": "compressive_strength",
+      "type": "float",
+      "rationale": "The compressive strength of 1260 kg/dm is explicitly mentioned, indicating the product's ability to withstand loads, which is crucial for its application in supporting window sills.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/dm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "compressive strength of 1260 kg/dm"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

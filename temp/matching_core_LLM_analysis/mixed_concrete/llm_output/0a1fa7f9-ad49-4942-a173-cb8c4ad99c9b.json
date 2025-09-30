@@ -1,0 +1,29 @@
+{
+  "document_id": "0a1fa7f9-ad49-4942-a173-cb8c4ad99c9b",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class (e.g., C50/60) is a key property that defines the load-bearing capacity of the concrete, which is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C20/25",
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50",
+        "C45/55",
+        "C50/60"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "This data set refers to the production of 1m³ ready-mix concrete of compressive strength class C50/60."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "document_id": "cf2e106f-ddf5-4265-ae3e-5df9b1297c48",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of concrete. It is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 550.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "reinforcement_type",
+      "type": "enum",
+      "rationale": "The type of reinforcement (e.g., steel) is crucial for understanding the structural capabilities and applications of the concrete panels.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "none",
+        "steel",
+        "fiber",
+        "composite"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "double row steel reinforcement"
+      ],
+      "inference_basis": [
+        "Presence of 'steel reinforcement' implies reinforcement type."
+      ]
+    }
+  ]
+}

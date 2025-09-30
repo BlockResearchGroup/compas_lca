@@ -1,0 +1,21 @@
+{
+  "document_id": "0d1d1452-7492-4508-b634-5bd0cff7edd8",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is a key property for insulation materials, indicating how well the material can conduct heat. The range provided (0.025-0.035 W/mK) is crucial for understanding the efficiency of the insulation.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "panels"
+      ],
+      "evidence": [
+        "thermal conductivity between 0.025-0.035 W/mK at 200 C."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

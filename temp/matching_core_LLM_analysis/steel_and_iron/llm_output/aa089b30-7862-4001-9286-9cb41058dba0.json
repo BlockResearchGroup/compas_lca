@@ -1,0 +1,47 @@
+{
+  "document_id": "aa089b30-7862-4001-9286-9cb41058dba0",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is a critical attribute for categorizing steel/iron products, especially in applications like piping where form affects installation and use.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "pipe",
+        "sheet",
+        "coil",
+        "bar",
+        "rod",
+        "section",
+        "hollow section"
+      ],
+      "unit": null,
+      "applicability": [
+        "pipes"
+      ],
+      "evidence": [
+        "Ductile iron pipe systems are used for drinking water and wastewater transport"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "corrosion_resistance",
+      "type": "bool",
+      "rationale": "Corrosion resistance is a key property for products used in water transport, as it affects durability and maintenance needs.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "pipes"
+      ],
+      "evidence": [
+        "Spritzverzinken wird ein Korrosionsschutz aufgebracht"
+      ],
+      "inference_basis": [
+        "Corrosion protection applied through zinc spraying suggests corrosion resistance"
+      ]
+    }
+  ]
+}

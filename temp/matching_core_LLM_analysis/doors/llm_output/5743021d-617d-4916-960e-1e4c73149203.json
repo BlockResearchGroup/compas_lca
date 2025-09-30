@@ -1,0 +1,33 @@
+{
+  "document_id": "5743021d-617d-4916-960e-1e4c73149203",
+  "fields": [
+    {
+      "name": "thermal_transmittance",
+      "type": "float",
+      "rationale": "Thermal transmittance is a key performance indicator for doors, indicating how well the door insulates against heat transfer.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m²·K",
+      "applicability": null,
+      "evidence": [
+        "thermal transmittance of 0,99 W/(m2*K)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness can affect the door's insulation properties and structural integrity, making it a relevant characteristic for categorization.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": null,
+      "evidence": [
+        "layer_thickness: 0.105"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

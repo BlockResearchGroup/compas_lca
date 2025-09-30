@@ -1,0 +1,64 @@
+{
+  "document_id": "06894083-4e59-4191-962e-d67bfcacef10",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a 'long product' formed into coils, indicating its form factor.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "coil",
+        "sheet",
+        "plate",
+        "bar",
+        "rod"
+      ],
+      "unit": null,
+      "applicability": [
+        "wire_rod"
+      ],
+      "evidence": [
+        "Walzdraht wird durch Warmwalzen von Knüppeln auf speziellen kontinuierlichen Walzstraßen erzeugt, es handelt sich um ein Langprodukt, das zu Ringen geformt wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "diameter_range",
+      "type": "range",
+      "rationale": "The diameter range of the wire rod is explicitly stated, which is crucial for categorizing the product by size.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "wire_rod"
+      ],
+      "evidence": [
+        "Durchmesserbereich von 5,5 mm bis 13 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "enum",
+      "rationale": "The production process is described as hot rolling, which is a key differentiator in steel product manufacturing.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "hot_rolling",
+        "cold_rolling",
+        "forging",
+        "casting"
+      ],
+      "unit": null,
+      "applicability": [
+        "wire_rod"
+      ],
+      "evidence": [
+        "Walzdraht wird durch Warmwalzen von Knüppeln auf speziellen kontinuierlichen Walzstraßen erzeugt."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "document_id": "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies the compressive strength class as C25/30, which is a standard classification for concrete strength, indicating its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "This data set refers to the production of 1m³ ready-mix concrete of compressive strength class C25/30."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the concrete is explicitly stated as 2300 kg/m³, which is a critical property for determining the mass and volume relationships in construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "The density is 2300.3 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "The dataset mentions that the concrete mix design can be used for exposure class X0 applications, which relates to the environmental conditions the concrete can withstand.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "X0",
+        "XC1",
+        "XC2",
+        "XC3",
+        "XC4"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The concrete mix design used for this data set can be used for exposure class X0 applications."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "cement_content",
+      "type": "float",
+      "rationale": "The amount of cement used in the concrete mix is specified as 285.7 kg, which is important for understanding the mix proportions and potential environmental impacts.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "Ready-mix concrete of strength class C25/30 is a mixture of aggregates (1814.6 kg), cement (285.7 kg), water (200 kg)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "water_cement_ratio",
+      "type": "float",
+      "rationale": "The water-cement ratio is a key factor in determining the strength and durability of concrete, inferred from the dataset's focus on compressive strength and mix design.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "For the recipe determination, the average concrete strength was selected in each case (i.e. for C25/30 the strength 27.5 N/mm²) in order to determine the water-cement ratio (w/c)."
+      ],
+      "inference_basis": [
+        "Concrete strength and mix design typically involve water-cement ratio calculations."
+      ]
+    },
+    {
+      "name": "aggregate_content",
+      "type": "float",
+      "rationale": "The dataset specifies the aggregate content as 1814.6 kg, which is crucial for understanding the concrete's composition and mechanical properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "Ready-mix concrete of strength class C25/30 is a mixture of aggregates (1814.6 kg), cement (285.7 kg), water (200 kg)."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "document_id": "44874ec5-8f37-42d3-bdaf-10a55d1092b5",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"density\": 218.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the insulation and structural capabilities of the concrete product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"layer_thickness\": 0.365"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The type of insulation integrated into the concrete affects its thermal performance and application suitability.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "wood_fibre",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"Holzmantelbetonsteine mit integrierter Holzfaserdämmplatte\""
+      ],
+      "inference_basis": [
+        "Mention of 'Holzmantelbetonsteine mit integrierter Holzfaserdämmplatte' suggests wood fibre insulation."
+      ]
+    },
+    {
+      "name": "load_bearing_capability",
+      "type": "enum",
+      "rationale": "Understanding whether the product is load-bearing or non-load-bearing is crucial for its application in construction.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "load_bearing",
+        "non_load_bearing",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls\""
+      ],
+      "inference_basis": [
+        "The product is described as suitable for both load-bearing and non-load-bearing walls."
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area indicates where the product can be used, such as interior, exterior, or both, which is important for design and specification.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior",
+        "exterior",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls\""
+      ],
+      "inference_basis": [
+        "The product is described as suitable for both interior and exterior walls."
+      ]
+    }
+  ]
+}

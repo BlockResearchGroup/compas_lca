@@ -1,0 +1,28 @@
+{
+  "document_id": "d0a11ffa-3f0f-435b-9f93-ff3821869335",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The parquet floors are described as having different forms of installation, such as tongue and groove or click connection, which are common forms for parquet flooring.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "tongue_and_groove",
+        "click_connection"
+      ],
+      "unit": null,
+      "applicability": [
+        "wooden floor",
+        "parquet"
+      ],
+      "evidence": [
+        "JOKA INKU parquet floors 527/535 with tongue and groove joints are always glued to the subfloor.",
+        "Products with click connection are intended for floating installation, but can also be glued down."
+      ],
+      "inference_basis": [
+        "Parquet flooring often uses tongue and groove or click systems for installation."
+      ]
+    }
+  ]
+}

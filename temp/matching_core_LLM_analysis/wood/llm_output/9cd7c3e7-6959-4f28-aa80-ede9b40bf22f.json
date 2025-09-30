@@ -1,0 +1,64 @@
+{
+  "document_id": "9cd7c3e7-6959-4f28-aa80-ede9b40bf22f",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is available in plank and 3-strip variants, which are common forms for parquet flooring.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "plank",
+        "3-strip"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Scope: This EPD applies for one square metre of Longlife parquet in the plank and 3-strip variants"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_finish",
+      "type": "enum",
+      "rationale": "The parquet products feature an oiled or varnished surface, which affects the appearance and maintenance of the flooring.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "oiled",
+        "varnished"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The products feature an oiled or varnished surface ready for residential use"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The parquet can be installed as a floating installation or glued to the screed, which are common methods for wood flooring.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "floating",
+        "glued"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The floor coverings are laid on screeds, tiles or wooden substructures in conjunction with suitable laying underlays (insulation underlays) as a floating installation or glued to the screed over the entire surface."
+      ],
+      "inference_basis": [
+        "floating installation and glued installation are standard methods for parquet flooring"
+      ]
+    }
+  ]
+}

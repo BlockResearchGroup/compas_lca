@@ -1,0 +1,41 @@
+{
+  "document_id": "efa55966-4f29-4f15-bfec-8c08b3945923",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly mentioned as 'glued laminated timber', which is a specific type of engineered wood product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "glued_laminated_timber"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "This EPD is based on a declared unit of 1 m of glued laminated timber"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "species_group",
+      "type": "enum",
+      "rationale": "The dataset mentions the use of 'coniferous wood', which indicates the species group used in the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "coniferous"
+      ],
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "made from kiln dried coniferous wood according to EN 1912"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

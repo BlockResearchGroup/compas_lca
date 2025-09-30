@@ -1,0 +1,53 @@
+{
+  "document_id": "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class (e.g., C60/75) is a key property that defines the load-bearing capacity of the concrete, which is critical for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Druckfestigkeitsklasse C60/75"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, especially in load-bearing applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2400.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "Concrete can be used in various applications such as building construction, civil engineering, and precast elements, which affects its formulation and performance requirements.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "building_construction",
+        "civil_engineering",
+        "precast_elements"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Concrete is a versatile building material in the construction industry. It is used in building construction, above all for ceilings, walls, stairs, foundations, columns and trusses, in civil engineering for components in contact with the ground, foundations, floor slabs, bored piles and in civil engineering, e.g. for bridges."
+      ],
+      "inference_basis": [
+        "Concrete usage in building construction, civil engineering, and precast elements suggests different application types."
+      ]
+    }
+  ]
+}

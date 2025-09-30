@@ -1,0 +1,44 @@
+{
+  "document_id": "7a100a55-391e-4f7e-bca1-5b117c626a5d",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a 'two-layer underlay system', indicating a specific form factor used in flooring applications.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "underlay",
+        "panel",
+        "sheet",
+        "board"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Jumpax® Classic is a two-layer underlay system"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_system",
+      "type": "string",
+      "rationale": "The product uses 'interactive bonding', suggesting a specific adhesive system used in its construction.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Jumpax® Classic is a two-layer underlay system with interactive bonding"
+      ],
+      "inference_basis": [
+        "'interactive bonding' implies a specific adhesive system"
+      ]
+    }
+  ]
+}

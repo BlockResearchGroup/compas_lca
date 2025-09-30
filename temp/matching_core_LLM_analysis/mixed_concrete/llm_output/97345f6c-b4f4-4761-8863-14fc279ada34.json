@@ -1,0 +1,103 @@
+{
+  "document_id": "97345f6c-b4f4-4761-8863-14fc279ada34",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies the concrete as C40/50, which indicates a specific compressive strength class commonly used to categorize concrete.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Festigkeitsklasse C40/50"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the concrete is explicitly provided, which is a key material property affecting its weight and structural performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2400.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The text describes various applications of the concrete, such as building construction and civil engineering, which are important for categorizing its use.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "building_construction",
+        "civil_engineering"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Concrete is a building material which is used in a variety of ways in construction. It is used in building construction, especially for ceilings, walls, stairs, foundations, supports and trusses, in civil engineering for components in contact with the ground, foundations, floor slabs, bored piles and in civil engineering, e.g. bridges."
+      ],
+      "inference_basis": [
+        "Applications mentioned suggest typical use cases for this type of concrete."
+      ]
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The location where the concrete is produced is specified, which can influence material properties due to local regulations and raw material sources.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "reinforcement_inclusion",
+      "type": "bool",
+      "rationale": "The text mentions that reinforced concrete components have a separate consideration for reinforcement steel, indicating whether reinforcement is included is a relevant property.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Bei bewehrten Bauteilen ist der Anteil des Bewehrungsstahls gesondert zu bercksichtigen."
+      ],
+      "inference_basis": [
+        "Reinforcement is a common consideration in concrete products, especially for structural applications."
+      ]
+    },
+    {
+      "name": "transport_method",
+      "type": "enum",
+      "rationale": "The method of transporting the concrete is described, which is relevant for logistics and application planning.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "truck_mixer",
+        "precast_plant"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "This is transported as ready-mixed concrete without storage to the construction site or to the precast plants using concrete truck mixers."
+      ],
+      "inference_basis": [
+        "Transport method affects how the concrete is delivered and used on site."
+      ]
+    }
+  ]
+}

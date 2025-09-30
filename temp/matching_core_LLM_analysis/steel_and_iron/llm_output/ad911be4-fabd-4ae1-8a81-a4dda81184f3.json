@@ -1,0 +1,56 @@
+{
+  "document_id": "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product form is explicitly mentioned as beams and box beams, which are common forms for structural steel products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "beams",
+        "box_beams"
+      ],
+      "unit": null,
+      "applicability": [
+        "structural_steel"
+      ],
+      "evidence": [
+        "The products are prefabricated elements and are intended to be used as part of building (e.g. columns, beams, trusses, connections)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "bool",
+      "rationale": "The dataset mentions that the steel structures are welded and painted, indicating surface treatment is applied.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "structural_steel"
+      ],
+      "evidence": [
+        "custom made welded and painted steel structures"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_standard",
+      "type": "string",
+      "rationale": "The manufacturing standard is explicitly stated as EN 1090-2, which is relevant for categorizing the quality and compliance of the steel product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "structural_steel"
+      ],
+      "evidence": [
+        "The steel structures are manufactured according to EN 1090-2"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

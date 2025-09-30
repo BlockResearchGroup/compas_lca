@@ -1,0 +1,60 @@
+{
+  "document_id": "9f6cf0e4-7455-4c31-a99f-552926c4040e",
+  "fields": [
+    {
+      "name": "species_group",
+      "type": "string",
+      "rationale": "The dataset specifies 'Timber larch', indicating the wood species used, which is important for understanding the material properties and applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "Timber larch (generic, 12% moisture / 10.7% H2O content)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "moisture_content",
+      "type": "float",
+      "rationale": "The dataset mentions '12% moisture / 10.7% H2O content', which is crucial for determining the wood's physical properties and suitability for various applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "12% moisture / 10.7% H2O content"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The description indicates the product is 'sawn timber', which is a specific form of wood product relevant for construction applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "sawn_timber",
+        "plywood",
+        "particle_board",
+        "fiberboard"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood"
+      ],
+      "evidence": [
+        "Sawn timber is produced of standing timber with different sizes."
+      ],
+      "inference_basis": [
+        "Sawn timber is a common form of wood product used in construction."
+      ]
+    }
+  ]
+}

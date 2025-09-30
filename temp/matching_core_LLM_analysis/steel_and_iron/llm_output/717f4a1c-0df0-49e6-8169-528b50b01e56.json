@@ -1,0 +1,25 @@
+{
+  "document_id": "717f4a1c-0df0-49e6-8169-528b50b01e56",
+  "fields": [
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The dataset describes a hot-dip galvanizing process, which is a specific type of coating applied to steel sheets to prevent corrosion.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "hot_dip_galvanized",
+        "electro_galvanized",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "The zinc coating is applied by dipping the sheet steel into a hot zinc bath."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

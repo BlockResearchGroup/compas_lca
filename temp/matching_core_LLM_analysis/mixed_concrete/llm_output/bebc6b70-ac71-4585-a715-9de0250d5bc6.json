@@ -1,0 +1,122 @@
+{
+  "document_id": "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies the concrete as C30/37, which indicates its compressive strength class, a key property for categorizing concrete by its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C20/25",
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "C30/37"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "The dataset mentions exposure classes XC4, XF1, XA1, which are used to categorize concrete based on environmental conditions it can withstand, such as freeze-thaw cycles or chemical exposure.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC1",
+        "XC2",
+        "XC3",
+        "XC4",
+        "XF1",
+        "XF2",
+        "XF3",
+        "XF4",
+        "XA1",
+        "XA2",
+        "XA3"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "XC4 XF1 XA1"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "consistency_class",
+      "type": "enum",
+      "rationale": "The dataset specifies F3, which refers to the consistency class of the concrete, indicating its workability and ease of placement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "F3"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2323.8"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for applications where the concrete is used in layers, affecting its structural and thermal properties.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": null,
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": [
+        "Layer thickness is often specified for construction applications to ensure proper structural integrity."
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The dataset describes the use of concrete in various construction areas such as building, infrastructure, and engineering, which helps categorize its functional application.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "building",
+        "infrastructure",
+        "engineering"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Beton ist im Bauwesen ein vielfältig eingesetzter Baustoff. Er findet Anwendung im Hochbau vor allem für Decken, Wände, Treppen, Fundamente, Stützen und Binder, im Tiefbau bei erdberührten Bauteilen, Fundamenten, Bodenplatten, Bohrpfählen und im Ingenieurbau z.B. bei Brücken."
+      ],
+      "inference_basis": [
+        "Concrete is commonly categorized by its application area, such as building, infrastructure, and engineering."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+| Key Data Set Information | |||
+| Location | DE | ||
+| Geographical representativeness description | The data set represents the country specific situation in Germany, focusing on the main technologies, the region specific characteristics and / or import statistics. | ||
+| Reference year | 2023 | ||
+| Name |
+| ||
+| Use advice for data set | This data set refers to the production of 1m³ ready-mix concrete of compressive strength class C25/30. The density is 2300.3 kg/m³. The data set can be scaled linearly (over the mass) for the estimation of other densities between 2200 and 2400 kg/m³. For the recipe determination, the average concrete strength was selected in each case (i.e. for C25/30 the strength 27.5 N/mm²) in order to determine the water-cement ratio (w/c). Furthermore, the most unfavorable cements were used for the cement strength in relation to the maximum w/c ratio. Concrete admixtures (e.g. plasticizers etc.) were not included in the calculation. Likewise, the incorporation of carbon dioxide by carbonation was not considered. A representative cement mix (see figures) was selected for the cement composition. For cement clinker, gross emissions were applied (i.e. including emissions from the use of secondary fuels). For granulated blast furnace slag, an economic allocation of the loads from steel production was applied. 3.33% of the loads from the steel production process were allocated to blast furnace slag (corresponds to a price ratio of 1:30 between slag and steel). Fly ash was assumed to be load-free, but internal transport expenses (extraction systems, transport to the plant gate) were taken into account. Overall, very good representativeness can be assumed under ecobalance-conservative boundary conditions. | ||
+| Technical purpose of product or process | Normal concrete of compressive strength class C25/30 is used for various load-bearing and non-load-bearing applications in construction, both indoors and outdoors. The concrete mix design used for this data set can be used for exposure class X0 applications. | ||
+| Classification number | 1.4.01 | ||
+| Classification |
+Class name
+:
+Hierarchy level
+| ||
+| General comment on data set | Dieser Datensatz wurde nach dem European Standard EN 15804+A2 für Nachhaltiges Bauen modelliert. Ergebnisse werden in Modulen abgebildet, die den strukturierten Ausdruck von Ergebnissen über den gesamten Lebenszyklus zulassen. | ||
+| Copyright | Yes | ||
+| Owner of data set | |||
+| Quantitative reference | |||
+| Reference flow(s) |
+| ||
+| Time representativeness | |||
+| Data set valid until | 2026 | ||
+| Time representativeness description | Annual average | ||
+| Technological representativeness | |||
+| Technology description including background system | Concrete is a manmade stone formed from a mixture of cement, aggregates, and water by hardening the cement paste (cement-water mixture). Description of the life cycle stages modeled: Modules A1-A3: Ready-mix concrete of strength class C25/30 is a mixture of aggregates (1814.6 kg), cement (285.7 kg), water (200 kg). Cement production dominates the life cycle assessment of ready-mix concrete. Module A4: a truck transport (concrete mixer) to the construction site with a load of 32 tons and an average distance of 11 kilometers was considered. The transport distance can be adjusted at the building level if necessary. Module C1: For deconstruction, mechanical deconstruction (excavator) was applied. Module C2: 50 km (truck, 40 tons EURO6) was assumed for the transport to the construction waste processing. Module C3: For waste processing of material recycling as backfill material (e.g. in road construction), average expenses for sorting/shredding were assumed. Furthermore, a loss (e.g. due to contamination, dust emissions, etc.) of 25% was conservatively assumed. Module C4: Landfilling of processing waste. Module D: Credits for net flow quantity (concrete mass deducted from losses) due to substitution of natural crushed stone. |
+| Subtype | generic dataset | ||||||||
+| Data sources, treatment and representativeness | |||||||||
+| Data source(s) used for this data set | |||||||||
+| Completeness | |||||||||
+| Validation | |||||||||
+| |||||||||
+| Compliance Declarations |
+| Compliance |
+Compliance system name
+|
+Approval of overall compliance
+Fully compliant |
+Nomenclature compliance
+|
+Methodological compliance
+|
+Review compliance
+|
+Documentation compliance
+|
+Quality compliance
+|
+| Data generator | |
+| Data set generator / modeller | |
+| Data entry by | |
+| Time stamp (last saved) | 2024-06-11T17:01:17+01:00 |
+| Data set format(s) | |
+| Data entry by | |
+| Publication and ownership | |
+| UUID | a71e60a5-b64b-4715-ae8a-c8c8819149d2 |
+| Data set version | 20.24.070 |
+| Preceding Data set version | |
+| Registration authority | |
+| Owner of data set | |
+| Copyright | Yes |
+| License type | Free of charge for all users and uses |
+| Access and use restrictions | The license conditions as stated on https://www.oekobaudat.de/apply. |
+Indicators of life cycle

@@ -1,0 +1,51 @@
+{
+  "document_id": "90999905-ace2-49ee-90f0-f2a649c8989e",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The dataset specifies the concrete's compressive strength class as C35/45, which is a key property for categorizing concrete based on its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Druckfestigkeitsklasse C35/45"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance. The dataset explicitly states a density of 2400 kg/m³.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2400.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The dataset describes the use of concrete in various construction applications, such as building construction and civil engineering, which helps categorize the concrete by its functional use.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "building_construction",
+        "civil_engineering",
+        "structural_engineering"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Concrete is a versatile building material in the construction industry. It is used in building construction, above all for ceilings, walls, stairs, foundations, columns and trusses, in civil engineering for components in contact with the ground, foundations, floor slabs, bored piles and in civil engineering, e.g. for bridges."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

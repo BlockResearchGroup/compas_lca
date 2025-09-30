@@ -1,0 +1,103 @@
+{
+  "document_id": "0de61326-ead7-4173-94fc-ade688b535d6",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"density\": 191.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the thermal and structural characteristics of the product, especially in wall applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"layer_thickness\": 0.365"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The type of insulation integrated into the concrete affects its thermal performance and suitability for different applications.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "EPS",
+        "none",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"integrated EPS insulation\""
+      ],
+      "inference_basis": [
+        "EPS mentioned as integrated insulation"
+      ]
+    },
+    {
+      "name": "load_bearing_capability",
+      "type": "enum",
+      "rationale": "Knowing whether the product is load-bearing or non-load-bearing is crucial for its application in construction projects.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "load-bearing",
+        "non-load-bearing",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls\""
+      ],
+      "inference_basis": [
+        "Product description mentions both load-bearing and non-load-bearing applications"
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area (interior, exterior, both) helps categorize the product based on its intended use in construction.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior",
+        "exterior",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"interior and exterior walls\""
+      ],
+      "inference_basis": [
+        "Product is suitable for both interior and exterior walls"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+"Product Forn & Process"
+"- product_form (enum: hot_rolled_plate, hot_rolled_coil, cold_rolled_sheet, section, beam, channel, angle, bar, wire_rod, rebar, strip, pipe, hollow_section) "
+"- rolling_condition (enum: as_rolled, normalized, thermomechanically_rolled, quenched_tempered)
+"- thickness_range_mm (range) 
+"- nominal_diameter_mm (integer for rebar)"
+
+"Grade & metallurgy: "
+"- grade_designation (string, e.g., S355JR, 1.4301, AISI 304)
+"- steel_number (string, EN 10027)"
+"- alloy_family (enum: carbon_steel, low_alloy_steel, stainless_steel, weathering_steel, cast_iron), "
+"- stainless_microstructure (enum: austenitic, ferritic, martensitic, duplex)."
+
+"Mechanical properties: "
+"- yield_strength_mpa (float, MPa)
+"- tensile_strength_mpa (float, MPa)
+"- elongation_pct (float, %)"
+"- hardness_hb (float, HB)" 
+"- hardness_hv (float, HV)
+"- charpy_impact_energy_j (float, J at given temperature)"
+"- weldability (enum: good, limited, poor)"
+
+"Coatings & corrosion"
+"- coating_type (enum: galvanized, galvannealed, aluzinc, painted, duplex, none)"
+"- zinc_coating_mass_g_m2 (float, g/m²)
+"- surface_finish (enum: pickled_oiled, mill_scale, 2B, BA, brushed)"
+"- weathering_steel (bool)"
+
+"Manufacturing route (material/process, not impact): 
+"- production_route (enum: bof, eaf, dri_eaf)"
+"- scrap_fraction_pct (float, %)"
+"- recycled_content_pct (float, %)"
+
+"Standards cues for inference
+" EN 10025 (structural), EN 10088 (stainless), EN 10346 (coated), "
+"  EN 10080 (rebar), EN 10210/10219 (hollow sections), ASTM/AISI equivalents. "

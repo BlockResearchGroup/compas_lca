@@ -1,0 +1,53 @@
+{
+  "document_id": "9b619143-9ea3-4573-9839-b6ebd75c71a1",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a key property for insulation materials, indicating how well the material can insulate against heat transfer.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "thermal conductivity of ~ 0.038 W/(mK)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "float",
+      "rationale": "Compressive strength is important for understanding the load-bearing capacity of insulation materials, especially in construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kPa",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "low compressive strength of ~ 25 kPa"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "carbonation_rate",
+      "type": "range",
+      "rationale": "Carbonation rate affects the durability and environmental impact of cement-based materials, influencing CO2 sequestration.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "carbonation rates were set as follows: 40% in the manufacturing phase, 50% in the use phase"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

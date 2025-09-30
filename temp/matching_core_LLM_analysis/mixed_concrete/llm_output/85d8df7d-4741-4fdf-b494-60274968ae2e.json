@@ -1,0 +1,77 @@
+{
+  "document_id": "85d8df7d-4741-4fdf-b494-60274968ae2e",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The dataset name includes 'C30/37', which indicates the compressive strength class of the concrete, a key property for categorizing concrete products.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: 'Concrete ECOPact C30/37Cl02D16S3'"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "chloride_class",
+      "type": "string",
+      "rationale": "The dataset name includes 'Cl02', which indicates the chloride class, an important factor for durability in certain environments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: 'Concrete ECOPact C30/37Cl02D16S3'"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2343.66"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "string",
+      "rationale": "The dataset name includes 'D16S3', which suggests an exposure class, indicating the environmental conditions the concrete is designed to withstand.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: 'Concrete ECOPact C30/37Cl02D16S3'"
+      ],
+      "inference_basis": [
+        "Concrete naming conventions often include exposure class information."
+      ]
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for application and performance characteristics of concrete in construction.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": null,
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

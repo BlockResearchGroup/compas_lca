@@ -1,0 +1,62 @@
+{
+  "document_id": "3f764d2e-320b-4996-8c28-0f38e8971044",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is a key property for insulation materials, indicating how well the material can insulate against heat transfer.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "boards",
+        "panels"
+      ],
+      "evidence": [
+        "heat conductivity of 0.040-0.045 W/(mK)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "primary_material",
+      "type": "string",
+      "rationale": "Identifying the primary material helps in understanding the base component of the insulation, which is crucial for its properties and environmental impact.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "cellulose",
+        "bio_based"
+      ],
+      "evidence": [
+        "The main raw material is waste paper fibres"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The method of installation can affect the performance and suitability of the insulation material for different applications.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "mechanical",
+        "spray"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "panels"
+      ],
+      "evidence": [
+        "manual dismantling (no loads) is assumed"
+      ],
+      "inference_basis": [
+        "manual dismantling suggests manual installation"
+      ]
+    }
+  ]
+}

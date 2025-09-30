@@ -1,0 +1,83 @@
+{
+  "document_id": "e69dfe7d-03a7-4151-ab9a-491ea73317da",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of concrete. It is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "\"density\": 2167.7"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binder_type",
+      "type": "string",
+      "rationale": "The type of binder used in concrete affects its strength, durability, and chemical resistance. The dataset specifies the use of unsaturated polyester resin as the binder.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"An unsaturated polyester resin is used as binder.\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area indicates the functional use of the concrete, which can influence its required properties and performance. The dataset mentions use in surface drainage and building industry applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "surface drainage",
+        "building industry",
+        "doormat boxes"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"Polymer concrete products are suited for use for surface drainage of circulation areas, but are also widely used in the building industry for different purposes such as doormat boxes or similar.\""
+      ],
+      "inference_basis": [
+        "Mention of specific applications like surface drainage and building industry use."
+      ]
+    },
+    {
+      "name": "production_method",
+      "type": "string",
+      "rationale": "The production method can affect the material properties and quality of the concrete. The dataset describes a specific casting process for polymer concrete.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"The individual components are fed to the casting machine via pipe and conveyor systems. Here, the components are mixed in an extruder via a screw mixer and dispensed into molds prepared with release agent.\""
+      ],
+      "inference_basis": [
+        "Detailed description of the casting process suggests a specific production method."
+      ]
+    },
+    {
+      "name": "reinforcement",
+      "type": "bool",
+      "rationale": "Reinforcement affects the structural performance of concrete. The dataset explicitly states that the product is non-reinforced.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"The declared product is a non-reinforced prefabricated polymer concrete part.\""
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "document_id": "4939f8e0-9a7c-47c9-9819-defb1654d0ed",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the structural and thermal performance of precast concrete products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"density\": 182.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the insulation and structural capabilities of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"layer_thickness\": 0.365"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_type",
+      "type": "enum",
+      "rationale": "The type of insulation used in precast concrete products can significantly affect their thermal performance and application.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "PU",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"integrated PU insulation\""
+      ],
+      "inference_basis": [
+        "PU insulation is mentioned, suggesting it is a key feature of the product."
+      ]
+    },
+    {
+      "name": "suitable_for_load_bearing",
+      "type": "bool",
+      "rationale": "Knowing whether the product is suitable for load-bearing applications is crucial for structural design and application.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls\""
+      ],
+      "inference_basis": [
+        "The text mentions suitability for load-bearing walls, implying this is a key property."
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application area helps categorize the product based on its intended use, such as interior or exterior walls.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "interior",
+        "exterior",
+        "noise_barrier"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "\"suitable for the construction of above-ground and below-ground load-bearing or non-load-bearing interior and exterior walls\"",
+        "\"can also be used as free-standing walls or noise barriers\""
+      ],
+      "inference_basis": [
+        "The product is described for use in various wall types and noise barriers."
+      ]
+    }
+  ]
+}

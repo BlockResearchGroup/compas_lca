@@ -1,0 +1,39 @@
+{
+  "document_id": "d5d98d4b-a9ba-4fb3-b2d2-6766f8ef5a59",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies the concrete as C20/25, which is a standard classification for compressive strength in concrete, indicating its strength and suitability for various applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C20/25",
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Druckfestigkeitsklasse C20/25"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key property of concrete that affects its weight and structural performance. The dataset explicitly states a density of 2400 kg/m³.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "density: 2400.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

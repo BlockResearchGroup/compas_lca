@@ -1,0 +1,541 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/mixed_concrete/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 24,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "compressive_strength_class": {
+      "count": 23,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "0a1fa7f9-ad49-4942-a173-cb8c4ad99c9b",
+        "0ac90196-213a-460b-9a2c-090eebf30eaa",
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "7180425d-0e35-47f5-84d9-cbf39486b411",
+        "76c44e98-da73-4111-b5d7-80a5c8617e03",
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "97345f6c-b4f4-4761-8863-14fc279ada34",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "d5d98d4b-a9ba-4fb3-b2d2-6766f8ef5a59",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ],
+      "type": "string",
+      "rationale": "The compressive strength class (C30/37) is a key property that defines the load-bearing capacity of the concrete, which is crucial for its application in construction.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "This data set refers to the production of 1m³ recycling ready-mix concrete of compressive strength class C30/37."
+      ],
+      "inference_basis": null
+    },
+    "density": {
+      "count": 21,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "0ac90196-213a-460b-9a2c-090eebf30eaa",
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "97345f6c-b4f4-4761-8863-14fc279ada34",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "cf2e106f-ddf5-4265-ae3e-5df9b1297c48",
+        "d5d98d4b-a9ba-4fb3-b2d2-6766f8ef5a59",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000",
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ],
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": null,
+      "evidence": [
+        "The density is 2305.9 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    "exposure_class": {
+      "count": 11,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "3e15eb88-e824-4a81-972a-45e06930aa19",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "8f11c179-e367-4833-93f3-10597923c79c",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958",
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "cf1c4b6f-4c3e-4617-91ba-73e7cc0e39e4",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6",
+        "e3d7a045-ee91-43ac-8fb4-a5216c65ba0b",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000"
+      ],
+      "type": "string",
+      "rationale": "Exposure class (X0) indicates the environmental conditions the concrete is designed to withstand, which is critical for its durability and suitability for specific applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "The concrete mix design used for this data set can be used for exposure class X0 applications."
+      ],
+      "inference_basis": null
+    },
+    "application_area": {
+      "count": 5,
+      "document_ids": [
+        "83fae93c-605a-449c-8508-525ea1bc58ba",
+        "90999905-ace2-49ee-90f0-f2a649c8989e",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da",
+        "fee19a6f-6f79-4906-88fd-41e94757aa3c"
+      ],
+      "type": "enum",
+      "rationale": "The application area indicates the functional use of the concrete, which can influence its required properties and performance. The dataset mentions use in surface drainage and building industry applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "surface drainage",
+        "building industry",
+        "doormat boxes"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"Polymer concrete products are suited for use for surface drainage of circulation areas, but are also widely used in the building industry for different purposes such as doormat boxes or similar.\""
+      ],
+      "inference_basis": [
+        "Mention of specific applications like surface drainage and building industry use."
+      ]
+    },
+    "layer_thickness": {
+      "count": 5,
+      "document_ids": [
+        "05a0c87a-5074-427f-a2fa-4afbeab63f02",
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644",
+        "85d8df7d-4741-4fdf-b494-60274968ae2e",
+        "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6"
+      ],
+      "type": "float",
+      "rationale": "Layer thickness is important for understanding the application and structural requirements of the concrete in construction projects.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    },
+    "consistency_class": {
+      "count": 3,
+      "document_ids": [
+        "76c44e98-da73-4111-b5d7-80a5c8617e03",
+        "bebc6b70-ac71-4585-a715-9de0250d5bc6",
+        "e69c7597-9d58-48cb-88c9-8e73445e7000"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies F3, which refers to the consistency class of the concrete, indicating its workability and ease of placement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "F3"
+      ],
+      "inference_basis": null
+    },
+    "application_type": {
+      "count": 2,
+      "document_ids": [
+        "2d1c9681-5613-4916-9aa9-d3e4b7feb68a",
+        "dc8c375b-1018-4a05-b091-748b4c188bd6"
+      ],
+      "type": "enum",
+      "rationale": "The application type helps categorize the concrete based on its intended use, which is crucial for selecting the right material for specific construction needs. It is inferred from the technical purpose description.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "pipe",
+        "shaft",
+        "general"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Pipe and shaft systems made of reinforced concrete"
+      ],
+      "inference_basis": [
+        "Technical purpose description indicates use in pipe and shaft systems."
+      ]
+    },
+    "maximum_aggregate_size": {
+      "count": 2,
+      "document_ids": [
+        "7180425d-0e35-47f5-84d9-cbf39486b411",
+        "97731cde-b66c-46f8-aafe-c1c8b41a4958"
+      ],
+      "type": "float",
+      "rationale": "The maximum aggregate size affects the workability and strength of the concrete mix, influencing its suitability for different construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": null,
+      "evidence": [
+        "Größtkorn 16mm"
+      ],
+      "inference_basis": null
+    },
+    "aggregate_content": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ],
+      "type": "float",
+      "rationale": "The dataset specifies the aggregate content as 1814.6 kg, which is crucial for understanding the concrete's composition and mechanical properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "Ready-mix concrete of strength class C25/30 is a mixture of aggregates (1814.6 kg), cement (285.7 kg), water (200 kg)."
+      ],
+      "inference_basis": null
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ],
+      "type": "enum",
+      "rationale": "The text describes various applications of the concrete, such as building construction and civil engineering, which are important for categorizing its use.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "building_construction",
+        "civil_engineering"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Concrete is a building material which is used in a variety of ways in construction. It is used in building construction, especially for ceilings, walls, stairs, foundations, supports and trusses, in civil engineering for components in contact with the ground, foundations, floor slabs, bored piles and in civil engineering, e.g. bridges."
+      ],
+      "inference_basis": [
+        "Applications mentioned suggest typical use cases for this type of concrete."
+      ]
+    },
+    "binder_type": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ],
+      "type": "string",
+      "rationale": "The type of binder used in concrete affects its strength, durability, and chemical resistance. The dataset specifies the use of unsaturated polyester resin as the binder.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"An unsaturated polyester resin is used as binder.\""
+      ],
+      "inference_basis": null
+    },
+    "cement_content": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ],
+      "type": "float",
+      "rationale": "The amount of cement used in the concrete mix is specified as 285.7 kg, which is important for understanding the mix proportions and potential environmental impacts.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg",
+      "applicability": null,
+      "evidence": [
+        "Ready-mix concrete of strength class C25/30 is a mixture of aggregates (1814.6 kg), cement (285.7 kg), water (200 kg)."
+      ],
+      "inference_basis": null
+    },
+    "cement_type": {
+      "count": 1,
+      "document_ids": [
+        "0ac90196-213a-460b-9a2c-090eebf30eaa"
+      ],
+      "type": "string",
+      "rationale": "The type of cement used (e.g., CEMI) affects the concrete's properties such as setting time and durability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "C32/40 CEMI WTT concrete"
+      ],
+      "inference_basis": null
+    },
+    "chloride_class": {
+      "count": 1,
+      "document_ids": [
+        "85d8df7d-4741-4fdf-b494-60274968ae2e"
+      ],
+      "type": "string",
+      "rationale": "The dataset name includes 'Cl02', which indicates the chloride class, an important factor for durability in certain environments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "dataset_name: 'Concrete ECOPact C30/37Cl02D16S3'"
+      ],
+      "inference_basis": null
+    },
+    "exposure_classes": {
+      "count": 1,
+      "document_ids": [
+        "7180425d-0e35-47f5-84d9-cbf39486b411"
+      ],
+      "type": "enum",
+      "rationale": "Exposure classes (e.g., XC4, XF1, XA1, XD1) define the environmental conditions the concrete is designed to withstand, such as corrosion or freeze-thaw cycles.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC4",
+        "XF1",
+        "XA1",
+        "XD1"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Expositionsklassen XC4, XF1, XA1, XD1"
+      ],
+      "inference_basis": null
+    },
+    "maximum_aggregate_diameter": {
+      "count": 1,
+      "document_ids": [
+        "76c44e98-da73-4111-b5d7-80a5c8617e03"
+      ],
+      "type": "float",
+      "rationale": "The maximum diameter of aggregates affects the concrete's texture and strength, and is explicitly mentioned as a variable characteristic in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": null,
+      "evidence": [
+        "maximum diameter"
+      ],
+      "inference_basis": null
+    },
+    "mix_code": {
+      "count": 1,
+      "document_ids": [
+        "5361ebf3-7fc1-4eff-978b-fc1afb35e644"
+      ],
+      "type": "string",
+      "rationale": "The mix code uniquely identifies the specific formulation of the concrete, which is crucial for ensuring consistency and performance in construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "Mix code BRE1d03_2503 Version 1"
+      ],
+      "inference_basis": null
+    },
+    "production_location": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ],
+      "type": "string",
+      "rationale": "The location where the concrete is produced is specified, which can influence material properties due to local regulations and raw material sources.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    "production_method": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ],
+      "type": "string",
+      "rationale": "The production method can affect the material properties and quality of the concrete. The dataset describes a specific casting process for polymer concrete.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"The individual components are fed to the casting machine via pipe and conveyor systems. Here, the components are mixed in an extruder via a screw mixer and dispensed into molds prepared with release agent.\""
+      ],
+      "inference_basis": [
+        "Detailed description of the casting process suggests a specific production method."
+      ]
+    },
+    "reinforcement": {
+      "count": 1,
+      "document_ids": [
+        "e69dfe7d-03a7-4151-ab9a-491ea73317da"
+      ],
+      "type": "bool",
+      "rationale": "Reinforcement affects the structural performance of concrete. The dataset explicitly states that the product is non-reinforced.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "\"The declared product is a non-reinforced prefabricated polymer concrete part.\""
+      ],
+      "inference_basis": null
+    },
+    "reinforcement_inclusion": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ],
+      "type": "bool",
+      "rationale": "The text mentions that reinforced concrete components have a separate consideration for reinforcement steel, indicating whether reinforcement is included is a relevant property.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "Bei bewehrten Bauteilen ist der Anteil des Bewehrungsstahls gesondert zu bercksichtigen."
+      ],
+      "inference_basis": [
+        "Reinforcement is a common consideration in concrete products, especially for structural applications."
+      ]
+    },
+    "reinforcement_type": {
+      "count": 1,
+      "document_ids": [
+        "cf2e106f-ddf5-4265-ae3e-5df9b1297c48"
+      ],
+      "type": "enum",
+      "rationale": "The type of reinforcement (e.g., steel) is crucial for understanding the structural capabilities and applications of the concrete panels.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "none",
+        "steel",
+        "fiber",
+        "composite"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "double row steel reinforcement"
+      ],
+      "inference_basis": [
+        "Presence of 'steel reinforcement' implies reinforcement type."
+      ]
+    },
+    "transport_method": {
+      "count": 1,
+      "document_ids": [
+        "97345f6c-b4f4-4761-8863-14fc279ada34"
+      ],
+      "type": "enum",
+      "rationale": "The method of transporting the concrete is described, which is relevant for logistics and application planning.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "truck_mixer",
+        "precast_plant"
+      ],
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "This is transported as ready-mixed concrete without storage to the construction site or to the precast plants using concrete truck mixers."
+      ],
+      "inference_basis": [
+        "Transport method affects how the concrete is delivered and used on site."
+      ]
+    },
+    "water_cement_ratio": {
+      "count": 1,
+      "document_ids": [
+        "a71e60a5-b64b-4715-ae8a-c8c8819149d2"
+      ],
+      "type": "float",
+      "rationale": "The water-cement ratio is a key factor in determining the strength and durability of concrete, inferred from the dataset's focus on compressive strength and mix design.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": null,
+      "evidence": [
+        "For the recipe determination, the average concrete strength was selected in each case (i.e. for C25/30 the strength 27.5 N/mm²) in order to determine the water-cement ratio (w/c)."
+      ],
+      "inference_basis": [
+        "Concrete strength and mix design typically involve water-cement ratio calculations."
+      ]
+    }
+  }
+}

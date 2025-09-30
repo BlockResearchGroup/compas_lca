@@ -1,0 +1,59 @@
+{
+  "document_id": "2903adee-32f8-418a-9785-4042afc7d75d",
+  "fields": [
+    {
+      "name": "reinforcement_type",
+      "type": "enum",
+      "rationale": "The dataset describes the use of carbon fiber reinforcement in the concrete elements, which is a key material property that affects the strength and durability of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "carbon_fiber",
+        "steel",
+        "glass_fiber",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "carbonfaserbewerten Betonelemente",
+        "carbon reinforcement is inserted into the formwork"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class C80/95 is explicitly mentioned, which is a critical property for structural applications of concrete.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Druckfestigkeitsklasse C80/95"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness of 0.07 meters is provided, which is important for understanding the dimensions and potential applications of the concrete panels.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.07"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+| Key Data Set Information | |||
+| Location | DE | ||
+| Geographical representativeness description | The data set represents the country specific situation in Germany, focusing on the main technologies, the region specific characteristics and / or import statistics. | ||
+| Reference year | 2023 | ||
+| Name |
+Base name
+; Quantitative product or process properties
+Acetylated wood (1 m3, 510 kg/m3); 510 kg/m³
+| ||
+| Use advice for data set | This data set refers to 1 m³ of acetylated wood with a density of 510 kg/m³. The chemical modification of the wood increases the durability of the wood against rot, fungal attack and insect attack. The data set can be used to estimate other wood densities of 450 - 550 kg/m³. | ||
+| Technical purpose of product or process | Acetylated wood can be used for structural and non-structural applications. Due to the improved durability, acetylated wood is mainly used outdoors, as well as for applications with soil and water contact. Color coatings are possible. | ||
+| Classification number | 3.5.01 | ||
+| Classification |
+Class name
+:
+Hierarchy level
+| ||
+| General comment on data set | This data set has been modeled according to the European Standard EN 15804+A2 for Sustainable Building. Results are depicted in modules that allow the structured expression of results over the entire life cycle. | ||
+| Uncertainty margins | 20 | ||
+| Description | Product system depicted except for a few missing processes / flows. Technological, temporal and geographic representativeness partly given. | ||
+| Copyright | Yes | ||
+| Owner of data set | |||
+| Quantitative reference | |||
+| Reference flow(s) |
+| ||
+| Time representativeness | |||
+| Data set valid until | 2026 | ||
+| Time representativeness description | Annual average | ||
+| Technological representativeness | |||
+| Technology description including background system | For the production of acetylated wood, dried softwood is used for this data set. For the acetylation process, an acetic anhydride solution is injected into special stainless steel reactors filled with the wood to be treated. The wood and the acetic anhydride solution react at temperatures of around 120 °C. The hydroxyl groups on the wood cell wall are esterified to form acetic acid esters and acetic acid is released. For this data set, in the sense of a conservative approach, only acetic anhydride from primary production was balanced (from the acetic acid produced, acetic anhydride can theoretically be recovered and fed back into the process). The acetic acid produced during the process was treated as a by-product in the life cycle assessment and the environmental impacts of the acetylation process were allocated economically: approx. 88% of the environmental impacts were attributed to the acetylated wood and approx. 12% to the acetic acid. The production of acetic anhydride and the wood upstream chain dominate the life cycle assessment of the product system. In module C1, a manual dismantling (no loads) is assumed, collecting losses are neglected. The transport in module C2 to the recycling plant takes place with a truck (50km). Module C3 takes into account the grinding and thermal treatment (combustion) of the material. The CO2 absorbed and stored in the material by photosynthesis (from module A1) is written off in C3 (CO2 neutrality within the product system according to EN 16485: Round and sawn timber - Environmental Product Declarations - Product category rules for wood and wood-based products for use in construction, 2014). Furthermore module C3 contains the loads for running the treatment facility. Module D contains the credits for the substitution of electricity (German electricity mix) and thermal energy (from natural gas). The calculation of combustion emissions and credits takes into account the specific calorific value of the material and the material composition. |
+| Subtype | generic dataset | ||||||||
+| Data sources, treatment and representativeness | |||||||||
+| Data source(s) used for this data set | |||||||||
+| Completeness | |||||||||
+| Validation | |||||||||
+| |||||||||
+| Compliance Declarations |
+| Compliance |
+Compliance system name
+|
+Approval of overall compliance
+Fully compliant |
+Nomenclature compliance
+|
+Methodological compliance
+|
+Review compliance
+|
+Documentation compliance
+|
+Quality compliance
+|
+| Data generator | |
+| Data set generator / modeller | |
+| Data entry by | |
+| Time stamp (last saved) | 2024-07-24T10:50:28+01:00 |
+| Data set format(s) | |
+| Data entry by | |
+| Publication and ownership | |
+| UUID | 0dec19c7-53db-4cb9-bbba-4d44d3da62a9 |
+| Data set version | 20.24.070 |
+| Preceding Data set version | |
+| Registration authority | |
+| Owner of data set | |
+| Copyright | Yes |
+| License type | Free of charge for all users and uses |
+| Access and use restrictions | The license conditions as stated on https://www.oekobaudat.de/apply. |
+Indicators of life cycle

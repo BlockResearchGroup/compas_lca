@@ -1,0 +1,65 @@
+{
+  "document_id": "d1e98488-d8ed-49db-abd1-baf2e9465f30",
+  "fields": [
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The product is coated with a zinc/aluminium or zinc/aluminium/magnesium alloy, which is crucial for its corrosion resistance properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "zinc_aluminium",
+        "zinc_aluminium_magnesium"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "coated with a zinc/aluminium or zinc/aluminium/magnesium alloy"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_route",
+      "type": "enum",
+      "rationale": "The production route (ore-based blast furnace) is a key factor in determining the environmental and mechanical properties of the steel product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "ore_based_blast_furnace",
+        "electric_arc_furnace"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "produced via an ore-based blast furnace route"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_industry",
+      "type": "enum",
+      "rationale": "The product is used in various industries such as automotive, construction, and domestic appliances, which helps in categorizing the product based on its end-use.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "automotive",
+        "domestic_appliance",
+        "construction",
+        "ventilation",
+        "furniture"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel_sheets"
+      ],
+      "evidence": [
+        "areas of application for hot-dip galvanised cold-rolled products include the following: Automobile and automotive industry, Domestic appliance industry, Construction industry"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

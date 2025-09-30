@@ -1,0 +1,58 @@
+{
+  "document_id": "0ac90196-213a-460b-9a2c-090eebf30eaa",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class (e.g., C32/40) is a key property of concrete that indicates its load-bearing capacity, which is critical for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C32/40"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "C32/40 CEMI WTT concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "cement_type",
+      "type": "string",
+      "rationale": "The type of cement used (e.g., CEMI) affects the concrete's properties such as setting time and durability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "C32/40 CEMI WTT concrete"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "concrete"
+      ],
+      "evidence": [
+        "density: 2422.19"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

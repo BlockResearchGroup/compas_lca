@@ -1,0 +1,56 @@
+{
+  "document_id": "324c94f7-569f-44d8-af8a-d3c4f314273b",
+  "fields": [
+    {
+      "name": "color",
+      "type": "string",
+      "rationale": "The dataset explicitly mentions the color of the concrete paving stone as anthracite, which is a key distinguishing feature for aesthetic and functional purposes.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "anthracite"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a critical material property that affects the strength and durability of concrete products, and it is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "density: 2404.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the concrete layer is a fundamental property that influences the structural application and load-bearing capacity of the paving stones.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "precast_concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.08"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

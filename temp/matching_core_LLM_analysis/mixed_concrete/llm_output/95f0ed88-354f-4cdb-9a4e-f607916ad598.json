@@ -1,0 +1,58 @@
+{
+  "document_id": "95f0ed88-354f-4cdb-9a4e-f607916ad598",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "string",
+      "rationale": "The compressive strength class is a key property of concrete that determines its load-bearing capacity and is often used to specify concrete for different structural applications.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "ready_mixed_concrete"
+      ],
+      "evidence": [
+        "GEN1 CEMI concrete, mix code BRE1d05_2503"
+      ],
+      "inference_basis": [
+        "GEN1 is a common designation for a specific strength class in concrete standards."
+      ]
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental property of concrete that affects its weight and structural performance, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "ready_mixed_concrete"
+      ],
+      "evidence": [
+        "density: 2342.6"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for applications where the concrete is used in layers, affecting curing and structural properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "ready_mixed_concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

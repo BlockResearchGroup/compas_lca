@@ -1,0 +1,58 @@
+{
+  "document_id": "f88ae566-9066-4399-83fa-52cc5bcbd5e6",
+  "fields": [
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The product is described as a semi-rigid, decorative floor covering in the form of a flooring board or tile, which indicates its form factor.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "board",
+        "tile"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "tiles"
+      ],
+      "evidence": [
+        "EGGER Design Flooring is a semi-rigid, decorative floor covering in the form of a flooring board or tile."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "core_material",
+      "type": "string",
+      "rationale": "The core material of the product is explicitly stated as a high-density wood fibre board, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "A high-density wood fibre board is used as coreboard."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "surface_treatment",
+      "type": "string",
+      "rationale": "The surface treatment includes a transparent film laminated onto the decor coating and sealed with a UV-curing protective lacquer, which is important for the product's durability and appearance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "tiles"
+      ],
+      "evidence": [
+        "The wear layer is formed by a transparent film laminated onto the decor coating and sealed with a UV-curing protective lacquer."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

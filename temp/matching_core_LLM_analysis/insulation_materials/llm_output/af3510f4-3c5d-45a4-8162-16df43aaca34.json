@@ -1,0 +1,55 @@
+{
+  "document_id": "af3510f4-3c5d-45a4-8162-16df43aaca34",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is a key property for insulation materials, indicating how well the material can conduct heat. It is crucial for determining the insulation's effectiveness.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The thermal conductivity is 0.053-0.07 W/mK."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "temperature_resistance",
+      "type": "float",
+      "rationale": "Temperature resistance is important for materials used in fire protection, indicating the maximum temperature the material can withstand without degrading.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "°C",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Calcium silicate boards are generally used in the field of constructional fire protection (temperature resistance of about 1100 ° C)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "ph_value",
+      "type": "float",
+      "rationale": "The pH value is relevant for internal insulation materials as it affects mold resistance, an important property for maintaining indoor air quality.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "high pH value, counteracts mold formation"
+      ],
+      "inference_basis": [
+        "High pH value is typically associated with mold resistance."
+      ]
+    }
+  ]
+}

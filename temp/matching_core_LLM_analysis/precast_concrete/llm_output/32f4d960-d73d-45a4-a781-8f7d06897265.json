@@ -1,0 +1,61 @@
+{
+  "document_id": "32f4d960-d73d-45a4-a781-8f7d06897265",
+  "fields": [
+    {
+      "name": "surface_treatment",
+      "type": "enum",
+      "rationale": "The dataset describes various surface treatments such as colored, shot-blasted, brushed, ground, and with or without surface protection, which are important for categorizing the product's finish and application.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "colored",
+        "shot-blasted",
+        "brushed",
+        "ground",
+        "ground and shot-blasted",
+        "with surface protection",
+        "without surface protection"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Products with different surface treatments (colored, shot-blasted, brushed, ground, ground and shot-blasted, with and without surface protection) have been included in the overall assessment."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "average_area_weight",
+      "type": "float",
+      "rationale": "The average area weight is a key physical property that affects handling, installation, and structural performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "The declaration pertains to the manufacturing and end-of-life of one square meter (m²) of concrete paving stone with an average area weight of 368 kg/m²."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is a critical dimension for structural and aesthetic purposes in construction applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "paving stone thickness of 16 cm"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

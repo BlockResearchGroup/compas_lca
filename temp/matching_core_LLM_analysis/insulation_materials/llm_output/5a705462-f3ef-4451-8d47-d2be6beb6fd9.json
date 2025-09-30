@@ -1,0 +1,97 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "range",
+      "rationale": "The dataset specifies the thickness range for Rockpanel Durable and A2 (FS-Xtra) cladding panels, which is crucial for understanding the product's application and performance characteristics.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The Rockpanel Durable is offered with a density of 1050 kg/m3 and thicknesses of 6, 8 and 10 mm. A2 (FS-Xtra) has a density of 1250 kg/m3 and thicknesses of 9 mm and 11 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The type of coating used on the panels affects durability and maintenance requirements, which are important for product selection and lifecycle analysis.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "waterborne",
+        "PU",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The coating is a waterborne acrylic coating and an additional (optional) PU coating."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binder_type",
+      "type": "string",
+      "rationale": "The binder type, phenol formaldehyde resin, is a key component in the manufacturing process, affecting the product's structural integrity and environmental impact.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The added binder is a phenol formaldehyde resin which is polymerized into solid resin during the production of the final stone wool product."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "recycled_content",
+      "type": "bool",
+      "rationale": "The use of recycled materials in the product is a significant factor for sustainability and environmental impact assessments.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "traditionally made from volcanic rock (typically basalt or dolomite), and of recycled material"
+      ],
+      "inference_basis": [
+        "Mention of recycled material suggests the product includes recycled content."
+      ]
+    },
+    {
+      "name": "fire_resistance",
+      "type": "ordinal_enum",
+      "rationale": "Fire resistance is a critical property for cladding panels, especially in building applications, affecting safety and compliance with regulations.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The Rockpanel Durable and A2 (FS-Xtra), which are contained in this EPD, are cladding panels for facade applications."
+      ],
+      "inference_basis": [
+        "A2 (FS-Xtra) designation suggests enhanced fire resistance properties."
+      ]
+    }
+  ]
+}

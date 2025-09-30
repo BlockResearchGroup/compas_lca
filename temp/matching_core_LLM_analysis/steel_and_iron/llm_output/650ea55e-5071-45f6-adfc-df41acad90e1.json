@@ -1,0 +1,70 @@
+{
+  "document_id": "650ea55e-5071-45f6-adfc-df41acad90e1",
+  "fields": [
+    {
+      "name": "production_process",
+      "type": "enum",
+      "rationale": "The production process is a key differentiator for steel products, affecting properties like strength and recyclability. The document mentions the Basic Oxygen Furnace (BOF)/Blast Furnace (BF) route.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "BOF/BF",
+        "EAF",
+        "Other"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "The steel products are produced via the Basic Oxygen Furnace (BOF)/Blast Furnace (BF) steel making route."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The form of the steel product (e.g., coil, sheet) is crucial for its application and handling. The document specifies 'hot rolled steel coil'.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "coil",
+        "sheet",
+        "plate",
+        "bar",
+        "rod"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "This Environmental Product Declaration refers to hot rolled steel coil, slit coil and cut-to-length sheet."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "alloy_type",
+      "type": "enum",
+      "rationale": "Different alloy types (e.g., low, medium, high strength) determine the mechanical properties and applications of the steel. The document mentions low and medium alloy steels and high strength steels.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "steel",
+        "iron"
+      ],
+      "evidence": [
+        "This includes low and medium alloy steels and high strength steels."
+      ],
+      "inference_basis": null
+    }
+  ]
+}
