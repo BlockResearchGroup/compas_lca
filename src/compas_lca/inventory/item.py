@@ -162,9 +162,9 @@ class InventoryItemLLM(BaseModel):
         description=(
             "Choose EXACTLY ONE resolution level. Start at the most specific and stop at the first match:\n"
             "• site_specific → Single manufacturer AND single production site/plant.\n"
-            "  Examples: 'ACME Insulation – Plant Y', 'Factory Linz – Line 2', 'BrandX Concrete, Plant 17'.\n"
+            "  Examples: 'ACME Insulation - Plant Y', 'Factory Linz - Line 2', 'BrandX Concrete, Plant 17'.\n"
             "• product_specific → Single manufacturer/brand (optionally model/SKU/EPD ID).\n"
-            "  Examples: 'Forster Variotherm – 60 x 130', 'Sage Glas', 'ACME Model A123 (EPD-2025-001)'.\n"
+            "  Examples: 'Forster Variotherm - 60 x 130', 'Sage Glas', 'ACME Model A123 (EPD-2025-001)'.\n"
             "• industry_specific → Sector/association dataset or collective of multiple producers.\n"
             "  Examples: 'European Cement Association sector EPD', 'Aluminium association average', 'Timber consortium EPD'.\n"
             "• category_specific → Specific material category without a manufacturer; market/national/regional averages.\n"
