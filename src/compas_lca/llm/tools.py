@@ -7,7 +7,7 @@ import csv, json, re
 """Initial draft for tools, which for now only focus on material decompositions"""
 
 @dataclass
-class Deps:
+class DataTable:
     """Holds data tables for decomposition. Loaded once and injected into tools."""
     rebar_defaults: List[Dict[str, Any]]
     densities: Dict[str, float]
@@ -16,7 +16,7 @@ class Deps:
         cls,
         rebar_csv: Path,
         densities_json: Path,
-    ) -> "Deps":
+    ) -> "DataTable":
         with rebar_csv.open("r", encoding="utf-8") as f:
             rebar_rows = list(csv.DictReader(f))
         densities = json.loads(densities_json.read_text(encoding="utf-8"))
@@ -29,7 +29,7 @@ def rebar_mass_fraction(
     exposure_class: Optional[str] = None,
     country: Optional[str] = None,
     *,
-    deps: Deps,
+    data_table: DataTable,
 ) -> float:
     """
     Look up a default **rebar mass fraction** (0..1) for reinforced concrete elements.
@@ -53,7 +53,7 @@ def rebar_mass_fraction(
                 sc += 1
         return sc
 
-    candidates = sorted(deps.rebar_defaults, key=score, reverse=True)
+    candidates = sorted(data_table.rebar_defaults, key=score, reverse=True)
     best = candidates[0] if candidates and score(candidates[0]) > 0 else None
     if best:
         try:
@@ -66,7 +66,7 @@ def rebar_mass_fraction(
 def density_lookup(
     material_name: str,
     *,
-    deps: Deps,
+    deps: DataTable,
 ) -> Optional[float]:
     """
     Return density in kg/m³ for a canonical pure material name (case-insensitive).
