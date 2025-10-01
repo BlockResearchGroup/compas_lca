@@ -8,8 +8,8 @@ from compas.geometry import Geometry
 from compas.geometry import Brep
 from compas_model.elements import Element
 
-from .attributes.materialspec import MaterialBreakdown
-from .attributes.quantity import Quantity
+from .attributes.materialspec import Material
+from .attributes.quantity import Quantities
 from .attributes.metadata import Metadata
 
 class LcaElement(Element):
@@ -19,9 +19,9 @@ class LcaElement(Element):
     
     Attributes 
     ---------- 
-    materials : List[MaterialComposition] 
-        A sequence of material compositions. 
-        Can represent: - a single material (pure or mixed) - multiple material layers (pure and/or mixed) 
+    materials : List[Material] 
+        A sequence of materials. 
+        Each "Material" can represent: - a single material (pure or mixed) - multiple materials layers (pure and/or mixed) 
     quantity : 
         Quantity Stores length, area, volume, and any other quantities relevant for LCA calculation. 
     metadata : 
@@ -33,8 +33,8 @@ class LcaElement(Element):
 
     def __init__(
         self,
-        materials: List[MaterialBreakdown],   # n >= 1 for multi-layer
-        quantity: Optional[Quantity] = None,
+        materials: List[Material],   # n >= 1 for multi-layer
+        quantities: Optional[Quantities] = None,
         metadata: Optional[Metadata] = None,
         geometry: Optional[Union[Brep, Mesh]] = None,
         name: Optional[str] = None,
@@ -42,9 +42,9 @@ class LcaElement(Element):
     ):
         super().__init__(geometry=geometry, name=name, **kwargs)
         if not materials or len(materials) == 0:
-            raise ValueError("LcaElement requires at least one MaterialBreakdown.")
+            raise ValueError("LcaElement requires at least one Material.")
         self.materials = list(materials or [])
-        self.quantity = quantity
+        self.quantities = quantities
         self.metadata = metadata
 
     @property
@@ -57,15 +57,15 @@ class LcaElement(Element):
         data.update({
             "geometry": self.geometry.__data__ if self.geometry else None,
             "materials": [comp.__data__ for comp in self.materials],
-            "quantity": self.quantity.__data__ if self.quantity else None,
+            "quantities": self.quantities.__data__ if self.quantities else None,
             "metadata": self.metadata.__data__ if self.metadata else None,
         })
         return data
 
     @classmethod
     def __from_data__(cls, data: dict) -> "LcaElement":
-        materials = [MaterialBreakdown.__from_data__(x) for x in data.get("materials", [])]
-        quantity = Quantity.__from_data__(data["quantity"]) if data.get("quantity") else None
+        materials = [Material.__from_data__(x) for x in data.get("materials", [])]
+        quantities = Quantities.__from_data__(data["quantities"]) if data.get("quantities") else None
         metadata = Metadata.__from_data__(data["metadata"]) if data.get("metadata") else None
         geometry = Geometry.__from_data__(data["geometry"]) if data.get("geometry") else None
 
@@ -76,7 +76,7 @@ class LcaElement(Element):
 
         return cls(
             materials=materials,
-            quantity=quantity,
+            quantities=quantities,
             metadata=metadata,
             geometry=geometry,
             **kwargs,
@@ -87,7 +87,7 @@ class LcaElement(Element):
             f"LcaElement(name={self.name}, "
             f"materials={self.material_names}, "
             f"thickness={self.total_thickness()}, "
-            f"quantity={self.quantity}, "
+            f"quantity={self.quantities}, "
             f"metadata={self.metadata})"
         )
 
