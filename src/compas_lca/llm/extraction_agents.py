@@ -5,7 +5,7 @@ from compas_lca.inventory.item import InventoryItemLLM
 
 from compas_lca.llm.agent import Context
 
-from compas_lca.llm.tools import Deps
+from compas_lca.llm.tools import DataTable
 from compas_lca.llm.tools import rebar_mass_fraction
 from compas_lca.llm.tools import density_lookup
 from compas_lca.llm.tools import studs_steel_volume_fraction
@@ -23,16 +23,12 @@ from compas_lca.llm.config import load_agent
 METADATA_AGENT = load_agent(
     context=Context(
         instructions=(
+            "You are an expert at extracting important Metadata from building element data."
             "You are given raw building element data as a single JSON string."
             "Your task is to carefully EXTRACT all relevant information from this JSON and populate the fields of the `Metadata` output schema."
             "For each field in the schema, locate the corresponding value in the JSON."
-            "Only add values in the output schmea if they are explicitly present."
+            "Only add values in the output schema if they are explicitly present."
             "If a field is missing or cannot be determined, mark is with `null`. Do not invent or assume values."
-        ),
-        system_prompt=(
-            "You are an expert at extracting important Metadata from building element data."
-            "Use only the provided JSON payload."
-            "Your output must strictly conform to the `Metadata` schema."
             "Do not include any explanatory text outside of the schema output."
         ),
         output_type=Metadata
@@ -45,19 +41,17 @@ METADATA_AGENT = load_agent(
 PARSE_MATERIAL_AGENT = load_agent(
     context=Context(
         instructions=(
+            "You are an expert at identifying and labeling Material Information from building element data."
             "You will receive a single material descriptor string extracted from building element data.\n"
-            "Parse and normalize it, then classify whether the descriptor is a 'pure' material or a 'composite' "
+            "Prioritize data within the Building Element JSON file that clearly refer to Material specifications"
+            "Always preserve the verbatim material label in `literal_name` when available."
+            "Classify whether the descriptor is a 'pure' material or a 'composite' "
             "for downstream LCA-database mapping purposes:\n"
             "- pure → maps to a single LCA dataset even if internally a mixture (e.g., 'timber', 'brick', 'XPS insulation').\n"
             "- composite → clearly combines distinct materials that each require separate datasets "
             "(e.g., 'concrete' with loadbearing specification → concrete + rebar steel composite; 'metal stud cavity' → steel + air/insulation composite).\n"
             "Return a valid `ParsedMaterial` only. If uncertain, set material_type='unknown' and keep confidence low.\n"
             "Do not add any text outside the schema."
-        ),
-        system_prompt=(
-            "You are an expert at identifying and labeling Material Information from building element data."
-            "Always preserve the verbatim material label in `literal_name` when available."
-            "Prioritize data within the Building Element JSON file that clearly refer to Material specifications"
         ),
         output_type=ParsedMaterial,
     )
@@ -73,6 +67,7 @@ DECOMPOSE_MATERIAL_AGENT = load_agent(
             "  (a) a ParsedMaterial object, or\n"
             "  (b) a JSON with enough fields to determine if the material is composite.\n\n"
             "Your job: if the material is COMPOSITE, break it down into pure components with **fractions that sum to ~1.0**.\n"
+            "You have callable tools: rebar_mass_fraction, density_lookup, studs_steel_volume_fraction.\n"
             "Use the tools below when appropriate:\n"
             "• rebar_mass_fraction(...) → for reinforced concrete, returns steel mass share.\n"
             "• density_lookup(name) → to convert between volume↔mass shares when needed.\n"
@@ -84,33 +79,28 @@ DECOMPOSE_MATERIAL_AGENT = load_agent(
             "2) **Stud cavity walls:** call studs_steel_volume_fraction(...) for steel share; "
             "   remaining volume is cavity/insulation or air; add boards as needed.\n"
             "3) If the material is PURE, return a single ComponentShare with fraction=1.0 and stop.\n"
-            "4) Fractions must sum to ~1.0 (±0.001). No extra prose; return a valid MaterialBreakdown."
-        ),
-        system_prompt=(
-            "You have callable tools: rebar_mass_fraction, density_lookup, studs_steel_volume_fraction.\n"
+            "4) Fractions must sum to ~1.0 (±0.001). No extra prose; return a valid MaterialBreakdown.\n"
+            "\n"
             "Do NOT guess ratios when a tool is available. Prefer mass basis for rebar lookups, convert carefully.\n"
             "Use concise canonical component names (e.g., 'Concrete', 'Rebar steel', 'Timber studs', 'Mineral wool', 'Air')."
         ),
         output_type=MaterialBreakdown,
-        deps_type=Deps,  # enable DI of the Deps object into tools via the 'deps' parameter
-    ).with_tools([rebar_mass_fraction, density_lookup, studs_steel_volume_fraction])
+        deps_type=DataTable,  # enable DI of the DataTable object into tools via the 'deps' parameter
+        tools=[rebar_mass_fraction, density_lookup, studs_steel_volume_fraction]
+    )
 )
-
 
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # %%%%%%%%% LCA DATABASE EXTRACTION AGENTS %%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# ======== HTML AGENT ========
+# ======== WEB_SCRAPING_AGENT  ========
 # Identifies relevant data from a scraped HTML (refering to an online EPD)
 
-HTML_AGENT = load_agent(
+WEB_SCRAPING_AGENT = load_agent(
     context=Context(
         instructions=(
-            "placeholder"
-        ),
-        system_prompt=(
             "placeholder"
         ),
         output_type="placeholder"
@@ -125,16 +115,13 @@ HTML_AGENT = load_agent(
 INVENTORY_AGENT = load_agent(
     context=Context(
         instructions=(
+            "You are an expert at extracting important data from EPDs."
             "You are given data from an EPD in form of a JSON document as plain text."
             "Your task is to carefully EXTRACT all relevant information from this JSON and populate the fields of the `InventoryItem` output schema."
-            "For each field in the schema, locate the corresponding value in the JSON."
-            "Only add values in the output schmea if they are explicitly present."
-            "If a field is missing or cannot be determined, mark it with `null`. Do not invent or assume values."
-        ),
-        system_prompt=(
-            "You are an expert at extracting important data from EPDs."
-            "Use only the provided JSON payload."
             "Your output must strictly conform to the `InventoryItem` schema."
+            "For each field in the schema, locate the corresponding value in the JSON."
+            "Only add values in the output schema if they are explicitly present."
+            "If a field is missing or cannot be determined, mark it with `null`. Do not invent or assume values."
             "Do not include any explanatory text outside of the schema output."
         ),
         output_type=InventoryItemLLM
@@ -142,15 +129,12 @@ INVENTORY_AGENT = load_agent(
 )
 
 
-# ======== GUESSING AGENT ========
+# ======== SPECULATION AGENT ========
 # Tries to fill in the blanks
 
-GUESSING_AGENT = load_agent(
+SPECULATION_AGENT = load_agent(
     context=Context(
         instructions=(
-            "placeholder"
-        ),
-        system_prompt=(
             "placeholder"
         ),
         output_type="placeholder"
