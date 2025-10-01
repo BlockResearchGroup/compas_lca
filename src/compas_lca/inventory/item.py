@@ -4,19 +4,54 @@ import re
 
 from typing import Any
 from typing import Optional
+from typing import ClassVar
+from typing import Tuple
 
-from compas_lca.enums.enums import YesNoEither
-from compas_lca.enums.enums import DataResolution
+from compas_lca.enum import YesNoEither
+from compas_lca.enum import DataResolution
 
 from pydantic import BaseModel
 from pydantic import Field
 from pydantic import field_validator
+from pydantic import model_validator
+
+
+class FloatParsingMixin:
+    """mixin to normalize float-like fields across models."""
+    FLOAT_FIELDS: ClassVar[Tuple[str, ...]] = ()
+
+    @staticmethod
+    def parse_float(v: Any) -> float | None:
+        if v is None or v == "":
+            return None
+        if isinstance(v, (int, float)):
+            return float(v)
+        s = str(v).strip().replace(",", ".")
+        try:
+            return float(s)
+        except ValueError:
+            return None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _normalize_float_fields(cls, data: Any):
+        if not isinstance(data, dict) or not getattr(cls, "FLOAT_FIELDS", ()):
+            return data
+        d = dict(data)
+        for field in cls.FLOAT_FIELDS:
+            if field in d:
+                d[field] = cls.parse_float(d[field])
+        return d
 
 
 class InventoryItemEPD(BaseModel):
     """ILCD+EPD data format fields, which can be directly extracted from CSVs or EPDs
     These fields (in most cases) do not require LLM-based inferences.
     """
+
+    # mixin normalizes chosen fields (this is a shared function now):
+    FLOAT_FIELDS: ClassVar[tuple[str, ...]] = ("density_value", "thickness_value")
+
     uuid: str = Field(
         ..., 
         description="Unique ID of the dataset.",
@@ -32,7 +67,7 @@ class InventoryItemEPD(BaseModel):
         description="Category chain in the database",
         examples=["Metals/Aluminium/Cast aluminium"]
         )
-    location_code: Optional[str] = Field(
+    location_code: Optional[str] = Field( # Maybe ENUM?
         None, 
         description="ISO 3166 country/region code",
         examples=["DE", "RER"]
@@ -47,29 +82,22 @@ class InventoryItemEPD(BaseModel):
         description="Person or entity who owns this data set. Note: this is usually not the publisher of the data set.",
         examples=["German Cement Association", "Sphera Solutions GmbH"]
         )
-    density: Optional[float] = Field(
+    density_value: Optional[float] = Field(
         None, 
-        description="Material density in kg/m³."
+        description="Material density value."
         )
-    layer_thickness: Optional[float] = Field(
+    density_unit: Optional[str] = Field(
         None, 
-        description="Layer thickness in m."
+        description="Material density unit."
         )
-
-    @field_validator("density", "layer_thickness", mode="before")
-    @classmethod
-    def _parse_float(cls, v: Any) -> Optional[float]:
-        """Normalize floats that may use comma as decimal separator."""
-        if v is None or v == "":
-            return None
-        if isinstance(v, (int, float)):
-            return float(v)
-        s = str(v).strip().replace(",", ".")
-        try:
-            return float(s)
-        except ValueError:
-            return None
-
+    thickness_value: Optional[float] = Field(
+        None, 
+        description="Layer thickness value."
+        )
+    thickness_unit: Optional[str] = Field(
+        None, 
+        description="Layer thickness unit."
+        )
 
 class InventoryItemLLM(BaseModel):
     """
@@ -169,38 +197,6 @@ class InventoryItemLLM(BaseModel):
             return v or None
         return v
 
-    @field_validator("loadbearing", mode="before")
-    @classmethod
-    def _normalize_loadbearing(cls, v: Any) -> YesNoEither:
-        if v is None:
-            return YesNoEither.unknown
-        if isinstance(v, YesNoEither):
-            return v
-        s = str(v).strip().lower()
-        if s in {"yes", "true", "y", "1", "structural", "load-bearing", "loadbearing"}:
-            return YesNoEither.yes
-        if s in {"no", "false", "n", "0", "non-structural", "nonstructural", "not load-bearing"}:
-            return YesNoEither.no
-        if s in {"either", "both", "variable", "depends", "sometimes", "mixed", "contextual", "maybe"}:
-            return YesNoEither.either
-        return YesNoEither.unknown
-
-    @field_validator("interior", mode="before")
-    @classmethod
-    def _normalize_interior(cls, v: Any) -> YesNoEither:
-        if v is None:
-            return YesNoEither.unknown
-        if isinstance(v, YesNoEither):
-            return v
-        s = str(v).strip().lower()
-        if s in {"yes", "true", "y", "1", "interior", "inside", "indoor"}:
-            return YesNoEither.yes
-        if s in {"no", "false", "n", "0", "exterior", "outside", "outdoor", "façade", "facade"}:
-            return YesNoEither.no
-        if s in {"either", "both", "variable", "mixed", "contextual"}:
-            return YesNoEither.either
-        return YesNoEither.unknown
-
     @field_validator("u_value", mode="before")
     @classmethod
     def _normalize_u_value(cls, v: Any) -> Optional[float]:
@@ -241,7 +237,7 @@ class InventoryItemLLM(BaseModel):
 
 
 
-class InventoryItem(BaseModel):
+class InventoryItem(InventoryItemEPD, InventoryItemLLM):
     """Final merged representation of an inventory item."""
     # include all fields from both
     uuid: str
