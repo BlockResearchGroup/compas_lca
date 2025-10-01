@@ -4,7 +4,7 @@ import pandas as pd
 # USER SETTINGS
 # =======================
 INPUT_CSV = r"data/lca_database/OBD_items.csv"
-OUTPUT_CSV = r"data/lca_database/OBD_sample.csv"
+OUTPUT_CSV = r"temp/lca_database/OBD_sample.csv"
 
 ENCODING = "cp1252" 
 DELIMITER = ";" 

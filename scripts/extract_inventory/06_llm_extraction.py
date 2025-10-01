@@ -11,9 +11,9 @@ from compas_lca.llm.extraction_agents import INVENTORY_AGENT
 load_dotenv()
 
 # =================== USER CONFIG ===================
-INPUT_DIR = Path("data/extraction/inventory/05_merged_input")   # folder with your input files
-OUTPUT_DIR = Path("data/extraction/inventory/06_llm_output")    # single output directory
-DEBUG_DIR = Path("data/extraction/inventory/.__debug__")    # set to None to disable
+INPUT_DIR = Path("temp/extraction/inventory/05_merged_input")   # folder with your input files
+OUTPUT_DIR = Path("temp/extraction/inventory/06_llm_output")    # single output directory
+DEBUG_DIR = Path("temp/extraction/inventory/.__debug__")    # set to None to disable
 OVERWRITE = False                                  # True = always overwrite outputs
 INPUT_GLOB = "*.json"                              # change if your inputs aren't JSON
 # ===================================================

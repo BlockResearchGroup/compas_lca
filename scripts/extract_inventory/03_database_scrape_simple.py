@@ -4,8 +4,8 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_DIR = Path("data/extraction/inventory/02_scrapes_json")
-OUTPUT_DIR = Path("data/extraction/inventory/03_scrapes_simple")
+INPUT_DIR = Path("temp/extraction/inventory/02_scrapes_json")
+OUTPUT_DIR = Path("temp/extraction/inventory/03_scrapes_simple")
 # =======================
 
 

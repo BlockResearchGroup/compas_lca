@@ -8,10 +8,10 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-DIR_CSV = Path("data/extraction/inventory/04_csv_data")
-DIR_URL = Path("data/extraction/inventory/03_scrapes_simple")
-DIR_LLM = Path("data/extraction/inventory/06_llm_output")
-OUTPUT_DIR = Path("data/extraction/inventory/07_merged_output")
+DIR_CSV = Path("temp/extraction/inventory/04_csv_data")
+DIR_URL = Path("temp/extraction/inventory/03_scrapes_simple")
+DIR_LLM = Path("temp/extraction/inventory/06_llm_output")
+OUTPUT_DIR = Path("temp/extraction/inventory/07_merged_output")
 # =======================
 
 def load_json(file: Path):

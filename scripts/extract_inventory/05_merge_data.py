@@ -9,9 +9,9 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-DIR_A = Path("data/extraction/inventory/04_csv_data")
-DIR_B = Path("data/extraction/inventory/03_scrapes_simple")
-OUTPUT_DIR = Path("data/extraction/inventory/05_merged_input")
+DIR_A = Path("temp/extraction/inventory/04_csv_data")
+DIR_B = Path("temp/extraction/inventory/03_scrapes_simple")
+OUTPUT_DIR = Path("temp/extraction/inventory/05_merged_input")
 # =======================
 
 

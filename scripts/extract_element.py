@@ -20,11 +20,11 @@ AGENT_NAME = "metadata"
 # Folders (relative to this file)
 INPUT_DIR = Path("data/ifc_samples")
 OUTPUT_DIRS = {
-    "metadata": Path("data/extraction/element/metadata"),
-    "parse": Path("data/extraction/element/material_parsed"),
-    "decompose": Path("data/extraction/element/material_decomposed"),
+    "metadata": Path("temp/extraction/element/metadata"),
+    "parse": Path("temp/extraction/element/material_parsed"),
+    "decompose": Path("temp/extraction/element/material_decomposed"),
 }
-DEBUG_DIR = Path("data/test_extraction_agent_element/.__debug__")   # set to None to disable
+DEBUG_DIR = Path("temp/test_extraction_agent_element/.__debug__")   # set to None to disable
 OVERWRITE = False                  # True = always overwrite outputs
 # ===================================================
 

@@ -5,8 +5,8 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_DIR = Path("data/extraction/inventory/01_scrapes_txt")
-OUTPUT_DIR = Path("data/extraction/inventory/02_scrapes_json")
+INPUT_DIR = Path("temp/extraction/inventory/01_scrapes_txt")
+OUTPUT_DIR = Path("temp/extraction/inventory/02_scrapes_json")
 DROP_KEYS = {}
 # =======================
 

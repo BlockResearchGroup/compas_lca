@@ -7,8 +7,8 @@ from compas_lca.inventory.item import InventoryItemEPD
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_CSV = Path("data/lca_database/OBD_sample.csv")
-OUTPUT_DIR = Path("data/extraction/inventory/04_csv_data")
+INPUT_CSV = Path("temp/lca_database/OBD_sample.csv")
+OUTPUT_DIR = Path("temp/extraction/inventory/04_csv_data")
 ENCODING = "cp1252"   # or "utf-8-sig" depending on your file
 DELIMITER = ";"       # or "," or "\t"
 
