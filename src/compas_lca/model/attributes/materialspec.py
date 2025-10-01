@@ -4,10 +4,10 @@ from math import isfinite
 
 from compas.data import Data
 from compas_model.materials.material import Material
-from compas_lca.enums.enums import PureComposite
-from compas_lca.enums.enums import FractionBasis
-from compas_lca.enums.enums import LabelOrigin
-from compas_lca.enums.enums import MaterialRole
+from compas_lca.enum import PureComposite
+from compas_lca.enum import FractionBasis
+from compas_lca.enum import LabelOrigin
+from compas_lca.enum import MaterialRole
 
 from typing import List
 from typing import Optional
@@ -112,7 +112,7 @@ class ComponentShare(BaseModel):
         return v
 
 
-class MaterialBreakdown(BaseModel):
+class Material(BaseModel):
     """Decomposition of a material into pure components with fractions; extraction-only result."""
     model_config = ConfigDict(extra="ignore")
     canonical_name: str = Field(..., description="Normalized name of the (possibly composite) material.")

@@ -5,8 +5,8 @@ import re
 from typing import Any
 from typing import Optional
 
-from compas_lca.enums.enums import YesNoEither
-from compas_lca.enums.enums import DataResolution
+from compas_lca.enum import YesNoEither
+from compas_lca.enum import DataResolution
 
 from pydantic import BaseModel
 from pydantic import Field

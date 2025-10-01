@@ -1,49 +1,88 @@
 from __future__ import annotations
-from typing import Optional, Dict, Any
-from pydantic import BaseModel, Field, field_validator, ConfigDict
+
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Union
+
+from pydantic import BaseModel
+from pydantic import Field
+from pydantic import field_validator
+from pydantic import ConfigDict
+
+Number = Union[int, float]
 
 class Quantity(BaseModel):
     """
-    Quantity Extraction from building elements.
-    Note to Li: Tom mentioned that IfcQuantity can be wrong. Perhaps default geometry-based calculation instead of quantity extraction?
+    One measurable property, normalized as name/value/unit.
+    Example: Quantity(name="length", value=2.5, unit="m")
     """
-    pieces: Optional[int] = Field(default=None, ge=0, description="Number of pieces")
-    length: Optional[float] = Field(default=None, ge=0, description="Length in meters")
-    area: Optional[float] = Field(default=None, ge=0, description="Area in m²")
-    volume: Optional[float] = Field(default=None, ge=0, description="Volume in m³")
-    weight: Optional[float] = Field(default=None, ge=0, description="Weight in kg")
-    custom: Dict[str, Any] = Field(default_factory=dict)
 
+    name: str                                # e.g. "pieces", "length", "area", "weight"
+    value: Number                            # the numeric value
+    unit: str                                # e.g. "pcs", "mm", "m", "kg", "m2", "m3"
+    custom: Dict[str, Any] = Field(default_factory=dict)
     model_config = ConfigDict(extra="forbid", populate_by_name=True)
 
-    @field_validator("pieces", "length", "area", "volume", "weight", mode="before")
+    @field_validator("name", mode="before")
     @classmethod
-    def _empty_string_to_none_and_cast(cls, v):
-        if v == "" or v is Ellipsis:
-            return None
-        return v
+    def _normalize_name(cls, v: Any) -> str:
+        if v is Ellipsis or v == "":
+            raise ValueError("name is required")
+        return str(v).strip()
 
-    @field_validator("custom", mode="before")
+    @field_validator("unit", mode="before")
     @classmethod
-    def _ensure_dict(cls, v):
-        return v or {}
+    def _normalize_unit(cls, v: Any) -> str:
+        if v is Ellipsis or v == "":
+            raise ValueError("unit is required")
+        return str(v).strip()
 
+    @field_validator("value", mode="before")
+    @classmethod
+    def _cast_value(cls, v: Any) -> Number:
+        if v is Ellipsis or v == "":
+            raise ValueError("value is required")
+        if isinstance(v, (int, float)):
+            return v
+        try:
+            return float(v) if ("." in str(v) or "e" in str(v).lower()) else int(v)
+        except Exception as exc:
+            raise ValueError(f"Cannot cast value {v!r} to number") from exc
+
+    # Serialization (is this even required?)
     def to_compas_data(self) -> Dict[str, Any]:
-        return {
-            "pieces": self.pieces,
-            "length": self.length,
-            "area": self.area,
-            "volume": self.volume,
-            "weight": self.weight,
-            "custom": self.custom,
-        }
+        return {"name": self.name, "value": self.value, "unit": self.unit, "custom": self.custom}
 
     @classmethod
     def from_compas_data(cls, data: Dict[str, Any]) -> "Quantity":
         return cls(**data)
 
     def __repr__(self) -> str:
-        return (
-            f"Quantity(pieces={self.pieces}, length={self.length}, "
-            f"area={self.area}, volume={self.volume}, weight={self.weight})"
-        )
+        return f'Quantity(name="{self.name}", value={self.value}, unit="{self.unit}")'
+
+
+class Quantities(BaseModel):
+    """
+    collection of Quantity items for one element.
+    """
+    items: List[Quantity] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="forbid")
+
+    def get(self, name: str) -> List[Quantity]:
+        """finds all quantities with the given name."""
+        key = name.strip()
+        return [q for q in self.items if q.name == key]
+
+    # Serialization (is this even required?)
+    def to_compas_data(self) -> Dict[str, Any]:
+        return {"items": [q.to_compas_data() for q in self.items]}
+
+    @classmethod
+    def from_compas_data(cls, data: Dict[str, Any]) -> "Quantities":
+        return cls(items=[Quantity.from_compas_data(it) for it in data["items"]])
+
+    def __repr__(self) -> str:
+        inner = ", ".join(repr(q) for q in self.items)
+        return f"Quantities([{inner}])"
