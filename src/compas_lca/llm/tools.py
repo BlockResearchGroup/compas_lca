@@ -1,103 +1,88 @@
-from __future__ import annotations
 from dataclasses import dataclass
-from pathlib import Path
-from typing import Optional, Dict, Any, List, Literal
-import csv, json, re
 
-"""Initial draft for tools, which for now only focus on material decompositions"""
+import csv
+
+import re
+
+from pathlib import Path
+
+from typing import Dict
+from typing import Tuple
+from typing import Iterable
+from typing import Optional
+
+from pydantic import BaseModel
+from pydantic_ai import RunContext
+
+# ---------- REBAR TOOL ----------
+
+# input csv rebar tool path
+REBAR_RATIO_CSV = (Path(__file__).resolve().parent / "data" / "tools" / "rebar_ratios.csv")
+
+class RebarRatio(BaseModel):
+    """Output model"""
+    component: str  # matched canonical key
+    min_ratio: float  # volume fraction m3/m3
+    max_ratio: float  # volume fraction m3/m3
+    basis: str = "volume_fraction_m3_per_m3"
 
 @dataclass
-class DataTable:
-    """Holds data tables for decomposition. Loaded once and injected into tools."""
-    rebar_defaults: List[Dict[str, Any]]
-    densities: Dict[str, float]
+class RebarTable:
+    """Holds normalized lookup from component -> (min, max)."""
+    ratios: Dict[str, Tuple[float, float]]
+
+    @staticmethod
+    def _norm(s: str) -> str:
+        # normalize weird strings in csv
+        s = s.strip().lower()
+        s = re.sub(r"[\s\-_/]+", " ", s)
+        s = re.sub(r"\s+", " ", s)
+        return s
+
     @classmethod
-    def from_paths(
-        cls,
-        rebar_csv: Path,
-        densities_json: Path,
-    ) -> "DataTable":
-        with rebar_csv.open("r", encoding="utf-8") as f:
-            rebar_rows = list(csv.DictReader(f))
-        densities = json.loads(densities_json.read_text(encoding="utf-8"))
-        return cls(rebar_defaults=rebar_rows, densities=densities)
+    def from_csv(cls, path: Path | str = REBAR_RATIO_CSV) -> "RebarTable":
+        path = Path(path)
+        if not path.exists():
+            raise FileNotFoundError(f"Rebar ratios CSV not found: {path}")
+        ratios: Dict[str, Tuple[float, float]] = {}
+        with path.open("r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            # Expect columns:
+            # Building Component, Min. Ratio of reinforcement in m3/m3, Max. Ratio of reinforcement in m3/m3
+            for row in reader:
+                name = str(row["Building Component"]).strip()
+                min_v = float(row["Min. Ratio of reinforcement in m3/m3"])
+                max_v = float(row["Max. Ratio of reinforcement in m3/m3"])
+                ratios[cls._norm(name)] = (min_v, max_v)
+        return cls(ratios=ratios)
 
+    def keys(self) -> Iterable[str]:
+        return self.ratios.keys()
 
-def rebar_mass_fraction(
-    element_type: Literal["slab","beam","column","wall","foundation","other"],
-    concrete_grade: Optional[str] = None,
-    exposure_class: Optional[str] = None,
-    country: Optional[str] = None,
-    *,
-    data_table: DataTable,
-) -> float:
+    def best_match(self, query: str) -> Optional[Tuple[str, Tuple[float, float]]]:
+        """
+        Try exact normalized match; otherwise try a simple substring containment
+        (e.g., 'retaining wall' -> 'retaining walls').
+        """
+        q = self._norm(query)
+        if q in self.ratios:
+            return q, self.ratios[q]
+        tokens = q.split()
+        for k in self.ratios:
+            if all(t in k for t in tokens):
+                return k, self.ratios[k]
+        return None
+
+def rebar_ratio_lookup(ctx: RunContext[RebarTable], component: str) -> RebarRatio:
     """
-    Look up a default **rebar mass fraction** (0..1) for reinforced concrete elements.
-    - Input: element_type (slab/beam/column/wall/foundation), optionally concrete_grade (e.g. 'C30/37'),
-      exposure_class (e.g. 'XC1', 'XD3'), country (e.g. 'CH', 'DE').
-    - Output: recommended **mass fraction of steel** in the composite (e.g., 0.038 for 3.8%).
-    - Selection rule: choose the **most specific** matching row (exact element_type + country + exposure + grade substring).
-      If multiple rows match, pick the one with the **highest specificity**; if none, return a conservative default (e.g. 0.03).
+    Tool: given a building component description, return min/max rebar ratios (m3/m3).
+    Case/spacing/punctuation-insensitive; supports loose matches.
     """
-    def score(row: Dict[str, Any]) -> int:
-        sc = 0
-        if row.get("element_type","").lower() == element_type:
-            sc += 4
-        if country and row.get("country","").upper() == country.upper():
-            sc += 3
-        if exposure_class and row.get("exposure","").upper() == (exposure_class.upper()):
-            sc += 2
-        if concrete_grade:
-            pat = re.escape(concrete_grade)
-            if re.search(pat, row.get("grade",""), re.I):
-                sc += 1
-        return sc
-
-    candidates = sorted(data_table.rebar_defaults, key=score, reverse=True)
-    best = candidates[0] if candidates and score(candidates[0]) > 0 else None
-    if best:
-        try:
-            return float(best["mass_fraction"])
-        except Exception:
-            pass
-    return 0.03  # fallback
-
-
-def density_lookup(
-    material_name: str,
-    *,
-    deps: DataTable,
-) -> Optional[float]:
-    """
-    Return density in kg/m³ for a canonical pure material name (case-insensitive).
-    If unknown, return None.
-    """
-    key = material_name.strip().lower()
-    if key in deps.densities:
-        return float(deps.densities[key])
-    key2 = re.sub(r"[\s\-_]+", " ", key)
-    for k, v in deps.densities.items():
-        if re.sub(r"[\s\-_]+", " ", k.lower()) == key2:
-            return float(v)
-    return None
-
-
-def studs_steel_volume_fraction(
-    profile_depth_mm: Optional[float] = None,
-    spacing_mm: Optional[float] = None,
-    sheet_thickness_mm: Optional[float] = None,
-) -> float:
-    """
-    Estimate **steel volume fraction** for a metal stud cavity wall:
-    - If parameters are missing, use common defaults (e.g., 50 mm stud, 0.6 mm sheet, 625 mm spacing).
-    - Returns a fraction 0..1 of **steel by volume** within the wall cross-section (e.g., 0.10 = 10%).
-    - This is a rule-of-thumb estimator; record assumptions in output.
-    """
-    d = (profile_depth_mm or 50.0) / 1000.0      # m
-    t = (sheet_thickness_mm or 0.6) / 1000.0     # m
-    s = (spacing_mm or 625.0) / 1000.0           # m
-    # naive “C” stud perimeter ~ 2d + 2*flange (take flange≈d/2 here), cross-section ≈ perimeter * t
-    perimeter_m = (2*d + d)                      # very rough
-    area_m2 = perimeter_m * t
-    frac = min(max(area_m2 / (s * d), 0.0), 1.0)
-    return frac
+    match = ctx.deps.best_match(component)
+    if not match:
+        raise ValueError(
+            f"Unknown component '{component}'. "
+            f"Try one of: {', '.join(sorted(ctx.deps.keys()))}"
+        )
+    key, (mn, mx) = match
+    return RebarRatio(component=key, min_ratio=mn, max_ratio=mx)
