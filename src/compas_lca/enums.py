@@ -7,15 +7,16 @@ class YesNoUnknown(str, Enum):
     no = "no"
     unknown = "unknown"
 
-class YesNoEither(str, Enum):
-    yes = "yes"
-    no = "no"
+class Loadbearing(str, Enum):
+    loadbearing = "loadbearing"
+    non_loadbearing = "non_loadbearing"
     either = "either"
     unknown = "unknown"
 
 class InteriorExterior(str, Enum):
     interior = "interior"
     exterior = "exterior"
+    either = "either"
     unknown = "unknown"
 
 class DataResolution(str, Enum):
