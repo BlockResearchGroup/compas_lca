@@ -1,16 +1,21 @@
+import yaml
+import time
+
 from dataclasses import dataclass
 
-import time
+from pathlib import Path
 
 from typing import Any
 from typing import Optional
+from typing import Self
 
+from pydantic import ValidationError
 from pydantic_ai import Agent as PydanticAgent
 from pydantic_ai.usage import RunUsage
 
 from .context import Context
 
-from .agent_settings import AgentSettings
+from .settings import AgentSettings
 
 @dataclass
 class RunMetadata:
@@ -29,29 +34,69 @@ class Run:
     result: Any
     metadata: RunMetadata
 
-class CompasAgent:
+class BaseAgent:
+    """
+    Wrapper around pydantic_ai.Agent that handles configuration,
+    execution, usage tracking, and cost estimation.
+
+    Usage:
+        >>> agent = BaseAgent.from_config(context=my_context)
+        >>> result = agent.execute_run({raw_data})
+    """
     def __init__(self, *, settings: AgentSettings, context: Context):
         self._settings = settings
         self._context = context
         self._last_run: Optional[Run] = None
         self._history_runs: list[Run] = []
-        self._pydantic_agent = self._make_agent(context)
+        self._pydantic_agent = self._create_pydantic_agent(context)
 
-    # build agent once
-    def _make_agent(self, ctx: Context) -> PydanticAgent:
+    def _create_pydantic_agent(self, ctx: Context) -> PydanticAgent:
         agent = PydanticAgent(
             self._settings.model,
             retries=self._settings.retries,
             model_settings=self._settings.model_settings or None,
-            **ctx.to_agent_kwargs(),
+            **ctx.to_pydantic_agent_kwargs(),
         )
         for tool in ctx.tools or ():
             if hasattr(agent, "tool"):
                 agent.tool(tool)
         return agent
 
-    # single run endpoint to user
+    @classmethod
+    def from_config(cls, config_path: str | Path = "config.yaml", *, context: Context) -> Self:
+        """
+        The YAML file must map 1-to-1 to the `AgentSettings` model.
+        By default, this method looks for a `config.yaml` in the current
+        working directory.
+
+        Args:
+            config_path: Path to the YAML configuration file.
+            context:     A Context object providing runtime information.
+
+        Returns:
+            A fully-initialized `BaseAgent` (or subclass) instance.
+        """
+        try:
+            data = yaml.safe_load(Path(config_path).read_text(encoding="utf-8")) or {}
+            settings = AgentSettings.model_validate(data)
+        except FileNotFoundError as e:
+            raise FileNotFoundError(f"config.yaml file not found") from e
+        except ValidationError as e:
+            raise ValueError(f"Invalid config.yaml: {e}") from e
+        return cls(settings=settings, context=context)
+
     def execute_run(self, *args, as_async: bool = False, stream: bool = False, **kwargs):
+        """
+        Execute the agent on a given input and record usage metadata.
+
+        Args:
+            *args, **kwargs:  Arguments forwarded to the underlying Pydantic agent.
+            as_async:         If True, run asynchronously and return an awaitable.
+            stream:           If True, yield streaming output chunks as they arrive.
+
+        Returns:
+            A `Run` object for sync/async modes, or a generator for streaming mode.
+        """
         if as_async and stream:
             raise NotImplementedError("Streaming+async not supported by this wrapper.")
         if stream:
@@ -60,7 +105,7 @@ class CompasAgent:
             return self._run_async(*args, **kwargs)
         return self._run_sync(*args, **kwargs)
 
-    # internals
+    # Internals
     def _record_run(self, started_at: float, result: Any) -> Run:
         ended_at = time.perf_counter()
 

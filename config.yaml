@@ -1,27 +1,14 @@
-agent:
-  provider: openai
-  model: gpt-4o
-  retries: 2
-  currency: USD
-  model_settings:
-    temperature: 0.0
-    max_tokens: 10000
+model: gpt-4o
+retries: 2
+currency: USD
 
-models:
-  openai:
-    gpt-4o:
-      pricing: { in_per_1k: 0.0025, out_per_1k: 0.01 }
-      model_settings: { temperature: 0.0, max_tokens: 10000 }
-    gpt-5:
-      pricing: { in_per_1k: 0.00125, out_per_1k: 0.01 }
-      model_settings: { temperature: 0.0, max_tokens: 10000 }
-    gpt-5-mini:
-      pricing: { in_per_1k: 0.00025, out_per_1k: 0.002 }
-      model_settings: { temperature: 0.0, max_tokens: 10000 }
-    gpt-5-nano:
-      pricing: { in_per_1k: 0.00005, out_per_1k: 0.0004 }
-      model_settings: { temperature: 0.0, max_tokens: 10000 }
-  anthropic:
-    claude-3-5-sonnet:
-      pricing: { in_per_1k: 3.00, out_per_1k: 15.00 }
-      model_settings: { temperature: 0.0, max_tokens: 10000 }
+model_settings:
+  temperature: 0.0
+  max_tokens: 10000
+
+pricing_table:
+  gpt-4o:         { in_per_1k: 0.0025,  out_per_1k: 0.01 }
+  gpt-5:          { in_per_1k: 0.00125, out_per_1k: 0.01 }
+  gpt-5-mini:     { in_per_1k: 0.00025, out_per_1k: 0.002 }
+  gpt-5-nano:     { in_per_1k: 0.00005, out_per_1k: 0.0004 }
+  claude-3-5-sonnet: { in_per_1k: 3.0, out_per_1k: 15.0 }
