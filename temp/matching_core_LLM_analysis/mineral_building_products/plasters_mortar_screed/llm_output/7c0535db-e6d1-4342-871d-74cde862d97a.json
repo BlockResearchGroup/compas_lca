@@ -1,0 +1,92 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key property for categorizing masonry mortars, especially lightweight variants, and is explicitly stated in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "density: 1000.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "Compressive strength is a critical performance metric for masonry mortars, indicating their load-bearing capacity, and is explicitly provided.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Compressive strength according to EN 1015-11: 5-10 N/mm2"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is important for assessing the insulation properties of masonry mortars, and specific values are given in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/(m·K)",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P=50 % ≤ 0.2 W/(mK)",
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P=90 % ≤ 0.27 W/(mK)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "water_vapour_permeability",
+      "type": "range",
+      "rationale": "Water vapour permeability affects the breathability of masonry mortars, which is crucial for moisture management in buildings.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Water vapour permeability according to EN 1015-19: 5/20"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_method",
+      "type": "enum",
+      "rationale": "The production method (e.g., factory dry mortar, factory fresh mortar) influences the handling and application of the product, inferred from the description of manufacturing processes.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "factory_dry_mortar",
+        "factory_fresh_mortar",
+        "site_mixed_mortar"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The mix is then packaged and delivered either as factory dry mortar in dry containers or silos or as factory fresh mortar ready-mixed with water."
+      ],
+      "inference_basis": [
+        "Description of packaging and delivery methods suggests different production methods."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "accessory_category",
+      "type": "enum",
+      "enum_options": [
+        "lock_case",
+        "cylinder_core",
+        "handle_set",
+        "hinge_or_pivot",
+        "door_closer",
+        "panic_bar",
+        "access_control_reader",
+        "fastener_kit",
+        "operator_accessory",
+        "finger_protection_device",
+        "roller_shutter",
+        "venetian_blind",
+        "textile_screen",
+        "shading_accessory",
+        "other",
+        "unknown"
+      ],
+      "description": "Primary functional family of the accessory."
+    },
+    {
+      "name": "accessory_material",
+      "type": "enum",
+      "enum_options": [
+        "aluminium",
+        "steel",
+        "stainless_steel",
+        "brass",
+        "zinc",
+        "plastic",
+        "rubber_elastomer",
+        "textile_fabric",
+        "glass",
+        "mixed_composite",
+        "other",
+        "unknown"
+      ],
+      "description": "Dominant substrate material."
+    }
+  ]
+}

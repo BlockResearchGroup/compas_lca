@@ -1,0 +1,53 @@
+{
+  "document_id": "7874a8f3-108e-4c82-824d-5a4d51dfd4b8",
+  "fields": [
+    {
+      "name": "facing_material",
+      "type": "string",
+      "rationale": "The insulation product is faced on both sides with a glass tissue based facing, which is a key characteristic of the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "faced on both sides with a glass tissue based facing"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "insulation_thickness_range",
+      "type": "range",
+      "rationale": "The product is available in variable thicknesses from 20 mm up to 200 mm, which is important for determining its application suitability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "variable thicknesses from 20 mm up to 200 mm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_resistance",
+      "type": "float",
+      "rationale": "The RD-value of 4.0 m²·K/W is a measure of the product's thermal resistance, crucial for its insulating performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²·K/W",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "RD-value of 4.0 m²·K/W"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "The dataset mentions that stone wool is a non-combustible insulation material, indicating its fire-resistant properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Steinwolle ist ein nicht brennbarer Dmmstoff"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_insulation_application",
+      "type": "bool",
+      "rationale": "The dataset explicitly states that mineral wool insulation is used for thermal insulation in buildings and industrial plants.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Mineral wool insulation materials are used in buildings and industrial plants for thermal insulation"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "sound_insulation_application",
+      "type": "bool",
+      "rationale": "The dataset mentions that mineral wool is used for noise protection, indicating its application in sound insulation.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Mineral wool insulation materials are used in buildings and industrial plants for noise and fire protection"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The dataset describes various forms of mineral wool products such as rolls, boards, mats, and loose wool, which are relevant for categorizing the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "rolls",
+        "boards",
+        "mats",
+        "loose_wool"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Steinwolle-Dmmstoffe werden in Form von Rollen, Platten, Matten, Lamellenmatten, Rohrschalen, Formteilen sowie loser Wolle (Stopfwolle) und Einblaswolle"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binder_type",
+      "type": "enum",
+      "rationale": "The dataset mentions the use of binders in the production process, which can affect the properties of the insulation material.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "phenolic",
+        "urea-formaldehyde",
+        "acrylic",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "sprayed with an aqueous solution of binder, dust-binding oil, adhesive agent"
+      ],
+      "inference_basis": [
+        "Binders are commonly used in mineral wool production to enhance structural integrity and water repellency."
+      ]
+    },
+    {
+      "name": "production_process",
+      "type": "enum",
+      "rationale": "The dataset describes different production processes for mineral wool, which can influence the material properties and applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "rotary",
+        "cascade_centrifugal",
+        "steam_blown"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Three processes are used: - Rotary process (mainly glass wool): ... - Cascade centrifugal process (stone wool): ... - Steam-Blown process (stone wool):"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

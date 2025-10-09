@@ -1,0 +1,98 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and application of the mortar, plaster, or screed product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"density\": 1300.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for application guidelines and performance characteristics of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"layer_thickness\": 0.0055"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The method of application (manual or machine) affects the labor and equipment needed for installation.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "machine"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"Mix the bonding and reinforcing mortar and base coat manually or by machine\""
+      ],
+      "inference_basis": [
+        "Mention of manual and machine mixing suggests these are the primary application methods."
+      ]
+    },
+    {
+      "name": "suitable_substrates",
+      "type": "enum",
+      "rationale": "Identifying suitable substrates helps in determining the compatibility of the product with different surfaces.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "mineral_renders",
+        "organic_renders",
+        "masonry"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"suitable for application on existing mineral renders and almost all existing organic renders and masonries\""
+      ],
+      "inference_basis": [
+        "Mention of mineral and organic renders and masonry indicates these are suitable substrates."
+      ]
+    },
+    {
+      "name": "reinforcement_compatibility",
+      "type": "bool",
+      "rationale": "Compatibility with reinforcement materials like mesh is crucial for structural applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"fully embed the system mesh (Sto-Glass Fibre Mesh) in the middle or upper half of the fresh mortar coat\""
+      ],
+      "inference_basis": [
+        "Mention of embedding mesh suggests compatibility with reinforcement materials."
+      ]
+    }
+  ]
+}

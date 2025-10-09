@@ -11,8 +11,8 @@ class FieldAgg(TypedDict):
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_DIR = r"temp/matching_core_LLM_analysis/mixed_concrete/llm_output"     # directory containing your JSON files
-OUTPUT_JSON = r"temp/matching_core_LLM_analysis/mixed_concrete/mixed_concrete_fields_overview.json"
+INPUT_DIR = r"temp/matching_core_LLM_analysis/mineral_building_products/plasters_mortar_screed/llm_output"     # directory containing your JSON files
+OUTPUT_JSON = r"temp/matching_core_LLM_analysis/mineral_building_products/plasters_mortar_screed/plasters_mortars_fields_overview.json"
 RECURSIVE = True                      # set to False to only scan the top-level of INPUT_DIR
 GLOB_PATTERN = "*.json"               # adjust if needed
 # =======================

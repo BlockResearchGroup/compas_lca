@@ -1,0 +1,110 @@
+{
+  "document_id": "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+  "fields": [
+    {
+      "name": "location_code",
+      "type": "string",
+      "rationale": "The location code 'DE' indicates the geographic applicability of the dataset, which is important for understanding regional variations in material properties and regulations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binder_type",
+      "type": "enum",
+      "rationale": "The product is described as a 'silicate dispersion plaster', indicating the use of a silicate-based binder, which is a key material property.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "silicate",
+        "cement",
+        "gypsum",
+        "lime"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "silicate dispersion plaster"
+      ],
+      "inference_basis": [
+        "'silicate dispersion' suggests silicate as the binder type."
+      ]
+    },
+    {
+      "name": "consistency",
+      "type": "enum",
+      "rationale": "The product is described as having a 'paste-like consistence', which is important for application methods and performance characteristics.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "powder",
+        "paste",
+        "liquid"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "paste-like consistence"
+      ],
+      "inference_basis": [
+        "'paste-like consistence' indicates the product is in paste form."
+      ]
+    },
+    {
+      "name": "packaging_type",
+      "type": "enum",
+      "rationale": "The product is delivered in 'pails', which is relevant for logistics and handling.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "bags",
+        "pails",
+        "buckets"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "delivered in a paste-like consistence in pails"
+      ],
+      "inference_basis": [
+        "'pails' suggests the product is packaged in pails."
+      ]
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The description implies manual application, which is typical for paste-like plasters and affects labor and equipment needs.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "spray",
+        "trowel"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "manual dismantling (no loads) is assumed"
+      ],
+      "inference_basis": [
+        "'manual dismantling' suggests manual application is possible."
+      ]
+    }
+  ]
+}

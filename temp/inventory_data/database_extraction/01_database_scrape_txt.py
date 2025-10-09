@@ -14,8 +14,8 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_CSV = Path("temp/inventory_data/dissected/precast_concrete/OBD_precast_concrete_sample.csv")
-OUTPUT_DIR = Path("temp/inventory_data/dissected/precast_concrete/raw/01_scrapes_txt")
+INPUT_CSV = Path("temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/OBD_mortars_plasters.csv")
+OUTPUT_DIR = Path("temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/raw/01_scrapes_txt")
 
 ENCODING = "cp1252"    # or "utf-8-sig" depending on CSV
 DELIMITER = ";"        # "," or ";" or "\t"

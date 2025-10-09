@@ -1,0 +1,112 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "recycled_content_percentage",
+      "type": "float",
+      "rationale": "The dataset specifies that the foam glass insulation material consists of 60% recycled glass, which is a significant attribute for sustainability and recycling considerations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "The foam glass insulation material consists of approximately the following components: recycled glass (60%)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "primary_materials",
+      "type": "enum",
+      "rationale": "The primary materials used in the foam glass insulation are explicitly listed, which helps in understanding the composition and potential environmental impacts.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "recycled_glass",
+        "feldspar",
+        "sand",
+        "sodium_hydrogen_carbonate",
+        "iron_oxide",
+        "sodium_sulphate",
+        "sodium_nitrate",
+        "carbon_black"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "The foam glass insulation material consists of approximately the following components: recycled glass (60%), feldspar (20%), sand (15%), sodium hydrogen carbonate (2%), iron oxide (2%), sodium sulphate (<1%), sodium nitrate (<1%), carbon black (<1%)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a critical property for insulation materials, affecting their performance in reducing heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "The dataset is about foam glass insulation, which typically has specific thermal conductivity values."
+      ],
+      "inference_basis": [
+        "Foam glass insulation typically has a known range of thermal conductivity values."
+      ]
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The dataset mentions that foam glass insulation is used for the entire building envelope, indicating its application area.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "building_envelope",
+        "roof",
+        "floor",
+        "wall"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "Foam glass insulation is used in the construction industry for the entire building envelope."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_stage",
+      "type": "enum",
+      "rationale": "The dataset describes the life cycle stages of the product, which is important for understanding the environmental impact at different stages.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "A1-A3",
+        "C1",
+        "C2",
+        "C4",
+        "D"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "Description of the modeled life cycle phases: Modules A1-A3: Production of the foam glass insulation material Module C1: Dismantling is based on manual dismantling. Module C2: Transport to the processing plant is carried out by truck (50km). Module C4: The material is processed and sent to a landfill (average landfill emissions). Module D: No debits, no credits."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

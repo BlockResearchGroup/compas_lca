@@ -38,19 +38,3 @@ class FractionBasis(str, Enum):
 class LabelOrigin(str, Enum):
     literal="literal"
     canonical="canonical"
-
-# this is uncertain
-class MaterialRole(str, Enum):
-    rebar="rebar"
-    studs="studs"
-    sheating="sheathing"
-    grating="grating"
-    loose_insulation="loose_insulation"
-    rigid_insulation="rigid_insulation"
-    air="air"
-    gypsum_board="gypsum_board"
-    concrete_matrix="concrete_matrix"
-    adhesive="adhesive"
-    fasteners="fasteners"
-    other="other"
-    unknown="unknown"

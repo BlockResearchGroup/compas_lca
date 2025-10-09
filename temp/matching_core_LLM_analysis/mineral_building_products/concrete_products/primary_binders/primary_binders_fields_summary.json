@@ -1,0 +1,665 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/mineral_building_products/concrete_products/primary_binders/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 26,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "density": {
+      "count": 17,
+      "document_ids": [
+        "18d987df-548c-4ef9-bb77-4bfa26b40294",
+        "242e9206-4119-4f9c-afc0-08dadef1256a",
+        "478b1acc-6fa7-4758-b701-15ce177a381b",
+        "4a08216d-09db-403f-b000-08dadef1256a",
+        "4b2637d2-5502-4991-b006-08dadef1256a",
+        "5d1322c7-5940-4db5-afea-08dadef1256a",
+        "6fd412c4-dd19-43be-bf4f-cbd2ee0c45ab",
+        "75db1c10-6002-4fa2-9cc9-aae4fb7e8345",
+        "7eeb2778-969a-45c5-808d-ac85a176ca7b",
+        "90ace839-d89e-4e08-9c22-b694c1f77dac",
+        "98d04b5a-f09d-4721-afd4-08dadef1256a",
+        "a67c2ecf-9552-4633-9357-63395edcf6f3",
+        "ac374c26-952b-4e72-a752-a82671ae0419",
+        "b47f42e1-7567-4a39-baaa-cf5d8b064f2e",
+        "e23616b6-97d1-496b-9efd-744130c104a8",
+        "e7b87d20-a825-4308-8ffc-7c9c4326b873",
+        "eb5944f9-8394-42dc-bd92-67fd1d7b229b"
+      ],
+      "type": "float",
+      "rationale": "Density is a fundamental physical property of concrete that affects its weight and structural performance.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "density: 2300.0"
+      ],
+      "inference_basis": null
+    },
+    "cement_type": {
+      "count": 14,
+      "document_ids": [
+        "0808539c-0cd5-4561-b4a0-058c6f4c7b04",
+        "242e9206-4119-4f9c-afc0-08dadef1256a",
+        "32365a3f-cc2e-438e-b032-08dadef1256a",
+        "4a08216d-09db-403f-b000-08dadef1256a",
+        "4b2637d2-5502-4991-b006-08dadef1256a",
+        "5717c624-c704-4c09-b01c-08dadef1256a",
+        "5d1322c7-5940-4db5-afea-08dadef1256a",
+        "65aed503-1857-4d20-b2ac-f76f26280e84",
+        "6633695e-2a63-4934-aa5b-9c0d86e0af8a",
+        "98d04b5a-f09d-4721-afd4-08dadef1256a",
+        "af13e451-ba03-4b99-aa03-9f4f8365ee70",
+        "b47f42e1-7567-4a39-baaa-cf5d8b064f2e",
+        "e1898c68-bc2e-4525-afc2-08dadef1256a",
+        "e23616b6-97d1-496b-9efd-744130c104a8"
+      ],
+      "type": "string",
+      "rationale": "The dataset specifies the type of cement as 'Hochofenzement CEM III/A 52,5 N-SR/LA', which is a specific classification of cement with particular properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Duo 5 N-SR/NA ist ein Hochofenzement CEM III/A 52,5 N-SR/LA"
+      ],
+      "inference_basis": null
+    },
+    "compressive_strength_class": {
+      "count": 11,
+      "document_ids": [
+        "18d987df-548c-4ef9-bb77-4bfa26b40294",
+        "478b1acc-6fa7-4758-b701-15ce177a381b",
+        "6fd412c4-dd19-43be-bf4f-cbd2ee0c45ab",
+        "75db1c10-6002-4fa2-9cc9-aae4fb7e8345",
+        "7eeb2778-969a-45c5-808d-ac85a176ca7b",
+        "90ace839-d89e-4e08-9c22-b694c1f77dac",
+        "a67c2ecf-9552-4633-9357-63395edcf6f3",
+        "ac374c26-952b-4e72-a752-a82671ae0419",
+        "af13e451-ba03-4b99-aa03-9f4f8365ee70",
+        "e7b87d20-a825-4308-8ffc-7c9c4326b873",
+        "eb5944f9-8394-42dc-bd92-67fd1d7b229b"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies 'C25/30', which indicates the compressive strength class of the concrete, a critical property for structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    "exposure_classes": {
+      "count": 6,
+      "document_ids": [
+        "478b1acc-6fa7-4758-b701-15ce177a381b",
+        "6fd412c4-dd19-43be-bf4f-cbd2ee0c45ab",
+        "90ace839-d89e-4e08-9c22-b694c1f77dac",
+        "a67c2ecf-9552-4633-9357-63395edcf6f3",
+        "e7b87d20-a825-4308-8ffc-7c9c4326b873",
+        "eb5944f9-8394-42dc-bd92-67fd1d7b229b"
+      ],
+      "type": "string",
+      "rationale": "The exposure classes 'XC4 XF1 XA1' describe the environmental conditions the concrete is designed to withstand, such as carbonation, freeze-thaw, and chemical attack.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    "hydration_reaction": {
+      "count": 6,
+      "document_ids": [
+        "242e9206-4119-4f9c-afc0-08dadef1256a",
+        "32365a3f-cc2e-438e-b032-08dadef1256a",
+        "5717c624-c704-4c09-b01c-08dadef1256a",
+        "6633695e-2a63-4934-aa5b-9c0d86e0af8a",
+        "af13e451-ba03-4b99-aa03-9f4f8365ee70",
+        "b47f42e1-7567-4a39-baaa-cf5d8b064f2e"
+      ],
+      "type": "bool",
+      "rationale": "The dataset describes the cement as 'hydraulically hardening', indicating it undergoes a hydration reaction, a key functional property of cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "hydraulically hardening binder"
+      ],
+      "inference_basis": null
+    },
+    "production_location": {
+      "count": 6,
+      "document_ids": [
+        "242e9206-4119-4f9c-afc0-08dadef1256a",
+        "32365a3f-cc2e-438e-b032-08dadef1256a",
+        "5717c624-c704-4c09-b01c-08dadef1256a",
+        "5d1322c7-5940-4db5-afea-08dadef1256a",
+        "90ace839-d89e-4e08-9c22-b694c1f77dac",
+        "e7b87d20-a825-4308-8ffc-7c9c4326b873"
+      ],
+      "type": "string",
+      "rationale": "The location of production can influence logistical considerations and environmental impact assessments.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Transportbetonwerk Fulda, Germany"
+      ],
+      "inference_basis": [
+        "Location mentioned in dataset name and description."
+      ]
+    },
+    "production_process": {
+      "count": 6,
+      "document_ids": [
+        "4a08216d-09db-403f-b000-08dadef1256a",
+        "5d1322c7-5940-4db5-afea-08dadef1256a",
+        "65aed503-1857-4d20-b2ac-f76f26280e84",
+        "98d04b5a-f09d-4721-afd4-08dadef1256a",
+        "af13e451-ba03-4b99-aa03-9f4f8365ee70",
+        "b47f42e1-7567-4a39-baaa-cf5d8b064f2e"
+      ],
+      "type": "string",
+      "rationale": "The dataset describes the production process of the cement, including the use of a rotary kiln and the production of Portland cement clinker and blast furnace slag.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Production of Portland cement clinker",
+        "The firing process takes place in a rotary kiln",
+        "Production of blast furnace slag"
+      ],
+      "inference_basis": null
+    },
+    "layer_thickness": {
+      "count": 5,
+      "document_ids": [
+        "478b1acc-6fa7-4758-b701-15ce177a381b",
+        "75db1c10-6002-4fa2-9cc9-aae4fb7e8345",
+        "90ace839-d89e-4e08-9c22-b694c1f77dac",
+        "e7b87d20-a825-4308-8ffc-7c9c4326b873",
+        "eb5944f9-8394-42dc-bd92-67fd1d7b229b"
+      ],
+      "type": "float",
+      "rationale": "Layer thickness is relevant for applications where the concrete is used in layers, affecting curing and structural properties.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    },
+    "exposure_class": {
+      "count": 4,
+      "document_ids": [
+        "18d987df-548c-4ef9-bb77-4bfa26b40294",
+        "75db1c10-6002-4fa2-9cc9-aae4fb7e8345",
+        "7eeb2778-969a-45c5-808d-ac85a176ca7b",
+        "ac374c26-952b-4e72-a752-a82671ae0419"
+      ],
+      "type": "enum",
+      "rationale": "The dataset mentions 'XC1 XC2', which are exposure classes indicating the environmental conditions the concrete is designed to withstand.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC1",
+        "XC2",
+        "XD1",
+        "XS1",
+        "XF1"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C20/25 XC1 XC2 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    "compressive_strength": {
+      "count": 3,
+      "document_ids": [
+        "65aed503-1857-4d20-b2ac-f76f26280e84",
+        "6633695e-2a63-4934-aa5b-9c0d86e0af8a",
+        "e23616b6-97d1-496b-9efd-744130c104a8"
+      ],
+      "type": "range",
+      "rationale": "The compressive strength is indicated as '22 MPa min', which is a critical property for categorizing cement based on its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "22 MPa min"
+      ],
+      "inference_basis": null
+    },
+    "blast_furnace_slag_content": {
+      "count": 2,
+      "document_ids": [
+        "242e9206-4119-4f9c-afc0-08dadef1256a",
+        "32365a3f-cc2e-438e-b032-08dadef1256a"
+      ],
+      "type": "bool",
+      "rationale": "The use of blast furnace slag is mentioned as a component in the cement, indicating its presence as a material property.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Production of blast furnace slag During the production of pig iron in the blast furnace process, liquid blast furnace slag is produced as a by-product."
+      ],
+      "inference_basis": [
+        "Blast furnace slag is commonly used in CEM III type cements."
+      ]
+    },
+    "setting_behavior_control": {
+      "count": 2,
+      "document_ids": [
+        "4b2637d2-5502-4991-b006-08dadef1256a",
+        "5717c624-c704-4c09-b01c-08dadef1256a"
+      ],
+      "type": "bool",
+      "rationale": "The addition of a sulfate carrier to control the setting behavior is a specific functional property of the cement, indicating its performance characteristics.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "A sulfate carrier is added to control the setting behavior."
+      ],
+      "inference_basis": null
+    },
+    "thermal_conversion_temperature": {
+      "count": 2,
+      "document_ids": [
+        "5717c624-c704-4c09-b01c-08dadef1256a",
+        "af13e451-ba03-4b99-aa03-9f4f8365ee70"
+      ],
+      "type": "float",
+      "rationale": "The thermal conversion temperature is a critical parameter in the production of Portland cement clinker, affecting the quality and properties of the final product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "°C",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C."
+      ],
+      "inference_basis": [
+        "The temperature of 1450 °C is typical for the production of Portland cement clinker."
+      ]
+    },
+    "additives": {
+      "count": 1,
+      "document_ids": [
+        "b47f42e1-7567-4a39-baaa-cf5d8b064f2e"
+      ],
+      "type": "enum",
+      "rationale": "The cement is composed of clinker and mineral additives like limestone, pozzolan, and slag, which are important for its properties and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "limestone",
+        "pozzolan",
+        "slag"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "ternary blended cement composed mostly of clinker and a combination of 2 types of mineral additives such as limestone, pozzolan and slag"
+      ],
+      "inference_basis": null
+    },
+    "alkali_content": {
+      "count": 1,
+      "document_ids": [
+        "e1898c68-bc2e-4525-afc2-08dadef1256a"
+      ],
+      "type": "enum",
+      "rationale": "The cement optionally has a low effective alkali content (LA), which affects its chemical properties and suitability for certain environments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "standard"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "optional mit niedrigem wirksamen Alkaligehalt (LA)"
+      ],
+      "inference_basis": null
+    },
+    "application_area": {
+      "count": 1,
+      "document_ids": [
+        "21beec6a-c68c-4bee-9266-e8acb9344e6f"
+      ],
+      "type": "enum",
+      "rationale": "The product is specifically used for heavy-duty industrial floors, which is a key functional property for categorization.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "car parks",
+        "industrial halls",
+        "assembly halls",
+        "aircraft hangars",
+        "workshops",
+        "high-bay warehouses",
+        "other industrial areas"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "NEODUR HE 3 green is used for the production of heavy-duty industrial floors, e.g. car parks, industrial halls, assembly halls, aircraft hangars, workshops, high-bay warehouses and other industrial areas subjected to most severe stress."
+      ],
+      "inference_basis": null
+    },
+    "carbonation_potential": {
+      "count": 1,
+      "document_ids": [
+        "478b1acc-6fa7-4758-b701-15ce177a381b"
+      ],
+      "type": "bool",
+      "rationale": "Carbonation potential indicates whether the concrete can undergo carbonation during its use phase, which affects durability and CO2 sequestration.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Modul B1: Carbonatisierung während der Nutzungsphase"
+      ],
+      "inference_basis": [
+        "Mention of carbonation during use phase suggests potential for carbonation."
+      ]
+    },
+    "carbonation_resistance": {
+      "count": 1,
+      "document_ids": [
+        "18d987df-548c-4ef9-bb77-4bfa26b40294"
+      ],
+      "type": "bool",
+      "rationale": "Carbonation resistance is inferred from the mention of 'carbonatisierung', which is a process affecting durability in certain environments.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Carbonatisierung während der Nutzungsphase"
+      ],
+      "inference_basis": [
+        "Carbonation resistance is important for durability in environments with CO2 exposure."
+      ]
+    },
+    "geographic_representativeness": {
+      "count": 1,
+      "document_ids": [
+        "0808539c-0cd5-4561-b4a0-058c6f4c7b04"
+      ],
+      "type": "string",
+      "rationale": "Understanding the geographic representativeness helps in assessing the relevance of the data to specific regions or markets.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Technological, temporal and geographic representativeness partly given."
+      ],
+      "inference_basis": [
+        "The dataset mentions geographic representativeness, indicating the data's applicability to certain regions."
+      ]
+    },
+    "hydration_heat": {
+      "count": 1,
+      "document_ids": [
+        "65aed503-1857-4d20-b2ac-f76f26280e84"
+      ],
+      "type": "ordinal_enum",
+      "rationale": "The cement is described as 'Moderate Heat', indicating its heat of hydration, which affects its suitability for different construction environments.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Ternary Blended Cement (Moderate Heat)"
+      ],
+      "inference_basis": [
+        "'Moderate Heat' suggests a classification based on heat of hydration."
+      ]
+    },
+    "hydration_process": {
+      "count": 1,
+      "document_ids": [
+        "5d1322c7-5940-4db5-afea-08dadef1256a"
+      ],
+      "type": "bool",
+      "rationale": "The hydration process is a key chemical reaction in cement that determines its setting and hardening properties. It is inferred from the description of the cement's behavior upon water addition.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Nach Zugabe von Wasser zum Zement entsteht eine Suspension (Zementleim), die aufgrund einsetzender Hydratationsreaktion sowohl an der Luft als auch unter Wasser erstarrt und erhärtet."
+      ],
+      "inference_basis": [
+        "Cement hydration is a standard process involving chemical reactions with water."
+      ]
+    },
+    "iso_certification": {
+      "count": 1,
+      "document_ids": [
+        "32365a3f-cc2e-438e-b032-08dadef1256a"
+      ],
+      "type": "bool",
+      "rationale": "The Schwelgern plant is ISO 9001 certified, which indicates a standard of quality management in the production process.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "The Schwelgern plant is ISO 9001 certified."
+      ],
+      "inference_basis": null
+    },
+    "main_components": {
+      "count": 1,
+      "document_ids": [
+        "65aed503-1857-4d20-b2ac-f76f26280e84"
+      ],
+      "type": "enum",
+      "rationale": "The cement is composed of clinker, limestone, pozzolan, and slag, which are key components affecting its performance and environmental impact.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "clinker",
+        "limestone",
+        "pozzolan",
+        "slag"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "ternary blended cement composed mostly of clinker and a combination of 2 types of mineral additives such as limestone, pozzolan and slag"
+      ],
+      "inference_basis": null
+    },
+    "main_constituents": {
+      "count": 1,
+      "document_ids": [
+        "0808539c-0cd5-4561-b4a0-058c6f4c7b04"
+      ],
+      "type": "string",
+      "rationale": "Identifying the main constituents of the cement helps in understanding its chemical composition and potential performance characteristics.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Clinker cement is made up of a mixture of primary products of mainly calcium oxide, silica, aluminium oxide, and iron oxide.",
+        "Limestone, chalk and clay (or their naturally occurring mixture of limestone marl) provide these chemical constituents."
+      ],
+      "inference_basis": [
+        "The description of the chemical composition of clinker cement provides insight into the main constituents."
+      ]
+    },
+    "sulfate_resistance": {
+      "count": 1,
+      "document_ids": [
+        "e1898c68-bc2e-4525-afc2-08dadef1256a"
+      ],
+      "type": "bool",
+      "rationale": "The cement is described as having sulfate resistance (SR), which is a key property for certain applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Hochofenzement CEM III/A mit Bewertung des Sulfatwiderstandes (SR)"
+      ],
+      "inference_basis": null
+    },
+    "workability_class": {
+      "count": 1,
+      "document_ids": [
+        "18d987df-548c-4ef9-bb77-4bfa26b40294"
+      ],
+      "type": "enum",
+      "rationale": "The dataset includes 'F3', which refers to the workability class of the concrete, indicating its ease of placement and compaction.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "C20/25 XC1 XC2 F3 16 M EcoPact"
+      ],
+      "inference_basis": null
+    }
+  }
+}

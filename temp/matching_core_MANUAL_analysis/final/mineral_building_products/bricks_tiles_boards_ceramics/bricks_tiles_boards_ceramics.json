@@ -1,0 +1,27 @@
+{
+  "fields": [
+        {
+            "name": "btbc_product_form",
+            "type": "enum",
+            "enum_options": ["brick/block", "tile", "panel/board", "cladding", "other", "unknown"],
+            "description": [
+                ]
+        },
+        {
+            "name": "btbc_base_material",
+            "type": "enum",
+            "enum_options": ["clay", "concrete", "gypsum", "lime_sand", "fibre_cement", "glass", "stoneware", "composite/artificial", "other", "unknown"],
+            "description": [
+                "Main binder or composition family."
+                ]
+        },
+        {
+            "name": "btbc_processing_method",
+            "type": "enum",
+            "enum_options": ["air_dried", "fired/sintered", "autoclaved", "cast", "other", "unknown"],
+            "description": [
+                "Key processing route."
+                ]
+        }
+    ]
+}

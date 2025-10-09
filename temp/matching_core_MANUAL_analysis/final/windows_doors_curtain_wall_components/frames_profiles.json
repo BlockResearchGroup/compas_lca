@@ -1,0 +1,59 @@
+{
+  "fields": [
+    {
+      "name": "frame_profile_type",
+      "type": "enum",
+      "enum_options": [
+        "mullion_transom_system",
+        "frame_profile",
+        "sash_profile",
+        "profile_system_set",
+        "roof_flashing_or_collar",
+        "installation_frame",
+        "other",
+        "unspecified"
+      ],
+      "description": "Functional role within windows/doors/curtain walls."
+    },
+    {
+      "name": "frame_profile_material",
+      "type": "enum",
+      "enum_options": [
+        "aluminium",
+        "steel",
+        "stainless_steel",
+        "pvc",
+        "wood",
+        "mixed_composite",
+        "other",
+        "unspecified"
+      ],
+      "description": "Dominant structural/substrate material."
+    },
+    {
+      "name": "thermal_separation",
+      "type": "enum",
+      "enum_options": [
+        "thermally_separated",
+        "non_thermally_separated",
+        "not_applicable",
+        "unspecified"
+      ],
+      "description": "Presence of thermal break (for metal profiles/systems)."
+    },
+    {
+      "name": "surface_finish",
+      "type": "enum",
+      "enum_options": [
+        "mill_blank",
+        "anodized",
+        "powder_coated",
+        "painted",
+        "coated_other",
+        "unfinished",
+        "unspecified"
+      ],
+      "description": "Delivery/finish state of the visible profiles."
+    }
+  ]
+}

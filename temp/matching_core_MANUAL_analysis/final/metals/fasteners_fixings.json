@@ -1,0 +1,28 @@
+{
+  "fields": [
+        {
+        "name": "fastener_type",
+        "type": "enum",
+        "enum_options": ["bolt", "screw", "nail", "rivet", "staple", "anchor", "pin", "other", "unknown"],
+        "description": [
+            ]
+        },
+        {
+        "name": "fastener_material",
+        "type": "enum",
+        "enum_options": [
+            "carbon_steel",
+            "stainless_steel",
+            "alloy_steel",
+            "brass",
+            "aluminum",
+            "copper",
+            "plastic_polymer",
+            "composite",
+            "other",
+            "unknown"
+        ],
+        "description": "Base material of the fastener."
+        }
+    ]
+}

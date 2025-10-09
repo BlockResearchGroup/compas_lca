@@ -1,0 +1,33 @@
+{
+  "fields": [
+    {
+      "name": "engineered_wood_type",
+      "type": "enum",
+      "enum_options": [
+        "finger_jointed_structural_timber", 
+        "glulam",
+        "glued_solid_wood_panel",
+        "plywood",
+        "laminated_veneer_lumber",
+        "oriented_strand_board",
+        "particleboard",
+        "mdf",
+        "hdf",
+        "softboard",
+        "other",
+        "unknown"
+      ],
+      "description": "Engineered wood types produced by mechanical reconstitution or lamination of solid wood."
+    },
+    {
+      "name": "engineered_wood_adhesive",
+      "type": "enum",
+      "enum_options": ["UF", "MUF", "PF", "pMDI", "bio_based", "other", "unspecified"]
+    },
+    {
+      "name": "base_species_composition",
+      "type": "enum",
+      "enum_options": ["softwood_dominated", "hardwood_dominated", "mixed", "unknown"]
+    }
+  ]
+}

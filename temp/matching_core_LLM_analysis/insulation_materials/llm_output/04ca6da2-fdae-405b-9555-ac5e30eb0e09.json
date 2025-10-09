@@ -1,0 +1,106 @@
+{
+  "document_id": "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+  "fields": [
+    {
+      "name": "thermal_conductivity_coefficient",
+      "type": "float",
+      "rationale": "The thermal conductivity coefficient (Lambda-value) is a critical property for insulation materials, indicating how well the material can conduct heat. It is explicitly mentioned as a key performance metric for the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The thermal conductivity coefficient (Lambda-value) and R-value per 25 mm thickness per product brand is provided below as additional information and support for installers"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "recyclability",
+      "type": "bool",
+      "rationale": "The product is described as fully recyclable, which is an important environmental and functional property for insulation materials, especially in the context of sustainability and end-of-life scenarios.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The flexen® PE-stabil foam is fully recyclable and can be used as a direct one-for-one substitute for virgin PE-LD granulates"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "closed_cell_structure",
+      "type": "bool",
+      "rationale": "The product is described as having a closed-cell structure, which affects its thermal insulation properties and moisture resistance, making it a key characteristic for categorizing insulation materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Polythene-based, closed-cell foam pipe insulation with a robust protective coating"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "protective_coating",
+      "type": "bool",
+      "rationale": "The presence of a robust protective coating is mentioned, which is significant for durability and performance in insulation applications, especially in environments where physical protection is needed.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Polythene-based, closed-cell foam pipe insulation with a robust protective coating"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation method is inferred to be manual, as the disassembly is described as manual and not requiring specific equipment, which suggests similar simplicity in installation.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "mechanical"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "As for the installation of the product, the disassembly is done manually and does not require any specific equipment."
+      ],
+      "inference_basis": [
+        "Manual disassembly implies manual installation."
+      ]
+    },
+    {
+      "name": "mechanical_recycling_scenario",
+      "type": "bool",
+      "rationale": "The product is described as being 100% mechanically recyclable, which is a significant environmental property, especially given the increasing legislative pressure on plastic recycling.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "the scenario with 100 % mechanical recycling is considered"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "document_id": "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1",
+  "fields": [
+    {
+      "name": "insulating_value",
+      "type": "float",
+      "rationale": "The product is noted for its high insulating value, which is a key property for insulation materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²·K/W",
+      "applicability": [
+        "phenolic_foam",
+        "boards"
+      ],
+      "evidence": [
+        "Due to its high insulating value, Kooltherm® K3 is suitable for use as floor insulation."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "facing_material",
+      "type": "string",
+      "rationale": "The insulation material is faced on both sides with a glass tissue based facing, which is a specific material property.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "phenolic_foam",
+        "boards"
+      ],
+      "evidence": [
+        "Kooltherm® K3 is a rigid thermoset cellular insulation material faced on both sides with a glass tissue based facing."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "renewable_energy_use",
+      "type": "bool",
+      "rationale": "The manufacturing process uses renewable energy sources, which is a significant environmental and functional property.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "phenolic_foam",
+        "boards"
+      ],
+      "evidence": [
+        "All electricity used during production comes from renewable sources."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

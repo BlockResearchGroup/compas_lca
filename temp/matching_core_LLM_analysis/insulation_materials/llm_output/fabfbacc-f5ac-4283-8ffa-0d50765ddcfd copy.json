@@ -1,0 +1,41 @@
+{
+  "document_id": "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd",
+  "fields": [
+    {
+      "name": "flame_retardant_inclusion",
+      "type": "bool",
+      "rationale": "The dataset mentions that flame retardants are mixed into the solutions to manipulate the characteristics of the foam, indicating their inclusion in the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Various additives as for example flame retardants were mixed into the solutions to manipulate the characteristics."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation method is described as using a transportable foaming device and dumping into parts to be dammed by tube or pipe lines, which is specific to in-situ foam applications.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": [
+        "in_situ_foam",
+        "pre_fabricated_panels",
+        "spray_applied"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Foam materials made of urea formaldehyde foam are foamed with transportable foaming device and are dumped into the parts to be dammed by tube or pipe lines."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "fields": [
+        {
+            "name": "door_material",
+            "type": "enum",
+            "enum_options": [
+            "aluminium",
+            "steel",
+            "stainless_steel",
+            "pvc",
+            "wood",
+            "wood_aluminium",
+            "glass",
+            "mixed_composite",
+            "other",
+            "unknown"
+            ],
+            "description": ["primary visible/structural material of the door/leaf/panels"]
+        },
+        {
+            "name": "door_operation",
+            "type": "enum",
+            "enum_options": [
+            "swing_hinged",
+            "sliding",
+            "folding",
+            "revolving",
+            "sectional",
+            "rolling_shutter",
+            "up_and_over",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "door_automatization",
+            "type": "enum",
+            "enum_options": [
+            "yes",
+            "no",
+            "unknown"
+            ],
+            "description": ["if the door is automatized"]
+        },
+        {
+            "name": "door_safety_function",
+            "type": "enum",
+            "enum_options": [
+            "none",
+            "fire_protection",
+            "smoke_protection",
+            "high_speed_operation",
+            "security_access_control",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "door_width",
+            "type": "float",
+            "enum_options": null,
+            "description": [
+                "if specified, door width in mm"
+            ]
+        },
+        {
+            "name": "door_height",
+            "type": "float",
+            "enum_options": null,
+            "description": [
+                "if specified, door height in mm"
+            ]
+        }
+    ]
+}

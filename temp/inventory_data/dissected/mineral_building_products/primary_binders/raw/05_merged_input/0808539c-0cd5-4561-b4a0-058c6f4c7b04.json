@@ -1,0 +1,16 @@
+{
+  "uuid": "0808539c-0cd5-4561-b4a0-058c6f4c7b04",
+  "dataset_name": "Cement (CEM II 32,5)",
+  "category": "'Mineral building products' / 'Binder' / 'Cement'",
+  "location_code": "DE",
+  "dataset_type": "generic dataset",
+  "dataset_owner": "Sphera Solutions GmbH",
+  "density": null,
+  "layer_thickness": null,
+  "Use advice for data set": "The data set represents a cradle to gate inventory. It can be used to characterise the supply chain situation of the respective commodity in a representative manner. Combination with individual unit processes using this commodity enables the generation of user-specific (product) LCAs.",
+  "Technical purpose of product or process": "This product can be used in construction.",
+  "Classification number": "1.1.01",
+  "General comment on data set": "This data set has been modeled according to the European Standard EN 15804+A2 for Sustainable Building. Results are depicted in modules that allow the structured expression of results over the entire life cycle.",
+  "Description": "Product system depicted except for a few missing processes / flows. Technological, temporal and geographic representativeness partly given.",
+  "Technology description including background system": "The main processes in cement production consist of raw material extraction, production of clinker, and cement grinding. The extraction of the main raw material from the quarry normally takes place in the immediate area of the cement works. Portland cement (CEM I) is primarily made up of finely ground clinker cement and a smaller amount of ground materials. Other cements may also include constituents such as slag sand (CEM III), natural puzzolan such as trass (CEM IV), fly ash, oil shale burn-out or limestone. The most important agent is the blast furnace cement (CEM III). Coagulation is controlled with the help of minor constituents, such as calcium sulphate to facilitate its optimal processing in the concrete production. Clinker cement is made up of a mixture of primary products of mainly calcium oxide, silica, aluminium oxide, and iron oxide. Limestone, chalk and clay (or their naturally occurring mixture of limestone marl) provide these chemical constituents. The raw material mixture is heated to approximately 1450°C in a rotary furnace until sintering. New bonds are created from the source material, these are known as the clinker phases. These are specific calcium silicates and calcium aluminates that give the cement its characteristic property of hardening in the presence of water. Secondary fuels for cement production are modelled with a \"cut-off approach\", i.e. the materials have no environmental burden."
+}

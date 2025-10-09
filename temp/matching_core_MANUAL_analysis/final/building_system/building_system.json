@@ -1,0 +1,25 @@
+{
+  "fields": [
+        {
+            "name": "building_service_type",
+            "type": "enum",
+            "enum_options": [
+            "hvac_systems",
+            "electrical_system",
+            "plumbing_system",
+            "fire_protection_system",
+            "vertical_transport_system",
+            "buiding_automation_system",
+            "renewable_energy_system",
+            "sanitary",
+            "lighting",
+            "vertical_transport",
+            "heat_storage",
+            "heat_generator",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        }
+    ]
+}

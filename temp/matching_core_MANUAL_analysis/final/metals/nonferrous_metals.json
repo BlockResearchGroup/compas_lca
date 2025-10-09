@@ -1,0 +1,64 @@
+{
+  "fields": [
+        {
+            "name": "nonferrous_metal_type",
+            "type": "enum",
+            "enum_options": ["aluminum","copper","brass","zinc","lead","magnesium","titanium","nickel","other"],
+            "description": [
+                ]
+        },
+        {
+            "name": "form",
+            "type": "enum",
+            "enum_options": [
+                "sheet", 
+                "profile", 
+                "foil", 
+                "tube", 
+                "pipe", 
+                "wire",
+                "plate",
+                "billet",
+                "other"
+            ],
+            "description": [
+                ]
+        },
+        {
+            "name": "processing_route",
+            "type": "enum",
+            "enum_options": [
+                "cast",
+                "forged",
+                "rolled",
+                "extruded",
+                "drawn",
+                "deep_drawn",
+                "spun",
+                "powder metallurgy",
+                "3d printed",
+                "wrought",
+                "other"
+            ],
+            "description": [
+                ]
+        },
+        {   "name": "surface_finish", 
+            "type": "enum",
+            "enum_options": [
+                "mill",
+                "anodized",
+                "alodined",
+                "painted",
+                "powder_coated",
+                "electroplated",
+                "tin_plated",
+                "nickel_plated",
+                "galvanized",
+                "polished",
+                "other",
+                "unknown"
+            ]
+        }
+    ]
+}

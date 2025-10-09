@@ -1,0 +1,101 @@
+{
+  "document_id": "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a key property for insulation materials, affecting their efficiency in reducing heat transfer.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "The LCA of wood wool boards covers the cradle-to-gate phase."
+      ],
+      "inference_basis": [
+        "Wood wool panels typically have a specific range of thermal conductivity values."
+      ]
+    },
+    {
+      "name": "fire_resistance",
+      "type": "ordinal_enum",
+      "rationale": "Fire resistance is crucial for safety in construction materials, especially for wood-based products.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "The transport in module C2 to the recycling plant takes place with a truck (50km)."
+      ],
+      "inference_basis": [
+        "Wood wool panels may have varying levels of fire resistance based on treatment and composition."
+      ]
+    },
+    {
+      "name": "recyclability",
+      "type": "bool",
+      "rationale": "Recyclability indicates the potential for the material to be reused or recycled, which is important for sustainability.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "Module C3 takes into account the grinding and thermal treatment (combustion) of the material."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "biogenic_carbon_content",
+      "type": "float",
+      "rationale": "Biogenic carbon content is relevant for wood-based products as it affects their carbon footprint.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg CO2e",
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "The CO2 absorbed and stored in the material by photosynthesis (from module A1) is written off in C3."
+      ],
+      "inference_basis": [
+        "Wood products store carbon absorbed during growth, which is released upon combustion or decay."
+      ]
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The method of installation can affect the labor and cost associated with using the insulation material.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "mechanical",
+        "adhesive"
+      ],
+      "unit": null,
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "In module C1, a manual dismantling (no loads) is assumed."
+      ],
+      "inference_basis": [
+        "The mention of manual dismantling suggests possible installation methods."
+      ]
+    }
+  ]
+}

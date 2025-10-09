@@ -6,7 +6,7 @@ from typing import List
 # USER SETTINGS
 # =======================
 INPUT_CSV  = r"data/lca_database/OBD_items.csv"
-OUTPUT_CSV = r"temp/inventory_data/dissected/precast_concrete/OBD_precast_concrete.csv"
+OUTPUT_CSV = r"temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/OBD_mortars_plasters.csv"
 
 ENCODING = "cp1252"
 DELIMITER = ";"
@@ -14,10 +14,13 @@ DELIMITER = ";"
 CATEGORY_COL = "Kategorie (en)"
 
 # Match rows whose category path STARTS WITH this sequence (any deeper levels allowed)
-NESTED_PREFIX: List[str] = [
-    "Mineral building products",
-    "Bricks, blocks and elements",
-    "Precast concrete elements and goods"
+# Match rows whose category path STARTS WITH ANY of these sequences (any deeper levels allowed)
+NESTED_PREFIXES: List[List[str]] = [
+    ["Mineral building products", "Mortar and Concrete", "Adhesive and adhesive mortar"],
+    ["Mineral building products", "Mortar and Concrete", "Mortar (masonry)"],
+    ["Mineral building products", "Mortar and Concrete", "Renders and plasters"],
+    ["Mineral building products", "Mortar and Concrete", "Screed dry mortar"],
+    ["Mineral building products", "Bricks, blocks and elements", "Substrate"]
 ]
 # =======================
 
@@ -102,25 +105,29 @@ def main():
             f"Column '{CATEGORY_COL}' not found. Available columns: {df.columns.tolist()}"
         )
 
-    # Normalize the user-specified prefix too
-    prefix = [normalize_part(p) for p in NESTED_PREFIX]
+    # Normalize all user-specified prefixes
+    prefixes = [[normalize_part(p) for p in pref] for pref in NESTED_PREFIXES]
 
     # Split each row's category path into normalized parts
     paths = df[CATEGORY_COL].fillna("").astype(str).apply(split_hierarchy)
 
-    # Keep rows whose path starts with the given prefix
-    mask = paths.apply(lambda parts: len(parts) >= len(prefix) and parts[:len(prefix)] == prefix)
+    # Keep rows whose path starts with ANY of the prefixes
+    def matches_any_prefix(parts: List[str]) -> bool:
+        for pref in prefixes:
+            if len(parts) >= len(pref) and parts[:len(pref)] == pref:
+                return True
+        return False
 
+    mask = paths.apply(matches_any_prefix)
     filtered = df[mask]
 
     if filtered.empty:
         raise ValueError(
-            f"No rows found with category path starting with {prefix} in column '{CATEGORY_COL}'."
+            f"No rows found with category path starting with any of {prefixes} in column '{CATEGORY_COL}'."
         )
 
     filtered.to_csv(OUTPUT_CSV, index=False, encoding=ENCODING, sep=DELIMITER)
-    print(f"Wrote {len(filtered)} rows with prefix {prefix} to {OUTPUT_CSV}")
-
+    print(f"Wrote {len(filtered)} rows matching any prefix to {OUTPUT_CSV}")
 
 if __name__ == "__main__":
     main()

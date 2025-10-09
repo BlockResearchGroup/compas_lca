@@ -1,0 +1,19 @@
+{
+  "fields": [
+    {
+      "name": "wood_modification_type",
+      "type": "enum",
+      "enum_options": [
+        "thermally_modified",
+        "acetylated",
+        "furfurylated",
+        "densified",
+        "resin_impregnated",
+        "preservative_impregnated",
+        "other",
+        "unknown"
+      ],
+      "description": "Classifies wood that has been modified by altering its chemistry or structure to improve durability, dimensional stability, or strength."
+    }
+  ]
+}

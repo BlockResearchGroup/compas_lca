@@ -1,0 +1,67 @@
+{
+  "document_id": "0808539c-0cd5-4561-b4a0-058c6f4c7b04",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "Different types of cement have distinct properties and uses, which can affect the performance and suitability for specific applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "CEM I",
+        "CEM II",
+        "CEM III",
+        "CEM IV"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Portland cement (CEM I) is primarily made up of finely ground clinker cement and a smaller amount of ground materials.",
+        "Other cements may also include constituents such as slag sand (CEM III), natural puzzolan such as trass (CEM IV), fly ash, oil shale burn-out or limestone."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "Understanding the geographic representativeness helps in assessing the relevance of the data to specific regions or markets.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Technological, temporal and geographic representativeness partly given."
+      ],
+      "inference_basis": [
+        "The dataset mentions geographic representativeness, indicating the data's applicability to certain regions."
+      ]
+    },
+    {
+      "name": "main_constituents",
+      "type": "string",
+      "rationale": "Identifying the main constituents of the cement helps in understanding its chemical composition and potential performance characteristics.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Clinker cement is made up of a mixture of primary products of mainly calcium oxide, silica, aluminium oxide, and iron oxide.",
+        "Limestone, chalk and clay (or their naturally occurring mixture of limestone marl) provide these chemical constituents."
+      ],
+      "inference_basis": [
+        "The description of the chemical composition of clinker cement provides insight into the main constituents."
+      ]
+    }
+  ]
+}

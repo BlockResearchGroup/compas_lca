@@ -1,0 +1,73 @@
+{
+  "document_id": "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5",
+  "fields": [
+    {
+      "name": "fire_resistance_rating",
+      "type": "range",
+      "rationale": "The product is supplied as a fire-rated version with a fire resistance rating of 120 minutes, which is crucial for safety and compliance in construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "minutes",
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "fire resistance rating of 120 minutes (REI120)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "load_bearing_level",
+      "type": "ordinal_enum",
+      "rationale": "The product is available with different load-bearing levels, which are essential for determining its suitability for various structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "The load-bearing levels depend on the necessary load."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity_equivalent",
+      "type": "float",
+      "rationale": "The product's thermal performance is demonstrated by its equivalent thermal conductivity, a key property for insulation materials.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "effective thermal insulation performance, as demonstrated by the equivalent thermal conductivity (eq)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "The product consists of rigid polystyrene foam and a framework of welded steel bars, which are critical for understanding its structural and thermal properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "thermal insulation layer made of rigid polystyrene foam (Neopor®) and a structurally-active framework system made of welded steel bars."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

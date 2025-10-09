@@ -1,0 +1,60 @@
+{
+  "fields": [
+    {
+      "name": "ferrous_type",
+      "type": "enum",
+      "enum_options": [
+        "carbon_steel", 
+        "low_alloy_steel", 
+        "stainless_steel",
+        "tool_steel", 
+        "cast_iron", 
+        "wrought_iron", 
+        "other"
+      ],
+      "description": ["Alloy family/material class"]
+    },
+    {
+      "name": "ferrous_metal_product_form",
+      "type": "enum",
+      "enum_options": ["sheet","plate","profile","bar","rod","tube","pipe","wire","mesh","rebar","cast_component","other"],
+      "description": ["Commercial product form."]
+    },
+    {
+      "name": "steel_grade",
+      "type": "string",
+      "description": ["grades used to classify various steels by their composition and physical properties", 
+      "if available prefer EN 10027 e.g., S355JR"]
+    },
+    {
+      "name": "steelmaking_route",
+      "type": "enum",
+      "enum_options": ["bf_bof","eaf_scrap","dri_eaf","induction","other","unknown"],
+      "description": [
+        "Primary production route (not forming).",
+        "bf_bof = blast furnace - basic oxygen furnace",
+        "eaf_scrap = electric arc furnace, with recycled steel scrap as feedstock",
+        "dri_eaf = electric arc furnace, with direct reduced iron as feedstock",
+        "induction furnace"
+    ]
+    },
+    {
+      "name": "forming_process",
+      "type": "multi_enum",
+      "enum_options": ["rolled","forged","extruded","drawn","cast","powder_metallurgy","additive","wrought","other"],
+      "description": ["Downstream forming/shape-making. Multi-select allowed."]
+    },
+    {
+      "name": "used_for_reinforcement",
+      "type": "enum",
+      "enum_options": ["yes","no","unknown"],
+      "description": "Is this product specifically intended as structural reinforcement (rebar/mesh/etc.)?"
+    },
+    {
+      "name": "coating",
+      "type": "enum",
+      "enum_options": ["none","galvanized","epoxy_coated","painted","powder_coated","sherardized","aluzinc","other","unknown"],
+      "description": ["Primary protective coating, if any."]
+    }
+    ]
+}

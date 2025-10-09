@@ -1,0 +1,25 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "insulation_application",
+      "type": "enum",
+      "rationale": "The product is explicitly stated to be used for both interior and exterior insulation, which is a key functional property for categorizing insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "interior",
+        "exterior"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "The product is used for interior and exterior insulation"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

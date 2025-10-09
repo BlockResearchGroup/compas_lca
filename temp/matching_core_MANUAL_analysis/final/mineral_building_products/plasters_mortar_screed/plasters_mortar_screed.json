@@ -1,0 +1,43 @@
+{
+  "fields": [
+        {
+            "name": "mps_product_application",
+            "type": "enum",
+            "enum_options": ["masonry_mortar", "adhesive_mortar", "plaster", "screed", "render", "other", "unknown"],
+            "description": [
+                ]
+        },
+        {
+            "name": "application_thickness_mm",
+            "type": "float",
+            "enum_options": null,
+            "description": [
+                "Typical thickness of application in millimeters (mm)."
+                ]
+        },
+        {
+            "name": "mps_binder_type",
+            "type": "enum",
+            "enum_options": ["cement", "lime", "gypsum", "clay", "mixed", "other", "unknown"],
+            "description": [
+                "Main binder determines chemistry & use"
+                ]
+        },
+        {
+            "name": "mps_consistency",
+            "type": "enum",
+            "enum_options": ["dry_mix", "pre_mixed", "ready_mix", "other", "unknown"],
+            "description": [
+                "How the product is supplied"
+                ]
+        },
+        {
+            "name": "performance_modifier",
+            "type": "enum",
+            "enum_options": ["normal", "thermal_insulating", "lightweight", "fibre_reinforced", "self_leveling", "hydrophobic", "fast_setting", "other", "unknown"],
+            "description": [
+                "Special properties"
+                ]
+        }
+    ]
+}

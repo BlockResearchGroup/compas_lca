@@ -1,0 +1,131 @@
+{
+  "fields": [
+        {
+            "name": "form_factor",
+            "type": "enum",
+            "enum_options": ["rigid_board", "panel", "roll", "batt", "blanket", "pipe_section", "loose_fill",
+            "spray_applied", "sandwich_panel", "multilayer_system"
+            ],
+            "description": [
+                    "Rigid board: stiff insulation sheets, typically cut to size (e.g., PIR boards, XPS boards).",
+                    "Panel: prefabricated flat units, sometimes with facings or integrated layers.",
+                    "Roll: flexible insulation supplied in large continuous rolls (often fiberglass or mineral wool).",
+                    "Batt: semi-rigid rectangular pieces, usually sized to fit between studs or joists.",
+                    "Blanket: flexible sheets, often thicker or wider than batts, used for large area coverage.",
+                    "Pipe section: pre-formed cylindrical pieces designed to insulate pipes.",
+                    "Loose fill: free-flowing material installed by pouring or blowing (e.g., cellulose, mineral wool granules).",
+                    "Spray applied: insulation sprayed in place, expanding or curing on site (e.g., spray foam, spray-applied cellulose).",
+                    "Sandwich panel: structural element with insulation core bonded between rigid facings.",
+                    "Multilayer system: combination of different insulation layers or materials assembled as a unit."
+                ]
+        },
+        {
+            "name": "insulation_type",
+            "type": "enum",
+            "enum_options": [
+            "calcium",
+            "cellulose",
+            "concrete",
+            "cotton",
+            "cork",
+            "perlite",
+            "EPS",
+            "XPS",
+            "flax",
+            "foam_glass",
+            "hemp",
+            "resin",
+            "glass_wool",
+            "mineral_wool",
+            "rock_wool",
+            "sheep_wool",
+            "polyethylene",
+            "polyurethane",
+            "phenolic_foam",
+            "rubber",
+            "silicum_dioxide",
+            "straw",
+            "composite_system",
+            "wood",
+            "other"
+            ],
+            "description": [
+                    "Bio-based: derived from living or once-living organisms",
+                    "(e.g., cellulose, sheep's wool, cork, hemp, flax, cotton, wood fiber).",
+                    "Mineral: derived from naturally occurring minerals",
+                    "(e.g., fiberglass, mineral wool, perlite, vermiculite).",
+                    "Synthetic: petroleum-derived insulation materials",
+                    "(e.g., PUR, PIR, EPS, XPS, phenolic foam).",
+                    "Composite: a mix of two or more categories",
+                    "(e.g., wood fiber + PUR facing, or mineral wool with polymer binder).",
+                    "Unknown: origin not specified in the EPD, and cannot be inferred."
+                ]
+            },
+        {
+            "name": "thermal_conductivity",
+            "type": "float",
+            "unit": "W/mK",
+            "description": [
+                "Thermal conductivity (λ): a measure of heat flow through a material.",
+                "Lower values indicate better insulation performance.",
+                "Expressed in watts per meter-kelvin (W/mK)."
+            ]
+        },
+        {
+            "name": "compressive_load_capacity",
+            "type":"enum",
+            "enum_options": ["low", "medium", "high"],
+            "description": [
+                "Compressive strength: ability of insulation to resist deformation under load.",
+                "Low: suitable where little or no mechanical load is applied (e.g., cavity wall fill).",
+                "Medium: adequate for moderate loads (e.g., wall panels, light roof decks).",
+                "High: supports significant loads without crushing (e.g., under screeds, flat roofs)."
+            ]
+        },
+        {
+            "name": "fire_retardant",
+            "type":"bool",
+            "description": [
+                "If the insulation explicitly uses fire retardants to improve fire performance.",
+                "usually found within bio-based and synthetic insulation types."
+            ]
+        },
+        {
+            "name": "recycled_content",
+            "type":"bool",
+            "description": [
+                "If the insulation explicitly uses recycled content in its composition.",
+                "can be found in mineral and some bio-based insulation types."
+            ]
+        },
+        {
+            "name": "sound_insulation",
+            "type":"bool",
+            "description": [
+                "If the insulation is commonly used for sound insulation.",
+                "or if the insulation is specifically designed for acoustic performance."
+            ]
+        },
+        {
+            "name": "application_method",
+            "type":"enum",
+            "enum_options": ["adhesive", "mechanical_fixing", "gravity", "friction fit", "spray_applied", "other"],
+            "description": [
+                "Adhesive: bonding insulation to surfaces with glue or adhesive compounds.",
+                "Mechanical fixing: using screws, nails, or other fasteners to hold insulation in place.",
+                "Friction fit: insulation held in place by compression or tension between framing members (common for batts/blankets).",
+                "Gravity: relying on the weight of the insulation itself to stay in place (e.g., loose fill).",
+                "Spray applied: spraying insulation material directly onto surfaces where it adheres and expands.",
+                "Other: any other method not covered by the above categories."
+            ]
+        },
+        {
+            "name": "water_vapour_resistant",
+            "type":"bool",
+            "description": [
+                "If this insulation material is renowne for its resistance to water vapour.",
+                "or if the data explicitly states that it is especially water vapour resistant."
+            ]
+        }
+    ]
+}

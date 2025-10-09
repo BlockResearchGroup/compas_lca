@@ -1,0 +1,98 @@
+{
+  "document_id": "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and application of the plaster product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 900.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binder_type",
+      "type": "enum",
+      "rationale": "The type of binder used (lime, cement, plaster) is crucial for understanding the material properties and applications of the product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "lime",
+        "cement",
+        "plaster"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Lime, cement and plaster are used as a mineral binder."
+      ],
+      "inference_basis": [
+        "Common binders in mineral plasters and mortars include lime, cement, and plaster."
+      ]
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "The geographic representativeness indicates the region for which the data is most applicable, affecting its relevance for specific projects.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "system_boundary",
+      "type": "enum",
+      "rationale": "Understanding the system boundary (e.g., cradle to gate) is essential for interpreting the scope of the environmental data provided.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "cradle to gate",
+        "cradle to grave"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The data set represents a cradle to gate inventory."
+      ],
+      "inference_basis": [
+        "The term 'cradle to gate' is explicitly mentioned, indicating the system boundary."
+      ]
+    },
+    {
+      "name": "composition",
+      "type": "string",
+      "rationale": "The composition of the product, including materials like limestone, sand, and quartz, is critical for understanding its properties and potential applications.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Mineral plasters and mortars are mainly based on inorganic raw materials, such as limestone, sand and quartz."
+      ],
+      "inference_basis": [
+        "Common components of mineral plasters include limestone, sand, and quartz."
+      ]
+    }
+  ]
+}

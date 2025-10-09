@@ -1,0 +1,53 @@
+{
+  "document_id": "60916dcf-f432-429f-9828-a0b14f1c4e91",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness of 30 mm is explicitly mentioned, which is a critical property for applications like footpaths and terraces.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "layer_thickness: 0.03"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The product is suitable for various applications such as footpaths, cycle paths, and terraces, which are explicitly listed.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "footpaths",
+        "cycle_paths",
+        "hiking_trails",
+        "play_areas",
+        "terraces",
+        "car_parks",
+        "hospital_areas",
+        "company_complexes",
+        "roof_terraces"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "footpaths, cycle paths and hiking trails",
+        "Play and exercise areas in nurseries and school playgrounds",
+        "Terraces and car park paths",
+        "car parks",
+        "Outdoor areas in hospitals, sanatoriums and retirement homes",
+        "Outdoor areas in company complexes",
+        "Roof terraces"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

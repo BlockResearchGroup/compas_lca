@@ -1,0 +1,94 @@
+{
+  "document_id": "32365a3f-cc2e-438e-b032-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "string",
+      "rationale": "The cement type is explicitly mentioned as 'Hochofenzement CEM III/A 32,5 N-LH', which is a specific classification of cement according to EN 197-1.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Duo 3 N-LH ist ein Hochofenzement CEM III/A 32,5 N-LH der gemäß EN 197-1 hergestellt und überwacht wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The production location is explicitly stated as the Schwelgern plant, which is relevant for understanding the geographical context of the product's manufacturing.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Duo 3 N-LH is manufactured at the Schwelgern plant."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The text describes the hydration reaction as a key property of the cement, which is important for its function as a binder in concrete and mortar.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Nach Zugabe von Wasser zum Zement entsteht eine Suspension (Zementleim), die aufgrund einsetzender Hydratationsreaktion sowohl an der Luft als auch unter Wasser erstarrt und erhärtet."
+      ],
+      "inference_basis": [
+        "Cement hydration reaction is a fundamental property for setting and hardening."
+      ]
+    },
+    {
+      "name": "iso_certification",
+      "type": "bool",
+      "rationale": "The Schwelgern plant is ISO 9001 certified, which indicates a standard of quality management in the production process.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "The Schwelgern plant is ISO 9001 certified."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "blast_furnace_slag_content",
+      "type": "bool",
+      "rationale": "The use of blast furnace slag is a significant component in the cement's composition, providing latent hydraulic properties.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "During the production of pig iron in the blast furnace process, liquid blast furnace slag is produced as a by-product."
+      ],
+      "inference_basis": [
+        "Blast furnace slag is commonly used in CEM III/A type cements for its hydraulic properties."
+      ]
+    }
+  ]
+}

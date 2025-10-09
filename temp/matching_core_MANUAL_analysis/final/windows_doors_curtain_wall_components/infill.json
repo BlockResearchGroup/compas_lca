@@ -1,0 +1,89 @@
+{
+  "fields": [
+        {
+            "name": "infill_type",
+            "type": "enum",
+            "enum_options": [
+            "glazing",
+            "polymer_panel",
+            "shading",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+        "name": "infill_material",
+        "type": "enum",
+        "enum_options": [
+            "glass",
+            "glass_ceramic",
+            "polycarbonate",
+            "pmma",
+            "metal",
+            "pvc",
+            "mixed_composite",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+        "name": "infill_optical_class",
+        "type": "enum",
+        "enum_options": [
+            "transparent",
+            "translucent",
+            "opaque",
+            "unknown"
+            ],
+            "description": ["visual transmission class of the element"]
+        },
+        {
+        "name": "infill_construction",
+        "type": "enum",
+        "enum_options": [
+            "monolithic_sheet",
+            "laminated",
+            "insulating_glazing_unit",
+            "multiwall_panel",
+            "slat_system",
+            "roller_shutter_curtain",
+            "other",
+            "unknown"
+            ],
+            "description": ["Structural build/form of the element."]
+        },
+        {
+        "name": "infill_layer_count",
+        "type": "enum",
+        "enum_options": [
+            "single",
+            "double",
+            "triple",
+            "multi",
+            "unknown"
+            ],
+            "description": ["Number of layers or panes within the infill"]
+        },
+        {
+        "name": "infill_special_function",
+        "type": "enum",
+        "enum_options": [
+            "none",
+            "safety",
+            "acoustic",
+            "fire_resistant",
+            "other",
+            "unknown"
+            ],
+            "description": ["Structural build/form of the element."]
+        },
+        {
+            "name": "infill_u_value",
+            "type": "float",
+            "enum_options": null,
+            "description": ["u value in W/m2K, if provided"]
+        }
+    ]
+}

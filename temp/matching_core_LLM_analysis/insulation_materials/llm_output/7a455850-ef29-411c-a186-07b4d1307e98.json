@@ -1,0 +1,106 @@
+{
+  "document_id": "7a455850-ef29-411c-a186-07b4d1307e98",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the insulation material is a critical property that affects its thermal performance and application suitability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The Rockpanel A2 9 mm products contained in this EPD, are cladding panels for facade applications, offered with a density of 1250 kg/m3 and a thickness of 9 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "coating_type",
+      "type": "enum",
+      "rationale": "The type of coating on insulation panels can affect durability, appearance, and additional functional properties like water resistance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "waterborne",
+        "Protect Plus"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Rockpanel A2 9 mm products have a layer of waterborne coating.",
+        "optional finished with a cured (waterborne) coating, or a waterborne and PU Coating (Protect Plus) layer."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The method of installation can influence labor costs, time, and the need for additional materials or equipment.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "mechanical"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "In A5 the default installation is assumed to be manual, therefore no energy consumption or ancillary equipment is needed."
+      ],
+      "inference_basis": [
+        "Manual installation implies no energy consumption or ancillary equipment."
+      ]
+    },
+    {
+      "name": "recycled_content",
+      "type": "bool",
+      "rationale": "The use of recycled materials in insulation products is a key environmental attribute that can influence sustainability ratings and regulatory compliance.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Recycled stone wool comes free of environmental burden, as it enters the product system as waste."
+      ],
+      "inference_basis": [
+        "Recycled stone wool is mentioned, indicating recycled content."
+      ]
+    },
+    {
+      "name": "fire_resistance_rating",
+      "type": "ordinal_enum",
+      "rationale": "Fire resistance is a critical safety feature for building materials, especially for facade applications.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": [
+        "A1",
+        "A2",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The Rockpanel A2 9 mm products contained in this EPD, are cladding panels for facade applications."
+      ],
+      "inference_basis": [
+        "A2 in product name suggests a fire resistance rating."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "document_id": "aaab855d-2743-452a-bd53-1f0940bdae63",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The thickness of the insulation layer is crucial for determining its thermal resistance and application suitability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "layer_thickness: 0.083"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "facer_material",
+      "type": "enum",
+      "rationale": "The type of facer material affects the panel's compatibility with different construction methods and its durability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "saturated fibre glass",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "covered on both sides by saturated fibre glass facers"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The application type helps categorize the insulation product based on its intended use, such as external walls or facades.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "external walls",
+        "ventilated facades",
+        "thermal bridges",
+        "porches"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "recommended in external insulation applications: External walls, ventilated facades, correction of thermal bridges and porches"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

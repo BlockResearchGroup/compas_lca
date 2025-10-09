@@ -1,0 +1,90 @@
+{
+  "fields": [
+    {
+      "name": "natural_wood_type",
+      "type": "enum",
+      "enum_options": [
+        "softwood",
+        "hardwood",
+        "mixed",
+        "unknown"
+      ],
+      "description": "Classifies wood by botanical group: softwood (conifers), hardwood (deciduous/broadleaf or tropical), mixed if composition is blended, unknown if not specified."
+    },
+    {
+      "name": "natural_wood_species",
+      "type": "enum",
+      "enum_options": [
+        "spruce",
+        "pine",
+        "larch",
+        "fir",
+        "cedar",
+        "douglas_fir",
+        "hemlock",
+        "oak",
+        "beech",
+        "ash",
+        "birch",
+        "maple",
+        "chestnut",
+        "poplar",
+        "walnut",
+        "teak",
+        "sapelli",
+        "mahogany",
+        "other",
+        "unspecified"
+      ],
+      "description": "Lists common commercially used wood species relevant for construction and wood products. Use 'other' for uncommon species and 'unspecified' when unknown."
+    },
+    {
+      "name": "natural_wood_product_form",
+      "type": "enum",
+      "enum_options": [
+        "lumber",
+        "beams",
+        "planks",
+        "boards"
+    ],
+      "description": "describes the form of the product"
+    },
+    {
+      "name": "natural_wood_drying_method",
+      "type": "enum",
+      "enum_options": [
+        "fresh_green",
+        "air_dried",
+        "kiln_dried",
+        "vacuum_dried",
+        "dehumidification_kiln",
+        "solar_dried",
+        "steamed_conditioned",
+        "other",
+        "unknown"
+      ],
+      "description": "Drying/conditioning method used prior to use. Method only, not the moisture value."
+    },
+    {
+      "name": "moisture_content_percent",
+      "type": "number",
+      "unit": "%",
+      "description": "Equilibrium moisture content at delivery/reference; use when specified (e.g., 12)."
+    },
+    {
+    "name": "natural_wood_processing",
+    "type": "enum",
+    "enum_options": [
+        "unprocessed_roundwood",
+        "rough_sawn",
+        "planed_surfaced",
+        "machine_graded",
+        "finger_jointed",
+        "glued_panels",
+        "other",
+        "unknown"
+    ],
+    "description": "Classifies the main processing state of the wood. Choose the dominant final form; categories are mutually exclusive."
+    }
+  ]
+}

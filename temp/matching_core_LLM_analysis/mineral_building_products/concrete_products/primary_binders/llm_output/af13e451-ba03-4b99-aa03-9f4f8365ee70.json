@@ -1,0 +1,101 @@
+{
+  "document_id": "af13e451-ba03-4b99-aa03-9f4f8365ee70",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The dataset specifies the type of cement as 'Ordinary Portland Cement (OPC)'. This is a key property that distinguishes it from other types of cement like Portland Pozzolana Cement (PPC) or Portland Slag Cement (PSC).",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "OPC",
+        "PPC",
+        "PSC"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "This environmental product declaration shows the life cycle assessment of the production of of Ordinary Portland Cements Holcim OPC (Type I 28 MPa min)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength_class",
+      "type": "ordinal_enum",
+      "rationale": "The dataset mentions 'Type I 28 MPa min', indicating the minimum compressive strength class of the cement, which is a critical performance characteristic.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "28 MPa",
+        "32.5 MPa",
+        "42.5 MPa",
+        "52.5 MPa"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Ordinary Portland Cements Holcim OPC (Type I 28 MPa min)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "The production process involves specific steps like extraction, processing, and manufacturing, which are detailed in the dataset. This information is crucial for understanding the environmental impact and technical specifications of the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "The system boundaries include the manufacture of Holcim OPC including the extraction of raw materials through to the finished product at the factory gate."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The dataset describes the cement as undergoing a hydration reaction, which is a fundamental chemical process for cement hardening and setting.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "After adding water to the cement, a suspension (cement paste) is formed, which solidifies and hardens both in air and under water due to the onset of a hydration reaction."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conversion_temperature",
+      "type": "float",
+      "rationale": "The production of Portland cement clinker involves a thermal conversion process at a specific temperature, which is critical for the formation of clinker.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "°C",
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C."
+      ],
+      "inference_basis": [
+        "Typical temperature for clinker production in rotary kilns."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "document_id": "fd62d0b8-3ea4-45b8-adc0-91833b80c97e",
+  "fields": [
+    {
+      "name": "foam_type",
+      "type": "enum",
+      "rationale": "The dataset specifies that the product is made of polyurethane rigid foam, which includes variants like PUR and PIR. This is crucial for understanding the material's properties and applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "PUR",
+        "PIR"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The polyurethane insulation material (PU) product family comprises the product variants polyurethane (PUR) and polyisocyanurate (PIR)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The text explicitly mentions the application areas for PU rigid foam, such as flat roofs and industrial installations, which are important for categorizing the product's use.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "flat_roofs",
+        "building_equipment",
+        "industrial_installations"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Areas of application for PU rigid foam for thermal insulation in building construction can be found, for example, in tapered insulation for flat roofs. Furthermore, PU rigid foam is used for insulating building equipment and industrial installations."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "string",
+      "rationale": "The manufacturing process of block foam is described, which is relevant for understanding the production method and potential environmental impacts.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Blockschaumstoff wird auf Blockanlagen hergestellt. Bei diesem Fertigungsprozess strömt das Polyurethan-Reaktionsgemisch aus einem Mischkopf auf eine Papierunterlage in einer dreiseitig geschlossenen, mitlaufenden Form aus metallischen Transportbändern und schäumt bis zu einer Höhe von ca. 90 cm auf."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

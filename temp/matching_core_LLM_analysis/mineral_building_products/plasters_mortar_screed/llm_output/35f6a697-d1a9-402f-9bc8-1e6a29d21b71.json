@@ -1,0 +1,86 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key physical property that affects the handling and application of plaster products. It is explicitly stated in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "plaster",
+        "mortar",
+        "screed"
+      ],
+      "evidence": [
+        "density: 1100.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "gypsum_content",
+      "type": "ordinal_enum",
+      "rationale": "The dataset describes the product as being based on gypsum, which is a primary component. The phases of gypsum (hemihydrate, anhydrite) are mentioned, indicating varying gypsum content.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "Gipsbinder nach /DIN EN 13279-1/ is the Ausgangsprodukt for the industrielle Herstellung der verschiedenen Gips-Trockenmörtel"
+      ],
+      "inference_basis": [
+        "Gypsum-based products typically vary in gypsum content, affecting properties like setting time and strength."
+      ]
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The dataset mentions different application methods such as machine or hand application, which are important for users to know how the product can be applied.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "machine",
+        "hand",
+        "both"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "Gips-Trockenmörtel, Gipsspachtel and Gipskleber can be applied on site or in the factory"
+      ],
+      "inference_basis": [
+        "Different application methods are common for plaster products, affecting labor and equipment needs."
+      ]
+    },
+    {
+      "name": "additives_included",
+      "type": "bool",
+      "rationale": "The dataset mentions the inclusion of additives such as setting retarders and cellulose derivatives, which can affect the performance and application of the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "Gypsum dry mortars also contain aggregates such as limestone powder, sand or perlite and additives such as setting retarders or cellulose derivatives."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

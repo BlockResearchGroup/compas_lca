@@ -1,0 +1,1165 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/mineral_building_products/plasters_mortar_screed/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 49,
+    "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
+    "sorted_by": "count_desc,name_asc"
+  },
+  "fields": {
+    "density": {
+      "count": 23,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "5908f568-29cd-4387-9816-d3cb1b2cc577",
+        "6dde4a4c-4ac5-414a-a3ad-2193d8e8c442",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f",
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce",
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a",
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "e79e3ca3-856b-45f7-b692-e099d99ad9ae",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ],
+      "type": "float",
+      "rationale": "The density of the mortar is explicitly stated as 1550 kg/m³, which is a key material property for categorizing and comparing different mortars.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1550.0"
+      ],
+      "inference_basis": null
+    },
+    "application_method": {
+      "count": 7,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ],
+      "type": "enum",
+      "rationale": "The application method is important for understanding how the product is used, and it is inferred from the description of the product as 'manually and possibly also machine processable'.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "machine"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "manually and possibly also machine processable"
+      ],
+      "inference_basis": [
+        "'manually and possibly also machine processable' suggests both manual and machine application methods."
+      ]
+    },
+    "compressive_strength": {
+      "count": 6,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ],
+      "type": "range",
+      "rationale": "Compressive strength is a critical property for mortars, indicating their load-bearing capacity. It is explicitly provided as ≤ 15 N/mm².",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Compressive strength according to EN 1015-11 ≤ 15 N/mm²"
+      ],
+      "inference_basis": null
+    },
+    "thermal_conductivity": {
+      "count": 6,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ],
+      "type": "range",
+      "rationale": "Thermal conductivity is important for understanding the insulation properties of the mortar. It is provided in two ranges based on different conditions.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/(m·K)",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 50 %: 0.39 - 0.82 W/(mK)",
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 90 %: 0.43 - 0.89 W/(mK)"
+      ],
+      "inference_basis": null
+    },
+    "geographic_representativeness": {
+      "count": 4,
+      "document_ids": [
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ],
+      "type": "string",
+      "rationale": "The geographic representativeness indicates the region for which the data is most applicable, affecting its relevance for specific projects.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    "material_composition": {
+      "count": 4,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ],
+      "type": "string",
+      "rationale": "The composition of the product, including mineral fillers and silicone bonding agent, is crucial for understanding its properties and applications.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Silicone resin plasters are mainly based on mineral fillers and a silicone bonding agent."
+      ],
+      "inference_basis": [
+        "Silicone resin plasters ⇒ mineral fillers + silicone bonding agent"
+      ]
+    },
+    "application_thickness": {
+      "count": 3,
+      "document_ids": [
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ],
+      "type": "range",
+      "rationale": "The thickness of application is crucial for determining the amount of material needed and the final appearance of the plaster.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "application thicknesses of 2 - 3 mm"
+      ],
+      "inference_basis": null
+    },
+    "binder_type": {
+      "count": 3,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ],
+      "type": "enum",
+      "rationale": "The type of binder used (lime, cement, plaster) is crucial for understanding the material properties and applications of the product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "lime",
+        "cement",
+        "plaster"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Lime, cement and plaster are used as a mineral binder."
+      ],
+      "inference_basis": [
+        "Common binders in mineral plasters and mortars include lime, cement, and plaster."
+      ]
+    },
+    "installation_method": {
+      "count": 3,
+      "document_ids": [
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a",
+        "e79e3ca3-856b-45f7-b692-e099d99ad9ae"
+      ],
+      "type": "enum",
+      "rationale": "The product is part of the Hilti SAFEset system, which includes specific installation methods using Hilti Hollow Drill bits and vacuum cleaners, indicating specialized application techniques.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "standard",
+        "safeset",
+        "custom"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Hilti SAFEset is an approved system which makes anchor installation an easier, safer and faster process."
+      ],
+      "inference_basis": [
+        "SAFEset system implies specialized installation method."
+      ]
+    },
+    "layer_thickness": {
+      "count": 3,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577",
+        "60916dcf-f432-429f-9828-a0b14f1c4e91",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ],
+      "type": "float",
+      "rationale": "Layer thickness is important for application guidelines and performance but is not provided in the dataset.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "layer_thickness: null"
+      ],
+      "inference_basis": [
+        "Layer thickness is a common specification for adhesives to ensure proper application."
+      ]
+    },
+    "manufacturing_process": {
+      "count": 2,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ],
+      "type": "string",
+      "rationale": "The manufacturing process provides insight into the production methods and environmental impacts, which are important for lifecycle assessments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"The premixed Miniera San Romedio’s products are inorganic finely grinded materials, obtained by means of the combinations at different relative concentrations of natural hydraulic lime, dolomia and expanded perlite.\""
+      ],
+      "inference_basis": null
+    },
+    "packaging_type": {
+      "count": 2,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ],
+      "type": "enum",
+      "rationale": "The product is delivered in 'pails', which is relevant for logistics and handling.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "bags",
+        "pails",
+        "buckets"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "delivered in a paste-like consistence in pails"
+      ],
+      "inference_basis": [
+        "'pails' suggests the product is packaged in pails."
+      ]
+    },
+    "product_form": {
+      "count": 2,
+      "document_ids": [
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ],
+      "type": "enum",
+      "rationale": "The form in which the product is delivered (paste-like in pails) affects its handling and application on site.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "paste",
+        "powder",
+        "liquid"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "They are delivered in a paste-like consistence in pails."
+      ],
+      "inference_basis": [
+        "paste-like consistence ⇒ paste"
+      ]
+    },
+    "seismic_approval": {
+      "count": 2,
+      "document_ids": [
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ],
+      "type": "bool",
+      "rationale": "The product is explicitly stated to be ETA approved for seismic C2 category for anchoring, which is a critical functional property for construction materials used in seismic zones.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "HIT-HY170 is ETA approved for seismic C2 category for anchoring."
+      ],
+      "inference_basis": null
+    },
+    "suitable_substrates": {
+      "count": 2,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ],
+      "type": "enum",
+      "rationale": "Identifying suitable substrates helps in categorizing the product's compatibility with different surfaces, inferred from the text mentioning gypsum boards, plaster, and other substrates.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "gypsum_boards",
+        "plaster",
+        "mineral_substrates",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "can be used for joint and surface finishing on gypsum boards, gypsum fiber boards, plaster, gypsum wall building boards, and mineral substrates"
+      ],
+      "inference_basis": [
+        "Mention of specific substrates like gypsum boards and plaster indicates suitable substrates."
+      ]
+    },
+    "system_boundary": {
+      "count": 2,
+      "document_ids": [
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "c7db9557-2928-435f-82e2-afcdcbc69715"
+      ],
+      "type": "enum",
+      "rationale": "Understanding the system boundary (e.g., cradle to gate) is essential for interpreting the scope of the environmental data provided.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "cradle to gate",
+        "cradle to grave"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The data set represents a cradle to gate inventory."
+      ],
+      "inference_basis": [
+        "The term 'cradle to gate' is explicitly mentioned, indicating the system boundary."
+      ]
+    },
+    "water_vapour_permeability": {
+      "count": 2,
+      "document_ids": [
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "7c0535db-e6d1-4342-871d-74cde862d97a"
+      ],
+      "type": "range",
+      "rationale": "Water vapour permeability affects the breathability of masonry mortars, which is crucial for moisture management in buildings.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Water vapour permeability according to EN 1015-19: 5/20"
+      ],
+      "inference_basis": null
+    },
+    "additives_included": {
+      "count": 1,
+      "document_ids": [
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions the inclusion of additives such as setting retarders and cellulose derivatives, which can affect the performance and application of the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "Gypsum dry mortars also contain aggregates such as limestone powder, sand or perlite and additives such as setting retarders or cellulose derivatives."
+      ],
+      "inference_basis": null
+    },
+    "application": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ],
+      "type": "enum",
+      "rationale": "The dataset specifies the technical purpose of the product, which is essential for categorizing its functional use.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "bonding ceramic tiles",
+        "bonding natural stone"
+      ],
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "Dispersion-based tile adhesives are used for bonding ceramic tiles and slabs as well as natural stone to walls, floors and ceilings for indoor and outdoor use."
+      ],
+      "inference_basis": null
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "60916dcf-f432-429f-9828-a0b14f1c4e91"
+      ],
+      "type": "enum",
+      "rationale": "The product is suitable for various applications such as footpaths, cycle paths, and terraces, which are explicitly listed.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "footpaths",
+        "cycle_paths",
+        "hiking_trails",
+        "play_areas",
+        "terraces",
+        "car_parks",
+        "hospital_areas",
+        "company_complexes",
+        "roof_terraces"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "footpaths, cycle paths and hiking trails",
+        "Play and exercise areas in nurseries and school playgrounds",
+        "Terraces and car park paths",
+        "car parks",
+        "Outdoor areas in hospitals, sanatoriums and retirement homes",
+        "Outdoor areas in company complexes",
+        "Roof terraces"
+      ],
+      "inference_basis": null
+    },
+    "binding_agents": {
+      "count": 1,
+      "document_ids": [
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e"
+      ],
+      "type": "string",
+      "rationale": "Binding agents are crucial components in screeds, affecting their setting and strength properties. The dataset mentions their impact on LCA.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "Calcium sulfate screed is a mixture of various binding agents, aggregates and additives."
+      ],
+      "inference_basis": [
+        "Binding agents are typically specified in screed formulations for their role in setting and strength."
+      ]
+    },
+    "ce_marking_standard": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ],
+      "type": "enum",
+      "rationale": "CE marking standards indicate compliance with EU regulations, which is critical for product acceptance in the market.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "EN 998-1",
+        "EN 998-2"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"Products of this category are subjected to CE marking according to EN 998-1 (DRY SOFT) and EN 998-2 (ARMIS BFLUID CONNECT)\""
+      ],
+      "inference_basis": null
+    },
+    "component_system": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ],
+      "type": "enum",
+      "rationale": "The product is described as a two-component system, which is a common classification for chemical mortars and affects its application and handling.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "single_component",
+        "two_component",
+        "multi_component"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The declared product of HIT-HY 170 is a two component system."
+      ],
+      "inference_basis": null
+    },
+    "composition": {
+      "count": 1,
+      "document_ids": [
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a"
+      ],
+      "type": "string",
+      "rationale": "The composition of the product, including materials like limestone, sand, and quartz, is critical for understanding its properties and potential applications.",
+      "confidence": 0.75,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Mineral plasters and mortars are mainly based on inorganic raw materials, such as limestone, sand and quartz."
+      ],
+      "inference_basis": [
+        "Common components of mineral plasters include limestone, sand, and quartz."
+      ]
+    },
+    "consistency": {
+      "count": 1,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e"
+      ],
+      "type": "enum",
+      "rationale": "The product is described as having a 'paste-like consistence', which is important for application methods and performance characteristics.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "powder",
+        "paste",
+        "liquid"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "paste-like consistence"
+      ],
+      "inference_basis": [
+        "'paste-like consistence' indicates the product is in paste form."
+      ]
+    },
+    "curing_time": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ],
+      "type": "ordinal_enum",
+      "rationale": "The product is described to have high bond strengths within a short curing time, which is a critical performance characteristic for construction materials.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "high bond strengths within a short curing time"
+      ],
+      "inference_basis": [
+        "Short curing time is a key performance indicator for fast-setting mortars."
+      ]
+    },
+    "drying_method": {
+      "count": 1,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11"
+      ],
+      "type": "enum",
+      "rationale": "The drying method is relevant for application and performance, explicitly stated as 'air-drying'.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "air_drying"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The compounds are air-drying."
+      ],
+      "inference_basis": null
+    },
+    "geographic_location": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ],
+      "type": "string",
+      "rationale": "The location code indicates where the dataset is applicable, which is important for regional compliance and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    "gypsum_content": {
+      "count": 1,
+      "document_ids": [
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71"
+      ],
+      "type": "ordinal_enum",
+      "rationale": "The dataset describes the product as being based on gypsum, which is a primary component. The phases of gypsum (hemihydrate, anhydrite) are mentioned, indicating varying gypsum content.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "Gipsbinder nach /DIN EN 13279-1/ is the Ausgangsprodukt for the industrielle Herstellung der verschiedenen Gips-Trockenmörtel"
+      ],
+      "inference_basis": [
+        "Gypsum-based products typically vary in gypsum content, affecting properties like setting time and strength."
+      ]
+    },
+    "indoor_outdoor_use": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions that the product can be used for both indoor and outdoor applications, which is a key functional property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "Dispersion-based tile adhesives are used for bonding ceramic tiles and slabs as well as natural stone to walls, floors and ceilings for indoor and outdoor use."
+      ],
+      "inference_basis": null
+    },
+    "indoor_use_only": {
+      "count": 1,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11"
+      ],
+      "type": "bool",
+      "rationale": "The product is specified for indoor use only, which is critical for its application and safety.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "for indoor use (excluding areas with high humidity and splash water exposed surfaces)"
+      ],
+      "inference_basis": null
+    },
+    "installation_type": {
+      "count": 1,
+      "document_ids": [
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ],
+      "type": "enum",
+      "rationale": "The installation type affects the application and performance characteristics of the screed, such as whether it is heated or floating.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "dry_mortar",
+        "fresh_mortar",
+        "heated_screed",
+        "floating_screed"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "delivered to the construction site as dry or fresh mortar",
+        "design variations (for example \"heated screed\" or \"floating screed\")"
+      ],
+      "inference_basis": [
+        "Mention of different installation options like 'heated screed' or 'floating screed' suggests these are common types."
+      ]
+    },
+    "insulating_material": {
+      "count": 1,
+      "document_ids": [
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ],
+      "type": "enum",
+      "rationale": "Identifying the insulating material (silica aerogel) helps categorize the product's thermal performance capabilities.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "Silica Aerogel",
+        "Expanded Polystyrene",
+        "Mineral Wool",
+        "Other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "silica aerogel, acting as insulating material"
+      ],
+      "inference_basis": [
+        "Silica aerogel is explicitly mentioned as the insulating material."
+      ]
+    },
+    "intended_use": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ],
+      "type": "enum",
+      "rationale": "Understanding the intended use helps in categorizing the product for specific applications like dehumidification or structural consolidation.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "dehumidification",
+        "structural_consolidation"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"used for dehumidification or structural consolidation\""
+      ],
+      "inference_basis": [
+        "Mortars are often categorized by their intended use, such as structural or non-structural applications."
+      ]
+    },
+    "location_code": {
+      "count": 1,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e"
+      ],
+      "type": "string",
+      "rationale": "The location code 'DE' indicates the geographic applicability of the dataset, which is important for understanding regional variations in material properties and regulations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    "max_layer_thickness": {
+      "count": 1,
+      "document_ids": [
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ],
+      "type": "float",
+      "rationale": "The maximum layer thickness is important for application guidelines and structural considerations.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "cm",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The VOLCALITE AIR PLUS can be used as internal or external plaster with a maximum thickness of 6 cm."
+      ],
+      "inference_basis": [
+        "Maximum thickness mentioned implies a limit for application."
+      ]
+    },
+    "mineral_additives": {
+      "count": 1,
+      "document_ids": [
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b"
+      ],
+      "type": "bool",
+      "rationale": "The presence of mineral additives can affect the performance characteristics of the plaster, such as durability and finish.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Lehmputzmörtel aus Baulehm, feinen mineralischen Zusatzstoffen"
+      ],
+      "inference_basis": [
+        "Mention of 'fine mineral additives' implies their presence in the product."
+      ]
+    },
+    "mortar_type": {
+      "count": 1,
+      "document_ids": [
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066"
+      ],
+      "type": "enum",
+      "rationale": "The type of mortar (e.g., thin-bed, special properties) affects its application and performance characteristics.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "thin-bed",
+        "special_properties"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "thin-bed mortar for the production of masonry",
+        "mortar with special properties"
+      ],
+      "inference_basis": [
+        "Mention of thin-bed and special properties mortar types"
+      ]
+    },
+    "primary_components": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ],
+      "type": "string",
+      "rationale": "The dataset explicitly lists the primary components of the dispersion-based tile adhesive, which are crucial for understanding its material properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "The dispersion-based tile adhesives consist of approximately the following components: Plastic dispersion (53.9 %), lime (5 %), water (15 %), triethylene glycol ester (12.5 %), colourants (12.5 %), dispersing agent (1 %), preservative (<1 %)."
+      ],
+      "inference_basis": null
+    },
+    "primary_ingredient": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ],
+      "type": "enum",
+      "rationale": "The primary ingredient of a mortar can significantly influence its properties and applications, such as strength and setting time.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "natural_hydraulic_lime",
+        "dolomia",
+        "expanded_perlite"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"NHL light mortar: a ready-to-use mortar, based on dolomia, NHL and light inert\""
+      ],
+      "inference_basis": [
+        "NHL (Natural Hydraulic Lime) is a common primary ingredient in mortars."
+      ]
+    },
+    "primary_material": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ],
+      "type": "enum",
+      "rationale": "Identifying the primary material helps in categorizing the substrate based on its main component, which is crucial for its application and performance.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "old porous brick",
+        "pumice",
+        "peat",
+        "grass/greensheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "80% old porous brick; 10% pumice; 2% peat; 8% grass/greensheet"
+      ],
+      "inference_basis": [
+        "The highest percentage component is considered the primary material."
+      ]
+    },
+    "production_method": {
+      "count": 1,
+      "document_ids": [
+        "7c0535db-e6d1-4342-871d-74cde862d97a"
+      ],
+      "type": "enum",
+      "rationale": "The production method (e.g., factory dry mortar, factory fresh mortar) influences the handling and application of the product, inferred from the description of manufacturing processes.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "factory_dry_mortar",
+        "factory_fresh_mortar",
+        "site_mixed_mortar"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The mix is then packaged and delivered either as factory dry mortar in dry containers or silos or as factory fresh mortar ready-mixed with water."
+      ],
+      "inference_basis": [
+        "Description of packaging and delivery methods suggests different production methods."
+      ]
+    },
+    "recyclability": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ],
+      "type": "bool",
+      "rationale": "Recyclability is inferred from the description of the disposal phase and treatment processes, indicating potential for recycling or reuse.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "mechanical dismantling (excavator) is assumed in module C1",
+        "treatment loss of 25% was assumed"
+      ],
+      "inference_basis": [
+        "mechanical dismantling and treatment loss suggest potential for recycling"
+      ]
+    },
+    "reinforcement_compatibility": {
+      "count": 1,
+      "document_ids": [
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ],
+      "type": "bool",
+      "rationale": "Compatibility with reinforcement materials like mesh is crucial for structural applications.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"fully embed the system mesh (Sto-Glass Fibre Mesh) in the middle or upper half of the fresh mortar coat\""
+      ],
+      "inference_basis": [
+        "Mention of embedding mesh suggests compatibility with reinforcement materials."
+      ]
+    },
+    "replasticisation_capability": {
+      "count": 1,
+      "document_ids": [
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ],
+      "type": "bool",
+      "rationale": "Replasticisation capability indicates the ability to recover and reuse the plaster, which is a unique functional property.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Clay plaster mortar in accordance with DIN 18947 can be replasticised by watering after hardening."
+      ],
+      "inference_basis": [
+        "Replasticisation is a specific feature of clay-based plasters."
+      ]
+    },
+    "replastification_ability": {
+      "count": 1,
+      "document_ids": [
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b"
+      ],
+      "type": "bool",
+      "rationale": "Replastification ability indicates the potential for reworking or recycling the material, which is important for sustainability considerations.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "The property of replastification by watering allows recovery at the end of the life cycle."
+      ],
+      "inference_basis": [
+        "Replastification ability suggests potential for reworking or recycling."
+      ]
+    },
+    "styrene_free": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ],
+      "type": "bool",
+      "rationale": "The product is noted to contain no styrene, which is a significant feature for user safety and environmental impact, distinguishing it from other products that may contain volatile organic compounds.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The reaction resins used in all Hilti hybrid adhesives contain no styrene."
+      ],
+      "inference_basis": null
+    },
+    "substrate_compatibility": {
+      "count": 1,
+      "document_ids": [
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ],
+      "type": "string",
+      "rationale": "Knowing the compatible substrates helps in determining the appropriate application scenarios for the plaster.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Levita topcoat clay plaster OP1 is a ready-to-use clay dry mortar for the production of plaster coatings on various substrates."
+      ],
+      "inference_basis": [
+        "Plasters are often designed for specific substrates, which affects their application."
+      ]
+    },
+    "water_content": {
+      "count": 1,
+      "document_ids": [
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ],
+      "type": "float",
+      "rationale": "Water content is crucial for determining the properties of fresh mortar, affecting workability and setting time.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg/kg",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "For each kg of mortar usually around 0.3 kg of water are added."
+      ],
+      "inference_basis": [
+        "The dataset mentions the typical water addition for mortar, indicating its importance in the mix design."
+      ]
+    }
+  }
+}

@@ -9,9 +9,11 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-DIR_A = Path("temp/inventory_data/dissected/precast_concrete/raw/04_csv_data")
-DIR_B = Path("temp/inventory_data/dissected/precast_concrete/raw/03_scrapes_simple")
-OUTPUT_DIR = Path("temp/inventory_data/dissected/precast_concrete/raw/05_merged_input")
+BASE_DIR = Path("temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed")
+
+DIR_A = BASE_DIR / "raw/04_csv_data"
+DIR_B = BASE_DIR / "raw/03_scrapes_simple"
+OUTPUT_DIR = BASE_DIR / "raw/05_merged_input"
 # =======================
 
 

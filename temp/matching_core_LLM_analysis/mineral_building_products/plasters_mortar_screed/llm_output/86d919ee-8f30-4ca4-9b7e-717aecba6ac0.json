@@ -1,0 +1,95 @@
+{
+  "document_id": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the screed. It is explicitly stated as 2400 kg/m³.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The dry bulk density is 2400 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is important for understanding the insulation properties of the screed, especially relevant for applications like heated floors.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Thermal conductivity 1.4 W/mK"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "Compressive strength indicates the load-bearing capacity of the screed, which is crucial for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "compressive strength 12 - 60 N/mm²"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_type",
+      "type": "enum",
+      "rationale": "The installation type affects the application and performance characteristics of the screed, such as whether it is heated or floating.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "dry_mortar",
+        "fresh_mortar",
+        "heated_screed",
+        "floating_screed"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "delivered to the construction site as dry or fresh mortar",
+        "design variations (for example \"heated screed\" or \"floating screed\")"
+      ],
+      "inference_basis": [
+        "Mention of different installation options like 'heated screed' or 'floating screed' suggests these are common types."
+      ]
+    },
+    {
+      "name": "water_content",
+      "type": "float",
+      "rationale": "Water content is crucial for determining the properties of fresh mortar, affecting workability and setting time.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg/kg",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "For each kg of mortar usually around 0.3 kg of water are added."
+      ],
+      "inference_basis": [
+        "The dataset mentions the typical water addition for mortar, indicating its importance in the mix design."
+      ]
+    }
+  ]
+}

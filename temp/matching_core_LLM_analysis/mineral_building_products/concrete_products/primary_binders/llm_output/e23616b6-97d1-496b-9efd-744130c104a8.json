@@ -1,0 +1,57 @@
+{
+  "document_id": "e23616b6-97d1-496b-9efd-744130c104a8",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The type of cement is crucial for determining its suitability for different construction applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "Portland-Pozzolan",
+        "Portland",
+        "Blended"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "This environmental product declaration shows the life cycle assessment of the production of of Portland-Pozzolan Cements Holcim Solido (Type IP 25 MPa min)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "Compressive strength is a key property of cement that affects its performance in structural applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Type IP 25 MPa min"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property that affects the handling and mixing of cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 3080.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

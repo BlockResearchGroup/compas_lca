@@ -1,0 +1,99 @@
+{
+  "document_id": "d4a53a6a-2a78-4f43-90e1-aca206cb5668",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1550.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "Understanding the material composition helps in categorizing the product based on its primary constituents, which are mineral fillers and a polymer bonding agent.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Synthetic resin reinforcement is mainly based on mineral fillers and a polymer bonding agent."
+      ],
+      "inference_basis": [
+        "Mention of mineral fillers and polymer bonding agent indicates material composition."
+      ]
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The form of the product (paste-like) is important for understanding its application and handling requirements.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "paste",
+        "powder",
+        "liquid"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "They are delivered in a paste-like consistence in pails."
+      ],
+      "inference_basis": [
+        "Mention of paste-like consistency suggests product form."
+      ]
+    },
+    {
+      "name": "packaging_type",
+      "type": "enum",
+      "rationale": "Packaging type affects storage, transportation, and handling of the product.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "pail",
+        "bag",
+        "box"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "delivered in a paste-like consistence in pails."
+      ],
+      "inference_basis": [
+        "Mention of pails indicates packaging type."
+      ]
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "Geographic representativeness indicates the region for which the data is most applicable, affecting its relevance for local projects.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

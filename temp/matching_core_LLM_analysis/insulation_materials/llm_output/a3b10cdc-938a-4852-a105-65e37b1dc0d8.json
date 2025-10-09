@@ -1,0 +1,113 @@
+{
+  "document_id": "a3b10cdc-938a-4852-a105-65e37b1dc0d8",
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness of the insulation material is explicitly stated as 0.17 meters, which is a critical parameter for insulation performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "layer_thickness: 0.17"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "water_absorption",
+      "type": "range",
+      "rationale": "Water absorption is a key property for insulation materials, especially for external applications, and is specified as ≤ 0.5 or ≤ 1.0 kg/m².",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Water absorption according to EOTA EAD or EN 1062¬3 ≤ 0.5 or ≤ 1.0 kg/m²"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "impact_resistance_category",
+      "type": "enum",
+      "rationale": "Impact resistance is categorized into utilisation categories I/II/III, which is important for determining the durability of the insulation system.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "I",
+        "II",
+        "III"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Impact resistance according to EOTA EAD utilisation categories I/ II/III"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesive_tensile_strength",
+      "type": "range",
+      "rationale": "Adhesive tensile strength is a critical property for the structural integrity of the insulation system, specified as ≥ 80 kPa.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kPa",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Adhesive tensile strength between base coat and thermal insulation plaster according to EOTA EAD ≥ 80 or failure in the insulation material"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "freeze_thaw_resistance",
+      "type": "bool",
+      "rationale": "Freeze-thaw resistance is a necessary property for insulation materials used in climates where water absorption is ≥ 0.5 kg/m², indicating its importance for durability.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Freeze-thaw behaviour according to EOTA EAD see performance requirements of EOTA EAD - only necessary for water absorption ≥ 0.5 kg/m²"
+      ],
+      "inference_basis": [
+        "Water absorption ≥ 0.5 kg/m² implies need for freeze-thaw resistance"
+      ]
+    },
+    {
+      "name": "thermal_transmission_resistance",
+      "type": "range",
+      "rationale": "Thermal transmission resistance is a key performance metric for insulation, specified as 4.00 m²k/W for the ETICS.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²k/W",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Thermal transmission resistance of the ETICS in accordance with EN 12667 / EN 12939 4,00 m²k/W"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

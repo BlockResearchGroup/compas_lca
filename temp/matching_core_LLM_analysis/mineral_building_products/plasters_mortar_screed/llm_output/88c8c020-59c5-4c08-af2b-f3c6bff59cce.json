@@ -1,0 +1,99 @@
+{
+  "document_id": "88c8c020-59c5-4c08-af2b-f3c6bff59cce",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the mortar, making it crucial for categorization and comparison.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"density\": 1700.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "primary_ingredient",
+      "type": "enum",
+      "rationale": "The primary ingredient of a mortar can significantly influence its properties and applications, such as strength and setting time.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "natural_hydraulic_lime",
+        "dolomia",
+        "expanded_perlite"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"NHL light mortar: a ready-to-use mortar, based on dolomia, NHL and light inert\""
+      ],
+      "inference_basis": [
+        "NHL (Natural Hydraulic Lime) is a common primary ingredient in mortars."
+      ]
+    },
+    {
+      "name": "intended_use",
+      "type": "enum",
+      "rationale": "Understanding the intended use helps in categorizing the product for specific applications like dehumidification or structural consolidation.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "dehumidification",
+        "structural_consolidation"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"used for dehumidification or structural consolidation\""
+      ],
+      "inference_basis": [
+        "Mortars are often categorized by their intended use, such as structural or non-structural applications."
+      ]
+    },
+    {
+      "name": "ce_marking_standard",
+      "type": "enum",
+      "rationale": "CE marking standards indicate compliance with EU regulations, which is critical for product acceptance in the market.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "EN 998-1",
+        "EN 998-2"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"Products of this category are subjected to CE marking according to EN 998-1 (DRY SOFT) and EN 998-2 (ARMIS BFLUID CONNECT)\""
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "string",
+      "rationale": "The manufacturing process provides insight into the production methods and environmental impacts, which are important for lifecycle assessments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"The premixed Miniera San Romedio’s products are inorganic finely grinded materials, obtained by means of the combinations at different relative concentrations of natural hydraulic lime, dolomia and expanded perlite.\""
+      ],
+      "inference_basis": null
+    }
+  ]
+}

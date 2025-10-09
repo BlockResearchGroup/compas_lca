@@ -1,21 +1,25 @@
 {
   "_meta": {
     "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/insulation_materials/llm_output",
-    "total_documents_scanned": 18,
-    "total_unique_fields": 43,
+    "total_documents_scanned": 43,
+    "total_unique_fields": 85,
     "note": "count = number of distinct documents containing this field name; other attributes are taken from the first encountered occurrence",
     "sorted_by": "count_desc,name_asc"
   },
   "fields": {
     "thermal_conductivity": {
-      "count": 7,
+      "count": 11,
       "document_ids": [
         "0d1d1452-7492-4508-b634-5bd0cff7edd8",
+        "3106ccac-01cc-467f-8bff-8a515c575928",
         "3f764d2e-320b-4996-8c28-0f38e8971044",
         "44d20812-1ed2-4e11-9cf0-54a3b7eb56fa",
         "4f0df91e-dbc6-457b-bdd9-bf6ca0b518d3",
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f",
         "757297f1-9325-4df4-af51-96510be76bf3",
+        "852b71e6-404e-4056-b87f-34686f292adc",
         "9b619143-9ea3-4573-9839-b6ebd75c71a1",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b",
         "af3510f4-3c5d-45a4-8162-16df43aaca34"
       ],
       "type": "range",
@@ -33,6 +37,136 @@
       "inference_basis": [
         "Insulation materials typically have specified thermal conductivity values."
       ]
+    },
+    "installation_method": {
+      "count": 6,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "3f764d2e-320b-4996-8c28-0f38e8971044",
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b",
+        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+      ],
+      "type": "enum",
+      "rationale": "The installation method is inferred to be manual, as the disassembly is described as manual and not requiring specific equipment, which suggests similar simplicity in installation.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "mechanical"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "As for the installation of the product, the disassembly is done manually and does not require any specific equipment."
+      ],
+      "inference_basis": [
+        "Manual disassembly implies manual installation."
+      ]
+    },
+    "layer_thickness": {
+      "count": 6,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2",
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8",
+        "aaab855d-2743-452a-bd53-1f0940bdae63",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+      ],
+      "type": "float",
+      "rationale": "The layer thickness of the insulation material is explicitly stated as 0.17 meters, which is a critical parameter for insulation performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "layer_thickness: 0.17"
+      ],
+      "inference_basis": null
+    },
+    "facing_material": {
+      "count": 5,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1",
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8",
+        "8346403f-4b92-4db9-a8d6-317f0a37284e",
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+      ],
+      "type": "string",
+      "rationale": "The product is faced on both sides with a low emissivity composite foil, which is a significant material property affecting thermal performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "faced on both sides with a low emissivity composite foil."
+      ],
+      "inference_basis": null
+    },
+    "fire_resistance": {
+      "count": 5,
+      "document_ids": [
+        "17fd7497-26ba-4442-be48-54f83c0583de",
+        "52d4092b-b220-4850-9179-4f11094da94e",
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "732dcc2d-1131-4a75-a669-e871675b5ba4",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions that stone wool is a non-combustible insulation material, indicating its fire-resistant properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Steinwolle ist ein nicht brennbarer Dmmstoff"
+      ],
+      "inference_basis": null
+    },
+    "application_area": {
+      "count": 4,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f",
+        "852b71e6-404e-4056-b87f-34686f292adc",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2",
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
+      ],
+      "type": "enum",
+      "rationale": "The application areas for vacuum insulation panels are explicitly mentioned, which helps in categorizing the product based on its use.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "walls",
+        "roofs",
+        "ceilings",
+        "floor_slabs"
+      ],
+      "unit": null,
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "Vacuum insulation panels (VIP) are used as highly efficient thermal insulation for walls, roofs, ceilings and floor slabs on one or both sides of buildings."
+      ],
+      "inference_basis": null
     },
     "compressive_strength": {
       "count": 4,
@@ -60,85 +194,55 @@
       ],
       "inference_basis": null
     },
-    "installation_method": {
+    "fire_resistance_rating": {
       "count": 3,
       "document_ids": [
-        "3f764d2e-320b-4996-8c28-0f38e8971044",
-        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
-        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1",
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ],
-      "type": "enum",
-      "rationale": "The method of installation can affect the performance and suitability of the insulation material for different applications.",
-      "confidence": 0.7,
-      "provenance": "inferred",
-      "enum_options": [
-        "manual",
-        "mechanical",
-        "spray"
-      ],
-      "unit": null,
-      "applicability": [
-        "boards",
-        "panels"
-      ],
-      "evidence": [
-        "manual dismantling (no loads) is assumed"
-      ],
-      "inference_basis": [
-        "manual dismantling suggests manual installation"
-      ]
-    },
-    "fire_resistance": {
-      "count": 2,
-      "document_ids": [
-        "52d4092b-b220-4850-9179-4f11094da94e",
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
-      ],
-      "type": "bool",
-      "rationale": "The dataset mentions the use of fire-retardant components like borax salt, indicating the product has fire resistance properties.",
-      "confidence": 0.9,
-      "provenance": "inferred",
+      "type": "range",
+      "rationale": "The product is supplied as a fire-rated version with a fire resistance rating of 120 minutes, which is crucial for safety and compliance in construction applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
       "enum_options": null,
-      "unit": null,
+      "unit": "minutes",
       "applicability": [
-        "bio_based",
-        "boards",
-        "batts"
+        "insulation elements"
       ],
       "evidence": [
-        "use of fire-retardent and antifungal components (e.g. borax salt)"
+        "fire resistance rating of 120 minutes (REI120)"
       ],
-      "inference_basis": [
-        "Fire-retardant components imply fire resistance"
-      ]
+      "inference_basis": null
     },
     "geographic_representativeness": {
-      "count": 2,
+      "count": 3,
       "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244",
         "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
         "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
       ],
       "type": "string",
-      "rationale": "The dataset is representative of the German market, as indicated by the location code 'DE'.",
+      "rationale": "The dataset specifies that it has good geographic representativeness, which is important for understanding the applicability of the data.",
       "confidence": 0.8,
       "provenance": "explicit",
       "enum_options": null,
       "unit": null,
       "applicability": [
-        "bio_based",
-        "boards",
-        "batts"
+        "mineral",
+        "boards"
       ],
       "evidence": [
-        "location_code: DE"
+        "Good technological, temporal and geographic representativeness."
       ],
       "inference_basis": null
     },
     "installation_location": {
-      "count": 2,
+      "count": 3,
       "document_ids": [
         "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
-        "757297f1-9325-4df4-af51-96510be76bf3"
+        "757297f1-9325-4df4-af51-96510be76bf3",
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1"
       ],
       "type": "enum",
       "rationale": "The dataset specifies that the insulation is used for exterior walls, which is a critical factor in its application and performance.",
@@ -157,31 +261,79 @@
       ],
       "inference_basis": null
     },
-    "layer_thickness": {
-      "count": 2,
+    "manufacturing_process": {
+      "count": 3,
       "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "757297f1-9325-4df4-af51-96510be76bf3",
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763",
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
       ],
-      "type": "range",
-      "rationale": "The dataset specifies the thickness range for Rockpanel Durable and A2 (FS-Xtra) cladding panels, which is crucial for understanding the product's application and performance characteristics.",
-      "confidence": 1.0,
+      "type": "string",
+      "rationale": "The text describes the manufacturing process in detail, which is crucial for understanding the product's properties and environmental impact.",
+      "confidence": 0.9,
       "provenance": "explicit",
       "enum_options": null,
-      "unit": "mm",
+      "unit": null,
       "applicability": [
         "boards"
       ],
       "evidence": [
-        "The Rockpanel Durable is offered with a density of 1050 kg/m3 and thicknesses of 6, 8 and 10 mm. A2 (FS-Xtra) has a density of 1250 kg/m3 and thicknesses of 9 mm and 11 mm."
+        "EPS insulation boards are produced in a multi-stage manufacturing process."
+      ],
+      "inference_basis": null
+    },
+    "material_composition": {
+      "count": 3,
+      "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244",
+        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
+      ],
+      "type": "string",
+      "rationale": "The product consists of rigid polystyrene foam and a framework of welded steel bars, which are critical for understanding its structural and thermal properties.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "thermal insulation layer made of rigid polystyrene foam (Neopor®) and a structurally-active framework system made of welded steel bars."
+      ],
+      "inference_basis": null
+    },
+    "production_process": {
+      "count": 3,
+      "document_ids": [
+        "3106ccac-01cc-467f-8bff-8a515c575928",
+        "732dcc2d-1131-4a75-a669-e871675b5ba4",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes different production processes for mineral wool, which can influence the material properties and applications.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "rotary",
+        "cascade_centrifugal",
+        "steam_blown"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Three processes are used: - Rotary process (mainly glass wool): ... - Cascade centrifugal process (stone wool): ... - Steam-Blown process (stone wool):"
       ],
       "inference_basis": null
     },
     "recycled_content": {
-      "count": 2,
+      "count": 3,
       "document_ids": [
         "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
-        "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e"
+        "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e",
+        "7a455850-ef29-411c-a186-07b4d1307e98"
       ],
       "type": "float",
       "rationale": "The product is made of 100% recycled glass, which is a key environmental and functional property for insulation materials.",
@@ -195,6 +347,250 @@
       ],
       "evidence": [
         "GLAPOR CELLULAR glass gravel is an insulating and light construction material for the construction industry made of 100 % recycled glass."
+      ],
+      "inference_basis": null
+    },
+    "thermal_treatment": {
+      "count": 3,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d",
+        "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
+        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+      ],
+      "type": "bool",
+      "rationale": "The product undergoes thermal treatment during its lifecycle, specifically in module C3.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Module C3 takes into account the grinding and thermal treatment (combustion) of the material."
+      ],
+      "inference_basis": [
+        "Thermal treatment is a common process for managing end-of-life insulation materials."
+      ]
+    },
+    "application_method": {
+      "count": 2,
+      "document_ids": [
+        "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
+        "8346403f-4b92-4db9-a8d6-317f0a37284e"
+      ],
+      "type": "enum",
+      "rationale": "The insulation system is applied to exterior walls, which suggests specific application methods such as rail fastening or adhesive application.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "rail_fastening",
+        "adhesive_application",
+        "mechanical_fastening"
+      ],
+      "unit": null,
+      "applicability": [
+        "composite_systems"
+      ],
+      "evidence": [
+        "External thermal insulation composite systems are applied to masonry and concrete with or without plaster"
+      ],
+      "inference_basis": [
+        "rail fastening mentioned implies specific application method"
+      ]
+    },
+    "application_type": {
+      "count": 2,
+      "document_ids": [
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44",
+        "aaab855d-2743-452a-bd53-1f0940bdae63"
+      ],
+      "type": "enum",
+      "rationale": "The product is used under mechanically fixed or non-fixed ballasted roofing systems, which defines its application type.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "mechanically_fixed",
+        "non_fixed_ballasted"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "used as thermal insulation under mechanically fixed or non-fixed ballasted roofing systems."
+      ],
+      "inference_basis": null
+    },
+    "binder_type": {
+      "count": 2,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
+      ],
+      "type": "enum",
+      "rationale": "The dataset mentions the use of binders in the production process, which can affect the properties of the insulation material.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "phenolic",
+        "urea-formaldehyde",
+        "acrylic",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "sprayed with an aqueous solution of binder, dust-binding oil, adhesive agent"
+      ],
+      "inference_basis": [
+        "Binders are commonly used in mineral wool production to enhance structural integrity and water repellency."
+      ]
+    },
+    "closed_cell_structure": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
+      ],
+      "type": "bool",
+      "rationale": "The product is described as having a closed-cell structure, which affects its thermal insulation properties and moisture resistance, making it a key characteristic for categorizing insulation materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Polythene-based, closed-cell foam pipe insulation with a robust protective coating"
+      ],
+      "inference_basis": null
+    },
+    "coating_type": {
+      "count": 2,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "7a455850-ef29-411c-a186-07b4d1307e98"
+      ],
+      "type": "enum",
+      "rationale": "The type of coating used on the panels affects durability and maintenance requirements, which are important for product selection and lifecycle analysis.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "waterborne",
+        "PU",
+        "none"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The coating is a waterborne acrylic coating and an additional (optional) PU coating."
+      ],
+      "inference_basis": null
+    },
+    "component_composition": {
+      "count": 2,
+      "document_ids": [
+        "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
+        "852b71e6-404e-4056-b87f-34686f292adc"
+      ],
+      "type": "string",
+      "rationale": "The dataset provides a detailed breakdown of the components and their percentages in the insulation system, which is crucial for understanding material properties.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "composite_systems"
+      ],
+      "evidence": [
+        "Interior and exterior plaster (20 % each), EPS (18 %), PVC (6 %), mineral adhesive (34 %), reinforcement fibers (1 %), dowels (<1 %)"
+      ],
+      "inference_basis": null
+    },
+    "geographic_origin": {
+      "count": 2,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d",
+        "52d4092b-b220-4850-9179-4f11094da94e"
+      ],
+      "type": "string",
+      "rationale": "The dataset specifies that the cotton is farmed in the USA and transported to Germany, indicating its geographic origin.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "cotton farming according to conventional agriculture in the USA and following transport via bulk carrier to Germany"
+      ],
+      "inference_basis": null
+    },
+    "insulation_core_material": {
+      "count": 2,
+      "document_ids": [
+        "8346403f-4b92-4db9-a8d6-317f0a37284e",
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ],
+      "type": "string",
+      "rationale": "The insulation core is explicitly described as a rigid thermoset polyisocyanurate (PIR) fibre free insulation core, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TR26 / TR26 ML is an insulation board with a rigid thermoset polyisocyanurate (PIR) fibre free insulation core."
+      ],
+      "inference_basis": null
+    },
+    "recyclability": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
+      ],
+      "type": "bool",
+      "rationale": "The product is described as fully recyclable, which is an important environmental and functional property for insulation materials, especially in the context of sustainability and end-of-life scenarios.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The flexen® PE-stabil foam is fully recyclable and can be used as a direct one-for-one substitute for virgin PE-LD granulates"
+      ],
+      "inference_basis": null
+    },
+    "thermal_conductivity_coefficient": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+      ],
+      "type": "float",
+      "rationale": "The thermal conductivity coefficient (Lambda-value) is a critical property for insulation materials, indicating how well the material can conduct heat. It is explicitly mentioned as a key performance metric for the product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The thermal conductivity coefficient (Lambda-value) and R-value per 25 mm thickness per product brand is provided below as additional information and support for installers"
       ],
       "inference_basis": null
     },
@@ -246,28 +642,84 @@
         "EPS is typically used for its thermal insulation capabilities"
       ]
     },
-    "thermal_treatment": {
+    "thermal_resistance": {
       "count": 2,
       "document_ids": [
-        "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
-        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
       ],
-      "type": "bool",
-      "rationale": "The product undergoes thermal treatment during its lifecycle, specifically in module C3.",
-      "confidence": 0.7,
-      "provenance": "inferred",
+      "type": "float",
+      "rationale": "The RD-value of 4.0 m²·K/W is a measure of the product's thermal resistance, crucial for its insulating performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²·K/W",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "RD-value of 4.0 m²·K/W"
+      ],
+      "inference_basis": null
+    },
+    "water_vapour_resistance": {
+      "count": 2,
+      "document_ids": [
+        "3106ccac-01cc-467f-8bff-8a515c575928",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+      ],
+      "type": "float",
+      "rationale": "Water vapour resistance is crucial for insulation materials to prevent moisture ingress, which can lead to energy loss and material degradation.",
+      "confidence": 0.9,
+      "provenance": "explicit",
       "enum_options": null,
       "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "extremely high resistance to water vapour transmission"
+      ],
+      "inference_basis": null
+    },
+    "adhesion_to_paper": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions improved adhesion to paper within the gypsum matrix and paper web, which is a specific functional property of the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Notably, there's improved adhesion to paper within the gypsum matrix and paper web."
+      ],
+      "inference_basis": null
+    },
+    "adhesive_tensile_strength": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ],
+      "type": "range",
+      "rationale": "Adhesive tensile strength is a critical property for the structural integrity of the insulation system, specified as ≥ 80 kPa.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kPa",
       "applicability": [
         "boards",
         "batts"
       ],
       "evidence": [
-        "Module C3 takes into account the grinding and thermal treatment (combustion) of the material."
+        "Adhesive tensile strength between base coat and thermal insulation plaster according to EOTA EAD ≥ 80 or failure in the insulation material"
       ],
-      "inference_basis": [
-        "Thermal treatment is a common process for managing end-of-life insulation materials."
-      ]
+      "inference_basis": null
     },
     "antifungal_treatment": {
       "count": 1,
@@ -292,30 +744,56 @@
         "Antifungal components imply resistance to fungal growth"
       ]
     },
-    "application_method": {
+    "application_areas": {
       "count": 1,
       "document_ids": [
-        "6d16dafc-0a4b-496a-9f3f-39c066bc0401"
+        "17fd7497-26ba-4442-be48-54f83c0583de"
       ],
       "type": "enum",
-      "rationale": "The insulation system is applied to exterior walls, which suggests specific application methods such as rail fastening or adhesive application.",
-      "confidence": 0.8,
-      "provenance": "inferred",
+      "rationale": "The dataset explicitly lists various application areas for the mineral wool insulation, such as walls, ceilings, roofs, and technical insulation.",
+      "confidence": 1.0,
+      "provenance": "explicit",
       "enum_options": [
-        "rail_fastening",
-        "adhesive_application",
-        "mechanical_fastening"
+        "walls",
+        "ceilings",
+        "roofs",
+        "technical_insulation",
+        "fire_protection"
       ],
       "unit": null,
       "applicability": [
-        "composite_systems"
+        "mineral",
+        "boards",
+        "batts"
       ],
       "evidence": [
-        "External thermal insulation composite systems are applied to masonry and concrete with or without plaster"
+        "The main application areas of the products declared in this EPD are: - All areas of application according to DIN 4108-10 for wall, ceiling and roof applications with the specified requirements regarding thermal and sound insulation and the mechanical properties - Blowing wool and loose-fill insulation - Technical insulation and building services (e.g. insulation of pipes for ventilation, heating and hot water, district heating pipelines, boilers and equipment) - Fire protection elements and industrial applications (e.g. air-conditioning ducts, fire protection doors, prefabricated components, chimney systems, cable penetration sealing)"
       ],
-      "inference_basis": [
-        "rail fastening mentioned implies specific application method"
-      ]
+      "inference_basis": null
+    },
+    "application_fields": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
+      ],
+      "type": "enum",
+      "rationale": "The product is used in various application fields such as plasterboards, insulating materials, and miscellaneous building materials, which are explicitly mentioned in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "plasterboards",
+        "insulating_materials",
+        "miscellaneous_building_materials"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "This products have proven success in various application fields, including: Plasterboards (gypsum), Insulating materials, Miscellaneous building materials."
+      ],
+      "inference_basis": null
     },
     "application_scenario": {
       "count": 1,
@@ -342,25 +820,6 @@
         "The EPD outlines two end-of-life scenarios, indicating potential reuse or disposal methods."
       ]
     },
-    "binder_type": {
-      "count": 1,
-      "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
-      ],
-      "type": "string",
-      "rationale": "The binder type, phenol formaldehyde resin, is a key component in the manufacturing process, affecting the product's structural integrity and environmental impact.",
-      "confidence": 0.8,
-      "provenance": "explicit",
-      "enum_options": null,
-      "unit": null,
-      "applicability": [
-        "boards"
-      ],
-      "evidence": [
-        "The added binder is a phenol formaldehyde resin which is polymerized into solid resin during the production of the final stone wool product."
-      ],
-      "inference_basis": null
-    },
     "bio_based_content": {
       "count": 1,
       "document_ids": [
@@ -381,6 +840,27 @@
         "The insulation fleece consists of 85% hemp fibres and 15% polyester fibres as support fibre."
       ],
       "inference_basis": null
+    },
+    "biogenic_carbon_content": {
+      "count": 1,
+      "document_ids": [
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
+      ],
+      "type": "float",
+      "rationale": "Biogenic carbon content is relevant for wood-based products as it affects their carbon footprint.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg CO2e",
+      "applicability": [
+        "wood_wool_panels"
+      ],
+      "evidence": [
+        "The CO2 absorbed and stored in the material by photosynthesis (from module A1) is written off in C3."
+      ],
+      "inference_basis": [
+        "Wood products store carbon absorbed during growth, which is released upon combustion or decay."
+      ]
     },
     "carbonation_rate": {
       "count": 1,
@@ -426,29 +906,6 @@
         "Foam glass typically has a closed-cell structure, which is crucial for its insulation properties."
       ]
     },
-    "coating_type": {
-      "count": 1,
-      "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
-      ],
-      "type": "enum",
-      "rationale": "The type of coating used on the panels affects durability and maintenance requirements, which are important for product selection and lifecycle analysis.",
-      "confidence": 0.9,
-      "provenance": "explicit",
-      "enum_options": [
-        "waterborne",
-        "PU",
-        "none"
-      ],
-      "unit": null,
-      "applicability": [
-        "boards"
-      ],
-      "evidence": [
-        "The coating is a waterborne acrylic coating and an additional (optional) PU coating."
-      ],
-      "inference_basis": null
-    },
     "combustion_emissions_credits": {
       "count": 1,
       "document_ids": [
@@ -469,25 +926,6 @@
       "inference_basis": [
         "The mention of combustion emissions and credits implies a focus on lifecycle emissions management, relevant for environmental assessments."
       ]
-    },
-    "component_composition": {
-      "count": 1,
-      "document_ids": [
-        "6d16dafc-0a4b-496a-9f3f-39c066bc0401"
-      ],
-      "type": "string",
-      "rationale": "The dataset provides a detailed breakdown of the components and their percentages in the insulation system, which is crucial for understanding material properties.",
-      "confidence": 0.95,
-      "provenance": "explicit",
-      "enum_options": null,
-      "unit": null,
-      "applicability": [
-        "composite_systems"
-      ],
-      "evidence": [
-        "Interior and exterior plaster (20 % each), EPS (18 %), PVC (6 %), mineral adhesive (34 %), reinforcement fibers (1 %), dowels (<1 %)"
-      ],
-      "inference_basis": null
     },
     "compression_strength": {
       "count": 1,
@@ -510,6 +948,25 @@
       "inference_basis": [
         "High compression strength is typically quantified in kg/m³ for construction materials."
       ]
+    },
+    "core_strength_increase": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
+      ],
+      "type": "bool",
+      "rationale": "The product is noted to boost core strength in plasterboards, indicating a functional property that can be important for categorization.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "accompanied by some notable boost in core strength in plasterboards."
+      ],
+      "inference_basis": null
     },
     "end_of_life_treatment": {
       "count": 1,
@@ -535,27 +992,67 @@
       ],
       "inference_basis": null
     },
-    "facing_material": {
+    "facer_material": {
       "count": 1,
       "document_ids": [
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "aaab855d-2743-452a-bd53-1f0940bdae63"
       ],
       "type": "enum",
-      "rationale": "The facing material is explicitly described as 'coated glass tissue based facing', which affects the durability and application of the insulation product.",
-      "confidence": 1.0,
+      "rationale": "The type of facer material affects the panel's compatibility with different construction methods and its durability.",
+      "confidence": 0.9,
       "provenance": "explicit",
       "enum_options": [
-        "glass_tissue",
-        "aluminum_foil",
-        "kraft_paper",
-        "none"
+        "saturated fibre glass",
+        "other"
       ],
       "unit": null,
       "applicability": [
         "boards"
       ],
       "evidence": [
-        "faced on both sides with a coated glass tissue based facing."
+        "covered on both sides by saturated fibre glass facers"
+      ],
+      "inference_basis": null
+    },
+    "fire_classification": {
+      "count": 1,
+      "document_ids": [
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
+      ],
+      "type": "enum",
+      "rationale": "The product meets the requirements of fire classification B2 according to DIN 4102, which is important for safety and compliance in building materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "erfllt die Anforderungen der Baustoffklasse B2 nach DIN 4102"
+      ],
+      "inference_basis": null
+    },
+    "fire_retardant_treatment": {
+      "count": 1,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d"
+      ],
+      "type": "bool",
+      "rationale": "The description mentions the use of fire-retardant components like borax salt, which is relevant for safety and performance.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "bio_based"
+      ],
+      "evidence": [
+        "use of fire-retardent and antifungal components (e.g. borax salt)"
       ],
       "inference_basis": null
     },
@@ -598,22 +1095,90 @@
       ],
       "inference_basis": null
     },
-    "geographic_origin": {
+    "foam_type": {
       "count": 1,
       "document_ids": [
-        "52d4092b-b220-4850-9179-4f11094da94e"
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
       ],
-      "type": "string",
-      "rationale": "The dataset specifies that the cotton is farmed in the USA and transported to Germany, indicating its geographic origin.",
-      "confidence": 1.0,
+      "type": "enum",
+      "rationale": "The dataset specifies that the product is made of polyurethane rigid foam, which includes variants like PUR and PIR. This is crucial for understanding the material's properties and applications.",
+      "confidence": 0.9,
       "provenance": "explicit",
+      "enum_options": [
+        "PUR",
+        "PIR"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The polyurethane insulation material (PU) product family comprises the product variants polyurethane (PUR) and polyisocyanurate (PIR)"
+      ],
+      "inference_basis": null
+    },
+    "freeze_thaw_resistance": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ],
+      "type": "bool",
+      "rationale": "Freeze-thaw resistance is a necessary property for insulation materials used in climates where water absorption is ≥ 0.5 kg/m², indicating its importance for durability.",
+      "confidence": 0.7,
+      "provenance": "inferred",
       "enum_options": null,
       "unit": null,
       "applicability": [
-        "bio_based"
+        "boards",
+        "batts"
       ],
       "evidence": [
-        "cotton farming according to conventional agriculture in the USA and following transport via bulk carrier to Germany"
+        "Freeze-thaw behaviour according to EOTA EAD see performance requirements of EOTA EAD - only necessary for water absorption ≥ 0.5 kg/m²"
+      ],
+      "inference_basis": [
+        "Water absorption ≥ 0.5 kg/m² implies need for freeze-thaw resistance"
+      ]
+    },
+    "impact_resistance_category": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ],
+      "type": "enum",
+      "rationale": "Impact resistance is categorized into utilisation categories I/II/III, which is important for determining the durability of the insulation system.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "I",
+        "II",
+        "III"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Impact resistance according to EOTA EAD utilisation categories I/ II/III"
+      ],
+      "inference_basis": null
+    },
+    "impact_sound_reduction": {
+      "count": 1,
+      "document_ids": [
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
+      ],
+      "type": "float",
+      "rationale": "The product provides an impact sound reduction of up to 19 dB, which is a key performance metric for sound insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "dB",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Trittschalldmmungen aus geschlossenzelligem Polyethylen-Schaum mit einem Trittschallverbesserungsma von bis zu 19 dB"
       ],
       "inference_basis": null
     },
@@ -637,13 +1202,56 @@
       ],
       "inference_basis": null
     },
+    "insulating_value": {
+      "count": 1,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1"
+      ],
+      "type": "float",
+      "rationale": "The product is noted for its high insulating value, which is a key property for insulation materials.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m²·K/W",
+      "applicability": [
+        "phenolic_foam",
+        "boards"
+      ],
+      "evidence": [
+        "Due to its high insulating value, Kooltherm® K3 is suitable for use as floor insulation."
+      ],
+      "inference_basis": null
+    },
+    "insulation_application": {
+      "count": 1,
+      "document_ids": [
+        "121c71e8-0f4c-4529-b72e-331198d15f0f"
+      ],
+      "type": "enum",
+      "rationale": "The product is explicitly stated to be used for both interior and exterior insulation, which is a key functional property for categorizing insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "interior",
+        "exterior"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "The product is used for interior and exterior insulation"
+      ],
+      "inference_basis": null
+    },
     "insulation_core_type": {
       "count": 1,
       "document_ids": [
         "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
       ],
       "type": "enum",
-      "rationale": "The insulation core type is explicitly mentioned as 'rigid thermoset polyisocyanurate (PIR) fibre-free insulation core', which is crucial for understanding the material properties and performance.",
+      "rationale": "The insulation core type is explicitly mentioned as 'rigid thermoset polyisocyanurate (PIR) fibre-free insulation core', which is a key characteristic of the product.",
       "confidence": 1.0,
       "provenance": "explicit",
       "enum_options": [
@@ -687,6 +1295,49 @@
       ],
       "inference_basis": null
     },
+    "insulation_system_type": {
+      "count": 1,
+      "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes an external wall insulation system (EWIS) with mineral scratch plaster, which is a specific type of insulation system.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "external_wall_insulation_system",
+        "internal_wall_insulation_system",
+        "roof_insulation_system"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "mineral"
+      ],
+      "evidence": [
+        "This dataset covers an external wall insulation system (EWIS) with mineral scratch plaster."
+      ],
+      "inference_basis": null
+    },
+    "insulation_thickness_range": {
+      "count": 1,
+      "document_ids": [
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8"
+      ],
+      "type": "range",
+      "rationale": "The product is available in variable thicknesses from 20 mm up to 200 mm, which is important for determining its application suitability.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "variable thicknesses from 20 mm up to 200 mm"
+      ],
+      "inference_basis": null
+    },
     "insulation_type": {
       "count": 1,
       "document_ids": [
@@ -713,13 +1364,80 @@
       ],
       "inference_basis": null
     },
-    "manufacturing_process": {
+    "load_bearing_level": {
       "count": 1,
       "document_ids": [
-        "757297f1-9325-4df4-af51-96510be76bf3"
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ],
-      "type": "string",
-      "rationale": "The text describes the manufacturing process in detail, which is crucial for understanding the product's properties and environmental impact.",
+      "type": "ordinal_enum",
+      "rationale": "The product is available with different load-bearing levels, which are essential for determining its suitability for various structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "unit": null,
+      "applicability": [
+        "insulation elements"
+      ],
+      "evidence": [
+        "The load-bearing levels depend on the necessary load."
+      ],
+      "inference_basis": null
+    },
+    "manufacturing_location": {
+      "count": 1,
+      "document_ids": [
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ],
+      "type": "enum",
+      "rationale": "The product is manufactured in multiple locations, which can affect supply chain and environmental impact assessments.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "Winterswijk",
+        "Burkhardtsdorf",
+        "Kankaanp"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "produced by Kingspan Insulation at the manufacturing facilities in Winterswijk (the Netherlands), Burkhardtsdorf (Germany) and Kankaanp (Finland)."
+      ],
+      "inference_basis": [
+        "Multiple manufacturing locations are explicitly listed."
+      ]
+    },
+    "mechanical_recycling_scenario": {
+      "count": 1,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09"
+      ],
+      "type": "bool",
+      "rationale": "The product is described as being 100% mechanically recyclable, which is a significant environmental property, especially given the increasing legislative pressure on plastic recycling.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "the scenario with 100 % mechanical recycling is considered"
+      ],
+      "inference_basis": null
+    },
+    "moisture_resistance": {
+      "count": 1,
+      "document_ids": [
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1"
+      ],
+      "type": "bool",
+      "rationale": "The product is explicitly stated to be resistant to moisture, which is a key property for insulation materials used in damp or humid conditions.",
       "confidence": 0.9,
       "provenance": "explicit",
       "enum_options": null,
@@ -728,26 +1446,26 @@
         "boards"
       ],
       "evidence": [
-        "EPS insulation boards are produced in a multi-stage manufacturing process."
+        "SUPALUX® is resistant to the effects of moisture and will not physically deteriorate when used in damp or humid conditions."
       ],
       "inference_basis": null
     },
-    "material_composition": {
+    "organic_content": {
       "count": 1,
       "document_ids": [
-        "8ede9ece-bea3-493d-bc17-ccca81ae897c"
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d"
       ],
-      "type": "string",
-      "rationale": "The product is made from a glass fibre composite material, specifically Combar, which is a key characteristic of its composition.",
-      "confidence": 0.9,
+      "type": "bool",
+      "rationale": "The dataset is for 'Cotton, organic', indicating the product is made from organic materials.",
+      "confidence": 1.0,
       "provenance": "explicit",
       "enum_options": null,
       "unit": null,
       "applicability": [
-        "thermal_insulation"
+        "bio_based"
       ],
       "evidence": [
-        "The Schöck Isolink® made from the Combar® material with a nominal diameter of 12 mm is an anchor comprising a glass fibre composite material."
+        "dataset_name: 'Cotton, organic'"
       ],
       "inference_basis": null
     },
@@ -792,29 +1510,123 @@
       ],
       "inference_basis": null
     },
-    "production_process": {
+    "primary_materials": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
       ],
       "type": "enum",
-      "rationale": "The production process (continuous or discontinuous) affects the material properties and application suitability of the insulation product.",
-      "confidence": 0.7,
-      "provenance": "inferred",
+      "rationale": "The primary materials used in the foam glass insulation are explicitly listed, which helps in understanding the composition and potential environmental impacts.",
+      "confidence": 1.0,
+      "provenance": "explicit",
       "enum_options": [
-        "continuous",
-        "discontinuous"
+        "recycled_glass",
+        "feldspar",
+        "sand",
+        "sodium_hydrogen_carbonate",
+        "iron_oxide",
+        "sodium_sulphate",
+        "sodium_nitrate",
+        "carbon_black"
       ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "The foam glass insulation material consists of approximately the following components: recycled glass (60%), feldspar (20%), sand (15%), sodium hydrogen carbonate (2%), iron oxide (2%), sodium sulphate (<1%), sodium nitrate (<1%), carbon black (<1%)."
+      ],
+      "inference_basis": null
+    },
+    "product_form": {
+      "count": 1,
+      "document_ids": [
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes various forms of mineral wool products such as rolls, boards, mats, and loose wool, which are relevant for categorizing the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "rolls",
+        "boards",
+        "mats",
+        "loose_wool"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Steinwolle-Dmmstoffe werden in Form von Rollen, Platten, Matten, Lamellenmatten, Rohrschalen, Formteilen sowie loser Wolle (Stopfwolle) und Einblaswolle"
+      ],
+      "inference_basis": null
+    },
+    "production_stage": {
+      "count": 1,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
+      ],
+      "type": "enum",
+      "rationale": "The dataset describes the life cycle stages of the product, which is important for understanding the environmental impact at different stages.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "A1-A3",
+        "C1",
+        "C2",
+        "C4",
+        "D"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "Description of the modeled life cycle phases: Modules A1-A3: Production of the foam glass insulation material Module C1: Dismantling is based on manual dismantling. Module C2: Transport to the processing plant is carried out by truck (50km). Module C4: The material is processed and sent to a landfill (average landfill emissions). Module D: No debits, no credits."
+      ],
+      "inference_basis": null
+    },
+    "protective_coating": {
+      "count": 1,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09"
+      ],
+      "type": "bool",
+      "rationale": "The presence of a robust protective coating is mentioned, which is significant for durability and performance in insulation applications, especially in environments where physical protection is needed.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
       "unit": null,
       "applicability": [
         "foam"
       ],
       "evidence": [
-        "pressureless, continuous and discontinuous production process"
+        "Polythene-based, closed-cell foam pipe insulation with a robust protective coating"
       ],
-      "inference_basis": [
-        "Continuous and discontinuous processes imply different manufacturing techniques and material characteristics."
-      ]
+      "inference_basis": null
+    },
+    "recycled_content_percentage": {
+      "count": 1,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
+      ],
+      "type": "float",
+      "rationale": "The dataset specifies that the foam glass insulation material consists of 60% recycled glass, which is a significant attribute for sustainability and recycling considerations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "%",
+      "applicability": [
+        "foam",
+        "glass"
+      ],
+      "evidence": [
+        "The foam glass insulation material consists of approximately the following components: recycled glass (60%)"
+      ],
+      "inference_basis": null
     },
     "recycling_content": {
       "count": 1,
@@ -839,6 +1651,26 @@
         "Recycling processes and reuse of production waste suggest recycled content"
       ]
     },
+    "renewable_energy_use": {
+      "count": 1,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1"
+      ],
+      "type": "bool",
+      "rationale": "The manufacturing process uses renewable energy sources, which is a significant environmental and functional property.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "phenolic_foam",
+        "boards"
+      ],
+      "evidence": [
+        "All electricity used during production comes from renewable sources."
+      ],
+      "inference_basis": null
+    },
     "sound_insulation": {
       "count": 1,
       "document_ids": [
@@ -856,6 +1688,28 @@
       ],
       "evidence": [
         "HOIZ - wood shaving insulation is used as thermal and sound insulation for roofs, ceilings and walls"
+      ],
+      "inference_basis": null
+    },
+    "sound_insulation_application": {
+      "count": 1,
+      "document_ids": [
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
+      ],
+      "type": "bool",
+      "rationale": "The dataset mentions that mineral wool is used for noise protection, indicating its application in sound insulation.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Mineral wool insulation materials are used in buildings and industrial plants for noise and fire protection"
       ],
       "inference_basis": null
     },
@@ -879,6 +1733,46 @@
       ],
       "inference_basis": null
     },
+    "surface_weight": {
+      "count": 1,
+      "document_ids": [
+        "bfa45a2b-0f25-4dea-b550-50f3d49a548f"
+      ],
+      "type": "float",
+      "rationale": "The surface weight of the product is explicitly mentioned as 12 kg/m², which is a key property for insulation materials as it affects installation and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product has a surface weight of 12 kg/m²."
+      ],
+      "inference_basis": null
+    },
+    "tapered_design": {
+      "count": 1,
+      "document_ids": [
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ],
+      "type": "bool",
+      "rationale": "The Therma™ TT46 Tapered Roof Board is specifically designed to enhance water drainage from flat roofs, indicating a tapered design.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TT46 Tapered Roof Board is used as thermal insulation under mechanically fixed or non-fixed ballasted roofing systems and enhances water drainage from flat roofs."
+      ],
+      "inference_basis": [
+        "Tapered design is typically used to enhance water drainage."
+      ]
+    },
     "temperature_resistance": {
       "count": 1,
       "document_ids": [
@@ -898,65 +1792,103 @@
       ],
       "inference_basis": null
     },
-    "thermal_conductivity_coefficient": {
+    "thermal_conductivity_equivalent": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ],
       "type": "float",
-      "rationale": "The thermal conductivity coefficient (lambda-value) is crucial for understanding the insulation's effectiveness in preventing heat transfer.",
-      "confidence": 0.9,
+      "rationale": "The product's thermal performance is demonstrated by its equivalent thermal conductivity, a key property for insulation materials.",
+      "confidence": 0.8,
       "provenance": "explicit",
       "enum_options": null,
       "unit": "W/m·K",
       "applicability": [
-        "foam"
+        "insulation elements"
       ],
       "evidence": [
-        "thermal conductivity coefficient (lambda-value)"
+        "effective thermal insulation performance, as demonstrated by the equivalent thermal conductivity (eq)."
       ],
       "inference_basis": null
     },
-    "thermal_resistance": {
+    "thermal_insulation_application": {
       "count": 1,
       "document_ids": [
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
       ],
-      "type": "float",
-      "rationale": "The RD-value of 2,55 m²·K/W is a key performance indicator for insulation materials, indicating its thermal resistance.",
+      "type": "bool",
+      "rationale": "The dataset explicitly states that mineral wool insulation is used for thermal insulation in buildings and industrial plants.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts",
+        "loose_fill"
+      ],
+      "evidence": [
+        "Mineral wool insulation materials are used in buildings and industrial plants for thermal insulation"
+      ],
+      "inference_basis": null
+    },
+    "thermal_transmission_resistance": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ],
+      "type": "range",
+      "rationale": "Thermal transmission resistance is a key performance metric for insulation, specified as 4.00 m²k/W for the ETICS.",
       "confidence": 1.0,
       "provenance": "explicit",
       "enum_options": null,
-      "unit": "m²·K/W",
+      "unit": "m²k/W",
       "applicability": [
-        "boards"
+        "boards",
+        "batts"
       ],
       "evidence": [
-        "RD-value of 2,55 m²·K/W."
+        "Thermal transmission resistance of the ETICS in accordance with EN 12667 / EN 12939 4,00 m²k/W"
       ],
       "inference_basis": null
     },
-    "water_vapour_resistance": {
+    "water_absorption": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
       ],
-      "type": "ordinal_enum",
-      "rationale": "High resistance to water vapour transmission is a key property for insulation materials to prevent moisture ingress and potential corrosion.",
-      "confidence": 0.8,
+      "type": "range",
+      "rationale": "Water absorption is a key property for insulation materials, especially for external applications, and is specified as ≤ 0.5 or ≤ 1.0 kg/m².",
+      "confidence": 1.0,
       "provenance": "explicit",
-      "enum_options": [
-        "low",
-        "medium",
-        "high",
-        "very high"
-      ],
-      "unit": null,
+      "enum_options": null,
+      "unit": "kg/m²",
       "applicability": [
-        "foam"
+        "boards",
+        "batts"
       ],
       "evidence": [
-        "extremely high resistance to water vapour transmission"
+        "Water absorption according to EOTA EAD or EN 1062¬3 ≤ 0.5 or ≤ 1.0 kg/m²"
+      ],
+      "inference_basis": null
+    },
+    "weight_per_area": {
+      "count": 1,
+      "document_ids": [
+        "852b71e6-404e-4056-b87f-34686f292adc"
+      ],
+      "type": "float",
+      "rationale": "The weight per area is a specific property of the vacuum insulation panel that can be used to calculate other properties like surface density.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "The weight per piece area is 4.50 kg/m²."
       ],
       "inference_basis": null
     }

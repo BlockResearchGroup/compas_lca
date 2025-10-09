@@ -1,0 +1,21 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "surface_weight",
+      "type": "float",
+      "rationale": "The surface weight of the product is explicitly mentioned as 12 kg/m², which is a key property for insulation materials as it affects installation and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "The product has a surface weight of 12 kg/m²."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

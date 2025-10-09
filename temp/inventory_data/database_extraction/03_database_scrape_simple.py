@@ -4,8 +4,11 @@ from pathlib import Path
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_DIR = Path("temp/inventory_data/dissected/precast_concrete/raw/02_scrapes_json")
-OUTPUT_DIR = Path("temp/inventory_data/dissected/precast_concrete/raw/03_scrapes_simple")
+BASE_DIR = Path("temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed")
+
+
+INPUT_DIR = BASE_DIR / "raw/02_scrapes_json"
+OUTPUT_DIR = BASE_DIR / "raw/03_scrapes_simple"
 # =======================
 
 

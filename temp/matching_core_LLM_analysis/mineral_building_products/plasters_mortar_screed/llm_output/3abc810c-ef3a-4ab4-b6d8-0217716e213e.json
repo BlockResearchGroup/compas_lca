@@ -1,0 +1,93 @@
+{
+  "document_id": "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the performance and application of screed products, and it is explicitly stated in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "The bulk density is 1500 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "Compressive strength is a critical property for screeds, affecting their load-bearing capacity. The dataset mentions variability based on construction, suggesting a range.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "The compressive strength depends on the specific construction."
+      ],
+      "inference_basis": [
+        "Screeds typically have specified compressive strength ranges based on application."
+      ]
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The method of application (e.g., floating screed) affects installation and performance characteristics, and is explicitly mentioned in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "floating",
+        "bonded",
+        "unbonded"
+      ],
+      "unit": null,
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "Frequently, calcium sulfate screed is used as floating screed."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "The geographic representativeness indicates the region for which the dataset is applicable, which is important for understanding environmental impacts and regulations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "The data set represents a cradle to gate inventory. It can be used to characterise the supply chain situation of the respective commodity in a representative manner."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "binding_agents",
+      "type": "string",
+      "rationale": "Binding agents are crucial components in screeds, affecting their setting and strength properties. The dataset mentions their impact on LCA.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "Calcium sulfate screed is a mixture of various binding agents, aggregates and additives."
+      ],
+      "inference_basis": [
+        "Binding agents are typically specified in screed formulations for their role in setting and strength."
+      ]
+    }
+  ]
+}

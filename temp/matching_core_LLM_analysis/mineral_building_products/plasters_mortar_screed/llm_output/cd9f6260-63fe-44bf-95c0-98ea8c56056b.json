@@ -1,0 +1,90 @@
+{
+  "document_id": "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the plaster.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": null,
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The method of application (hand or machine) can influence the choice of product based on project requirements and available resources.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "hand",
+        "machine"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Hand or machine plastering for producing very fine surfaces"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_thickness",
+      "type": "range",
+      "rationale": "The thickness of application is crucial for determining the amount of material needed and the final appearance of the plaster.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "application thicknesses of 2 - 3 mm"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "replastification_ability",
+      "type": "bool",
+      "rationale": "Replastification ability indicates the potential for reworking or recycling the material, which is important for sustainability considerations.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "The property of replastification by watering allows recovery at the end of the life cycle."
+      ],
+      "inference_basis": [
+        "Replastification ability suggests potential for reworking or recycling."
+      ]
+    },
+    {
+      "name": "mineral_additives",
+      "type": "bool",
+      "rationale": "The presence of mineral additives can affect the performance characteristics of the plaster, such as durability and finish.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Lehmputzmörtel aus Baulehm, feinen mineralischen Zusatzstoffen"
+      ],
+      "inference_basis": [
+        "Mention of 'fine mineral additives' implies their presence in the product."
+      ]
+    }
+  ]
+}

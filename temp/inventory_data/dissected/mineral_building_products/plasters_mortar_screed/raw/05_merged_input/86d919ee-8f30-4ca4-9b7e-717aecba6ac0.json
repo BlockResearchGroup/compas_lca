@@ -1,0 +1,16 @@
+{
+  "uuid": "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+  "dataset_name": "Cement screed",
+  "category": "'Mineral building products' / 'Mortar and Concrete' / 'Screed dry mortar'",
+  "location_code": "DE",
+  "dataset_type": "generic dataset",
+  "dataset_owner": "Sphera Solutions GmbH",
+  "density": 2400.0,
+  "layer_thickness": null,
+  "Use advice for data set": "This dataset refers to the production of 1 kg cement screed (dry mortar). The dry bulk density is 2400 kg/m³. Thermal conductivity 1.4 W/mK, compressive strength 12 - 60 N/mm², depending on construction. The data set can be used approximately for the estimation of dry bulk densities of 2200 - 2600 kg. The estimation of fresh mortar is also possible if the water content (mass fraction of water) is subtracted during the mass determination. For each kg of mortar usually around 0.3 kg of water are added. The data set represents a cradle to gate inventory. It can be used to characterise the supply chain situation of the respective commodity in a representative manner. Combination with individual unit processes using this commodity enables the generation of user-specific (product) LCAs. | |",
+  "Technical purpose of product or process": "Cement screed is used as a leveling and supporting layer in the floor structure. It is delivered to the construction site as dry or fresh mortar. There are a wide variety of installation options and design variations (for example \"heated screed\" or \"floating screed\"). | |",
+  "Classification number": "1.4.03 | |",
+  "General comment on data set": "This data set has been modeled according to the European Standard EN 15804+A2 for Sustainable Building. Results are depicted in modules that allow the structured expression of results over the entire life cycle. | |",
+  "Description": "Product system almost completely covered. Good technological, temporal and geographic representativeness. | |",
+  "Technology description including background system": "For the production of cement screed, aggregates are mixed with a binding agent (cement) and water. The use of cement has a significant impact on the life cycle assessment. In the disposal phase, a manual dismantling (no loads) is assumed in module C1. The transport in module C2 to the landfill site takes place with a truck (50km). In C3, if relevant, a packaging with PE foil is taken into account (for example, for mineral fiber products. 0.0125 kg foil per kg of discarded material). In module C4 the average landfill emissions corresponding to the product (reference country Germany) are shown. The use of landfill gas is not taken into account."
+}

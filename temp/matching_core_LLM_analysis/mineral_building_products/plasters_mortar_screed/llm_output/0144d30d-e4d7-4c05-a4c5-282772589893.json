@@ -1,0 +1,54 @@
+{
+  "document_id": "0144d30d-e4d7-4c05-a4c5-282772589893",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the mortar is explicitly stated as 1550 kg/m³, which is a key material property for categorizing and comparing different mortars.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1550.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "Compressive strength is a critical property for mortars, indicating their load-bearing capacity. It is explicitly provided as ≤ 15 N/mm².",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Compressive strength according to EN 1015-11 ≤ 15 N/mm²"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is important for understanding the insulation properties of the mortar. It is provided in two ranges based on different conditions.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/(m·K)",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 50 %: 0.39 - 0.82 W/(mK)",
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 90 %: 0.43 - 0.89 W/(mK)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

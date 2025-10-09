@@ -12,13 +12,15 @@ from compas_lca.llm.analysis_agents import STEEL_IRON_INDUCTION_AGENT
 from compas_lca.llm.analysis_agents import WOOD_INDUCTION_AGENT
 from compas_lca.llm.analysis_agents import MIXED_CONCRETE_INDUCTION_AGENT
 from compas_lca.llm.analysis_agents import PRECAST_CONCRETE_INDUCTION_AGENT
+from compas_lca.llm.analysis_agents import CEMENT_INDUCTION_AGENT
+from compas_lca.llm.analysis_agents import PLASTER_INDUCTION_AGENT
 
 load_dotenv()
 
 # =================== USER CONFIG ===================
-AGENT_CHOICE = PRECAST_CONCRETE_INDUCTION_AGENT
-INPUT_DIR = Path("temp/inventory_data/dissected/precast_concrete/raw/05_merged_input")   # folder with your input files
-OUTPUT_DIR = Path("temp/matching_core_LLM_analysis/precast_concrete/llm_output")    # single output directory
+AGENT_CHOICE = PLASTER_INDUCTION_AGENT
+INPUT_DIR = Path("temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/raw/05_merged_input")   # folder with your input files
+OUTPUT_DIR = Path("temp/matching_core_LLM_analysis/mineral_building_products/plasters_mortar_screed/llm_output")    # single output directory
 DEBUG_DIR = None
 OVERWRITE = True                                 # True = always overwrite outputs
 INPUT_GLOB = "*.json"                              # change if your inputs aren't JSON

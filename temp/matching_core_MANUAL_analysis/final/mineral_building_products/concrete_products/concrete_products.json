@@ -1,0 +1,89 @@
+{
+  "fields": [
+        {
+            "name": "concrete_product_type",
+            "type": "enum",
+            "enum_options": ["ready_mixed", "precast", "lightweight", "aerated", "other"],
+            "description": [
+                ]
+        },
+        {
+            "name": "compressive_strength_class",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "standardized in (EN 206, EN 1992-1-1)",
+                "written as: C f_ck,cyl / f_ck,cube",
+                "C = Concrete (normal/high strength concrete classes)",
+                "LC = Lightweight concrete",
+                "f_ck,cyl = characteristic cylinder strength (MPa), tested on a 150x300 mm cylinder at 28 days",
+                "f_ck,cube = characteristic cube strength (MPa), tested on a 150 mm cube at 28 days",
+                "e.g. C20/25, LC12/13, C30/37, etc."
+                ]
+        },
+        {
+            "name": "exposure_class",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "according to EN 206-1 / Eurocode",
+                "Exposure class = prefix (X + letters) + severity digit",
+                "C = Carbonation induced corrosion",
+                "D = Chloride induced corrosion (from de-icing salts)",
+                "S = Chloride induced corrosion (from seawater)",
+                "F = Freeze/thaw attack with or without de-icing agents",
+                "A = Alkali-silica reaction",
+                "e.g. X0, XC2, XD3, XS2, XF4, XA2, etc."
+                ]
+        },
+        {
+            "name": "cement_type",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "according to European standard EN 197-1",
+                "I, II, III, IV, V = The main cement type category",
+                "Subclasses (A, B, C) = The proportion of clinker and other constituents",
+                "e.g., CEM III/A, CEM II, etc.",
+                "if not specified use unknown"
+                ]
+        },
+        {
+            "name": "slump_class",
+            "type": "enum",
+            "enum_options": ["S1", "S2", "S3", "S4", "S5", "unknown"],
+            "description": [
+                "Consistency class determined by slump test (cone test, EN 12350-2)",
+                "according to European standard EN 206",
+                "e.g. S1, S2, S3, S4, S5"
+                ]
+        },
+        {
+            "name": "flow_class",
+            "type": "enum",
+            "enum_options": ["F1", "F2", "F3", "F4", "F5", "F6", "unknown"],
+            "description": [
+                "Consistency class determined by flow table test",
+                "according to European standard EN 206",
+                "e.g. F1, F2, F3, F4, F5"
+                ]
+        },
+        {
+            "name": "binder_type",
+            "type": "enum",
+            "enum_options": [
+                "portland_cement",
+                "blended_cement",
+                "lime",
+                "gypsum",
+                "geopolymer/alkali_activated", 
+                "polymer_modified",
+                "resin_bound",
+                "other",
+                "unknown"
+            ],
+            "description": [
+                ]
+        }
+    ]
+}

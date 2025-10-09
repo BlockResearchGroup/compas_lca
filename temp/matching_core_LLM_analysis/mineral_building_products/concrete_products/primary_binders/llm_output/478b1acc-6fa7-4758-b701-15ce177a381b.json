@@ -1,0 +1,103 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class (C25/30) is a key property of concrete, indicating its load-bearing capacity, which is crucial for structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "C25/30"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 32 M EcoPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_classes",
+      "type": "enum",
+      "rationale": "Exposure classes (XC4, XF1, XA1) describe the environmental conditions the concrete is designed to withstand, such as carbonation, freeze-thaw, and chemical attack.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC4",
+        "XF1",
+        "XA1"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 32 M EcoPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property of concrete that affects its weight and structural performance.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 2336.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for construction applications, affecting the structural integrity and thermal properties of the concrete.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "carbonation_potential",
+      "type": "bool",
+      "rationale": "Carbonation potential indicates whether the concrete can undergo carbonation during its use phase, which affects durability and CO2 sequestration.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Modul B1: Carbonatisierung während der Nutzungsphase"
+      ],
+      "inference_basis": [
+        "Mention of carbonation during use phase suggests potential for carbonation."
+      ]
+    }
+  ]
+}

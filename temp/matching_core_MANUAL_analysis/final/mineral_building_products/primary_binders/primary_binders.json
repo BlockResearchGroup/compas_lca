@@ -1,0 +1,53 @@
+{
+  "fields": [
+        {
+            "name": "primary_binder_type",
+            "type": "enum",
+            "enum_options": ["cement", "lime", "gypsum", "clay", "other"],
+            "description": [
+                ]
+        },
+        {
+            "name": "exposure_class",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "e.g., according to EN 206-1 / Eurocode",
+                "e.g., X0, XC3, XD3, XS1, XF1, XA1, etc.",
+                "if not specified use unknown"
+                ]
+        },
+        {
+            "name": "cement_type",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "according to European standard EN 197-1",
+                "I, II, III, IV, V = The main cement type category",
+                "Subclasses (A, B, C) = The proportion of clinker and other constituents",
+                "e.g., CEM III/A, CEM II, etc.",
+                "if not specified use unknown"
+                ]
+        },
+        {
+            "name": "slump_class",
+            "type": "enum",
+            "enum_options": ["S1", "S2", "S3", "S4", "S5", "unknown"],
+            "description": [
+                "Consistency class determined by slump test (cone test, EN 12350-2)",
+                "according to European standard EN 206",
+                "e.g. S1, S2, S3, S4, S5"
+                ]
+        },
+        {
+            "name": "flow_class",
+            "type": "enum",
+            "enum_options": ["F1", "F2", "F3", "F4", "F5", "F6", "unknown"],
+            "description": [
+                "Consistency class determined by flow table test",
+                "according to European standard EN 206",
+                "e.g. F1, F2, F3, F4, F5"
+                ]
+        }
+    ]
+}

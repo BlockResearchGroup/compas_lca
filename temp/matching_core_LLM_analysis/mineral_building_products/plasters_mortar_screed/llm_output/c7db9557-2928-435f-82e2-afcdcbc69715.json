@@ -1,0 +1,93 @@
+{
+  "document_id": "c7db9557-2928-435f-82e2-afcdcbc69715",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the plaster, mortar, or screed product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1550.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "The composition of the product, including mineral fillers and silicone bonding agent, is crucial for understanding its properties and applications.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Silicone resin plasters are mainly based on mineral fillers and a silicone bonding agent."
+      ],
+      "inference_basis": [
+        "Silicone resin plasters ⇒ mineral fillers + silicone bonding agent"
+      ]
+    },
+    {
+      "name": "product_form",
+      "type": "enum",
+      "rationale": "The form in which the product is delivered (paste-like in pails) affects its handling and application on site.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "paste",
+        "powder",
+        "liquid"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "They are delivered in a paste-like consistence in pails."
+      ],
+      "inference_basis": [
+        "paste-like consistence ⇒ paste"
+      ]
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "The geographic representativeness indicates the region for which the dataset is applicable, affecting its relevance for specific projects.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "reference country Germany"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "system_boundary",
+      "type": "string",
+      "rationale": "Understanding the system boundary (cradle to gate) is essential for interpreting the life cycle analysis results and their applicability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The life cycle analysis of silicone resin plasters includes the life cycle stages cradle to gate."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

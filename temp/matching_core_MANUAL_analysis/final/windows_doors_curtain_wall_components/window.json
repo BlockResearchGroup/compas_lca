@@ -1,0 +1,93 @@
+{
+  "fields": [
+        {
+            "name": "window_frame_material",
+            "type": "enum",
+            "enum_options": [
+            "aluminium",
+            "steel",
+            "stainless_steel",
+            "pvc",
+            "wood",
+            "wood_aluminium",
+            "glass",
+            "composite_other",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "window_operation",
+            "type": "enum",
+            "enum_options": [
+            "fixed",
+            "casement_side_hung",
+            "tilt_turn",
+            "sliding",
+            "lift_sliding",
+            "folding",
+            "roof_window",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "window_glazing_count",
+            "type": "enum",
+            "enum_options": [
+            "single_glazing",
+            "double_glazing",
+            "triple_glazing",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "window_thermal_separation",
+            "type": "enum",
+            "enum_options": [
+            "thermally_separated",
+            "non_thermally_separated",
+            "unknown"
+            ],
+            "description": []
+        },
+       {
+            "name": "window_lamination_type",
+            "type": "enum",
+            "enum_options": [
+            "none",
+            "laminated_standard",
+            "laminated_safety",
+            "laminated_acoustic",
+            "unknown"
+            ],
+            "description": []
+        },
+       {
+            "name": "window_u_value",
+            "type": "float",
+            "enum_options": null,
+            "description": ["u value in W/m2K, if provided"]
+        },      
+        {
+            "name": "window_width",
+            "type": "float",
+            "enum_options": null,
+            "description": [
+                "if specified, window width in mm"
+            ]
+        },
+        {
+            "name": "window_height",
+            "type": "float",
+            "enum_options": null,
+            "description": [
+                "if specified, window height in mm"
+            ]
+        }
+    ]
+}

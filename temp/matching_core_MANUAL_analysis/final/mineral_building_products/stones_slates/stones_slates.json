@@ -1,0 +1,28 @@
+{
+  "fields": [
+        {
+            "name": "rock_family",
+            "type": "enum",
+            "enum_options": ["igneous","sedimentary","metamorphic", "unknown"],
+            "description": [
+                "geological origin"
+                ]
+        },
+        {
+            "name": "rock_product_form",
+            "type": "enum",
+            "enum_options": ["crushed_aggregate", "natural_aggregate_mixed", "dimension_stone", "slate", "other", "unknown"],
+            "description": [
+                ]
+        },
+        {
+            "name": "grain_size_fraction",
+            "type": "str",
+            "enum_options": null,
+            "description": [
+                "grain size for aggregates (e.g. 0/4, 4/8, 8/16, 16/32, etc.)",
+                "if not specified use unknown"
+                ]
+        }
+    ]
+}

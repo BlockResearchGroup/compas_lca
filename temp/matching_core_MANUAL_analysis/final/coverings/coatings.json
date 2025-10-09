@@ -1,0 +1,65 @@
+{
+  "fields": [
+    {
+      "name": "coating_binder_family",
+      "type": "enum",
+      "enum_options": [
+        "acrylic_dispersion",
+        "bituminous",
+        "styrene_acrylic",
+        "alkyd",
+        "epoxy",
+        "polyurethane",
+        "methacrylate",
+        "silicate",
+        "silicate_dispersion",
+        "silicone_resin",
+        "lime",
+        "cementitious",
+        "other",
+        "unknown"
+      ],
+      "description": "Primary binder/resin system. Use 'silicate' for mineral silicate paints and 'silicate_dispersion' for dispersion-silicate hybrids."
+    },
+    {
+    "name": "coating_function",
+    "type": "enum",
+    "enum_options": [
+        "decorative",
+        "protective",
+        "specialty",
+        "multi_purpose",
+        "unspecified"
+    ],
+    "description": "Primary purpose: decorative aesthetics, protective (corrosion/chemical/fire), specialty (e.g., anti-graffiti, anti-microbial), or multi-purpose."
+    },
+    {
+      "name": "solvent_system",
+      "type": "enum",
+      "enum_options": [
+        "waterborne",
+        "solventborne",
+        "mineral_waterglass",
+        "other",
+        "unknown"
+      ],
+      "description": "Carrier system. 'mineral_waterglass' covers classic silicate systems."
+    },
+    {
+      "name": "vapor_permeability_class",
+      "type": "enum",
+      "enum_options": [
+        "class_I_high",
+        "class_II_medium",
+        "class_III_low",
+        "unspecified"
+      ],
+      "description": [
+        "Water-vapor diffusion per EN ISO 7783.",
+        "class I: sd < 0.14 m",
+        "class II: 0.14-1.4 m",
+        "class III: sd > 1.4 m "
+        ]
+    }
+    ]
+}

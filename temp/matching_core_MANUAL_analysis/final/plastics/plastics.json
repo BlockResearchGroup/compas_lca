@@ -1,0 +1,48 @@
+{
+  "fields": [
+        {
+            "name": "polymer_family",
+            "type": "enum",
+            "enum_options": [
+            "eva",
+            "linoleum",
+            "pvc",
+            "pe",
+            "pp",
+            "pet",
+            "ps",
+            "pmma",
+            "polyurethane",
+            "polyamide",
+            "polycarbonate",
+            "polymer_modified_bitumen",
+            "silicone",
+            "rubber",
+            "composite_other",
+            "unknown"
+            ],
+            "description": []
+        },
+        {
+            "name": "polymer_product_form",
+            "type": "enum",
+            "enum_options": [
+            "sheet_membrane",
+            "foil_film",
+            "fleece_nonwoven",
+            "profile_rigid",
+            "profile_flexible",
+            "panel_laminate",
+            "floor_roll",
+            "floor_tile_modular",
+            "sewer_tube",
+            "tap_water_tube",
+            "pipe",
+            "fitting",
+            "other",
+            "unknown"
+            ],
+            "description": []
+        }
+    ]
+}

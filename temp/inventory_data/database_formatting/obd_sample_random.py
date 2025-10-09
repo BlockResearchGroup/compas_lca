@@ -4,14 +4,14 @@ import pandas as pd
 # =======================
 # USER SETTINGS
 # =======================
-INPUT_CSV  = r"temp/inventory_data/dissected/precast_concrete/OBD_precast_concrete.csv"
-OUTPUT_CSV = r"temp/inventory_data/dissected/precast_concrete/OBD_precast_concrete_sample.csv"
+INPUT_CSV  = r"temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/OBD_mortars_plasters.csv"
+OUTPUT_CSV = r"temp/inventory_data/dissected/mineral_building_products/plasters_mortar_screed/OBD_mortars_plasters_sample.csv"
 
 ENCODING = "cp1252"
 DELIMITER = ";"
 
 SAMPLE_SIZE = 25
-RANDOM_SEED = 99
+RANDOM_SEED = 13
 # =======================
 
 def main():

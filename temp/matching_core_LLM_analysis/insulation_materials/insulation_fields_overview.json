@@ -1,21 +1,76 @@
 {
   "_meta": {
     "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/insulation_materials/llm_output",
-    "total_documents_scanned": 18,
-    "total_unique_fields": 43,
+    "total_documents_scanned": 43,
+    "total_unique_fields": 85,
     "note": "count = number of distinct documents containing this field name"
   },
   "fields": {
     "thermal_conductivity": {
-      "count": 7,
+      "count": 11,
       "document_ids": [
         "0d1d1452-7492-4508-b634-5bd0cff7edd8",
+        "3106ccac-01cc-467f-8bff-8a515c575928",
         "3f764d2e-320b-4996-8c28-0f38e8971044",
         "44d20812-1ed2-4e11-9cf0-54a3b7eb56fa",
         "4f0df91e-dbc6-457b-bdd9-bf6ca0b518d3",
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f",
         "757297f1-9325-4df4-af51-96510be76bf3",
+        "852b71e6-404e-4056-b87f-34686f292adc",
         "9b619143-9ea3-4573-9839-b6ebd75c71a1",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b",
         "af3510f4-3c5d-45a4-8162-16df43aaca34"
+      ]
+    },
+    "installation_method": {
+      "count": 6,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "3f764d2e-320b-4996-8c28-0f38e8971044",
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b",
+        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+      ]
+    },
+    "layer_thickness": {
+      "count": 6,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2",
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8",
+        "aaab855d-2743-452a-bd53-1f0940bdae63",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+      ]
+    },
+    "facing_material": {
+      "count": 5,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1",
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8",
+        "8346403f-4b92-4db9-a8d6-317f0a37284e",
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+      ]
+    },
+    "fire_resistance": {
+      "count": 5,
+      "document_ids": [
+        "17fd7497-26ba-4442-be48-54f83c0583de",
+        "52d4092b-b220-4850-9179-4f11094da94e",
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "732dcc2d-1131-4a75-a669-e871675b5ba4",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
+      ]
+    },
+    "application_area": {
+      "count": 4,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f",
+        "852b71e6-404e-4056-b87f-34686f292adc",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2",
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
       ]
     },
     "compressive_strength": {
@@ -27,47 +82,138 @@
         "9b619143-9ea3-4573-9839-b6ebd75c71a1"
       ]
     },
-    "installation_method": {
+    "fire_resistance_rating": {
       "count": 3,
       "document_ids": [
-        "3f764d2e-320b-4996-8c28-0f38e8971044",
-        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
-        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
-      ]
-    },
-    "fire_resistance": {
-      "count": 2,
-      "document_ids": [
-        "52d4092b-b220-4850-9179-4f11094da94e",
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
+        "7a455850-ef29-411c-a186-07b4d1307e98",
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1",
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ]
     },
     "geographic_representativeness": {
-      "count": 2,
+      "count": 3,
       "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244",
         "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
         "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
       ]
     },
     "installation_location": {
-      "count": 2,
+      "count": 3,
       "document_ids": [
         "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
-        "757297f1-9325-4df4-af51-96510be76bf3"
+        "757297f1-9325-4df4-af51-96510be76bf3",
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1"
       ]
     },
-    "layer_thickness": {
-      "count": 2,
+    "manufacturing_process": {
+      "count": 3,
       "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "757297f1-9325-4df4-af51-96510be76bf3",
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763",
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
+      ]
+    },
+    "material_composition": {
+      "count": 3,
+      "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244",
+        "8ede9ece-bea3-493d-bc17-ccca81ae897c",
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
+      ]
+    },
+    "production_process": {
+      "count": 3,
+      "document_ids": [
+        "3106ccac-01cc-467f-8bff-8a515c575928",
+        "732dcc2d-1131-4a75-a669-e871675b5ba4",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
       ]
     },
     "recycled_content": {
+      "count": 3,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e",
+        "7a455850-ef29-411c-a186-07b4d1307e98"
+      ]
+    },
+    "thermal_treatment": {
+      "count": 3,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d",
+        "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
+        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+      ]
+    },
+    "application_method": {
+      "count": 2,
+      "document_ids": [
+        "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
+        "8346403f-4b92-4db9-a8d6-317f0a37284e"
+      ]
+    },
+    "application_type": {
+      "count": 2,
+      "document_ids": [
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44",
+        "aaab855d-2743-452a-bd53-1f0940bdae63"
+      ]
+    },
+    "binder_type": {
       "count": 2,
       "document_ids": [
         "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
-        "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e"
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
+      ]
+    },
+    "closed_cell_structure": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
+      ]
+    },
+    "coating_type": {
+      "count": 2,
+      "document_ids": [
+        "5a705462-f3ef-4451-8d47-d2be6beb6fd9",
+        "7a455850-ef29-411c-a186-07b4d1307e98"
+      ]
+    },
+    "component_composition": {
+      "count": 2,
+      "document_ids": [
+        "6d16dafc-0a4b-496a-9f3f-39c066bc0401",
+        "852b71e6-404e-4056-b87f-34686f292adc"
+      ]
+    },
+    "geographic_origin": {
+      "count": 2,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d",
+        "52d4092b-b220-4850-9179-4f11094da94e"
+      ]
+    },
+    "insulation_core_material": {
+      "count": 2,
+      "document_ids": [
+        "8346403f-4b92-4db9-a8d6-317f0a37284e",
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ]
+    },
+    "recyclability": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
+      ]
+    },
+    "thermal_conductivity_coefficient": {
+      "count": 2,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
       ]
     },
     "thermal_insulation": {
@@ -84,11 +230,30 @@
         "8ede9ece-bea3-493d-bc17-ccca81ae897c"
       ]
     },
-    "thermal_treatment": {
+    "thermal_resistance": {
       "count": 2,
       "document_ids": [
-        "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d",
-        "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8",
+        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+      ]
+    },
+    "water_vapour_resistance": {
+      "count": 2,
+      "document_ids": [
+        "3106ccac-01cc-467f-8bff-8a515c575928",
+        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+      ]
+    },
+    "adhesion_to_paper": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
+      ]
+    },
+    "adhesive_tensile_strength": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
       ]
     },
     "antifungal_treatment": {
@@ -97,10 +262,16 @@
         "52d4092b-b220-4850-9179-4f11094da94e"
       ]
     },
-    "application_method": {
+    "application_areas": {
       "count": 1,
       "document_ids": [
-        "6d16dafc-0a4b-496a-9f3f-39c066bc0401"
+        "17fd7497-26ba-4442-be48-54f83c0583de"
+      ]
+    },
+    "application_fields": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
       ]
     },
     "application_scenario": {
@@ -109,16 +280,16 @@
         "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e"
       ]
     },
-    "binder_type": {
-      "count": 1,
-      "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
-      ]
-    },
     "bio_based_content": {
       "count": 1,
       "document_ids": [
         "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d"
+      ]
+    },
+    "biogenic_carbon_content": {
+      "count": 1,
+      "document_ids": [
+        "ac8de42f-3cff-4ca8-b8cc-c0db6daf089b"
       ]
     },
     "carbonation_rate": {
@@ -133,22 +304,10 @@
         "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e"
       ]
     },
-    "coating_type": {
-      "count": 1,
-      "document_ids": [
-        "5a705462-f3ef-4451-8d47-d2be6beb6fd9"
-      ]
-    },
     "combustion_emissions_credits": {
       "count": 1,
       "document_ids": [
         "fabfbacc-f5ac-4283-8ffa-0d50765ddcfd"
-      ]
-    },
-    "component_composition": {
-      "count": 1,
-      "document_ids": [
-        "6d16dafc-0a4b-496a-9f3f-39c066bc0401"
       ]
     },
     "compression_strength": {
@@ -157,16 +316,34 @@
         "5dd08fc1-0bba-4b6b-9ca0-1692ab2b088e"
       ]
     },
+    "core_strength_increase": {
+      "count": 1,
+      "document_ids": [
+        "b2b871e7-d328-4ae4-a5ef-460aebe1c763"
+      ]
+    },
     "end_of_life_treatment": {
       "count": 1,
       "document_ids": [
         "52d4092b-b220-4850-9179-4f11094da94e"
       ]
     },
-    "facing_material": {
+    "facer_material": {
       "count": 1,
       "document_ids": [
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "aaab855d-2743-452a-bd53-1f0940bdae63"
+      ]
+    },
+    "fire_classification": {
+      "count": 1,
+      "document_ids": [
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
+      ]
+    },
+    "fire_retardant_treatment": {
+      "count": 1,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d"
       ]
     },
     "flame_retardant_inclusion": {
@@ -181,16 +358,46 @@
         "bcf5c14e-f6c1-4a53-bfd0-32dd6b493028"
       ]
     },
-    "geographic_origin": {
+    "foam_type": {
       "count": 1,
       "document_ids": [
-        "52d4092b-b220-4850-9179-4f11094da94e"
+        "fd62d0b8-3ea4-45b8-adc0-91833b80c97e"
+      ]
+    },
+    "freeze_thaw_resistance": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ]
+    },
+    "impact_resistance_category": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ]
+    },
+    "impact_sound_reduction": {
+      "count": 1,
+      "document_ids": [
+        "99f94ee6-77fe-451d-9d8a-dd9cc3b7e8f2"
       ]
     },
     "impregnation_chemical": {
       "count": 1,
       "document_ids": [
         "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d"
+      ]
+    },
+    "insulating_value": {
+      "count": 1,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1"
+      ]
+    },
+    "insulation_application": {
+      "count": 1,
+      "document_ids": [
+        "121c71e8-0f4c-4529-b72e-331198d15f0f"
       ]
     },
     "insulation_core_type": {
@@ -205,22 +412,52 @@
         "4f0df91e-dbc6-457b-bdd9-bf6ca0b518d3"
       ]
     },
+    "insulation_system_type": {
+      "count": 1,
+      "document_ids": [
+        "278ba020-5da0-4bfe-aa3c-477e02646244"
+      ]
+    },
+    "insulation_thickness_range": {
+      "count": 1,
+      "document_ids": [
+        "7874a8f3-108e-4c82-824d-5a4d51dfd4b8"
+      ]
+    },
     "insulation_type": {
       "count": 1,
       "document_ids": [
         "6d16dafc-0a4b-496a-9f3f-39c066bc0401"
       ]
     },
-    "manufacturing_process": {
+    "load_bearing_level": {
       "count": 1,
       "document_ids": [
-        "757297f1-9325-4df4-af51-96510be76bf3"
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ]
     },
-    "material_composition": {
+    "manufacturing_location": {
       "count": 1,
       "document_ids": [
-        "8ede9ece-bea3-493d-bc17-ccca81ae897c"
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ]
+    },
+    "mechanical_recycling_scenario": {
+      "count": 1,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09"
+      ]
+    },
+    "moisture_resistance": {
+      "count": 1,
+      "document_ids": [
+        "a03ff232-bddf-44ca-b05a-dcc4f8841bb1"
+      ]
+    },
+    "organic_content": {
+      "count": 1,
+      "document_ids": [
+        "2b12108a-b20d-4a46-8ec2-22d0d0a41c6d"
       ]
     },
     "ph_value": {
@@ -235,10 +472,34 @@
         "3f764d2e-320b-4996-8c28-0f38e8971044"
       ]
     },
-    "production_process": {
+    "primary_materials": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
+      ]
+    },
+    "product_form": {
+      "count": 1,
+      "document_ids": [
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
+      ]
+    },
+    "production_stage": {
+      "count": 1,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
+      ]
+    },
+    "protective_coating": {
+      "count": 1,
+      "document_ids": [
+        "04ca6da2-fdae-405b-9555-ac5e30eb0e09"
+      ]
+    },
+    "recycled_content_percentage": {
+      "count": 1,
+      "document_ids": [
+        "7091503e-34e5-44cd-9acb-7c2f16f6097f"
       ]
     },
     "recycling_content": {
@@ -247,10 +508,22 @@
         "757297f1-9325-4df4-af51-96510be76bf3"
       ]
     },
+    "renewable_energy_use": {
+      "count": 1,
+      "document_ids": [
+        "5aaa49cc-c5ee-4664-8a1d-6f6dbee613b1"
+      ]
+    },
     "sound_insulation": {
       "count": 1,
       "document_ids": [
         "bcf5c14e-f6c1-4a53-bfd0-32dd6b493028"
+      ]
+    },
+    "sound_insulation_application": {
+      "count": 1,
+      "document_ids": [
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
       ]
     },
     "support_fiber_content": {
@@ -259,28 +532,52 @@
         "9a9f76b6-54f0-421e-9f8a-6a5db3a22e1d"
       ]
     },
+    "surface_weight": {
+      "count": 1,
+      "document_ids": [
+        "bfa45a2b-0f25-4dea-b550-50f3d49a548f"
+      ]
+    },
+    "tapered_design": {
+      "count": 1,
+      "document_ids": [
+        "a23d27be-50e8-47ea-b74c-34e46efd2f44"
+      ]
+    },
     "temperature_resistance": {
       "count": 1,
       "document_ids": [
         "af3510f4-3c5d-45a4-8162-16df43aaca34"
       ]
     },
-    "thermal_conductivity_coefficient": {
+    "thermal_conductivity_equivalent": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "ab3b7d7f-3e9c-4c1f-8058-98e5c1bf16e5"
       ]
     },
-    "thermal_resistance": {
+    "thermal_insulation_application": {
       "count": 1,
       "document_ids": [
-        "d2ddb24b-d12f-44d5-9317-182e2fcb65e0"
+        "732dcc2d-1131-4a75-a669-e871675b5ba4"
       ]
     },
-    "water_vapour_resistance": {
+    "thermal_transmission_resistance": {
       "count": 1,
       "document_ids": [
-        "ada6f16c-96d9-48a3-a5fd-80f03fb45025"
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ]
+    },
+    "water_absorption": {
+      "count": 1,
+      "document_ids": [
+        "a3b10cdc-938a-4852-a105-65e37b1dc0d8"
+      ]
+    },
+    "weight_per_area": {
+      "count": 1,
+      "document_ids": [
+        "852b71e6-404e-4056-b87f-34686f292adc"
       ]
     }
   }

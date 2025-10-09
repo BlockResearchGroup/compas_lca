@@ -1,0 +1,16 @@
+{
+  "fields": [
+        {
+            "name": "treatment_coating_type",
+            "type": "enum",
+            "enum_options": [
+                "powder_coating",
+                "wet_varnishing", 
+                "anodising", 
+                "galvanisation", 
+                "other"],
+            "description": [
+                ]
+        }
+    ]
+}

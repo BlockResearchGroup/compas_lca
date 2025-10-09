@@ -1,0 +1,61 @@
+{
+  "document_id": "6633695e-2a63-4934-aa5b-9c0d86e0af8a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement type is explicitly mentioned as 'Ternary Blended Cement (Moderate Heat)' which is a specific classification of cement based on its composition and heat of hydration properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "Ternary Blended Cement (Moderate Heat)"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Ternary Blended Cement (Moderate Heat)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "The compressive strength is indicated as '22 MPa min', which is a critical property for categorizing cement based on its load-bearing capacity.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "22 MPa min"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The dataset describes the cement as 'hydraulically hardening', indicating it undergoes a hydration reaction, a key functional property of cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "hydraulically hardening binder"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

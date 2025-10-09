@@ -1,0 +1,56 @@
+{
+  "document_id": "3106ccac-01cc-467f-8bff-8a515c575928",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is a key property for insulation materials, indicating how well the material can prevent heat transfer.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "very low thermal conductivity"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "water_vapour_resistance",
+      "type": "float",
+      "rationale": "Water vapour resistance is crucial for insulation materials to prevent moisture ingress, which can lead to energy loss and material degradation.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "extremely high resistance to water vapour transmission"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "enum",
+      "rationale": "The production process can affect the material properties and applications of the insulation product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "continuous",
+        "discontinuous"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "pressureless, continuous and discontinuous production process"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

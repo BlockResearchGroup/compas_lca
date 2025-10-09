@@ -1,0 +1,11 @@
+{
+  "fields": [
+        {
+            "name": "asphalt_product_type",
+            "type": "enum",
+            "enum_options": ["asphalt binder", "mastic asphalt", "split mastic asphalt", "asphalt base course", "other"],
+            "description": [
+                ]
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+  "document_id": "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and application of the product, and is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1.8"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The application method is important for understanding how the product is used, and it is inferred from the description of the product as 'manually and possibly also machine processable'.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "machine"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "manually and possibly also machine processable"
+      ],
+      "inference_basis": [
+        "'manually and possibly also machine processable' suggests both manual and machine application methods."
+      ]
+    },
+    {
+      "name": "suitable_substrates",
+      "type": "enum",
+      "rationale": "Identifying suitable substrates helps in categorizing the product's compatibility with different surfaces, inferred from the text mentioning gypsum boards, plaster, and other substrates.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "gypsum_boards",
+        "plaster",
+        "mineral_substrates",
+        "other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "can be used for joint and surface finishing on gypsum boards, gypsum fiber boards, plaster, gypsum wall building boards, and mineral substrates"
+      ],
+      "inference_basis": [
+        "Mention of specific substrates like gypsum boards and plaster indicates suitable substrates."
+      ]
+    },
+    {
+      "name": "indoor_use_only",
+      "type": "bool",
+      "rationale": "The product is specified for indoor use only, which is critical for its application and safety.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "for indoor use (excluding areas with high humidity and splash water exposed surfaces)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "drying_method",
+      "type": "enum",
+      "rationale": "The drying method is relevant for application and performance, explicitly stated as 'air-drying'.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "air_drying"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The compounds are air-drying."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

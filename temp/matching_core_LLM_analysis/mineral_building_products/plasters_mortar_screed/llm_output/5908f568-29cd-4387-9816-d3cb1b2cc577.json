@@ -1,0 +1,97 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "primary_components",
+      "type": "string",
+      "rationale": "The dataset explicitly lists the primary components of the dispersion-based tile adhesive, which are crucial for understanding its material properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "The dispersion-based tile adhesives consist of approximately the following components: Plastic dispersion (53.9 %), lime (5 %), water (15 %), triethylene glycol ester (12.5 %), colourants (12.5 %), dispersing agent (1 %), preservative (<1 %)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application",
+      "type": "enum",
+      "rationale": "The dataset specifies the technical purpose of the product, which is essential for categorizing its functional use.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "bonding ceramic tiles",
+        "bonding natural stone"
+      ],
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "Dispersion-based tile adhesives are used for bonding ceramic tiles and slabs as well as natural stone to walls, floors and ceilings for indoor and outdoor use."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "indoor_outdoor_use",
+      "type": "bool",
+      "rationale": "The dataset mentions that the product can be used for both indoor and outdoor applications, which is a key functional property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "Dispersion-based tile adhesives are used for bonding ceramic tiles and slabs as well as natural stone to walls, floors and ceilings for indoor and outdoor use."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a critical material property for adhesives, affecting application and performance, but is not provided in the dataset.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "density: null"
+      ],
+      "inference_basis": [
+        "Density is a standard property for characterizing adhesives and mortars."
+      ]
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is important for application guidelines and performance but is not provided in the dataset.",
+      "confidence": 0.6,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "adhesive",
+        "mortar"
+      ],
+      "evidence": [
+        "layer_thickness: null"
+      ],
+      "inference_basis": [
+        "Layer thickness is a common specification for adhesives to ensure proper application."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "document_id": "852b71e6-404e-4056-b87f-34686f292adc",
+  "fields": [
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Vacuum insulation panels are known for their low thermal conductivity, which is a key property for insulation materials.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "Vacuum insulation panels (VIP) are used as highly efficient thermal insulation for walls, roofs, ceilings and floor slabs."
+      ],
+      "inference_basis": [
+        "Vacuum insulation panels are designed to have low thermal conductivity."
+      ]
+    },
+    {
+      "name": "component_composition",
+      "type": "string",
+      "rationale": "The dataset provides a detailed breakdown of the material composition of the vacuum insulation panel, which is crucial for understanding its properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "The vacuum insulation panel consists of approximately the following components: amorphous silicon dioxide (pyrogenic silica) (70%), silicon carbide (20%), viscose fibre (rayon) (5%) and metallized plastic composite film (5%)."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The application areas for vacuum insulation panels are explicitly mentioned, which helps in categorizing the product based on its use.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "walls",
+        "roofs",
+        "ceilings",
+        "floor_slabs"
+      ],
+      "unit": null,
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "Vacuum insulation panels (VIP) are used as highly efficient thermal insulation for walls, roofs, ceilings and floor slabs on one or both sides of buildings."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "weight_per_area",
+      "type": "float",
+      "rationale": "The weight per area is a specific property of the vacuum insulation panel that can be used to calculate other properties like surface density.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m²",
+      "applicability": [
+        "vacuum_insulation_panels"
+      ],
+      "evidence": [
+        "The weight per piece area is 4.50 kg/m²."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

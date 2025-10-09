@@ -1,0 +1,57 @@
+{
+  "document_id": "8346403f-4b92-4db9-a8d6-317f0a37284e",
+  "fields": [
+    {
+      "name": "insulation_core_material",
+      "type": "string",
+      "rationale": "The insulation core material is explicitly mentioned as polyisocyanurate (PIR), which is a key property for categorizing insulation products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "insulation boards with a rigid thermoset polyisocyanurate (PIR) fibre-free insulation core"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "facing_material",
+      "type": "string",
+      "rationale": "The facing material is explicitly stated as mineral-coated glass tissue, which is important for understanding the product's surface properties and potential applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "faced on both sides with a mineral-coated glass tissue based facing"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The application methods are explicitly mentioned as adherent, mechanically fixed, or non-fixed ballasted, which are critical for installation considerations.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "adherent",
+        "mechanically_fixed",
+        "non_fixed_ballasted"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "used as thermal insulation under adherent, mechanically fixed or non-fixed ballasted roofing systems"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

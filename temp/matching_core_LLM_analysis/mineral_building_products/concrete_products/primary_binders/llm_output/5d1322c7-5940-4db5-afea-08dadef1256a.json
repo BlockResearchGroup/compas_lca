@@ -1,0 +1,94 @@
+{
+  "document_id": "5d1322c7-5940-4db5-afea-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The type of cement is crucial for determining its properties and applications. CEM I 42,5 R indicates a specific type of Portland cement with defined strength and setting characteristics.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "CEM I 42,5 R"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Pur 4 R ist ein Portlandzement CEM I 42,5 R"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The location of production can affect the environmental impact and logistics of the product. It is explicitly mentioned as Höver plant.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Pur 4 R is manufactured at the Höver plant."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property that affects the handling and application of cement. It is explicitly provided in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "density: 3100.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_process",
+      "type": "bool",
+      "rationale": "The hydration process is a key chemical reaction in cement that determines its setting and hardening properties. It is inferred from the description of the cement's behavior upon water addition.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Nach Zugabe von Wasser zum Zement entsteht eine Suspension (Zementleim), die aufgrund einsetzender Hydratationsreaktion sowohl an der Luft als auch unter Wasser erstarrt und erhärtet."
+      ],
+      "inference_basis": [
+        "Cement hydration is a standard process involving chemical reactions with water."
+      ]
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "Understanding the production process provides insights into the environmental and technical aspects of the cement. It is explicitly described in the dataset.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Production of Portland cement clinker Limestone, marl, clay or their natural mixture, are required for the production of Portland cement clinker."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

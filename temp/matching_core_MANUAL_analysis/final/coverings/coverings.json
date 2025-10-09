@@ -1,0 +1,32 @@
+{
+  "fields": [
+    {
+      "name": "covering_type",
+      "type": "enum",
+      "enum_options": [
+        "laminate_hpl",
+        "laminate_other",
+        "vinyl",
+        "textile",
+        "glass_fibre",
+        "liquid_applied_membrane",
+        "other",
+        "unknown"
+      ],
+      "description": []
+    },
+    {
+      "name": "covering_form",
+      "type": "enum",
+      "enum_options": [
+        "roll",
+        "sheet_panel",
+        "liquid",
+        "other",
+        "unknown"
+      ],
+      "description": []
+    }
+    ]
+    
+}

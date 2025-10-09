@@ -1,0 +1,75 @@
+{
+  "document_id": "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the plaster, mortar, or screed product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1800.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_thickness",
+      "type": "range",
+      "rationale": "The application thickness range is important for understanding the coverage and material usage for the plaster product.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Application thickness 6 - 10 mm."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_method",
+      "type": "enum",
+      "rationale": "The method of application (hand or machine) is crucial for determining the labor and equipment needed for installation.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": [
+        "hand",
+        "machine"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Hand or machine plastering."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "Understanding the material composition, such as the inclusion of straw and clay, helps in categorizing the product and assessing its environmental impact.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "clay topcoat plaster with straw",
+        "Lehmoberputz grob mit Stroh besteht aus Baulehm"
+      ],
+      "inference_basis": [
+        "Presence of 'clay' and 'straw' suggests a composite material."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "document_id": "21beec6a-c68c-4bee-9266-e8acb9344e6f",
+  "fields": [
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The product is specifically used for heavy-duty industrial floors, which is a key functional property for categorization.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "car parks",
+        "industrial halls",
+        "assembly halls",
+        "aircraft hangars",
+        "workshops",
+        "high-bay warehouses",
+        "other industrial areas"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "NEODUR HE 3 green is used for the production of heavy-duty industrial floors, e.g. car parks, industrial halls, assembly halls, aircraft hangars, workshops, high-bay warehouses and other industrial areas subjected to most severe stress."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

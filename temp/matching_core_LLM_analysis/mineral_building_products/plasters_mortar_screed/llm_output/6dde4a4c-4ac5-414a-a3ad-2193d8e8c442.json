@@ -1,0 +1,21 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the strength, durability, and thermal properties of the mortar, making it crucial for categorization and comparison.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "density: 1735.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

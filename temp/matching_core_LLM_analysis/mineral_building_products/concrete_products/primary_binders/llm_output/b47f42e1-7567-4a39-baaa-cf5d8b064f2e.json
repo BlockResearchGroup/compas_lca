@@ -1,0 +1,105 @@
+{
+  "document_id": "b47f42e1-7567-4a39-baaa-cf5d8b064f2e",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement type is explicitly mentioned as 'Ternary Blended Cement (Moderate Heat)' and 'Type IT (MH)'. This classification is crucial for understanding the specific properties and applications of the cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "Ternary Blended Cement (Moderate Heat)",
+        "Type IT (MH)"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Ternary Blended Cement (Moderate Heat)",
+        "Type IT (MH)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental material property that affects the performance and application of cement in construction.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 2870.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The text describes the cement as hydraulically hardening, which implies a hydration reaction is involved. This is a key functional property of cement.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "a suspension (cement paste) is formed, which solidifies and hardens both in air and under water due to the onset of a hydration reaction"
+      ],
+      "inference_basis": [
+        "Hydraulically hardening implies hydration reaction"
+      ]
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "The production process is detailed, including the use of a rotary kiln and the cooling of clinker, which are critical for understanding the manufacturing and quality of the cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C and then rapidly cooled."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "additives",
+      "type": "enum",
+      "rationale": "The cement is composed of clinker and mineral additives like limestone, pozzolan, and slag, which are important for its properties and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "limestone",
+        "pozzolan",
+        "slag"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "ternary blended cement composed mostly of clinker and a combination of 2 types of mineral additives such as limestone, pozzolan and slag"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

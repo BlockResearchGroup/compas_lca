@@ -1,0 +1,29 @@
+{
+  "fields": [
+        {
+            "name": "curtain_walling_type",
+            "type": "enum",
+            "enum_options": [
+            "stick_construction",
+            "unitized_walling",
+            "other",
+            "unknown"
+            ],
+            "description": [""]
+        },
+        {
+            "name": "curtain_walling_material",
+            "type": "enum",
+            "enum_options": [
+            "aluminum",
+            "ceramics",
+            "steel",
+            "wood",
+            "wood_metal_composite",
+            "other",
+            "unknown"
+            ],
+            "description": ["primary material of the curtain wall system"]
+        }
+    ]
+}

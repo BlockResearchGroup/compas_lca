@@ -1,0 +1,59 @@
+{
+  "document_id": "e1898c68-bc2e-4525-afc2-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "string",
+      "rationale": "The dataset specifies the type of cement as 'Hochofenzement CEM III/A 52,5 N-SR/LA', which is a specific classification of cement with particular properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Duo 5 N-SR/NA ist ein Hochofenzement CEM III/A 52,5 N-SR/LA"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "sulfate_resistance",
+      "type": "bool",
+      "rationale": "The cement is described as having sulfate resistance (SR), which is a key property for certain applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Hochofenzement CEM III/A mit Bewertung des Sulfatwiderstandes (SR)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "alkali_content",
+      "type": "enum",
+      "rationale": "The cement optionally has a low effective alkali content (LA), which affects its chemical properties and suitability for certain environments.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "low",
+        "standard"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "optional mit niedrigem wirksamen Alkaligehalt (LA)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

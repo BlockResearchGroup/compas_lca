@@ -1,0 +1,89 @@
+{
+  "document_id": "75db1c10-6002-4fa2-9cc9-aae4fb7e8345",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies 'C20/25', which indicates the compressive strength class of the concrete, a critical property for structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "C20/25",
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C20/25 XC1 XC2 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "The dataset mentions 'XC1 XC2', which are exposure classes indicating the environmental conditions the concrete is designed to withstand.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC1",
+        "XC2",
+        "XD1",
+        "XS1",
+        "XF1"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C20/25 XC1 XC2 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property of concrete that affects its weight and structural performance.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 2286.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for application and structural design, affecting how concrete is poured and cured.",
+      "confidence": 0.85,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

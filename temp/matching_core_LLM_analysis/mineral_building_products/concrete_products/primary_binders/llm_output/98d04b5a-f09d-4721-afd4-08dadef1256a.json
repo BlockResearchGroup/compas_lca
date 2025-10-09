@@ -1,0 +1,66 @@
+{
+  "document_id": "98d04b5a-f09d-4721-afd4-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement type is explicitly mentioned as 'Hochofenzement CEM III/A 42,5 N', which is a specific classification of cement according to EN 197-1.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "CEM I",
+        "CEM II",
+        "CEM III",
+        "CEM IV",
+        "CEM V"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Holcim Duo 4 N ist ein Hochofenzement CEM III/A 42,5 N der gemäß EN 197-1 hergestellt und überwacht wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "The production process is described in detail, including the use of a rotary kiln and the production of Portland cement clinker and blast furnace slag.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Production of Portland cement clinker Limestone, marl, clay or their natural mixture, are required for the production of Portland cement clinker.",
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C and then rapidly cooled."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the cement is explicitly provided as 3000 kg/m³, which is a key material property for cement products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 3000.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "document_id": "17fd7497-26ba-4442-be48-54f83c0583de",
+  "fields": [
+    {
+      "name": "fire_resistance",
+      "type": "bool",
+      "rationale": "The dataset mentions that mineral wool is used for fire protection, indicating its fire-resistant properties.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "Mineral wool insulation materials are used in buildings and industrial plants for thermal insulation as well as noise and fire protection."
+      ],
+      "inference_basis": [
+        "Mineral wool is known for its fire-resistant properties."
+      ]
+    },
+    {
+      "name": "application_areas",
+      "type": "enum",
+      "rationale": "The dataset explicitly lists various application areas for the mineral wool insulation, such as walls, ceilings, roofs, and technical insulation.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "walls",
+        "ceilings",
+        "roofs",
+        "technical_insulation",
+        "fire_protection"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "The main application areas of the products declared in this EPD are: - All areas of application according to DIN 4108-10 for wall, ceiling and roof applications with the specified requirements regarding thermal and sound insulation and the mechanical properties - Blowing wool and loose-fill insulation - Technical insulation and building services (e.g. insulation of pipes for ventilation, heating and hot water, district heating pipelines, boilers and equipment) - Fire protection elements and industrial applications (e.g. air-conditioning ducts, fire protection doors, prefabricated components, chimney systems, cable penetration sealing)"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

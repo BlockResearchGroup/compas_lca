@@ -1,0 +1,363 @@
+{
+  "_meta": {
+    "source_dir": "/Users/wuitee/Documents/BRG/compas_lca/temp/matching_core_LLM_analysis/mineral_building_products/plasters_mortar_screed/llm_output",
+    "total_documents_scanned": 25,
+    "total_unique_fields": 49,
+    "note": "count = number of distinct documents containing this field name"
+  },
+  "fields": {
+    "density": {
+      "count": 23,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "5908f568-29cd-4387-9816-d3cb1b2cc577",
+        "6dde4a4c-4ac5-414a-a3ad-2193d8e8c442",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f",
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce",
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a",
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "e79e3ca3-856b-45f7-b692-e099d99ad9ae",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ]
+    },
+    "application_method": {
+      "count": 7,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ]
+    },
+    "compressive_strength": {
+      "count": 6,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ]
+    },
+    "thermal_conductivity": {
+      "count": 6,
+      "document_ids": [
+        "0144d30d-e4d7-4c05-a4c5-282772589893",
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "7c0535db-e6d1-4342-871d-74cde862d97a",
+        "83514986-e053-4b4b-9570-c04f37babb24",
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ]
+    },
+    "geographic_representativeness": {
+      "count": 4,
+      "document_ids": [
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ]
+    },
+    "material_composition": {
+      "count": 4,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349",
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ]
+    },
+    "application_thickness": {
+      "count": 3,
+      "document_ids": [
+        "bfeb1818-e35e-4579-8f9d-07e0bc80cd81",
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ]
+    },
+    "binder_type": {
+      "count": 3,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ]
+    },
+    "installation_method": {
+      "count": 3,
+      "document_ids": [
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a",
+        "e79e3ca3-856b-45f7-b692-e099d99ad9ae"
+      ]
+    },
+    "layer_thickness": {
+      "count": 3,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577",
+        "60916dcf-f432-429f-9828-a0b14f1c4e91",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ]
+    },
+    "manufacturing_process": {
+      "count": 2,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce",
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ]
+    },
+    "packaging_type": {
+      "count": 2,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ]
+    },
+    "product_form": {
+      "count": 2,
+      "document_ids": [
+        "c7db9557-2928-435f-82e2-afcdcbc69715",
+        "d4a53a6a-2a78-4f43-90e1-aca206cb5668"
+      ]
+    },
+    "seismic_approval": {
+      "count": 2,
+      "document_ids": [
+        "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ]
+    },
+    "suitable_substrates": {
+      "count": 2,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11",
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ]
+    },
+    "system_boundary": {
+      "count": 2,
+      "document_ids": [
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a",
+        "c7db9557-2928-435f-82e2-afcdcbc69715"
+      ]
+    },
+    "water_vapour_permeability": {
+      "count": 2,
+      "document_ids": [
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066",
+        "7c0535db-e6d1-4342-871d-74cde862d97a"
+      ]
+    },
+    "additives_included": {
+      "count": 1,
+      "document_ids": [
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71"
+      ]
+    },
+    "application": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ]
+    },
+    "application_areas": {
+      "count": 1,
+      "document_ids": [
+        "60916dcf-f432-429f-9828-a0b14f1c4e91"
+      ]
+    },
+    "binding_agents": {
+      "count": 1,
+      "document_ids": [
+        "3abc810c-ef3a-4ab4-b6d8-0217716e213e"
+      ]
+    },
+    "ce_marking_standard": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ]
+    },
+    "component_system": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ]
+    },
+    "composition": {
+      "count": 1,
+      "document_ids": [
+        "7e0c008a-009d-4357-92c1-afb2cec3bc0a"
+      ]
+    },
+    "consistency": {
+      "count": 1,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e"
+      ]
+    },
+    "curing_time": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ]
+    },
+    "drying_method": {
+      "count": 1,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11"
+      ]
+    },
+    "geographic_location": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ]
+    },
+    "gypsum_content": {
+      "count": 1,
+      "document_ids": [
+        "35f6a697-d1a9-402f-9bc8-1e6a29d21b71"
+      ]
+    },
+    "indoor_outdoor_use": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ]
+    },
+    "indoor_use_only": {
+      "count": 1,
+      "document_ids": [
+        "e3bdc61f-82ba-4329-a46d-6237e745bf11"
+      ]
+    },
+    "installation_type": {
+      "count": 1,
+      "document_ids": [
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ]
+    },
+    "insulating_material": {
+      "count": 1,
+      "document_ids": [
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ]
+    },
+    "intended_use": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ]
+    },
+    "location_code": {
+      "count": 1,
+      "document_ids": [
+        "27370a17-b4fe-45f8-9d9d-71f265311c2e"
+      ]
+    },
+    "max_layer_thickness": {
+      "count": 1,
+      "document_ids": [
+        "86eb98ea-15ee-4b3c-ba73-702aaaa3003f"
+      ]
+    },
+    "mineral_additives": {
+      "count": 1,
+      "document_ids": [
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b"
+      ]
+    },
+    "mortar_type": {
+      "count": 1,
+      "document_ids": [
+        "1ebab79c-2c74-42ec-b023-a5c8f62a6066"
+      ]
+    },
+    "primary_components": {
+      "count": 1,
+      "document_ids": [
+        "5908f568-29cd-4387-9816-d3cb1b2cc577"
+      ]
+    },
+    "primary_ingredient": {
+      "count": 1,
+      "document_ids": [
+        "88c8c020-59c5-4c08-af2b-f3c6bff59cce"
+      ]
+    },
+    "primary_material": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ]
+    },
+    "production_method": {
+      "count": 1,
+      "document_ids": [
+        "7c0535db-e6d1-4342-871d-74cde862d97a"
+      ]
+    },
+    "recyclability": {
+      "count": 1,
+      "document_ids": [
+        "8bdc6332-4d94-44c1-9975-a236ff7a3349"
+      ]
+    },
+    "reinforcement_compatibility": {
+      "count": 1,
+      "document_ids": [
+        "f2fc092b-d50a-4c83-b8ea-fa39eed38b2d"
+      ]
+    },
+    "replasticisation_capability": {
+      "count": 1,
+      "document_ids": [
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ]
+    },
+    "replastification_ability": {
+      "count": 1,
+      "document_ids": [
+        "cd9f6260-63fe-44bf-95c0-98ea8c56056b"
+      ]
+    },
+    "styrene_free": {
+      "count": 1,
+      "document_ids": [
+        "da6a586b-8dfd-44c8-88a8-31ae2318880a"
+      ]
+    },
+    "substrate_compatibility": {
+      "count": 1,
+      "document_ids": [
+        "f65425e4-7069-4042-966c-3cb5aa447411"
+      ]
+    },
+    "water_content": {
+      "count": 1,
+      "document_ids": [
+        "86d919ee-8f30-4ca4-9b7e-717aecba6ac0"
+      ]
+    }
+  }
+}

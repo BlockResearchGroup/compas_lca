@@ -1,0 +1,46 @@
+{
+  "fields": [
+        {
+            "name": "additive_or_pigment",
+            "type": "enum",
+            "enum_options": ["additive", "pigment", "other", "unknown"],
+            "description": [
+                ]
+        },
+        {
+            "name": "additive_type",
+            "type": "enum",
+            "enum_options": [
+                "plasticizer/superplasticizer",
+                "accelerator",
+                "retarder",
+                "air_entrainer",
+                "waterproofing_additive",
+                "pozzolanic/additive_cement",
+                "fibres",
+                "other_additive",
+                "unknown"
+            ],
+            "description": [
+                "Covers functional admixtures in cementitious systems"
+                ]
+        },
+        {
+            "name": "pigment_type",
+            "type": "enum",
+            "enum_options": [
+                "iron_oxide",
+                "titanium_dioxide",
+                "chromium_oxide",
+                "ultramarine",
+                "mixed_inorganic",
+                "carbon_black",
+                "other_pigment",
+                "unknown"
+            ],
+            "description": [
+                "mineral/inorganic pigments used in concrete, plaster, mortar, etc."
+                ]
+        }
+    ]
+}

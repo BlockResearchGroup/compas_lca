@@ -1,0 +1,27 @@
+{
+  "document_id": "d2ddb24b-d12f-44d5-9317-182e2fcb65e0",
+  "fields": [
+    {
+      "name": "insulation_core_type",
+      "type": "enum",
+      "rationale": "The insulation core type is explicitly mentioned as 'rigid thermoset polyisocyanurate (PIR) fibre-free insulation core', which is a key characteristic of the product.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "PIR",
+        "PUR",
+        "EPS",
+        "XPS",
+        "mineral_fibre"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TW55 R is an insulation board with a rigid thermoset polyisocyanurate (PIR) fibre-free insulation core."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

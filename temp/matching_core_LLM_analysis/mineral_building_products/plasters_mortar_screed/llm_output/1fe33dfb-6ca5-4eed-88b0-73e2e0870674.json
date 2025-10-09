@@ -1,0 +1,63 @@
+{
+  "document_id": "1fe33dfb-6ca5-4eed-88b0-73e2e0870674",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the performance and application of the mortar, especially in structural contexts.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "\"density\": 1420.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "seismic_approval",
+      "type": "enum",
+      "rationale": "The product is approved for seismic categories C1 and C2, which is critical for applications in earthquake-prone areas.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "C1",
+        "C2",
+        "None"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "HIT-RE 500 V4 is ETA and ICC approved for seismic C1 and C2 category for anchoring and C1 category for rebar."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation method, including the use of Hilti SAFEset and specific tools, is crucial for ensuring proper application and performance.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "electrical",
+        "SAFEset"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Hilti SAFEset is an approved system which makes anchor installation an easier, safer and faster process."
+      ],
+      "inference_basis": [
+        "SAFEset system implies a specific installation method."
+      ]
+    }
+  ]
+}

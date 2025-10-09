@@ -1,0 +1,75 @@
+{
+  "document_id": "b2b871e7-d328-4ae4-a5ef-460aebe1c763",
+  "fields": [
+    {
+      "name": "application_fields",
+      "type": "enum",
+      "rationale": "The product is used in various application fields such as plasterboards, insulating materials, and miscellaneous building materials, which are explicitly mentioned in the dataset.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "plasterboards",
+        "insulating_materials",
+        "miscellaneous_building_materials"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "This products have proven success in various application fields, including: Plasterboards (gypsum), Insulating materials, Miscellaneous building materials."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "adhesion_to_paper",
+      "type": "bool",
+      "rationale": "The dataset mentions improved adhesion to paper within the gypsum matrix and paper web, which is a specific functional property of the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Notably, there's improved adhesion to paper within the gypsum matrix and paper web."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "core_strength_increase",
+      "type": "bool",
+      "rationale": "The product is noted to boost core strength in plasterboards, indicating a functional property that can be important for categorization.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "accompanied by some notable boost in core strength in plasterboards."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "string",
+      "rationale": "The detailed description of the manufacturing process, including the use of heat and chemicals, provides insight into the production method, which can be relevant for understanding material properties.",
+      "confidence": 0.7,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards",
+        "batts"
+      ],
+      "evidence": [
+        "In the manufacturing process, the flour is continuously mixed with these chemicals and subjected to heat to initiate the reaction."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

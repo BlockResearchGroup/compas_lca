@@ -1,0 +1,91 @@
+{
+  "document_id": "5717c624-c704-4c09-b01c-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement type is explicitly mentioned as 'Portlandzement CEM I 52,5 R', which is a standard classification for cement types according to EN 197-1.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "CEM I 52,5 R"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Holcim Pur 5 R ist ein Portlandzement CEM I 52,5 R der gemäß EN 197-1 hergestellt und überwacht wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The production location is explicitly stated as the Lägerdorf plant in Germany, which is relevant for understanding the geographical context of the product's manufacturing.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Holcim Pur 5 R is manufactured at the Lägerdorf plant."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "setting_behavior_control",
+      "type": "bool",
+      "rationale": "The addition of a sulfate carrier to control the setting behavior is a specific functional property of the cement, indicating its performance characteristics.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "A sulfate carrier is added to control the setting behavior."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The hydration reaction is a fundamental chemical process in cement that leads to hardening, which is crucial for its function as a binder.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "Nach Zugabe von Wasser zum Zement entsteht eine Suspension (Zementleim), die aufgrund einsetzender Hydratationsreaktion sowohl an der Luft als auch unter Wasser erstarrt und erhärtet."
+      ],
+      "inference_basis": [
+        "Cement hydration is a well-known process that leads to hardening and setting."
+      ]
+    },
+    {
+      "name": "thermal_conversion_temperature",
+      "type": "float",
+      "rationale": "The thermal conversion temperature is a critical parameter in the production of Portland cement clinker, affecting the quality and properties of the final product.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "°C",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C."
+      ],
+      "inference_basis": [
+        "The temperature of 1450 °C is typical for the production of Portland cement clinker."
+      ]
+    }
+  ]
+}

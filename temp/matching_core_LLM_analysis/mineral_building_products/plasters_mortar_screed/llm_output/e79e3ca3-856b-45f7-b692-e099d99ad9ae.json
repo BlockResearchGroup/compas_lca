@@ -1,0 +1,46 @@
+{
+  "document_id": "e79e3ca3-856b-45f7-b692-e099d99ad9ae",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the performance and application of the mortar, such as its load-bearing capacity and ease of handling.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar",
+        "plaster",
+        "screed"
+      ],
+      "evidence": [
+        "density: 1670.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The installation method is crucial for understanding the application process and compatibility with other systems, such as the Hilti SAFEset concept.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "manual",
+        "electrical_dispenser",
+        "vacuum_cleaner"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Hilti SAFEset is an approved system which makes anchor installation an easier, safer and faster process.",
+        "When use with Hilti HIT-Z rod as part of the SAFEset, no cleaning of the borehole is required."
+      ],
+      "inference_basis": [
+        "SAFEset concept implies specific installation methods."
+      ]
+    }
+  ]
+}

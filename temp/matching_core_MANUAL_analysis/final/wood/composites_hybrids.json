@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "name": "composite_wood_type",
+      "type": "enum",
+      "enum_options": [
+        "cement_bonded_particleboard",
+        "cement_bonded_fiberboard",
+        "gypsum_fiber_board",
+        "wood_plastic_composite",
+        "fiber_reinforced_plastic_composite",
+        "other",
+        "unknown"
+      ],
+      "description": "Wood composites that combine wood particles or fibers with non-wood matrices such as cement, gypsum, or plastics."
+    }
+  ]
+}

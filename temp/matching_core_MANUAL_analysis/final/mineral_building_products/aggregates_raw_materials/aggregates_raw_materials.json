@@ -1,0 +1,40 @@
+{
+  "fields": [
+        {
+            "name": "aggregate_or_material_origin",
+            "type": "enum",
+            "enum_options": ["natural", "manufactured", "byproduct", "recycled", "other", "unknown"],
+            "description": [
+                "Where it comes from."
+                ]
+        },
+        {
+            "name": "aggregate_or_material_family",
+            "type": "enum",
+            "enum_options": [
+                "rock", "sand_gravel", "clay", "shale", "perlite", "pumice", 
+                "foam_glass_granulate", "slag_ash", "other", "unknown"],
+            "description": [
+                "What it fundamentally is"
+                ]
+        },
+        {
+            "name": "aggregate_or_material_form",
+            "type": "enum",
+            "enum_options": [
+                "sand","gravel","crushed_stone","powder/fines","granulate/pellet","mixed","unknown"],
+            "description": [
+                "How it looks mechanically"
+                ]
+        },
+        {
+            "name": "weight_class",
+            "type": "enum",
+            "enum_options": [
+                "lightweight","normal_weight","heavyweight", "unknown"],
+            "description": [
+                "Density bucket used in practice"
+                ]
+        }
+    ]
+}

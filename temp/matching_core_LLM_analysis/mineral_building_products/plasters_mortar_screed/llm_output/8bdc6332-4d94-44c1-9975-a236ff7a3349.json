@@ -1,0 +1,95 @@
+{
+  "document_id": "8bdc6332-4d94-44c1-9975-a236ff7a3349",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the substrate.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "density: 1400.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "The composition of the substrate is crucial for understanding its properties and potential applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "80% old porous brick; 10% pumice; 2% peat; 8% grass/greensheet"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "geographic_location",
+      "type": "string",
+      "rationale": "The location code indicates where the dataset is applicable, which is important for regional compliance and performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "location_code: DE"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "recyclability",
+      "type": "bool",
+      "rationale": "Recyclability is inferred from the description of the disposal phase and treatment processes, indicating potential for recycling or reuse.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "mechanical dismantling (excavator) is assumed in module C1",
+        "treatment loss of 25% was assumed"
+      ],
+      "inference_basis": [
+        "mechanical dismantling and treatment loss suggest potential for recycling"
+      ]
+    },
+    {
+      "name": "primary_material",
+      "type": "enum",
+      "rationale": "Identifying the primary material helps in categorizing the substrate based on its main component, which is crucial for its application and performance.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "old porous brick",
+        "pumice",
+        "peat",
+        "grass/greensheet"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral"
+      ],
+      "evidence": [
+        "80% old porous brick; 10% pumice; 2% peat; 8% grass/greensheet"
+      ],
+      "inference_basis": [
+        "The highest percentage component is considered the primary material."
+      ]
+    }
+  ]
+}

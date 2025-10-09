@@ -1,0 +1,68 @@
+{
+  "document_id": "7eeb2778-969a-45c5-808d-ac85a176ca7b",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The compressive strength class is a key property of concrete that indicates its load-bearing capacity, which is crucial for structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 32 M EcoPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_class",
+      "type": "enum",
+      "rationale": "Exposure classes describe the environmental conditions the concrete is designed to withstand, which affects durability and suitability for different applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "XC4",
+        "XF1",
+        "XA1"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 32 M EcoPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property that affects the weight and structural performance of concrete.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 2366.0"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

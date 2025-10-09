@@ -1,0 +1,99 @@
+{
+  "document_id": "f65425e4-7069-4042-966c-3cb5aa447411",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the plaster.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "plaster",
+        "mortar"
+      ],
+      "evidence": [
+        "density: 1900.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_thickness",
+      "type": "range",
+      "rationale": "The application thickness is important for determining the amount of material needed and its suitability for different substrates.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": "mm",
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "The application thickness varies between 3 - 5 mm depending on the substrate."
+      ],
+      "inference_basis": [
+        "Application thickness is often specified for plaster products to guide usage."
+      ]
+    },
+    {
+      "name": "replasticisation_capability",
+      "type": "bool",
+      "rationale": "Replasticisation capability indicates the ability to recover and reuse the plaster, which is a unique functional property.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Clay plaster mortar in accordance with DIN 18947 can be replasticised by watering after hardening."
+      ],
+      "inference_basis": [
+        "Replasticisation is a specific feature of clay-based plasters."
+      ]
+    },
+    {
+      "name": "substrate_compatibility",
+      "type": "string",
+      "rationale": "Knowing the compatible substrates helps in determining the appropriate application scenarios for the plaster.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Levita topcoat clay plaster OP1 is a ready-to-use clay dry mortar for the production of plaster coatings on various substrates."
+      ],
+      "inference_basis": [
+        "Plasters are often designed for specific substrates, which affects their application."
+      ]
+    },
+    {
+      "name": "manufacturing_process",
+      "type": "enum",
+      "rationale": "The manufacturing process can affect the environmental impact and performance characteristics of the plaster.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "solar_drying",
+        "mechanical_mixing",
+        "gravimetric_bagging"
+      ],
+      "unit": null,
+      "applicability": [
+        "plaster"
+      ],
+      "evidence": [
+        "Levita Lehmoberputz OP1 ist ein trockener Werkmörtel aus fein gemahlenem solar getrocknetem Baulehm.",
+        "Dosierung, Mischung und gravimetrischen Absackung erfolgen im getrocknetren Zustand der Komponenten."
+      ],
+      "inference_basis": [
+        "The text describes specific manufacturing steps that are relevant to the product's properties."
+      ]
+    }
+  ]
+}

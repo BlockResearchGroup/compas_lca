@@ -1,0 +1,61 @@
+{
+  "document_id": "a03ff232-bddf-44ca-b05a-dcc4f8841bb1",
+  "fields": [
+    {
+      "name": "fire_resistance_rating",
+      "type": "enum",
+      "rationale": "The product is described as 'A1 Non Combustible (EN13501-1)', indicating its fire resistance rating, which is crucial for categorizing insulation materials based on safety standards.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "A1",
+        "A2",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "SUPALUX® is an A1 Non Combustible (EN13501-1) fire-protective calcium silicate board"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "moisture_resistance",
+      "type": "bool",
+      "rationale": "The product is explicitly stated to be resistant to moisture, which is a key property for insulation materials used in damp or humid conditions.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "SUPALUX® is resistant to the effects of moisture and will not physically deteriorate when used in damp or humid conditions."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_location",
+      "type": "string",
+      "rationale": "The EPD specifies that the product is produced in China and installed in Europe, which is important for understanding the geographical applicability and logistics of the product.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Scope: This EPD is representative and relevant for SUPALUX® boards produced by ETEX in Guangzhou (China) and installed in Europe."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

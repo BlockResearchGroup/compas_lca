@@ -1,0 +1,96 @@
+{
+  "document_id": "a23d27be-50e8-47ea-b74c-34e46efd2f44",
+  "fields": [
+    {
+      "name": "insulation_core_material",
+      "type": "string",
+      "rationale": "The insulation core is explicitly described as a rigid thermoset polyisocyanurate (PIR) fibre free insulation core, which is a key material property.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TR26 / TR26 ML is an insulation board with a rigid thermoset polyisocyanurate (PIR) fibre free insulation core."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "facing_material",
+      "type": "string",
+      "rationale": "The product is faced on both sides with a low emissivity composite foil, which is a significant material property affecting thermal performance.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "faced on both sides with a low emissivity composite foil."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_type",
+      "type": "enum",
+      "rationale": "The product is used under mechanically fixed or non-fixed ballasted roofing systems, which defines its application type.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "mechanically_fixed",
+        "non_fixed_ballasted"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "used as thermal insulation under mechanically fixed or non-fixed ballasted roofing systems."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "tapered_design",
+      "type": "bool",
+      "rationale": "The Therma™ TT46 Tapered Roof Board is specifically designed to enhance water drainage from flat roofs, indicating a tapered design.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "Therma™ TT46 Tapered Roof Board is used as thermal insulation under mechanically fixed or non-fixed ballasted roofing systems and enhances water drainage from flat roofs."
+      ],
+      "inference_basis": [
+        "Tapered design is typically used to enhance water drainage."
+      ]
+    },
+    {
+      "name": "manufacturing_location",
+      "type": "enum",
+      "rationale": "The product is manufactured in multiple locations, which can affect supply chain and environmental impact assessments.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "Winterswijk",
+        "Burkhardtsdorf",
+        "Kankaanp"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards"
+      ],
+      "evidence": [
+        "produced by Kingspan Insulation at the manufacturing facilities in Winterswijk (the Netherlands), Burkhardtsdorf (Germany) and Kankaanp (Finland)."
+      ],
+      "inference_basis": [
+        "Multiple manufacturing locations are explicitly listed."
+      ]
+    }
+  ]
+}

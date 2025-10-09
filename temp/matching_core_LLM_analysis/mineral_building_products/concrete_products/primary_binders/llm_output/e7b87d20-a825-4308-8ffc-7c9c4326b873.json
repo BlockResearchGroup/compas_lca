@@ -1,0 +1,92 @@
+{
+  "document_id": "e7b87d20-a825-4308-8ffc-7c9c4326b873",
+  "fields": [
+    {
+      "name": "compressive_strength_class",
+      "type": "enum",
+      "rationale": "The dataset specifies 'C25/30', which indicates the compressive strength class of the concrete, a critical property for structural applications.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "C25/30",
+        "C30/37",
+        "C35/45",
+        "C40/50"
+      ],
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "exposure_classes",
+      "type": "string",
+      "rationale": "The exposure classes 'XC4 XF1 XA1' describe the environmental conditions the concrete is designed to withstand, such as carbonation, freeze-thaw, and chemical attack.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "C25/30 XC4 XF1 XA1 F3 16 M ECOPact"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a fundamental physical property of concrete that affects its weight and structural performance.",
+      "confidence": 0.95,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "density: 2300.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "Layer thickness is relevant for applications where the concrete is used in layers, affecting curing and structural properties.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "layer_thickness: 0.2"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The location of production can influence logistical considerations and environmental impact assessments.",
+      "confidence": 0.85,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "precast_concrete"
+      ],
+      "evidence": [
+        "Transportbetonwerk Fulda, Germany"
+      ],
+      "inference_basis": [
+        "Location mentioned in dataset name and description."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "document_id": "278ba020-5da0-4bfe-aa3c-477e02646244",
+  "fields": [
+    {
+      "name": "insulation_system_type",
+      "type": "enum",
+      "rationale": "The dataset describes an external wall insulation system (EWIS) with mineral scratch plaster, which is a specific type of insulation system.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": [
+        "external_wall_insulation_system",
+        "internal_wall_insulation_system",
+        "roof_insulation_system"
+      ],
+      "unit": null,
+      "applicability": [
+        "boards",
+        "mineral"
+      ],
+      "evidence": [
+        "This dataset covers an external wall insulation system (EWIS) with mineral scratch plaster."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "material_composition",
+      "type": "string",
+      "rationale": "The dataset provides a detailed breakdown of the materials used in the insulation system, which is crucial for understanding its composition.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards"
+      ],
+      "evidence": [
+        "Cement 4.0 kg/m2 Glass fibre mesh 0.18 kg/m2 Reinforcement light (mineral) 8.0 kg/m2 Scratch plaster (mineral) 23.0 kg/m2"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "geographic_representativeness",
+      "type": "string",
+      "rationale": "The dataset specifies that it has good geographic representativeness, which is important for understanding the applicability of the data.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "boards"
+      ],
+      "evidence": [
+        "Good technological, temporal and geographic representativeness."
+      ],
+      "inference_basis": null
+    }
+  ]
+}

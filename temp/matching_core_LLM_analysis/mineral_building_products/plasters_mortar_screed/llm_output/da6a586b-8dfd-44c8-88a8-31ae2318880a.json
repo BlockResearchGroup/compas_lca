@@ -1,0 +1,117 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the product is explicitly provided as 1710 kg/m³, which is a key material property for categorizing and comparing different mortar products.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "density: 1710.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "seismic_approval",
+      "type": "bool",
+      "rationale": "The product is explicitly stated to be ETA approved for seismic C2 category for anchoring, which is a critical functional property for construction materials used in seismic zones.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "HIT-HY170 is ETA approved for seismic C2 category for anchoring."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "component_system",
+      "type": "enum",
+      "rationale": "The product is described as a two-component system, which is a common classification for chemical mortars and affects its application and handling.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "single_component",
+        "two_component",
+        "multi_component"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The declared product of HIT-HY 170 is a two component system."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "styrene_free",
+      "type": "bool",
+      "rationale": "The product is noted to contain no styrene, which is a significant feature for user safety and environmental impact, distinguishing it from other products that may contain volatile organic compounds.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "The reaction resins used in all Hilti hybrid adhesives contain no styrene."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "installation_method",
+      "type": "enum",
+      "rationale": "The product is part of the Hilti SAFEset system, which includes specific installation methods using Hilti Hollow Drill bits and vacuum cleaners, indicating specialized application techniques.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "standard",
+        "safeset",
+        "custom"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Hilti SAFEset is an approved system which makes anchor installation an easier, safer and faster process."
+      ],
+      "inference_basis": [
+        "SAFEset system implies specialized installation method."
+      ]
+    },
+    {
+      "name": "curing_time",
+      "type": "ordinal_enum",
+      "rationale": "The product is described to have high bond strengths within a short curing time, which is a critical performance characteristic for construction materials.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "high bond strengths within a short curing time"
+      ],
+      "inference_basis": [
+        "Short curing time is a key performance indicator for fast-setting mortars."
+      ]
+    }
+  ]
+}

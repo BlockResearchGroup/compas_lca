@@ -1,0 +1,53 @@
+{
+  "document_id": "83514986-e053-4b4b-9570-c04f37babb24",
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the weight and structural performance of the screed.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "The density is 1800 kg/m³."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "float",
+      "rationale": "Thermal conductivity is important for understanding the insulation properties of the screed.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/m·K",
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "Thermal conductivity 1.2 W/mK"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "float",
+      "rationale": "Compressive strength indicates the load-bearing capacity of the screed, which is crucial for its application as a flooring material.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "screed"
+      ],
+      "evidence": [
+        "the compressive strength is 25 N/mm²"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

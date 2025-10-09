@@ -1,0 +1,92 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the mortar is a critical property that affects its structural performance and application suitability.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "density: 1300.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "float",
+      "rationale": "Compressive strength is a key performance indicator for masonry mortars, determining their load-bearing capacity.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "N/mm²",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Compressive strength according to EN 1015-11 at least M10"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "thermal_conductivity",
+      "type": "range",
+      "rationale": "Thermal conductivity is important for understanding the insulation properties of the mortar.",
+      "confidence": 0.9,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "W/(m·K)",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 50 % ≥ 0.29 W/(mK)",
+        "Thermal conductivity according to EN 1745 lambda10,dry,mat / P = 90 % ≥ 0.32 W/(mK)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "mortar_type",
+      "type": "enum",
+      "rationale": "The type of mortar (e.g., thin-bed, special properties) affects its application and performance characteristics.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "thin-bed",
+        "special_properties"
+      ],
+      "unit": null,
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "thin-bed mortar for the production of masonry",
+        "mortar with special properties"
+      ],
+      "inference_basis": [
+        "Mention of thin-bed and special properties mortar types"
+      ]
+    },
+    {
+      "name": "water_vapour_permeability",
+      "type": "range",
+      "rationale": "Water vapour permeability is crucial for assessing the breathability of the mortar, affecting moisture management in structures.",
+      "confidence": 0.8,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "μ",
+      "applicability": [
+        "mortar"
+      ],
+      "evidence": [
+        "Water vapour permeability according to EN 1015-19: 15/35"
+      ],
+      "inference_basis": null
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "document_id": "65aed503-1857-4d20-b2ac-f76f26280e84",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement is described as 'Ternary Blended Cement (Moderate Heat)' and 'Type IT (MH)'. This classification is important for understanding its specific properties and applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "Type IT (MH)",
+        "Other"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Ternary Blended Cement (Moderate Heat)s Holcim Excel Ecopolanet (Type IT (MH) 22 MPa min)"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "compressive_strength",
+      "type": "range",
+      "rationale": "The cement is specified to have a minimum compressive strength of 22 MPa, which is a critical property for structural applications.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "MPa",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Type IT (MH) 22 MPa min"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_heat",
+      "type": "ordinal_enum",
+      "rationale": "The cement is described as 'Moderate Heat', indicating its heat of hydration, which affects its suitability for different construction environments.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Ternary Blended Cement (Moderate Heat)"
+      ],
+      "inference_basis": [
+        "'Moderate Heat' suggests a classification based on heat of hydration."
+      ]
+    },
+    {
+      "name": "main_components",
+      "type": "enum",
+      "rationale": "The cement is composed of clinker, limestone, pozzolan, and slag, which are key components affecting its performance and environmental impact.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "clinker",
+        "limestone",
+        "pozzolan",
+        "slag"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "ternary blended cement composed mostly of clinker and a combination of 2 types of mineral additives such as limestone, pozzolan and slag"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_process",
+      "type": "string",
+      "rationale": "The detailed description of the production process, including the use of a rotary kiln and the cooling of clinker, is crucial for understanding the environmental and technical aspects of the cement.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "The firing process takes place in a rotary kiln, where the material is thermally converted at around 1450 °C and then rapidly cooled."
+      ],
+      "inference_basis": [
+        "The description of the rotary kiln process and cooling is typical for cement production."
+      ]
+    }
+  ]
+}

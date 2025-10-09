@@ -1,0 +1,31 @@
+{
+  "fields": [
+    {
+      "name": "adhesive_type",
+      "type": "enum",
+      "enum_options": [
+        "dispersion_water_based",
+        "solvent_based",
+        "reactive_resin",
+        "butyl_rubber",
+        "acrylic_tape",
+        "other",
+        "unknown"
+      ],
+      "description": []
+    },
+    {
+      "name": "adhesive_form",
+      "type": "enum",
+      "enum_options": [
+        "liquid_paste",
+        "film_tape",
+        "cartridge_sealant",
+        "powder_mixed",
+        "other",
+        "unknown"
+      ],
+      "description": []
+    }
+    ]
+}

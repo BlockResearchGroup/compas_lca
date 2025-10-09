@@ -1,0 +1,54 @@
+{
+  "fields": [
+        {
+            "name": "sealing_form",
+            "type": "enum",
+            "enum_options": [
+            "joint_sealing_tape",
+            "rubber_seal",
+            "sealing_profile",
+            "other",
+            "unknown"
+            ],
+            "description": ["primary visible/structural material of the door/leaf/panels"]
+        },
+        {
+            "name": "sealing_material",
+            "type": "enum",
+            "enum_options": [
+                "epdm_rubber",
+                "silicone_rubber",
+                "chloroprene_rubber",
+                "polysulfide",
+                "polyurethane_elastomer",
+                "butyl_pib",
+                "tpe_s",
+                "tpe_v",
+                "pvc_soft",
+                "polyamide",
+                "pbt_gf",
+                "polypropylene_pe_pp",
+                "mixed_composite",
+                "other",
+                "unknown"
+            ],
+            "description": ["Base polymer or elastomer family of the sealing or insulating component"]
+        },
+        {
+        "name": "sealing_function",
+        "type": "enum",
+        "enum_options": [
+            "air_seal",
+            "waterproofing",
+            "thermal_break",
+            "acoustic_seal",
+            "fire_smoke_seal",
+            "flashing_interface",
+            "multi_function",
+            "other",
+            "unknown"
+        ],
+        "description": "Primary intended function of the sealing or insulating component."
+        }
+    ]
+}

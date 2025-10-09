@@ -1,0 +1,18 @@
+{
+  "fields": [
+        {
+            "name": "wood_flooring_type",
+            "type": "enum",
+            "enum_options": [
+                "Parquet",
+                "Multilayer modular floor covering",
+                "Laminate flooring",
+                "Cork flooring",
+                "Other"
+            ],
+            "description": [
+                "end-use flooring products made from wood or wood-based materials."
+                ]
+        }
+    ]
+}

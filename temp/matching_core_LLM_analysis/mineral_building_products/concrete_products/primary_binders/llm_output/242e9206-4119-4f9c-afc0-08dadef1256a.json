@@ -1,0 +1,105 @@
+{
+  "document_id": "242e9206-4119-4f9c-afc0-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "enum",
+      "rationale": "The cement type is explicitly mentioned as CEM III/A 52,5 N, which is a specific classification of cement according to EN 197-1.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "CEM I",
+        "CEM II",
+        "CEM III",
+        "CEM IV",
+        "CEM V"
+      ],
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Holcim Duo 5 N ist ein Hochofenzement CEM III/A 52,5 N der gemäß EN 197-1 hergestellt und überwacht wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "production_location",
+      "type": "string",
+      "rationale": "The production location is explicitly stated as the Dortmund plant, which is relevant for understanding the geographical context of the product's manufacturing.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Holcim Duo 5 N is manufactured at the Dortmund plant."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "Density is a key material property that affects the performance and application of cement in construction.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "density: 3000.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "hydration_reaction",
+      "type": "bool",
+      "rationale": "The text describes the hydration reaction as a key process in the hardening of cement, which is a critical functional property.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Nach Zugabe von Wasser zum Zement entsteht eine Suspension (Zementleim), die aufgrund einsetzender Hydratationsreaktion sowohl an der Luft als auch unter Wasser erstarrt und erhärtet sowie dauerhaft fest bleibt."
+      ],
+      "inference_basis": [
+        "Hydration reaction is a fundamental process in cement hardening."
+      ]
+    },
+    {
+      "name": "blast_furnace_slag_content",
+      "type": "bool",
+      "rationale": "The use of blast furnace slag is mentioned as a component in the cement, indicating its presence as a material property.",
+      "confidence": 0.7,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder",
+        "cement"
+      ],
+      "evidence": [
+        "Production of blast furnace slag During the production of pig iron in the blast furnace process, liquid blast furnace slag is produced as a by-product."
+      ],
+      "inference_basis": [
+        "Blast furnace slag is commonly used in CEM III type cements."
+      ]
+    }
+  ]
+}

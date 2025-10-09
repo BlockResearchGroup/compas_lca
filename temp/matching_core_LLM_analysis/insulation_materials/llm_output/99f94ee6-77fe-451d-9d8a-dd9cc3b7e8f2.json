@@ -1,0 +1,95 @@
+{
+  "document_id": null,
+  "fields": [
+    {
+      "name": "layer_thickness",
+      "type": "float",
+      "rationale": "The layer thickness of 0.006 meters is crucial for determining the suitability of the insulation for specific applications, especially where space constraints exist.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "m",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "layer_thickness: 0.006"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "closed_cell_structure",
+      "type": "bool",
+      "rationale": "The product is described as being made from closed-cell polyethylene foam, which affects its thermal and acoustic insulation properties.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Geficell® PE TDZ 6.0-1.0 Trittschalldmmungen bestehen aus geschlossenzelligem Polyethylen-Schaum"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "impact_sound_reduction",
+      "type": "float",
+      "rationale": "The product provides an impact sound reduction of up to 19 dB, which is a key performance metric for sound insulation materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "dB",
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "Trittschalldmmungen aus geschlossenzelligem Polyethylen-Schaum mit einem Trittschallverbesserungsma von bis zu 19 dB"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "fire_classification",
+      "type": "enum",
+      "rationale": "The product meets the requirements of fire classification B2 according to DIN 4102, which is important for safety and compliance in building materials.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "erfllt die Anforderungen der Baustoffklasse B2 nach DIN 4102"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "application_area",
+      "type": "enum",
+      "rationale": "The product is used under floating screeds, particularly in areas with low construction heights, such as bathrooms and renovations, which defines its application scope.",
+      "confidence": 0.8,
+      "provenance": "inferred",
+      "enum_options": [
+        "bathrooms",
+        "renovations",
+        "prefabricated houses"
+      ],
+      "unit": null,
+      "applicability": [
+        "foam"
+      ],
+      "evidence": [
+        "The product is used for impact sound insulation under floating screeds. Areas of application are primarily where, due to low construction heights, only very thin impact sound insulation layers can be used - in bathrooms bathrooms, for renovating old buildings and in prefabricated house construction."
+      ],
+      "inference_basis": [
+        "Mention of specific application areas like bathrooms and renovations suggests these as primary use cases."
+      ]
+    }
+  ]
+}

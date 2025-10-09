@@ -1,0 +1,58 @@
+{
+  "document_id": "4b2637d2-5502-4991-b006-08dadef1256a",
+  "fields": [
+    {
+      "name": "cement_type",
+      "type": "string",
+      "rationale": "The cement type is explicitly mentioned as 'Portlandhüttenzement CEM II/B-S 32,5 R', which is a specific classification of cement according to EN 197-1.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "Holcim Ferro 3 R ist ein Portlandhüttenzement CEM II/B-S 32,5 R der gemäß EN 197-1 hergestellt und überwacht wird."
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "density",
+      "type": "float",
+      "rationale": "The density of the cement is explicitly provided as 3050 kg/m³, which is a key material property for cement.",
+      "confidence": 1.0,
+      "provenance": "explicit",
+      "enum_options": null,
+      "unit": "kg/m³",
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "density: 3050.0"
+      ],
+      "inference_basis": null
+    },
+    {
+      "name": "setting_behavior_control",
+      "type": "bool",
+      "rationale": "The addition of a sulfate carrier to control the setting behavior is mentioned, indicating a specific functional property of the cement.",
+      "confidence": 0.9,
+      "provenance": "inferred",
+      "enum_options": null,
+      "unit": null,
+      "applicability": [
+        "mineral",
+        "binder"
+      ],
+      "evidence": [
+        "A sulfate carrier is added to control the setting behavior."
+      ],
+      "inference_basis": [
+        "Sulfate carrier addition implies setting behavior control."
+      ]
+    }
+  ]
+}
