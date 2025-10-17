@@ -29,10 +29,45 @@ class RunMetadata:
     output_cost: Optional[float] = None
     total_cost: Optional[float] = None
 
+    def to_dict(self) -> dict:
+        """Convert metadata (including usage) to a plain serializable dict."""
+        usage_dict = None
+        if self.usage is not None:
+            usage_dict = {
+                "input_tokens": getattr(self.usage, "input_tokens", None),
+                "output_tokens": getattr(self.usage, "output_tokens", None),
+                "total_tokens": getattr(self.usage, "total_tokens", None),
+            }
+
+        return {
+            "started_at": self.started_at,
+            "ended_at": self.ended_at,
+            "duration_s": self.duration_s,
+            "model": self.model,
+            "currency": self.currency,
+            "usage": usage_dict,
+            "costs": {
+                "input_cost": self.input_cost,
+                "output_cost": self.output_cost,
+                "total_cost": self.total_cost,
+            },
+        }
+
+    def to_json(self, *, indent: int = 2, ensure_ascii: bool = False) -> str:
+        """Return a JSON string representation of the metadata."""
+        import json
+        return json.dumps(self.to_dict(), indent=indent, ensure_ascii=ensure_ascii)
 @dataclass
 class Run:
     result: Any
     metadata: RunMetadata
+
+    def save_metadata(self, path: str | Path) -> Path:
+        """Write metadata to a JSON file."""
+        p = Path(path)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(self.metadata.to_json(), encoding="utf-8")
+        return p
 
 class BaseAgent:
     """
