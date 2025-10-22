@@ -16,7 +16,7 @@ from compas_lca.component.ceiling import CeilingFacet
 from compas_lca.component.conveyor import ConveyorFacet
 from compas_lca.component.door import DoorFacet
 from compas_lca.component.roof import RoofFacet
-from compas_lca.component.wall import WallFacet
+from compas_lca.component.curtain_wall import WallFacet
 from compas_lca.component.window import WindowFacet
 
 from compas_lca.enums import ComponentType

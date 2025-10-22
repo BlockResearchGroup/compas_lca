@@ -1,4 +1,3 @@
-from typing import Optional
 from typing import Literal
 
 from pydantic import BaseModel
@@ -6,9 +5,9 @@ from pydantic import Field
 from pydantic import ConfigDict
 
 from compas_lca.enums import ComponentType
+from compas_lca.enums import WindowFittingType
 
-# DRAFT
-class WallFacet(BaseModel):
+class WindowFittingFacet(BaseModel):
 
     model_config = ConfigDict(
         extra="forbid",                 # Forbid extra fields
@@ -17,14 +16,13 @@ class WallFacet(BaseModel):
     )
 
     # Discriminator
-    component_type: Literal[ComponentType.wall] = Field(ComponentType.wall)
+    component_type: Literal[ComponentType.window_fitting] = Field(ComponentType.window_fitting)
 
     # Attributes to be inferred
-    wall_type: Optional[str] = Field(
-        None,
+    window_fitting_type: WindowFittingType = Field(
+        WindowFittingType.unknown,
         description="""
-        PLACEHOLDER
-        Stores wall components (as found in LCA databases)
+        The material from which the window fitting is made
         """,
-        examples=["wall_external_insulation", "masonry_wall_system"]
+        examples=["aluminium", "brass", "zinc"]
     )

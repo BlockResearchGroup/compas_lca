@@ -6,8 +6,9 @@ from pydantic import Field
 from pydantic import ConfigDict
 
 from compas_lca.enums import ComponentType
+from compas_lca.enums import CeilingType
+from compas_lca.enums import CeilingForm
 
-# DRAFT
 class CeilingFacet(BaseModel):
 
     model_config = ConfigDict(
@@ -20,11 +21,18 @@ class CeilingFacet(BaseModel):
     component_type: Literal[ComponentType.ceiling] = Field(ComponentType.ceiling)
 
     # Attributes to be inferred
-    ceiling_type: Optional[str] = Field(
+    ceiling_type: CeilingType = Field(
+        CeilingType.unknown,
+        description="""
+        Ceiling type based on dominant/primary material composition & buildup
+        """,
+        examples=["gypsum_board", "wood_panel", "metal_mesh"]
+    )
+    ceiling_form: Optional[CeilingForm] = Field(
         None,
         description="""
-        PLACEHOLDER
-        Stores ceiling components (as found in LCA databases)
+        How the ceilings are built or supported.
+        Construction system and/or form.
         """,
-        examples=["acoustic_ceiling", "technical_ceiling", "multilayer_system"]
+        examples=["suspended", "direct_applied", "vaulted"]
     )

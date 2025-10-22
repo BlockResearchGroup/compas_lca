@@ -6,6 +6,7 @@ from pydantic import Field
 from pydantic import ConfigDict
 
 from compas_lca.enums import ComponentType
+from compas_lca.enums import RoofType
 
 # DRAFT
 class RoofFacet(BaseModel):
@@ -20,11 +21,10 @@ class RoofFacet(BaseModel):
     component_type: Literal[ComponentType.roof] = Field(ComponentType.roof)
 
     # Attributes to be inferred
-    roof_type: Optional[str] = Field(
-        None,
+    roof_type: RoofType = Field(
+        RoofType.unknown,
         description="""
-        PLACEHOLDER
-        Stores roof components (as found in LCA databases)
+        The type of roof or roof superstructure described in the dataset
         """,
         examples=["flat_roof", "pitched_roof", "green_roof"]
     )

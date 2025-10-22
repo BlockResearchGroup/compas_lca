@@ -77,17 +77,18 @@ class MaterialCommon(BaseModel):
     functional_types: List[FunctionalTypes] = Field(
         [FunctionalTypes.unknown],
         description="""
-        List of the product's intended functional roles (i.e., function or function-related layer type)
-        as explicitly declared in the input dataset.
-
-        Rules:
-        - Choose one single best PRIMARY intent whenever possible.
-        - Add additional values ONLY if the material/product explicitly serves multiple 
-        primary functions simultaneously (e.g., “thermal + acoustic insulation” panel).
-        - If the role is not clearly stated in the raw data, keep “unknown”.
+        A list describing the **intended functional roles** of the product within a building assembly.  
+        Each item represents a distinct **function or function-related layer type** that the product
+        fulfills (e.g., load-bearing, insulating, finishing, sealing).
+        This information should be **derived from the product's declared use, technical description, or
+        implied function** based on its material type or category.
+        - Use one or more roles if the product clearly performs multiple functions 
+        (for example, a product that provides both structural support and thermal insulation).
+        - If no function is specified or can be confidently inferred, use `"unknown"`.
         """,
         examples=[
             ["structural"],
+            ["structural", "thermal_insulation"],
             ["thermal_insulation", "acoustic_insulation"],
             ["covering", "lining"],
             ["membrane", "waterproofing"]

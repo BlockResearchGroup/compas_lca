@@ -6,6 +6,7 @@ from pydantic import Field
 from pydantic import ConfigDict
 
 from compas_lca.enums import ComponentType
+from compas_lca.enums import BuildingServiceType
 
 # DRAFT
 class BuildingSystemFacet(BaseModel):
@@ -17,14 +18,13 @@ class BuildingSystemFacet(BaseModel):
     )
 
     # Discriminator
-    component_type: Literal[ComponentType.building_system] = Field(ComponentType.building_system)
+    component_type: Literal[ComponentType.building_services] = Field(ComponentType.building_services)
 
     # Attributes to be inferred
-    building_system_type: Optional[str] = Field(
-        None,
+    building_service_type: BuildingServiceType = Field(
+        BuildingServiceType.unknown,
         description="""
-        PLACEHOLDER
-        Stores building system components (as found in LCA databases)
+        Type of technical installation or buildign service system
         """,
-        examples=["pv_panel", "heat_exchanger", "hvac_system"]
+        examples=["pv_panel", "air_conditioning", "building_automation"]
     )

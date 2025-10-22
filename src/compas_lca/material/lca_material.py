@@ -64,6 +64,9 @@ class LcaMaterial(BaseModel):
     # create UUID for an LcaMaterial instance
     id: UUID = Field(default_factory=uuid4)
 
+    # ratio (default=1.0, if inferred by dissection, e.g., reinforced concrete, injected by script)
+    volumetric_ratio: float = 1.0
+
     # carry-over shared fields from LcaMaterialCommon
     name: str
     functional_types: List[FunctionalTypes] = [FunctionalTypes.unknown]
@@ -78,8 +81,8 @@ class LcaMaterial(BaseModel):
     thickness: ThicknessFloat = Field(None, ge=0)
     thermal_conductivity: LambdaFloat = Field(None, ge=0)
     u_value: UValueFloat = Field(None, ge=0)
-    fire_retardant = Optional[bool] = None
-    water_vapour_resistant = Optional[bool] = None
+    fire_retardant: Optional[bool] = None
+    water_vapour_resistant: Optional[bool] = None
 
     # discriminated facet
     facet: FacetUnion
@@ -90,6 +93,16 @@ class LcaMaterial(BaseModel):
     def material_type(self) -> MaterialType:
         return self.facet.material_type
 
+
+# volumetric_ratio is always 1.0 by default
+# if it is part of a disaggregation, then overwrite like so:
+"""
+mat = LcaMaterial(
+    name="Reinforcement steel",
+    volumetric_ratio=0.12, -> INFERRED BY LLM
+    facet=MetallicFacet(material_type="metallic", ...)
+)
+"""
 
 def assemble_lca_material(common: MaterialCommon, facet: FacetUnion) -> LcaMaterial:
 

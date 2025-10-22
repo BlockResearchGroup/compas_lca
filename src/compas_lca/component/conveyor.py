@@ -1,4 +1,3 @@
-from typing import Optional
 from typing import Literal
 
 from pydantic import BaseModel
@@ -6,8 +5,8 @@ from pydantic import Field
 from pydantic import ConfigDict
 
 from compas_lca.enums import ComponentType
+from compas_lca.enums import ConveyorType
 
-# DRAFT
 class ConveyorFacet(BaseModel):
 
     model_config = ConfigDict(
@@ -20,11 +19,10 @@ class ConveyorFacet(BaseModel):
     component_type: Literal[ComponentType.conveyor] = Field(ComponentType.conveyor)
 
     # Attributes to be inferred
-    conveyor_type: Optional[str] = Field(
-        None,
+    conveyor_type: ConveyorType = Field(
+        ConveyorType.unknown,
         description="""
-        PLACEHOLDER
-        Stores conveyor components (as found in LCA databases)
+        Type of conveyor
         """,
         examples=["elevator", "escalator", "wormhole"]
     )

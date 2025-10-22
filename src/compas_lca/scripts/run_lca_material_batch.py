@@ -17,8 +17,8 @@ load_dotenv()
 
 def main() -> None:
     # === EDIT THESE ARGUMENTS ==========================================
-    input_dir = Path("temp/lca_material/in")      # directory with input files
-    output_dir = Path("temp/lca_material/out")    # directory where results are saved
+    input_dir = Path("temp/lca_material_batch/a_store/in")      # directory with input files
+    output_dir = Path("temp/lca_material_batch/out_gpt5")    # directory where results are saved
     write_output = True
     write_meta = True
     input_format = InputFormat.json                   # options: InputFormat.json / .pdf / .txt
