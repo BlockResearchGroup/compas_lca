@@ -1,27 +1,19 @@
 from typing import Optional
-from typing import Literal
 
 from pydantic import BaseModel
 from pydantic import Field
 from pydantic import ConfigDict
 
-from compas_lca.enums import MaterialType
 from compas_lca.enums import BituminousType
 from compas_lca.enums import BituminousForm
 
 
 class BituminousFacet(BaseModel):
-
     model_config = ConfigDict(
-        extra="forbid",                 # Forbid extra fields
-        validate_assignment=True,       # Validate fields on assignment
-        str_strip_whitespace=True       # Strip leading/trailing whitespace for str types
+        extra="forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
-
-    # Discriminator
-    material_type: Literal[MaterialType.bituminous] = Field(MaterialType.bituminous)
-
-    # Attributes to be inferred
     bituminous_type: BituminousType = Field(
         BituminousType.unknown,
         description="""

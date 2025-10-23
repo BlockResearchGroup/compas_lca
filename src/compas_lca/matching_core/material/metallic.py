@@ -1,11 +1,9 @@
-from typing import Literal
 from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import MaterialType
 from compas_lca.enums import MetallicType
 from compas_lca.enums import MetallicForm
 from compas_lca.enums import MetallicForming
@@ -14,17 +12,11 @@ from compas_lca.enums import MetallicSurfaceTreatment
 
 
 class MetallicFacet(BaseModel):
-
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra="forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
-
-    # Discriminator
-    material_type: Literal[MaterialType.metallic] = Field(MaterialType.metallic)
-
-    # attributes to be inferred
     metallic_type: MetallicType = Field(
         MetallicType.unknown,
         description="""
@@ -34,8 +26,8 @@ class MetallicFacet(BaseModel):
         """,
         examples=["carbon_steel", "stainless_steel", "aluminum", "copper", "other"]
     )
-    metallic_production: MetallicProduction = Field(
-        MetallicProduction.unknown,
+    metallic_production: Optional[MetallicProduction] = Field(
+        None,
         description="""
         Production route of the metallic material, referring to the 
         metallurgical process used to produce the base metal or alloy before shaping or forming. 

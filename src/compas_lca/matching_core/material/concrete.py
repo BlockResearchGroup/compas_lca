@@ -5,38 +5,31 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import MaterialType
 from compas_lca.enums import ConcreteType
 from compas_lca.enums import ConcreteForm
 from compas_lca.enums import BinderType
 
 
 class ConcreteFacet(BaseModel):
-
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra="forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
-
-    # Discriminator
-    material_type: Literal[MaterialType.concrete] = Field(MaterialType.concrete, exclude=True)
-
-    # attributes to be inferred
     concrete_type: ConcreteType = Field(
         ConcreteType.unknown,
         description="fundamental property of concrete or cementitious binder product",
         examples=["ready_mixed", "self_compacting"]
     )
-    concrete_form: ConcreteForm = Field(
-        ConcreteForm.unknown,
+    concrete_form: Optional[ConcreteForm] = Field(
+        None,
         description="""
         Physical form or geometric configuration of the concrete/cementitious-based product. 
         """,
         examples=["cast-in-place","block", "printed"]
     )
-    binder_type: BinderType = Field(
-        BinderType.unknown,
+    binder_type: Optional[BinderType] = Field(
+        None,
         description="""
         Type of binder used for concrete product
         """,

@@ -1,27 +1,19 @@
 from typing import Optional
-from typing import Literal
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import MaterialType
 from compas_lca.enums import PolymericType
 from compas_lca.enums import PolymericForm
 
 
 class PolymericFacet(BaseModel):
-
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra="forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
-
-    # Discriminator
-    material_type: Literal[MaterialType.polymeric] = Field(MaterialType.polymeric)
-
-    # attributes to be inferred
     polymeric_type: PolymericType = Field(
         PolymericType.unknown,
         description="""
