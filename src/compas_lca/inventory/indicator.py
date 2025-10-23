@@ -1,6 +1,5 @@
 from typing import Dict
 from typing import List
-from typing import Literal
 from typing import Optional
 
 from pydantic import BaseModel
@@ -76,7 +75,7 @@ class Indicator(BaseModel):
 
 class Indicators(BaseModel):
     """
-    Collection of Indicator items for one LCA database entry.
+    Collection of Indicator items for one EPD or LCA database entry.
     """
 
     model_config = ConfigDict(
