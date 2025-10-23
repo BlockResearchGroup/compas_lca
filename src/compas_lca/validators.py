@@ -377,8 +377,8 @@ ManufacturerStr = Annotated[Optional[str], BeforeValidator(_normalize_manufactur
 ParsedNumber = Annotated[Number, BeforeValidator(_parse_number)]
 
 # Domain-specific enums normalized from flexible inputs
-LoadbearingType = Annotated["Loadbearing", BeforeValidator(_to_loadbearing)]
-InteriorExteriorType  = Annotated["InteriorExterior", BeforeValidator(_to_inex)]
+LoadbearingType = Annotated[Loadbearing, BeforeValidator(_to_loadbearing)]
+InteriorExteriorType  = Annotated[InteriorExterior, BeforeValidator(_to_inex)]
 
 # Normalized Floats (addressing potential unit inclusions)
 DensityFloat = Annotated[Optional[float], BeforeValidator(_normalize_density)]
@@ -391,4 +391,4 @@ ThicknessFloat = Annotated[Optional[float], BeforeValidator(_normalize_thickness
 FiniteFraction = Annotated[float, BeforeValidator(_finite_fraction)]
 
 # Public Annotated type
-MaterialTypeValidated = Annotated["MaterialType", BeforeValidator(_to_material_type)]
+MaterialTypeValidated = Annotated[MaterialType, BeforeValidator(_to_material_type)]
