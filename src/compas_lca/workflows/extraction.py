@@ -2,20 +2,28 @@ from pathlib import Path
 
 import json
 
+from compas_lca.enums import InputFormat
+from compas_lca.enums import EntryType
+
 from compas_lca.llm.agent import BaseAgent
 from compas_lca.llm.context import Context
-from compas_lca.llm.ctx.material_context import COMMON_CTX
+from compas_lca.llm.ctx.extraction_context import COMMON_CTX
+from compas_lca.llm.ctx.extraction_context import MATERIAL_COMMON_CTX
+from compas_lca.llm.ctx.extraction_context import COMPONENT_COMMON_CTX
 
-from compas_lca.enums import InputFormat
+from compas_lca.maps import CTX_BY_COMP_TYPE
+from compas_lca.maps import MODEL_BY_COMP_TYPE
+from compas_lca.maps import CTX_BY_MAT_TYPE
+from compas_lca.maps import MODEL_BY_MAT_TYPE
 
-from compas_lca.maps import CTX_BY_TYPE
-from compas_lca.maps import MODEL_BY_TYPE
+from compas_lca.matching_core.common import Common
+from compas_lca.matching_core.material.common import MaterialCommon
+from compas_lca.matching_core.component.common import ComponentCommon
 
-from compas_lca.material.common import MaterialCommon
-
-from compas_lca.material.lca_material import LcaMaterial
-from compas_lca.material.lca_material import assemble_lca_material
-
+from compas_lca.matching_core.material.core import assemble_material_core
+from compas_lca.matching_core.component.core import assemble_component_core
+from compas_lca.matching_core.core import assemble_matching_core
+from compas_lca.matching_core.core import MatchingCore
 
 # ===================================================================
 # Run a BaseAgent on a JSON input file and save its structured output
@@ -116,38 +124,37 @@ EXTRACTOR_BY_FORMAT = {
     InputFormat.txt:  extract_txt_with_agent,
 }
 
-def to_lca_material(
+def to_matching_core(
     input_path: str | Path,
     output_dir: str | Path,
     write_output: bool = False,
     write_meta: bool = False,
     input_format: InputFormat = InputFormat.json
-) -> LcaMaterial:
+) -> MatchingCore:
     """
-    Process a single input file (json/pdf/txt) into an LcaMaterial instance.
-    Extracts information  from any source describing a material with a BaseAgent.
+    Process a single input file (json/pdf/txt) into a MatchingCore instance.
+    Extracts information from any source describing a material or component with a BaseAgent.
 
     Args:
         input_path:     Path to input file
-        output_dir:     Directory where the returned LcaMaterial should be saved
-        write_output:   If True, serialize the LcaMaterial as JSON file (default: False)
+        output_dir:     Directory where the returned MatchingCore should be saved
+        write_output:   If True, serialize the MatchingCore as JSON file (default: False)
         write_meta:     If True, write a separate metadata JSON file (default: False)
         input_format:   Specify input format ("json", "pdf", "txt")
 
     Pipeline:
-      1) Run COMMON_CONTEXT with the selected extractor (by input_format)
-      2) Inspect common.type (MaterialType)
-      3) Run the matching facet context with the same extractor
-      4) Assemble LcaMaterial(common, facet)
-      5) Optionally write '<stem>_lca_material.json'
+        Pass 1: Run the generic COMMON context to infer `entry_type` (material|component) and shared fields (-> Common)
+        Pass 2: Run the entry-specific common context (-> MaterialCommon or ComponentCommon)
+        Pass 3: Run the facet context based on type (-> corresponding Facet)
     """
     # allow passing a plain string like "PDF" or "pdf"
     if isinstance(input_format, str):
         try:
             input_format = InputFormat(input_format.lower())
         except ValueError as e:
-            raise ValueError(f"Unsupported input_format '{input_format}'. "
-                             f"Use one of: {[m.value for m in InputFormat]}") from e
+            raise ValueError(
+                f"Unsupported input_format '{input_format}'. Use one of: {[m.value for m in InputFormat]}"
+            ) from e
 
     extractor = EXTRACTOR_BY_FORMAT.get(input_format)
     if extractor is None:
@@ -157,7 +164,9 @@ def to_lca_material(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # PASS 1: MaterialCommon
+    # ----------------------
+    # PASS 1: Generic Common
+    # ----------------------
     extractor(
         input_path=input_path,
         output_dir=output_dir,
@@ -165,45 +174,106 @@ def to_lca_material(
         write_meta=write_meta,
         suffix="_common"
     )
-
-    # Read the common output for inferred material type
     common_out_path = output_dir / f"{input_path.stem}_common.json"
     with common_out_path.open("r", encoding="utf-8") as f:
         common_payload = json.load(f)
-    common = MaterialCommon.model_validate(common_payload)
-    type = common.material_type
-    if type is None:
-        raise ValueError("'material_type' was not inferred (None).")
-    if type not in CTX_BY_TYPE or type not in MODEL_BY_TYPE:
-        raise ValueError(
-            f"No facet mapping defined for material type '{type}'. "
+    common = Common.model_validate(common_payload)
+
+    if common.entry_type is None:
+        raise ValueError("'entry_type' was not inferred (None). Expected 'material' or 'component'.")
+
+    # -----------------
+    # PASS 2: Entry-specific Common
+    # -----------------
+    if common.entry_type == EntryType.material:
+        extractor(
+            input_path=input_path,
+            output_dir=output_dir,
+            context=MATERIAL_COMMON_CTX,
+            write_meta=write_meta,
+            suffix="_material_common",
         )
-    facet_ctx = CTX_BY_TYPE[type]
-    facet_model = MODEL_BY_TYPE[type]
+        spec_common_out = output_dir / f"{input_path.stem}_material_common.json"
+        with spec_common_out.open("r", encoding="utf-8") as f:
+            spec_common_payload = json.load(f)
+        specific_common = MaterialCommon.model_validate(spec_common_payload)
 
-    # PASS 2: Facet matching the inferred type
-    extractor(
-        input_path=input_path,
-        output_dir=output_dir,
-        context=facet_ctx,
-        write_meta=write_meta,
-        suffix="_facet"
-    )
+        mtype = specific_common.material_type
+        name = getattr(mtype, "value", getattr(mtype, "name", str(mtype)))
+        if name.lower() in {"unknown", "other"} or \
+        mtype not in CTX_BY_MAT_TYPE or mtype not in MODEL_BY_MAT_TYPE:
+            facet_ctx = None
+            facet_model = None
+            facet = {}        # we'll just use this below
+        else:
+            facet_ctx = CTX_BY_MAT_TYPE[mtype]
+            facet_model = MODEL_BY_MAT_TYPE[mtype]
+            facet = None
 
-    # Read the facet output 
-    facet_out_path = output_dir / f"{input_path.stem}_facet.json"
-    with facet_out_path.open("r", encoding="utf-8") as f:
-        facet_payload = json.load(f)
-    facet = facet_model.model_validate(facet_payload)
+    elif common.entry_type == EntryType.component:
+        extractor(
+            input_path=input_path,
+            output_dir=output_dir,
+            context=COMPONENT_COMMON_CTX,
+            write_meta=write_meta,
+            suffix="_component_common",
+        )
+        spec_common_out = output_dir / f"{input_path.stem}_component_common.json"
+        with spec_common_out.open("r", encoding="utf-8") as f:
+            spec_common_payload = json.load(f)
+        specific_common = ComponentCommon.model_validate(spec_common_payload)
 
-    # Assemble LcaMaterial instance
-    lca_material = assemble_lca_material(common, facet)
+        ctype = specific_common.component_type
+        name = getattr(ctype, "value", getattr(ctype, "name", str(ctype)))
+        if name.lower() in {"unknown", "other"} or \
+        ctype not in CTX_BY_COMP_TYPE or ctype not in MODEL_BY_COMP_TYPE:
+            facet_ctx = None
+            facet_model = None
+            facet = {}        # just skip facet extraction
+        else:
+            facet_ctx = CTX_BY_COMP_TYPE[ctype]
+            facet_model = MODEL_BY_COMP_TYPE[ctype]
+            facet = None
 
-    # Optional: persist the assembled result
+    else:
+        raise ValueError(f"Unsupported entry_type '{common.entry_type}'.")
+
+    # -----------------
+    # PASS 3: Facet
+    # -----------------
+    if facet_ctx is not None:
+        extractor(
+            input_path=input_path,
+            output_dir=output_dir,
+            context=facet_ctx,
+            write_meta=write_meta,
+            suffix="_facet",
+        )
+        facet_out_path = output_dir / f"{input_path.stem}_facet.json"
+        with facet_out_path.open("r", encoding="utf-8") as f:
+            facet_payload = json.load(f)
+        facet = facet_model.model_validate(facet_payload)
+    else:
+        # Skip Pass 3 for unknown/other → facet already {}
+        pass
+
+    # -----------------
+    # Assemble cores
+    # -----------------
+    if common.entry_type == EntryType.material:
+        material_core = assemble_material_core(specific_common, facet)
+        matching_core = assemble_matching_core(common, material_core)
+        out_name = f"{input_path.stem}_matching_core_material.json"
+    else:
+        component_core = assemble_component_core(specific_common, facet)
+        matching_core = assemble_matching_core(common, component_core)
+        out_name = f"{input_path.stem}_matching_core_component.json"
+
+    # Optional: persist final MatchingCore
     if write_output:
-        material_path = output_dir / f"{input_path.stem}_lca_material.json" # note: perhaps the UUID instead?
-        with material_path.open("w", encoding="utf-8") as f:
-            json.dump(lca_material.model_dump(mode="json"), f, ensure_ascii=False, indent=2)
-        print(f"[OK] wrote {material_path}")
+        core_path = output_dir / out_name
+        with core_path.open("w", encoding="utf-8") as f:
+            json.dump(matching_core.model_dump(mode="json"), f, ensure_ascii=False, indent=2)
+        print(f"[OK] wrote {core_path}")
 
-    return lca_material
+    return matching_core
