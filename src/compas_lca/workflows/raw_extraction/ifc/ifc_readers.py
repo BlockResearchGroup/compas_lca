@@ -33,6 +33,32 @@ def load_ifc_file(filepath, use_occ: bool = False):
     except Exception as e:
         raise RuntimeError(f"Failed to load file: {e}")
 
+
+def load_ifc_units(model: Model) -> dict:
+    """
+    Returns IFC units exactly as defined (no conversions or remapping).
+    For most metric models, all units are IfcSIUnit types.
+    """
+    unit_assignments = model.get_entities_by_type("IfcUnitAssignment") or []
+    relevant_units = {"LENGTHUNIT", "AREAUNIT", "VOLUMEUNIT"}
+    units = {}
+
+    for assignment in unit_assignments:
+        for u in getattr(assignment, "Units", []) or []:
+            utype = getattr(u, "UnitType", None)
+            if utype not in relevant_units:
+                continue
+            units[utype] = {
+                "UnitType": utype,
+                "Name": getattr(u, "Name", None),
+                "Prefix": getattr(u, "Prefix", None),
+            }
+
+    return units
+
+
+
+
 class PsetReader:
     """Small façade over your procedural helpers. Holds caches so calls are short."""
     def __init__(self, caches: IfcCaches):
