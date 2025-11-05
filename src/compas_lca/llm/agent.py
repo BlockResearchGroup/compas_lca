@@ -57,6 +57,26 @@ class RunMetadata:
         """Return a JSON string representation of the metadata."""
         import json
         return json.dumps(self.to_dict(), indent=indent, ensure_ascii=ensure_ascii)
+    
+    def summary(self) -> dict:
+        """
+        Flat summary used by downstream aggregation/merging.
+        Keep this EXACT schema stable because extract_matching_core aggregates it.
+        """
+        usage = self.usage
+        input_tokens = getattr(usage, "input_tokens", None) if usage else None
+        output_tokens = getattr(usage, "output_tokens", None) if usage else None
+        total_cost = self.total_cost
+
+        return {
+            "model": self.model,
+            "duration_s": self.duration_s,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "currency": self.currency,
+            "total_cost": total_cost,
+        }
+
 @dataclass
 class Run:
     result: Any

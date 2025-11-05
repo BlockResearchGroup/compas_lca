@@ -19,6 +19,8 @@ from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
+from compas_lca.matching_core.component.stairs import StairFacet
+from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 
@@ -26,7 +28,109 @@ from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 # %%%%%%%%% COMMON EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-COMMON_CTX = Context(
+ELEMENT_COMMON_CTX = Context(
+    instructions=(
+        "TASK\n"
+        "Classify a BUILDING MODEL ELEMENT record as \"material\", \"component\", or \"unknown\".\n"
+        "Populate only the requested fields. Do not invent data.\n"
+        "\n"
+        "HARD OVERRIDES\n"
+        "1. Always \"component\" for unitized/assemblies, even if sub-materials are listed:\n"
+        "   IFC classes: IfcWindow, IfcDoor, IfcCurtainWall, IfcBuildingElementProxy (when describing a unit), "
+        "and all IfcFlow* / IfcDistribution* devices or equipment "
+        "(MEP fixtures, HVAC units, lighting fixtures, sanitary fixtures).\n"
+        "\n"
+        "2. Always \"material\" when the record clearly and exclusively describes a single "
+        "homogeneous material or monolithic composite with a single thickness/section "
+        "applying to the whole element.\n"
+        "   Evidence: material_data.entity = IfcMaterialLayerSetUsage and len(material_layers) = 1 "
+        "with a clear material_name (e.g., \"Concrete - Cast In Situ\") and a single thickness. "
+        "Also treat monolithic composites (e.g., reinforced concrete, glulam) as one material "
+        "for this purpose.\n"
+        "\n"
+        "SECONDARY RULES (when no hard override applies)\n"
+        "- If multiple distinct layers (e.g., len(material_layers) > 1) or an explicit multi-material "
+        "list (IfcMaterialList / multiple material_names), classify as \"component\" "
+        "(or route to a multilayer workflow upstream).\n"
+        "\n"
+        "- For structural primitives like IfcSlab, IfcWall, IfcBeam, IfcColumn, IfcFooting:\n"
+        "  * If single identified material + one thickness/section → \"material\".\n"
+        "  * Otherwise (composite build-up unknown or multi-layer) → \"component\" (or multilayer).\n"
+        "\n"
+        "- If the record is ambiguous or purely administrative → \"unknown\".\n"
+        "\n"
+        "DISAMBIGUATION EXAMPLES\n"
+        "- \"Floor: 150 mm Exterior Slab on Grade\" with one layer \"Concrete – Cast In Situ\", "
+        "thickness 0.15 m → material.\n"
+        "- \"Residential Wall – gypsum + studs + sheathing\" (multi layer) → component.\n"
+        "- \"Window type A, frame material: wood\" → component (unitized product EPDs).\n"
+        "- \"W310x60 steel beam, S355\" → material (single material section).\n"
+        "\n"
+        "GENERAL PRINCIPLES\n"
+        "- Prefer \"material\" when there is a single, uniform material and a uniform "
+        "thickness/section for the whole element.\n"
+        "- Use \"component\" only with clear evidence of an installable assembly or "
+        "multiple separable materials.\n"
+        "- Do not infer missing values; copy only what is present.\n"
+    ),
+    output_type=Common
+)
+
+
+"""
+OLD: CAN MAYBE TEST COMPARISON LATER
+ELEMENT_COMMON_CTX = Context(
+    instructions=(
+        "TASK\n"
+        "You are classifying a BUILDING MODEL ELEMENT record (from BIM/IFC/Revit). "
+        "By default, such a record represents a single material element. "
+        "If the record clearly and exclusively describes a single homogeneous material or a uniform material layer, classify it as material. "
+        "If the record instead represents an installable assembly, or system-level building element, classify it as component. "
+        "If the element does not describe anything tangible or attributable to a building, classify as unknown."
+        "Populate the output schema exactly from the input; never infer or assume values.\n"
+        "\n"
+        "Instructions for figuring out the entry_type:\n"
+        "DECISION ORDER (apply top-to-bottom)\n"
+        "\n"
+        "Material (default) → entry_type=\"material\"\n"
+        "Choose this when the record clearly describes a single, uniform material (or an integrated monolithic composite) "
+        "as the element, with no separable parts and no multilayer build-up. "
+        "Acceptable evidence includes explicit material identity (name, grade, or standard) and single-layer geometry "
+        "(thickness, section, or density) applying to the entire element.\n"
+        "Examples:\n"
+        "“Reinforced concrete C30/37, t=200 mm” (monolithic integrated composite)\n"
+        "“CLT panel 5-ply, t=120 mm (single manufactured panel type)” (counts as integrated monolith for this purpose)\n"
+        "“GL24h glulam beam 140×360 mm”\n"
+        "“AAC block 300 mm”, “Gypsum board 12.5 mm”, “XPS insulation board 100 mm”, “Steel plate S355 8 mm”\n"
+        "“Fiber-cement panel 12 mm”, “WPC decking board 22 mm”\n"
+        "\n"
+        "Component (override) → entry_type=\"component\"\n"
+        "Select this when the record describes an installable unit, assembly, or functional building element, "
+        "typically with separable parts, interfaces, or hardware; or when it represents a system-level abstraction "
+        "(even if materials are listed individually). "
+        "Examples (non-exhaustive): window or door unit, ceiling system (tiles + grid)"
+        "duct run, HVAC device, lighting fixture, sanitary fixture, frame, truss, pipe network, or "
+        "“wall/slab/roof element without any further information about individual layers and/or materials.\n"
+        "\n"
+        "Unknown → entry_type=\"unknown\"\n"
+        "Use when the record is ambiguous, contradictory, or lacks enough detail to satisfy (1) or (2).\n"
+        "\n"
+        "General principles\n"
+        "Default to material for building-model elements; switch to component only with clear system-level abstraction or installable unit/assembly evidence.\n"
+        "Do not infer; copy values exactly; leave fields at default if missing."
+    ),
+    output_type=Common
+)
+"""
+
+LAYER_COMMON_CTX = Context(
+    instructions=(
+    ),
+    output_type=Common
+)
+
+
+ITEM_COMMON_CTX = Context(
     instructions=(
         "You are an expert at extracting important data from a dataset describing a building MATERIAL or COMPONENT."
         " INPUT may be a JSON string, PDF text, or TXT. Carefully EXTRACT all relevant information and populate the output schema."
@@ -165,6 +269,16 @@ ROOF_CTX = Context(
 SHADING_CTX = Context(
     instructions=TEMPLATE.format(entry="a shading device"),
     output_type=ShadingFacet
+)
+
+STAIR_CTX = Context(
+    instructions=TEMPLATE.format(entry="a stair"),
+    output_type=StairFacet
+)
+
+RAILING_CTX = Context(
+    instructions=TEMPLATE.format(entry="a railing"),
+    output_type=RailingFacet
 )
 
 WINDOW_CTX = Context(
