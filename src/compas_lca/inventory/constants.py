@@ -1,10 +1,13 @@
 from typing import Literal
 
 # Life cycle stages defined by EN 15804
-STAGE_NAME = Literal["A1-A3", "A4", "A5", "C1", "C2", "C3", "C4", "D"]
+EN15978_STAGES = Literal[
+    "A1-A3", "A1", "A2", "A3", "A4", "A5", 
+    "B1", "B2", "B3", "B4", "B5", "B6", "B7",
+    "C1", "C2", "C3", "C4", "D"]
 
 # Indicators defined by ILCD+EPD dataformat
-INDICATOR_NAME = Literal[
+OBD_INDICATOR_NAME = Literal[
     # Core environmental indicators
     "GWPtotal",
     "GWPbiogenic",
@@ -12,12 +15,12 @@ INDICATOR_NAME = Literal[
     "GWPluluc", # land use and land use change
     "ODP", # ozone depletion potential
     "AP", # acidification potential
-    "EPfw", # eutrophication potential freshwater
+    "EPfreshwater", # eutrophication potential freshwater
     "EPmarine", # eutrophication potential marine
     "EPterrestrial", # eutrophication potential terrestrial
     "POCP", # photochemical ozone creation potential
-    "ADPM", # abiotic depletion potential for non-fossil resources
-    "ADPF", # abiotic depletion potential for fossil resources
+    "ADPE", # abiotic depletion potential for elements, non-renewable mineral resources (e.g. metals, ores)
+    "ADPF", # abiotic depletion potential for fossil resources, non-renewable fossil energy resources (oil, coal, gas)
     "WDP", # water depletion potential
 
     # Additional Environmental Indicators
@@ -26,7 +29,7 @@ INDICATOR_NAME = Literal[
     "ETPfw", # potential comparative toxic unit for ecosystems
     "HTPc", # potential comparative toxic unit for humans, cancer effects
     "HTPnc", # potential comparative toxic unit for humans, non-cancer effects
-    "SQP", # potential soil quality index
+    "SOP", # potential soil quality index
 
     # Indicators describing resource use
     "PERE", # use of renewable primary energy excluding renewable primary energy resources used as raw materials
@@ -54,7 +57,7 @@ INDICATOR_NAME = Literal[
 ]
 
 # Canonical mapping from indicator name → unit
-INDICATOR_UNITS: dict[INDICATOR_NAME, str] = {
+OBD_INDICATOR_UNITS: dict[OBD_INDICATOR_NAME, str] = {
     # Core environmental indicators
     "GWPtotal": "kg CO2 eq",
     "GWPbiogenic": "kg CO2 eq",
@@ -62,11 +65,11 @@ INDICATOR_UNITS: dict[INDICATOR_NAME, str] = {
     "GWPluluc": "kg CO2 eq",
     "ODP": "kg CFC-11 eq",
     "AP": "mol H+ eq",
-    "EPfw": "kg P eq",
+    "EPfreshwater": "kg P eq",
     "EPmarine": "kg N eq",
     "EPterrestrial": "mol N eq",
     "POCP": "kg NMVOC eq",
-    "ADPM": "kg Sb eq",
+    "ADPE": "kg Sb eq",
     "ADPF": "MJ",
     "WDP": "m3 world eq. deprived",
 
@@ -76,7 +79,7 @@ INDICATOR_UNITS: dict[INDICATOR_NAME, str] = {
     "ETPfw": "CTUe",  # Comparative Toxic Unit for ecosystems
     "HTPc": "CTUh",  # Comparative Toxic Unit for humans, cancer
     "HTPnc": "CTUh", # Comparative Toxic Unit for humans, non-cancer
-    "SQP": "dimensionless",
+    "SOP": "dimensionless",
 
     # Indicators describing resource use
     "PERE": "MJ",

@@ -10,9 +10,13 @@ from pydantic import field_validator
 
 from compas_lca.validators import ParsedNumber
 
-from .constants import STAGE_NAME
-from .constants import INDICATOR_NAME
-from .constants import INDICATOR_UNITS
+# TO DO:
+# add KBOB stage names, indicators, and units
+# make generalizable workflow (database-agnostic)
+# only need to load the constants from a specific databse
+from .constants import EN15978_STAGES
+from .constants import OBD_INDICATOR_NAME
+from .constants import OBD_INDICATOR_UNITS
 class Indicator(BaseModel):
     """
     One LCA indicator with values per life cycle stage.
@@ -31,32 +35,32 @@ class Indicator(BaseModel):
         str_strip_whitespace=True,
     )
 
-    name: INDICATOR_NAME
-    stages: Dict[STAGE_NAME, ParsedNumber] = Field(default_factory=dict)
+    name: OBD_INDICATOR_NAME
+    stages: Dict[EN15978_STAGES, ParsedNumber] = Field(default_factory=dict)
 
     # Derive unit from the canonical map, not user-settable.
     @computed_field(return_type=str)
     @property
     def unit(self) -> str:
-        return INDICATOR_UNITS[self.name]
+        return OBD_INDICATOR_UNITS[self.name]
 
     # Validators & normalizers
     @field_validator("stages")
     @classmethod
-    def validate_stage_values(cls, v: Dict[STAGE_NAME, ParsedNumber]) -> Dict[STAGE_NAME, ParsedNumber]:
+    def validate_stage_values(cls, v: Dict[EN15978_STAGES, ParsedNumber]) -> Dict[EN15978_STAGES, ParsedNumber]:
         # Keys are type-checked by Pydantic via STAGE_NAME; you can normalize values here if needed.
         return dict(v)
 
     # Convenience accessors
-    def get(self, stage: STAGE_NAME, default: Optional[ParsedNumber] = None) -> Optional[ParsedNumber]:
+    def get(self, stage: EN15978_STAGES, default: Optional[ParsedNumber] = None) -> Optional[ParsedNumber]:
         """Return the value for one stage (or default if missing)."""
         return self.stages.get(stage, default)
 
-    def has_stage(self, stage: STAGE_NAME) -> bool:
+    def has_stage(self, stage: EN15978_STAGES) -> bool:
         """True if a value is present for the given stage."""
         return stage in self.stages
 
-    def total(self, include: Optional[List[STAGE_NAME]] = None) -> ParsedNumber:
+    def total(self, include: Optional[List[EN15978_STAGES]] = None) -> ParsedNumber:
         """
         Sum across stages. If `include` is provided, only those stages are summed.
         """
@@ -64,7 +68,7 @@ class Indicator(BaseModel):
             return sum(self.stages.values())
         return sum(self.stages.get(s, 0) for s in include)
 
-    def stage_items(self) -> List[tuple[STAGE_NAME, ParsedNumber]]:
+    def stage_items(self) -> List[tuple[EN15978_STAGES, ParsedNumber]]:
         """Return (stage, value) pairs for serialization."""
         return list(self.stages.items())
 
@@ -86,9 +90,14 @@ class Indicators(BaseModel):
     )
 
     indicators: List[Indicator] = Field(default_factory=list)
-
+    # stages that had multiple scenarios which were averaged.
+    # Keys are stage names (A1, A2, …, D); values are the list of scenario codes found (e.g. ["S1","S2"]).
+    scenarios: Optional[Dict[EN15978_STAGES, List[str]]] = Field(
+        default=None,
+        description="For stages with >1 scenario, records the scenario codes that were averaged."
+    )
     # Lookups & helpers
-    def get(self, name: INDICATOR_NAME) -> List[Indicator]:
+    def get(self, name: OBD_INDICATOR_NAME) -> List[Indicator]:
         """
         Find all indicators with the given name.
         (Multiple entries with the same name are allowed in case you want to distinguish by e.g. dataset source.)
@@ -96,26 +105,26 @@ class Indicators(BaseModel):
         key = name.strip()  # `INDICATOR_NAME` is str-backed; strip for robustness
         return [ind for ind in self.indicators if ind.name == key]  # type: ignore[comparison-overlap]
 
-    def get_one(self, name: INDICATOR_NAME) -> Optional[Indicator]:
+    def get_one(self, name: OBD_INDICATOR_NAME) -> Optional[Indicator]:
         """
         Return the first indicator with the given name, or None if not present.
         """
         matches = self.get(name)
         return matches[0] if matches else None
 
-    def names(self) -> List[INDICATOR_NAME]:
+    def names(self) -> List[OBD_INDICATOR_NAME]:
         """List of indicator names present (with possible duplicates if duplicates exist)."""
         return [ind.name for ind in self.indicators]
 
     def total_by_name(
         self,
-        include_stages: Optional[List[STAGE_NAME]] = None
-    ) -> Dict[INDICATOR_NAME, ParsedNumber]:
+        include_stages: Optional[List[EN15978_STAGES]] = None
+    ) -> Dict[OBD_INDICATOR_NAME, ParsedNumber]:
         """
         Aggregate totals per indicator name across stages (first occurrence per name).
         If you allow duplicates and want them summed together, adapt this accordingly.
         """
-        totals: Dict[INDICATOR_NAME, ParsedNumber] = {}
+        totals: Dict[OBD_INDICATOR_NAME, ParsedNumber] = {}
         for ind in self.indicators:
             if ind.name not in totals:
                 totals[ind.name] = ind.total(include=include_stages)
