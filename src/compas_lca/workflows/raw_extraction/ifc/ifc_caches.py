@@ -18,6 +18,9 @@ class IfcCaches:
         self.material_props = model.get_entities_by_type("IfcMaterialProperties")
         
         # Reverse index: IfcMaterialDefinition -> [IfcMaterialProperties, ...]
+        # Apparently the IfcMaterialProperties are seldom exported... At least not in Revit
+        # Is this even necessary?
+        # Requires: Turn on “Export Material Properties” in Revit’s IFC export dialog.
         self.material_props_by_def = defaultdict(list)
         for mprops in self.material_props:
             mat_def = getattr(mprops, "Material", None)  # IfcMaterial / IfcMaterialLayer / IfcMaterialLayerSet

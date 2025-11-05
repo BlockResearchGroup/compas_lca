@@ -3,8 +3,6 @@ from typing import Literal
 from typing import List
 from typing import Annotated
 from typing import Union
-from typing import Dict
-from typing import Any
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -27,6 +25,12 @@ class IfcElementMetadata(BaseModel):
 # ------------------------
 # Material associations
 # ------------------------
+
+# TO DO:
+# class IfcMaterialConstituent(BaseModel)
+# class IfcMaterialConstituentSet(BaseModel)
+# class IfcMaterialProfile(BaseModel)
+# class IfcMaterialProfileSet(BaseModel)
 class IfcMaterial(BaseModel):
     model_config = ConfigDict(extra="forbid", populate_by_name=True)
     entity: Literal["IfcMaterial"]
@@ -35,7 +39,7 @@ class IfcMaterial(BaseModel):
     material_category: Optional[str] = None
     material_properties: Optional[dict] = None 
 
-class IfcMaterialList(BaseModel): # this is old and only IFC2X3
+class IfcMaterialList(BaseModel): # this is old and only IFC2X3...
     entity: Literal["IfcMaterialList"]
     materials: List[IfcMaterial]
 
@@ -83,22 +87,24 @@ class IfcElementProperties(BaseModel):
 # ------------------------
 class IfcElementQuantities(BaseModel):
     model_config = ConfigDict(extra="forbid", populate_by_name=True)
-    length_unit: Optional[Dict[str, Any]] = None
-    area_unit: Optional[Dict[str, Any]] = None
-    volume_unit: Optional[Dict[str, Any]] = None
+    LENGTHUNIT: Optional[str] = None
+    AREAUNIT: Optional[str] = None
+    VOLUMEUNIT: Optional[str] = None
     width: Optional[float] = Field(None, ge=0)
     length: Optional[float] = Field(None, ge=0)
     height: Optional[float] = Field(None, ge=0)
     depth: Optional[float] = Field(None, ge=0)
-    gross_area: Optional[float] = Field(None, ge=0)
     net_area: Optional[float] = Field(None, ge=0)
-    gross_side_area: Optional[float] = Field(None, ge=0)
     net_side_area: Optional[float] = Field(None, ge=0)
-    gross_footprint_area: Optional[float] = Field(None, ge=0)
     net_footprint_area: Optional[float] = Field(None, ge=0)
+    net_surface_area: Optional[float] = Field(None, ge=0)
     cross_section_area: Optional[float] = Field(None, ge=0)
-    gross_volume: Optional[float] = Field(None, ge=0)
     net_volume: Optional[float] = Field(None, ge=0)
+    compas_obb_xdim: Optional[float] = None
+    compas_obb_ydim: Optional[float] = None
+    compas_obb_zdim: Optional[float] = None
+    compas_obb_largest_area: Optional[float] = Field(None, ge=0)
+    compas_brep_volume: Optional[float] = Field(None, ge=0)
 
 # ------------------------
 # Element data container
@@ -110,3 +116,4 @@ class IfcElementData(BaseModel):
     material_data: Optional[MaterialAssociation] = None
     properties: Optional[IfcElementProperties] = None
     quantities: Optional[IfcElementQuantities] = None
+
