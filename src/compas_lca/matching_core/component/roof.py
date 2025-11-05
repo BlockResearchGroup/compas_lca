@@ -15,5 +15,5 @@ class RoofFacet(BaseModel):
         description="""
         The type of roof or roof superstructure described in the dataset
         """,
-        examples=["flat_roof", "pitched_roof", "green_roof"]
+        examples=["straight", "spiral", "unknown"]
     )

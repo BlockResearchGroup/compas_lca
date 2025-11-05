@@ -24,31 +24,44 @@ class MaterialCommon(BaseModel):
     material_type: MaterialTypeValidated = Field(
         MaterialType.unknown,
         description="""
-        The broader material classification indicating the dominant material composition or origin.
-        Choose the option that best describes the material's main substance or structural base,
-        according to the following rules:
-        • 'mineral' → Inorganic, nonmetallic, geological or ceramic-based materials 
-        (excluding concrete and cement-based composites).
-        e.g., brick, tile, glass, stone, gypsum, ceramics, rammed earth.
-        • 'concrete' → Cementitious and aggregate-based materials or products primarily composed of
-        hydraulic binders.
-        e.g., concrete, reinforced concrete, lightweight concrete, mortar, grout.
-        • 'ligneous' → Organic materials derived from wood or other lignocellulosic biomass.
-        e.g., timber, plywood, MDF, OSB, bamboo, cork, straw-based panels.
-        • 'metallic' → Metallic materials and alloys.
-        e.g., steel, stainless steel, aluminum, copper, zinc, lead.
-        • 'polymeric' → Synthetic organic polymer materials.
-        e.g., plastics, rubbers, resins, foams (not classified as insulation).
-        • 'bituminous' → Hydrocarbon-based binders or composites.
-        e.g., asphalt, bitumen, tar, bituminous membranes.
-        • 'composite' → Engineered combinations of two or more material types.
-        choose 'composite' if unclear between dominant materials, and do not assign 'either'.
-        If uncertain or the information is insufficient, assign 'unknown'.
+        Classify the product by its dominant base material (composition), not shape, coating, or process.
+        Choose exactly one of: 'mineral', 'concrete', 'wood', 'metallic', 'polymeric', 'bituminous', 'composite', 'unknown'.
+
+        Decision rules (apply top-down):
+
+        1) wood → Organic, lignocellulosic wood-based materials.
+        Map to 'wood' if the name or description contains ANY of:
+        english: wood, timber, lumber, parquet, plywood, veneer, LVL, laminated veneer lumber, glulam,
+                    CLT, cross laminated timber, OSB, MDF, HDF, particleboard, chipboard, hardboard,
+                    fibreboard/fiberboard, cork, bamboo
+        german: Holz, Brettschichtholz, Brettsperrholz, Kreuzlagenholz, Sperrholz, Furnierschichtholz,
+                LVL, Leimholz, Mehrschichtparkett, Parkett, Spanplatte, Faserplatte, MDF, HDF, OSB
+        examples: Multi-layer parquet, Cross laminated timber (CLT), MDF (uncoated)
+
+        2) concrete → Cementitious / hydraulic binder with aggregates.
+        keywords: concrete, reinforced concrete, RC, mortar, grout, UHPC, screed
+
+        3) mineral → Inorganic, nonmetallic, ceramic/stone/glass (excluding concrete).
+        keywords: brick, tile, ceramic, porcelain, glass, stone, gypsum, plaster, rammed earth
+
+        4) metallic → Metals and alloys.
+        keywords: steel, stainless steel, aluminum, copper, zinc, lead, brass, bronze, cast iron
+
+        5) polymeric → Synthetic organic polymers, plastics, rubbers, resins, foams (non-insulation context).
+        keywords: PVC, PE, PP, PET, PUR, PU, EPDM, acrylic, polyester, polyamide, nylon
+
+        6) bituminous → Hydrocarbon binders and composites.
+        keywords: asphalt, bitumen, tar, bituminous membrane
+
+        7) composite → Engineered combination where no single base material dominates OR explicitly named composite.
+        keywords: FRP, GFRP, CFRP, sandwich panel (if core/skins differ and no dominant base)
+
+        8) unknown → If none of the above can be determined from available text.
+
+        Notes:
+        • Ignore surface coatings (laminates, varnish, paint) when determining the base material.
         """,
-        examples=[
-            "mineral", "concrete", "ligneous", "metallic", 
-            "polymeric", "bituminous", "composite"
-        ]
+        examples=["wood", "concrete", "mineral", "metallic", "polymeric", "bituminous", "composite"]
     )
     functional_types: List[FunctionalTypes] = Field(
         [FunctionalTypes.unknown],

@@ -1,7 +1,5 @@
-from uuid import uuid4
-from uuid import UUID
-
 from typing import Optional
+from typing import Literal
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -38,7 +36,6 @@ class MatchingCore(BaseModel):
         validate_assignment=True,
         str_strip_whitespace=True,
     )
-    id: UUID = Field(default_factory=uuid4)
     entry_type: EntryType
     name: str
     loadbearing: Optional[LoadbearingType] = None
@@ -47,6 +44,7 @@ class MatchingCore(BaseModel):
     provenance: Optional[str] = None
     production_location: Optional[str] = None
     thickness: Optional[ThicknessFloat] = Field(None, ge=0)
+    thickness_source: Optional[Literal["from_data", "speculated"]] = None
     thermal_conductivity: Optional[LambdaFloat] = Field(None, ge=0)
     u_value: Optional[UValueFloat] = Field(None, ge=0)
     fire_retardant: Optional[bool] = None
@@ -101,6 +99,7 @@ def assemble_matching_core(common: Common, facet: object) -> MatchingCore:
         provenance=common.provenance,
         production_location=common.production_location,
         thickness=common.thickness,
+        thickness_source=common.thickness_source,
         thermal_conductivity=common.thermal_conductivity,
         u_value=common.u_value,
         fire_retardant=common.fire_retardant,

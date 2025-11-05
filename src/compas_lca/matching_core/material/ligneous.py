@@ -25,9 +25,29 @@ class LigneousFacet(BaseModel):
         Classification of the wood-based material according to its primary composition and manufacturing type. 
         Distinguishes between natural solid wood, engineered wood products , and chemically or thermally modified wood. 
         This field represents the dominant product family or structural form of the ligneous material.
+        Example mappings: '3-Schicht-Platte' or '5-Schicht-Platte' is "ligneous_type" = "cross_laminated_timber" 
         """,
-        examples=["natural_softwood", "glue_laminated_timber", "oriented_strand_board", "modified_wood"]
+        examples=["natural_softwood", "cross_laminated_timber", "oriented_strand_board", "modified_wood"]
     )
+    ligneous_form: LigneousForm = Field(
+        LigneousForm.unknown,
+        description="""
+        Physical form or geometric configuration of the wood-based product. 
+        Describes how the ligneous material appears in its final product state
+        """,
+        examples=["panel", "beam", "flooring"]
+    )
+    strength_class_designation: Optional[str] = Field(
+        None,
+        description="""
+        Strength class designation per European standards.
+        Typical values include EN 338 solid timber classes (softwood 'C' and hardwood 'D'),
+        e.g. 'C24', 'D40', and EN 14080 glulam classes with suffix 'c' (combined) or 'h' (homogeneous),
+        e.g. 'GL28c', 'GL32h'. Use None when not clearly stated or not applicable (e.g. panels like OSB/MDF).
+        """,
+        examples=["C24", "D40", "GL28c", "GL32h"]
+    )
+
     base_species: Optional[BaseSpecies] = Field(
         None,
         description="""
@@ -35,14 +55,6 @@ class LigneousFacet(BaseModel):
         Refers to the primary botanical source of the lignocellulosic material.
         """,
         examples=["spruce", "larch", "oak", "other"]
-    )
-    ligneous_form: Optional[LigneousForm] = Field(
-        None,
-        description="""
-        Physical form or geometric configuration of the wood-based product. 
-        Describes how the ligneous material appears in its final product state
-        """,
-        examples=["lumber", "beam", "flooring"]
     )
     ligneous_processing: Optional[LigneousProcessing] = Field(
         None,
