@@ -3,6 +3,15 @@ from enum import Enum
 """Enums for various categorical fields used in the extraction BaseModel classes."""
 
 # -------------------------------------- 
+# -------- INDICATOR ENUMS -------------
+# -------------------------------------- 
+class RefUnit(str, Enum):
+    kg = "kg"
+    m = "m"
+    m2 = "m2"
+    m3 = "m3"
+    pcs = "pcs"
+# -------------------------------------- 
 # ----------- COMMON ENUMS -------------
 # -------------------------------------- 
 class EntryType(str, Enum):
@@ -17,14 +26,13 @@ class InteriorExterior(str, Enum):
     interior = "interior"
     exterior = "exterior"
     either = "either"
-
 # -------------------------------------- 
 # ----------- MATERIAL ENUMS ----------- 
 # -------------------------------------- 
 class MaterialType(str, Enum):
     mineral = "mineral"             # includes ceramic, stone, glass, etc.
     concrete = "concrete"           # explicit STAND-ALONE class for concrete (not mineral)
-    ligneous = "ligneous"           # timber, bamboo, MDF, KVH, cork
+    wood = "wood"
     metallic = "metallic"           # steel, aluminum, copper
     polymeric = "polymeric"         # plastics, rubbers, foams, resins
     bituminous = "bituminous"       # asphalt, bitumen membranes, tar
@@ -32,6 +40,7 @@ class MaterialType(str, Enum):
     animalic = "animalic"           # rare, but sometimes used (sheepwool, leather)
     unknown = "unknown"
 class ApplicationAreas(str, Enum):
+    # ───────────────────────────────
     # Superstructure elements
     beam = "beam"
     column = "column"
@@ -42,33 +51,57 @@ class ApplicationAreas(str, Enum):
     ceiling = "ceiling"
     stair = "stair"
     ramp = "ramp"
-    balcony_terrace = "balcony_terrace"         
+    balcony_terrace = "balcony_terrace"
     parapet = "parapet"
     railing = "railing"
+    # ───────────────────────────────
     # Substructure / ground-contact
     foundation = "foundation"                   # strip, raft, pad
-    footing = "footing"                         # keep if you need the granularity
+    footing = "footing"
     pile = "pile"
     retaining = "retaining"
     subgrade = "subgrade"                       # below-grade faces, basement walls
-    # Envelope layers
-    facade = "facade"                           # general façade area
-    floor = "floor"                             # general floor area (if not distinguishing slab/finish)
-    # Horizontal surfaces / civil
+    # ───────────────────────────────
+    # Envelope / surface layers
+    facade = "facade"
+    floor = "floor"
     pavement = "pavement"                       # exterior walking/driving surfaces, plaza
-    plate = "plate"                             # (OPTIONAL) only if your datasets use this term
+    plate = "plate"                             # optional dataset term
     window = "window"
     door = "door"
+    # ───────────────────────────────
+    # MEP systems
+    hvac = "hvac"                               # ducts, air handling, ventilation units
+    piping = "piping"                           # water, drainage, heating/cooling circuits
+    electrical = "electrical"                   # cables, conduits, panels, lighting systems
+    plumbing = "plumbing"                       # fixtures, water supply and waste elements
+    fire_protection_device = "fire_protection_device"    # sprinklers, risers, detection systems
+    equipment = "equipment"                     # mechanical/electrical devices, packaged systems
+    service_system = "service_system"           # generic category for MEP when detailed type is unknown
+    # ───────────────────────────────
     # Fallbacks
     other = "other"
     unknown = "unknown"
+
 class FunctionalTypes(str, Enum):
     # Load-bearing & force transfer
     structural = "structural"                       # Primary load-bearing elements (concrete, steel sections, CLT, masonry units)
     reinforcement = "reinforcement"                 # Rebar, mesh, fibers, tendons, FRP sheets/plates
-    # Thermal / acoustic
-    thermal_insulation = "thermal_insulation"       # Mineral wool, EPS/XPS, PIR/PUR, cellulose, foam glass
-    acoustic_insulation = "acoustic_insulation"     # Acoustic batts, mats, boards (when primary function is acoustic)
+    stud_layer = "stud_layer"
+    # old insulation enums
+    """
+    thermal_insulation = thermal_insulation
+    sound_insulation = sound_insulation
+    """
+    # Insulation (has a lot of types because cant be own category)
+    # problem is when matching, need to be classified more in detail
+    # since there is no insulation material level, it has to all be done within the FunctionalTypes
+    # hopefully it works.
+    rigid_insulation = "rigid_insulation"           # boards, panels, compressive strength
+    semi_rigid_insulation = "semi_rigid_insulation"
+    loose_fill_insulation = "loose_fill_insulation" # blown-in or poured
+    batt_insulation = "batt_insulation"             # flexible mats or rolls
+    spray_foam_insulation = "spray_foam_insulation" #
     # Finish / surface-related
     covering = "covering"                           # Discrete or roll-applied decorative or protective finish layer
     cladding = "cladding"                           # Exterior covering that forms the outer protective and/or decorative face of an element.
@@ -193,8 +226,8 @@ class MetallicForm(str, Enum):
     sheet = "sheet"                      # thin flat rolled, typically <3 mm
     plate = "plate"                      # thick flat rolled (>3 mm)
     foil = "foil"                        # very thin sheet (<0.2 mm)
-    coil = "coil"                        # continuous rolled strip wound in coils
-    profile = "profile"                  # extruded or rolled shape (I-beam, angle, channel)
+    coil = "coil"                        # continuous rolled strip wound in coils]
+    profile = "profile"                  # extruded or rolled shape (I-beam, angle, channel) / stud
     bar = "bar"                          # solid long product, square or rectangular section
     flashing = "flashing"                # roof flashing (usually aluminium)
     rod = "rod"                          # round long product, smaller diameter than bar
@@ -215,6 +248,7 @@ class MetallicForm(str, Enum):
     anchor = "anchor"
     pin = "pin"
     other = "other"
+    unknown = "unknown"
 class MetallicSurfaceTreatment(str, Enum):
     galvanized = "galvanized"             # zinc coating by hot-dip or electroplating
     aluzinc = "aluzinc"                   # aluminum-zinc alloy coating (e.g., Galvalume)
@@ -272,11 +306,13 @@ class LigneousForm(str, Enum):
     beam = "beam"
     plank = "plank"
     board = "board"
+    panel = "panel"
     flooring = "flooring"
     mat = "mat"
     roll = "roll"
     loose_fill = "loose_fill"
     other = "other"
+    unknown = "unknown"
 class LigneousProcessing(str, Enum):
     unprocessed = "unprocessed"
     rough_sawn = "rough_sawn"
@@ -539,8 +575,10 @@ class ComponentType(str, Enum):
     curtain_wall = "curtain_wall"
     shading_device = "shading_device"
     roof = "roof"
+    railing = "railing"
     # Interior components
     ceiling = "ceiling"
+    stairs = "stairs"
     # Technical systems
     building_service = "building_services"
     conveyor = "conveyor"
@@ -620,6 +658,36 @@ class WindowFittingType(str, Enum):
     plastic = "plastic"
     steel = "steel"
     zinc = "zinc"
+    other = "other"
+    unknown = "unknown"
+
+
+# -------------------------------------------------
+# ----------- RAILING ENUMS ----------------
+# -------------------------------------------------
+
+class RailingType(str, Enum):
+    balustrade = "balustrade"             # Traditional vertical posts (balusters) with a handrail
+    glass_panel = "glass_panel"           # Framed or frameless glass infill panels
+    cable = "cable"                       # Horizontal or vertical tensioned cables as infill
+    perforated_panel = "perforated_panel" # Metal sheet or mesh infill (perforated, expanded, or wire mesh)
+    guard_wall = "guard_wall"             # Solid parapet or low wall acting as a guardrail
+    # optional fallbacks
+    other = "other"
+    unknown = "unknown"
+
+
+# ----------------------------------------
+# ----------- STAIR ENUMS ----------------
+# ----------------------------------------
+
+class StairType(str, Enum):
+    straight = "straight"                 # Single flight, no change in direction
+    quarter_turn = "quarter_turn"         # Turns 90°, with or without landing (L-shaped)
+    half_turn = "half_turn"               # 180° reversal (U-shaped), often with landing
+    spiral = "spiral"                     # Circular/helix around a central post
+    winder = "winder"                     # Turns with wedge-shaped treads instead of a landing
+    # optional fallbacks
     other = "other"
     unknown = "unknown"
 
@@ -744,10 +812,3 @@ class BuildingServiceType(str, Enum):
     other = "other"
     unknown = "unknown"
 
-# ------------------------------
-# ----------- MISC -------------
-# ------------------------------ 
-class InputFormat(str, Enum):
-    json = "json"
-    pdf = "pdf"
-    txt = "txt"
