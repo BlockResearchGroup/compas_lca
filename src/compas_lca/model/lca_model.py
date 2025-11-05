@@ -1,20 +1,26 @@
 from typing import Optional
 from typing import List
 
-from compas_model.models import Model
+from uuid import UUID
+from uuid import uuid4
 
-from .lca_element import LcaElement
+from pydantic import BaseModel
+from pydantic import ConfigDict
+from pydantic import Field
 
-class LcaModel(Model):
-    def __init__(
-            self, 
-            name: str, 
-            elements: Optional[List[LcaElement]] = []
-            ):
+from compas_lca.model.lca_element import LcaElement
+from compas_lca.model.metadata import ModelMetadata
 
-        self.name = name
-        self.elements = elements
-        self.global_context = {}
+class LcaModel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
 
-    def from_ifc(self, filepath: str):
-        pass
+    id: UUID = Field(default_factory=uuid4)
+
+    metadata: Optional[ModelMetadata]
+    single_materials: Optional[List[LcaElement]]    # Elements with one MatchingCore object & "entry_type" = "material"
+    layered_elements: Optional[List[LcaElement]]    # Elements with multiple MatchingCore objects & "entry_type" = "material"
+    abstract_components: Optional[List[LcaElement]] # Elements with one MatchingCore object % & "entry_type" = "component"
+    undefined_elements: Optional[List[LcaElement]]  # Elements with & "entry_type" = "unknown"
+
+
+# classmethod -> get all elements with same object_type. this is strongly enforced (and partially hardcoded) for IFC, and later 3dm aswell

@@ -1,75 +1,58 @@
 from typing import Optional
+from typing import Any
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
-from pydantic import Field
 
-
-class ElementMetadata(BaseModel):
+class ModelMetadata(BaseModel):
     """
-    Metadata from a building model Element
-    Note: Many attributes have been shifted to the LcaMaterial class
+    Pydantic BaseModel that captures provenance and metadata for building model element
+    datasets (e.g., 3dm, IFC, RVGT, etc.). Use this to record where a dataset came from, 
+    so downstream calculations and audits can trace sources.
+
+    Parameters
+    ----------
+    dataset_source : str
+        The origin software/dataformat of the dataset. 
+        Examples: "IFC", "RVT", "OBJ"
+
+    source_version : Optional[str]
+        The version (if available) of the dataset's model
+        Examples: "IFC2X3", "IFC4"
+
+    dataset_filename : Optional[str]
+        The filename of the source building model
+        Example: "1072_HiLo_Model-Architecture.ifc"
+
+    dataset_uuid : Optional[str]
+        A stable UUID associated with the dataset, if one exists.
+        Example: IfcBuildingElement GlobalId
+
+    location_data : Optional[Any]
+        The geographic coverage/representativeness of the dataset, as a code.
+        Prefer ISO 3166 country/region codes (e.g., "CH", "DE", "EU", "US-CA")
+        or another clearly documented regional code system.
+
+    reference_date : Optional[str]
+        The creation date of the file from which the element was sourced (if obtainable)
+
+    dataset_owner : Optional[str]
+        The person or organization that owns the dataset (“contact data set” owner).
+        Examples: Architect office name / BIM model owner.
     """
 
-    # BaseModel configuration
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
-    )
-    element_name: str = Field(
-        ...,
-        description="""
-        Exact element name as found in the raw building element data.
-        """,
-        examples=[
-            "Wall W-23", 
-            "Type: C30/37 Concrete Wall",
-            "Basic Wall:BSP 140 - 5s:2012837"]
-    )
-    description: Optional[str] = Field(
-        None,
-        description="""
-        Short one-sentence description of the element using 
-        only information present in the source text.
-        """,
-        examples=["Cast-in-place concrete wall for core enclosure."]
-    )
-    element_type: Optional[str] = Field(
-        None,
-        description="""
-        Generic element type if explicitly indicated (e.g., 'slab', 'wall', 'roof', 'window',
-        'column', 'beam', 'foundation').
-        """,
-        examples=["wall", "slab"]
-    )
-    object_type: Optional[str] = Field(
-        None,
-        description="""
-        Element's object or layer type label if present (e.g., 'ObjectType', 'Type Name', 'Layer').
-        Use the text verbatim from the source.
-        """,
-        examples=["Structural - Concrete", "Type A-200"]
-    )
-    classification: Optional[str] = Field(
-        None,
-        description="""
-        Verbatim transcription of any official classification system reference if present.
-        Copy exactly as in the source text.
-        """,
-        examples=['OmniClass 21-02 10 20', 'UniClass Ss_20_10_25']
+        extra="forbid",
+        populate_by_name=True,
+        validate_assignment=True,
+        str_strip_whitespace=True,
     )
 
-
-
-"""
-    spatial_relationship: Optional[str] = Field(
-        None,
-        description=
-        DRAFT: Here it is unsure what kind of data type this is, but here it might be important
-        to state what adjacent elements are, what the spatial situation is etc.
-        Not yet entirely clear if this is necessary
-        ,
-        examples=["?"]
-    )
-"""
+    dataset_source: Optional[str] = None
+    source_version: Optional[str] = None
+    dataset_filename: Optional[str] = None
+    dataset_uuid: Optional[str] = None
+    location_data: Optional[Any] = None
+    reference_date: Optional[str] = None
+    dataset_owner: Optional[str] = None
+    
