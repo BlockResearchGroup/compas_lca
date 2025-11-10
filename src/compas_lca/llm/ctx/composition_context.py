@@ -1,3 +1,8 @@
+
+
+from compas_lca.model.metadata import Metadata
+from compas_lca.model.quantity import Quantity
+
 from compas_lca.llm.context import Context
 
 from compas_lca.llm.tools import RebarTable

@@ -1,6 +1,9 @@
 from typing import Optional
 from typing import Literal
 
+from uuid import UUID
+from uuid import uuid4
+
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
@@ -36,6 +39,7 @@ class MatchingCore(BaseModel):
         validate_assignment=True,
         str_strip_whitespace=True,
     )
+    core_id: UUID = Field(default_factory=uuid4) # core_id for matching InventoryItem matches to individual layers (individual MatchingCore objects)
     entry_type: EntryType
     name: str
     loadbearing: Optional[LoadbearingType] = None

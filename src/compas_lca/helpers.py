@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 
 from typing import Union
+from typing import Any
+from typing import Dict
 
 def load_json(input_data: Union[dict, str, Path]) -> dict:
     """Load JSON from dict or file path."""
@@ -24,3 +26,15 @@ def merge_llm_meta(all_llm_meta: dict, llm_meta: dict) -> dict:
         else:
             all_llm_meta[key] = value
     return all_llm_meta
+
+def coerce_to_dict(obj: Any) -> Dict[str, Any]:
+    """Coerce dict / Pydantic BaseModel / dataclass-ish objects to a dict."""
+    if obj is None:
+        return {}
+    if hasattr(obj, "model_dump"):
+        return obj.model_dump(exclude_none=False)
+    if isinstance(obj, dict):
+        return obj
+    if hasattr(obj, "__dict__"):
+        return vars(obj)
+    return {}
