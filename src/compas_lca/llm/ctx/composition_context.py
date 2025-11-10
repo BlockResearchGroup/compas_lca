@@ -1,4 +1,4 @@
-from compas_lca.material.common import MaterialCommon
+
 
 from compas_lca.model.metadata import Metadata
 from compas_lca.model.quantity import Quantity

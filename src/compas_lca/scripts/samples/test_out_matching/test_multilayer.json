@@ -1,0 +1,558 @@
+{
+  "id": "3fc12c56-83df-40cc-b4e7-69a8ea8fbbdb",
+  "descriptor": {
+    "element_name": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall:139374",
+    "element_uuid": "2O2Fr$t4X7Zf8NOew3FKRH",
+    "is_multilayer": true,
+    "layer_count": 7,
+    "has_layer_thickness": true,
+    "object_type": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall:128555"
+  },
+  "element_core": [
+    {
+      "core_id": "2f5c7ad8-f018-4c0c-892a-69101ea1b203",
+      "entry_type": "material",
+      "name": "Plasterboard",
+      "thickness": 16.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "mineral",
+        "functional_types": [
+          "lining"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {
+          "mineral_type": "gypsum"
+        }
+      }
+    },
+    {
+      "core_id": "5e60177f-2868-49a1-81fa-ff2e9e4b581a",
+      "entry_type": "material",
+      "name": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall:139234",
+      "thickness": 41.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "metallic",
+        "functional_types": [
+          "stud_layer"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {
+          "metallic_type": "unknown",
+          "metallic_form": "profile"
+        }
+      }
+    },
+    {
+      "core_id": "39aa762d-85ff-437a-9035-27ac4b100bd9",
+      "entry_type": "material",
+      "name": "Masonry - Concrete Block",
+      "thickness": 193.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "concrete",
+        "functional_types": [
+          "unknown"
+        ],
+        "application_areas": [
+          "unknown"
+        ],
+        "material_facet": {
+          "concrete_type": "precast",
+          "concrete_form": "block"
+        }
+      }
+    },
+    {
+      "core_id": "65c53311-6d21-4e06-8f06-2304a09aca64",
+      "entry_type": "material",
+      "name": "Misc. Air Layers - Air Space",
+      "thickness": 50.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "unknown",
+        "functional_types": [
+          "unknown"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {}
+      }
+    },
+    {
+      "core_id": "b54a9a0f-838e-44b1-98de-e95efa0d1fa8",
+      "entry_type": "material",
+      "name": "Masonry - Concrete Block",
+      "thickness": 193.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "concrete",
+        "functional_types": [
+          "unknown"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {
+          "concrete_type": "precast",
+          "concrete_form": "block"
+        }
+      }
+    },
+    {
+      "core_id": "b9ceb874-29d6-4013-a0f7-6caf3938cdee",
+      "entry_type": "material",
+      "name": "Basic Wall:Party Wall - CMU Residential Unit Dimising Wall:139234",
+      "thickness": 41.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "metallic",
+        "functional_types": [
+          "stud_layer"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {
+          "metallic_type": "unknown",
+          "metallic_form": "profile"
+        }
+      }
+    },
+    {
+      "core_id": "ade1f7f0-048b-4c06-b18a-0a12e97cfb25",
+      "entry_type": "material",
+      "name": "Plasterboard",
+      "thickness": 16.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "mineral",
+        "functional_types": [
+          "lining"
+        ],
+        "application_areas": [
+          "wall"
+        ],
+        "material_facet": {
+          "mineral_type": "gypsum"
+        }
+      }
+    }
+  ],
+  "quantities": {
+    "quantities": [
+      {
+        "name": "thickness",
+        "value": 0.55,
+        "unit": "METRE"
+      },
+      {
+        "name": "length",
+        "value": 2.200000000000027,
+        "unit": "METRE"
+      },
+      {
+        "name": "area",
+        "value": 6.15,
+        "unit": "SQUARE_METRE"
+      },
+      {
+        "name": "volume",
+        "value": 2.8562,
+        "unit": "CUBIC_METRE"
+      }
+    ]
+  },
+  "matched_items": [
+    {
+      "core_id": "2f5c7ad8-f018-4c0c-892a-69101ea1b203",
+      "matches": [
+        {
+          "item_id": "2e35b583-6bcf-4af3-9ca0-aca929bc56ff",
+          "item_name": "Clay panel",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m2"
+            },
+            "density": 700.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 0.64225396071692,
+                "C2": 0.0519960365367245,
+                "C3": 1.82357805409503,
+                "D": -0.0180201437029201
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "968b333d-380e-483a-b4b9-226300661a32",
+          "item_name": "LIME-GYPSUM PLASTER / Tool",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "kg"
+            },
+            "density": 1100.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 0.1584,
+                "A4": 0.0125,
+                "A5": 0.0000931,
+                "C1": 0.000639,
+                "C2": 0.00629,
+                "C3": 0.0,
+                "C4": 0.0152,
+                "D": 0.0
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "5e60177f-2868-49a1-81fa-ff2e9e4b581a",
+      "matches": [
+        {
+          "item_id": "54518902-07f4-4260-a4b9-e973ced6905c",
+          "item_name": "Aluminum profile, mill finish",
+          "score": 0.5,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "kg"
+            },
+            "density": 2700.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 1.93153238620983,
+                "C1": 0.0,
+                "C2": 0.00302406984359964,
+                "C3": 0.0,
+                "C4": 0.00241918382472411,
+                "D": -0.300629273288693
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "959d8301-c12a-43af-8d20-6e11dcb93d01",
+          "item_name": "Galvanized Structural Steel",
+          "score": 0.5,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1000,
+              "unit": "kg"
+            },
+            "density": 7850.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 1040.0,
+                "A4": 8.39,
+                "A5": 0.658,
+                "C1": 0.658,
+                "C2": 8.47,
+                "C3": 23.3,
+                "C4": 0.0,
+                "D": -316.0
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "39aa762d-85ff-437a-9035-27ac4b100bd9",
+      "matches": [
+        {
+          "item_id": "a58a7088-1a08-4f33-8d10-484577192d8a",
+          "item_name": "Pre-stressed carbon fibre-reinforced concrete element CPC 70-4-4",
+          "score": 0.6,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m2"
+            },
+            "density": null,
+            "GWP": {
+              "stages": {
+                "A1-A3": 51.9,
+                "A4": 1.17,
+                "A5": 4.31,
+                "B1": -3.89,
+                "C1": 0.856,
+                "C2": 0.2735,
+                "C3": 0.715,
+                "C4": 0.0,
+                "D": -27.735
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "374d9c7d-32f4-43ce-88f6-8ea202679aec",
+          "item_name": "Concrete masonry brick",
+          "score": 0.6,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "density": 2000.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 229.039357800164,
+                "C1": 0.604279315091315,
+                "C2": 8.52018160023269,
+                "C3": 14.2070957815921,
+                "D": -3.14454291379039
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "65c53311-6d21-4e06-8f06-2304a09aca64",
+      "matches": [
+        {
+          "item_id": "d229f1ad-3b56-4a95-bd4d-cc9e7866c849",
+          "item_name": "Painted Structural Steel",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1000,
+              "unit": "kg"
+            },
+            "density": 7850.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 1050.0,
+                "A4": 8.39,
+                "A5": 0.658,
+                "C1": 0.658,
+                "C2": 8.47,
+                "C3": 42.3,
+                "C4": 0.0,
+                "D": -318.0
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "23403df4-1fad-4bc5-8844-783d3b6dff2f",
+          "item_name": "Beton C25/30 XC4 XF1 XA1 F3 32 M EcoPact, Rezept Nummer DA4334DHFS Version 1, Transportbetonwerk Plettenberg, Germany",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "density": 2342.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 158.89492800306954,
+                "A4": 3.3402224161600005,
+                "A5": 2.243339185727946,
+                "B1": -3.244042868146597,
+                "C1": 8.64,
+                "C2": 9.660750000000002,
+                "C3": 3.95454233409611,
+                "C4": 0.0,
+                "D": -9.672460000000001
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "b54a9a0f-838e-44b1-98de-e95efa0d1fa8",
+      "matches": [
+        {
+          "item_id": "374d9c7d-32f4-43ce-88f6-8ea202679aec",
+          "item_name": "Concrete masonry brick",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "density": 2000.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 229.039357800164,
+                "C1": 0.604279315091315,
+                "C2": 8.52018160023269,
+                "C3": 14.2070957815921,
+                "D": -3.14454291379039
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "23403df4-1fad-4bc5-8844-783d3b6dff2f",
+          "item_name": "Beton C25/30 XC4 XF1 XA1 F3 32 M EcoPact, Rezept Nummer DA4334DHFS Version 1, Transportbetonwerk Plettenberg, Germany",
+          "score": 0.6062176165803109,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "density": 2342.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 158.89492800306954,
+                "A4": 3.3402224161600005,
+                "A5": 2.243339185727946,
+                "B1": -3.244042868146597,
+                "C1": 8.64,
+                "C2": 9.660750000000002,
+                "C3": 3.95454233409611,
+                "C4": 0.0,
+                "D": -9.672460000000001
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "b9ceb874-29d6-4013-a0f7-6caf3938cdee",
+      "matches": [
+        {
+          "item_id": "54518902-07f4-4260-a4b9-e973ced6905c",
+          "item_name": "Aluminum profile, mill finish",
+          "score": 0.5,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "kg"
+            },
+            "density": 2700.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 1.93153238620983,
+                "C1": 0.0,
+                "C2": 0.00302406984359964,
+                "C3": 0.0,
+                "C4": 0.00241918382472411,
+                "D": -0.300629273288693
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "959d8301-c12a-43af-8d20-6e11dcb93d01",
+          "item_name": "Galvanized Structural Steel",
+          "score": 0.5,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1000,
+              "unit": "kg"
+            },
+            "density": 7850.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 1040.0,
+                "A4": 8.39,
+                "A5": 0.658,
+                "C1": 0.658,
+                "C2": 8.47,
+                "C3": 23.3,
+                "C4": 0.0,
+                "D": -316.0
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "core_id": "ade1f7f0-048b-4c06-b18a-0a12e97cfb25",
+      "matches": [
+        {
+          "item_id": "2e35b583-6bcf-4af3-9ca0-aca929bc56ff",
+          "item_name": "Clay panel",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m2"
+            },
+            "density": 700.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 0.64225396071692,
+                "C2": 0.0519960365367245,
+                "C3": 1.82357805409503,
+                "D": -0.0180201437029201
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "968b333d-380e-483a-b4b9-226300661a32",
+          "item_name": "LIME-GYPSUM PLASTER / Tool",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "kg"
+            },
+            "density": 1100.0,
+            "GWP": {
+              "stages": {
+                "A1-A3": 0.1584,
+                "A4": 0.0125,
+                "A5": 0.0000931,
+                "C1": 0.000639,
+                "C2": 0.00629,
+                "C3": 0.0,
+                "C4": 0.0152,
+                "D": 0.0
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

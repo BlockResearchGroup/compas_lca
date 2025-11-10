@@ -312,6 +312,7 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
     vol = q.get("compas_brep_volume")
     if vol is None:
         volume_paths = [
+            ["properties", "psets_element", "Volume"]
             ["quantities", "net_volume"],
             ["quantities", "gross_volume"],
             ["quantities", "volume_fallback"],

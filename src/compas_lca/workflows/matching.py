@@ -31,7 +31,7 @@ naturally a lot of InventoryItems will be appended.
 Idea for later: crucial things like for instance concrete strength class can be speculated,
 if it is not given. So for instance, if we have a generic concrete wall on the element side,
 but no concrete strength class is given, then naturally it doesnt make a lot of sense to
-match inventory item concretes with extremely high strength classes (as it's overkill for the element).
+match inventory item concretes with extremely high strength classes (as it's probably overkill for the element).
 Another example would be a generic door, where there is no "special function" like security etc, but
 no value is given on the element side, then it is not common sense to match speciality doors to said element.
 This needs to be done in an intermediate step (speculation agent for specific material facets and component types)
@@ -176,8 +176,6 @@ def normalize_core_map(m: Dict[str, Any]) -> Dict[str, Any]:
             out[k] = _norm_str(out[k])
     return out
 
-
-
 def compute_overspec_penalty(
     item_map: Dict[str, Any],
     elem_map: Dict[str, Any],
@@ -246,15 +244,19 @@ def compute_overspec_penalty(
 
     return total_penalty, details
 
-# --- identity gate used by eval_filter --------------------------------
 def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
     """
+    Identity gate used by eval_filter. Filters out candidates that are not applicable
+    in terms of entry_, material_, and component_type. For underdefined elements where
+    only the functional type is defined (plaster, insulation), prioritize the subsequent
+    inventory items that includes said type in the functional_types list.
+
     Enforce:
       R1: entry_type equal
       R2: if element.material_type set -> equal (materials)
           if element.component_type set -> equal (components)
       R3: if element has NO material_type BUT has functional_types -> require intersection
-    note: item_map/elem_map are DOTMAPS (flattened), so use direct .get("a.b.c").
+    note: item_map/elem_map are DOTMAPS (flattened), so use direct .get().
     """
     def _as_list(x):
         if x is None:
@@ -307,13 +309,10 @@ class Clause:
         - op:             operator string ("equals_other", "approx", etc.)
         - value:          value for comparisons
         - elem_path:      dot-path to a field in `elem_map` (used in `equals_other`, etc.)
-        - weight:         weight used later for scoring aggregation
         - abs_tol / rel_tol:  tolerance for numeric comparisons (only `approx`)
-        - on_missing:     how to handle missing values ("penalty" | "netural" | "fail")
 
-    Each clause compares a field on the item side against either:
-      - a fixed literal value (via 'value'), OR
-      - a corresponding field on the element side ('elem_path').
+    Each clause compares a field on the element side against 
+    a corresponding field on the item side ('elem_path').
     """
     item_path: str                     # Path to field in the ITEM
     op: str                            # Operator (eq, equals, approx, intersects, etc.)
@@ -325,7 +324,8 @@ class Clause:
 def approx_score(x: Optional[float], target: Optional[float], abs_tol: Optional[float], rel_tol: Optional[float]) -> float:
     """
     For numeric values like U-Value, thermal conductivity, density.
-    Should be defined for each specific quantitative property, as reasonable tolerances vary
+    Tolerances are defined in compas_lca/match_rules.py for each specific 
+    quantitative property, as reasonable ranges vary depending on the attribute
     """
     if x is None or target is None:
         return 0.0
@@ -354,13 +354,17 @@ def satisfies(item_value: Optional[str], wanted: Optional[str]) -> float:
         return 1.0
     return 0.0
 
-def eval_clause(item_map: Dict[str, Any], elem_map: Dict[str, Any], clause: Clause) -> Tuple[Optional[float], str]:
+def eval_clause(
+        item_map: Dict[str, Any], # dotmap
+        elem_map: Dict[str, Any], # dotmap
+        clause: Clause
+        ) -> Tuple[Optional[float], str]:
     """
     Evaluate a single matching rule ("clause") between an InventoryItem and an LcaElement core.
 
     Simplified "weightless, element-driven" semantics:
       - We only evaluate fields that the ELEMENT specifies.
-      - If the element's RHS value is None/"unknown"/empty (for lists), the clause is skipped → returns (None, ...).
+      - If the element's item side value is None/"unknown"/empty (for lists), the clause is skipped → returns (None, ...).
       - If the element specifies a value but the ITEM is missing it, that's a hard mismatch → returns (0.0, ...).
       - Otherwise, apply the operator and return a similarity in [0, 1].
 
@@ -372,7 +376,7 @@ def eval_clause(item_map: Dict[str, Any], elem_map: Dict[str, Any], clause: Clau
           0.0 → mismatch or item missing
           None → clause skipped because the element didn't specify a value
         explanation:
-          human-readable detail of what was compared.
+          human-readable detail of what was compared (traceability).
     """
     # Retrieve values
     item_value = item_map.get(clause.item_path, None)
@@ -384,7 +388,7 @@ def eval_clause(item_map: Dict[str, Any], elem_map: Dict[str, Any], clause: Clau
     if clause.elem_path and _is_unknown(elem_value):
         return None, f"{clause.op} skipped → element unspecified/unknown"
 
-    # Special case for list-type RHS where element provided an empty list
+    # Special case for list-type item side where element provided an empty list
     if clause.op == "intersects_other":
         elem_list = _as_list(elem_value)
         if len(elem_list) == 0:
@@ -587,19 +591,16 @@ def eval_filter(item_map: Dict[str, Any],
 def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
     """
     Return (item_path, elem_path) for a rule.
-    - If explicit item_path/elem_path exist, use them.
-    - Else, use 'path' for both sides.
     """
     if "item_path" in rule or "elem_path" in rule:
         return rule.get("item_path") or rule.get("path"), rule.get("elem_path") or rule.get("path")
-    # compact form: one 'path' used on both sides
     p = rule["path"]
     return p, p
 
 def _add_clause(clauses, element_map, rule):
     """
     Add a Clause if (a) this rule compares field-to-field, and
-    (b) the ELEMENT has a specified value (not None/unknown) for the RHS.
+    (b) the ELEMENT has a specified value (not None/unknown) for the item side.
     Literal-value rules ('value' provided) are always added.
     For 'boost_if_missing', duplicate the clause if the given element paths are missing.
     """
@@ -607,9 +608,9 @@ def _add_clause(clauses, element_map, rule):
 
     is_field_to_field = rule.get("value") is None
     if is_field_to_field and elem_path:
-        rhs = element_map.get(elem_path, None)
-        if _is_unknown(rhs):
-            return  # skip when element doesn't specify
+        item_side = element_map.get(elem_path, None)
+        if _is_unknown(item_side):
+            return
 
     # base clause
     def _append():
@@ -618,18 +619,23 @@ def _add_clause(clauses, element_map, rule):
             elem_path=elem_path if is_field_to_field else None,
             op=rule["op"],
             value=rule.get("value"),
-            abs_tol=rule.get("abs_tol"),
-            rel_tol=rule.get("rel_tol"),
+            abs_tol=rule.get("abs_tol"), # optional
+            rel_tol=rule.get("rel_tol"), # optional
         ))
 
     _append()
 
     """
-    TRY LATER (SHOULD THINK THROUGH THE SCORING METHOD)
+    # IDEA FOR LATER IMPLEMENTATION:
+    # BOOST FOR FIELDS (e.g. functional types) if some fields missing (e.g. material type)
+
     # Optional: duplicate if element is missing some key(s)
     # Only important for clear functional types without material descriptors
     # (i.e. descriptor says "rigid insulation", but no material descriptor is given,
     # then it should match (and boost the score) for any rigid_insulation entry)
+
+    # CODE:
+
     boost = rule.get("boost_if_missing")
     if isinstance(boost, dict):
         for missing_path, copies in boost.items():
@@ -676,11 +682,14 @@ def build_clauses(element_map: dict) -> List[Clause]:
 
     return clauses
 
-# -------------------------
-# score one item vs one element core
-# -------------------------
+# ==================
+# SCORING & MATCHING
+# ==================
 
+# ----------------------------------------------------------
 # Score ONE item against ONE element core's clauses -> Match
+# ----------------------------------------------------------
+
 def score_item_to_core(
     item: Any,
     elem_map: Any, # dotmap
@@ -709,7 +718,7 @@ def score_item_to_core(
         apply_overspec=apply_overspec,
     )
 
-    # Return a proper Match model
+    # Return a Match object
     return Match(
         item_id=item_id,
         item_name=item_name,
@@ -719,16 +728,23 @@ def score_item_to_core(
         snapshot=item_snapshot,
     )
 
+# --------------------------------------------
 # Score MANY items against ONE core -> Matches
+# --------------------------------------------
+
 def score_items_to_core(
     items: Iterable[Any],
     element_core: Any,
     *,
-    top_k: int = 5,
+    top_k: int = 5,  # Default: add items with top 5 score
     apply_overspec: bool = False,
-    include_explain: bool = True
+    include_explain: bool = True,
+    score_threshold: float = 0.0,  # New argument
 ) -> Matches:
-    
+    """
+    Scores MANY items against ONE core -> Matches
+    Only includes matches with score >= score_threshold.
+    """
     # Build clauses for this specific element_core once, use for all items
     ec_dict = coerce_to_dict(element_core)
     elem_map = normalize_core_map(to_dotmap(ec_dict))
@@ -741,34 +757,84 @@ def score_items_to_core(
             item,
             elem_map,
             clauses,
-            apply_overspec=apply_overspec if apply_overspec else False,
-            include_explain=include_explain if include_explain else False,
+            apply_overspec=apply_overspec,
+            include_explain=include_explain,
         )
         scored.append(match)
 
-    # rank all scored items
+    # Filter out matches below the threshold
+    scored = [m for m in scored if m.score >= score_threshold]
+
+    # Rank remaining matches by descending score
     scored.sort(key=lambda m: -m.score)
 
-    # return top_k matches (this number can be customized)
+    # Return top_k matches (after threshold filter)
+    return Matches(core_id=core_id, matches=scored[: max(0, int(top_k))])
+
+# -----------------------------------------------------------------------------------
+# Score items to each core of an LcaElement, and append matched_items = List[Matches]
+# -----------------------------------------------------------------------------------
+
+def score_items_to_core(
+    items: Iterable[Any],
+    element_core: Any,
+    *,
+    top_k: int = 5,  # Default: add items with top 5 score
+    apply_overspec: bool = False,
+    include_explain: bool = True,
+    score_threshold: float = 0.0,  # New argument
+) -> Matches:
+    """
+    Scores MANY items against ONE core -> Matches
+    Only includes matches with score >= score_threshold.
+    """
+    # Build clauses for this specific element_core once, use for all items
+    ec_dict = coerce_to_dict(element_core)
+    elem_map = normalize_core_map(to_dotmap(ec_dict))
+    clauses = build_clauses(elem_map)
+    core_id = str(ec_dict.get("core_id"))
+
+    scored: List[Match] = []
+    for item in items:
+        match = score_item_to_core(
+            item,
+            elem_map,
+            clauses,
+            apply_overspec=apply_overspec,
+            include_explain=include_explain,
+        )
+        scored.append(match)
+
+    # Filter out matches below the threshold
+    scored = [m for m in scored if m.score >= score_threshold]
+
+    # Rank remaining matches by descending score
+    scored.sort(key=lambda m: -m.score)
+
+    # Return top_k matches (after threshold filter)
     return Matches(core_id=core_id, matches=scored[: max(0, int(top_k))])
 
 
 def score_items_to_element(
     items: Iterable[Any],   # Many InventoryItem instances, or dicts
-    element: Any, # LcaElement instance, or dict
+    element: Any,           # LcaElement instance, or dict
     *,
     top_k: int = 5,
     apply_overspec: Optional[bool] = None,
     include_explain: bool = True,
+    score_threshold: float = 0.0,
 ) -> LcaElement:
     """
     Scores `items` against each MatchingCore in `element.element_core`,
     writes the top-k Matches per core into `element.matched_items`,
     and returns the same LcaElement (same id).
+
+    Only includes matches with score >= score_threshold.
     """
-    # Ensure we have a model instance
+    # Ensure model instance
     if not isinstance(element, LcaElement):
         element = LcaElement(**element)  # preserves id from the dict
+
     results: List[Matches] = []
     for core in (element.element_core or []):
         results.append(
@@ -778,9 +844,11 @@ def score_items_to_element(
                 top_k=top_k,
                 apply_overspec=bool(apply_overspec),
                 include_explain=include_explain,
+                score_threshold=score_threshold,
             )
         )
 
-    # attach results to the same instance
+    # Attach results to the same instance
     element.matched_items = results
-    return element  # id is unchanged
+    return element
+
