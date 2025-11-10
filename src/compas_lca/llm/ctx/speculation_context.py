@@ -39,53 +39,55 @@ class ThicknessGuessResult(BaseModel):
     )
 
 
+THICKNESS_GUESS_PROMPT = """
+You are a building-physics reasoning assistant specialized in IFC data.
+Your task is to estimate per-layer thicknesses for an IfcBuildingElement that lists materials
+but does not provide individual layer thicknesses.
+Use all information provided in the JSON — including metadata, materials, properties, and quantities —
+to make an educated and physically plausible guess.
+
+Guidelines:
+- If a total thickness is available (e.g., in 'Thickness' or 'Construction.Default Thickness'),
+  use it as the total thickness for the buildup.
+- If total thickness is missing, take the SMALLEST OBB dimension (e.g., obb_x, obb_y, or obb_z).
+- Distribute the total thickness across layers proportionally to realistic construction logic:
+  finishes and coatings are thinner, insulation and structure are thicker.
+- Include every layer or material in 'material_data.materials' (or 'material_layers' if present).
+- All thickness values must be given in millimetres.
+- Number layers from top to bottom (1 = topmost layer).
+- The sum of all inferred layer thicknesses should approximately equal the total thickness.
+- Add a concise reasoning field (1-2 sentences) summarizing your logic.
+
+You must output a 'ThicknessGuessResult' object that strictly follows this schema:
+{
+  "element_name": "string",
+  "element_type": "string",
+  "total_thickness_mm": "float",
+  "reasoning": "string",
+  "layers": [
+    {
+      "layer_number": "integer (1=top)",
+      "layer_name": "string",
+      "inferred_thickness_mm": "float"
+    }
+  ]
+}
+Return only valid JSON matching this schema. Do not include explanations outside the JSON.
+"""
+
 THICKNESS_GUESS_CTX = Context(
-    instructions=(
-        "You are a building-physics reasoning assistant specialized in IFC data. "
-        "Your task is to estimate per-layer thicknesses for an IfcBuildingElement that lists materials "
-        "but does not provide individual layer thicknesses. "
-        "Use all information provided in the JSON — including metadata, materials, properties, and quantities — "
-        "to make an educated and physically plausible guess.\n\n"
-
-        "Guidelines:\n"
-        "- If a total thickness is available (e.g., in 'Thickness' or 'Construction.Default Thickness'), "
-        "use it as the total thickness for the buildup.\n"
-        "- If total thickness is missing, take the SMALLEST OBB dimension (e.g., obb_x, obb_y, or obb_z) "
-        "- Distribute the total thickness across layers proportionally to realistic construction logic: "
-        "finishes and coatings are thinner, insulation and structure are thicker.\n"
-        "- Include every layer or material in 'material_data.materials' (or 'material_layers' if present).\n"
-        "- All thickness values must be given in millimetres.\n"
-        "- Number layers from top to bottom (1 = topmost layer).\n"
-        "- The sum of all inferred layer thicknesses should approximately equal the total thickness.\n"
-        "- Add a concise reasoning field (1-2 sentences) summarizing your logic.\n\n"
-
-        "You must output a 'ThicknessGuessResult' object that strictly follows this schema:\n"
-        "{\n"
-        '  "element_name": "string",\n'
-        '  "element_type": "string",\n'
-        '  "total_thickness_mm": "float",\n'
-        '  "reasoning": "string",\n'
-        '  "layers": [\n'
-        '    {\n'
-        '      "layer_number": "integer (1=top)",\n'
-        '      "layer_name": "string",\n'
-        '      "inferred_thickness_mm": "float"\n'
-        '    }\n'
-        '  ]\n'
-        "}\n\n"
-
-        "Return only valid JSON matching this schema. Do not include explanations outside the JSON."
-    ),
+    instructions=THICKNESS_GUESS_PROMPT,
     output_type=ThicknessGuessResult
 )
 
+# ======== CONCRETE SPECULATION ========
+"""
+Just some notes: a concrete attribute speculation agent from the building
+element side would be nice. for instance, if IFC data has a
+concrete descriptor, but doesnt specify the strength class, then
+it might be good to take an educated guess. A generic slab will have enough
+compressive strength if the concrete is C20/25, and anything above would be overkill.
+Therefore it might be good to specifically instruct an agent to fill in the blanks
 
-# ======== SPECULATION CONTEXT ========
-# Tries to fill in the blanks
-
-SPECULATION_CTX = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type="placeholder"
-)
+-> Should be applied to other material facets aswell.
+"""

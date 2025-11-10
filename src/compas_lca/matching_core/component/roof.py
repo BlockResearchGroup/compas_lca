@@ -12,8 +12,6 @@ class RoofFacet(BaseModel):
     )
     roof_type: RoofType = Field(
         RoofType.unknown,
-        description="""
-        The type of roof or roof superstructure described in the dataset
-        """,
-        examples=["straight", "spiral", "unknown"]
+        description="The type of roof or roof superstructure described in the dataset",
+        examples=["green_roof", "pitched_roof", "other"]
     )

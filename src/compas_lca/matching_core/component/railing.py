@@ -12,8 +12,6 @@ class RailingFacet(BaseModel):
     )
     railing_type: RailingType = Field(
         RailingType.unknown,
-        description="""
-        The type of railing described in the dataset
-        """,
+        description="The type of railing described in the dataset",
         examples=["balustrade", "cable", "other"]
     )

@@ -104,12 +104,11 @@ class Common(BaseModel):
         """,
         examples=[0.5, 5.0, 18.0]
     )
-    thickness_source: Optional[Literal["from_data", "speculated"]] = Field( #TRACABILITY
-        None,
+    thickness_source: Literal["from_data", "speculated"] = Field( #TRACABILITY
+        "from_data",
         description="""
-        If a thickness was extracted from the dataset, enter "from_data", else leave empty.
-        """,
-        examples=[0.5, 5.0, 18.0]
+        Always leave default "from_data".
+        """
     )
     thermal_conductivity: Optional[LambdaFloat] = Field(
         None,

@@ -15,16 +15,11 @@ class CeilingFacet(BaseModel):
     )
     ceiling_type: CeilingType = Field(
         CeilingType.unknown,
-        description="""
-        Ceiling type based on dominant/primary material composition & buildup
-        """,
+        description="Ceiling type based on dominant/primary material composition & buildup",
         examples=["gypsum_board", "wood_panel", "metal_mesh"]
     )
     ceiling_form: Optional[CeilingForm] = Field(
         None,
-        description="""
-        How the ceilings are built or supported.
-        Construction system and/or form.
-        """,
+        description="How the ceilings are built or supported. Construction system and/or form.",
         examples=["suspended", "direct_applied", "vaulted"]
     )

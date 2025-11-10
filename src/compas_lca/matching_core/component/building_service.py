@@ -12,8 +12,6 @@ class BuildingServiceFacet(BaseModel):
     )
     building_service_type: BuildingServiceType = Field(
         BuildingServiceType.unknown,
-        description="""
-        Type of technical installation or buildign service system
-        """,
+        description="Type of technical installation or buildign service system",
         examples=["pv_panel", "air_conditioning", "building_automation"]
     )

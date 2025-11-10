@@ -12,8 +12,6 @@ class StairFacet(BaseModel):
     )
     stair_type: StairType = Field(
         StairType.unknown,
-        description="""
-        The type of stair described in the dataset
-        """,
-        examples=["flat_roof", "pitched_roof", "green_roof"]
+        description="The type of stair described in the dataset",
+        examples=["straight", "spiral", "other"]
     )
