@@ -10,6 +10,7 @@ from typing import Union
 from pydantic import BeforeValidator
 
 from compas_lca.enums import MaterialType
+from compas_lca.enums import RefUnit
 from compas_lca.enums import Loadbearing
 from compas_lca.enums import InteriorExterior
 
@@ -47,9 +48,8 @@ def _to_material_type(v: Any):
       8) mineral (ceramic/stone/glass/gypsum/cement/mortar/brick)
       → else unknown
     """
-    # If enum is stubbed in tests
     try:
-        MaterialType  # type: ignore[name-defined]
+        MaterialType
     except NameError:
         return v
 
@@ -61,7 +61,6 @@ def _to_material_type(v: Any):
     s, tokens, joined = _norm_tokens(v)
     tok = set(tokens)
 
-    # Concrete (explicit standalone class)
     if (
         _has_any(joined,
                  "concrete", "reinforced concrete", "rc", "rcc",
@@ -72,8 +71,6 @@ def _to_material_type(v: Any):
         or (_has_any(joined, "cementitious screed") and "concrete" in joined)
     ) and not _has_any(joined, "asphalt concrete"):  # asphalt-concrete is bituminous
         return MaterialType.concrete
-
-    # Bituminous
     if (
         _has_any(joined, "asphalt", "bitumen", "bituminous", "tar", "pitch",
                  "mastic asphalt", "modified bitumen", "sbs", "app",
@@ -81,15 +78,11 @@ def _to_material_type(v: Any):
         or "bitumen" in tok or "asphalt" in tok
     ):
         return MaterialType.bituminous
-
-    # Metallic
     if any(m in tok for m in [
         "metal", "metallic", "steel", "stainless", "inox", "aluminum", "aluminium",
         "copper", "brass", "bronze", "zinc", "titanium", "iron", "cast", "galvanized"
     ]):
         return MaterialType.metallic
-
-    # Composite (wins over mineral/polymeric for specific phrases)
     if (
         "composite" in tok
         or _has_any(joined, "frp", "cfrp", "gfrp", "kfrp", "aramid",
@@ -103,19 +96,21 @@ def _to_material_type(v: Any):
         or "gfrc" in tok or "grc" in tok
     ):
         return MaterialType.composite
-
-    # Ligneous (wood & plant-based)
     if (
-        _has_any(joined, "wood", "timber", "lumber", "hardwood", "softwood",
-                 "plywood", "osb", "mdf", "hdf", "particleboard", "chipboard",
-                 "fiberboard", "glulam", "glued laminated", "lvl", "psl", "kvh",
-                 "clt", "cross laminated timber", "veneer", "lamella", "straw"
-                 "bamboo", "cork")
+        _has_any(
+            joined,
+            "wood", "timber", "lumber", "hardwood", "softwood",
+            "parquet",
+            "plywood", "osb", "mdf", "hdf", "particleboard", "chipboard",
+            "fiberboard", "fibreboard", "hardboard",
+            "glulam", "glued laminated", "lvl", "psl", "kvh",
+            "clt", "cross laminated timber",
+            "veneer", "lamella", "straw", "bamboo", "cork",
+            "wood fibre", "wood fiber", "woodfibre"
+        )
         or any(x in tok for x in ["wood", "timber", "plywood", "osb", "mdf", "clt", "lvl", "psl", "kvh"])
     ):
-        return MaterialType.ligneous
-
-    # Polymeric (plastics/rubbers/resins not already matched as insulation)
+        return MaterialType.wood
     if (
         "polymer" in tok or "polymeric" in tok or "plastic" in tok
         or _has_any(joined, "rubber", "resin", "silicone", "epoxy", "acrylic",
@@ -126,8 +121,6 @@ def _to_material_type(v: Any):
         ])
     ):
         return MaterialType.polymeric
-
-    # Mineral (ceramic/stone/glass/gypsum/cement/mortar/brick)
     if (
         _has_any(joined, "mineral", "ceramic", "porcelain", "tile", "brick", "masonry",
                  "stone", "marble", "granite", "limestone", "sandstone", "slate",
@@ -140,7 +133,93 @@ def _to_material_type(v: Any):
 
     return MaterialType.unknown
 
+# -------------------------------------------------------------------------------
+# Validator for Reference Units (such that any database/epd can be standardized)
+# -------------------------------------------------------------------------------
 
+
+def _norm_tokens(v: Any):
+    """Lowercase; keep alnum; split to tokens; also provide the joined string."""
+    s = str(v).strip().lower()
+    tokens = _WORD.findall(s)
+    joined = " ".join(tokens)
+    return s, tokens, joined
+
+def _has_any(joined: str, *phrases: str) -> bool:
+    j = joined
+    return any(p in j for p in phrases)
+
+def _to_ref_unit(v: Any):
+    """
+    Normalize flexible inputs into RefUnit:
+      - 'sqm', 'qm', 'm^2', 'm²' → m2
+      - 'cbm', 'm^3', 'm³'       → m3
+      - 'lm', 'lfm', 'laufmeter' → m
+      - 'pc', 'pcs', 'stück'     → pcs
+      - 'kg', 'kilogram(s)'      → kg
+
+    Rules:
+      - If multiple units are detected in the same string (e.g. 'kg per m2'), raise ValueError.
+      - If nothing matches, raise ValueError.
+    """
+    if v is None or (isinstance(v, str) and not v.strip()):
+        raise ValueError("reference unit is required")
+    if isinstance(v, RefUnit):
+        return v
+
+    s, tokens, joined = _norm_tokens(v)
+    if re.search(r"\b(ft|feet|inch|in|yard|yd|mile|mi|ft2|ft\^?2|ft²|ft3|ft\^?3|ft³)\b", joined):
+        raise ValueError(f"non-SI unit detected in {v!r}; please convert to SI (kg, m, m2, m3, pcs)")
+    tok = set(tokens)
+
+    # Compact matchers (cover unicode and caret exponents)
+    m2_hit = (
+        bool(re.search(r"\bm\s*(?:\^?\s*2|[²\u00b2])\b", joined))
+        or any(t in tok for t in {"m2", "m^2", "m²", "sqm", "qm"})
+        or _has_any(joined, "square meter", "square metre", "sq m", "sq. m")
+    )
+    m3_hit = (
+        bool(re.search(r"\bm\s*(?:\^?\s*3|[³\u00b3])\b", joined))
+        or any(t in tok for t in {"m3", "m^3", "m³", "cbm"})
+        or _has_any(joined, "cubic meter", "cubic metre", "cu m", "kubikmeter")
+    )
+    m_hit = (
+        ("m" in tok)
+        or any(t in tok for t in {"lm", "lfm", "lfdm"})
+        or _has_any(joined, "linear meter", "linear metre", "laufmeter")
+    )
+    kg_hit = (
+        ("kg" in tok)
+        or any(t in tok for t in {"kgs", "kilogram", "kilograms", "kilogramme", "kilogrammes"})
+    )
+    pcs_hit = any(t in tok for t in {
+        "pcs","pc","piece","pieces","unit","units","ea","each","stk","stck","stueck","stück"
+    })
+
+    hits = []
+    if m2_hit: hits.append(RefUnit.m2)
+    if m3_hit: hits.append(RefUnit.m3)
+    if m_hit:  hits.append(RefUnit.m)
+    if kg_hit: hits.append(RefUnit.kg)
+    if pcs_hit: hits.append(RefUnit.pcs)
+
+    # Fallback: exact single-token strings like "m²"
+    if not hits:
+        single = s.replace(" ", "")
+        if single in {"m²", "m^2"}: return RefUnit.m2
+        if single in {"m³", "m^3"}: return RefUnit.m3
+
+    # De-dup and decide
+    dedup = []
+    for h in hits:
+        if h not in dedup:
+            dedup.append(h)
+
+    if not dedup:
+        raise ValueError(f"could not infer reference unit from {v!r}")
+    if len(dedup) > 1:
+        raise ValueError(f"ambiguous reference unit in {v!r}: candidates {', '.join(u.value for u in dedup)}")
+    return dedup[0]
 
 
 # -------------------------------------------------------------------
@@ -196,7 +275,7 @@ def _to_loadbearing(v: Any):
         return Loadbearing.non_loadbearing
     if s in {"either", "both", "variable", "depends", "sometimes", "mixed", "contextual", "maybe"}:
         return Loadbearing.either
-    return Loadbearing.unknown
+    return None
 
 
 def _to_inex(v: Any):
@@ -216,7 +295,7 @@ def _to_inex(v: Any):
         return InteriorExterior.exterior
     if s in {"either", "both", "variable", "mixed", "contextual"}:
         return InteriorExterior.either
-    return InteriorExterior.unknown
+    return None
 
 # Accept common unit notations (various spellings)
 _UNIT_PATTERN = re.compile(
@@ -379,6 +458,7 @@ ParsedNumber = Annotated[Number, BeforeValidator(_parse_number)]
 # Domain-specific enums normalized from flexible inputs
 LoadbearingType = Annotated[Loadbearing, BeforeValidator(_to_loadbearing)]
 InteriorExteriorType  = Annotated[InteriorExterior, BeforeValidator(_to_inex)]
+RefUnitType = Annotated[RefUnit, BeforeValidator(_to_ref_unit)]
 
 # Normalized Floats (addressing potential unit inclusions)
 DensityFloat = Annotated[Optional[float], BeforeValidator(_normalize_density)]

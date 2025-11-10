@@ -1,4 +1,5 @@
 from compas_lca.enums import MaterialType
+from compas_lca.enums import EntryType
 from compas_lca.enums import ComponentType
 
 from compas_lca.llm.ctx.extraction_context import MINERAL_CTX
@@ -16,6 +17,8 @@ from compas_lca.llm.ctx.extraction_context import CURTAIN_WALL_CTX
 from compas_lca.llm.ctx.extraction_context import DOOR_CTX
 from compas_lca.llm.ctx.extraction_context import ROOF_CTX
 from compas_lca.llm.ctx.extraction_context import SHADING_CTX
+from compas_lca.llm.ctx.extraction_context import STAIR_CTX
+from compas_lca.llm.ctx.extraction_context import RAILING_CTX
 from compas_lca.llm.ctx.extraction_context import WINDOW_FITTING_CTX
 from compas_lca.llm.ctx.extraction_context import WINDOW_CTX
 
@@ -34,15 +37,25 @@ from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
+from compas_lca.matching_core.component.stairs import StairFacet
+from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 from compas_lca.matching_core.component.window import WindowFacet
+
+# Map entry type Literal for optional forcing of EntryType
+MAP_TO_ENTRY_TYPE = {
+    "material": EntryType.material,
+    "component": EntryType.component,
+    "unknown": EntryType.unknown,
+}
 
 
 # Map material type to its LLM extraction context
 CTX_BY_MAT_TYPE = {
     MaterialType.mineral: MINERAL_CTX,
     MaterialType.concrete: CONCRETE_CTX,
-    MaterialType.ligneous: LIGNEOUS_CTX,
+    MaterialType.wood: LIGNEOUS_CTX,
+    #MaterialType.ligneous: LIGNEOUS_CTX,
     MaterialType.metallic: METALLIC_CTX,
     MaterialType.polymeric: POLYMERIC_CTX,
     MaterialType.bituminous: BITUMINOUS_CTX,
@@ -53,7 +66,8 @@ CTX_BY_MAT_TYPE = {
 MODEL_BY_MAT_TYPE = {
     MaterialType.mineral: MineralFacet,
     MaterialType.concrete: ConcreteFacet,
-    MaterialType.ligneous: LigneousFacet,
+    MaterialType.wood: LigneousFacet,
+    #MaterialType.ligneous: LigneousFacet,
     MaterialType.metallic: MetallicFacet,
     MaterialType.polymeric: PolymericFacet,
     MaterialType.bituminous: BituminousFacet,
@@ -69,6 +83,8 @@ CTX_BY_COMP_TYPE = {
     ComponentType.door: DOOR_CTX,
     ComponentType.roof: ROOF_CTX,
     ComponentType.shading_device: SHADING_CTX,
+    ComponentType.stairs: STAIR_CTX,
+    ComponentType.railing: RAILING_CTX,
     ComponentType.window_fitting: WINDOW_FITTING_CTX,
     ComponentType.window: WINDOW_CTX,
 }
@@ -82,7 +98,8 @@ MODEL_BY_COMP_TYPE = {
     ComponentType.door: DoorFacet,
     ComponentType.roof: RoofFacet,
     ComponentType.shading_device: ShadingFacet,
+    ComponentType.stairs: StairFacet,
+    ComponentType.railing: RailingFacet,
     ComponentType.window_fitting: WindowFittingFacet,
     ComponentType.window: WindowFacet,
 }
-

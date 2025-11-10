@@ -17,7 +17,12 @@ class IfcCaches:
         self.group_rels = model.get_entities_by_type("IfcRelAssignsToGroup")
         self.material_props = model.get_entities_by_type("IfcMaterialProperties")
         
-        # Reverse index: IfcMaterialDefinition -> [IfcMaterialProperties, ...]
+        # TODO: Verify and decide on the necessity of this reverse index.
+        #       Reverse index: IfcMaterialDefinition -> [IfcMaterialProperties, ...]
+        #       Observation: IfcMaterialProperties are seldom exported (at least not from Revit).
+        #       Question: Is this reverse index even needed in practice?
+        #       Note: Requires enabling “Export Material Properties” in Revit’s IFC export dialog.
+        
         self.material_props_by_def = defaultdict(list)
         for mprops in self.material_props:
             mat_def = getattr(mprops, "Material", None)  # IfcMaterial / IfcMaterialLayer / IfcMaterialLayerSet

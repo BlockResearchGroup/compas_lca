@@ -1,4 +1,5 @@
 from typing import Optional
+from typing import Literal
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -22,7 +23,7 @@ class Common(BaseModel):
     entry_type: EntryType = Field(
         ...,
         description="""
-        Classify the dataset as a MATERIAL (homogeneous substance or uniform layer), 
+        Classify the dataset as a MATERIAL (homogeneous substance, monolithic unit, or uniform layer), 
         COMPONENT (assembled product or system-level element), 
         or UNKNOWN if insufficient evidence.
         """,
@@ -103,6 +104,12 @@ class Common(BaseModel):
         """,
         examples=[0.5, 5.0, 18.0]
     )
+    thickness_source: Literal["from_data", "speculated"] = Field( #TRACABILITY
+        "from_data",
+        description="""
+        Always leave default "from_data".
+        """
+    )
     thermal_conductivity: Optional[LambdaFloat] = Field(
         None,
         ge=0,
@@ -126,7 +133,7 @@ class Common(BaseModel):
         description="""
         This boolean value describes if the material or component is fire retardant (True) or inflammable (False)
         Assign a boolean value if this information is explicitly stated in the input dataset,
-        or if the value unambiguously clear (common sense).
+        or if the value is unambiguously clear (common sense).
         """,
         examples=[True, False]
     )
@@ -135,7 +142,7 @@ class Common(BaseModel):
         description="""
         This field describes if the material or component is resistant against water vapour (True) or very permeable (False).
         Assign a boolean value if this information is explicitly stated in the input dataset,
-        or if the value unambiguously clear (common sense).
+        or if the value is unambiguously clear (common sense).
         """,
         examples=[True, False]
     )

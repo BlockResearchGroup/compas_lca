@@ -19,6 +19,8 @@ from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
+from compas_lca.matching_core.component.stairs import StairFacet
+from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 
@@ -26,45 +28,145 @@ from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 # %%%%%%%%% COMMON EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-COMMON_CTX = Context(
+ELEMENT_COMMON_PROMPT = """
+TASK
+Classify a BUILDING MODEL ELEMENT record as "material", "component", or "unknown".
+Populate only the requested fields. Do not invent data.
+
+HARD OVERRIDES
+1. Always "component" for unitized/assemblies, even if sub-materials are listed:
+   IFC classes: IfcWindow, IfcDoor, IfcCurtainWall, IfcBuildingElementProxy (when describing a unit),
+   and all IfcFlow* / IfcDistribution* devices or equipment
+   (MEP fixtures, HVAC units, lighting fixtures, sanitary fixtures).
+
+2. Always "material" when the record clearly and exclusively describes a single
+   homogeneous material or monolithic composite with a single thickness/section
+   applying to the whole element.
+   Evidence: material_data.entity = IfcMaterialLayerSetUsage and len(material_layers) = 1
+   with a clear material_name (e.g., "Concrete - Cast In Situ") and a single thickness.
+   Also treat monolithic composites (e.g., reinforced concrete, glulam) as one material
+   for this purpose.
+
+SECONDARY RULES (when no hard override applies)
+- If multiple distinct layers (e.g., len(material_layers) > 1) or an explicit multi-material
+  list (IfcMaterialList / multiple material_names), classify as "component"
+  (or route to a multilayer workflow upstream).
+
+- For structural primitives like IfcSlab, IfcWall, IfcBeam, IfcColumn, IfcFooting:
+  * If single identified material + one thickness/section → "material".
+  * Otherwise (composite build-up unknown or multi-layer) → "component" (or multilayer).
+
+- If the record is ambiguous or purely administrative → "unknown".
+
+DISAMBIGUATION EXAMPLES
+- "Floor: 150 mm Exterior Slab on Grade" with one layer "Concrete - Cast In Situ",
+  thickness 0.15 m → material.
+- "Residential Wall - gypsum + studs + sheathing" (multi layer) → component.
+- "Window type A, frame material: wood" → component (unitized product EPDs).
+- "W310x60 steel beam, S355" → material (single material section).
+
+GENERAL PRINCIPLES
+- Prefer "material" when there is a single, uniform material and a uniform
+  thickness/section for the whole element.
+- Use "component" only with clear evidence of an installable assembly or
+  multiple separable materials.
+- Do not infer missing values; copy only what is present.
+"""
+
+ELEMENT_COMMON_CTX = Context(
+    instructions=ELEMENT_COMMON_PROMPT,
+    output_type=Common
+)
+
+
+"""
+OLD: CAN MAYBE TEST COMPARISON LATER
+ELEMENT_COMMON_CTX = Context(
     instructions=(
-        "You are an expert at extracting important data from a dataset describing a building MATERIAL or COMPONENT."
-        " INPUT may be a JSON string, PDF text, or TXT. Carefully EXTRACT all relevant information and populate the output schema."
-        " For each field in the schema, copy the value exactly from the input."
-        " Only add values that are explicitly present in the input."
-        " If a field is missing or unclear, leave its default. Do NOT infer or invent."
-        " Return ONLY the JSON for the output schema—no extra text."
+        "TASK\n"
+        "You are classifying a BUILDING MODEL ELEMENT record (from BIM/IFC/Revit). "
+        "By default, such a record represents a single material element. "
+        "If the record clearly and exclusively describes a single homogeneous material or a uniform material layer, classify it as material. "
+        "If the record instead represents an installable assembly, or system-level building element, classify it as component. "
+        "If the element does not describe anything tangible or attributable to a building, classify as unknown."
+        "Populate the output schema exactly from the input; never infer or assume values.\n"
         "\n"
-        "\n"
-        "CRITICAL TASK: Determine `entry_type` accurately using the rules and examples below.\n"
-        "\n"
-        "DEFINITIONS\n"
-        "- MATERIAL: A single homogeneous substance or a uniform material layer defined by physical/chemical nature "
-        "(mineral, metallic, polymeric, bituminous, ligneous, or integrated composite). “Integrated composite” means the parts are "
-        "bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed "
-        "as a functional unit by itself.\n"
-        "- COMPONENT: A manufactured assembly or device intended to be installed as a functional building element "
-        "(e.g., closes an opening, provides services). Typically delivered as a unit/module/system with distinct separable parts or "
-        "interfaces (frame+glass+hardware, tiles+grid, casing+driver, panel+mounting, duct run with fittings).\n"
-        "\n"
+        "Instructions for figuring out the entry_type:\n"
         "DECISION ORDER (apply top-to-bottom)\n"
-        "1) If the dataset clearly describes an installable element that performs a building function AS DELIVERED "
-        "(window unit, door unit, shading device, HVAC device/duct run, lighting fixture, curtain-wall module, ceiling system with tiles+grid, conveyor, solar panel) "
-        "→ entry_type=\"component\".\n"
-        "2) Else, if it describes a single material or uniform layer—including integrated composites where sub-parts are fused into one monolithic product "
-        "(e.g., reinforced concrete, concrete blocks with integrated EPS, metal or wood stud layer, plywood, fiber-cement, WPC) → entry_type=\"material\".\n"
-        "3) If information is insufficient or contradictory → entry_type=\"unknown\".\n"
         "\n"
-        "DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)\n"
-        "- Words like “unit/system/module/device/structure/block/frame” ALONE do NOT make it a component. "
-        "Check whether the described thing is delivered/installed as a functional element with separable parts and an explicit building function. "
-        "If not, classify as MATERIAL.\n"
-        "- A material used for making a component (e.g., “spruce wooden window frame” as a material grade/section) is still MATERIAL unless the dataset "
-        "includes the full installable unit (frame+glazing+hardware).\n"
-        "- “Precast concrete elements … for walls/pillars/beams” describing a concrete recipe/grade or generic element material spec → MATERIAL (concrete). "
-        "If it specifies a finished, project-specific element with reinforcement, embeds, hardware, lifting anchors, or erection details as a supplied unit → COMPONENT.\n"
-        "- “Shuttering block / formwork block with integrated insulation” that is a single block/layer product → MATERIAL (integrated composite), not a component assembly.\n"
+        "Material (default) → entry_type=\"material\"\n"
+        "Choose this when the record clearly describes a single, uniform material (or an integrated monolithic composite) "
+        "as the element, with no separable parts and no multilayer build-up. "
+        "Acceptable evidence includes explicit material identity (name, grade, or standard) and single-layer geometry "
+        "(thickness, section, or density) applying to the entire element.\n"
+        "Examples:\n"
+        "“Reinforced concrete C30/37, t=200 mm” (monolithic integrated composite)\n"
+        "“CLT panel 5-ply, t=120 mm (single manufactured panel type)” (counts as integrated monolith for this purpose)\n"
+        "“GL24h glulam beam 140×360 mm”\n"
+        "“AAC block 300 mm”, “Gypsum board 12.5 mm”, “XPS insulation board 100 mm”, “Steel plate S355 8 mm”\n"
+        "“Fiber-cement panel 12 mm”, “WPC decking board 22 mm”\n"
+        "\n"
+        "Component (override) → entry_type=\"component\"\n"
+        "Select this when the record describes an installable unit, assembly, or functional building element, "
+        "typically with separable parts, interfaces, or hardware; or when it represents a system-level abstraction "
+        "(even if materials are listed individually). "
+        "Examples (non-exhaustive): window or door unit, ceiling system (tiles + grid)"
+        "duct run, HVAC device, lighting fixture, sanitary fixture, frame, truss, pipe network, or "
+        "“wall/slab/roof element without any further information about individual layers and/or materials.\n"
+        "\n"
+        "Unknown → entry_type=\"unknown\"\n"
+        "Use when the record is ambiguous, contradictory, or lacks enough detail to satisfy (1) or (2).\n"
+        "\n"
+        "General principles\n"
+        "Default to material for building-model elements; switch to component only with clear system-level abstraction or installable unit/assembly evidence.\n"
+        "Do not infer; copy values exactly; leave fields at default if missing."
     ),
+    output_type=Common
+)
+"""
+
+
+ITEM_COMMON_PROMPT = """
+You are an expert at extracting important data from a dataset describing a building MATERIAL or COMPONENT.
+INPUT may be a JSON string, PDF text, or TXT. Carefully EXTRACT all relevant information and populate the output schema.
+For each field in the schema, copy the value exactly from the input.
+Only add values that are explicitly present in the input.
+If a field is missing or unclear, leave its default. Do NOT infer or invent.
+Return ONLY the JSON for the output schema—no extra text.
+
+CRITICAL TASK: Determine `entry_type` accurately using the rules and examples below.
+
+DEFINITIONS
+- MATERIAL: A single homogeneous substance or a uniform material layer defined by physical/chemical nature
+  (mineral, metallic, polymeric, bituminous, ligneous, or integrated composite). “Integrated composite” means the parts are
+  bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed
+  as a functional unit by itself.
+- COMPONENT: A manufactured assembly or device intended to be installed as a functional building element
+  (e.g., closes an opening, provides services). Typically delivered as a unit/module/system with distinct separable parts or
+  interfaces (frame+glass+hardware, tiles+grid, casing+driver, panel+mounting, duct run with fittings).
+
+DECISION ORDER (apply top-to-bottom)
+1) If the dataset clearly describes an installable element that performs a building function AS DELIVERED
+   (window unit, door unit, shading device, HVAC device/duct run, lighting fixture, curtain-wall module, ceiling system with tiles+grid, conveyor, solar panel)
+   → entry_type="component".
+2) Else, if it describes a single material or uniform layer—including integrated composites where sub-parts are fused into one monolithic product
+   (e.g., reinforced concrete, concrete blocks with integrated EPS, metal or wood stud layer, plywood, fiber-cement, WPC)
+   → entry_type="material".
+3) If information is insufficient or contradictory → entry_type="unknown".
+
+DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)
+- Words like “unit/system/module/device/structure/block/frame” ALONE do NOT make it a component.
+  Check whether the described thing is delivered/installed as a functional element with separable parts and an explicit building function.
+  If not, classify as MATERIAL.
+- A material used for making a component (e.g., “spruce wooden window frame” as a material grade/section) is still MATERIAL unless the dataset
+  includes the full installable unit (frame+glazing+hardware).
+- “Precast concrete elements … for walls/pillars/beams” describing a concrete recipe/grade or generic element material spec → MATERIAL (concrete).
+  If it specifies a finished, project-specific element with reinforcement, embeds, hardware, lifting anchors, or erection details as a supplied unit → COMPONENT.
+- “Shuttering block / formwork block with integrated insulation” that is a single block/layer product → MATERIAL (integrated composite), not a component assembly.
+"""
+
+ITEM_COMMON_CTX = Context(
+    instructions=ITEM_COMMON_PROMPT,
     output_type=Common
 )
 
@@ -165,6 +267,16 @@ ROOF_CTX = Context(
 SHADING_CTX = Context(
     instructions=TEMPLATE.format(entry="a shading device"),
     output_type=ShadingFacet
+)
+
+STAIR_CTX = Context(
+    instructions=TEMPLATE.format(entry="a stair"),
+    output_type=StairFacet
+)
+
+RAILING_CTX = Context(
+    instructions=TEMPLATE.format(entry="a railing"),
+    output_type=RailingFacet
 )
 
 WINDOW_CTX = Context(

@@ -12,8 +12,6 @@ class WindowFittingFacet(BaseModel):
     )
     window_fitting_type: WindowFittingType = Field(
         WindowFittingType.unknown,
-        description="""
-        The material from which the window fitting is made
-        """,
+        description="The material from which the window fitting is made",
         examples=["aluminium", "brass", "zinc"]
     )

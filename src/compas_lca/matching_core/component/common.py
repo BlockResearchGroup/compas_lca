@@ -16,8 +16,6 @@ class ComponentCommon(BaseModel):
     )
     component_type: ComponentType = Field(
         ComponentType.unknown,
-        description="""
-        Overview of component types, yet to be defined more in detail
-        """,
+        description="The type of component described in the dataset",
         examples=["window", "roof", "building_system"]
     )

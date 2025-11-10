@@ -12,8 +12,6 @@ class ConveyorFacet(BaseModel):
     )
     conveyor_type: ConveyorType = Field(
         ConveyorType.unknown,
-        description="""
-        Type of conveyor
-        """,
+        description="Type of conveyor",
         examples=["elevator", "escalator", "wormhole"]
     )
