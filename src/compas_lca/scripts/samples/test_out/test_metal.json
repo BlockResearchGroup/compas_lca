@@ -8,7 +8,7 @@
   },
   "element_core": [
     {
-      "core_id": "47c7be29-9d69-465f-a8a7-a37aaf8be303",
+      "core_id": "714d834e-1a49-41d0-adc3-0edfda595785",
       "entry_type": "material",
       "name": "Metal - Steel - 345 MPa",
       "loadbearing": "loadbearing",
@@ -54,12 +54,62 @@
   },
   "matched_items": [
     {
-      "core_id": "47c7be29-9d69-465f-a8a7-a37aaf8be303",
+      "core_id": "714d834e-1a49-41d0-adc3-0edfda595785",
       "matches": [
         {
           "item_id": "959d8301-c12a-43af-8d20-6e11dcb93d01",
           "item_name": "Galvanized Structural Steel",
           "score": 0.875,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 1.0,
+              "detail": "satisfies(item=loadbearing ⟶ elem=Loadbearing.loadbearing) → 1.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 1.0,
+              "detail": "intersects(item=['structural'], elem=['structural']) → 1.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 1.0,
+              "detail": "intersects(item=['beam'], elem=['beam']) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=carbon_steel, elem=MetallicType.carbon_steel) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=profile, elem=MetallicForm.profile) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -86,6 +136,56 @@
           "item_id": "d229f1ad-3b56-4a95-bd4d-cc9e7866c849",
           "item_name": "Painted Structural Steel",
           "score": 0.75,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 1.0,
+              "detail": "satisfies(item=loadbearing ⟶ elem=Loadbearing.loadbearing) → 1.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 1.0,
+              "detail": "intersects(item=['structural'], elem=['structural']) → 1.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 1.0,
+              "detail": "intersects(item=['other', 'beam', 'wall', 'slab', 'column'], elem=['beam']) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=carbon_steel, elem=MetallicType.carbon_steel) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other missing on item → 0.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -112,6 +212,56 @@
           "item_id": "3d592251-03d4-4215-a9f0-364ac6a8246f",
           "item_name": "Hot Rolled concrete reinforcing bars",
           "score": 0.5,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 1.0,
+              "detail": "satisfies(item=loadbearing ⟶ elem=Loadbearing.loadbearing) → 1.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['reinforcement'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=carbon_steel, elem=MetallicType.carbon_steel) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=rebar, elem=MetallicForm.profile) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -137,6 +287,56 @@
           "item_id": "d90547b4-748e-4a00-8ccb-5cf29b99fc25",
           "item_name": "Steel rebar B500B/ K500C-T/ K500B-T/ B500NC",
           "score": 0.5,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 1.0,
+              "detail": "satisfies(item=loadbearing ⟶ elem=Loadbearing.loadbearing) → 1.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['reinforcement'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=carbon_steel, elem=MetallicType.carbon_steel) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=rebar, elem=MetallicForm.profile) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -163,6 +363,56 @@
           "item_id": "e3aeb8a1-2d6f-425b-94fc-7b30109a57b1",
           "item_name": "Reinforcing steel bars",
           "score": 0.5,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 1.0,
+              "detail": "satisfies(item=loadbearing ⟶ elem=Loadbearing.loadbearing) → 1.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['reinforcement'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=carbon_steel, elem=MetallicType.carbon_steel) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=rebar, elem=MetallicForm.profile) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -189,6 +439,56 @@
           "item_id": "54518902-07f4-4260-a4b9-e973ced6905c",
           "item_name": "Aluminum profile, mill finish",
           "score": 0.375,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 0.0,
+              "detail": "satisfies missing on item → 0.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['facade', 'window', 'door', 'balcony_terrace'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=aluminum, elem=MetallicType.carbon_steel) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=profile, elem=MetallicForm.profile) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -213,6 +513,56 @@
           "item_id": "484b64e7-7208-4a9e-a398-b5339ff8715c",
           "item_name": "Aluminium profiles",
           "score": 0.375,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 0.0,
+              "detail": "satisfies missing on item → 0.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=aluminum, elem=MetallicType.carbon_steel) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=profile, elem=MetallicForm.profile) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -236,6 +586,56 @@
           "item_id": "ea797ccd-a6b1-47e6-8281-285024303f49",
           "item_name": "Aluminium section",
           "score": 0.375,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 0.0,
+              "detail": "satisfies missing on item → 0.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=aluminum, elem=MetallicType.carbon_steel) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=profile, elem=MetallicForm.profile) → 1.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -258,6 +658,56 @@
           "item_id": "99a748e2-99e0-4961-9cb8-ed1720528823",
           "item_name": "Stainless steel sheet",
           "score": 0.25,
+          "explain": [
+            {
+              "path": "entry_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=material, elem=EntryType.material) → 1.00"
+            },
+            {
+              "path": "loadbearing",
+              "op": "satisfies",
+              "score": 0.0,
+              "detail": "satisfies missing on item → 0.00"
+            },
+            {
+              "path": "facet.material_type",
+              "op": "equals_other",
+              "score": 1.0,
+              "detail": "equals_other(item=metallic, elem=MaterialType.metallic) → 1.00"
+            },
+            {
+              "path": "facet.functional_types",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['structural']) → 0.00"
+            },
+            {
+              "path": "facet.application_areas",
+              "op": "intersects_other",
+              "score": 0.0,
+              "detail": "intersects(item=['unknown'], elem=['beam']) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_type",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=stainless_steel, elem=MetallicType.carbon_steel) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.metallic_form",
+              "op": "equals_other",
+              "score": 0.0,
+              "detail": "equals_other(item=sheet, elem=MetallicForm.profile) → 0.00"
+            },
+            {
+              "path": "facet.material_facet.yield_strength",
+              "op": "approx",
+              "score": 0.0,
+              "detail": "approx missing on item → 0.00"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {
@@ -280,6 +730,14 @@
           "item_id": "23403df4-1fad-4bc5-8844-783d3b6dff2f",
           "item_name": "Beton C25/30 XC4 XF1 XA1 F3 32 M EcoPact, Rezept Nummer DA4334DHFS Version 1, Transportbetonwerk Plettenberg, Germany",
           "score": 0.0,
+          "explain": [
+            {
+              "path": "identity",
+              "op": "gate",
+              "score": 0.0,
+              "detail": "identity gate failed (entry_type/material_type/component_type/functional_types)"
+            }
+          ],
           "dataset_source": "OEKOBAUDAT 2024-I",
           "snapshot": {
             "reference": {

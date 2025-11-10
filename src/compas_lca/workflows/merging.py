@@ -1,17 +1,12 @@
 from typing import List
 from typing import Dict
 from typing import Any
-from typing import Optional
-from uuid import UUID
-
 
 from compas_lca.model.lca_element import LcaElement
 from compas_lca.model.match import Match
-from compas_lca.model.match import CoreMatches
+from compas_lca.model.match import Matches
 
-from compas_lca.model.match import CoreMatches
-from compas_lca.inventory.item import InventoryItem
-from compas_lca.matching_core.core import MatchingCore
+from compas_lca.model.match import Matches
 
 
 # -----------------------------
@@ -22,7 +17,7 @@ def _element_core_ids(elem: LcaElement) -> List[str]:
     """Return the element's core_id values, in the same order as element.element_core."""
     ids: List[str] = []
     for core in elem.element_core:
-        # MatchingCore.core_id is UUID; store as str in CoreMatches
+        # MatchingCore.core_id is UUID; store as str in Matches
         ids.append(core.core_id)
     return ids
 
@@ -36,7 +31,7 @@ def attach_matches_for_core(
 ) -> LcaElement:
     """
     Attach matches for a single core (by core_id) into elem.matched_items.
-    Creates or replaces the CoreMatches entry for that core_id.
+    Creates or replaces the Matches entry for that core_id.
     """
     # build top-k Match objects in place
     ranked = sorted(scored_items, key=lambda r: float(r["score"]), reverse=True)[:top_k]
@@ -60,13 +55,13 @@ def attach_matches_for_core(
     if elem.matched_items is None:
         elem.matched_items = []
 
-    # replace or append CoreMatches for this core_id
+    # replace or append Matches for this core_id
     for cm in elem.matched_items:
         if cm.core_id == core_id:
             cm.matches = matches
             break
     else:
-        elem.matched_items.append(CoreMatches(core_id=core_id, matches=matches))
+        elem.matched_items.append(Matches(core_id=core_id, matches=matches))
 
     return elem
 
@@ -84,7 +79,7 @@ def attach_all_core_matches(
     scored_items_per_core: { "<core_id_str>": [ {item, score, explain?}, ... ], ... }
 
     If ensure_all_cores=True, the function ensures that every MatchingCore present in
-    elem.element_core has a CoreMatches record (with an empty match list if absent from input).
+    elem.element_core has a Matches record (with an empty match list if absent from input).
     """
     elem.matched_items = []
     for cid, rows in scored_items_per_core.items():
@@ -101,7 +96,7 @@ def attach_all_core_matches(
         known = {cm.core_id for cm in (elem.matched_items or [])}
         for cid in _element_core_ids(elem):
             if cid not in known:
-                elem.matched_items.append(CoreMatches(core_id=cid, matches=[]))
+                elem.matched_items.append(Matches(core_id=cid, matches=[]))
 
     return elem
 

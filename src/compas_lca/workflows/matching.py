@@ -69,15 +69,6 @@ def _norm_str(x: Any) -> Any:
         return [_norm_str(v) for v in x]
     return x
 
-def _get(d: Dict[str, Any], path: str, default=None):
-    """Dot-path get for plain dicts."""
-    cur = d
-    for part in path.split('.'):
-        if not isinstance(cur, dict) or part not in cur:
-            return default
-        cur = cur[part]
-    return cur
-
 def _is_unknown(value: Any) -> bool:
     """Return True if value is an 'unknown' sentinel."""
     if value is None:
@@ -696,7 +687,7 @@ def score_item_to_core(
     clauses: Any,
     *,
     apply_overspec: Optional[bool] = None,
-    include_explain: bool = True,
+    include_explain: bool = False,
 ) -> Match:
     
     # Extract item fields
@@ -735,7 +726,7 @@ def score_items_to_core(
     *,
     top_k: int = 5,
     apply_overspec: bool = False,
-    include_explain: bool = False
+    include_explain: bool = True
 ) -> Matches:
     
     # Build clauses for this specific element_core once, use for all items

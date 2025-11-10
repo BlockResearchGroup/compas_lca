@@ -1,14 +1,13 @@
 from pathlib import Path
 import json
 
-# Import your existing matching function and helpers
 from compas_lca.workflows.matching import score_items_to_element
 
 # -------------------------------------------------------------------
 # CONFIGURATION — specify here
 # -------------------------------------------------------------------
 
-# Path to the directory containing all InventoryItem JSONs
+# Path to the directory containing all serialized InventoryItem JSONs
 INVENTORY_DIR = Path("temp/obd_batch1_gpt5_organized/material")
 
 # Path to one LcaElement JSON file
@@ -49,7 +48,7 @@ def main():
         element=element,
         top_k=TOP_K,
         apply_overspec=False,
-        include_explain=False,
+        include_explain=True,
     )
 
     # --- Print summary ---
