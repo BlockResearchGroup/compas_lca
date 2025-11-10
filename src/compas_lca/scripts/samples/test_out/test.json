@@ -1,0 +1,306 @@
+{
+  "id": "248cccae-5ea6-4ff5-b73a-935209362a12",
+  "descriptor": {
+    "element_name": "Basic Wall:Foundation - Concrete (417mm):140479",
+    "element_uuid": "2O2Fr$t4X7Zf8NOew3FK80",
+    "is_multilayer": false,
+    "object_type": "Basic Wall:Foundation - Concrete (417mm):128676"
+  },
+  "element_core": [
+    {
+      "core_id": "908ac634-8bf5-4512-a92b-8385d31ed566",
+      "entry_type": "material",
+      "name": "Concrete - Cast In Situ",
+      "loadbearing": "loadbearing",
+      "placement": "exterior",
+      "manufacturer": "Manufacturer",
+      "thickness": 417.0,
+      "thickness_source": "from_data",
+      "facet": {
+        "material_type": "concrete",
+        "functional_types": [
+          "structural"
+        ],
+        "application_areas": [
+          "foundation"
+        ],
+        "material_facet": {
+          "concrete_type": "ready_mixed"
+        }
+      }
+    }
+  ],
+  "quantities": {
+    "quantities": [
+      {
+        "name": "thickness",
+        "value": 0.42,
+        "unit": "METRE"
+      },
+      {
+        "name": "length",
+        "value": 8.383000000000003,
+        "unit": "METRE"
+      },
+      {
+        "name": "area",
+        "value": 11,
+        "unit": "SQUARE_METRE"
+      },
+      {
+        "name": "volume",
+        "value": 4.587,
+        "unit": "CUBIC_METRE"
+      }
+    ]
+  },
+  "matched_items": [
+    {
+      "core_id": "908ac634-8bf5-4512-a92b-8385d31ed566",
+      "matches": [
+        {
+          "item_id": "bd932c20-1aa7-4fe9-b343-32313b4638e7",
+          "item_name": "Beton C25/30 XC4 XF1 XA1 F3 32 M EcoPact, Rezept Nummer NA4334-DHZS Version 1, Transportbetonwerk Büttelborn, Germany",
+          "score": 0.7777777777777778,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 159.54799324975264,
+                "A4": 3.3986977018399998,
+                "A5": 2.8874155421761123,
+                "B1": -3.3142602462450084,
+                "C1": 8.64,
+                "C2": 9.829875000000001,
+                "C3": 3.5732894736842105,
+                "C4": 0.0,
+                "D": -9.84179
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "911bfcde-b259-4d50-93be-cd73f572a0e2",
+          "item_name": "Recycling ready-mix concrete C30/37",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 279.221934087695,
+                "A4": 2.34352425614851,
+                "C1": 0.696700479260797,
+                "C2": 9.8232960421194,
+                "C3": 16.379992153866,
+                "D": -3.62548328294647
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "6b6db87b-344b-4da4-b93b-669fd91cf64e",
+          "item_name": "Ready-mix concrete C25/30",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 221.656798081968,
+                "A4": 2.1150880818808,
+                "C1": 0.632240738813938,
+                "C2": 8.91327599104291,
+                "C3": 14.8615751230194,
+                "D": -3.98403416948467
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "7dd40fae-ef74-4a07-aee1-fec3bc19c70c",
+          "item_name": "Beton C20/25 XC1 XC2 F3 16 M ECOPact, Rezept Nummer DI3234_BHZK Version 1, Transportbetonwerk Kalkar, Germany",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 139.39042786994307,
+                "A4": 3.19332108872,
+                "A5": 4.705654474243673,
+                "B1": -5.673796658226122,
+                "C1": 8.64,
+                "C2": 9.235875,
+                "C3": 3.219078947368421,
+                "C4": 0.0,
+                "D": -9.247069999999999
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "af1c1002-8e98-44c9-a4e8-d4018e2fba2c",
+          "item_name": "Ready-mix concrete C20/25",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 200.067802954894,
+                "A4": 2.11314869240137,
+                "C1": 0.631301089545038,
+                "C2": 8.90002889582377,
+                "C3": 14.839487542543,
+                "D": -3.97811301546088
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "79580766-b1d6-4bb1-9fa6-4b81dd92b10d",
+          "item_name": "Ready-mix concrete C50/60",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 325.38371253761,
+                "A4": 2.13126932922862,
+                "C1": 0.636724066000179,
+                "C2": 8.97648155518304,
+                "C3": 14.9669610934085,
+                "D": -4.01228563701343
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "e0d31b93-6950-4d1b-bf7e-757758dd61f0",
+          "item_name": "Recycling ready- mix concrete C50/60",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 321.687353865211,
+                "A4": 2.13126932922862,
+                "C1": 0.636724066000179,
+                "C2": 8.97648155518304,
+                "C3": 14.9669610934085,
+                "D": -4.01228563701343
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "1d806450-73cb-4d33-9c23-dc7b55c4b273",
+          "item_name": "Ready-mix concrete C30/37",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 257.693592680481,
+                "A4": 2.12668304896163,
+                "C1": 0.633767669185103,
+                "C2": 8.93480252513313,
+                "C3": 14.8974674485619,
+                "D": -3.99365604672174
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "83a7ecb0-e191-4eae-b2f5-66e0e29468da",
+          "item_name": "Beton C30/37 XC4 XF1 XA1 F3 16 M ECOPact, Rezept Nummer DA5234-DSZS Version 1, Transportbetonwerk Plettenberg, Germany",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 174.56500283230483,
+                "A4": 3.3544846809599997,
+                "A5": 2.352686622886421,
+                "B1": -3.8198253685535697,
+                "C1": 8.64,
+                "C2": 9.702,
+                "C3": 3.495789473684211,
+                "C4": 0.0,
+                "D": -9.713759999999999
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        },
+        {
+          "item_id": "b9f5bcfc-e443-47e8-a185-525c6f305305",
+          "item_name": "Beton C25/30 XC4 XF1 XA1 F3 16 M ECOPact, Rezept Nummer DA4234-DNZK Version 1, Transportbetonwerk Brüggen Bracht, Germany",
+          "score": 0.6666666666666666,
+          "dataset_source": "OEKOBAUDAT 2024-I",
+          "snapshot": {
+            "reference": {
+              "size": 1,
+              "unit": "m3"
+            },
+            "GWP": {
+              "stages": {
+                "A1-A3": 150.6724242191542,
+                "A4": 3.30028807472,
+                "A5": 2.9236045953326015,
+                "B1": -3.3622498715414055,
+                "C1": 8.64,
+                "C2": 9.545250000000001,
+                "C3": 3.406578947368421,
+                "C4": 0.0,
+                "D": -9.55682
+              },
+              "unit": "kg CO2 eq"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

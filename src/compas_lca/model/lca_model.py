@@ -24,3 +24,4 @@ class LcaModel(BaseModel):
 
 
 # classmethod -> get all elements with same object_type. this is strongly enforced (and partially hardcoded) for IFC, and later 3dm aswell
+# question: should we aggregate all elements with the same object type as one LcaElement, and then sum up the quantities? and flag that it has been summed? or should we do this @ BOQ generation?

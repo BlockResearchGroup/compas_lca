@@ -1,6 +1,7 @@
 from uuid import uuid4
 from uuid import UUID
 
+from typing import Any
 from typing import Optional
 
 from pydantic import BaseModel
@@ -64,3 +65,57 @@ class InventoryItem(BaseModel):
             indicators=indicators,
             metadata=metadata
         )
+
+
+
+# Should ideally be a method within the class, but problem is if dictionary is passed?
+# I assume mostly items will not be stored in memory but rather in disk as serialized files.
+def snapshot(item: Any) -> dict:
+    """
+    Return a lightweight summary of an InventoryItem for embedding
+    in LcaElements (to avoid large serializations). Customizable.
+    """
+    # Normalize
+    if hasattr(item, "model_dump"):
+        data = item.model_dump(exclude_none=True)
+    elif isinstance(item, dict):
+        data = item
+    else:
+        raise TypeError(f"Unsupported item type for snapshot: {type(item)}")
+
+    reference = data.get("reference") or {}
+    indicators = data.get("indicators") or {}
+    core = data.get("item_core") or {}
+
+    # --- density ---
+    density = None
+    facet = core.get("facet") or {}
+    if isinstance(facet, dict):
+        density = facet.get("density")
+
+    # --- Reference ---
+    ref = None
+    if reference:
+        ref = {
+            "size": reference.get("size"),
+            "unit": reference.get("unit"),
+        }
+
+    # --- GWP ---
+    gwp = None
+    inds = indicators.get("indicators")
+    if isinstance(inds, list):
+        for ind in inds:
+            if ind.get("name") == "GWPtotal":
+                gwp = {
+                    "stages": dict(ind.get("stages", {})),
+                    "unit": ind.get("unit"),
+                }
+                break
+
+    # --- Build snapshot ---
+    return {
+        "reference": ref,
+        "density": density,
+        "GWP": gwp,
+    }

@@ -1,0 +1,73 @@
+{
+  "id": "79006056-3f25-41f8-b643-98aea10bf95b",
+  "descriptor": {
+    "element_name": "M_W-Wide Flange:W410X60:W410X60:209121",
+    "element_uuid": "2OrWItJ6zAwBNp0OUxK$Bq",
+    "is_multilayer": false,
+    "layer_count": null,
+    "has_layer_thickness": null,
+    "object_type": "M_W-Wide Flange:W410X60:208814",
+    "classification": null
+  },
+  "element_core": [
+    {
+      "entry_type": "material",
+      "name": "Metal - Steel - 345 MPa",
+      "loadbearing": "loadbearing",
+      "placement": null,
+      "manufacturer": null,
+      "provenance": null,
+      "production_location": null,
+      "thickness": null,
+      "thickness_source": null,
+      "thermal_conductivity": null,
+      "u_value": null,
+      "fire_retardant": null,
+      "water_vapour_resistant": null,
+      "facet": {
+        "material_type": "metallic",
+        "functional_types": [
+          "structural"
+        ],
+        "application_areas": [
+          "beam"
+        ],
+        "density": null,
+        "areal_density": null,
+        "material_facet": {
+          "metallic_type": "carbon_steel",
+          "metallic_form": "profile",
+          "steel_grade": null,
+          "yield_strength": 345.0,
+          "metallic_production": null,
+          "metallic_forming": null,
+          "metallic_surface_treatment": null
+        }
+      }
+    }
+  ],
+  "quantities": {
+    "quantities": [
+      {
+        "name": "thickness",
+        "value": 0.18,
+        "unit": "METRE"
+      },
+      {
+        "name": "length",
+        "value": 4.12127992863035,
+        "unit": "METRE"
+      },
+      {
+        "name": "area",
+        "value": 1.68,
+        "unit": "SQUARE_METRE"
+      },
+      {
+        "name": "volume",
+        "value": 0.032,
+        "unit": "CUBIC_METRE"
+      }
+    ]
+  }
+}

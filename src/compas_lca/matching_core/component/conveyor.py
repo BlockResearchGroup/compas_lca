@@ -15,5 +15,5 @@ class ConveyorFacet(BaseModel):
         description="""
         Type of conveyor
         """,
-        examples=["elevator", "escalator", "wormhole"]
+        examples=["elevator", "escalator"]
     )

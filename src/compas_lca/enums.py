@@ -37,7 +37,7 @@ class MaterialType(str, Enum):
     polymeric = "polymeric"         # plastics, rubbers, foams, resins
     bituminous = "bituminous"       # asphalt, bitumen membranes, tar
     composite = "composite"         # FRP, sandwich panels, fiber cement
-    animalic = "animalic"           # rare, but sometimes used (sheepwool, leather)
+    #animalic = "animalic"           # rare, but sometimes used (sheepwool, leather)
     unknown = "unknown"
 class ApplicationAreas(str, Enum):
     # ───────────────────────────────
