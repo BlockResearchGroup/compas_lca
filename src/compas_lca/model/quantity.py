@@ -2,9 +2,11 @@ from typing import List
 from typing import Dict
 
 from pydantic import BaseModel
-from pydantic import Field
 from pydantic import ConfigDict
+from pydantic import Field
 
+from compas_lca.validators import QuantNameType
+from compas_lca.validators import QuantUnitType
 from compas_lca.validators import ParsedNumber
 
 class Quantity(BaseModel):
@@ -23,9 +25,9 @@ class Quantity(BaseModel):
         str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
     )
 
-    name: str               # e.g. "pieces", "length", "area", "weight" (maybe Enum???)
-    value: ParsedNumber     # the numeric value
-    unit: str               # e.g. "pcs", "mm", "m", "kg", "m2", "m3"
+    name: QuantNameType             # e.g. "thickness", "length", "area", "weight"
+    value: ParsedNumber             # the numeric value
+    unit: QuantUnitType             # e.g. "m", "m2", "m3"
 
     def as_dict(self) -> Dict[str, ParsedNumber | str]:
         """Return a simple dict representation (for export/serialization)."""

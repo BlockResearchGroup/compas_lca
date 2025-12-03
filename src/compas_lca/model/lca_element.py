@@ -1,13 +1,12 @@
 from typing import List
+from typing import Literal
 from typing import Optional
 from typing import Dict
-from typing import Iterable
 from typing import Union
-
-from statistics import median
 
 from uuid import UUID
 from uuid import uuid4
+from uuid import uuid5
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -20,48 +19,104 @@ from compas_lca.model.descriptor import ElementDescriptor
 from compas_lca.model.match import Matches
 from compas_lca.model.match import Match
 
-from compas_lca.inventory.constants import EN15978_STAGES
-
 Number = Union[int, float]
 
+# ==========================================================
+# ----------------------- LcaElement -----------------------
+# ==========================================================
 class LcaElement(BaseModel):
     """
     LCA element record (one building-model element mapped to LCA inputs).
 
     Attributes
     ----------
-    uuid : UUID
+    id : UUID
         Stable unique identifier for this element. Auto-generated if not provided ('uid').
-    metadata : ElementMetadata
+    is_aggregated: Literal[False]
+        Discriminator between LcaElement and AggregatedLcaElement. Aggregation means that
+        multiple building-model elements that share a common grouping key (e.g. "object_type",
+        material signature, or classification) are represented as one element instance, and 
+        their quantities are summed up.
+    descriptor : ElementDescriptor
         Descriptive data about the source element (name, types, labels,
-        manufacturer hints, notes). Not authoritative for quantities.
+        manufacturer hints, notes). Flags if it is a multilayer, and includes
+        layer count (if multiple layered materials are included in this element).
     element_core : List[MatchingCore]
         The list of all MatchingCores for each material of this element.
         Multiple MatchingCore objects if the LcaElement represents a multilayer element
         Only one MatchingCore if the element is made out of one material.
     quantities : Quantities
         Numeric take-offs used for LCA (length, area, volume, piece count, etc.).
-        If not provided but 'geometry' is present, compas may compute them downstream.
-    matched_items : Optional[List[CoreMatches]]
-        A list of Match objects for each MatchingCore (CoreMatches), representing an
+    matched_items : Optional[List[Matches]]
+        A list of Match objects for each MatchingCore (Matches), representing an
         abbreviated InventoryItem (attached to the LcaElement after matching and merging).
         If an LcaElement has multiple MatchingCore objects, each MatchingCore receives
         the top k matches, and is indexed by the core_id of each MatchingCore.
+        This field is optional, since the same LcaElement object needs to be created
+        before the matching procedure, after which the top_k scored InventoryItems are 
+        appended to the matched_items list -> compas_lca/workflows/matching.py
     """
 
     model_config = ConfigDict(extra="forbid")
 
     id: UUID = Field(default_factory=uuid4)
-    descriptor: ElementDescriptor           # describes if multilayer or no, describes if comp level abstraction or specific material(s)
+    is_aggregated: Literal[False] = False
+    descriptor: ElementDescriptor
     element_core: List[MatchingCore]            
     quantities: Quantities
-    matched_items: List[Matches] = [] # matched InventoryItem objects for each MatchingCore of the element_core (multiple if multilayer element)
+    matched_items: Optional[List[Matches]] = None # add source
+    """
+    indicator_stats: Optional[IndicatorStatistics] = None
+
+    ### Idea: after calculation, can add indicator statistics (i.e., min, max, mean) for LcaElement.
+    Not implemented yet, noted here for future reference.
+    """
+
 
     # ----------------------------
     # Public convenience API
     # ----------------------------
 
-    def best_match(self) -> Dict[str, Optional["Match"]]:
+    def matching_core_ids(self) -> List[str]:
+        """
+        Return the element's MatchingCore core_id values, 
+        in the same order as element.element_core has listed them
+        """
+        ids: List[str] = []
+        for core in self.element_core:
+            # MatchingCore.core_id is UUID; store as str in Matches
+            ids.append(str(core.core_id))
+        return ids
+
+    def item_ids(self) -> Dict[str, List[str]]:
+        """
+        Return a mapping from each core_id to a list of item_ids
+        found in this element's matched_items.
+        """
+        mapping: Dict[str, List[str]] = {}
+        for core_matches in self.matched_items:
+            core_id = str(core_matches.core_id)
+            item_ids = [match.item_id for match in core_matches.matches]
+            mapping[core_id] = item_ids
+        return mapping
+
+    def item_names(self) -> Dict[str, List[str]]:
+        """
+        Return a mapping from each core_id to a list of item_names
+        found in this element's matched_items.
+        """
+        mapping: Dict[str, List[str]] = {}
+        for core_matches in self.matched_items:
+            core_id = str(core_matches.core_id)
+            item_names = [match.item_name for match in core_matches.matches]
+            mapping[core_id] = item_names
+        return mapping
+
+    # ----------------------------
+    # Matching logic (best score)
+    # ----------------------------
+
+    def best_score(self) -> Dict[str, Optional["Match"]]:
         """
         Return the best (max score) Match per core_id.
         Output: { "<core_id_str>": Match | None }
@@ -78,186 +133,11 @@ class LcaElement(BaseModel):
                 result.setdefault(cm.core_id, None)
         return result
 
-    def min_gwp(
-        self,
-        *,
-        core_id: Optional[str] = None,
-        include_stage_D: bool = True,
-        stages_filter: Optional[List[EN15978_STAGES]] = None,
-    ) -> Optional[float]:
-        """
-        lowest GWP in kg CO₂-eqv of any match across the entire element. 
-        Use if element only has 1 match, or specify core_id
-        if you want to have the minimum gwp of one material
-        (i.e., layered element)
-        """
-        vals = self._element_gwp_samples(core_id=core_id, include_stage_D=include_stage_D, stages_filter=stages_filter)
-        return min(vals) if vals else None
-
-    def max_gwp(
-        self,
-        *,
-        core_id: Optional[str] = None,
-        include_stage_D: bool = True,
-        stages_filter: Optional[List[EN15978_STAGES]] = None,
-    ) -> Optional[float]:
-        """
-        Highest GWP in kg CO₂-eqv of any match across the entire element. 
-        Use if element only has 1 match, or specify core_id if 
-        if you want to have the maximum gwp of one material
-        (i.e., layered element)
-        """
-        vals = self._element_gwp_samples(core_id=core_id, include_stage_D=include_stage_D, stages_filter=stages_filter)
-        return max(vals) if vals else None
-    
-    def median_gwp(
-        self,
-        *,
-        core_id: Optional[str] = None,
-        include_stage_D: bool = True,
-        stages_filter: Optional[List[EN15978_STAGES]] = None,
-    ) -> Optional[float]:
-        """
-        Median GWP in kg CO₂-eqv of any match across the entire element. 
-        Use if element only has 1 match, or specify core_id if 
-        if you want to have the median gwp of one material
-        (i.e., layered element)
-        """
-        vals = self._element_gwp_samples(core_id=core_id, include_stage_D=include_stage_D, stages_filter=stages_filter)
-        return median(vals) if vals else None
-
-    def min_total_gwp(
-            self, 
-            *, 
-            include_stage_D: bool = False,
-            stages_filter: Optional[List[EN15978_STAGES]] = None
-        ) -> Optional[float]:
-        """
-        Sum of lowest GWP in kg CO₂-eqv per core (element-level minimum).
-        Use this to quickly calculate the the sum of the minimum gwp from
-        multiple materials/layers within the LcaElement object.
-        """
-        total = 0.0
-        for core_matches in self.matched_items or []:
-            vals = self._element_gwp_samples(
-                core_id=core_matches.core_id,
-                include_stage_D=include_stage_D,
-                stages_filter=stages_filter,  # e.g. ["A1-A3"]
-            )
-            if vals:
-                total += min(vals)
-        return total if total > 0 else None
-
-    def max_total_gwp(
-            self, 
-            *, 
-            include_stage_D: bool = False,
-            stages_filter: Optional[List[EN15978_STAGES]] = None
-        ) -> Optional[float]:
-        """
-        Sum of highest GWP in kg CO₂-eqv per core (element-level minimum).
-        Use this to quickly calculate the the sum of the minimum gwp from
-        multiple materials/layers within the LcaElement object.
-        """
-        total = 0.0
-        found_any = False
-        for core_matches in self.matched_items or []:
-            vals = self._element_gwp_samples(
-                core_id=core_matches.core_id,
-                include_stage_D=include_stage_D,
-                stages_filter=stages_filter,
-            )
-            if vals:
-                total += max(vals)
-                found_any = True
-        return total if found_any else None
-
     # ----------------------------
-    # Core logic
+    # Quantity / unit logic
     # ----------------------------
-    def _element_gwp_samples(
-        self,
-        *,
-        core_id: Optional[str],
-        include_stage_D: bool,
-        stages_filter: Optional[Iterable[str]],
-    ) -> List[float]:
-        """
-        Collects a list of element-level net-GWP realizations, one per Match.
-        If core_id is None, pools matches from all cores. If core_id is provided,
-        restricts to that core's matches only.
 
-        Applies per-core thickness ratio when multiple cores with thickness are present.
-        """
-        if not self.matched_items:
-            return []
-
-        target_core_ids = {core_id} if core_id else {m.core_id for m in self.matched_items}
-        ratio_map = self._layer_ratio_map()
-        samples: List[float] = []
-
-        for core_matches in self.matched_items:
-            if core_matches.core_id not in target_core_ids:
-                continue
-            layer_ratio = ratio_map.get(core_matches.core_id, 1.0)
-            for match in (core_matches.matches or []):
-                val = self._match_net_gwp_for_element(
-                    match,
-                    include_stage_D=include_stage_D,
-                    stages_filter=stages_filter,
-                    layer_ratio=layer_ratio,
-                )
-                if val is not None:
-                    samples.append(val)
-
-        return samples
-
-
-    def _match_net_gwp_for_element(
-        self,
-        match: "Match",
-        *,
-        include_stage_D: bool,
-        stages_filter: Optional[Iterable[str]],
-        layer_ratio: float = 1.0,   # keep this plumbed in
-    ) -> Optional[float]:
-        snap = (match.snapshot or {})
-        ref = (snap.get("reference") or {})
-        ref_size = ref.get("size")
-        ref_unit = (ref.get("unit") or "").strip().lower()
-
-        if not ref_size or not ref_unit:
-            return None
-
-        specific = self._sum_gwp_stages(
-            snap.get("GWP") or {},
-            include_stage_D=include_stage_D,
-            stages_filter=stages_filter,
-        )
-        if specific is None:
-            return None
-
-        # density may be needed for mass refs
-        density = snap.get("density")  # kg/m3 if present
-
-        # note: ratio is only applied to volume (and mass when mass = volume * density)
-        qty_val = self._functional_quantity_for_reference(
-            ref_unit,
-            density=density,
-            layer_ratio=layer_ratio,   # only takes effect for volume paths
-        )
-        if qty_val is None:
-            return None
-
-        try:
-            scale = float(qty_val) / float(ref_size)
-        except Exception:
-            return None
-
-        return specific * scale  # kg CO2e
-
-        
-    def _layer_ratio_map(self) -> Dict[str, float]:
+    def layer_ratio_map(self) -> Dict[str, float]:
         """
         Returns {core_id -> thickness_ratio}.
 
@@ -285,218 +165,186 @@ class LcaElement(BaseModel):
         return {str(core.core_id): 1.0 for core in (self.element_core or [])}
 
 
-    # ----------------------------
-    # Stage handling
-    # ----------------------------
-    def _sum_gwp_stages(
-        self,
-        gwp_block: Dict[str, object],
-        *,
-        include_stage_D: bool,
-        stages_filter: Optional[Iterable[str]],
-    ) -> Optional[float]:
+    def get_quantity_value(self, name: str) -> Optional[float]:
         """
-        Sums specific GWP (kg CO2e per reference) over chosen stages.
-
-        Handles:
-          - Combined keys like "A1-A3"
-          - Individual keys like "A1", "A2", "A3"
-          - Presence of "D" (included/excluded by flag)
-        If stages_filter is provided, only those stage keys (case-insensitive) are considered.
+        Returns the numeric value of a named quantity from `self.quantities`.
         """
-        if not gwp_block:
-            return None
-
-        stages: Dict[str, Number] = (gwp_block.get("stages") or {})  # dict of {stage:str -> value:number}
-        if not isinstance(stages, dict) or not stages:
-            return None
-
-        # Normalize filter
-        wanted = {s.upper() for s in stages_filter} if stages_filter else None
-
-        total = 0.0
-        for key, val in stages.items():
-            if not isinstance(val, (int, float)):
-                continue
-
-            k = key.upper().strip()
-            if k == "D" and not include_stage_D:
-                continue
-
-            if wanted is not None:
-                # Allow filters like "A1", "A2", "A3", "A1-A3", "C1", etc.
-                # If combined key like "A1-A3", include only if the combined key is explicitly in wanted.
-                if k not in wanted:
-                    continue
-
-            total += float(val)
-
-        return total
-
-    # ----------------------------
-    # Quantity / unit logic
-    # ----------------------------
-    def _functional_quantity_for_reference(
-        self,
-        ref_unit: str,
-        *,
-        density: Optional[Number],
-        layer_ratio: float = 1.0,   # used only for volume-derived quantities
-    ) -> Optional[float]:
-        """
-        Returns the element's functional quantity in the same unit as `ref_unit`.
-
-        Ratio rules (per requirement):
-        - For m³ references: use (volume * layer_ratio).
-        - For kg references:
-            * If mass = volume * density, apply ratio to volume ONLY ( (volume * layer_ratio) * density ).
-            * If mass = area * thickness * density, DO NOT apply ratio.
-        - For m² or piece/unit references: DO NOT apply ratio.
-        """
-        u = ref_unit.replace(" ", "")
-
-        # Mass references
-        if u in {"kg", "kilogram", "kilograms"} or u in {"t", "ton", "tonne", "tonnes"}:
-            mass_kg = self._element_mass_kg(density=density, layer_ratio_for_volume=layer_ratio)
-            if mass_kg is None:
-                return None
-            if u in {"t", "ton", "tonne", "tonnes"}:
-                return mass_kg / 1000.0
-            return mass_kg  # kg
-
-        # Volume reference → apply ratio
-        if u in {"m3", "m^3", "m³"}:
-            vol = self._get_quantity_value("volume")
-            if vol is not None:
-                try:
-                    return float(vol) * float(layer_ratio)
-                except Exception:
-                    return None
-
-        # Area reference → no ratio
-        if u in {"m2", "m^2", "m²"}:
-            area = self._get_quantity_value("area")
-            if area is not None:
-                return float(area)
-
-        # Piece / unit reference → no ratio
-        if u in {"piece", "unit", "p", "pcs", "pieces", "units"}:
-            pcs = (self._get_quantity_value("piece")
-                or self._get_quantity_value("count")
-                or self._get_quantity_value("quantity"))
-            if pcs is not None:
-                return float(pcs)
-
-        return None
-
-
-    def _element_mass_kg(
-        self,
-        *,
-        density: Optional[Number],
-        layer_ratio_for_volume: float = 1.0,  # NEW: used only for volume * density path
-    ) -> Optional[float]:
-        """
-        Computes element mass in kg. Prefers:
-        1) (volume * layer_ratio_for_volume) * density    <-- ratio applied here ONLY
-        2) (area * thickness) * density                   <-- ratio NOT applied
-        Returns None if insufficient data or no density.
-        """
-        if density is None:
-            return None
-        try:
-            d = float(density)  # kg/m3
-        except Exception:
-            return None
-
-        vol = self._get_quantity_value("volume")
-        if vol is not None:
-            try:
-                return float(vol) * float(layer_ratio_for_volume) * d
-            except Exception:
-                return None
-
-        area = self._get_quantity_value("area")
-        thick = self._get_quantity_value("thickness")
-        if area is not None and thick is not None:
-            try:
-                return float(area) * float(thick) * d
-            except Exception:
-                return None
-
-        return None
-
-
-    def _get_quantity_value(self, name: str) -> Optional[float]:
-        """
-        Fetch a quantity by 'name' from self.quantities, accepting both
-        Pydantic models and plain dicts.
-
-        Expected structures:
-        - self.quantities.quantities -> List[Quantity(BaseModel)]
-        - or self.quantities["quantities"] -> List[dict]
-        """
-        # 1) Get the list (works for Pydantic model or raw dict)
         qsrc = getattr(self, "quantities", None)
-        if qsrc is None:
+        if qsrc is None or not hasattr(qsrc, "quantities"):
             return None
-
-        qblock = None
-        # Pydantic model path
-        if hasattr(qsrc, "quantities"):
-            qblock = getattr(qsrc, "quantities")
-        # Dict fallback
-        elif isinstance(qsrc, dict):
-            qblock = qsrc.get("quantities")
-
+        qblock = qsrc.quantities
         if not isinstance(qblock, list):
             return None
-
         target = (name or "").strip().lower()
-
-        # 2) Iterate items that may be BaseModel or dict
         for q in qblock:
-            # read name
-            if hasattr(q, "name"):  # BaseModel
-                q_name = (getattr(q, "name") or "").strip().lower()
-            elif isinstance(q, dict):  # dict
-                q_name = (q.get("name") or "").strip().lower()
-            else:
-                continue
-
+            # Each q is a Pydantic Quantity model
+            q_name = (getattr(q, "name", "") or "").strip().lower()
             if q_name != target:
                 continue
-
-            # read value
-            if hasattr(q, "value"):  # BaseModel
-                v = getattr(q, "value")
-            elif isinstance(q, dict):
-                v = q.get("value")
-            else:
-                v = None
-
+            v = getattr(q, "value", None)
             if v is None:
                 return None
             try:
                 return float(v)
             except (TypeError, ValueError):
                 return None
-
         return None
 
 
-    # ----------------------------
-    # placeholders
-    # ----------------------------
+# ==========================================================
+# ------------------ AggregatedLcaElement ------------------
+# ==========================================================
 
 
-    def calculate_lca(self):
-        """
-        Will only work if matched_items != None
-        """
-        pass
+class AggregatedLcaElement(LcaElement):
+    """
+    Aggregated representation of multiple `LcaElement` objects that share a common 
+    `object_type` grouping key.
 
-    def dissect_layers():
-        pass
+    This subclass inherits all data fields and LCA computation methods from `LcaElement`,
+    but adds metadata describing the aggregation context and provenance of the grouped elements.
 
+    During aggregation (`from_group`):
+        • All source elements must have the same non-empty `descriptor.object_type`.
+        • The aggregated element's `descriptor.element_name` is redefined as:
+              "<object_type> (aggregated xN)"
+          where *N* is the number of elements combined.
+        • The aggregated element's `descriptor.element_uuid` is set to `"AGGREGATED"`,
+          since it no longer corresponds to a single building-model object.
+        • Other descriptor fields (e.g. `is_multilayer`, `layer_count`, `classification`)
+          are copied verbatim from the representative element.
 
+    Typical use:
+        - Combine multiple identical or equivalent building elements into a single record
+          and sum their quantities for more efficient LCA computations and reporting.
+        - Preserve traceability by listing all contributing `LcaElement` IDs.
+
+    Attributes
+    ----------
+    is_aggregated : bool = True
+        Discriminator between `LcaElement` and `AggregatedLcaElement`.
+    source_ids : List[UUID]
+        UUIDs of the original `LcaElement` instances included in this aggregate.
+    group_key : str
+        Grouping criterion used for aggregation (always equal to the shared `object_type`).
+    count : int
+        Number of individual elements represented by this aggregate.
+    
+    TODO: This is consistently doable for IFC models; for other formats 
+    like 3dm or compas_model, this approach needs to be refactored.
+    """
+    model_config = ConfigDict(extra="forbid")
+
+    is_aggregated: Literal[True] = True # discriminator for LcaModel
+    source_ids: List[UUID]
+    group_key: str
+    count: int
+
+    @classmethod
+    def from_group(
+        cls,
+        elements: List[LcaElement],
+        *,
+        group_key: str,
+        name_suffix: Optional[str] = None,   # kept for API compatibility; ignored now
+        merge_matches: bool = True,
+    ) -> "AggregatedLcaElement":
+        if not elements:
+            raise ValueError("Cannot aggregate empty list")
+
+        rep = elements[0]
+
+        # --- Compatibility checks ----------
+        # object_type must be present (non-empty) on the representative
+        ref_objtype = (rep.descriptor.object_type or "").strip()
+        if not ref_objtype:
+            raise ValueError(f"Aggregation requires non-empty object_type (ref {rep.id})")
+
+        # All elements must share the same object_type and it must be non-empty
+        for e in elements[1:]:
+            objtype = (e.descriptor.object_type or "").strip()
+            if not objtype:
+                raise ValueError(f"Aggregation requires non-empty object_type (elem {e.id})")
+            if objtype != ref_objtype:
+                raise ValueError(
+                    f"object_type mismatch: '{objtype}' (elem {e.id}) != '{ref_objtype}' (ref {rep.id})"
+                )
+
+        # Identical ordered list of core_id values
+        ref_core_ids = [str(core.core_id) for core in (rep.element_core or [])]
+        for e in elements[1:]:
+            ids = [str(core.core_id) for core in (e.element_core or [])]
+            if ids != ref_core_ids:
+                raise ValueError(
+                    "core_id sequence mismatch:\n"
+                    f"  ref ({rep.id}): {ref_core_ids}\n"
+                    f"  got ({e.id}): {ids}"
+                )
+
+        # Per-core thickness equality (exact; tolerance = 0.0)
+        ref_thicknesses: List[float] = []
+        for idx, core in enumerate(rep.element_core or [], start=1):
+            t = getattr(core, "thickness", None)
+            if t is None:
+                raise ValueError(f"Missing thickness for core[{idx}] (ref {rep.id})")
+            try:
+                ref_thicknesses.append(float(t))
+            except Exception:
+                raise ValueError(f"Non-numeric thickness for core[{idx}] (ref {rep.id}): {t!r}")
+
+        for e in elements[1:]:
+            if len(e.element_core or []) != len(ref_thicknesses):
+                raise ValueError(f"Thickness list length mismatch (elem {e.id})")
+            for idx, core in enumerate(e.element_core or [], start=1):
+                t = getattr(core, "thickness", None)
+                if t is None:
+                    raise ValueError(f"Missing thickness for core[{idx}] (elem {e.id})")
+                try:
+                    tv = float(t)
+                except Exception:
+                    raise ValueError(f"Non-numeric thickness for core[{idx}] (elem {e.id}): {t!r}")
+                if tv != ref_thicknesses[idx - 1]:
+                    raise ValueError(
+                        f"core[{idx}] thickness mismatch (elem {e.id}): "
+                        f"{ref_thicknesses[idx - 1]} mm vs {tv} mm (tol=0.0 mm)"
+                    )
+
+        # Enforce that the provided group_key matches the object_type
+        if group_key.strip() != ref_objtype:
+            raise ValueError(
+                f"group_key must equal object_type for aggregation: "
+                f"'{group_key}' != '{ref_objtype}'"
+            )
+
+        # Sum quantities (implement Quantities.sum to do field-wise sum safely)
+        total_quant = Quantities.sum([e.quantities for e in elements])
+
+        # Descriptor: copy representative, but force name to OBJECT_TYPE (aggregated xN)
+        desc = rep.descriptor.model_copy(deep=True)
+        desc.element_name = f"{ref_objtype} (aggregated x{len(elements)})"
+        if hasattr(desc, "element_uuid"):
+            desc.element_uuid = "AGGREGATED"
+
+        # uuid5 for AggregateLcaElements
+        agg_id = uuid5
+
+        # Merge matches per core_id (optional)
+        matched_items = None
+        if merge_matches:
+            by_core: Dict[str, List[Match]] = {}
+            for e in elements:
+                for cm in (e.matched_items or []):
+                    key = str(cm.core_id)
+                    by_core.setdefault(key, []).extend(cm.matches or [])
+            matched_items = [Matches(core_id=k, matches=v) for k, v in by_core.items()]
+
+        return cls(
+            id=agg_id,
+            descriptor=desc,
+            element_core=rep.element_core,
+            quantities=total_quant,
+            matched_items=matched_items,
+            source_ids=[e.id for e in elements],
+            group_key=ref_objtype,  # store the canonical grouping key
+            count=len(elements),
+        )
