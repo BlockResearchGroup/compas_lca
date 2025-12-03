@@ -4,8 +4,6 @@ from typing import Optional
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
-##### ADD EXTRACTED AT DATETIME (also refers to validity of URL)
-
 class ItemMetadata(BaseModel):
     """
     Pydantic BaseModel that captures provenance and metadata for environmental
@@ -58,8 +56,10 @@ class ItemMetadata(BaseModel):
 
     Usage notes
     -----------
-    - Keep `dataset_source` concise but specific enough to disambiguate among
-      databases and EPD versions.
+    - Check for any preexisting `dataset_source` and `compliance_system_name` entries
+      as to not create duplicates or inconsistent naming.
+    - Keep any new `dataset_source` vale concise but specific enough to disambiguate 
+      among databases and EPD versions. 
     - Use `location_code`, `reference_year`, and `valid_until` together to clarify
       representativeness in space and time.
     - Prefer stable identifiers: fill `dataset_uuid`, `registration_number` and 

@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-
 from compas_lca.validators import RefUnitType
 
 class ReferenceInfo(BaseModel):
