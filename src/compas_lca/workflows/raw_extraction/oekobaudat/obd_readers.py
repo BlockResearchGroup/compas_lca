@@ -16,7 +16,7 @@ def read_csv(csv_path: str, *, encoding: str = "latin1") -> pd.DataFrame:
     """
     df = pd.read_csv(
         csv_path,
-        sep=";",
+        sep=",",
         dtype=str,
         keep_default_na=False,
         na_filter=False,

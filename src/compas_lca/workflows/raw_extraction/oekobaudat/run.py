@@ -9,14 +9,14 @@ load_dotenv()
 
 def main():
     # --- USER CONFIGURATION ---
-    csv_path = "data/lca_database/OBD_2024_I_A2_test.csv"  # path to your input CSV
+    csv_path = "data/lca_database/OBD_2024_I_A2_batch2.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/obd_test")                     # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/obd_batch2_131125")                     # output directory for JSONs (only used if write_json=True)
 
     # --- START TIMER ---
     start_time = time.time()
     start_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"\n🚀 Starting extraction at {start_str}\n")
+    print(f"\nStarting extraction at {start_str}\n")
 
     # --- RUN EXTRACTION ---
     inventory = extract_inventory_obd(
@@ -32,10 +32,10 @@ def main():
     minutes, seconds = divmod(elapsed, 60)
 
     # --- SUMMARY ---
-    print("\n✅ Extraction complete.")
+    print("\nExtraction complete.\n")
     print(f"End time: {end_str}")
     print(f"Total runtime: {int(minutes)} min {seconds:.1f} sec")
-    print(f"Extracted {len(inventory._items)} inventory items.")
+    print(f"Extracted {len(inventory.root)} inventory items.")
     print(f"JSONs written to: {output_dir.resolve() if write_json else 'None'}\n")
 
 
