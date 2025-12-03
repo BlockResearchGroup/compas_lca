@@ -5,8 +5,8 @@ Runner file for raw IFC extraction.
 from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model
 from pathlib import Path
 
-ifc_dir = Path("data/input/ifc")
-output_parent = Path("temp")
+ifc_dir = Path("data/input/ifc")    # takes the first IFC file in this directory as input
+output_parent = Path("temp")        # saves output (preprocessed elements) into a directory in "temp" with identical file_name stem
 exclude_none = False
 
 def main():
