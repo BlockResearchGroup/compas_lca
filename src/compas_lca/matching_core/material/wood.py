@@ -1,3 +1,8 @@
+"""
+Note:
+Should perhaps convert to WOOD-BASED facet instead of LIGNEOUS
+"""
+
 from typing import Optional
 
 from textwrap import dedent
@@ -6,36 +11,37 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import LigneousType
-from compas_lca.enums import LigneousForm
+from compas_lca.enums import WoodType
+from compas_lca.enums import WoodForm
+from compas_lca.enums import WoodSurface
 from compas_lca.enums import BaseSpecies
-from compas_lca.enums import LigneousProcessing
-from compas_lca.enums import LigneousAdhesive
+from compas_lca.enums import WoodProcessing
+from compas_lca.enums import WoodAdhesive
 from compas_lca.enums import DryingMethod
 from compas_lca.enums import ModificationMethod
 
 
-class LigneousFacet(BaseModel):
+class WoodFacet(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
         validate_assignment=True,
         str_strip_whitespace=True
     )
-    ligneous_type: LigneousType = Field(
-        LigneousType.unknown,
+    wood_type: WoodType = Field(
+        WoodType.unknown,
         description=dedent("""
             Classification of the wood-based material according to its primary composition and manufacturing type. 
             Distinguishes between natural solid wood, engineered wood products , and chemically or thermally modified wood. 
-            This field represents the dominant product family or structural form of the ligneous material.
-            Example mappings: '3-Schicht-Platte' or '5-Schicht-Platte' is "ligneous_type" = "cross_laminated_timber" 
+            This field represents the dominant product family or structural form of the wood material.
+            Example mappings: '3-Schicht-Platte' or '5-Schicht-Platte' is "wood_type" = "cross_laminated_timber" 
         """).strip(),
         examples=["natural_softwood", "cross_laminated_timber", "oriented_strand_board", "modified_wood"]
     )
-    ligneous_form: LigneousForm = Field(
-        LigneousForm.unknown,
+    wood_form: WoodForm = Field(
+        WoodForm.unknown,
         description=dedent("""
             Physical form or geometric configuration of the wood-based product. 
-            Describes how the ligneous material appears in its final product state
+            Describes how the wood material appears in its final product state
         """).strip(),
         examples=["panel", "beam", "flooring"]
     )
@@ -49,7 +55,6 @@ class LigneousFacet(BaseModel):
         """).strip(),
         examples=["C24", "D40", "GL28c", "GL32h"]
     )
-
     base_species: Optional[BaseSpecies] = Field(
         None,
         description=dedent("""
@@ -58,7 +63,7 @@ class LigneousFacet(BaseModel):
         """).strip(),
         examples=["spruce", "larch", "oak", "other"]
     )
-    ligneous_processing: Optional[LigneousProcessing] = Field(
+    wood_processing: Optional[WoodProcessing] = Field(
         None,
         description=dedent("""
             Primary processing state or manufacturing treatment applied to the wood material. 
@@ -66,7 +71,7 @@ class LigneousFacet(BaseModel):
         """).strip(),
         examples=["rough_sawn", "planed_surfaced", "machine_graded"]
     )
-    ligneous_adhesive: Optional[LigneousAdhesive] = Field(
+    wood_adhesive: Optional[WoodAdhesive] = Field(
         None,
         description=dedent("""
             Adhesive system (primarily used in engineered wood products). 
@@ -79,6 +84,15 @@ class LigneousFacet(BaseModel):
         None,
         description="The method used to reduce the moisture content of the wood prior to use or further processing.",
         examples=["fresh_green", "air_dried", "vacuum_dried"]
+    )
+    wood_surface: Optional[WoodSurface] = Field(
+        None,
+        description=dedent("""
+            Describes the surface coating or finishing treatment applied to the wood-based product. 
+            Indicates whether the surface is treated for aesthetic appearance or protective performance. 
+            This field captures the final visible and tactile surface condition of the wood material.
+        """).strip(),
+        examples=["oiled", "glazed", "untreated"]
     )
     modification_method: Optional[ModificationMethod] = Field(
         None,
