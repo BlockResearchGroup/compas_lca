@@ -57,22 +57,16 @@ MATCH_RULES = {
             "op": "satisfies",
         },
         {
-            "name": "common.manufacturer", 
-            "path": "manufacturer", 
-            "op": "equals_other", # should be fuzzy matching
-            # overspec included such that overspecific products
-            # are less prioritized than generic averages in EPDs
-            "overspec":{"strength":0.15} 
-
+            "name": "material_common.density", 
+            "path": "facet.density", 
+            "op": "approx", 
+            "rel_tol": 0.10
         },
         {
-            "name": "common.production_location", 
-            "path": "production_location", 
-            "op": "equals_other", # should be fuzzy matching
-            # overspec included such that overspecific products
-            # are less prioritized than generic averages in EPDs
-            "overspec":{"strength":0.15} 
-
+            "name": "material_common.areal_density", 
+            "path": "facet.areal_density", 
+            "op": "approx", 
+            "rel_tol": 0.10
         },
         {
             "name": "common.thickness", 
@@ -104,6 +98,23 @@ MATCH_RULES = {
             "op": "equals_other",
             "overspec":{"strength":0.25} 
         },
+        {
+            "name": "common.manufacturer", 
+            "path": "manufacturer", 
+            "op": "equals_other", # should be fuzzy matching
+            # overspec included such that overspecific products
+            # are less prioritized than generic averages in EPDs
+            "overspec":{"strength":0.15} 
+
+        },
+        {
+            "name": "common.production_location", 
+            "path": "production_location", 
+            "op": "equals_other", # should be fuzzy matching
+            # overspec included such that overspecific products
+            # are less prioritized than generic averages in EPDs
+            "overspec":{"strength":0.15} 
+        }
     ],
 
     # ----------------------------
@@ -126,18 +137,6 @@ MATCH_RULES = {
         {   "name": "material_common.application_areas", 
             "path": "facet.application_areas", 
             "op": "intersects_other"
-        },
-        {
-            "name": "material_common.density", 
-            "path": "facet.density", 
-            "op": "approx", 
-            "rel_tol": 0.10
-        },
-        {
-            "name": "material_common.areal_density", 
-            "path": "facet.areal_density", 
-            "op": "approx", 
-            "rel_tol": 0.10
         }
     ],
 
@@ -216,6 +215,11 @@ MATERIAL_FACETS = {
             "op":"equals_other", 
         },
         {
+            "name":"concrete.prestressed",  
+            "path":"facet.material_facet.pre_stressed",                       
+            "op":"equals_other"
+        },
+        {
             "name":"concrete.binder_type",  
             "path":"facet.material_facet.cement_type",                       
             "op":"equals_other"
@@ -277,54 +281,54 @@ MATERIAL_FACETS = {
             "overspec":{"strength":0.05}
         },
     ],
-    "ligneous": [
+    "wood": [
         {
-            "name":"ligneous.type",     
-            "path":"facet.material_facet.ligneous_type",  
+            "name":"wood.type",     
+            "path":"facet.material_facet.wood_type",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.form",     
-            "path":"facet.material_facet.ligneous_form",  
+            "name":"wood.form",     
+            "path":"facet.material_facet.wood_form",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.strength_class",     
+            "name":"wood.strength_class",     
             "path":"facet.material_facet.strength_class_designation",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.base_species",     
+            "name":"wood.base_species",     
             "path":"facet.material_facet.base_species",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.processing",     
-            "path":"facet.material_facet.ligneous_processing",  
+            "name":"wood.processing",     
+            "path":"facet.material_facet.wood_processing",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.processing",     
-            "path":"facet.material_facet.ligneous_processing",  
+            "name":"wood.processing",     
+            "path":"facet.material_facet.wood_processing",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.adhesive",     
-            "path":"facet.material_facet.ligneous_adhesive",  
+            "name":"wood.adhesive",     
+            "path":"facet.material_facet.wood_adhesive",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.drying_method",     
+            "name":"wood.drying_method",     
             "path":"facet.material_facet.drying_method",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.drying_method",     
+            "name":"wood.drying_method",     
             "path":"facet.material_facet.drying_method",  
             "op":"equals_other"
         },
         {
-            "name":"ligneous.modification_method",     
+            "name":"wood.modification_method",     
             "path":"facet.material_facet.modification_method",  
             "op":"equals_other",
             "overspec":{"strength":0.15}
@@ -522,13 +526,19 @@ COMPONENT_FACETS = {
         {
             "name":"window.operation",     
             "path":"facet.component_facet.window_operation",  
-            "op":"equals_other"
+            "op":"intersects_other"
         },
         {
             "name":"window.acoustic_interlayer",     
             "path":"facet.component_facet.acoustic_interlayer",  
             "op":"equals_other",
             "overspec":{"strength":0.25}
+        },
+        {
+            "name":"window.roof_window",     
+            "path":"facet.component_facet.roof_window",  
+            "op":"equals_other",
+            "overspec":{"strength":0.30}
         },
         {
             "name":"window.height",     
