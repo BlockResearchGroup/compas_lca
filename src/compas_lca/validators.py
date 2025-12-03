@@ -5,11 +5,14 @@ from math import isfinite
 from typing import Annotated
 from typing import Any
 from typing import Optional
+from typing import Tuple
 from typing import Union
 
 from pydantic import BeforeValidator
 
 from compas_lca.enums import MaterialType
+from compas_lca.enums import QuantUnit
+from compas_lca.enums import QuantName
 from compas_lca.enums import RefUnit
 from compas_lca.enums import Loadbearing
 from compas_lca.enums import InteriorExterior
@@ -43,7 +46,7 @@ def _to_material_type(v: Any):
       3) bituminous (asphalt/bitumen/tar; catches 'asphalt concrete')
       4) metallic (steel/aluminum/copper/… incl. alloys)
       5) composite (FRP, sandwich, fiber-cement, GRC/GFRC, ACM)
-      6) ligneous (wood/timber-based incl. CLT, LVL, glulam, OSB, MDF, bamboo, cork)
+      6) wood (wood/timber-based incl. CLT, LVL, glulam, OSB, MDF, bamboo, cork)
       7) polymeric (plastics/rubbers/resins not already mapped to insulation)
       8) mineral (ceramic/stone/glass/gypsum/cement/mortar/brick)
       → else unknown
@@ -130,6 +133,28 @@ def _to_material_type(v: Any):
                  "lime", "perlite", "vermiculite")
     ):
         return MaterialType.mineral
+    if (
+        _has_any(joined,
+                 "cotton",
+                 "flax", "linen",
+                 "hemp",
+                 "sheep wool", "wool", "alpaca", "camel hair", "llama wool",
+                 "straw", "hay",
+                 "jute", "kenaf", "sisal",
+                 "coir", "coconut fiber", "coconut fibre", "coir fiber", "coir fibre",
+                 "miscanthus",
+                 "reed", "phragmites", "cattail", "typha",
+                 "rice husk", "ricehusk", "husk", "hulls", "hull",
+                 "rice hull", "olive pits", "nut shell", "nut shells",
+                 "bio-based binder", "starch binder", "casein", "natural latex", "rubber (natural)")
+        or any(x in tok for x in [
+            "cotton", "flax", "linen", "hemp", "wool", "alpaca", "camel", "llama",
+            "straw", "jute", "kenaf", "sisal", "coir", "miscanthus",
+            "reed", "typha", "husk", "hulls", "hull",
+        ])
+    ) and not _has_any(joined, "wood", "timber", "mdf", "hdf", "osb", "particleboard",
+                       "plywood", "clt", "glulam", "lvl", "bamboo board", "woodfibre"):
+        return MaterialType.biobased
 
     return MaterialType.unknown
 
@@ -220,6 +245,167 @@ def _to_ref_unit(v: Any):
     if len(dedup) > 1:
         raise ValueError(f"ambiguous reference unit in {v!r}: candidates {', '.join(u.value for u in dedup)}")
     return dedup[0]
+
+
+# -------------------------------------------------------------------------------
+# Validator to standardized quantity values (m,m2,m3)
+# -------------------------------------------------------------------------------
+
+# Common SI prefixes for AEC workflows (symbols + names)
+# Factors are for LENGTH; raise to power 2/3 for area/volume.
+_SI_PREFIX = {
+    # symbols
+    "µ": 1e-6, "μ": 1e-6, "u": 1e-6,  # micrometre (ASCII 'u' accepted)
+    "m": 1e-3,                        # millimetre
+    "c": 1e-2,                        # centimetre
+    "d": 1e-1,                        # decimetre
+    "k": 1e+3,                        # kilometre
+
+    # names (IFC / prose)
+    "micro": 1e-6,
+    "milli": 1e-3,
+    "centi": 1e-2,
+    "deci":  1e-1,
+    "kilo":  1e+3,
+}
+
+def _unit_info(s: Any) -> Tuple[QuantUnit, float, int]:
+    """
+    Returns (canonical_unit, factor_to_canonical, power),
+    where power=1(length), 2(area), 3(volume).
+    Raises ValueError if not interpretable as metre-based unit.
+    """
+    if s is None or (isinstance(s, str) and not s.strip()):
+        raise ValueError("unit is required")
+    if isinstance(s, QuantUnit):
+        return s, 1.0, {QuantUnit.m:1, QuantUnit.m2:2, QuantUnit.m3:3}[s]
+
+    raw = str(s).strip()
+    joined = re.sub(r"\s+", " ", raw).lower()
+
+    power = 1
+    if any(w in joined for w in ["square ", " sq ", "sq.", "quadratic "]): power = 2
+    if "cubic " in joined: power = 3
+    if re.search(r"\b\^?\s*2\b|[²\u00b2]", joined): power = 2
+    if re.search(r"\b\^?\s*3\b|[³\u00b3]", joined): power = 3
+    if joined.startswith(("square_", "square")): power = 2
+    if joined.startswith(("cubic_", "cubic")): power = 3
+
+    # IFC names (with/without underscore): e.g. SQUARE_CENTIMETRE, CUBICMILLIMETRE, MILLIMETRE, METRE
+    m_ifc = re.match(r"^(?:square_?|cubic_?)?(micro|milli|centi|deci|kilo)?metre$", joined)
+    if m_ifc:
+        pf = _SI_PREFIX.get(m_ifc.group(1), 1.0)
+        unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
+        return unit, (pf ** power), power
+
+    # “square meter”, “cubic metre”, etc.
+    if re.search(r"\bmetre(s)?\b|\bmeter(s)?\b", joined):
+        unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
+        m_word = re.search(r"(micro|milli|centi|deci|kilo)\s+metre?", joined)
+        pf = _SI_PREFIX[m_word.group(1)] if m_word else 1.0
+        return unit, (pf ** power), power
+
+    # Symbolic: m, mm, cm2, mm^2, m²/m³, mm2/cm3
+    token = joined.replace(" ", "").replace("linear", "")
+    if token.endswith(("^2", "²", "2")): power, token = 2, token[:-2] if token.endswith("^2") else token[:-1]
+    if token.endswith(("^3", "³", "3")): power, token = 3, token[:-2] if token.endswith("^3") else token[:-1]
+
+    if token == "m":
+        unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
+        return unit, 1.0, power
+
+    if re.fullmatch(r"(?:µ|μ|u|m|c|d|k)?m", token):
+        prefix_symbol = token[:-1]
+        pf = _SI_PREFIX.get(prefix_symbol, 1.0)
+        unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
+        return unit, (pf ** power), power
+
+    raise ValueError(f"could not interpret unit {raw!r} as metres/metres²/metres³")
+
+
+def _unit_scale_to_m(s: Any) -> Tuple[QuantUnit, float]:
+    u, k, _ = _unit_info(s)
+    return u, k
+
+# --- the validator expected by Pydantic Annotated ---
+def _to_quant_unit(v: Any) -> QuantUnit:
+    """Normalize any metre/area/volume expression (incl. IFC) to QuantUnit m/m2/m3 (ignores scale)."""
+    unit, _ = _unit_scale_to_m(v)
+    return unit
+
+# maps common aliases/fields → QuantName
+_ALIAS_TO_QUANT = {
+    # thickness
+    "thickness": QuantName.thickness,
+    "core thickness": QuantName.thickness,
+    "dicke": QuantName.thickness, "dicken": QuantName.thickness,
+    # area
+    "area": QuantName.area, "fläche": QuantName.area, "flaeche": QuantName.area,
+    "surface": QuantName.area, "surface_area": QuantName.area,
+    "net_area": QuantName.area, "gross_area": QuantName.area,
+    "net_side_area": QuantName.area, "net_surface_area": QuantName.area,
+    # volume
+    "volume": QuantName.volume, "vol": QuantName.volume,
+    "net_volume": QuantName.volume, "gross_volume": QuantName.volume,
+    # length
+    "length": QuantName.length, "len": QuantName.length, "span": QuantName.length,
+    "laufmeter": QuantName.length, "linear": QuantName.length,
+    "width": QuantName.length, "height": QuantName.length, "depth": QuantName.length,
+}
+
+def _to_quant_name(v: Any) -> QuantName:
+    """
+    Normalize flexible inputs (names, aliases, units) into QuantName.
+
+    Rules:
+      - If `v` already QuantName → return.
+      - If name/alias contains 'thick' → thickness.
+      - Else if name/alias matches known area/volume/length keys → that class.
+      - Else if `v` looks like a unit (e.g., 'mm²', 'CUBIC_MILLIMETRE'), infer by dimension:
+            power 1 → length, 2 → area, 3 → volume.
+      - Otherwise raise ValueError.
+    """
+    if isinstance(v, QuantName):
+        return v
+    if v is None or (isinstance(v, str) and not v.strip()):
+        raise ValueError("quantity name is required")
+
+    s = str(v).strip()
+    joined = re.sub(r"\s+", " ", s).lower()
+
+    # explicit ‘thick’ wins over unit-based inference (common for wall panels)
+    if "thick" in joined:
+        return QuantName.thickness
+
+    # direct alias table (exact or token-ish matches)
+    key = joined.replace(" ", "_")
+    if key in _ALIAS_TO_QUANT:
+        return _ALIAS_TO_QUANT[key]
+    if joined in _ALIAS_TO_QUANT:
+        return _ALIAS_TO_QUANT[joined]
+
+    # try unit-based inference (reuses the unit parser)
+    try:
+        _, _, power = _unit_info(joined)
+        if power == 3:
+            return QuantName.volume
+        if power == 2:
+            return QuantName.area
+        # power == 1 → default length (unless 'thick' already caught)
+        return QuantName.length
+    except ValueError:
+        pass
+
+    # last-chance keyword heuristics
+    if any(w in joined for w in ["area", "fläche", "flaeche", "surface"]):
+        return QuantName.area
+    if any(w in joined for w in ["volume", "vol"]):
+        return QuantName.volume
+    if any(w in joined for w in ["length", "laufmeter", "linear", "span", "width", "height", "depth"]):
+        return QuantName.length
+
+    raise ValueError(f"could not infer quantity name from {v!r}")
+
 
 
 # -------------------------------------------------------------------
@@ -459,6 +645,8 @@ ParsedNumber = Annotated[Number, BeforeValidator(_parse_number)]
 LoadbearingType = Annotated[Loadbearing, BeforeValidator(_to_loadbearing)]
 InteriorExteriorType  = Annotated[InteriorExterior, BeforeValidator(_to_inex)]
 RefUnitType = Annotated[RefUnit, BeforeValidator(_to_ref_unit)]
+QuantUnitType = Annotated[QuantUnit, BeforeValidator(_to_quant_unit)]
+QuantNameType = Annotated[QuantName, BeforeValidator(_to_quant_name)]
 
 # Normalized Floats (addressing potential unit inclusions)
 DensityFloat = Annotated[Optional[float], BeforeValidator(_normalize_density)]

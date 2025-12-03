@@ -4,9 +4,10 @@ from compas_lca.enums import ComponentType
 
 from compas_lca.llm.ctx.extraction_context import MINERAL_CTX
 from compas_lca.llm.ctx.extraction_context import CONCRETE_CTX
-from compas_lca.llm.ctx.extraction_context import LIGNEOUS_CTX
+from compas_lca.llm.ctx.extraction_context import WOOD_CTX
 from compas_lca.llm.ctx.extraction_context import METALLIC_CTX
 from compas_lca.llm.ctx.extraction_context import POLYMERIC_CTX
+from compas_lca.llm.ctx.extraction_context import BIOBASED_CTX
 from compas_lca.llm.ctx.extraction_context import BITUMINOUS_CTX
 from compas_lca.llm.ctx.extraction_context import COMPOSITE_CTX
 
@@ -16,6 +17,7 @@ from compas_lca.llm.ctx.extraction_context import CONVEYOR_CTX
 from compas_lca.llm.ctx.extraction_context import CURTAIN_WALL_CTX
 from compas_lca.llm.ctx.extraction_context import DOOR_CTX
 from compas_lca.llm.ctx.extraction_context import ROOF_CTX
+from compas_lca.llm.ctx.extraction_context import INFILL_CTX
 from compas_lca.llm.ctx.extraction_context import SHADING_CTX
 from compas_lca.llm.ctx.extraction_context import STAIR_CTX
 from compas_lca.llm.ctx.extraction_context import RAILING_CTX
@@ -24,9 +26,10 @@ from compas_lca.llm.ctx.extraction_context import WINDOW_CTX
 
 from compas_lca.matching_core.material.bituminous import BituminousFacet
 from compas_lca.matching_core.material.concrete import ConcreteFacet
-from compas_lca.matching_core.material.ligneous import LigneousFacet
+from compas_lca.matching_core.material.wood import WoodFacet
 from compas_lca.matching_core.material.metallic import MetallicFacet
 from compas_lca.matching_core.material.mineral import MineralFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
 from compas_lca.matching_core.material.polymeric import PolymericFacet
 from compas_lca.matching_core.material.composite import CompositeFacet
 
@@ -35,6 +38,7 @@ from compas_lca.matching_core.component.ceiling import CeilingFacet
 from compas_lca.matching_core.component.conveyor import ConveyorFacet
 from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
+from compas_lca.matching_core.component.infill import InfillFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
 from compas_lca.matching_core.component.stairs import StairFacet
@@ -54,10 +58,10 @@ MAP_TO_ENTRY_TYPE = {
 CTX_BY_MAT_TYPE = {
     MaterialType.mineral: MINERAL_CTX,
     MaterialType.concrete: CONCRETE_CTX,
-    MaterialType.wood: LIGNEOUS_CTX,
-    #MaterialType.ligneous: LIGNEOUS_CTX,
+    MaterialType.wood: WOOD_CTX,
     MaterialType.metallic: METALLIC_CTX,
     MaterialType.polymeric: POLYMERIC_CTX,
+    MaterialType.biobased: BIOBASED_CTX,
     MaterialType.bituminous: BITUMINOUS_CTX,
     MaterialType.composite: COMPOSITE_CTX,
 }
@@ -66,10 +70,10 @@ CTX_BY_MAT_TYPE = {
 MODEL_BY_MAT_TYPE = {
     MaterialType.mineral: MineralFacet,
     MaterialType.concrete: ConcreteFacet,
-    MaterialType.wood: LigneousFacet,
-    #MaterialType.ligneous: LigneousFacet,
+    MaterialType.wood: WoodFacet,
     MaterialType.metallic: MetallicFacet,
     MaterialType.polymeric: PolymericFacet,
+    MaterialType.biobased: BiobasedFacet,
     MaterialType.bituminous: BituminousFacet,
     MaterialType.composite: CompositeFacet,
 }
@@ -81,6 +85,7 @@ CTX_BY_COMP_TYPE = {
     ComponentType.conveyor: CONVEYOR_CTX,
     ComponentType.curtain_wall: CURTAIN_WALL_CTX,
     ComponentType.door: DOOR_CTX,
+    ComponentType.infill: INFILL_CTX,
     ComponentType.roof: ROOF_CTX,
     ComponentType.shading_device: SHADING_CTX,
     ComponentType.stairs: STAIR_CTX,
@@ -96,6 +101,7 @@ MODEL_BY_COMP_TYPE = {
     ComponentType.conveyor: ConveyorFacet,
     ComponentType.curtain_wall: CurtainWallFacet,
     ComponentType.door: DoorFacet,
+    ComponentType.infill: InfillFacet,
     ComponentType.roof: RoofFacet,
     ComponentType.shading_device: ShadingFacet,
     ComponentType.stairs: StairFacet,
