@@ -7,19 +7,32 @@ from typing import Type
 from typing import Callable
 from typing import Iterable
 
-
 @dataclass
 class Context:
     """
-    Context for configuring a single agent run.
+    The Context object specifies all runtime parameters that shape how the
+    underlying `pydantic_ai.Agent` is constructed and executed. It can define
+    prompt instructions, expected output schemas, auxiliary tool resources, and
+    optional user-defined metadata such as a run name or attached tools.
 
-    Optional runtime settings:
-      - 'instructions': task description or guidance (prompt)
-      - 'output_type': expected output schema/type
-      - 'tool_resources_type': data type defining available helper tools/resources
-      - 'name': name or label for this agent/run
-      - 'tools': list of tool callables available to the agent
+    Parameters
+    ----------
+    instructions : str, optional
+        Natural-language instructions provided to the agent (i.e., the prompt).
+    output_type : Type, optional
+        Expected Python type or Pydantic model for validating the agent's output.
+        Defaults to `str` if unspecified.
+    tool_resources_type : Type, optional
+        Type defining the dependency/resource object passed to tool functions
+        registered with the agent. This becomes the `deps_type` of the
+        underlying Pydantic agent.
+    name : str, optional
+        Human-readable label for this agent or run. Useful for logging or
+        multi-agent workflows.
+    tools : Iterable[Callable], optional
+        A list of callable tool functions to be registered on the agent.
     """
+
     instructions: Optional[str] = None
     output_type: Optional[Type] = str
     tool_resources_type: Optional[Type] = None
@@ -41,6 +54,6 @@ class Context:
         return dict(
             output_type=self.output_type or str,
             instructions=self.instructions,
-            deps_type=self.tool_resources_type,  # key must match pydantic_ai.Agent API
+            deps_type=self.tool_resources_type,  # key must match pydantic_ai.Agent API (deps_type)
             name=self.name,
         )

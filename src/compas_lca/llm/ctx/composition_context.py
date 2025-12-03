@@ -1,7 +1,4 @@
-
-
-from compas_lca.model.metadata import Metadata
-from compas_lca.model.quantity import Quantity
+### DRAFT ###
 
 from compas_lca.llm.context import Context
 

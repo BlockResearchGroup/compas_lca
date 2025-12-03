@@ -1,3 +1,12 @@
+"""
+A Python file that holds any scriptable tools for LLM agents to use in the enrichment module.
+For now, the rebar tool is a placeholder, as the appropriate tool in this case would be a simple
+lookup table from a CSV file.
+
+This file would hold any python dictionaries, functions, etc. that require more sophistication
+than only CSV, JSON, TXT, or similar data files.
+"""
+
 from dataclasses import dataclass
 
 import csv

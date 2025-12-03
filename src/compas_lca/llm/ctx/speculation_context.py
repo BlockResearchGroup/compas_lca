@@ -80,7 +80,17 @@ THICKNESS_GUESS_CTX = Context(
     output_type=ThicknessGuessResult
 )
 
-# ======== CONCRETE SPECULATION ========
+
+# ======== CAVITY ENRICHMENT ========
+# for stud layers, railings, gratings, etc. (to fix quantities basically)
+ENRICH_CAVITARY_ELEMENT = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # placeholder, use tool
+)
+
+# ======== CONCRETE ENRICHMENT ========
 """
 Just some notes: a concrete attribute speculation agent from the building
 element side would be nice. for instance, if IFC data has a
@@ -91,3 +101,47 @@ Therefore it might be good to specifically instruct an agent to fill in the blan
 
 -> Should be applied to other material facets aswell.
 """
+
+ENRICH_CONCRETE_STRENGTH = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # str / enum, use tool
+)
+
+ENRICH_REINFORCEMENT_RATIO = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # float, use tool
+)
+
+
+# ======== WOOD ENRICHMENT ========
+# If certain wood can be used interior or exterior
+ENRICH_WOOD_PLACEMENT = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # # enum, use tool
+)
+
+# If certain wood is used for loadbearing or non-loadbearing
+ENRICH_WOOD_STRUCTURAL = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # # enum, use tool
+)
+
+# ======== METALLIC ENRICHMENT ========
+
+# Often generic "metal" descriptor refers to carbon steel
+# Help give context when generic "metal" should be carbon steel and not "unknown"
+ENRICH_CARBON_STEEL = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # bool, use tool (or maybe only additional context in instruction prompt)
+)
+

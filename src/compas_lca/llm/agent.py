@@ -1,4 +1,5 @@
 import yaml
+
 import time
 
 from dataclasses import dataclass
@@ -10,6 +11,7 @@ from typing import Optional
 from typing import Self
 
 from pydantic import ValidationError
+
 from pydantic_ai import Agent as PydanticAgent
 from pydantic_ai.usage import RunUsage
 
@@ -77,7 +79,7 @@ class RunMetadata:
             "total_cost": total_cost,
         }
 
-@dataclass
+@dataclass # Should this be a BaseModel instead?
 class Run:
     result: Any
     metadata: RunMetadata
@@ -91,12 +93,59 @@ class Run:
 
 class BaseAgent:
     """
-    Wrapper around pydantic_ai.Agent that handles configuration,
-    execution, usage tracking, and cost estimation.
+    High-level wrapper around `pydantic_ai.Agent` that centralizes
+    configuration, execution, usage tracking, and cost estimation for
+    model-agnostic LLM-based extraction and reasoning workflows.
+    
+    ----------------------------------------------------------------------
+    Parameters (constructor)
+    ----------------------------------------------------------------------
+    settings : AgentSettings
+        Model name, retry settings, cost parameters, and model-specific
+        configuration for the underlying LLM.
+    context : Context
+        Provides runtime information such as tools, system prompts,
+        environment settings, or any additional information required by
+        the agent during execution.    
 
-    Usage:
-        >>> agent = BaseAgent.from_config(context=my_context)
-        >>> result = agent.execute_run({raw_data})
+    ----------------------------------------------------------------------
+    Core Responsibilities
+    ----------------------------------------------------------------------
+    1. **Configuration Management**
+       - Loads YAML configuration files and validates them against the
+         `AgentSettings` model.
+       - Constructs the underlying `pydantic_ai.Agent` using model,
+         retry settings, and model-specific parameters.
+
+    2. **Context Integration**
+       - Injects runtime context (e.g., tools, system instructions,
+         metadata) into the agent using `Context.to_pydantic_agent_kwargs()`.
+       - Registers any tool functions declared inside the context.
+
+    3. **Execution Wrappers**
+       - `execute_run()` dispatches to:
+           - `_run_sync()`   → synchronous execution
+           - `_run_async()`  → asynchronous execution (awaitable)
+           - `_run_stream()` → streaming token-by-token output
+       - Provides a unified interface for these modes.
+
+    4. **Usage Tracking and Cost Estimation**
+       - Records timing, token usage, and cost for every run.
+       - Wraps results in a `Run` object containing:
+           - result payload
+           - metadata: timestamps, token usage, model name, cost estimates
+
+    5. **History Management**
+       - Stores the most recent run (`last_run`)
+       - Maintains a log of all executed runs (`history_runs`)
+
+    ----------------------------------------------------------------------
+    Typical Usage
+    ----------------------------------------------------------------------
+    >>> agent = BaseAgent.from_config(context=my_context)
+    >>> run = agent.execute_run({"raw_input": data})
+    >>> print(run.result)
+    >>> print(run.metadata.total_cost)
     """
     def __init__(self, *, settings: AgentSettings, context: Context):
         self._settings = settings
