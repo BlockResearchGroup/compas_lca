@@ -1,4 +1,4 @@
-uuids = [
+MANUAL_UUIDS = [
     '004f3f4e-5bb8-4d9e-a104-6999a9e8ad5b',
     '04ffd29d-1cd0-46d2-8971-ea6cb956484a',
     '06c6f44f-dc14-4095-8e3e-7e483eccf50c',
