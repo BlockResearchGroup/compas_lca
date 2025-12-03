@@ -1,5 +1,3 @@
-# Self-contained matching core: flattening, clause ops, facet-aware filter generation, scoring.
-
 from dataclasses import dataclass
 
 from enum import Enum
@@ -11,8 +9,8 @@ from typing import Iterable
 from typing import Tuple
 from typing import Optional
 
-from compas_lca.inventory.item import snapshot
 from compas_lca.model.lca_element import LcaElement
+
 from compas_lca.model.match import Match
 from compas_lca.model.match import Matches
 
@@ -70,7 +68,6 @@ def _norm_str(x: Any) -> Any:
     return x
 
 def _is_unknown(value: Any) -> bool:
-    """Return True if value is an 'unknown' sentinel."""
     if value is None:
         return True
     if isinstance(value, str):
@@ -78,17 +75,6 @@ def _is_unknown(value: Any) -> bool:
     if isinstance(value, list):
         return any(_norm_str(v) == "unknown" for v in value if isinstance(v, str))
     return False
-
-def _present_nontrivial(val: Any) -> bool:
-    """True if the item core specifies a value (works for bool/enum/str/list/number)."""
-    if val is None:
-        return False
-    if isinstance(val, str):
-        s = _norm_str(val)
-        return s not in ("", "unknown", "none", "null")
-    if isinstance(val, (list, tuple, set, dict)):
-        return len(val) > 0
-    return True  # numbers, booleans, other non-None values
 
 def to_dotmap(
     obj: Any,
@@ -176,73 +162,6 @@ def normalize_core_map(m: Dict[str, Any]) -> Dict[str, Any]:
             out[k] = _norm_str(out[k])
     return out
 
-def compute_overspec_penalty(
-    item_map: Dict[str, Any],
-    elem_map: Dict[str, Any],
-    rules_by_group: Dict[str, list],
-    n_eval: int,
-    apply_overspec: bool = True,
-    max_total_strength: float = 1.0,
-) -> Tuple[float, List[Dict[str, Any]]]:
-    """
-    Universal overspec deduction:
-      If ELEMENT did not specify path (None/unknown/empty) but ITEM specifies a nontrivial value
-      AND the rule has overspec enabled, subtract (1/n_eval) * strength from the score.
-
-    strength defaults to 0.25 if overspec == True; you can customize with:
-      "overspec": {"strength": 0.35}
-
-    A soft cap (max_total_strength) prevents runaway deductions.
-    """
-    if not apply_overspec or n_eval <= 0:
-        return 0.0, []
-
-    unit = 1.0 / float(n_eval)
-    total_penalty = 0.0
-    total_strength = 0.0
-    details: List[Dict[str, Any]] = []
-
-    for _, rules in rules_by_group.items():
-        for r in rules:
-            ospec = r.get("overspec", False)
-            if not ospec:
-                continue
-
-            # Determine strength
-            strength = 0.25
-            if isinstance(ospec, dict):
-                strength = float(ospec.get("strength", strength))
-            strength = max(0.0, min(1.0, strength))
-
-            # Which element path to check (same as item path unless overridden)
-            _, elem_path = _normalize_rule_paths(r)
-
-            # If element specified a value -> NOT overspec
-            if not _is_unknown(elem_map.get(elem_path)):
-                continue
-
-            # Item has a nontrivial value?
-            item_val = item_map.get(r.get("path"))
-            if not _present_nontrivial(item_val):
-                continue
-
-            # Respect cap
-            if total_strength + strength > max_total_strength:
-                strength = max(0.0, max_total_strength - total_strength)
-                if strength == 0.0:
-                    break
-
-            p = unit * strength
-            total_penalty += p
-            total_strength += strength
-            details.append({
-                "path": r.get("path"),
-                "penalty": p,
-                "strength": strength,
-                "reason": "overspecified on item (element unspecified)"
-            })
-
-    return total_penalty, details
 
 def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
     """
@@ -286,9 +205,9 @@ def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
         return True
 
     elif et_elem == "component":
-        ct_elem = _norm_str(elem_map.get("facet.component_facet.component_type"))
+        ct_elem = _norm_str(elem_map.get("facet.component_type"))
         if ct_elem and ct_elem != "unknown":
-            ct_item = _norm_str(item_map.get("facet.component_facet.component_type"))
+            ct_item = _norm_str(item_map.get("facet.component_type"))
             return ct_item == ct_elem
         return True
 
@@ -434,8 +353,7 @@ def eval_filter(item_map: Dict[str, Any],
     """
     Evaluate and aggregate multiple Clause objects to compute the overall
     similarity score between an InventoryItem core (`item_map`) and an
-    LcaElement core (`elem_map`) using a weightless, element-driven scheme
-    with optional "overspecification" penalty support.
+    LcaElement core (`elem_map`) using a weightless, element-driven schema.
 
     ----------------------------
     Parameters
@@ -451,12 +369,7 @@ def eval_filter(item_map: Dict[str, Any],
         so that only element-specified fields produce clauses.
 
     rules_by_group : dict, optional
-        The full `MATCH_RULES` structure, used for identifying which fields
-        are marked with `"overspec"` for the optional penalty step.
-
-    apply_overspec : bool, default=False
-        Whether to apply the overspec penalty. If False, the scoring ignores
-        all `"overspec"` flags and behaves purely element-driven.
+        The full `MATCH_RULES` structure, referring to specific operations per field
 
     ----------------------------
     Returns
@@ -464,7 +377,6 @@ def eval_filter(item_map: Dict[str, Any],
     (score, parts) : Tuple[float, List[Dict[str, Any]]]
         score : float
             Final normalized similarity score in [0, 1].
-            Includes the overspec penalty if `apply_overspec=True`.
 
         parts : list of dict
             Detailed per-clause and per-penalty diagnostics. Each entry contains:
@@ -491,35 +403,6 @@ def eval_filter(item_map: Dict[str, Any],
 
     • The final score is the simple arithmetic mean across all evaluated
       (non-neutral) clauses
-
-    ----------------------------
-    Overspec penalty (optional)
-    ----------------------------
-    If `apply_overspec=True`, the function applies an additional post-hoc
-    deduction to slightly reduce the score when the item is more specific 
-    than the*element. It ensures,  that whenver there are generic inventory 
-    items, they get slightly more prioritized for generic/vague element 
-    descriptors (and when ranked, show up highest), although the items with 
-    more specific information are technically not 'less correct'.
-
-    This is determined by scanning the `MATCH_RULES` definitions (passed in
-    `rules_by_group`) for any rules with `"overspec": True` or
-    `"overspec": {"strength": <float>}`.
-
-    For each such rule:
-        • If the element did not specify a value (None / "unknown" / empty)
-        • and the item did specify a nontrivial value
-        → then a small penalty is subtracted from the score.
-
-    The penalty per overspecified field is computed as:
-        penalty_i = (1 / n_eval) * strength
-    where:
-        - n_eval is the number of evaluated (non-neutral) clauses
-        - strength ∈ [0, 1] (default = 0.25 unless overridden per rule)
-
-    The total penalty is capped so that it can never push the score below 0.
-    Note: perhaps the score and "strength" is too convoluted and it should rather
-    just adjust the score a little bit instead of custom weights etc.
 
     ----------------------------
     Example behavior
@@ -570,20 +453,6 @@ def eval_filter(item_map: Dict[str, Any],
         })
 
     final_score = (sim_sum / n_eval) if n_eval > 0 else 0.0
-
-    # --- overspec ---
-    if rules_by_group is not None and apply_overspec:
-        penalty, pen_parts = compute_overspec_penalty(
-            item_map, elem_map, rules_by_group, n_eval, apply_overspec=True
-        )
-        final_score = max(0.0, min(1.0, final_score - penalty))
-        for pp in pen_parts:
-            parts.append({
-                "path": pp["path"],
-                "op": "overspec",
-                "score": -pp["penalty"],
-                "detail": f"overspec penalty {pp['penalty']:.4f} (strength={pp['strength']})"
-            })
 
     return final_score, parts
 
@@ -695,7 +564,6 @@ def score_item_to_core(
     elem_map: Any, # dotmap
     clauses: Any,
     *,
-    apply_overspec: Optional[bool] = None,
     include_explain: bool = False,
 ) -> Match:
     
@@ -707,7 +575,7 @@ def score_item_to_core(
     item_name = item_core.get("name")
     item_meta = item_dict.get("metadata") or {}
     dataset_source = item_meta.get("dataset_source")
-    item_snapshot = snapshot(item_dict)
+    registration_number = item_meta.get("registration_number")
 
     # Score
     final_score, parts = eval_filter(
@@ -715,17 +583,16 @@ def score_item_to_core(
         elem_map,
         clauses,
         rules_by_group=MATCH_RULES,
-        apply_overspec=apply_overspec,
     )
 
     # Return a Match object
     return Match(
         item_id=item_id,
         item_name=item_name,
-        score=float(final_score),
-        explain=parts if include_explain else None,
         dataset_source=dataset_source,
-        snapshot=item_snapshot,
+        registration_number=registration_number,
+        match_score=float(final_score),
+        match_criteria=parts if include_explain else None,
     )
 
 # --------------------------------------------
@@ -737,7 +604,6 @@ def score_items_to_core(
     element_core: Any,
     *,
     top_k: int = 5,  # Default: add items with top 5 score
-    apply_overspec: bool = False,
     include_explain: bool = True,
     score_threshold: float = 0.0,  # New argument
 ) -> Matches:
@@ -757,16 +623,15 @@ def score_items_to_core(
             item,
             elem_map,
             clauses,
-            apply_overspec=apply_overspec,
             include_explain=include_explain,
         )
         scored.append(match)
 
     # Filter out matches below the threshold
-    scored = [m for m in scored if m.score >= score_threshold]
+    scored = [m for m in scored if m.match_score >= score_threshold]
 
     # Rank remaining matches by descending score
-    scored.sort(key=lambda m: -m.score)
+    scored.sort(key=lambda m: -m.match_score)
 
     # Return top_k matches (after threshold filter)
     return Matches(core_id=core_id, matches=scored[: max(0, int(top_k))])
@@ -775,61 +640,55 @@ def score_items_to_core(
 # Score items to each core of an LcaElement, and append matched_items = List[Matches]
 # -----------------------------------------------------------------------------------
 
-def score_items_to_core(
-    items: Iterable[Any],
-    element_core: Any,
-    *,
-    top_k: int = 5,  # Default: add items with top 5 score
-    apply_overspec: bool = False,
-    include_explain: bool = True,
-    score_threshold: float = 0.0,  # New argument
-) -> Matches:
-    """
-    Scores MANY items against ONE core -> Matches
-    Only includes matches with score >= score_threshold.
-    """
-    # Build clauses for this specific element_core once, use for all items
-    ec_dict = coerce_to_dict(element_core)
-    elem_map = normalize_core_map(to_dotmap(ec_dict))
-    clauses = build_clauses(elem_map)
-    core_id = str(ec_dict.get("core_id"))
-
-    scored: List[Match] = []
-    for item in items:
-        match = score_item_to_core(
-            item,
-            elem_map,
-            clauses,
-            apply_overspec=apply_overspec,
-            include_explain=include_explain,
-        )
-        scored.append(match)
-
-    # Filter out matches below the threshold
-    scored = [m for m in scored if m.score >= score_threshold]
-
-    # Rank remaining matches by descending score
-    scored.sort(key=lambda m: -m.score)
-
-    # Return top_k matches (after threshold filter)
-    return Matches(core_id=core_id, matches=scored[: max(0, int(top_k))])
-
-
 def score_items_to_element(
     items: Iterable[Any],   # Many InventoryItem instances, or dicts
     element: Any,           # LcaElement instance, or dict
     *,
-    top_k: int = 5,
-    apply_overspec: Optional[bool] = None,
+    top_k: int = 5,  # Default: add items with top 5 score
     include_explain: bool = True,
     score_threshold: float = 0.0,
 ) -> LcaElement:
     """
-    Scores `items` against each MatchingCore in `element.element_core`,
-    writes the top-k Matches per core into `element.matched_items`,
-    and returns the same LcaElement (same id).
+    Score a collection of inventory items against all MatchingCores of a given LcaElement.
 
-    Only includes matches with score >= score_threshold.
+    For each MatchingCore in `element.element_core`, this function computes similarity
+    scores between the core and all provided `items` (typically `InventoryItem`
+    instances or their dict representations). It then selects the top-k matches per core,
+    filters them by a minimum score threshold, and writes the resulting `Matches`
+    objects into `element.matched_items`. The same `LcaElement` (identified by its
+    original ID) is returned, now enriched with matching results.
+
+    Parameters
+    ----------
+    items : Iterable[Any]
+        Iterable of candidate inventory records to be matched against the element.
+        Each item is expected to be either:
+        - an `InventoryItem` instance, or
+        - a dict that can be used to construct an `InventoryItem`.
+    element : Any
+        The building-model element to be matched. Can be:
+        - an `LcaElement` instance, or
+        - a serialized `LcaElement`.
+        The element's `element_core` attribute (a list of MatchingCore objects)
+        defines the matching queries.
+    top_k : int, optional
+        Maximum number of top-scoring matches to retain per MatchingCore.
+        Defaults to 5.
+    include_explain : bool, optional
+        If True, matching results include explanation metadata (e.g., per-attribute
+        contributions to the final score). If False, only scores and references are stored.
+        Defaults to True.
+    score_threshold : float, optional
+        Minimum similarity score required for a match to be included. Matches with
+        scores below this value are discarded. Defaults to 0.0.
+
+    Returns
+    -------
+    LcaElement
+        The same `LcaElement` (or an instance constructed from the provided dict),
+        with its `matched_items` attribute populated by a list of `Matches` objects
+        (one per MatchingCore). The element's id is preserved.
+
     """
     # Ensure model instance
     if not isinstance(element, LcaElement):
@@ -842,7 +701,6 @@ def score_items_to_element(
                 items=items,
                 element_core=core,
                 top_k=top_k,
-                apply_overspec=bool(apply_overspec),
                 include_explain=include_explain,
                 score_threshold=score_threshold,
             )
