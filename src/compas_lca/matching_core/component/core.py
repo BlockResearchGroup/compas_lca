@@ -10,10 +10,7 @@ from compas_lca.matching_core.component.common import ComponentCommon
 
 class ComponentCore(BaseModel):
     """
-    Container for component semantics (type) and its type-specific facet.
-      - 'component_type' determines which facet model to use.
-      - 'component_facet' can be either a dict (raw payload) or an already
-        constructed facet instance; it will be validated/coerced accordingly.
+    Container for component semantics and its type-specific facet.
     """
     model_config = ConfigDict(
         extra="forbid",

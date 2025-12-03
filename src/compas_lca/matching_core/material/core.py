@@ -1,4 +1,5 @@
 from typing import Optional
+from typing import List
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -10,21 +11,13 @@ from compas_lca.maps import MODEL_BY_MAT_TYPE
 from compas_lca.enums import MaterialType
 from compas_lca.enums import ApplicationAreas
 from compas_lca.enums import FunctionalTypes
-
-from compas_lca.validators import DensityFloat
-from compas_lca.validators import ArealDensityFloat
+from compas_lca.enums import InsulationInfo
 
 from compas_lca.matching_core.material.common import MaterialCommon
-
 
 class MaterialCore(BaseModel):
     """
     Container for material semantics (type + common fields) and its type-specific facet.
-
-    Discriminator-free routing:
-      - 'material_type' determines which facet model to use.
-      - 'material_facet' can be a dict (raw payload) or an already constructed facet;
-        it will be validated/coerced accordingly.
     """
     model_config = ConfigDict(
         extra="forbid",
@@ -38,8 +31,7 @@ class MaterialCore(BaseModel):
     application_areas: list[ApplicationAreas] = Field(
         default_factory=lambda: [ApplicationAreas.unknown]
     )
-    density: Optional[DensityFloat] = Field(None, ge=0)
-    areal_density: Optional[ArealDensityFloat] = Field(None, ge=0)
+    insulation_info: Optional[List[InsulationInfo]] = Field(default_factory=list)
     material_facet: object
 
     @model_validator(mode="before")
@@ -89,7 +81,6 @@ def assemble_material_core(common: MaterialCommon, material_facet: object) -> Ma
         material_type=common.material_type,
         functional_types=common.functional_types,
         application_areas=common.application_areas,
-        density=common.density,
-        areal_density=common.areal_density,
+        insulation_info=common.insulation_info,
         material_facet=material_facet,
     )

@@ -12,7 +12,6 @@ from compas_lca.enums import MetallicForming
 from compas_lca.enums import MetallicProduction
 from compas_lca.enums import MetallicSurfaceTreatment
 
-
 class MetallicFacet(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -22,19 +21,27 @@ class MetallicFacet(BaseModel):
     metallic_type: MetallicType = Field(
         MetallicType.unknown,
         description=dedent("""
-            Defines the dominant **base metal or alloy family** of the product.
-            This refers to its **chemical composition**, not its shape, coating, or manufacturing process.
+            Defines the dominant base metal or alloy family of the product.
+            This classification refers strictly to the material's chemical composition,
+            not its geometry, coating, finish, or manufacturing process.
 
-            Use this field to classify metallic materials by their primary alloy system
-            (e.g., carbon steel, stainless steel, aluminum, copper).
+            Assign the metallic type according to the highest-priority category whose criteria are satisfied, 
+            using the list below arranged from most specific to most general:
 
-            Mapping guidance:
-            • Structural steel, rebar, mild steel → "carbon_steel"
-            • Weathering steel, high-strength low-alloy (HSLA) → "low_alloy_steel"
-            • Stainless or corrosion-resistant steel → "stainless_steel"
-            • Cast iron, ductile iron, heritage ironwork → "cast_iron"
-            • Non-ferrous metals (aluminum, copper, brass, bronze, zinc, lead) → respective enum
-            • If composition cannot be determined → "unknown"
+            1. Stainless or corrosion-resistant steel → "stainless_steel"
+
+            2. Weathering steel or high-strength low-alloy (HSLA) steel → "low_alloy_steel"
+
+            3. Cast or ductile iron → "cast_iron"
+
+            4. Structural / mild / carbon steel → "carbon_steel"
+            Use for generic or structural steel without alloy-specific qualifiers.
+            Coatings (galvanized, powder-coated, painted) do not affect the metallic_type.
+                           
+            5. Non-ferrous metals → use their specific enum
+            "aluminum", "copper", "brass", "bronze", "zinc", "lead".
+                           
+            6. If none of the above categories can be confidently assigned → "unknown"
         """).strip(),
         examples=["carbon_steel", "stainless_steel", "aluminum", "copper", "other"],
     )
@@ -50,13 +57,19 @@ class MetallicFacet(BaseModel):
     steel_grade: Optional[str] = Field(
         None,
         description=dedent("""
-            Standardized designation or grade of steel material, if applicable. 
-            Refers to specific composition and mechanical property standards 
-            (e.g., EN 10025, EN 10088, ASTM A36, AISI 304) that define alloy content, 
-            strength class, and performance characteristics.
-            Only applicable when `metallic_type` is a steel (e.g., carbon, low-alloy, or stainless).
+            Specific **steel grade or designation**, *not* the standard number.
+            This field identifies the **grade symbol** defined *within* a steel standard 
+            (the alphanumeric designation that encodes strength class and alloy composition), 
+            rather than the name of the standard itself.
+            Use this field for values such as:
+            'S235JR', 'S460NL'
+            Do NOT provide:
+            - Only a standard number or document reference (e.g., "EN 10025", "ASTM A240")
+            The grade should correspond to the product's declared composition or mechanical properties 
+            as per a recognized steel specification. If not stated in the source, leave empty.
+            Applicable only when `metallic_type` refers to a steel (e.g., carbon, low-alloy, or stainless).
         """).strip(),
-        examples=["S235JR", "S355J2", "AISI 304", "1.4301"]
+        examples=["S235JR", "S355J2", "AISI 304", "1.4301", "ASTM A36"]
     )
     yield_strength: Optional[float] = Field(
         None,

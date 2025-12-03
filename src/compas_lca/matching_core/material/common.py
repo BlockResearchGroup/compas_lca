@@ -10,9 +10,8 @@ from pydantic import Field
 from compas_lca.enums import MaterialType
 from compas_lca.enums import ApplicationAreas
 from compas_lca.enums import FunctionalTypes
+from compas_lca.enums import InsulationInfo
 
-from compas_lca.validators import DensityFloat
-from compas_lca.validators import ArealDensityFloat
 from compas_lca.validators import MaterialTypeValidated
 
 class MaterialCommon(BaseModel):
@@ -26,59 +25,71 @@ class MaterialCommon(BaseModel):
         MaterialType.unknown,
         description=dedent("""
             Classify the product by its dominant base material (composition), not shape, coating, or process.
-            Choose exactly one of: 'mineral', 'concrete', 'wood', 'metallic', 'polymeric', 'bituminous', 'composite', 'unknown'.
+            Choose exactly one of: 'mineral', 'concrete', 'wood', 'biobased_nonwood', 'metallic', 
+            'polymeric', 'bituminous', 'composite', 'unknown'.
 
             Decision rules (apply top-down):
 
-            1) wood → Organic, lignocellulosic wood-based materials.
+            1) wood → Organic, lignocellulosic **wood-based** materials.
             Map to 'wood' if the name or description contains ANY of:
-            english: wood, timber, lumber, parquet, plywood, veneer, LVL, laminated veneer lumber, glulam,
-                        CLT, cross laminated timber, OSB, MDF, HDF, particleboard, chipboard, hardboard,
-                        fibreboard/fiberboard, cork, bamboo
-            german: Holz, Brettschichtholz, Brettsperrholz, Kreuzlagenholz, Sperrholz, Furnierschichtholz,
-                    LVL, Leimholz, Mehrschichtparkett, Parkett, Spanplatte, Faserplatte, MDF, HDF, OSB
+                english: wood, timber, lumber, parquet, plywood, veneer, LVL, laminated veneer lumber,
+                        glulam, CLT, cross laminated timber, OSB, MDF, HDF, particleboard, chipboard,
+                        hardboard, fibreboard/fiberboard, cork, bamboo
+                german: Holz, Brettschichtholz, Brettsperrholz, Kreuzlagenholz, Sperrholz, Furnierschichtholz,
+                        LVL, Leimholz, Mehrschichtparkett, Parkett, Spanplatte, Faserplatte, MDF, HDF, OSB
             examples: Multi-layer parquet, Cross laminated timber (CLT), MDF (uncoated)
 
-            2) concrete → Cementitious / hydraulic binder with aggregates.
+            2) biobased_nonwood → **Bio-based materials NOT derived from wood**.
+            Use this category if the dominant constituent comes from plants, animals, or crops **other than wood**.
+            keywords: cotton, flax, linen, hemp, sheep wool, straw, cork, bamboo
+
+            3) concrete → Cementitious / hydraulic binder with aggregates.
             keywords: concrete, reinforced concrete, RC, mortar, grout, UHPC, screed
 
-            3) mineral → Inorganic, nonmetallic, ceramic/stone/glass (excluding concrete).
-            keywords: brick, tile, ceramic, porcelain, glass, stone, gypsum, plaster, rammed earth
+            4) mineral → Inorganic, nonmetallic, ceramic/stone/glass (excluding concrete).
+            keywords: plaster, plasterboard, brick, tile, ceramic, glass, stone, gypsum, rammed earth
 
-            4) metallic → Metals and alloys.
+            5) metallic → Metals and alloys.
             keywords: steel, stainless steel, aluminum, copper, zinc, lead, brass, bronze, cast iron
 
-            5) polymeric → Synthetic organic polymers, plastics, rubbers, resins, foams (non-insulation context).
+            6) polymeric → Synthetic organic polymers, plastics, rubbers, resins, foams.
             keywords: PVC, PE, PP, PET, PUR, PU, EPDM, acrylic, polyester, polyamide, nylon
 
-            6) bituminous → Hydrocarbon binders and composites.
+            7) bituminous → Hydrocarbon binders and composites.
             keywords: asphalt, bitumen, tar, bituminous membrane
 
-            7) composite → Engineered combination where no single base material dominates OR explicitly named composite.
-            keywords: FRP, GFRP, CFRP, sandwich panel (if core/skins differ and no dominant base)
+            8) composite → Engineered combination where no single base material dominates OR
+            explicitly named composite.
+            keywords: FRP, GFRP, CFRP, sandwich panel (if core and skins differ and no dominant base)
 
-            8) unknown → If none of the above can be determined from available text.
+            9) unknown → If none of the above can be determined from available text.
 
             Notes:
             • Ignore surface coatings (laminates, varnish, paint) when determining the base material.
+            • Always classify based on the **dominant** material by mass/volume or by explicit naming.
         """).strip(),
-        examples=["wood", "concrete", "mineral", "metallic", "polymeric", "bituminous", "composite"]
+        examples=[
+            "wood", "biobased_nonwood", "concrete", "mineral", 
+            "metallic", "polymeric", "bituminous", "composite"
+        ]
     )
+
     functional_types: List[FunctionalTypes] = Field(
         [FunctionalTypes.unknown],
         description=dedent("""
-            List of the product's intended functional roles (i.e., function or function-related layer type)
-            as explicitly declared in the input dataset.
+        List of the product's intended functional roles (i.e., function or function-related layer type)
+        as explicitly declared in the input dataset.
 
-            Rules:
-            - Choose one single best PRIMARY intent whenever possible.
-            - Add additional values ONLY if the material/product explicitly serves multiple 
-            primary functions simultaneously (e.g., “thermal + acoustic insulation” panel).
-            - If the role is not clearly stated in the raw data, keep “unknown”.
-        """).strip,
+        Rules:
+        - Choose one single best PRIMARY intent whenever possible.
+        - Add additional values ONLY if the material/product explicitly serves multiple 
+        primary functions simultaneously (e.g., “thermal + acoustic insulation” panel).
+        - If the role is not clearly stated in the raw data, keep “unknown”.
+        - Air is NOT assignable and results in an empty list.
+        """).strip(),
         examples=[
             ["structural"],
-            ["thermal_insulation", "acoustic_insulation"],
+            ["insulation"],
             ["covering", "lining"],
             ["membrane", "waterproofing"]
         ]
@@ -94,25 +105,24 @@ class MaterialCommon(BaseModel):
         examples=[
             ["balcony", "railing"],
             ["wall", "slab", "column"],
-            ["floor", "ceiling"]
+            ["floor", "ceiling"],
+            ["roof"]
         ]
     )
-    density: Optional[DensityFloat] = Field(
+    insulation_info: Optional[List[InsulationInfo]] = Field(
         None,
-        ge=0,
         description=dedent("""
-            The volumetric density of the material, expressed in kilograms per cubic metre (kg/m³).
-            If the source dataset specifies a range, compute and assign the average value.
+            High-level tags describing an insulation product's purpose and/or form.
+            Populate this field ONLY if the product's `functional_types` includes 'insulation'.
+            Choose all that apply if both purpose and form are stated (e.g., thermal + acoustic + semi_rigid).
+            Examples:
+            - EPS board for façade insulation → ['thermal', 'rigid']
+            - Mineral wool slab declared for thermal + acoustic walls → ['thermal', 'acoustic', 'semi_rigid']
+            - Underlay roll with ΔLw rating → ['impact_sound', 'flexible_roll_batt']
         """).strip(),
-        examples=[24.0, 350.8, 2850.0]
-    )
-    areal_density: Optional[ArealDensityFloat] = Field(
-        None,
-        ge=0,
-        description=dedent("""
-            The numeric value of the areal (surface) density of the material, expressed in kilograms per square metre (kg/m²).
-            Use this for materials where mass is reported per area.
-            If the source dataset specifies a range, compute and assign the average value.
-        """).strip(),
-        examples=[0.85, 12.0]
+        examples=[
+            ["thermal", "rigid"],
+            ["thermal", "acoustic", "semi_rigid"],
+            ["impact_sound", "flexible_roll_batt"]
+        ]
     )
