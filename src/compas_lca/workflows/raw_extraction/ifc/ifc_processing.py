@@ -482,7 +482,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
     total = len(elements)
     print(f"{entity_type} count: {total}", flush=True)
     print("")
-    print("processing...", flush=True)
+    print(f"Pre-processing all {entity_type} entities...", flush=True)
     processed = 0
 
     # process all building elements
@@ -572,6 +572,6 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
     write_mm_index(mm_index, output_dir)
 
     print("")
-    print(f"Done!")
-    print(f"IFC file was successfully processed ✔")
-    print(f"processed data stored in: {output_dir}")
+    print(f"IFC file was successfully pre-processed ✔")
+    print(f"Data stored in: {output_dir}")
+    print("")

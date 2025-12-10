@@ -4,8 +4,8 @@ from typing import List
 from textwrap import dedent
 
 from pydantic import BaseModel
-from pydantic import Field
 from pydantic import ConfigDict
+from pydantic import Field
 
 from compas_lca.enums import DoorType
 from compas_lca.enums import DoorOperation
@@ -56,6 +56,13 @@ class DoorFacet(BaseModel):
         description=dedent("""
             Indicates whether the door includes automatic opening or closing mechanisms 
             (e.g., motorized or sensor-controlled operation). Set to `True` if automated, otherwise `False`.
+        """).strip(),
+        examples=[True, False]
+    )
+    industrial_door: Optional[bool] = Field(
+        None,
+        description=dedent("""
+            Indicates whether the door unit is specifically tailored to industrial use. 
         """).strip(),
         examples=[True, False]
     )

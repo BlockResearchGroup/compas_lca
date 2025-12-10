@@ -1,7 +1,7 @@
 """
 Hybrid between Agent-based extraction and hardcoding to create
 LcaElement objects from IfcBuildingElement data. In order for this
-workflow to work, one needs to pre-process the chosen IFC model with the
+workflow to work, chosen IFC model needs to be pre-processed with the
 run_processing.py file (essentially run process_ifc_model from ifc_processing.py).
 
 The arguments/parameters for the functions here refer to the directory structure
@@ -28,6 +28,11 @@ from typing import Tuple
 from compas_lca.helpers import load_json
 from compas_lca.helpers import merge_llm_meta
 
+from compas_lca.enums import QuantName
+from compas_lca.enums import QuantUnit
+
+from compas_lca.validators import _unit_scale_to_m
+
 from compas_lca.llm.ctx.element_context import DESCRIPTOR_CTX
 
 from compas_lca.matching_core.core import MatchingCore
@@ -45,8 +50,6 @@ from compas_lca.workflows.speculation import speculate_layer_thicknesses
 
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import update_descriptor_ifc
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import update_matching_core_ifc
-from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _get_in
-from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _coerce_number
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _first_numeric
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _obb_dimension_range
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _build_guid_index
@@ -108,7 +111,7 @@ def extract_multilayer_core_ifc(
             input_type = "building_element", 
             input_data=layer,
             input_format="json",
-            force_entry_type="material" # a layer MUST be a material
+            force_entry_type="material" # a layer MUST be a material (makes no sense otherwise)
         )
         element_core.append(core)
         aggregated_meta = merge_llm_meta(aggregated_meta, layer_meta)
@@ -134,7 +137,7 @@ def extract_multimat_core_ifc(
 
     if is_multilayer:
 
-        # Speculate thicknesses once
+        # Use enrichement module: make guided guess for thicknesses
         thickness_result, llm_meta = speculate_layer_thicknesses(input_data=global_json)
         aggregated_meta = merge_llm_meta(aggregated_meta, llm_meta)
 
@@ -144,7 +147,7 @@ def extract_multimat_core_ifc(
             key = _norm(layer.layer_name)
             thicknesses.setdefault(key, []).append(layer.inferred_thickness_mm)
 
-        # Extract each material layer and inject speculated thickness
+        # Extract each material layer and inject speculated thickness 
         for material in materials:
             core, layer_meta = extract_matching_core(
                 input_type="building_element",
@@ -160,8 +163,7 @@ def extract_multimat_core_ifc(
             if key in thicknesses and thicknesses[key]:
                 inferred_thickness = thicknesses[key].pop(0)  # take first available
                 core= core.model_copy(update={
-                    "thickness": inferred_thickness,
-                    "thickness_source": "speculated",
+                    "thickness": inferred_thickness
                 })
 
             element_core.append(core)
@@ -186,8 +188,7 @@ def extract_multimat_core_ifc(
 # =======================================================
 
 def extract_descriptor_ifc(
-    input_json: dict,
-    output_dir: Optional[Path | str] = None
+    input_json: dict
 ) -> Tuple[ElementDescriptor, dict]:
     """
     Extract a structured ElementDescriptor from IFC JSON data using the LLM agent.
@@ -202,19 +203,10 @@ def extract_descriptor_ifc(
     Returns:
         ElementDescriptor: The structured LLM-extracted descriptor object.
     """
-    # Derive base name automatically
-    base_name =  input_json.get("metadata", {}).get("global_id")
-    descriptor_dir = None
-    if output_dir is not None:
-        descriptor_dir = Path(output_dir) / "parts" / "descriptor"
-        descriptor_dir.mkdir(parents=True, exist_ok=True)
 
     llm_output, llm_meta = extract_json_with_agent(
         input_json=input_json,
-        context=DESCRIPTOR_CTX,
-        output_dir=descriptor_dir,
-        write_meta=True,
-        base_name=base_name,
+        context=DESCRIPTOR_CTX
     )
 
     descriptor = ElementDescriptor.model_validate(llm_output)
@@ -229,16 +221,23 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
     """
     Extract a few key quantities from IFC-derived JSON with priority rules.
     Quantities handled: thickness, length, area, volume.
-    Extend by adding paths or new blocks below.
+    All returned values are converted to canonical SI units (m, m², m³).
     """
     # get type for accurate area extraction
     entity = input_json.get("metadata", {}).get("entity", None)
 
     # Units (fallbacks are conservative; tweak as needed)
     q = input_json.get("quantities") or {}
-    length_unit = q.get("LENGTHUNIT", "MILLIMETRE")
-    area_unit   = q.get("AREAUNIT",   "SQUARE_METRE")
-    vol_unit    = q.get("VOLUMEUNIT", "CUBIC_METRE")
+    length_unit_raw = q.get("LENGTHUNIT", "METRE")
+    area_unit_raw   = q.get("AREAUNIT",   "SQUARE_METRE")
+    vol_unit_raw    = q.get("VOLUMEUNIT", "CUBIC_METRE")
+
+    # Resolve scale factors → canonical SI (m, m², m³)
+    # _unit_scale_to_m returns (QuantUnit, factor_from_input_to_canonical)
+    _, k_len  = _unit_scale_to_m(length_unit_raw)  # e.g. 'MILLIMETRE' -> (m, 1e-3)
+    _, k_area = _unit_scale_to_m(area_unit_raw)    # e.g. 'SQUARE_CENTIMETRE' -> (m2, 1e-4)
+    _, k_vol  = _unit_scale_to_m(vol_unit_raw)     # e.g. 'CUBIC_MILLIMETRE' -> (m3, 1e-9)
+
     quantities: List[Quantity] = []
 
     # -------- thickness (priority order) --------
@@ -251,7 +250,7 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
     th = _first_numeric(input_json, thickness_paths)
     if th is None:
         # fallback 1: smallest 1-d IFC Qto value
-        qto_vals = [q.get("width"),q.get("height"),q.get("depth")]
+        qto_vals = [q.get("width"), q.get("height"), q.get("depth")]
         qto_clean = [v for v in qto_vals if v is not None]
         if qto_clean:
             th = min(qto_clean)
@@ -261,14 +260,13 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
         if obb_range:
             th = obb_range[0]  # smallest
     if th is not None:
-        th = round(th, 4)
-        quantities.append(Quantity(name="thickness", value=th, unit=length_unit))
+        th = round(th * k_len, 4)  # convert to metres
+        quantities.append(Quantity(name=QuantName.thickness, value=th, unit=QuantUnit.m))
 
     # -------- length (priority order) --------
     length_paths = [
         ["quantities", "length"],
         ["properties", "psets_element", "Length"],
-        # add other sources if present in your schema
     ]
     l = _first_numeric(input_json, length_paths)
     if l is None:
@@ -277,14 +275,11 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
         if obb_range:
             l = obb_range[1]  # largest
     if l is not None:
-        l = round(l, 4)
-        quantities.append(Quantity(name="length", value=l, unit=length_unit))
+        l = round(l * k_len, 4)  # convert to metres
+        quantities.append(Quantity(name=QuantName.length, value=l, unit=QuantUnit.m))
 
     # -------- area (priority order) --------
-    # Retrieve corresponding value for accurate LCA calculation in case reference unit
-    # of EPD is sqm
-
-    av = None # initialize area value
+    av = None
     if entity in ["IfcWindow", "IfcDoor"]:
         av = q.get("area")
     elif entity in ["IfcSlab", "IfcPlate", "IfcRoof"]:
@@ -300,26 +295,28 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
             ["properties", "psets_element", "Fläche"],   # umlaut
             ["properties", "psets_element", "Flaeche"],  # ASCII fallback
         ]
-        av = _first_numeric(input_json, area_paths)  # this is where coercion happens
+        av = _first_numeric(input_json, area_paths)
     if av is None:
         av = q.get("compas_obb_largest_area")
+
     if av is not None:
-        av = round(av, 4)
-        quantities.append(Quantity(name="area", value=av, unit=area_unit))
+        av = round(av * k_area, 4)  # convert to m²
+        quantities.append(Quantity(name=QuantName.area, value=av, unit=QuantUnit.m2))
 
     # -------- volume (priority order) --------
-    vol = None
     vol = q.get("compas_brep_volume")
     if vol is None:
         volume_paths = [
+            ["properties", "psets_element", "Volume"],
             ["quantities", "net_volume"],
             ["quantities", "gross_volume"],
             ["quantities", "volume_fallback"],
         ]
         vol = _first_numeric(input_json, volume_paths)
+
     if vol is not None:
-        vol = round(vol, 4)
-        quantities.append(Quantity(name="volume", value=vol, unit=vol_unit))
+        vol = round(vol * k_vol, 4)  # convert to m³
+        quantities.append(Quantity(name=QuantName.volume, value=vol, unit=QuantUnit.m3))
 
     return Quantities(quantities=quantities)
 
@@ -327,8 +324,6 @@ def extract_quantities_ifc(input_json: dict) -> Quantities:
 # ======================================================================================================
 # Extract different types of LcaElement that addresses predefined directory structure from pre-processing
 # ======================================================================================================
-
-MODES = ["single_material", "layered"]
 
 def extract_lca_element_ifc(
     input_json: Optional[dict],         # for mode="single" only
@@ -402,7 +397,6 @@ def extract_lca_element_ifc(
         output_dir.mkdir(parents=True, exist_ok=True)
         stem = getattr(lca_element, "id", None)
         output_path = output_dir / f"{stem}.json"
-
         json_str = lca_element.model_dump_json(indent=2)
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(json_str)
@@ -535,7 +529,7 @@ def extract_lca_model_ifc(
             member_guid = member.get("global_id")
             if not member_guid or member_guid == rep_guid:
                 continue  # skip missing guid or the representative itself
-            member_path = index_elements.get(member_guid)
+            member_path = index_elements.get(member_guid.lower())
             if not member_path:
                 print(f"[warn] Member {member_guid} not found in all/elements index. "
                     f"Index has {len(index_elements)} items. Check preprocessing paths.")
@@ -600,10 +594,12 @@ def extract_lca_model_ifc(
                 continue
 
             # Use GUID→dir index built for all/multilayers
-            member_dir = index_multilay.get(guid) if isinstance(index_multilay, dict) else None
+            member_dir = index_multilay.get(guid.lower()) if isinstance(index_multilay, dict) else None
             if not member_dir:
-                print(f"[warn] Member {member_dir} not found in all/multilayers index. "
-                    f"Index has {len(index_multilay)} items. Check preprocessing paths.")
+                print(
+                    f"[warn] Member GUID {guid!r} not found in all/multilayers index. "
+                    f"Index has {len(index_multilay)} items. Check preprocessing paths."
+                )
                 continue
 
             # Create member element without re-running LLM (copy/override quantities)
@@ -652,7 +648,7 @@ def extract_lca_model_ifc(
         _save_lca_element(rep_elem, rep_out_dir)
 
         # find its members via representatives.json entry
-        rep_global_path, _ = _discover_multix_paths(rep_dir_multilay, "multimaterial")
+        rep_global_path, _ = _discover_multix_paths(rep_dir_multimat, "multimaterial")
         rep_data = load_json(rep_global_path)
         rep_guid = rep_data.get("metadata", {}).get("global_id")
         entry = rep_guid_to_entry.get(rep_guid)
@@ -664,7 +660,7 @@ def extract_lca_model_ifc(
             if not guid:
                 continue
 
-            member_dir = index_multimat.get(guid) if isinstance(index_multimat, dict) else None
+            member_dir = index_multimat.get(guid.lower()) if isinstance(index_multimat, dict) else None
             if not member_dir:
                 print(f"[warn] Member {member_dir} not found in all/multimaterials index. "
                     f"Index has {len(index_multimat)} items. Check preprocessing paths.")
@@ -700,7 +696,7 @@ def extract_lca_model_ifc(
     # =========================
     # assemble LcaModel
     # =========================
-    print("✅ IFC extraction complete — assembling final LCA model.\n")
+    print("*** IFC extraction complete — LCA model successfully assembled. ***\n")
     lca_model = LcaModel(
         metadata = model_metadata,
         single_materials=single_materials,

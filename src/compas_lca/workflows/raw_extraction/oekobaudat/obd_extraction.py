@@ -1,7 +1,3 @@
-"""
-Functions to extract all fields for the InventoryItem class
-"""
-
 from pathlib import Path
 
 import traceback
@@ -10,20 +6,22 @@ import pandas as pd
 
 import json
 
+from typing import Any
 from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Union
 
+from compas_lca.helpers import merge_llm_meta
+
 from compas_lca.matching_core.core import MatchingCore
 
 from compas_lca.inventory.inventory import Inventory
 from compas_lca.inventory.item import InventoryItem
-from compas_lca.inventory.indicator import Indicators
 from compas_lca.inventory.metadata import ItemMetadata
 from compas_lca.inventory.reference import ReferenceInfo
-
 from compas_lca.inventory.indicator import Indicator
+from compas_lca.inventory.indicator import IndicatorScenario
 from compas_lca.inventory.indicator import Indicators
 
 from compas_lca.inventory.constants import EN15978_STAGES
@@ -38,6 +36,8 @@ from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import parse_num
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_str
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_int
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import infer_bucket
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import write_item
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import COLUMN_MAP
 
 
@@ -45,7 +45,7 @@ from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import COLUMN_MA
 # Extract the matching core from an Oekobaudat entry
 # =======================================================
 
-def extract_matching_core_obd(uuid_series: pd.Series, output_dir: Optional[Path | str] = None) -> MatchingCore:
+def extract_matching_core_obd(uuid_series: pd.Series) -> MatchingCore:
     """
     Parse the EPD payload and construct a MatchingCore.
     Implement source-specific logic here.
@@ -53,21 +53,13 @@ def extract_matching_core_obd(uuid_series: pd.Series, output_dir: Optional[Path 
     # Build the combined JSON (Series + URL parse) in-memory
     obd_item_payload = ingest_obd_item(uuid_series)
 
-    # Get UUID
-    uuid = safe_str(uuid_series["UUID"])
-
     # Get matching core from hybrid obd payolad (csv and URL based)
     core, meta = extract_matching_core(
         input_type = "inventory_item",
         input_data=obd_item_payload,
         input_format="json",
-        write_output=True,  # will prolly be false
-        write_meta=True,    # for now true, but might become false and aggregated meta is implemented later (in extract_inventory_obd)
-        output_dir=output_dir / "matching_core",
-        base_name=uuid
     )
-
-    return core
+    return core, meta
 
 
 # ============================================
@@ -76,76 +68,88 @@ def extract_matching_core_obd(uuid_series: pd.Series, output_dir: Optional[Path 
 
 def extract_indicators_obd(uuid_df: pd.DataFrame) -> Indicators:
     """
-    Build an `Indicators` object from a DataFrame slice that already contains
-    exactly one OBD entry (all rows share the same UUID).
+    Build an `Indicators` object from rows for a single UUID.
+    Keeps all scenarios per stage (no averaging).
+    Expects columns:
+      - 'Modul' (stage), 'Szenario' (scenario code, optional),
+        'Szenariobeschreibung' (scenario description, optional),
+        plus indicator columns defined in COLUMN_MAP.
 
-    Rules:
-    - Use COLUMN_MAP (plain + A2-specific columns).
-    - Average values across scenarios by grouping only on (Modul).
-    - Track stages that had multiple distinct Szenariobeschreibung.
+    Special handling:
+      - If 'Szenario' equals 'Standard scenario' (case-insensitive), ignore the scenario code
+        and the (often very long) description by setting both to None.
     """
 
     present_cols = [c for c in COLUMN_MAP if c in uuid_df.columns]
     if not present_cols:
         return Indicators(indicators=[])
 
-    # Scenario tracking
-    scenarios_map: Optional[Dict[EN15978_STAGES, List[str]]] = None
-    scen = (
-        uuid_df.loc[:, ["Modul", "Szenariobeschreibung"]]
-                .assign(
-                    Modul=lambda d: d["Modul"].astype(str),
-                    Szenariobeschreibung=lambda d: d["Szenariobeschreibung"].astype(str).str.strip(),
-                )
-                .groupby("Modul", dropna=False)["Szenariobeschreibung"]
-                .agg(lambda s: sorted({x for x in s if x != ""}))
-                .reset_index()
-    )
-    tmp: Dict[str, List[str]] = {}
-    for _, r in scen.iterrows():
-        stage = r["Modul"]
-        lst = r["Szenariobeschreibung"]
-        if isinstance(lst, list) and len(lst) > 1:
-            tmp[stage] = lst
-    if tmp:
-        scenarios_map = {stage: descs for stage, descs in tmp.items()}  # type: ignore[assignment]
+    # Normalize key fields
+    df = uuid_df.copy()
+    df["Modul"] = df["Modul"].astype(str).str.strip()
 
-    # Narrow frame and numeric parse
-    work = uuid_df.loc[:, ["Modul"] + present_cols].copy()
+    if "Szenario" in df.columns:
+        df["Szenario"] = df["Szenario"].astype(str).str.strip().replace({"": None})
+    else:
+        df["Szenario"] = None
+
+    if "Szenariobeschreibung" in df.columns:
+        df["Szenariobeschreibung"] = (
+            df["Szenariobeschreibung"].astype(str).str.strip().replace({"": None})
+        )
+    else:
+        df["Szenariobeschreibung"] = None
+
+    # --- Edge case: drop "Standard scenario" code/description entirely ---
+    if "Szenario" in df.columns:
+        std_mask = df["Szenario"].fillna("").str.strip().str.casefold().eq("standard scenario")
+        df.loc[std_mask, "Szenario"] = None
+        df.loc[std_mask, "Szenariobeschreibung"] = None
+
+    # Parse numeric indicators
     for c in present_cols:
-        work[c] = work[c].map(parse_num)
+        df[c] = df[c].map(parse_num)
 
-    # Average across scenarios (group only by Modul)
-    agg_spec = {c: (lambda s: None if s.dropna().empty else float(s.dropna().mean()))
-                for c in present_cols}
-    grp = work.groupby("Modul", dropna=False, as_index=False).agg(agg_spec)
+    # Build: indicator_name -> stage -> list[IndicatorScenario]
+    buckets: Dict[str, Dict[str, List[IndicatorScenario]]] = {}
 
-    # Build per-indicator stage dicts
-    indicator_buckets: Dict[str, Dict[str, Optional[float]]] = {}
-    for _, row in grp.iterrows():
-        stage_key = row["Modul"]
+    for _, row in df.iterrows():
+        stage = row["Modul"]
+        scen_code = row.get("Szenario")
+        scen_desc = row.get("Szenariobeschreibung")
+
         for csv_col in present_cols:
-            obd_name = COLUMN_MAP[csv_col]  # canonical OBD indicator name
+            obd_name = COLUMN_MAP[csv_col]  # canonical indicator name
             val = row[csv_col]
-            indicator_buckets.setdefault(obd_name, {})[stage_key] = None if val is None else float(val)
+            if obd_name not in buckets:
+                buckets[obd_name] = {}
+            if stage not in buckets[obd_name]:
+                buckets[obd_name][stage] = []
+            buckets[obd_name][stage].append(
+                IndicatorScenario(
+                    code=scen_code,
+                    description=scen_desc,
+                    value=None if val is None else float(val),
+                )
+            )
 
-    # Convert to Indicators
+    # Build scenario summary (ignore None codes, includes "Standard scenario" which we nulled)
+    scenario_summary: Dict[str, List[str]] = {}
+    for stage in sorted(set(df["Modul"].tolist())):
+        codes = sorted({c for c in df.loc[df["Modul"] == stage, "Szenario"].tolist() if c})
+        if len(codes) > 1:
+            scenario_summary[stage] = codes
+
     indicators: List[Indicator] = []
-    for ind_name, stages_dict in indicator_buckets.items():
-        # Skip if everything is None
-        if all(v is None for v in stages_dict.values()):
-            continue
-
-        # Cast keys to EN15978_STAGES
-        typed_stages: Dict[EN15978_STAGES, Optional[float]] = {  # type: ignore[assignment]
-            stage: v for stage, v in stages_dict.items()
-        }
-        indicators.append(Indicator(name=ind_name, stages=typed_stages))  # type: ignore[arg-type]
+    for ind_name, stage_map in buckets.items():
+        indicators.append(Indicator(name=ind_name, stages=stage_map))  # type: ignore[arg-type]
 
     return Indicators(
         indicators=indicators,
-        scenarios=scenarios_map if scenarios_map else None # Only include scenarios if any were aggregated
+        scenarios=scenario_summary or None  # <-- match your model field name
     )
+
+
 
 # ===============================================================================================
 # Extract Reference Quantities (Bezugsgroesse) and unit (Bezugseinheit) from an Oekobaudat entry
@@ -226,9 +230,6 @@ def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
 def extract_inventory_item_obd(
     uuid_df: pd.DataFrame,
     uuid_series: pd.Series,
-    *,
-    write_json: bool = False,
-    output_dir: Optional[Path | str] = None,
 ) -> InventoryItem:
     """
     Orchestrate extraction and assembly of an InventoryItem from a raw EPD payload.
@@ -237,50 +238,20 @@ def extract_inventory_item_obd(
     (placeholder filename). Change the naming scheme later as needed.
     """
     # Extract
-    core = extract_matching_core_obd(uuid_series, output_dir)
+    core, meta = extract_matching_core_obd(uuid_series)
     indicators = extract_indicators_obd(uuid_df)
-    reference = extract_reference_obd(uuid_series)
     metadata = extract_metadata_obd(uuid_series)
+    reference = extract_reference_obd(uuid_series)
 
     # Assemble
     item = InventoryItem(
         item_core=core,
-        indicators=indicators,
         reference=reference,
         metadata=metadata,
+        indicators=indicators,
     )
 
-    # --- Optional write ---
-    if write_json:
-        if output_dir is None:
-            raise ValueError("If write_json=True, you must provide an output_dir.")
-
-        # Determine bucket from entry_type (handles Enum or str)
-        entry = getattr(item.item_core, "entry_type", None)
-        entry_str = (
-            getattr(entry, "value", None)
-            if hasattr(entry, "value")
-            else (entry.name if hasattr(entry, "name") else str(entry))
-        )
-        entry_str = (entry_str or "").lower()
-        if entry_str == "component":
-            bucket = "component"
-        elif entry_str == "material":
-            bucket = "material"
-        else:
-            bucket = "other"
-
-        out_dir = Path(output_dir) / bucket
-        out_dir.mkdir(parents=True, exist_ok=True)
-
-        uuid = uuid_series.get("UUID")
-        out_path = out_dir / f"{uuid}.json"
-        out_path.write_text(
-            json.dumps(item.model_dump(mode="json"), ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-
-    return item
+    return item, meta
 
 # ==========================================================
 # Extract and build an Inventory object from Oekobaudat CSV
@@ -290,7 +261,7 @@ def extract_inventory_item_obd(
 def extract_inventory_obd(
     csv_path: Union[str, Path],
     *,
-    write_json: bool = False,                   # write one JSON per InventoryItem
+    write_json: bool = True,                   # write one JSON per InventoryItem
     output_dir: Optional[Path | str] = None,    # where to write those JSON files
 ) -> Inventory:
     """
@@ -298,12 +269,21 @@ def extract_inventory_obd(
 
     - Reads the CSV
     - Iterates all UUIDs
-    - Extracts an InventoryItem per UUID (and optionally writes each item as JSON)
-    - Returns an Inventory containing all items
+    - Extracts an InventoryItem per UUID
+    - Optionally writes each item to JSON under a dynamic folder structure:
+        {output_dir}/{entry_type}/{material_type|component_type}/{id}.json
+      with 'unknown' fallback buckets.
+    - Returns an Inventory containing all items.
     """
     # Early validation
     if write_json and output_dir is None:
         raise ValueError("If write_json=True, you must provide an output_dir.")
+
+    # initialize base directory
+    base_dir: Optional[Path] = Path(output_dir) if output_dir is not None else None
+
+    # initialize LLM metadata (cost, token usage)
+    all_llm_meta: dict[str, Any] = {}
 
     # Read csv -> DataFrame
     obd: pd.DataFrame = read_csv(csv_path)
@@ -315,28 +295,42 @@ def extract_inventory_obd(
 
     # Extract items
     items: List[InventoryItem] = []
-    written = 0
     for i, uuid in enumerate(uuids, start=1):
         print(f"\n[{i}/{total}] UUID={uuid} → building InventoryItem…")
-        # subset per UUID
         try:
+            # subset per UUID
             uuid_df: pd.DataFrame = subset_for_uuid(obd, uuid)
             uuid_series: pd.Series = first_row_for_uuid(uuid_df, uuid)
 
             # extract one InventoryItem (this will also write its JSON if requested)
-            item = extract_inventory_item_obd(
+            item, llm_meta = extract_inventory_item_obd(
                 uuid_df=uuid_df,
-                uuid_series=uuid_series,
-                write_json=write_json,
-                output_dir=output_dir,
+                uuid_series=uuid_series
             )
             items.append(item)
-            print(f"[OK] Wrote InventoryItem object for OBD-entry with uuid: {uuid}")
-            written += 1
+            all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
 
-        except Exception as e:
-            print(f"[FAIL] Couldn't write InventoryItem object for OBD-entry with uuid: {uuid}")
+            if write_json and base_dir is not None:
+                # Get info from item, dynamically create folder taxonomy
+                entry_type, subdir = infer_bucket(item)
+                # Serialize the InventoryItem as JSON
+                path = write_item(item, base_dir, entry_type, subdir)
+                print(f"[OK] Wrote JSON → {path.as_posix()}")
+            else:
+                print(f"[OK] Built InventoryItem object for uuid: {uuid}")
+
+        except Exception:
+            print(f"[FAIL] Couldn't process InventoryItem for uuid: {uuid}")
             traceback.print_exc()
+
+    # write LLM metadata
+    if output_dir is not None:
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        meta_path = output_dir / "llm_metadata.json"
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(all_llm_meta, f, indent=2)
+        print(f"Aggregated LLM metadata saved to: {meta_path}")
 
     # Return Inventory wrapper
     return Inventory(items)

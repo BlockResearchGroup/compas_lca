@@ -25,8 +25,19 @@ class ConcreteFacet(BaseModel):
     )
     concrete_form: Optional[ConcreteForm] = Field(
         None,
-        description="Physical form or geometric configuration of the concrete/cementitious-based product.",
-        examples=["cast-in-place","block", "printed"]
+        description=dedent("""
+        Physical form or geometric configuration of the concrete/cementitious-based product.
+        Note: Ready-mix concrete is 'amorphous'.
+        """).strip(),
+        examples=["cast-in-place", "masonry_unit", "amorphous"]
+    )
+    pre_stressed: Optional[bool] = Field(
+        None,
+        description=dedent("""
+        Indicates whether the concrete element or product is **prestressed**—that is, produced or installed
+        with pre-applied tensile forces (typically via steel tendons or cables) to improve its structural performance.
+        """).strip(),
+        examples=[True, False]
     )
     binder_type: Optional[BinderType] = Field(
         None,

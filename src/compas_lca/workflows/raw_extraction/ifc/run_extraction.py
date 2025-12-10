@@ -9,8 +9,8 @@ from pathlib import Path
 from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_model_ifc
 
 # --- configuration ------------------------------------------------------------
-input_dir = Path("temp/Duplex_A_20110907")   # directory with metadata/model.json + elements/
-output_dir = Path("temp/Duplex_A_20110907_LcaModel_3")       # optional; set to None if you don’t want to write files
+input_dir = Path("temp/ifc_preprocessed/Duplex_A_20110907")   # directory with metadata/model.json + elements/
+output_dir = Path("temp/ifc_extracted/Duplex_A_20110907")       # optional; set to None if you don’t want to write files
 # ------------------------------------------------------------------------------
 
 def main():

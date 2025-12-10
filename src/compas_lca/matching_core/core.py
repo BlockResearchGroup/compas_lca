@@ -1,5 +1,7 @@
 from typing import Optional
-from typing import Literal
+
+from uuid import UUID
+from uuid import uuid4
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -18,6 +20,8 @@ from compas_lca.validators import ManufacturerStr
 from compas_lca.validators import ThicknessFloat
 from compas_lca.validators import LambdaFloat
 from compas_lca.validators import UValueFloat
+from compas_lca.validators import DensityFloat
+from compas_lca.validators import ArealDensityFloat
 
 # Map material type to its corresponding facet model
 MODEL_BY_ENTRY_TYPE = {
@@ -36,19 +40,21 @@ class MatchingCore(BaseModel):
         validate_assignment=True,
         str_strip_whitespace=True,
     )
+    core_id: UUID = Field(default_factory=uuid4) # core_id for matching InventoryItem matches to individual layers (individual MatchingCore objects)
     entry_type: EntryType
     name: str
     loadbearing: Optional[LoadbearingType] = None
     placement: Optional[InteriorExteriorType] = None
-    manufacturer: Optional[ManufacturerStr] = None
-    provenance: Optional[str] = None
-    production_location: Optional[str] = None
+    density: Optional[DensityFloat] = Field(None, ge=0)
+    areal_density: Optional[ArealDensityFloat] = Field(None, ge=0)
     thickness: Optional[ThicknessFloat] = Field(None, ge=0)
-    thickness_source: Optional[Literal["from_data", "speculated"]] = None
     thermal_conductivity: Optional[LambdaFloat] = Field(None, ge=0)
     u_value: Optional[UValueFloat] = Field(None, ge=0)
     fire_retardant: Optional[bool] = None
     water_vapour_resistant: Optional[bool] = None
+    manufacturer: Optional[ManufacturerStr] = None
+    provenance: Optional[str] = None
+    production_location: Optional[str] = None
     facet: object
 
     @model_validator(mode="before")
@@ -95,14 +101,15 @@ def assemble_matching_core(common: Common, facet: object) -> MatchingCore:
         name=common.name,
         loadbearing=common.loadbearing,
         placement=common.placement,
-        manufacturer=common.manufacturer,
-        provenance=common.provenance,
-        production_location=common.production_location,
+        density=common.density,
+        areal_density=common.areal_density,
         thickness=common.thickness,
-        thickness_source=common.thickness_source,
         thermal_conductivity=common.thermal_conductivity,
         u_value=common.u_value,
         fire_retardant=common.fire_retardant,
         water_vapour_resistant=common.water_vapour_resistant,
+        manufacturer=common.manufacturer,
+        provenance=common.provenance,
+        production_location=common.production_location,
         facet=facet
     )

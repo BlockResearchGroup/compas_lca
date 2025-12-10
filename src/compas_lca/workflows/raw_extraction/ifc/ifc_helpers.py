@@ -14,7 +14,6 @@ from typing import Iterable
 from typing import Optional
 from typing import Dict
 from typing import Tuple
-from typing import Union
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -23,6 +22,8 @@ from compas_lca.model.lca_element import LcaElement
 from compas_lca.model.metadata import ModelMetadata
 from compas_lca.model.descriptor import ElementDescriptor
 from compas_lca.matching_core.core import MatchingCore
+
+from compas_lca.helpers import load_json
 
 # ===============
 # GENERIC HELPERS
@@ -184,13 +185,6 @@ def classify_material_bucket(material_data) -> Optional[Bucket]:
 def write_bytes(path: Path, blob: bytes) -> None:
     with path.open("wb") as f:
         f.write(blob)
-
-def load_json(input_json: Union[dict, str, bytes]) -> Dict[str, Any]:
-    """Parse model_metadata.json exactly once at program startup."""
-    if isinstance(input_json, (str, Path)):
-        with open(input_json, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return input_json  # already a dict
 
 
 # =======================
@@ -367,12 +361,13 @@ def write_multilayer_pkg(
     # main element JSON
     write_bytes(pkg_dir / f"{gid}.json", element_blob)
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
+    meta_filtered = {"entity": meta_dict.get("entity")} if "entity" in meta_dict else {}
     # write each layer wrapped in IfcTargetLayer
     for i, layer in enumerate(layers, start=1):
         layer_dict = _to_plain_dict(layer)
         wrapped = IfcTargetLayer(
             target_layer=layer_dict,
-            parent_element_context=meta_dict,
+            parent_element_context=meta_filtered,
         )
         layer_blob = wrapped.model_dump_json(exclude_none=True, by_alias=True, indent=2).encode("utf-8")
         write_bytes(pkg_dir / f"L{i}.json", layer_blob)
@@ -417,6 +412,7 @@ def write_multimaterial_pkg(
     # Write the main element JSON
     write_bytes(pkg_dir / f"{gid}.json", element_blob)
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
+    meta_filtered = {"entity": meta_dict.get("entity")} if "entity" in meta_dict else {}
 
     # Wrap and write each material
     for i, mat in enumerate(materials, start=1):
@@ -424,7 +420,7 @@ def write_multimaterial_pkg(
 
         wrapped = IfcTargetMaterial(
             target_material=mat_dict,
-            parent_element_context=meta_dict,
+            parent_element_context=meta_filtered,
         )
 
         mat_blob = wrapped.model_dump_json(exclude_none=True, by_alias=True, indent=2).encode("utf-8")
@@ -753,7 +749,7 @@ def _build_guid_index(elements_dir: Path) -> dict[str, Path]:
             data = load_json(p)
             guid = data.get("metadata", {}).get("global_id")
             if guid:
-                index[guid] = p
+                index[guid.lower()] = p
         except Exception:
             # Best-effort: skip corrupt/unexpected files
             continue
@@ -773,7 +769,7 @@ def _build_guid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial
         data = load_json(global_path)
         guid = data.get("metadata", {}).get("global_id")
         if guid:
-            index[guid] = sub
+            index[guid.lower()] = sub
     return index
 
 

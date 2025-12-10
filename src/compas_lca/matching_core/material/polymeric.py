@@ -9,7 +9,6 @@ from pydantic import Field
 from compas_lca.enums import PolymericType
 from compas_lca.enums import PolymericForm
 
-
 class PolymericFacet(BaseModel):
     model_config = ConfigDict(
         extra="forbid",

@@ -27,10 +27,11 @@ class ElementDescriptor(BaseModel):
             "Type: C30/37 Concrete Wall",
             "Basic Wall:BSP 140 - 5s:2012837"]
     )
-    element_uuid: str = Field(
-        ...,
+    element_uuid: Optional[str] = Field(
+        None,
         description="""
-        Exact element UUID or GlobalId as found in the raw building element data.
+        Exact element UUID or GlobalId as found in the raw building element data (if available).
+        For IFC, this should optimally be GlobalId.
         """,
         examples=[
             "0kF45Qs8L9PAM9kmb1lT2B", 

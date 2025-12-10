@@ -4,8 +4,8 @@ from typing import List
 from textwrap import dedent
 
 from pydantic import BaseModel
-from pydantic import Field
 from pydantic import ConfigDict
+from pydantic import Field
 
 from compas_lca.enums import FrameType
 from compas_lca.enums import WindowOperation
@@ -53,11 +53,19 @@ class WindowFacet(BaseModel):
             ["other"]
         ]
     )
-    acoustic_interlayer: Optional[bool] = Field(
-        None,
+    acoustic_interlayer: bool = Field(
+        False,
         description=dedent("""
             This boolean value describes if window product has acoustic interlayer or acoustic glazing.
             Assign a boolean value if this information is explicitly stated in the input dataset.
+        """).strip(),
+        examples=[True, False]
+    )
+    roof_window: bool = Field(
+        False,
+        description=dedent("""
+            This boolean value describes if the window product is EXPLICITLY a roof window, in which case the value is True. 
+            If it doesn't state in the dataset that the window is a roof window, set to False.
         """).strip(),
         examples=[True, False]
     )

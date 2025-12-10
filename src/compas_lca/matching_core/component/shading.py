@@ -1,8 +1,8 @@
 from typing import Optional
 
 from pydantic import BaseModel
-from pydantic import Field
 from pydantic import ConfigDict
+from pydantic import Field
 
 from compas_lca.enums import ShadingDeviceType
 from compas_lca.enums import ShadingDeviceMaterial

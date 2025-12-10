@@ -26,7 +26,7 @@ class IfcElementMetadata(BaseModel):
 # Material associations
 # ------------------------
 
-# TO DO:
+# TO DO (ensure every type of material relationship is covered):
 # class IfcMaterialConstituent(BaseModel)
 # class IfcMaterialConstituentSet(BaseModel)
 # class IfcMaterialProfile(BaseModel)
