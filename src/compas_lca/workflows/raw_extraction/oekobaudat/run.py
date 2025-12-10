@@ -9,9 +9,10 @@ load_dotenv()
 
 def main():
     # --- USER CONFIGURATION ---
-    csv_path = "data/lca_database/OBD_show.csv"  # path to your input CSV
+    csv_path = "data/lca_database/OBD_samples.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/obd_show")                     # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/OBD_samples")                     # output directory for JSONs (only used if write_json=True)
+    max_workers = 5                                        # parallel workers (1 = sequential, >1 = parallel)
 
     # --- START TIMER ---
     start_time = time.time()
@@ -23,6 +24,7 @@ def main():
         csv_path=csv_path,
         write_json=write_json,
         output_dir=output_dir,
+        max_workers=max_workers,
     )
 
     # --- END TIMER ---
