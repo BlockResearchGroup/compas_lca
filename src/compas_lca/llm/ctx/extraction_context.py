@@ -171,7 +171,7 @@ CRITICAL TASK: Determine `entry_type` accurately using the rules and examples be
 
 DEFINITIONS
 - MATERIAL: A single homogeneous substance or a uniform material layer defined by physical/chemical nature
-  (mineral, metallic, polymeric, bituminous, wood-based, or integrated composite). “Integrated composite” means the parts are
+  (mineral, metallic, polymeric, bituminous, wood-based, or integrated composite). "Integrated composite" means the parts are
   bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed
   as a functional unit by itself.
   NOTE: Flat glass as a single pane is classified as MATERIAL unless the dataset describes a multi-pane assembly or functional
@@ -193,11 +193,33 @@ DECISION ORDER (apply top-to-bottom)
      • if the insulation element or product is made from ONE material only, then set entry_type="material"!!
 3) If information is insufficient or contradictory → entry_type="unknown".
 
+MATERIAL INDICATORS (classify as material):
+- Single homogeneous substance regardless of form (sheet, panel, block, profile, beam, element)
+- Pre-formed or pre-cut products made from ONE material family
+- Glass: monolithic panes, laminated glass, toughened glass, float glass (single-material products)
+- Metals: profiles, sheets, bars, mesh, coatings, beams, columns - even when shaped or pre-formed
+- Concrete/masonry: blocks, panels, precast elements - unless combined with a DIFFERENT insulation core material
+- Insulation: boards, batts, rolls made from a single material (EPS, XPS, mineral wool, glass wool, wood fiber)
+
+COMPONENT INDICATORS (classify as component):
+- Multiple DISTINCT material families combined in one product (e.g., frame + glass + seals)
+- Functional building elements with separable parts from different materials (window unit, door assembly)
+- Products described as "system" or "assembly" WITH evidence of multiple distinct materials
+- Multi-layer insulation products combining different material types (e.g., steel-faced PUR sandwich panel)
+
+DO NOT CLASSIFY AS COMPONENT:
+- A steel beam or column (even if called "structural element")
+- A concrete panel, block, or precast element (unless it contains a distinct insulation layer of different material)
+- A single glass pane (even if laminated or toughened - unless described as multi-pane IGU with spacers/gas fill)
+- Metal roofing sheets, profiles, or cladding panels made from one metal
+- Insulation boards made from a single material (EPS board, XPS board, mineral wool slab, wood fiber board)
+- Precast concrete elements (even reinforced - reinforcement is integral, not a separate material layer)
+
 DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)
-- Words like “unit/system/module/device/structure/block/frame” ALONE do NOT make it a component.
+- Words like "unit/system/module/device/structure/block/frame/element/panel" ALONE do NOT make it a component.
   Check whether the described thing is delivered/installed as a functional element with separable parts made from different materials.
   If not, classify as MATERIAL.
-- A material used for making a component (e.g., “wooden window frame”) is still MATERIAL unless the dataset includes the full 
+- A material used for making a component (e.g., "wooden window frame") is still MATERIAL unless the dataset includes the full 
   installable unit (e.g., glazing assembly, frame+glass+hardware) with multiple materials.
 """
 
