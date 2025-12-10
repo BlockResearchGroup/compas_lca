@@ -1,4 +1,3 @@
-import os
 import csv
 from pathlib import Path
 
@@ -21,18 +20,35 @@ for json_file in test_root.rglob("*.json"):
     rel_path = json_file.relative_to(test_root)
     test_uuid_to_path[uuid] = rel_path
 
+
+def get_level_parts(path: Path) -> list[str]:
+    """Get the directory parts of a path (excluding the filename)."""
+    return list(path.parent.parts)
+
+
+def check_level_correct(gt_parts: list[str], test_parts: list[str], level: int) -> bool:
+    """Check if the first `level` parts match between gt and test."""
+    if len(gt_parts) < level or len(test_parts) < level:
+        return False
+    return gt_parts[:level] == test_parts[:level]
+
+
 # Compare and generate results
 results = []
 for uuid, gt_path in sorted(gt_uuid_to_path.items()):
     if uuid in test_uuid_to_path:
         test_path = test_uuid_to_path[uuid]
-        # Compare the category (parent directory path)
-        gt_category = gt_path.parent
-        test_category = test_path.parent
-        correct = gt_category == test_category
+        gt_parts = get_level_parts(gt_path)
+        test_parts = get_level_parts(test_path)
+        
+        # Check correctness at each level
+        level_1_correct = check_level_correct(gt_parts, test_parts, 1)
+        level_2_correct = check_level_correct(gt_parts, test_parts, 2)
+        
         results.append({
             "uuid": uuid,
-            "correct": str(correct).lower(),
+            "level_1_correct": str(level_1_correct).lower(),
+            "level_2_correct": str(level_2_correct).lower(),
             "gt_path": str(gt_path),
             "test_path": str(test_path)
         })
@@ -40,21 +56,32 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
         # UUID not found in test
         results.append({
             "uuid": uuid,
-            "correct": "false",
+            "level_1_correct": "not_found",
+            "level_2_correct": "not_found",
             "gt_path": str(gt_path),
             "test_path": "NOT_FOUND"
         })
 
 # Write to CSV
+fieldnames = ["uuid", "level_1_correct", "level_2_correct", "gt_path", "test_path"]
 with open(output_csv, "w", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=["uuid", "correct", "gt_path", "test_path"])
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(results)
 
+# Calculate statistics
+found_results = [r for r in results if r["test_path"] != "NOT_FOUND"]
+not_found_count = sum(1 for r in results if r["test_path"] == "NOT_FOUND")
+
+level_1_correct_count = sum(1 for r in found_results if r["level_1_correct"] == "true")
+level_2_correct_count = sum(1 for r in found_results if r["level_2_correct"] == "true")
+
 print(f"Comparison complete. Results written to: {output_csv}")
+print(f"\n=== Summary ===")
 print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
 print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
-print(f"UUIDs found in both: {sum(1 for r in results if r['test_path'] != 'NOT_FOUND')}")
-print(f"Correct matches: {sum(1 for r in results if r['correct'] == 'true')}")
-print(f"Incorrect matches: {sum(1 for r in results if r['correct'] == 'false' and r['test_path'] != 'NOT_FOUND')}")
-print(f"Not found in test: {sum(1 for r in results if r['test_path'] == 'NOT_FOUND')}")
+print(f"UUIDs found in both: {len(found_results)}")
+print(f"UUIDs not found in test: {not_found_count}")
+print(f"\n=== Accuracy (for {len(found_results)} matched UUIDs) ===")
+print(f"Level 1 correct (e.g., material vs component): {level_1_correct_count}/{len(found_results)} ({100*level_1_correct_count/len(found_results):.1f}%)")
+print(f"Level 2 correct (e.g., material/mineral): {level_2_correct_count}/{len(found_results)} ({100*level_2_correct_count/len(found_results):.1f}%)")
