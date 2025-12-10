@@ -18,6 +18,7 @@ from compas_lca.matching_core.component.conveyor import ConveyorFacet
 from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.infill import InfillFacet
+from compas_lca.matching_core.component.insulation_element import InsulationElementFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
 from compas_lca.matching_core.component.stairs import StairFacet
@@ -173,21 +174,23 @@ DEFINITIONS
   (mineral, metallic, polymeric, bituminous, wood-based, or integrated composite). “Integrated composite” means the parts are
   bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed
   as a functional unit by itself.
-  NOTE: Flat glass **as a single pane** (float glass, coated glass, tempered glass) is classified as MATERIAL unless the dataset
-  describes a multi-pane assembly or functional glazing unit.
+  NOTE: Flat glass as a single pane is classified as MATERIAL unless the dataset describes a multi-pane assembly or functional
+  glazing unit.
+
 - COMPONENT: A manufactured assembly, product, or device intended to be installed as a functional building element or
-  preassembled unit (e.g., closes an opening, provides services). Typically delivered as a unit/module/system with distinct
-  separable parts or interfaces (glazing units with multiple panes, frame+glass+hardware, tiles+grid, casing+driver,
-  panel+mounting, duct run with fittings).
+  preassembled unit (e.g., glazing units, window/door units, ceiling systems, HVAC devices, lighting fixtures).
+  This also includes multi-material **insulation elements** such as sandwich panels, masonry units with infill,
+  insulation profiles, ETICS systems, or similar products where multiple distinct materials are
+  combined into one functional insulation element.
 
 DECISION ORDER (apply top-to-bottom)
-1) If it describes a single material (e.g., concrete, steel, insulation, single flat glass pane, wood stud layer)
-   or uniform layer—including integrated composites where sub-parts are fused into one monolithic product
-   → entry_type="material".
-2) Else, if the dataset clearly describes an installable element that performs a building function AS DELIVERED
-   (window unit, door unit, insulating glazing unit / multi-pane glazing, shading device,
-    HVAC device/duct run, lighting fixture, ceiling system with tiles+grid, conveyor, solar panel)
-   → entry_type="component".
+1) If the dataset describes a single material or uniform layer—including monolithic integrated composites—set entry_type="material".
+2) If the dataset describes:
+     • a functional installable building element composed of MULTIPLE materials, OR
+     • an insulation element composed of MULTIPLE different materials (e.g., sandwich panel, sandwich board, masonry unit with infill,
+       layered-bonded insulation, ETICS system)
+   → set entry_type="component".
+     • if the insulation element or product is made from ONE material only, then set entry_type="material"!!
 3) If information is insufficient or contradictory → entry_type="unknown".
 
 DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)
@@ -401,6 +404,11 @@ DOOR_CTX = Context(
 INFILL_CTX = Context(
     instructions=TEMPLATE.format(entry="an infill for windows, doors, or curtain wall units"),
     output_type=InfillFacet
+)
+
+INSULATION_ELEMENT_CTX = Context(
+    instructions=TEMPLATE.format(entry="an insulation element"),
+    output_type=InsulationElementFacet
 )
 
 ROOF_CTX = Context(

@@ -143,7 +143,12 @@ def write_item(
 
     # pull the id from a JSON-safe dump (or from the model if you prefer)
     payload = item.model_dump(by_alias=True, mode="json")
-    item_id = payload.get("id")
+
+    # change this to :
+    # item_id = payload.get("id")
+    # if we want to name the file as the newly generated UUID instead of the dataset UUID
+    meta = payload.get("metadata")
+    item_id = meta.get("dataset_uuid")
     if not item_id:
         raise ValueError("InventoryItem missing 'id'.")
 

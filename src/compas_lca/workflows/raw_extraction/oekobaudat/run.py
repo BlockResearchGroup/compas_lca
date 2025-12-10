@@ -9,9 +9,9 @@ load_dotenv()
 
 def main():
     # --- USER CONFIGURATION ---
-    csv_path = "data/lca_database/OBD_2024_I_A2_batch2.csv"  # path to your input CSV
+    csv_path = "data/lca_database/OBD_show.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/obd_batch2_131125")                     # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/obd_show")                     # output directory for JSONs (only used if write_json=True)
 
     # --- START TIMER ---
     start_time = time.time()

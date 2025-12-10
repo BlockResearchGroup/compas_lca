@@ -85,13 +85,18 @@ class Indicator(BaseModel):
             elif isinstance(raw, list):
                 scenarios: List[IndicatorScenario] = []
                 for item in raw:
-                    if isinstance(item, dict):
+                    if isinstance(item, IndicatorScenario):
+                        scenarios.append(item)
+                    elif isinstance(item, dict):
                         scenarios.append(IndicatorScenario(**item))
                     elif isinstance(item, (int, float)):
                         scenarios.append(IndicatorScenario(value=float(item)))
                     else:
-                        raise TypeError(f"Unsupported scenario item type for stage {stage}: {type(item)!r}")
+                        raise TypeError(
+                            f"Unsupported scenario item type for stage {stage}: {type(item)!r}"
+                        )
                 out[stage] = scenarios
+
             # Allow: dict representing a single scenario
             elif isinstance(raw, dict):
                 out[stage] = [IndicatorScenario(**raw)]

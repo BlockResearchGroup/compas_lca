@@ -51,7 +51,6 @@ class MaterialType(str, Enum):
     polymeric = "polymeric"         # plastics, rubbers, foams, resins
     bituminous = "bituminous"       # asphalt, bitumen membranes, tar
     composite = "composite"         # FRP, sandwich panels, fiber cement
-    #animalic = "animalic"           # rare, but sometimes used (sheepwool, leather)
     unknown = "unknown"
 class ApplicationAreas(str, Enum):
     # ───────────────────────────────
@@ -134,6 +133,47 @@ class FunctionalTypes(str, Enum):
     piping = "piping"
     geosynthetic = "geosynthetic"                   # Geotextiles, geomembranes (non-waterproofing), geogrids, GCLs for soil functions
     paving_surfacing = "paving_surfacing"           # Asphalt, pavers, surface courses for roads/plazas (finish wearing course)
+    # Fallbacks
+    other = "other"
+    unknown = "unknown"
+
+class FunctionalTypes(str, Enum):
+    # Load-bearing & force transfer
+    structural = "structural"
+    reinforcement = "reinforcement"
+    stud_layer = "stud_layer"
+    # insulation
+    insulation = "insulation"
+    #partition
+    partition = "partition"
+    # Finish / surface-related
+    framing = "framing"
+    covering = "covering"
+    cladding = "cladding"
+    lining = "lining"
+    coating = "coating"
+    plaster = "plaster"
+    render = "render"
+    screed = "screed"
+    membrane = "membrane"
+    # Transparent / translucent
+    glazing = "glazing"
+    # Bonding / shaping / substrate layers
+    binder = "binder"
+    adhesive = "adhesive"
+    mortar = "mortar"
+    grout = "grout"
+    sealant = "sealant"
+    # Safety & protection (non-fire)
+    safety = "safety"
+    fire_protection = "fire_protection"
+    waterproofing = "waterproofing"
+    # Joints & connections
+    fastener = "fastener"
+    # Groundworks / civil
+    piping = "piping"
+    geosynthetic = "geosynthetic"
+    paving_surfacing = "paving_surfacing"
     # Fallbacks
     other = "other"
     unknown = "unknown"
@@ -257,7 +297,7 @@ class MetallicForm(str, Enum):
     coil = "coil"                        # continuous rolled strip wound in coils]
     profile = "profile"                  # extruded or rolled shape (I-beam, angle, channel) / stud
     bar = "bar"                          # solid long product, square or rectangular section
-    flashing = "flashing"                # roof flashing (usually aluminium)
+    grating = "grating"
     rod = "rod"                          # round long product, smaller diameter than bar
     wire = "wire"                        # drawn long product, very small diameter
     tube = "tube"                        # hollow cylindrical or prismatic section (includes pipe)
@@ -267,7 +307,6 @@ class MetallicForm(str, Enum):
     ingot = "ingot"                      # cast form for remelting/rolling
     casting = "casting"                  # final cast component (drain cover, fitting, etc.)
     forging = "forging"                  # shaped by hammering or pressing
-    powder = "powder"                    # metallic powder or granulate
     bolt = "bolt"
     screw = "screw"
     nail = "nail"
@@ -485,6 +524,7 @@ class PolymericType(str, Enum):
     silicone = "silicone"                   # Sealants, adhesives, coatings
     rubber = "rubber"                       # Gaskets, membranes, flooring, sealants
     resin = "resin"                         # more a class, but is fallback if no type of resing specified
+    aerogel = "aerogel"
     composite_polymer = "composite_polymer"
     other = "other"
     unknown = "unknown"
@@ -565,7 +605,6 @@ class CompositeType(str, Enum):
     particulate_filled_polymer = "particulate_filled_polymer"
     # Hybrid/other
     metal_polymer_composite = "metal_polymer_composite" # metal-filled polymers, MML without clear base
-    sandwich_panel = "sandwich_panel"                   # facings + core (e.g., FRP skins + foam/mineral core)
     other = "other"
     unknown = "unknown"
 class CompositeMatrix(str, Enum):
@@ -597,8 +636,6 @@ class CompositeArchitecture(str, Enum):
     rebar_reinforced = "rebar_reinforced"     # RC (concrete + steel rebar/mesh)
     fiber_reinforced = "fiber_reinforced"     # fibers dispersed (FRC) or oriented (FRP)
     particulate_filled = "particulate_filled" # mineral aggregate, metal particles, etc. (e.g., polymer concrete)
-    sandwich_core = "sandwich_core"           # facings/skins + core/insulation (panels, boards)
-    block_with_insert = "block_with_insert"   # masonry/shuttering block with integrated insulation insert
     layered_bonded = "layered_bonded"         # multi-layer stackup bonded/laminated (backing insulation, etc.)
     other = "other"
 class CompositeForm(str, Enum):
@@ -631,6 +668,7 @@ class ComponentType(str, Enum):
     roof = "roof"
     railing = "railing"
     infill = "infill"
+    insulation_element = "insulation_element"
     # Interior components
     ceiling = "ceiling"
     stairs = "stairs"
@@ -681,6 +719,7 @@ class FrameType(str, Enum):
     aluminium = "aluminium"
     steel = "steel"
     stainless_steel = "stainless_steel"
+    bronze = "bronze"
     pvc = "pvc"
     wood = "wood"
     wood_aluminium = "wood_aluminium"
@@ -750,6 +789,49 @@ class InfillCoating(str, Enum):
     low_e = "low_e"                              # low-emissivity
     solar_control = "solar_control"
     other = "other"
+
+# -------------------------------------------------
+# ----------- SANDWICH ENUMS ----------------
+# -------------------------------------------------
+
+class InsulationElementType(str, Enum):
+    sandwich_panel = "sandwich_panel"
+    sandwich_board = "sandwich_board"
+    masonry_unit_with_infill = "masonry_unit_with_infill"
+    layered_bonded = "layered_bonded"
+    etics = "etics"
+    other = "other"
+    unknown = "unknown"
+
+class InsulationCore(str, Enum):
+    polyurethane = "polyurethane"              # PUR / PIR
+    polystyrene = "polystyrene"                # EPS / XPS
+    mineral_wool = "mineral_wool"              # rock wool / glass wool
+    cellulose_fibre = "cellulose_fibre"        # cellulose, recycled paper, loosefill core
+    wood_fibre = "wood_fibre"                  # wood fibre insulation boards
+    biofibre = "biofibre"                      # hemp, flax, jute, wool blends
+    aerogel = "aerogel"                        # silica aerogel boards / plasters
+    honeycomb = "honeycomb"                    # aluminium or polymer honeycomb
+    other = "other"
+    unknown = "unknown"
+
+class InsulationFacing(str, Enum):
+    steel = "steel"
+    aluminium = "aluminium"
+    clay = "clay"                           # clay for bricks
+    concrete = "concrete"                   # concrete for precast panels/blocks
+    frp = "frp"                                 # fiberglass reinforced plastic / GRP
+    magnesium_oxide = "magnesium_oxide"         # MgO boards (SIPs, façade panels)
+    cement_board = "cement_board"               # fibre-cement / cementitious skins
+    plywood = "plywood"
+    mdf = "mdf"                                 # medium density fibreboard
+    wood_panel = "wood_panel"                   # generic OSB, HDF, composite wood skins
+    gypsum_board = "gypsum_board"               # for ETICS and laminated interior boards
+    particle_board = "particle_board"
+    polymer_film = "polymer_film"               # aluminium-foil-faced or polymer-faced boards
+    mineral_fleece = "mineral_fleece"   # MW mat facings on some panels
+    other = "other"
+    unknown = "unknown"
 
 # -------------------------------------------------
 # ----------- RAILING ENUMS ----------------

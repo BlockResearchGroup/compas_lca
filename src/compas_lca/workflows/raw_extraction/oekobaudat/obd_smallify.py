@@ -15,8 +15,8 @@ import random
 # =========================
 # CONFIG — edit these only
 # =========================
-INPUT_PATH  = Path("data/lca_database/OBD_2024_I_A2_batch1_rest.csv")      # path to your big OBD CSV
-OUTPUT_PATH = Path("data/lca_database/OBD_2024_I_A2_batch2.csv") # path to write the reduced OBD CSV
+INPUT_PATH  = Path("data/lca_database/OBD_2024_I_A2.csv")      # path to your big OBD CSV
+OUTPUT_PATH = Path("data/lca_database/OBD_show.csv") # path to write the reduced OBD CSV
 
 """
 Choose how UUIDs are selected:
@@ -29,14 +29,16 @@ SELECT_MODE = "manual"  # "manual" | "random"
 When SELECT_MODE == "manual", choose whether to keep only MANUAL_UUIDS,
 or subtract them (i.e., keep everything except MANUAL_UUIDS).
 """
-MANUAL_POLICY = "subtract"      # "keep" | "subtract"
+MANUAL_POLICY = "keep"      # "keep" | "subtract"
 
 # Manually chosen UUIDs to keep (optional)
 MANUAL_UUIDS = [
-    '11fdd0b3-1a9a-43f5-a701-40cec9935d09',
-    'e94dbfcc-56f2-4e55-8e0e-c2e8a2b576ae',
-    'ba58d8b9-945b-4428-b4e0-aecda8b3df18',
-    'd0c5f885-d25e-4838-a269-cc5b676b79eb'
+    'b49b3145-9b55-46db-9a28-2359355f398e',
+    'b7b7c6be-122f-48d9-b1c2-9b81a6b7e95c',
+    '52d4092b-b220-4850-9179-4f11094da94e',
+    'c269589f-1224-487b-8280-b0a6407edae7',
+    'efe61c5a-ff60-4c5c-ba33-8b2dc2a4523a',
+    'ba632d37-312b-447c-92cf-e86ee73d753e',
 ]
 
 # When SELECT_MODE uses random
