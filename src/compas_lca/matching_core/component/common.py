@@ -21,35 +21,50 @@ class ComponentCommon(BaseModel):
         description=dedent("""
             The type of component described in the dataset.
             
+            IMPORTANT: Only use these categories if the product is already classified as COMPONENT (entry_type).
+            Raw materials (single material products) should NOT reach this classification.
+            
             COMPONENT TYPE DISAMBIGUATION:
             
             - window: Complete window assembly with frame + glazing + hardware, operating as a functional unit.
               Must include BOTH frame and glazing elements described together.
-              keywords: window unit, window system, Fenster, fenêtre
+              keywords: window unit, window system, Fenster, fenêtre, window assembly
+              NOT: raw aluminum/PVC profiles (those are materials), not window fittings
             
-            - infill: Transparent/translucent panels designed for openings - the GLAZING PRODUCT itself.
-              Includes: IGU (insulating glass unit), glass blocks, polycarbonate sheets for glazing.
-              Does NOT include single glass panes (those are materials).
-              Must be multi-pane or multi-layer glazing product.
+            - infill: ASSEMBLED glazing products designed for openings - multi-pane/multi-layer glass units.
+              ONLY includes assembled glass products:
+                • IGU (insulating glass unit) with spacers and gas fill
+                • Double/triple glazing assemblies
+                • Glass blocks (assembled units)
+              DOES NOT INCLUDE (these are MATERIALS, not infill):
+                • Single glass panes (float, laminated, toughened, safety glass)
+                • Individual glass sheets/panels
               keywords: IGU, insulating glass, double glazing, triple glazing, Isolierglas, vitrage isolant
             
-            - insulation_element: Multi-material thermal/acoustic products with distinct layers.
-              Includes: sandwich panels (metal-faced), ETICS systems, masonry units with insulation infill,
-              layered-bonded insulation boards with different facing materials.
-              Must combine multiple DIFFERENT material types for thermal function.
-              keywords: sandwich panel, ETICS, WDVS, composite insulation, Sandwichpaneel
+            - insulation_element: Multi-material thermal/acoustic products with DISTINCT material layers.
+              MUST combine multiple DIFFERENT material families:
+                • Sandwich panels with metal facings + foam/wool core
+                • ETICS/WDVS systems (insulation + mesh + render)
+                • Masonry units with integrated insulation fill
+                • Insulation boards "with aluminium facing" or "with reinforced facing"
+              keywords: sandwich panel, ETICS, WDVS, composite insulation, Sandwichpaneel,
+                       "with aluminium facing", "with metal facing", "multi-layer"
+              NOT: Single-material insulation boards (EPS, XPS, mineral wool, PU foam) - those are materials
             
             - door: Complete door assembly with frame + leaf/panel + hardware.
-              keywords: door unit, door system, Tür, porte
+              keywords: door unit, door system, Tür, porte, door assembly
             
-            - curtain_wall: Facade system with framing + infill panels.
-              keywords: curtain wall, facade system, Vorhangfassade, mur-rideau
+            - curtain_wall: Complete facade system with framing + infill panels as integrated assembly.
+              Must be described as a complete facade/curtain wall system.
+              keywords: curtain wall, facade system, Vorhangfassade, mur-rideau, Fassadensystem
+              NOT: individual facade profiles or panels (those are materials)
             
             - roof: Pre-assembled roof system or module with multiple components.
               keywords: roof system, roofing assembly, Dachsystem
             
-            - ceiling: Suspended ceiling system with grid + tiles/panels.
-              keywords: ceiling system, suspended ceiling, Deckenverkleidung, plafond suspendu
+            - ceiling: Suspended ceiling system with grid + tiles/panels, OR acoustic ceiling panels.
+              keywords: ceiling system, suspended ceiling, Deckenverkleidung, plafond suspendu,
+                       acoustic ceiling, Akustikdecke, ceiling tile system
             
             - shading_device: External/internal shading systems.
               keywords: blinds, louvers, shutters, awning, Jalousie, Sonnenschutz, store
@@ -63,12 +78,23 @@ class ComponentCommon(BaseModel):
             
             - conveyor: Elevator or escalator system.
             
-            - window_fitting: Hardware and fittings for windows (handles, hinges).
+            - window_fitting: ONLY hardware and accessories for windows/doors.
+              ONLY includes:
+                • Handles, hinges, locks, latches
+                • Seals, gaskets, weatherstripping
+                • Window/door hardware sets
+              DOES NOT INCLUDE (these are MATERIALS):
+                • Aluminum profiles, extrusions
+                • PVC profiles
+                • Steel sections
+                • Raw metal sheets/tubes
+              keywords: handle, hinge, lock, seal, gasket, fitting, hardware, Beschlag, Griff
             
             KEY DISTINCTIONS:
-            • infill = glazing product (IGU, multi-pane glass assembly)
-            • insulation_element = thermal product with multiple distinct material layers
-            • window = complete window unit (frame + glazing + seals + hardware)
-            • Single glass panes are MATERIALS, not components!
+            • infill = ASSEMBLED glazing (IGU, multi-pane) - NOT single glass panes
+            • insulation_element = multi-MATERIAL-FAMILY thermal product - NOT single-material insulation
+            • window_fitting = HARDWARE ONLY - NOT raw profiles or materials
+            • curtain_wall = complete facade SYSTEM - NOT individual facade panels
+            • Single glass panes, metal profiles, pure insulation boards → classify as MATERIAL first!
         """).strip(),
     )

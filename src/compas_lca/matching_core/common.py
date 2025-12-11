@@ -44,20 +44,37 @@ class Common(BaseModel):
         2) Functional element with MULTIPLE distinct material families combined → `component`
         3) Insufficient or contradictory information → `unknown`
         
+        KEY SIGNALS FOR COMPONENT (multi-material assembly):
+        • Product name mentions "with ... facing/cladding/core" (e.g., "PU boards with aluminium facing")
+        • Contains terms like "sandwich", "composite panel", "ETICS", "WDVS", "IGU", "insulating glass"
+        • Multiple distinct material families listed together (e.g., metal + foam, glass + spacer + gas)
+        • Complete assembled units: window system, door system, ceiling system, curtain wall
+        
+        KEY SIGNALS FOR MATERIAL (single/homogeneous):
+        • Only ONE material family mentioned even if product form varies (sheet, panel, board, profile)
+        • Raw material profiles, sheets, boards from one substance
+        • Individual glass panes (float, laminated, toughened, safety glass) - NOT multi-pane assemblies
+        • Pure insulation products from one material (PU foam, EPS, XPS, mineral wool, hemp, etc.)
+        • Metal profiles, sheets, tubes (aluminum, steel) even if shaped/formed
+        
         CLASSIFY AS MATERIAL (not component):
         • Steel beams, columns, profiles (single material, even if "structural element")
+        • Aluminum profiles, sheets, extrusions (single metal - NOT window fittings unless hardware)
         • Concrete panels, blocks, precast elements (unless with DIFFERENT insulation core)
-        • Single glass panes (monolithic, laminated, toughened - NOT multi-pane IGU)
+        • Single glass panes (monolithic, laminated, toughened, safety glass - NOT multi-pane IGU)
         • Metal roofing sheets, cladding panels (single material)
-        • Insulation boards from ONE material (EPS, XPS, mineral wool, wood fiber)
+        • Insulation boards from ONE material (EPS, XPS, PU, PIR, mineral wool, wood fiber, hemp)
         • Precast concrete (reinforcement is integral, not a separate material layer)
+        • PVC profiles, pipes, sheets (single polymer)
         
         CLASSIFY AS COMPONENT:
         • Window/door units with frame + glazing + hardware
         • Sandwich panels with metal facings + foam/wool core (DIFFERENT materials)
+        • Insulation boards "with aluminium/metal facing" or "with reinforced facing"
         • Ceiling systems with tiles + suspension grid
-        • ETICS systems (insulation + adhesive + mesh + render)
+        • ETICS/WDVS systems (insulation + adhesive + mesh + render)
         • IGUs (multi-pane glazing with spacers and gas fill)
+        • Masonry units with integrated insulation fill
         
         NAMING TRAPS - these words ALONE do NOT make it a component:
         "unit", "system", "module", "device", "structure", "block", "frame", "element", "panel"

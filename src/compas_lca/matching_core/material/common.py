@@ -37,31 +37,39 @@ class MaterialCommon(BaseModel):
                     hardboard, fibreboard/fiberboard, wood fiber, wood wool, cellulose (wood-based)
                 DE: Holz, Brettschichtholz, Brettsperrholz, Kreuzlagenholz, Sperrholz, Furnierschichtholz,
                     LVL, Leimholz, Mehrschichtparkett, Parkett, Spanplatte, Faserplatte, MDF, HDF, OSB,
-                    Holzfaser, Holzwolle, Zellulose
+                    Holzfaser, Holzwolle, Zellulose (Holz-basiert)
                 FR: bois, contreplaqué, panneau, CLT, OSB, MDF
+            NOTE: "Cellulose" insulation from recycled paper/wood pulp → 'wood'
             examples: Multi-layer parquet, Cross laminated timber (CLT), MDF (uncoated), wood fiber insulation
 
             2) biobased → **Bio-based materials NOT derived from wood** (non-wood plant/animal fibers).
-            Use this category if the dominant constituent comes from plants, animals, or crops **other than wood**.
-                EN: hemp, flax, linen, jute, cotton, sheep wool, straw, cork, bamboo, coconut, sisal
-                DE: Hanf, Flachs, Jute, Baumwolle, Schafwolle, Stroh, Kork, Bambus, Kokos, Sisal
-                FR: chanvre, lin, jute, coton, laine de mouton, paille, liège, bambou
-            examples: Hemp insulation, Sheep wool insulation, Cork board, Flax fiber
+            CRITICAL: If product name contains ANY of these keywords → classify as 'biobased', NOT 'unknown':
+                EN: hemp, flax, linen, jute, cotton, sheep wool, straw, cork, bamboo, coconut, sisal,
+                    coir, seagrass, cattail, kenaf, ramie, kapok, animal fiber, plant fiber
+                DE: Hanf, Flachs, Jute, Baumwolle, Schafwolle, Stroh, Kork, Bambus, Kokos, Sisal,
+                    Thermo-Hanf, Thermohanf, Naturfaser, Pflanzenfaser, Tierfaser
+                FR: chanvre, lin, jute, coton, laine de mouton, paille, liège, bambou, coco
+            Product names like "Thermo Hemp", "Hemp insulation", "Sheep wool", "Cork board" → 'biobased'
+            examples: Hemp insulation, Sheep wool insulation, Cork board, Flax fiber, Jute fiber
 
             3) concrete → Products where CEMENT (Portland, blended, alkali-activated) is the PRIMARY binder.
-            Map to 'concrete' ONLY if cement-based:
+            INCLUDES aerated/cellular concrete products:
                 keywords: concrete, reinforced concrete, RC, UHPC, cement mortar, cement screed, 
-                          cement board, fiber-reinforced concrete, precast concrete, Beton, béton
+                          cement board, fiber-reinforced concrete, precast concrete, Beton, béton,
+                          aerated concrete, autoclaved aerated concrete, AAC, cellular concrete,
+                          Porenbeton, Gasbeton, Ytong, Hebel, foamed concrete, lightweight concrete
             NOTE: Lime plaster, gypsum products, calcium silicate → classify as 'mineral' (not concrete)
+            examples: Ready-mixed concrete, Precast concrete, Aerated concrete block (AAC/Porenbeton)
 
             4) mineral → Inorganic, nonmetallic, ceramic/stone/glass products WITHOUT cement as primary binder.
             Includes: lime-based products, gypsum, calcium silicate, natural stone, ceramics, glass.
                 keywords: plaster, plasterboard, gypsum board, lime, calcium silicate, brick, tile, 
                           ceramic, glass, stone, granite, marble, slate, sand, gravel, mineral wool,
-                          glass wool, rock wool, foam glass, perlite, vermiculite, aerogel
+                          glass wool, rock wool, foam glass, perlite, vermiculite, aerogel, calcium sulfate
                 DE: Gips, Kalk, Kalksandstein, Ziegel, Fliese, Keramik, Glas, Stein, Mineralwolle, Glaswolle
                 FR: plâtre, chaux, brique, carreau, céramique, verre, pierre, laine minérale
-            examples: Gypsum board, Lime plite, Calcium silicate board, Float glass, Mineral wool
+            NOTE: Pure cement powder/paste without aggregate → 'mineral' (cement as raw material)
+            examples: Gypsum board, Lime plaster, Calcium silicate board, Float glass, Mineral wool
 
             5) metallic → Metals and alloys.
                 keywords: steel, stainless steel, aluminum, aluminium, copper, zinc, lead, brass, bronze, 
@@ -70,33 +78,35 @@ class MaterialCommon(BaseModel):
 
             6) polymeric → Synthetic organic polymers, plastics, rubbers, resins, foams (single polymer family).
                 keywords: PVC, PE, PP, PET, PUR, PIR, PU, EPDM, acrylic, polyester, polyamide, nylon,
-                          EPS, XPS, polystyrene, polyurethane, silicone, rubber, Kunststoff, plastique
-            NOTE: If combined with fibers from a DIFFERENT material family (glass, carbon, basalt), 
-                  classify as 'composite' instead.
-            examples: PVC pipe, EPS insulation board, XPS panel, EPDM membrane
+                          EPS, XPS, polystyrene, polyurethane, silicone, rubber, epoxy, resin,
+                          Kunststoff, plastique, Harz, résine
+            IMPORTANT: Pure resins (epoxy, polyester, acrylic resin) WITHOUT fiber reinforcement → 'polymeric'
+            Only classify as 'composite' if EXPLICITLY combined with glass/carbon/basalt fibers.
+            examples: PVC pipe, EPS insulation board, XPS panel, EPDM membrane, Epoxy resin, PU foam
 
             7) bituminous → Hydrocarbon binders and composites.
                 keywords: asphalt, bitumen, tar, bituminous membrane, Asphalt, Bitumen, bitume, asphalte
             examples: Bituminous roofing membrane, Asphalt paving
 
             8) composite → Engineered combination of TWO+ distinct material families.
-            Use 'composite' when:
-                - Fiber reinforcement from different family than matrix (GFRP, CFRP, fiber-cement)
-                - Wood-plastic composites (WPC)
-                - Explicitly named as composite or FRP
-                keywords: FRP, GFRP, CFRP, fiber-cement, fibre-cement, WPC, wood-plastic, 
-                          glass fiber reinforced, carbon fiber reinforced, basalt fiber reinforced
-            NOTE: Reinforced concrete is 'concrete' (steel reinforcement is integral, not a composite layer)
-            examples: GFRP profile, Fiber-cement board, WPC decking
+            Use 'composite' ONLY when:
+                - EXPLICITLY fiber-reinforced with fibers from DIFFERENT material family
+                - Product name contains: GFRP, CFRP, GFK, CFK, fiber-cement, fibre-cement, WPC,
+                  "glass fiber reinforced", "carbon fiber reinforced", "basalt fiber reinforced"
+                - Wood-plastic composites (WPC), wood-cement composites
+            NOTE: Reinforced concrete is 'concrete' (steel reinforcement is integral)
+            NOTE: Pure polymers/resins WITHOUT explicit fiber reinforcement → 'polymeric', NOT 'composite'
+            examples: GFRP profile, Fiber-cement board (Eternit), WPC decking, Carbon fiber composite
 
-            9) unknown → If none of the above can be determined from available text.
+            9) unknown → ONLY if none of the above can be determined from available text.
+            Avoid 'unknown' if ANY recognizable material keyword is present.
 
             BOUNDARY CLARIFICATIONS:
-            • CONCRETE vs MINERAL: Use 'concrete' ONLY if Portland/blended cement is the primary binder.
-              Lime plaster, gypsum board, calcium silicate → 'mineral'
-            • COMPOSITE vs POLYMERIC: Use 'composite' if reinforced with fibers from different material family.
-              Pure polymer products (EPS, XPS, PVC) → 'polymeric'
-            • WOOD vs BIOBASED: Use 'wood' for tree-derived materials. Use 'biobased' for other plant/animal fibers.
+            • CONCRETE vs MINERAL: 'concrete' if cement-bonded aggregate or aerated cement product.
+              Lime plaster, gypsum board, calcium silicate, pure cement powder → 'mineral'
+            • COMPOSITE vs POLYMERIC: 'composite' ONLY if explicitly fiber-reinforced.
+              Pure polymers, foams, resins (EPS, XPS, PVC, epoxy resin) → 'polymeric'
+            • WOOD vs BIOBASED: 'wood' for tree-derived materials. 'biobased' for other plant/animal fibers.
             • Ignore surface coatings (laminates, varnish, paint) when determining the base material.
             • Always classify based on the **dominant** material by mass/volume or by explicit naming.
         """).strip(),
