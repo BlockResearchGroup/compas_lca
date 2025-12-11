@@ -47,6 +47,30 @@ from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import COLUMN_MA
 
 
 # =======================================================
+# Helper: Scan output directory for existing UUIDs
+# =======================================================
+
+def _scan_existing_uuids(base_dir: Path) -> set:
+    """
+    Recursively scan the output directory for existing JSON files.
+    Returns a set of UUIDs (extracted from filenames like {uuid}.json).
+    """
+    existing = set()
+    if not base_dir.exists():
+        return existing
+    
+    for json_file in base_dir.rglob("*.json"):
+        # Skip metadata files
+        if json_file.name == "llm_metadata.json":
+            continue
+        # UUID is the filename without extension
+        uuid = json_file.stem
+        existing.add(uuid)
+    
+    return existing
+
+
+# =======================================================
 # Extract the matching core from an Oekobaudat entry
 # =======================================================
 
@@ -313,6 +337,7 @@ def extract_inventory_obd(
     write_json: bool = True,                   # write one JSON per InventoryItem
     output_dir: Optional[Path | str] = None,   # where to write those JSON files
     max_workers: int = 1,                      # number of parallel workers (1 = sequential)
+    resume: bool = True,                       # skip already processed UUIDs
 ) -> Inventory:
     """
     Build an Inventory from an OBD CSV.
@@ -336,6 +361,9 @@ def extract_inventory_obd(
     max_workers : int
         Number of parallel workers for extraction. Default is 1 (sequential).
         Set to higher values (e.g., 5) to process multiple items concurrently.
+    resume : bool
+        If True (default), skip UUIDs that already have output files in output_dir.
+        Useful for resuming interrupted extraction sessions.
     """
     # Early validation
     if write_json and output_dir is None:
@@ -352,8 +380,21 @@ def extract_inventory_obd(
 
     # Collect UUIDs in processing order
     uuids: List[str] = uuids_in_csv(obd)
+    total_in_csv = len(uuids)
+    print(f"\nFound {total_in_csv} UUID(s) in {csv_path}")
+
+    # Resume: skip already processed UUIDs
+    if resume and base_dir is not None:
+        existing_uuids = _scan_existing_uuids(base_dir)
+        if existing_uuids:
+            uuids = [u for u in uuids if u not in existing_uuids]
+            skipped = total_in_csv - len(uuids)
+            print(f"Resume mode: skipping {skipped} already processed UUID(s), {len(uuids)} remaining.")
+
     total = len(uuids)
-    print(f"\nFound {total} UUID(s) in {csv_path}")
+    if total == 0:
+        print("All UUIDs already processed. Nothing to do.")
+        return Inventory([])
 
     # Prepare indexed UUID list for ordered results
     indexed_uuids = [(i, uuid) for i, uuid in enumerate(uuids, start=1)]
@@ -366,8 +407,10 @@ def extract_inventory_obd(
         # --- Parallel extraction ---
         print(f"Running parallel extraction with {max_workers} workers…")
         lock = threading.Lock()
+        completed_count = 0
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        executor = ThreadPoolExecutor(max_workers=max_workers)
+        try:
             # Submit all tasks
             futures = {
                 executor.submit(
@@ -377,14 +420,28 @@ def extract_inventory_obd(
                 for idx, uuid in indexed_uuids
             }
 
-            # Collect results as they complete
+            # Collect results as they complete (with timeout per future)
             for future in as_completed(futures):
-                idx, item, llm_meta, error = future.result()
-                with lock:
-                    if item is not None:
-                        results_by_index[idx] = (item, llm_meta)
-                    if llm_meta is not None:
-                        all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
+                try:
+                    idx, item, llm_meta, error = future.result()
+                    with lock:
+                        completed_count += 1
+                        if item is not None:
+                            results_by_index[idx] = (item, llm_meta)
+                        if llm_meta is not None:
+                            all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
+                except TimeoutError:
+                    idx, uuid = futures[future]
+                    print(f"[TIMEOUT] UUID at index {idx} timed out")
+
+            print(f"\nAll {completed_count}/{total} futures completed.")
+
+        except TimeoutError:
+            print(f"\n[WARNING] as_completed timed out. Completed {completed_count}/{total} items.")
+        finally:
+            # Explicitly shutdown executor without waiting for pending futures
+            executor.shutdown(wait=False, cancel_futures=True)
+            print("Executor shutdown complete.")
 
         # Reconstruct items in original order
         for idx in sorted(results_by_index.keys()):
