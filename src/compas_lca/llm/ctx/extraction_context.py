@@ -53,6 +53,34 @@ TASK: Extract all relevant information and populate the output schema fields.
 - Only add values that are explicitly present.
 - If a field is missing or unclear, leave its default. Do NOT infer or invent.
 - Follow the field descriptions in the schema for classification rules.
+
+═══════════════════════════════════════════════════════════════════════════════
+CLASSIFICATION EXAMPLES (follow these patterns):
+═══════════════════════════════════════════════════════════════════════════════
+
+BIOBASED materials (non-wood plant/animal fibers):
+  • "Hempflax Thermo Hemp Combi Jute" → entry_type: material, material_type: biobased
+  • "Schafwolldämmung" (sheep wool insulation) → entry_type: material, material_type: biobased
+  • "Cork insulation board" → entry_type: material, material_type: biobased
+  • "Flax fiber insulation" → entry_type: material, material_type: biobased
+
+METALLIC materials (single metal profiles/sheets/sections are materials, NOT components):
+  • "Aluminium casement frame section, powder coated" → entry_type: material, material_type: metallic
+  • "Steel beam IPE 200" → entry_type: material, material_type: metallic
+  • "Aluminum profile for windows" → entry_type: material, material_type: metallic
+  • "Copper pipe DN15" → entry_type: material, material_type: metallic
+
+MINERAL materials (glass panes are materials, NOT components/infill):
+  • "Float glass 6mm" → entry_type: material, material_type: mineral
+  • "Laminated safety glass" → entry_type: material, material_type: mineral
+  • "Gypsum board 12.5mm" → entry_type: material, material_type: mineral
+  • "Mineral wool insulation" → entry_type: material, material_type: mineral
+
+COMPONENTS (only for multi-material assemblies):
+  • "Window unit with aluminium frame and double glazing" → entry_type: component
+  • "PU boards with aluminium facing" → entry_type: component (insulation_element)
+  • "ETICS system" → entry_type: component
+  • "IGU triple glazing with argon fill" → entry_type: component
 """
 
 ITEM_COMMON_CTX = Context(
@@ -165,6 +193,10 @@ TEMPLATE = (
     " Only add values in the output schema if they are explicitly present."
     " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
     " Do not include any explanatory text outside of the schema output."
+    "\n\n"
+    "CRITICAL: Follow the keyword detection rules in the field descriptions."
+    " If the product name contains material keywords (e.g., hemp, aluminum, glass, steel, PVC),"
+    " classify based on those keywords first before considering application context."
 )
 
 MATERIAL_COMMON_CTX = Context(

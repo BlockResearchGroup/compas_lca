@@ -28,6 +28,10 @@ class Common(BaseModel):
         description=dedent("""
         Classify the dataset as MATERIAL, COMPONENT, or UNKNOWN.
         
+        ═══════════════════════════════════════════════════════════════════════════════
+        DEFAULT ASSUMPTION: Most products are MATERIALS unless proven otherwise.
+        ═══════════════════════════════════════════════════════════════════════════════
+        
         DEFINITIONS:
         • MATERIAL: A single homogeneous substance or uniform layer defined by physical/chemical nature.
           Includes monolithic integrated composites (reinforced concrete, fiber-cement, WPC) that are
@@ -39,46 +43,79 @@ class Common(BaseModel):
           Examples: window units (frame+glass+seals), door assemblies, ceiling systems (tiles+grid),
           sandwich panels (metal facing+insulation core), ETICS systems, HVAC devices.
         
-        DECISION ORDER (apply top-to-bottom):
-        1) Single material or uniform layer (even if pre-formed as sheet/panel/block/profile) → `material`
-        2) Functional element with MULTIPLE distinct material families combined → `component`
+        ═══════════════════════════════════════════════════════════════════════════════
+        MATERIAL KEYWORDS — If product is made of ONE of these materials → 'material':
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        These products are ALWAYS materials (even if shaped as profiles/sections/frames):
+        
+        • METALS: aluminum, aluminium, steel, stainless steel, copper, zinc, brass, bronze, iron
+          → "Aluminium casement frame section" = material (single metal, shaped)
+          → "Steel beam IPE 200" = material (single metal)
+          → "Aluminum profile for windows" = material (NOT component)
+        
+        • POLYMERS: PVC, PE, PP, EPS, XPS, PUR, PIR, polyurethane, EPDM, polyester, acrylic
+          → "PVC window profile" = material (single polymer)
+          → "EPS insulation board" = material
+        
+        • GLASS (single panes): float glass, laminated glass, toughened glass, safety glass
+          → "Float glass 6mm" = material (NOT component, NOT infill)
+          → "Laminated safety glass" = material
+        
+        • MINERALS: gypsum, plaster, lime, ceramic, brick, tile, stone, mineral wool, glass wool
+          → "Mineral wool batt" = material
+          → "Gypsum board" = material
+        
+        • WOOD/BIOBASED: timber, plywood, OSB, MDF, CLT, hemp, flax, cork, sheep wool
+          → "Hemp insulation" = material
+          → "CLT panel" = material
+        
+        • CONCRETE: precast, ready-mixed, aerated concrete, reinforced concrete
+          → "Precast concrete panel" = material (reinforcement is integral)
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT SIGNALS — ONLY classify as 'component' if MULTIPLE materials combined:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        REQUIRED: Product must explicitly combine 2+ DIFFERENT material families.
+        
+        • "with ... facing/cladding/core": "PU boards with aluminium facing" → component
+        • "sandwich", "composite panel": Metal + insulation core → component
+        • "ETICS", "WDVS": Insulation + adhesive + mesh + render → component
+        • "IGU", "insulating glass unit": Glass + spacer + gas fill → component
+        • Complete assemblies: "window unit", "door assembly", "ceiling system" → component
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMMON MISCLASSIFICATION TRAPS — Avoid these errors:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        ❌ WRONG: "Aluminium casement frame section" → window_fitting or component
+        ✓ RIGHT:  "Aluminium casement frame section" → material (metallic)
+        
+        ❌ WRONG: "Float glass" → component/infill
+        ✓ RIGHT:  "Float glass" → material (mineral/glass)
+        
+        ❌ WRONG: "Steel door frame profile" → component
+        ✓ RIGHT:  "Steel door frame profile" → material (metallic)
+        
+        ❌ WRONG: "PVC window profile" → window_fitting
+        ✓ RIGHT:  "PVC window profile" → material (polymeric)
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        NAMING TRAPS — These words ALONE do NOT make it a component:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        "frame", "section", "profile", "casement", "unit", "system", "module", "device",
+        "structure", "block", "element", "panel", "fitting"
+        
+        → Always check: Is it made of ONE material family or MULTIPLE?
+        → If ONE material (even shaped/formed) → material
+        → If MULTIPLE distinct materials combined → component
+        
+        DECISION ORDER:
+        1) Single material (even if shaped as profile/frame/section) → `material`
+        2) Multiple distinct material families explicitly combined → `component`
         3) Insufficient or contradictory information → `unknown`
-        
-        KEY SIGNALS FOR COMPONENT (multi-material assembly):
-        • Product name mentions "with ... facing/cladding/core" (e.g., "PU boards with aluminium facing")
-        • Contains terms like "sandwich", "composite panel", "ETICS", "WDVS", "IGU", "insulating glass"
-        • Multiple distinct material families listed together (e.g., metal + foam, glass + spacer + gas)
-        • Complete assembled units: window system, door system, ceiling system, curtain wall
-        
-        KEY SIGNALS FOR MATERIAL (single/homogeneous):
-        • Only ONE material family mentioned even if product form varies (sheet, panel, board, profile)
-        • Raw material profiles, sheets, boards from one substance
-        • Individual glass panes (float, laminated, toughened, safety glass) - NOT multi-pane assemblies
-        • Pure insulation products from one material (PU foam, EPS, XPS, mineral wool, hemp, etc.)
-        • Metal profiles, sheets, tubes (aluminum, steel) even if shaped/formed
-        
-        CLASSIFY AS MATERIAL (not component):
-        • Steel beams, columns, profiles (single material, even if "structural element")
-        • Aluminum profiles, sheets, extrusions (single metal - NOT window fittings unless hardware)
-        • Concrete panels, blocks, precast elements (unless with DIFFERENT insulation core)
-        • Single glass panes (monolithic, laminated, toughened, safety glass - NOT multi-pane IGU)
-        • Metal roofing sheets, cladding panels (single material)
-        • Insulation boards from ONE material (EPS, XPS, PU, PIR, mineral wool, wood fiber, hemp)
-        • Precast concrete (reinforcement is integral, not a separate material layer)
-        • PVC profiles, pipes, sheets (single polymer)
-        
-        CLASSIFY AS COMPONENT:
-        • Window/door units with frame + glazing + hardware
-        • Sandwich panels with metal facings + foam/wool core (DIFFERENT materials)
-        • Insulation boards "with aluminium/metal facing" or "with reinforced facing"
-        • Ceiling systems with tiles + suspension grid
-        • ETICS/WDVS systems (insulation + adhesive + mesh + render)
-        • IGUs (multi-pane glazing with spacers and gas fill)
-        • Masonry units with integrated insulation fill
-        
-        NAMING TRAPS - these words ALONE do NOT make it a component:
-        "unit", "system", "module", "device", "structure", "block", "frame", "element", "panel"
-        Always check if multiple DISTINCT material families are combined.
         """).strip(),
     )
     name: str = Field(
