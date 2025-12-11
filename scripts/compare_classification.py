@@ -1,9 +1,11 @@
 import csv
+import json
 from pathlib import Path
+from typing import Optional
 
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples")
+test_root = Path("temp/OBD_samples_opus")
 output_csv = Path("temp/comparison_result.csv")
 
 # Build a mapping of UUID -> relative path for ground truth
@@ -24,6 +26,47 @@ for json_file in test_root.rglob("*.json"):
 def get_level_parts(path: Path) -> list[str]:
     """Get the directory parts of a path (excluding the filename)."""
     return list(path.parent.parts)
+
+
+def load_level3_type(file_path: Path) -> Optional[str]:
+    """
+    Load a JSON file and extract the level 3 type from component_facet or material_facet.
+    
+    The level 3 type is found at:
+    - For materials: item_core.facet.material_facet.{material_type}_type
+    - For components: item_core.facet.component_facet.{component_type}_type
+    """
+    try:
+        for encoding in ["utf-8", "utf-8-sig", "latin-1"]:
+            try:
+                with open(file_path, "r", encoding=encoding) as f:
+                    data = json.load(f)
+                    break
+            except UnicodeDecodeError:
+                continue
+        else:
+            return None
+        
+        item_core = data.get("item_core", {})
+        facet = item_core.get("facet", {})
+        
+        # Determine if it's material or component based on which type field exists
+        if "material_type" in facet:
+            level2_type = facet.get("material_type")  # e.g., "mineral"
+            material_facet = facet.get("material_facet", {})
+            if level2_type and material_facet:
+                # e.g., mineral_type -> "lime"
+                return material_facet.get(f"{level2_type}_type")
+        elif "component_type" in facet:
+            level2_type = facet.get("component_type")  # e.g., "ceiling"
+            component_facet = facet.get("component_facet", {})
+            if level2_type and component_facet:
+                # e.g., ceiling_type -> "cement_board"
+                return component_facet.get(f"{level2_type}_type")
+        
+        return None
+    except (json.JSONDecodeError, FileNotFoundError):
+        return None
 
 
 def check_level_match(gt_parts: list[str], test_parts: list[str], level: int) -> bool:
@@ -47,13 +90,23 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
         # Level 2 match: only check level 2 accuracy when level 1 is already correct
         level_2_match = level_1_match and full_match
         
+        # Extract and compare level 3 (from JSON content)
+        gt_level3 = load_level3_type(gt_root / gt_path)
+        test_level3 = load_level3_type(test_root / test_path)
+        level_3_values_match = gt_level3 is not None and gt_level3 == test_level3
+        # Level 3 match: only check level 3 accuracy when level 2 is already correct
+        level_3_match = level_2_match and level_3_values_match
+        
         results.append({
             "uuid": uuid,
             "level_1_match": str(level_1_match).lower(),
             "level_2_match": str(level_2_match).lower(),
+            "level_3_match": str(level_3_match).lower(),
             "full_match": str(full_match).lower(),
             "gt_path": str(gt_path),
-            "test_path": str(test_path)
+            "test_path": str(test_path),
+            "gt_level3": str(gt_level3) if gt_level3 else "",
+            "test_level3": str(test_level3) if test_level3 else ""
         })
     else:
         # UUID not found in test
@@ -61,13 +114,16 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
             "uuid": uuid,
             "level_1_match": "not_found",
             "level_2_match": "not_found",
+            "level_3_match": "not_found",
             "full_match": "not_found",
             "gt_path": str(gt_path),
-            "test_path": "NOT_FOUND"
+            "test_path": "NOT_FOUND",
+            "gt_level3": "",
+            "test_level3": ""
         })
 
 # Write to CSV
-fieldnames = ["uuid", "level_1_match", "level_2_match", "full_match", "gt_path", "test_path"]
+fieldnames = ["uuid", "level_1_match", "level_2_match", "level_3_match", "full_match", "gt_path", "test_path", "gt_level3", "test_level3"]
 with open(output_csv, "w", newline="") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
@@ -79,6 +135,7 @@ not_found_count = sum(1 for r in results if r["test_path"] == "NOT_FOUND")
 
 level_1_match_count = sum(1 for r in found_results if r["level_1_match"] == "true")
 level_2_match_count = sum(1 for r in found_results if r["level_2_match"] == "true")
+level_3_match_count = sum(1 for r in found_results if r["level_3_match"] == "true")
 full_match_count = sum(1 for r in found_results if r["full_match"] == "true")
 
 print(f"Comparison complete. Results written to: {output_csv}")
@@ -90,4 +147,5 @@ print(f"UUIDs not found in test: {not_found_count}")
 print(f"\n=== Accuracy (for {len(found_results)} matched UUIDs) ===")
 print(f"Level 1 match (e.g., material vs component): {level_1_match_count}/{len(found_results)} ({100*level_1_match_count/len(found_results):.1f}%)")
 print(f"Level 2 match (level 2 accuracy when level 1 is correct): {level_2_match_count}/{level_1_match_count if level_1_match_count > 0 else 1} ({100*level_2_match_count/(level_1_match_count if level_1_match_count > 0 else 1):.1f}%)")
+print(f"Level 3 match (level 3 accuracy when level 2 is correct): {level_3_match_count}/{level_2_match_count if level_2_match_count > 0 else 1} ({100*level_3_match_count/(level_2_match_count if level_2_match_count > 0 else 1):.1f}%)")
 print(f"Full match (e.g., material/mineral): {full_match_count}/{len(found_results)} ({100*full_match_count/len(found_results):.1f}%)")
