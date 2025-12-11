@@ -8,9 +8,9 @@ from compas_lca.matching_core.normalization import normalize_level3_value
 
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_haiku2")
+test_root = Path("temp/OBD_samples_haiku4")
 output_csv = Path("temp/comparison_result.csv")
-misclassified_csv = Path("temp/misclassified_items4.csv")
+misclassified_csv = Path("temp/misclassified_items.csv")
 confusion_report = Path("temp/misclassified_confusions.txt")
 
 # Build a mapping of UUID -> relative path for ground truth

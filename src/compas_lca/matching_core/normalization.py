@@ -40,26 +40,17 @@ def _pick(value: Optional[str], allowed: set[str]) -> Optional[str]:
 # ------------------------
 # Polymeric
 # ------------------------
+# Only abbreviations and spelling variations
 POLYMERIC_ALIASES = {
     "pvc": "polyvinyl_chloride",
-    "polyvinylchlorid": "polyvinyl_chloride",
-    "polyvinyl_chlorid": "polyvinyl_chloride",
-    "vinyl": "polyvinyl_chloride",
+    "polyvinylchlorid": "polyvinyl_chloride",  # German spelling
     "pe": "polyethylene",
-    "hdpe": "polyethylene",
-    "ldpe": "polyethylene",
-    "lldpe": "polyethylene",
-    "u_pe": "polyethylene",
-    "pet": "polyester",
     "pp": "polypropylene",
     "pa": "polyamide",
-    "pa6": "polyamide",
-    "pa66": "polyamide",
     "nylon": "polyamide",
-    "epdm": "rubber",
-    "silicon": "silicone",
+    "silicon": "silicone",  # common misspelling
     "pur": "polyurethane",
-    "pir": "polyurethane",
+    "pir": "polyurethane",  # PIR is a subtype of PUR
     "eps": "expanded_polystyrene",
     "xps": "extruded_polystyrene",
 }
@@ -77,23 +68,16 @@ def normalize_polymeric_type(value: Any) -> Optional[str]:
 # ------------------------
 # Composite
 # ------------------------
+# Only abbreviations and spelling variations
 COMPOSITE_ALIASES = {
-    "frp": "fiber_reinforced_polymer",
-    "gfrp": "fiber_reinforced_polymer",
-    "cfrp": "fiber_reinforced_polymer",
-    "bfrp": "fiber_reinforced_polymer",
-    "fiberglass": "fiber_reinforced_polymer",
-    "glass_fiber_reinforced_polymer": "fiber_reinforced_polymer",
-    "glass_fibre_reinforced_polymer": "fiber_reinforced_polymer",
-    "carbon_fiber_reinforced_polymer": "fiber_reinforced_polymer",
-    "carbon_fibre_reinforced_polymer": "fiber_reinforced_polymer",
-    "fiber_reinforced_plastic": "fiber_reinforced_polymer",
-    "fibre_reinforced_plastic": "fiber_reinforced_polymer",
-    "fiber_cement": "fiber_cement_composite",
-    "fibre_cement": "fiber_cement_composite",
-    "wpc": "wood_plastic_composite",
-    "wood_plastic": "wood_plastic_composite",
-    "polymer_concrete_resin": "polymer_concrete",
+    "frp": "fiber_reinforced_polymer",  # abbreviation
+    "gfrp": "fiber_reinforced_polymer",  # abbreviation (glass)
+    "cfrp": "fiber_reinforced_polymer",  # abbreviation (carbon)
+    "fibre_reinforced_polymer": "fiber_reinforced_polymer",  # British spelling
+    "fiber_cement": "fiber_cement_composite",  # shortened
+    "fibre_cement": "fiber_cement_composite",  # British spelling
+    "fibre_cement_composite": "fiber_cement_composite",  # British spelling
+    "wpc": "wood_plastic_composite",  # abbreviation
 }
 
 
@@ -128,36 +112,16 @@ def normalize_metallic_type(value: Any) -> Optional[str]:
 # ------------------------
 # Mineral
 # ------------------------
+# Only spelling variations and compound word splits
 MINERAL_ALIASES = {
-    "gypsum_board": "gypsum",
-    "gypsum_plaster": "gypsum",
-    "calcium_sulphate": "gypsum",
+    "calcium_sulphate": "gypsum",  # British spelling
     "silica": "silicum_dioxide",
-    "silicon_dioxide": "silicum_dioxide",
-    "quartz": "silicum_dioxide",
-    "calcium_silicate_board": "sand_lime_product",
-    "calcium_silicate_brick": "sand_lime_product",
-    "kalksandstein": "sand_lime_product",
-    "calcium_silicate": "sand_lime_product",
-    "calcium_silicate_unit": "sand_lime_product",
-    "calcium_silicate_masonry": "sand_lime_product",
-    "calcium_silicate_block": "sand_lime_product",
-    "calcium_silicate_element": "sand_lime_product",
-    "calcium_silicate_panel": "sand_lime_product",
-    "calcium_silicate_slab": "sand_lime_product",
-    "calcium_silicate_wall": "sand_lime_product",
-    "calcium_silicate_floor": "sand_lime_product",
-    "mineralite": "mineral_wool",
-    "rock_fiber": "rock_wool",
-    "stone_wool": "rock_wool",
-    "glasswool": "glass_wool",
-    "fiberglass_insulation": "glass_wool",
-    "foamglass": "foam_glass",
-    "cellular_glass": "foam_glass",
-    "portland_cement": "cement",
-    "cement_paste": "cement",
-    "hydraulic_lime": "lime",
-    "quickite": "lime",
+    "silicon_dioxide": "silicum_dioxide",  # alternate naming
+    "kalksandstein": "sand_lime_product",  # German term
+    "stone_wool": "rock_wool",  # synonym
+    "glasswool": "glass_wool",  # compound word
+    "foamglass": "foam_glass",  # compound word
+    "cellular_glass": "foam_glass",  # technical synonym
 }
 
 
@@ -173,32 +137,16 @@ def normalize_mineral_type(value: Any) -> Optional[str]:
 # ------------------------
 # Concrete
 # ------------------------
+# Only abbreviations and hyphenation variations
 CONCRETE_ALIASES = {
     "ready_mix": "ready_mixed",
-    "ready_mixed_concrete": "ready_mixed",
-    "in_situ": "ready_mixed",
-    "cast_in_place": "ready_mixed",
-    "pre_cast": "precast",
-    "pre_cast_concrete": "precast",
-    "prefabricated_concrete": "precast",
-    "self_compacting_concrete": "self_compacting",
-    "scc": "self_compacting",
-    "aac": "aerated",
-    "autoclaved_aerated_concrete": "aerated",
-    "cellular_concrete": "aerated",
-    "porenbeton": "aerated",
-    "gasbeton": "aerated",
-    "ytong": "aerated",
-    "hebel": "aerated",
-    "foam_concrete": "foamed_concrete",
-    "foamed": "foamed_concrete",
-    "calcium_sulphite": "calcium_sulfate",
-    "gypsum_concrete": "calcium_sulfate",
-    "anhydrite": "calcium_sulfate",
-    "anhydrite_screed": "calcium_sulfate",
-    "calcium_aluminate": "binder",
-    "uhpc": "ready_mixed",
-    "ultra_high_performance_concrete": "ready_mixed",
+    "pre_cast": "precast",  # hyphenation
+    "scc": "self_compacting",  # abbreviation
+    "aac": "aerated",  # abbreviation (autoclaved aerated concrete)
+    "porenbeton": "aerated",  # German term
+    "gasbeton": "aerated",  # German term
+    "foam_concrete": "foamed_concrete",  # variant
+    "calcium_sulphite": "calcium_sulfate",  # spelling
 }
 
 
@@ -232,19 +180,10 @@ def normalize_biobased_type(value: Any) -> Optional[str]:
 # ------------------------
 # Bituminous
 # ------------------------
+# Only abbreviations
 BITUMINOUS_ALIASES = {
-    "mastic": "mastic_asphalt",
-    "asphalt": "asphalt_mix",
-    "asphalt_concrete": "asphalt_mix",
-    "hot_mix_asphalt": "asphalt_mix",
-    "hma": "asphalt_mix",
-    "cold_mix_asphalt": "asphalt_mix",
-    "paving_asphalt": "asphalt_mix",
-    "road_asphalt": "asphalt_mix",
-    "app_modified": "polymer_modified_bitumen",
-    "sbs_modified": "polymer_modified_bitumen",
-    "modified_bitumen": "polymer_modified_bitumen",
-    "pmb": "polymer_modified_bitumen",
+    "hma": "asphalt_mix",  # abbreviation (hot mix asphalt)
+    "pmb": "polymer_modified_bitumen",  # abbreviation
 }
 
 
@@ -260,60 +199,28 @@ def normalize_bituminous_type(value: Any) -> Optional[str]:
 # ------------------------
 # Wood
 # ------------------------
+# Only technical abbreviations and German translations
 WOOD_ALIASES = {
     "softwood": "natural_softwood",
-    "solid_softwood": "natural_softwood",
-    "spruce": "natural_softwood",
-    "pine": "natural_softwood",
-    "fir": "natural_softwood",
-    "larch": "natural_softwood",
-    "douglas_fir": "natural_softwood",
     "hardwood": "natural_hardwood",
-    "solid_hardwood": "natural_hardwood",
-    "oak": "natural_hardwood",
-    "beech": "natural_hardwood",
-    "ash": "natural_hardwood",
-    "birch": "natural_hardwood",
-    "maple": "natural_hardwood",
-    "walnut": "natural_hardwood",
-    "teak": "natural_hardwood",
-    "glulam": "glue_laminated_timber",
-    "bsh": "glue_laminated_timber",
-    "brettschichtholz": "glue_laminated_timber",
-    "laminated_timber": "glue_laminated_timber",
-    "clt": "cross_laminated_timber",
-    "x_lam": "cross_laminated_timber",
-    "brettsperrholz": "cross_laminated_timber",
-    "bsp": "cross_laminated_timber",
-    "cross_lam": "cross_laminated_timber",
-    "lvl": "laminated_veneer_lumber",
-    "furnierschichtholz": "laminated_veneer_lumber",
-    "kerto": "laminated_veneer_lumber",
-    "osb": "oriented_strand_board",
-    "osb_3": "oriented_strand_board",
-    "osb_4": "oriented_strand_board",
-    "mdf": "medium_density_fiberboard",
-    "mdf_board": "medium_density_fiberboard",
-    "hdf": "high_density_fiberboard",
-    "hdf_board": "high_density_fiberboard",
-    "chipboard": "particleboard",
-    "spanplatte": "particleboard",
-    "kvh": "finger_jointed_structural_timber",
-    "keilgezinktes_vollholz": "finger_jointed_structural_timber",
-    "finger_jointed": "finger_jointed_structural_timber",
-    "end_jointed": "finger_jointed_structural_timber",
-    "thermowood": "modified_wood",
-    "thermally_modified": "modified_wood",
-    "accoya": "modified_wood",
-    "acetylated_wood": "modified_wood",
-    "wood_fiber_insulation": "wood_fibre",
-    "holzfaser": "wood_fibre",
-    "holzfaserdaemmung": "wood_fibre",
-    "holzwolle": "wood_wool",
-    "heraklith": "wood_wool",
-    "cellulose_insulation": "cellulose",
-    "blown_cellulose": "cellulose",
-    "zellulose": "cellulose",
+    "glulam": "glue_laminated_timber",  # common abbreviation
+    "bsh": "glue_laminated_timber",  # German abbrev (Brettschichtholz)
+    "brettschichtholz": "glue_laminated_timber",  # German term
+    "clt": "cross_laminated_timber",  # abbreviation
+    "bsp": "cross_laminated_timber",  # German abbrev (Brettsperrholz)
+    "brettsperrholz": "cross_laminated_timber",  # German term
+    "lvl": "laminated_veneer_lumber",  # abbreviation
+    "furnierschichtholz": "laminated_veneer_lumber",  # German term
+    "osb": "oriented_strand_board",  # abbreviation
+    "mdf": "medium_density_fiberboard",  # abbreviation
+    "hdf": "high_density_fiberboard",  # abbreviation
+    "chipboard": "particleboard",  # British term
+    "spanplatte": "particleboard",  # German term
+    "kvh": "finger_jointed_structural_timber",  # German abbrev
+    "holzfaser": "wood_fibre",  # German term
+    "holzwolle": "wood_wool",  # German term
+    "zellulose": "cellulose",  # German term
+    "wood_fiber": "wood_fibre",  # American spelling
 }
 
 
@@ -329,22 +236,11 @@ def normalize_wood_type(value: Any) -> Optional[str]:
 # ------------------------
 # Insulation Element
 # ------------------------
+# Only abbreviations
 INSULATION_ELEMENT_ALIASES = {
-    "sandwich": "sandwich_panel",
-    "sip": "sandwich_panel",
-    "structural_insulated_panel": "sandwich_panel",
-    "sandwich_construction": "sandwich_panel",
-    "composite_panel": "sandwich_panel",
-    "bonded_insulation": "layered_bonded",
-    "laminated_insulation": "layered_bonded",
-    "multi_layer_insulation": "layered_bonded",
-    "wdvs": "etics",
-    "eifs": "etics",
-    "external_thermal_insulation_composite_system": "etics",
-    "external_insulation": "etics",
-    "insulated_masonry": "masonry_unit_with_infill",
-    "filled_block": "masonry_unit_with_infill",
-    "insulated_block": "masonry_unit_with_infill",
+    "sip": "sandwich_panel",  # abbreviation
+    "wdvs": "etics",  # German abbreviation
+    "eifs": "etics",  # US abbreviation
 }
 
 

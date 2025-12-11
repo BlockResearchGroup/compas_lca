@@ -36,7 +36,7 @@ def main():
     # --- USER CONFIGURATION ---
     csv_path = "data/lca_database/OBD_samples.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/OBD_samples_haiku2")             # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/OBD_samples_haiku4")             # output directory for JSONs (only used if write_json=True)
     max_workers = 5                                        # parallel workers (1 = sequential, >1 = parallel)
     resume = True                                          # skip already processed UUIDs (resume from interruption)
     

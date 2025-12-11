@@ -199,8 +199,39 @@ TEMPLATE = (
     " classify based on those keywords first before considering application context."
 )
 
+MATERIAL_COMMON_PROMPT = (
+    "You are an expert at classifying building materials by their dominant composition.\n\n"
+    "TASK: Determine the material_type based on keywords in the product name/description.\n\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+    "KEYWORD CLASSIFICATION (check product name FIRST):\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n\n"
+    "BIOBASED (non-wood plant/animal fibers) → material_type: 'biobased'\n"
+    "  Keywords: hemp, Hanf, Thermo-Hanf, Thermohanf, Hempflax, flax, Flachs, linen,\n"
+    "            jute, Jute, sheep wool, Schafwolle, straw, Stroh, cork, Kork,\n"
+    "            cotton, Baumwolle, bamboo, Bambus, coconut, Kokos, sisal, coir\n"
+    "  Examples:\n"
+    "    • 'Hempflax Thermo Hemp Combi Jute' → biobased\n"
+    "    • 'Schafwolldämmung' → biobased\n"
+    "    • 'Thermo Hanf Premium' → biobased\n"
+    "    • 'Cork insulation board' → biobased\n"
+    "    • 'Flax fiber insulation' → biobased\n\n"
+    "WOOD (tree-derived) → material_type: 'wood'\n"
+    "  Keywords: wood, Holz, timber, lumber, plywood, OSB, MDF, HDF, CLT, glulam\n\n"
+    "METALLIC → material_type: 'metallic'\n"
+    "  Keywords: steel, Stahl, aluminum, aluminium, copper, zinc, brass, iron\n\n"
+    "POLYMERIC → material_type: 'polymeric'\n"
+    "  Keywords: PVC, PE, PP, PUR, PIR, EPS, XPS, polystyrene, polyurethane, EPDM\n\n"
+    "MINERAL → material_type: 'mineral'\n"
+    "  Keywords: glass, gypsum, Gips, lime, brick, Ziegel, mineral wool, rock wool\n\n"
+    "CONCRETE → material_type: 'concrete'\n"
+    "  Keywords: concrete, Beton, precast, aerated concrete, Porenbeton\n\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+    "NEVER use 'unknown' if ANY material keyword is found in the product name.\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+)
+
 MATERIAL_COMMON_CTX = Context(
-    instructions=TEMPLATE.format(entry="a material"),
+    instructions=MATERIAL_COMMON_PROMPT,
     output_type=MaterialCommon
 )
 
