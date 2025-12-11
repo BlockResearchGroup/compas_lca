@@ -23,8 +23,39 @@ class MineralFacet(BaseModel):
             (lime, gypsum, cement), earth- or rock-derived materials (clay, sand, stone), 
             fired ceramics, glass, or industrial minerals. 
             This attribute reflects the material's intrinsic composition, not its geometric form.
+            
+            DISAMBIGUATION RULES (choose the most specific match):
+            
+            INSULATION TYPES:
+            • `rock_wool` — Mineral fiber insulation made specifically from basalt or volcanic rock.
+              Keywords: "rock wool", "stone wool", "basalt wool", "Steinwolle", "ROCKWOOL".
+            • `mineral_wool` — Generic mineral fiber insulation when the specific source (rock vs glass) 
+              is NOT indicated. Use only as fallback when neither rock nor glass wool is specified.
+            • `glass_wool` — Mineral fiber insulation made from recycled glass or silica sand.
+              Keywords: "glass wool", "fiberglass", "Glaswolle".
+            • `foam_glass` — Cellular/foamed glass with enclosed air pockets. Rigid boards or granules.
+              Keywords: "foam glass", "cellular glass", "foamed glass", "Schaumglas".
+            • `glass` — Solid glass products (panes, fibers, containers). NOT foamed.
+              Use `glass` only for non-cellular glass products.
+            
+            CERAMICS:
+            • `stoneware` — Vitrified/high-fired ceramics (fired >1200°C), dense and impermeable.
+              Keywords: "stoneware", "vitrified", "Steinzeug", "klinker".
+            • `clay` — Unfired clay or low-fired clay products (<1100°C), porous.
+              Keywords: "clay", "brick", "terracotta", "earthenware", "Ziegel", "Ton".
+            • `earthenware` — Low-fired porous ceramics.
+            • `porcelain` — High-fired fine ceramics (sanitary ware, tiles).
+            
+            BINDERS (use for raw binder materials, not finished products):
+            • `cement` — Portland cement or other hydraulic cements as raw material.
+            • `lime` — Calcium oxide/hydroxide products (quicklime, hydrated lime, lime putty).
+            • `gypsum` — Calcium sulfate products (gypsum powder, plaster).
+            • `lime_cement` — Blended lime-cement binders.
+            • `gypsum_lime` — Blended gypsum-lime products.
+            
+            Use the MOST SPECIFIC type available. Prefer `rock_wool` over `mineral_wool` when basalt/rock 
+            origin is indicated. Prefer `foam_glass` over `glass` when cellular structure is mentioned.
         """).strip(),
-        examples=["lime", "clay", "sandstone", "glass"]
     )
     mineral_form: Optional[MineralForm] = Field(
         None,

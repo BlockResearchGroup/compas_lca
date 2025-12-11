@@ -20,8 +20,32 @@ class ConcreteFacet(BaseModel):
     )
     concrete_type: ConcreteType = Field(
         ConcreteType.unknown,
-        description="fundamental property of concrete or cementitious binder product",
-        examples=["ready_mixed", "self_compacting"]
+        description=dedent("""
+            Fundamental property of concrete or cementitious binder product.
+            
+            DISAMBIGUATION RULES (choose the most specific match):
+            • `aerated` — Autoclave-cured cellular concrete (AAC/autoclaved aerated concrete).
+              Contains air voids created by chemical reaction (aluminum powder). Low density (~400-800 kg/m³).
+              Keywords: "AAC", "autoclaved", "Ytong", "Hebel", "cellular concrete", "aerated concrete granulate".
+            • `lightweight` — Concrete with lightweight aggregates (expanded clay, pumice, perlite, etc.).
+              Air voids are in the aggregates, not the paste. Density typically 800-2000 kg/m³.
+              Keywords: "lightweight aggregate", "expanded clay", "Liapor", "pumice concrete".
+            • `ready_mixed` — Wet/fresh concrete delivered to site, mixed off-site in a batching plant.
+              Keywords: "ready-mix", "ready mixed", "fresh concrete", "transport concrete".
+            • `precast` — Factory-manufactured concrete elements, cured before delivery.
+              Keywords: "precast", "prefabricated", "factory-made", "pre-fabricated element".
+            • `binder` — Pure cementite binder materials WITHOUT aggregates (cement powder, cement paste).
+              NOT concrete products. Keywords: "cement", "binder", "Portland cement", "CEM".
+            • `calcium_sulfate` — Gypsum-based binders/screeds (chemically CaSO₄).
+              Keywords: "calcium sulfate", "anhydrite", "gypsum screed".
+            • `calcium_silicate` — Calcium silicate products (sand-lime bricks, calcium silicate boards).
+              Keywords: "calcium silicate", "sand-lime", "Kalksandstein".
+            • `self_compacting` — Self-compacting/self-leveling concrete (flows without vibration).
+            • `foamed_concrete` — Foamed by mechanical foaming (not autoclaved). Lower strength than AAC.
+            
+            If uncertain between `aerated` and `lightweight`, check for "autoclaved" or "AAC" → aerated;
+            if aggregates are mentioned → lightweight.
+        """).strip(),
     )
     concrete_form: Optional[ConcreteForm] = Field(
         None,
