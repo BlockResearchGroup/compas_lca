@@ -18,7 +18,7 @@ from typing import Optional
 
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_opus")
+test_root = Path("temp/OBD_samples_haiku1")
 output_csv = Path("temp/comparison_label_by_label.csv")
 
 # Attributes to exclude from comparison

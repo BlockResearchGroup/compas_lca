@@ -5,8 +5,9 @@ from typing import Optional
 
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_opus2")
+test_root = Path("temp/OBD_samples_haiku1")
 output_csv = Path("temp/comparison_result.csv")
+misclassified_csv = Path("temp/misclassified_items.csv")
 
 # Build a mapping of UUID -> relative path for ground truth
 gt_uuid_to_path = {}
@@ -74,6 +75,66 @@ def check_level_match(gt_parts: list[str], test_parts: list[str], level: int) ->
     if len(gt_parts) < level or len(test_parts) < level:
         return False
     return gt_parts[:level] == test_parts[:level]
+
+
+def store_misclassified_items(
+    results: list[dict],
+    output_path: Path,
+    level: Optional[int] = None
+) -> list[dict]:
+    """
+    Store a list of all misclassified items to a CSV file.
+    
+    Parameters
+    ----------
+    results : list[dict]
+        The comparison results from the classification comparison.
+    output_path : Path
+        The path where the misclassified items CSV will be saved.
+    level : int, optional
+        If specified, only items misclassified at this specific level are stored.
+        If None, all items that don't have a full match are stored.
+        Level can be 1, 2, or 3.
+    
+    Returns
+    -------
+    list[dict]
+        The list of misclassified items.
+    """
+    misclassified = []
+    
+    for r in results:
+        # Skip items not found in test
+        if r["test_path"] == "NOT_FOUND":
+            continue
+        
+        if level is None:
+            # Store all items that don't have a full match
+            if r["full_match"] != "true":
+                misclassified.append(r)
+        elif level == 1:
+            # Store items that failed at level 1
+            if r["level_1_match"] != "true":
+                misclassified.append(r)
+        elif level == 2:
+            # Store items that passed level 1 but failed at level 2
+            if r["level_1_match"] == "true" and r["level_2_match"] != "true":
+                misclassified.append(r)
+        elif level == 3:
+            # Store items that passed level 2 but failed at level 3
+            if r["level_2_match"] == "true" and r["level_3_match"] != "true":
+                misclassified.append(r)
+    
+    # Write to CSV
+    if misclassified:
+        fieldnames = ["uuid", "level_1_match", "level_2_match", "level_3_match", 
+                      "full_match", "gt_path", "test_path", "gt_level3", "test_level3"]
+        with open(output_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(misclassified)
+    
+    return misclassified
 
 
 # Compare and generate results
@@ -152,3 +213,9 @@ print(f"Level 1 match (e.g., material vs component): {level_1_match_count}/{len(
 print(f"Level 2 match (level 2 accuracy when level 1 is correct): {level_2_match_count}/{level_1_match_count if level_1_match_count > 0 else 1} ({100*level_2_match_count/(level_1_match_count if level_1_match_count > 0 else 1):.1f}%)")
 print(f"Level 3 match (level 3 accuracy when level 2 is correct): {level_3_match_count}/{level_2_match_count if level_2_match_count > 0 else 1} ({100*level_3_match_count/(level_2_match_count if level_2_match_count > 0 else 1):.1f}%)")
 print(f"Full match (level 3 correct): {full_match_count}/{len(found_results)} ({100*full_match_count/len(found_results):.1f}%)")
+
+
+misclassified = store_misclassified_items(results, misclassified_csv)
+print(f"\n=== Misclassified Items ===")
+print(f"Total misclassified items: {len(misclassified)}")
+print(f"Misclassified items written to: {misclassified_csv}")

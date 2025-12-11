@@ -338,6 +338,7 @@ def extract_inventory_obd(
     output_dir: Optional[Path | str] = None,   # where to write those JSON files
     max_workers: int = 1,                      # number of parallel workers (1 = sequential)
     resume: bool = True,                       # skip already processed UUIDs
+    uuid_filter: Optional[List[str]] = None,   # only process these UUIDs (if provided)
 ) -> Inventory:
     """
     Build an Inventory from an OBD CSV.
@@ -364,6 +365,9 @@ def extract_inventory_obd(
     resume : bool
         If True (default), skip UUIDs that already have output files in output_dir.
         Useful for resuming interrupted extraction sessions.
+    uuid_filter : list[str] | None
+        If provided, only process UUIDs in this list. Useful for re-running
+        extraction on a subset of items (e.g., misclassified items).
     """
     # Early validation
     if write_json and output_dir is None:
@@ -382,6 +386,13 @@ def extract_inventory_obd(
     uuids: List[str] = uuids_in_csv(obd)
     total_in_csv = len(uuids)
     print(f"\nFound {total_in_csv} UUID(s) in {csv_path}")
+
+    # Filter by uuid_filter if provided
+    if uuid_filter is not None:
+        uuid_filter_set = set(uuid_filter)
+        original_count = len(uuids)
+        uuids = [u for u in uuids if u in uuid_filter_set]
+        print(f"UUID filter applied: {len(uuids)} of {original_count} UUID(s) match the filter.")
 
     # Resume: skip already processed UUIDs
     if resume and base_dir is not None:

@@ -1,5 +1,7 @@
 from pathlib import Path
 from datetime import datetime
+from typing import Optional
+import csv
 import time
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_extraction import extract_inventory_obd
 from dotenv import load_dotenv
@@ -7,13 +9,50 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def load_misclassified_uuids(misclassified_csv: Path) -> list[str]:
+    """
+    Load UUIDs from a misclassified items CSV file.
+    
+    Parameters
+    ----------
+    misclassified_csv : Path
+        Path to the CSV file containing misclassified items (exported from compare_classification.py).
+    
+    Returns
+    -------
+    list[str]
+        List of UUIDs from the misclassified items.
+    """
+    uuids = []
+    with open(misclassified_csv, "r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if "uuid" in row and row["uuid"]:
+                uuids.append(row["uuid"])
+    return uuids
+
+
 def main():
     # --- USER CONFIGURATION ---
     csv_path = "data/lca_database/OBD_samples.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/OBD_samples_opus2")             # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/OBD_samples_opus3")             # output directory for JSONs (only used if write_json=True)
     max_workers = 5                                        # parallel workers (1 = sequential, >1 = parallel)
     resume = True                                          # skip already processed UUIDs (resume from interruption)
+    
+    # --- MISCLASSIFIED ITEMS FILTER ---
+    # Set to a path (e.g., Path("temp/misclassified_items.csv")) to only re-run extraction
+    # for previously misclassified items. Set to None to process all items.
+    misclassified_csv: Optional[Path] = None  # e.g., Path("temp/misclassified_items.csv")
+
+    # --- LOAD UUID FILTER (if misclassified_csv is set) ---
+    uuid_filter: Optional[list[str]] = None
+    if misclassified_csv is not None:
+        if misclassified_csv.exists():
+            uuid_filter = load_misclassified_uuids(misclassified_csv)
+            print(f"Loaded {len(uuid_filter)} misclassified UUIDs from {misclassified_csv}")
+        else:
+            print(f"Warning: Misclassified CSV not found at {misclassified_csv}. Processing all items.")
 
     # --- START TIMER ---
     start_time = time.time()
@@ -27,6 +66,7 @@ def main():
         output_dir=output_dir,
         max_workers=max_workers,
         resume=resume,
+        uuid_filter=uuid_filter,
     )
 
     # --- END TIMER ---
