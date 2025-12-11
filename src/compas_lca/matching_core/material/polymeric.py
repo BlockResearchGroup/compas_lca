@@ -5,9 +5,11 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import PolymericType
 from compas_lca.enums import PolymericForm
+from compas_lca.matching_core.normalization import normalize_polymeric_type
 
 class PolymericFacet(BaseModel):
     model_config = ConfigDict(
@@ -61,6 +63,10 @@ class PolymericFacet(BaseModel):
             Always choose the MOST SPECIFIC type. Use `resin` only when no specific resin type is indicated.
         """).strip(),
     )
+    @field_validator("polymeric_type", mode="before")
+    @classmethod
+    def _normalize_polymeric_type(cls, value):
+        return normalize_polymeric_type(value)
     polymeric_form: Optional[PolymericForm] = Field(
         None,
         description=dedent("""

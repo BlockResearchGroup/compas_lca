@@ -6,10 +6,12 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import ConcreteType
 from compas_lca.enums import ConcreteForm
 from compas_lca.enums import BinderType
+from compas_lca.matching_core.normalization import normalize_concrete_type
 
 
 class ConcreteFacet(BaseModel):
@@ -47,6 +49,10 @@ class ConcreteFacet(BaseModel):
             if aggregates are mentioned → lightweight.
         """).strip(),
     )
+    @field_validator("concrete_type", mode="before")
+    @classmethod
+    def _normalize_concrete_type(cls, value):
+        return normalize_concrete_type(value)
     concrete_form: Optional[ConcreteForm] = Field(
         None,
         description=dedent("""

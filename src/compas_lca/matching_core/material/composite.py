@@ -5,12 +5,14 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import CompositeType
 from compas_lca.enums import CompositeMatrix
 from compas_lca.enums import CompositeForm
 from compas_lca.enums import CompositeArchitecture
 from compas_lca.enums import CompositeReinforcement
+from compas_lca.matching_core.normalization import normalize_composite_type
 
 class CompositeFacet(BaseModel):
     model_config = ConfigDict(
@@ -60,6 +62,10 @@ class CompositeFacet(BaseModel):
             - If polymer contains fine mineral fillers → `particulate_filled_polymer`
         """).strip(),
     )
+    @field_validator("composite_type", mode="before")
+    @classmethod
+    def _normalize_composite_type(cls, value):
+        return normalize_composite_type(value)
     composite_matrix: Optional[CompositeMatrix] = Field(
         None,
         description=dedent("""

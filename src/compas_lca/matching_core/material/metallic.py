@@ -5,12 +5,14 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import MetallicType
 from compas_lca.enums import MetallicForm
 from compas_lca.enums import MetallicForming
 from compas_lca.enums import MetallicProduction
 from compas_lca.enums import MetallicSurfaceTreatment
+from compas_lca.matching_core.normalization import normalize_metallic_type
 
 class MetallicFacet(BaseModel):
     model_config = ConfigDict(
@@ -55,6 +57,10 @@ class MetallicFacet(BaseModel):
             a generic "steel door" → `carbon_steel` (unless stainless is specified).
         """).strip(),
     )
+    @field_validator("metallic_type", mode="before")
+    @classmethod
+    def _normalize_metallic_type(cls, value):
+        return normalize_metallic_type(value)
     metallic_form: MetallicForm = Field(
         MetallicForm.unknown,
         description=dedent("""
