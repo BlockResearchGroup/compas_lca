@@ -26,130 +26,15 @@ from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 
-"""
-TO DO:
-Test TEMPLATE_LAYER and LAYER_COMMON_CTX and
-add layer contexts in ifc extraction workflow
-"""
-
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# %%%%%%%%% COMMON EXTRACTION CONTEXT %%%%%%%%%%%%%%
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-ELEMENT_COMMON_PROMPT_OLD = """
-TASK
-Classify a BUILDING MODEL ELEMENT record as "material", "component", or "unknown".
-Populate only the requested fields. Do not invent data. Do not interpret the definitions
-of "material" or "component" beyond what is given in the instructions below.
-
-YOU ARE CLASSIFYING THE CURRENT RECORD ONLY
-- Always classify the dataset/record itself, not the larger building system it belongs to.
-- An element can be part of a curtain wall, façade, roof, or other assembly and still be "material"
-  if THIS record describes only a single material section.
-
-ABSOLUTE PRIORITY RULE (APPLY FIRST)
-- If the record clearly describes exactly ONE material for this element, and there is no evidence
-  of multiple materials or a multi-layer build-up, you MUST set entry_type = "material".
-
-In practice, this means:
-- material_data.entity = "IfcMaterial" (or equivalent single-material entity), AND
-- material_data.material_name is not null, AND
-- there is no material layer set, no material list, and no second material described.
-
-This applies even if:
-- metadata.entity is IfcMember, IfcBeam, IfcColumn, IfcSlab, etc., or
-- the element decomposes another element (e.g., a mullion inside a curtain wall), or
-- the category contains words like "mullion", "member", "profile", "post", "stud".
-
-HARD OVERRIDES
-
-1. SINGLE-MATERIAL RULE (highest priority)
-   If the dataset meets the conditions above (one clear material in material_data and no indication
-   of multiple materials or layers), then:
-   → entry_type = "material".
-
-2. UNITIZED / MULTI-MATERIAL COMPONENT RULE
-   Only if rule 1 does NOT apply:
-   - If the record clearly describes an installable product or system that:
-       * performs a building function as delivered (e.g., closes an opening, provides a service), AND
-       * involves multiple materials or separable parts (for example, frame + glass + hardware,
-         tiles + grid, panel + substructure, casing + driver),
-     then:
-     → entry_type = "component".
-
-   Typical examples include (when multiple materials or full units are described):
-   - windows, doors, curtain wall UNITS, HVAC devices, lighting fixtures, solar panels,
-     ceiling systems with tiles and grid, composite panels with fixings.
-
-3. UNKNOWN RULE
-   If neither 1 nor 2 can be applied confidently, and the record is ambiguous or purely administrative:
-   → entry_type = "unknown".
-
-SECONDARY GUIDANCE (when checking for rule 2)
-
-- Words like "unit", "system", "module", "frame", "member", "mullion", "beam", "post", "profile"
-  DO NOT by themselves imply a "component".
-  Many such elements are single-material sections (e.g. steel member, timber stud, aluminium profile).
-  If there is clearly only one material in material_data, rule 1 applies and the record is "material".
-
-- A material used inside another system (e.g. a steel mullion in a curtain wall, a timber stud in a wall)
-  is still "material" as long as this dataset only describes that single material section and not the entire
-  multi-material assembly.
-
-GENERAL PRINCIPLES
-
-- Prefer "material" whenever there is a single, uniform material and a uniform thickness/section for the element.
-- Use "component" only when there is clear evidence of an installable assembly or multiple separable materials.
-- Do not infer missing values; base the classification only on what is present in the record.
-"""
-
-
 ELEMENT_COMMON_PROMPT = """
-TASK
-Classify a BUILDING MODEL ELEMENT record as "material", "component", or "unknown".
-Populate only the requested fields. Do not invent data. Do not interpret the definitions
-of "material" or "component" beyond what is given in the instructions below.
+You are an expert at extracting data from a BUILDING MODEL ELEMENT record.
 
-YOU ARE CLASSIFYING THE CURRENT RECORD ONLY
-- Always classify the dataset/record itself, not the larger building system it belongs to.
-- An element can be part of a curtain wall, façade, roof, or other assembly and still be "material"
-  if THIS record describes only a single material section.
-
-ABSOLUTE PRIORITY RULE (APPLY FIRST)
-- If the record clearly describes exactly ONE material for this element, and there is no evidence
-  of multiple materials or a multi-layer build-up, you MUST set entry_type = "material".
-  In practice, this means that there is a clear material descriptor in the dataset.
-
-HARD OVERRIDES:
-1. SINGLE-MATERIAL RULE (highest priority)
-   If the dataset meets the conditions above (one clear material in material_data and no indication
-   of multiple materials or layers), then:
-   → entry_type = "material".
-
-2. UNITIZED / MULTI-MATERIAL COMPONENT RULE
-   Only if rule 1 does NOT apply:
-   - If the record clearly describes an installable product or system that:
-       * performs a building function as delivered (e.g., closes an opening, provides a service), AND
-       * involves multiple materials or separable parts (for example, frame + glass + hardware,
-         tiles + grid, panel + substructure, casing + driver),
-     then:
-     → entry_type = "component".
-
-   Typical examples include (when multiple materials or full units are described):
-   - windows, doors, HVAC devices, lighting fixtures, solar panels,
-     ceiling systems with tiles and grid, composite panels with fixings.
-
-3. UNKNOWN RULE
-   If neither 1 nor 2 can be applied confidently, and the record is ambiguous or purely administrative:
-   → entry_type = "unknown".
-
-GENERAL PRINCIPLES
-
-- Prefer "material" whenever there is a single, uniform material and a uniform thickness/section for the element.
-- Use "component" only when there is clear evidence of an installable assembly with multiple separable materials.
-- Do not infer missing values; base the classification only on what is present in the record.
+TASK: Classify the record and populate the output schema fields.
+- Classify the dataset/record itself, not the larger building system it belongs to.
+- An element can be part of a larger assembly and still be "material" if THIS record describes only a single material.
+- Copy values exactly from the input. Do not invent data.
+- Follow the field descriptions in the schema for classification rules.
 """
-
 
 
 
@@ -160,67 +45,13 @@ ELEMENT_COMMON_CTX = Context(
 
 
 ITEM_COMMON_PROMPT = """
-You are an expert at extracting important data from a dataset describing a building MATERIAL or COMPONENT.
-INPUT may be a JSON string, PDF text, or TXT. Carefully EXTRACT all relevant information and populate the output schema.
-For each field in the schema, copy the value exactly from the input.
-Only add values that are explicitly present in the input.
-If a field is missing or unclear, leave its default. Do NOT infer or invent.
-Return ONLY the JSON for the output schema—no extra text.
+You are an expert at extracting data from a dataset describing a building MATERIAL or COMPONENT.
 
-CRITICAL TASK: Determine `entry_type` accurately using the rules and examples below.
-
-DEFINITIONS
-- MATERIAL: A single homogeneous substance or a uniform material layer defined by physical/chemical nature
-  (mineral, metallic, polymeric, bituminous, wood-based, or integrated composite). "Integrated composite" means the parts are
-  bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed
-  as a functional unit by itself.
-  NOTE: Flat glass as a single pane is classified as MATERIAL unless the dataset describes a multi-pane assembly or functional
-  glazing unit.
-
-- COMPONENT: A manufactured assembly, product, or device intended to be installed as a functional building element or
-  preassembled unit (e.g., glazing units, window/door units, ceiling systems, HVAC devices, lighting fixtures).
-  This also includes multi-material **insulation elements** such as sandwich panels, masonry units with infill,
-  insulation profiles, ETICS systems, or similar products where multiple distinct materials are
-  combined into one functional insulation element.
-
-DECISION ORDER (apply top-to-bottom)
-1) If the dataset describes a single material or uniform layer—including monolithic integrated composites—set entry_type="material".
-2) If the dataset describes:
-     • a functional installable building element composed of MULTIPLE materials, OR
-     • an insulation element composed of MULTIPLE different materials (e.g., sandwich panel, sandwich board, masonry unit with infill,
-       layered-bonded insulation, ETICS system)
-   → set entry_type="component".
-     • if the insulation element or product is made from ONE material only, then set entry_type="material"!!
-3) If information is insufficient or contradictory → entry_type="unknown".
-
-MATERIAL INDICATORS (classify as material):
-- Single homogeneous substance regardless of form (sheet, panel, block, profile, beam, element)
-- Pre-formed or pre-cut products made from ONE material family
-- Glass: monolithic panes, laminated glass, toughened glass, float glass (single-material products)
-- Metals: profiles, sheets, bars, mesh, coatings, beams, columns - even when shaped or pre-formed
-- Concrete/masonry: blocks, panels, precast elements - unless combined with a DIFFERENT insulation core material
-- Insulation: boards, batts, rolls made from a single material (EPS, XPS, mineral wool, glass wool, wood fiber)
-
-COMPONENT INDICATORS (classify as component):
-- Multiple DISTINCT material families combined in one product (e.g., frame + glass + seals)
-- Functional building elements with separable parts from different materials (window unit, door assembly)
-- Products described as "system" or "assembly" WITH evidence of multiple distinct materials
-- Multi-layer insulation products combining different material types (e.g., steel-faced PUR sandwich panel)
-
-DO NOT CLASSIFY AS COMPONENT:
-- A steel beam or column (even if called "structural element")
-- A concrete panel, block, or precast element (unless it contains a distinct insulation layer of different material)
-- A single glass pane (even if laminated or toughened - unless described as multi-pane IGU with spacers/gas fill)
-- Metal roofing sheets, profiles, or cladding panels made from one metal
-- Insulation boards made from a single material (EPS board, XPS board, mineral wool slab, wood fiber board)
-- Precast concrete elements (even reinforced - reinforcement is integral, not a separate material layer)
-
-DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)
-- Words like "unit/system/module/device/structure/block/frame/element/panel" ALONE do NOT make it a component.
-  Check whether the described thing is delivered/installed as a functional element with separable parts made from different materials.
-  If not, classify as MATERIAL.
-- A material used for making a component (e.g., "wooden window frame") is still MATERIAL unless the dataset includes the full 
-  installable unit (e.g., glazing assembly, frame+glass+hardware) with multiple materials.
+TASK: Extract all relevant information and populate the output schema fields.
+- Copy values exactly from the input dataset.
+- Only add values that are explicitly present.
+- If a field is missing or unclear, leave its default. Do NOT infer or invent.
+- Follow the field descriptions in the schema for classification rules.
 """
 
 ITEM_COMMON_CTX = Context(
@@ -334,10 +165,6 @@ TEMPLATE = (
     " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
     " Do not include any explanatory text outside of the schema output."
 )
-
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# %%%%%%%%% MATERIAL EXTRACTION CONTEXT %%%%%%%%%%%%%%
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 MATERIAL_COMMON_CTX = Context(
     instructions=TEMPLATE.format(entry="a material"),

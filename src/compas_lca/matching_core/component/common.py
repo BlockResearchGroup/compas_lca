@@ -71,5 +71,4 @@ class ComponentCommon(BaseModel):
             • window = complete window unit (frame + glazing + seals + hardware)
             • Single glass panes are MATERIALS, not components!
         """).strip(),
-        examples=["window", "door", "infill", "insulation_element", "curtain_wall"]
     )

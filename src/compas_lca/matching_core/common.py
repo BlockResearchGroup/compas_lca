@@ -26,10 +26,43 @@ class Common(BaseModel):
     entry_type: EntryType = Field(
         ...,
         description=dedent("""
-        Classify the dataset as a MATERIAL (homogeneous substance, monolithic unit, or uniform layer), 
-        COMPONENT (assembled product or system-level element), or UNKNOWN if insufficient evidence.
+        Classify the dataset as MATERIAL, COMPONENT, or UNKNOWN.
+        
+        DEFINITIONS:
+        • MATERIAL: A single homogeneous substance or uniform layer defined by physical/chemical nature.
+          Includes monolithic integrated composites (reinforced concrete, fiber-cement, WPC) that are
+          NOT installed as functional units by themselves.
+          Single glass panes = MATERIAL (unless multi-pane IGU with spacers/gas fill).
+          
+        • COMPONENT: A manufactured assembly or device installed as a functional building element.
+          Must involve MULTIPLE distinct materials or separable parts.
+          Examples: window units (frame+glass+seals), door assemblies, ceiling systems (tiles+grid),
+          sandwich panels (metal facing+insulation core), ETICS systems, HVAC devices.
+        
+        DECISION ORDER (apply top-to-bottom):
+        1) Single material or uniform layer (even if pre-formed as sheet/panel/block/profile) → `material`
+        2) Functional element with MULTIPLE distinct material families combined → `component`
+        3) Insufficient or contradictory information → `unknown`
+        
+        CLASSIFY AS MATERIAL (not component):
+        • Steel beams, columns, profiles (single material, even if "structural element")
+        • Concrete panels, blocks, precast elements (unless with DIFFERENT insulation core)
+        • Single glass panes (monolithic, laminated, toughened - NOT multi-pane IGU)
+        • Metal roofing sheets, cladding panels (single material)
+        • Insulation boards from ONE material (EPS, XPS, mineral wool, wood fiber)
+        • Precast concrete (reinforcement is integral, not a separate material layer)
+        
+        CLASSIFY AS COMPONENT:
+        • Window/door units with frame + glazing + hardware
+        • Sandwich panels with metal facings + foam/wool core (DIFFERENT materials)
+        • Ceiling systems with tiles + suspension grid
+        • ETICS systems (insulation + adhesive + mesh + render)
+        • IGUs (multi-pane glazing with spacers and gas fill)
+        
+        NAMING TRAPS - these words ALONE do NOT make it a component:
+        "unit", "system", "module", "device", "structure", "block", "frame", "element", "panel"
+        Always check if multiple DISTINCT material families are combined.
         """).strip(),
-        examples=["material", "component", "unknown"]
     )
     name: str = Field(
         ...,
@@ -54,7 +87,6 @@ class Common(BaseModel):
         4) If the dataset does not explicitly state structural intent, but the generic material class is one that is routinely used in 
         structural applications (e.g., ready-mixed concrete, structural-grade timber), classify as "either".
         """).strip(),
-        examples=["loadbearing", "non_loadbearing", "either"]
     )
     placement: Optional[InteriorExteriorType] = Field(      # should a value be enforced?
         None,
@@ -73,7 +105,6 @@ class Common(BaseModel):
             furniture materials, MEP components located inside conditioned spaces.
         5) If none of the above apply and placement cannot be confidently inferred → leave empty.
         """).strip(),
-        examples=["interior", "exterior", "either"]
     )
     density: Optional[DensityFloat] = Field(
         None,

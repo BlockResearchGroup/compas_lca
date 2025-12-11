@@ -100,10 +100,6 @@ class MaterialCommon(BaseModel):
             • Ignore surface coatings (laminates, varnish, paint) when determining the base material.
             • Always classify based on the **dominant** material by mass/volume or by explicit naming.
         """).strip(),
-        examples=[
-            "wood", "biobased", "concrete", "mineral", 
-            "metallic", "polymeric", "bituminous", "composite"
-        ]
     )
 
     functional_types: List[FunctionalTypes] = Field(
