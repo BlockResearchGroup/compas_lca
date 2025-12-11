@@ -6,6 +6,7 @@ from compas_lca.matching_core.material.common import MaterialCommon
 from compas_lca.matching_core.material.bituminous import BituminousFacet
 from compas_lca.matching_core.material.composite import CompositeFacet
 from compas_lca.matching_core.material.concrete import ConcreteFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
 from compas_lca.matching_core.material.wood import WoodFacet
 from compas_lca.matching_core.material.metallic import MetallicFacet
 from compas_lca.matching_core.material.mineral import MineralFacet
@@ -178,7 +179,7 @@ MATERIAL_COMMON_LAYER_CTX = Context(
 
 BIOBASED_CTX = Context(
     instructions=TEMPLATE.format(entry="a bio-based material"),
-    output_type=BituminousFacet
+    output_type=BiobasedFacet
 )
 
 BITUMINOUS_CTX = Context(
