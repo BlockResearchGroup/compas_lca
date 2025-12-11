@@ -36,14 +36,13 @@ def main():
     # --- USER CONFIGURATION ---
     csv_path = "data/lca_database/OBD_samples.csv"  # path to your input CSV
     write_json = True                                      # whether to write JSON per InventoryItem
-    output_dir = Path("temp/OBD_samples_opus3")             # output directory for JSONs (only used if write_json=True)
+    output_dir = Path("temp/OBD_samples_haiku2")             # output directory for JSONs (only used if write_json=True)
     max_workers = 5                                        # parallel workers (1 = sequential, >1 = parallel)
     resume = True                                          # skip already processed UUIDs (resume from interruption)
     
-    # --- MISCLASSIFIED ITEMS FILTER ---
-    # Set to a path (e.g., Path("temp/misclassified_items.csv")) to only re-run extraction
-    # for previously misclassified items. Set to None to process all items.
-    misclassified_csv: Optional[Path] = None  # e.g., Path("temp/misclassified_items.csv")
+
+    # misclassified_csv: Optional[Path] = Path("temp/misclassified_items.csv")
+    misclassified_csv: Optional[Path] = None  
 
     # --- LOAD UUID FILTER (if misclassified_csv is set) ---
     uuid_filter: Optional[list[str]] = None

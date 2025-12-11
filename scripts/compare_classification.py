@@ -1,13 +1,17 @@
 import csv
 import json
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Optional
 
+from compas_lca.matching_core.normalization import normalize_level3_value
+
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_haiku1")
+test_root = Path("temp/OBD_samples_haiku2")
 output_csv = Path("temp/comparison_result.csv")
-misclassified_csv = Path("temp/misclassified_items.csv")
+misclassified_csv = Path("temp/misclassified_items4.csv")
+confusion_report = Path("temp/misclassified_confusions.txt")
 
 # Build a mapping of UUID -> relative path for ground truth
 gt_uuid_to_path = {}
@@ -56,14 +60,14 @@ def load_level3_type(file_path: Path) -> Optional[str]:
             level2_type = facet.get("material_type")  # e.g., "mineral"
             material_facet = facet.get("material_facet", {})
             if level2_type and material_facet:
-                # e.g., mineral_type -> "lime"
-                return material_facet.get(f"{level2_type}_type")
+                raw = material_facet.get(f"{level2_type}_type")
+                return normalize_level3_value(level2_type, raw)
         elif "component_type" in facet:
             level2_type = facet.get("component_type")  # e.g., "ceiling"
             component_facet = facet.get("component_facet", {})
             if level2_type and component_facet:
-                # e.g., ceiling_type -> "cement_board"
-                return component_facet.get(f"{level2_type}_type")
+                raw = component_facet.get(f"{level2_type}_type")
+                return normalize_level3_value(level2_type, raw)
         
         return None
     except (json.JSONDecodeError, FileNotFoundError):
@@ -137,6 +141,45 @@ def store_misclassified_items(
     return misclassified
 
 
+def summarize_confusions(misclassified: list[dict], output_path: Path) -> None:
+    """
+    Aggregate confusion counts for level-3 values (only where level 2 matched).
+    Writes a short text report to `output_path`.
+    """
+    pair_counter: Counter[tuple[str, str]] = Counter()
+    by_level2: defaultdict[str, Counter[tuple[str, str]]] = defaultdict(Counter)
+
+    for row in misclassified:
+        if row.get("test_path") == "NOT_FOUND":
+            continue
+        if row.get("level_2_match") != "true":
+            continue
+
+        gt_parts = Path(row["gt_path"]).parts
+        level2 = gt_parts[1] if len(gt_parts) > 1 else ""
+        gt = normalize_level3_value(level2, row.get("gt_level3"))
+        test = normalize_level3_value(level2, row.get("test_level3"))
+
+        gt_key = gt or "<missing>"
+        test_key = test or "<missing>"
+
+        pair_counter[(gt_key, test_key)] += 1
+        by_level2[level2][(gt_key, test_key)] += 1
+
+    lines = ["Level-3 confusions where level 2 matched:\n"]
+    lines.append("Top overall confusions (gt -> test):")
+    for (gt, test), count in pair_counter.most_common(20):
+        lines.append(f"- {gt} -> {test}: {count}")
+
+    lines.append("\nBy level-2 bucket:")
+    for lvl2, counter in sorted(by_level2.items()):
+        lines.append(f"[{lvl2}]")
+        for (gt, test), count in counter.most_common(10):
+            lines.append(f"  - {gt} -> {test}: {count}")
+
+    output_path.write_text("\n".join(lines), encoding="utf-8")
+
+
 # Compare and generate results
 results = []
 for uuid, gt_path in sorted(gt_uuid_to_path.items()):
@@ -154,7 +197,7 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
         # Extract and compare level 3 (from JSON content)
         gt_level3 = load_level3_type(gt_root / gt_path)
         test_level3 = load_level3_type(test_root / test_path)
-        level_3_values_match = gt_level3 is not None and gt_level3 == test_level3
+        level_3_values_match = gt_level3 == test_level3
         # Level 3 match: only check level 3 accuracy when level 2 is already correct
         level_3_match = level_2_match and level_3_values_match
         
@@ -219,3 +262,5 @@ misclassified = store_misclassified_items(results, misclassified_csv)
 print(f"\n=== Misclassified Items ===")
 print(f"Total misclassified items: {len(misclassified)}")
 print(f"Misclassified items written to: {misclassified_csv}")
+summarize_confusions(misclassified, confusion_report)
+print(f"Confusion summary written to: {confusion_report}")
