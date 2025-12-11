@@ -5,7 +5,7 @@ from typing import Optional
 
 # Define paths
 gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_opus")
+test_root = Path("temp/OBD_samples_opus2")
 output_csv = Path("temp/comparison_result.csv")
 
 # Build a mapping of UUID -> relative path for ground truth
@@ -86,9 +86,9 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
         
         # Check match at each level
         level_1_match = check_level_match(gt_parts, test_parts, 1)
-        full_match = check_level_match(gt_parts, test_parts, 2)
+        level_2_parts_match = check_level_match(gt_parts, test_parts, 2)
         # Level 2 match: only check level 2 accuracy when level 1 is already correct
-        level_2_match = level_1_match and full_match
+        level_2_match = level_1_match and level_2_parts_match
         
         # Extract and compare level 3 (from JSON content)
         gt_level3 = load_level3_type(gt_root / gt_path)
@@ -96,6 +96,9 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
         level_3_values_match = gt_level3 is not None and gt_level3 == test_level3
         # Level 3 match: only check level 3 accuracy when level 2 is already correct
         level_3_match = level_2_match and level_3_values_match
+        
+        # Full match: level 3 is correct
+        full_match = level_3_match
         
         results.append({
             "uuid": uuid,
@@ -148,4 +151,4 @@ print(f"\n=== Accuracy (for {len(found_results)} matched UUIDs) ===")
 print(f"Level 1 match (e.g., material vs component): {level_1_match_count}/{len(found_results)} ({100*level_1_match_count/len(found_results):.1f}%)")
 print(f"Level 2 match (level 2 accuracy when level 1 is correct): {level_2_match_count}/{level_1_match_count if level_1_match_count > 0 else 1} ({100*level_2_match_count/(level_1_match_count if level_1_match_count > 0 else 1):.1f}%)")
 print(f"Level 3 match (level 3 accuracy when level 2 is correct): {level_3_match_count}/{level_2_match_count if level_2_match_count > 0 else 1} ({100*level_3_match_count/(level_2_match_count if level_2_match_count > 0 else 1):.1f}%)")
-print(f"Full match (e.g., material/mineral): {full_match_count}/{len(found_results)} ({100*full_match_count/len(found_results):.1f}%)")
+print(f"Full match (level 3 correct): {full_match_count}/{len(found_results)} ({100*full_match_count/len(found_results):.1f}%)")
