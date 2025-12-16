@@ -206,13 +206,14 @@ class InsulationInfo(str, Enum):
 class ConcreteType(str, Enum):
     ready_mixed = "ready_mixed"
     precast = "precast"
-    printed_concrete = "printed_concrete"
+    cementitious_screed = "cementitious_screed"
     self_compacting = "self_compacting"
     lightweight = "lightweight"
     aerated = "aerated"
     binder = "binder"
     calcium_silicate = "calcium_silicate"
     calcium_sulfate = "calcium_sulfate"
+    printed_concrete = "printed_concrete"
     foamed_concrete = "foamed_concrete"
     other = "other"
     unknown = "unknown"
@@ -380,7 +381,6 @@ class WoodForm(str, Enum):
     other = "other"
     unknown = "unknown"
 class WoodProcessing(str, Enum):
-    unprocessed = "unprocessed"
     rough_sawn = "rough_sawn"
     planed_surfaced = "planed_surfaced"
     machine_graded = "machine_graded"
@@ -413,7 +413,6 @@ class DryingMethod(str, Enum):
     steam_conditioned = "steam_conditioned"
     other = "other"
 class WoodSurface(str, Enum):
-    untreated = "untreated"
     oiled = "oiled"
     waxed = "waxed"
     varnished = "varnished"
@@ -473,6 +472,7 @@ class MineralType(str, Enum):
     foam_glass = "foam_glass"
     mineral_wool = "mineral_wool"
     rock_wool = "rock_wool"
+    calcium_silicate = "calcium_silicate"
     silicum_dioxide = "silicum_dioxide"
     # fallbacks
     other = "other"
@@ -531,10 +531,9 @@ class PolymericType(str, Enum):
 class PolymericForm(str, Enum):
     # sheet / film products
     sheet_membrane = "sheet_membrane"      # roll membranes, waterproofing sheets
-    foil = "foil"                          # thin polymer/metalized films
-    fleece = "fleece"                      # geotextiles, reinforcement fabrics
-    floor_roll = "floor_roll"              # resilient flooring rolls (vinyl, linoleum)
+    floor_roll = "floor_roll"              # resilient flooring rolls (vinyl)
     floor_tile = "floor_tile"              # modular flooring (LVT, rubber tile)
+    fleece = "fleece"                      # geotextiles, reinforcement fabrics
     board = "board"                        # mostly for insulation
     # profiled / formed products
     profile_rigid = "profile_rigid"        # PVC/PE/PC extrusions, trims, gutters
@@ -569,7 +568,6 @@ class BiobasedType(str, Enum):
 # ----------------------------------------
 
 class BituminousType(str, Enum):
-    asphalt_mix = "asphalt_mix"                        # asphalt/asphalt concrete (bitumen + aggregate)
     mastic_asphalt = "mastic_asphalt"                  # high binder content, voidless mastic
     bitumen = "bitumen"                                # unmodified petroleum bitumen
     polymer_modified_bitumen = "polymer_modified_bitumen"  # e.g., SBS/APP modified
@@ -603,8 +601,10 @@ class CompositeType(str, Enum):
     wood_plastic_composite = "wood_plastic_composite"   # WPC decking, profiles
     fiber_reinforced_polymer = "fiber_reinforced_polymer"  # FRP (GFRP, CFRP, BFRP)
     particulate_filled_polymer = "particulate_filled_polymer"
+    laminated_polymeric_composite = "laminated_polymeric_composite"  # HPL, CPL, DPL, decorative laminates
     # Hybrid/other
     metal_polymer_composite = "metal_polymer_composite" # metal-filled polymers, MML without clear base
+    linoleum = "linoleum"
     other = "other"
     unknown = "unknown"
 class CompositeMatrix(str, Enum):
@@ -651,7 +651,6 @@ class CompositeForm(str, Enum):
     precast_element = "precast_element" # beams, slabs, cladding elements
     # Repair/strengthening systems
     wrap = "wrap"                       # FRP wraps/laminates for retrofits
-    laminate = "laminate"               # bonded plates/strips (CFRP/GFRP)
     other = "other"
 
 # -----------------------------------------
@@ -686,7 +685,6 @@ class ComponentType(str, Enum):
 class DoorType(str, Enum):
     aluminium = "aluminium"
     steel = "steel"
-    stainless_steel = "stainless_steel"
     wood = "wood"
     wood_aluminium = "wood_aluminium"
     pvc = "pvc"
@@ -795,10 +793,8 @@ class InfillCoating(str, Enum):
 # -------------------------------------------------
 
 class InsulationElementType(str, Enum):
-    sandwich_panel = "sandwich_panel"
-    sandwich_board = "sandwich_board"
-    masonry_unit_with_infill = "masonry_unit_with_infill"
     layered_bonded = "layered_bonded"
+    masonry_unit_with_infill = "masonry_unit_with_infill"
     etics = "etics"
     other = "other"
     unknown = "unknown"

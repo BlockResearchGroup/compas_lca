@@ -4,6 +4,7 @@ from compas_lca.matching_core.common import Common
 
 from compas_lca.matching_core.material.common import MaterialCommon
 from compas_lca.matching_core.material.bituminous import BituminousFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
 from compas_lca.matching_core.material.composite import CompositeFacet
 from compas_lca.matching_core.material.concrete import ConcreteFacet
 from compas_lca.matching_core.material.wood import WoodFacet
@@ -36,73 +37,6 @@ add layer contexts in ifc extraction workflow
 # %%%%%%%%% COMMON EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-ELEMENT_COMMON_PROMPT_OLD = """
-TASK
-Classify a BUILDING MODEL ELEMENT record as "material", "component", or "unknown".
-Populate only the requested fields. Do not invent data. Do not interpret the definitions
-of "material" or "component" beyond what is given in the instructions below.
-
-YOU ARE CLASSIFYING THE CURRENT RECORD ONLY
-- Always classify the dataset/record itself, not the larger building system it belongs to.
-- An element can be part of a curtain wall, façade, roof, or other assembly and still be "material"
-  if THIS record describes only a single material section.
-
-ABSOLUTE PRIORITY RULE (APPLY FIRST)
-- If the record clearly describes exactly ONE material for this element, and there is no evidence
-  of multiple materials or a multi-layer build-up, you MUST set entry_type = "material".
-
-In practice, this means:
-- material_data.entity = "IfcMaterial" (or equivalent single-material entity), AND
-- material_data.material_name is not null, AND
-- there is no material layer set, no material list, and no second material described.
-
-This applies even if:
-- metadata.entity is IfcMember, IfcBeam, IfcColumn, IfcSlab, etc., or
-- the element decomposes another element (e.g., a mullion inside a curtain wall), or
-- the category contains words like "mullion", "member", "profile", "post", "stud".
-
-HARD OVERRIDES
-
-1. SINGLE-MATERIAL RULE (highest priority)
-   If the dataset meets the conditions above (one clear material in material_data and no indication
-   of multiple materials or layers), then:
-   → entry_type = "material".
-
-2. UNITIZED / MULTI-MATERIAL COMPONENT RULE
-   Only if rule 1 does NOT apply:
-   - If the record clearly describes an installable product or system that:
-       * performs a building function as delivered (e.g., closes an opening, provides a service), AND
-       * involves multiple materials or separable parts (for example, frame + glass + hardware,
-         tiles + grid, panel + substructure, casing + driver),
-     then:
-     → entry_type = "component".
-
-   Typical examples include (when multiple materials or full units are described):
-   - windows, doors, curtain wall UNITS, HVAC devices, lighting fixtures, solar panels,
-     ceiling systems with tiles and grid, composite panels with fixings.
-
-3. UNKNOWN RULE
-   If neither 1 nor 2 can be applied confidently, and the record is ambiguous or purely administrative:
-   → entry_type = "unknown".
-
-SECONDARY GUIDANCE (when checking for rule 2)
-
-- Words like "unit", "system", "module", "frame", "member", "mullion", "beam", "post", "profile"
-  DO NOT by themselves imply a "component".
-  Many such elements are single-material sections (e.g. steel member, timber stud, aluminium profile).
-  If there is clearly only one material in material_data, rule 1 applies and the record is "material".
-
-- A material used inside another system (e.g. a steel mullion in a curtain wall, a timber stud in a wall)
-  is still "material" as long as this dataset only describes that single material section and not the entire
-  multi-material assembly.
-
-GENERAL PRINCIPLES
-
-- Prefer "material" whenever there is a single, uniform material and a uniform thickness/section for the element.
-- Use "component" only when there is clear evidence of an installable assembly or multiple separable materials.
-- Do not infer missing values; base the classification only on what is present in the record.
-"""
-
 
 ELEMENT_COMMON_PROMPT = """
 TASK
@@ -116,9 +50,10 @@ YOU ARE CLASSIFYING THE CURRENT RECORD ONLY
   if THIS record describes only a single material section.
 
 ABSOLUTE PRIORITY RULE (APPLY FIRST)
-- If the record clearly describes exactly ONE material for this element, and there is no evidence
+- If the buildng element represents a window or door assembly (e.g. IfcWindow or IfcDoor), always
+  assign entry_type = "component"
+- Otherwise, if the record clearly describes exactly ONE material for this element, and there is no evidence
   of multiple materials or a multi-layer build-up, you MUST set entry_type = "material".
-  In practice, this means that there is a clear material descriptor in the dataset.
 
 HARD OVERRIDES:
 1. SINGLE-MATERIAL RULE (highest priority)
@@ -329,7 +264,7 @@ MATERIAL_COMMON_LAYER_CTX = Context(
 
 BIOBASED_CTX = Context(
     instructions=TEMPLATE.format(entry="a bio-based material"),
-    output_type=BituminousFacet
+    output_type=BiobasedFacet
 )
 
 BITUMINOUS_CTX = Context(
