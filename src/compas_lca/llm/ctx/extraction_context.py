@@ -169,7 +169,7 @@ INSTRUCTIONS & RULES:
    - If parent element is loadbearing:
        * Check if this layer is *realistically* the loadbearing part.
        * Examples:
-           - Concrete, massive wood, steel → likely loadbearing.
+           - Concrete, massive wood, steel, concrete → likely loadbearing.
            - Plaster, insulation, finish materials → not loadbearing.
        * If unclear, leave null.
 

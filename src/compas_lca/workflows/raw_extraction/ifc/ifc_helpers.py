@@ -361,7 +361,16 @@ def write_multilayer_pkg(
     # main element JSON
     write_bytes(pkg_dir / f"{gid}.json", element_blob)
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
-    meta_filtered = {"entity": meta_dict.get("entity")} if "entity" in meta_dict else {}
+
+    # crete filtered metadata dictionary
+    meta_filtered = {}
+    if "entity" in meta_dict:
+        meta_filtered["entity"] = meta_dict["entity"]
+    if "name" in meta_dict:
+        meta_filtered["name"] = meta_dict["name"]
+
+    
+
     # write each layer wrapped in IfcTargetLayer
     for i, layer in enumerate(layers, start=1):
         layer_dict = _to_plain_dict(layer)
