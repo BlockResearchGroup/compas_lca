@@ -8,7 +8,7 @@ from pathlib import Path
 
 IFC_PATH = "temp/ifc_files/51_GG_ARC_XXX_230610.ifc"
 
-output_dir = Path("temp/ifc_preprocessed/0_samples/zwhatt51/layers")
+output_dir = Path("temp/ifc_preprocessed/0_samples/raw/zwhatt51/layers_2")
 
 SAMPLES = [
     "Floor:DCH_DÄ+BLECH_113:11165689",
@@ -80,8 +80,6 @@ def main():
             # Process a single element
             data = process_ifc_element(element, caches, units)
             meta = data.metadata
-            if not meta:
-                continue
             name = meta.name
             gid = meta.global_id
 
@@ -89,8 +87,9 @@ def main():
             json_blob = json_str.encode("utf-8")
 
             metadata = getattr(data, "metadata", None)
+            psets = getattr(data, "properties", None)
             layers = getattr(getattr(data, "material_data", None), "material_layers", None) or []
-            write_multilayer_pkg(output_dir / "layers", gid, json_blob, layers, metadata) # Writes element + dissected layers in GlobalId folder
+            write_multilayer_pkg(output_dir / "layers", gid, json_blob, layers, metadata, psets) # Writes element + dissected layers in GlobalId folder
 
             matched_entities.append(element)
 

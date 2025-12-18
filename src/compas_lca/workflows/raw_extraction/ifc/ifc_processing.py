@@ -519,8 +519,9 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
             # For "IfcMaterialLayerSet", "IfcMaterialLayerSetUsage"
             if bucket == "multilayers": 
                 metadata = getattr(data, "metadata", None)
+                psets = getattr(data, "properties", None)
                 layers = getattr(getattr(data, "material_data", None), "material_layers", None) or []
-                write_multilayer_pkg(output_dir / "all" / bucket, gid, json_blob, layers, metadata) # Writes element + dissected layers in GlobalId folder
+                write_multilayer_pkg(output_dir / "all" / bucket, gid, json_blob, layers, metadata, psets) # Writes element + dissected layers in GlobalId folder
                 if mat_entity in ("IfcMaterialLayerSet", "IfcMaterialLayerSetUsage"):
                     ml_index.setdefault(mat_entity, []).append({"name": name, "global_id": gid})
             

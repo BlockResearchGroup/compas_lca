@@ -35,6 +35,7 @@ class Loadbearing(str, Enum):
     loadbearing = "loadbearing"
     non_loadbearing = "non_loadbearing"
     either = "either"
+    unknown = "unknown"
 class InteriorExterior(str, Enum):
     interior = "interior"
     exterior = "exterior"
@@ -117,12 +118,8 @@ class FunctionalTypes(str, Enum):
     membrane = "membrane"                           # Continuous thin sheet or film providing barrier or control function (e.g., waterproofing, vapor barrier).
     # Transparent / translucent
     glazing = "glazing"                             # IGUs, panes, laminated glass, polycarbonate sheets (primary function: transparent barrier)
-    # Bonding / shaping / substrate layers
-    binder = "binder"                               # Cements, limes
-    adhesive = "adhesive"                           # Holds materials together (glue, resins, epoxies, paste)
-    mortar = "mortar"                               # Masonry mortar, tile mortar
-    grout = "grout"                                 # Often used to fill gaps or to reinforce existing structures
-    sealant = "sealant"                             # Blocks passage of fluids through openings in materials
+    # Air
+    air = "air"
     # Safety & protection (non-fire)
     safety = "safety"                               # Guardrails, safety glazing film (non-structural safety), anti-slip tapes, impact protection
     fire_protection = "fire_protection"
@@ -133,47 +130,12 @@ class FunctionalTypes(str, Enum):
     piping = "piping"
     geosynthetic = "geosynthetic"                   # Geotextiles, geomembranes (non-waterproofing), geogrids, GCLs for soil functions
     paving_surfacing = "paving_surfacing"           # Asphalt, pavers, surface courses for roads/plazas (finish wearing course)
-    # Fallbacks
-    other = "other"
-    unknown = "unknown"
-
-class FunctionalTypes(str, Enum):
-    # Load-bearing & force transfer
-    structural = "structural"
-    reinforcement = "reinforcement"
-    stud_layer = "stud_layer"
-    # insulation
-    insulation = "insulation"
-    #partition
-    partition = "partition"
-    # Finish / surface-related
-    framing = "framing"
-    covering = "covering"
-    cladding = "cladding"
-    lining = "lining"
-    coating = "coating"
-    plaster = "plaster"
-    render = "render"
-    screed = "screed"
-    membrane = "membrane"
-    # Transparent / translucent
-    glazing = "glazing"
     # Bonding / shaping / substrate layers
-    binder = "binder"
-    adhesive = "adhesive"
-    mortar = "mortar"
-    grout = "grout"
-    sealant = "sealant"
-    # Safety & protection (non-fire)
-    safety = "safety"
-    fire_protection = "fire_protection"
-    waterproofing = "waterproofing"
-    # Joints & connections
-    fastener = "fastener"
-    # Groundworks / civil
-    piping = "piping"
-    geosynthetic = "geosynthetic"
-    paving_surfacing = "paving_surfacing"
+    binder = "binder"                               # Cements, limes
+    adhesive = "adhesive"                           # Holds materials together (glue, resins, epoxies, paste)
+    mortar = "mortar"                               # Masonry mortar, tile mortar
+    grout = "grout"                                 # Often used to fill gaps or to reinforce existing structures
+    sealant = "sealant"                             # Blocks passage of fluids through openings in materials
     # Fallbacks
     other = "other"
     unknown = "unknown"

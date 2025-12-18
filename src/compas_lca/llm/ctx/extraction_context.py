@@ -167,19 +167,20 @@ INSTRUCTIONS & RULES:
 
 2. LOADBEARING LOGIC
    - If parent element is loadbearing:
-       * Check if this layer is *realistically* the loadbearing part.
+       * Check if this layer against the "other_layers" and determine if THIS layer is *realistically* the loadbearing part.
        * Examples:
-           - Concrete, massive wood, steel, concrete → likely loadbearing.
+           - Large thickness + Concrete, massive wood, steel, concrete → likely loadbearing.
            - Plaster, insulation, finish materials → not loadbearing.
        * If unclear, leave null.
 
 3. PLACEMENT LOGIC
-   - Use the parent element's context (interior/exterior) as a reference for the general environment.
-   - Then infer the realistic placement of the target layer **within** that element:
-       * Layers directly exposed to outdoor air, weather, or ground → exterior.
-       * Layers directly exposed to indoor air → interior.
+   - Use the "parent_element_properties" as a reference for the general placement (interior/exterior).
+   - If the parent element is interior, assign "placement" = "interior"
+   - If the parent element is exterior, infer the realistic placement of the target layer **within** that element, and within the context of the "other_layers":
+       * Layers directly exposed to outdoor air, weather, or ground → "placement" = "exterior".
+       * Layers directly exposed to indoor air → "placement" = "interior".
        * Layers embedded inside the construction (e.g., insulation, membranes, vapor barriers)
-         → interior (even if part of an exterior element).
+         → "placement" = "interior" (even if part of an exterior element).
    - If the placement cannot be confidently inferred, or the context is missing, leave null.
 
 4. MANUFACTURER

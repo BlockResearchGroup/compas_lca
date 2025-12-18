@@ -342,13 +342,14 @@ def write_multilayer_pkg(
     gid: str,
     element_blob: bytes,
     layers: List[Any],
-    metadata: dict
+    metadata: dict,
+    psets: Optional[dict] = None
 ) -> None:
     """
     Writes a multilayer element as a folder:
       root/{gid}/
         {gid}.json
-        L1.json, L2.json, ...
+        {gid}_L1.json, {gid}_L2.json, ...
 
     Each L{i}.json adheres to IfcTargetLayer schema:
       {
@@ -361,25 +362,44 @@ def write_multilayer_pkg(
     # main element JSON
     write_bytes(pkg_dir / f"{gid}.json", element_blob)
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
+    psets_dict = _to_plain_dict(psets) if psets is not None else {}
 
-    # crete filtered metadata dictionary
-    meta_filtered = {}
-    if "entity" in meta_dict:
-        meta_filtered["entity"] = meta_dict["entity"]
+    # base parent context (shared fields only)
+    base_parent_context: dict = {}
     if "name" in meta_dict:
-        meta_filtered["name"] = meta_dict["name"]
+        base_parent_context["parent_element_name"] = meta_dict["name"]
+    if "entity" in meta_dict:
+        base_parent_context["entity"] = meta_dict["entity"]
+    if psets_dict:
+        base_parent_context["parent_element_properties"] = psets_dict
 
-    
+    # Precompute normalized layer dicts once
+    layer_dicts: list[dict] = []
+    for layer in layers:
+        d = _to_plain_dict(layer) or {}
+        layer_dicts.append(dict(d))  # shallow copy to detach from source
 
-    # write each layer wrapped in IfcTargetLayer
-    for i, layer in enumerate(layers, start=1):
-        layer_dict = _to_plain_dict(layer)
+    for i, layer_dict in enumerate(layer_dicts, start=1):
+        # Build "other_layers" = all except current index
+        other_layers = [
+            d for j, d in enumerate(layer_dicts)
+            if j != (i - 1)
+        ]
+
+        # Per-file context (do not mutate shared base_parent_context)
+        parent_context_for_file = dict(base_parent_context)
+        parent_context_for_file["other_layers"] = other_layers
+
         wrapped = IfcTargetLayer(
-            target_layer=layer_dict,
-            parent_element_context=meta_filtered,
+            target_layer=layer_dict,  # optional but safest
+            parent_element_context=parent_context_for_file,
         )
-        layer_blob = wrapped.model_dump_json(exclude_none=True, by_alias=True, indent=2).encode("utf-8")
-        write_bytes(pkg_dir / f"L{i}.json", layer_blob)
+
+        layer_blob = wrapped.model_dump_json(
+            exclude_none=True, by_alias=True, indent=2
+        ).encode("utf-8")
+
+        write_bytes(pkg_dir / f"{gid}_L{i}.json", layer_blob)
 
 
 class IfcTargetMaterial(BaseModel):
