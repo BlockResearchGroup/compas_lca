@@ -7,6 +7,7 @@ from compas_lca.matching_core.material.bituminous import BituminousFacet
 from compas_lca.matching_core.material.biobased import BiobasedFacet
 from compas_lca.matching_core.material.composite import CompositeFacet
 from compas_lca.matching_core.material.concrete import ConcreteFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
 from compas_lca.matching_core.material.wood import WoodFacet
 from compas_lca.matching_core.material.metallic import MetallicFacet
 from compas_lca.matching_core.material.mineral import MineralFacet
@@ -26,17 +27,6 @@ from compas_lca.matching_core.component.stairs import StairFacet
 from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
-
-"""
-TO DO:
-Test TEMPLATE_LAYER and LAYER_COMMON_CTX and
-add layer contexts in ifc extraction workflow
-"""
-
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# %%%%%%%%% COMMON EXTRACTION CONTEXT %%%%%%%%%%%%%%
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 ELEMENT_COMMON_PROMPT = """
 TASK
@@ -87,7 +77,6 @@ GENERAL PRINCIPLES
 
 
 
-
 ELEMENT_COMMON_CTX = Context(
     instructions=ELEMENT_COMMON_PROMPT,
     output_type=Common
@@ -95,45 +84,41 @@ ELEMENT_COMMON_CTX = Context(
 
 
 ITEM_COMMON_PROMPT = """
-You are an expert at extracting important data from a dataset describing a building MATERIAL or COMPONENT.
-INPUT may be a JSON string, PDF text, or TXT. Carefully EXTRACT all relevant information and populate the output schema.
-For each field in the schema, copy the value exactly from the input.
-Only add values that are explicitly present in the input.
-If a field is missing or unclear, leave its default. Do NOT infer or invent.
-Return ONLY the JSON for the output schema—no extra text.
+You are an expert at extracting data from a dataset describing a building MATERIAL or COMPONENT.
 
-CRITICAL TASK: Determine `entry_type` accurately using the rules and examples below.
+TASK: Extract all relevant information and populate the output schema fields.
+- Copy values exactly from the input dataset.
+- Only add values that are explicitly present.
+- If a field is missing or unclear, leave its default. Do NOT infer or invent.
+- Follow the field descriptions in the schema for classification rules.
 
-DEFINITIONS
-- MATERIAL: A single homogeneous substance or a uniform material layer defined by physical/chemical nature
-  (mineral, metallic, polymeric, bituminous, wood-based, or integrated composite). “Integrated composite” means the parts are
-  bonded/formed into one monolithic layer (e.g., reinforced concrete, fiber-cement, WPC, EPS-integrated blocks) and NOT installed
-  as a functional unit by itself.
-  NOTE: Flat glass as a single pane is classified as MATERIAL unless the dataset describes a multi-pane assembly or functional
-  glazing unit.
+═══════════════════════════════════════════════════════════════════════════════
+CLASSIFICATION EXAMPLES (follow these patterns):
+═══════════════════════════════════════════════════════════════════════════════
 
-- COMPONENT: A manufactured assembly, product, or device intended to be installed as a functional building element or
-  preassembled unit (e.g., glazing units, window/door units, ceiling systems, HVAC devices, lighting fixtures).
-  This also includes multi-material **insulation elements** such as sandwich panels, masonry units with infill,
-  insulation profiles, ETICS systems, or similar products where multiple distinct materials are
-  combined into one functional insulation element.
+BIOBASED materials (non-wood plant/animal fibers):
+  • "Hempflax Thermo Hemp Combi Jute" → entry_type: material, material_type: biobased
+  • "Schafwolldämmung" (sheep wool insulation) → entry_type: material, material_type: biobased
+  • "Cork insulation board" → entry_type: material, material_type: biobased
+  • "Flax fiber insulation" → entry_type: material, material_type: biobased
 
-DECISION ORDER (apply top-to-bottom)
-1) If the dataset describes a single material or uniform layer—including monolithic integrated composites—set entry_type="material".
-2) If the dataset describes:
-     • a functional installable building element composed of MULTIPLE materials, OR
-     • an insulation element composed of MULTIPLE different materials (e.g., sandwich panel, sandwich board, masonry unit with infill,
-       layered-bonded insulation, ETICS system)
-   → set entry_type="component".
-     • if the insulation element or product is made from ONE material only, then set entry_type="material"!!
-3) If information is insufficient or contradictory → entry_type="unknown".
+METALLIC materials (single metal profiles/sheets/sections are materials, NOT components):
+  • "Aluminium casement frame section, powder coated" → entry_type: material, material_type: metallic
+  • "Steel beam IPE 200" → entry_type: material, material_type: metallic
+  • "Aluminum profile for windows" → entry_type: material, material_type: metallic
+  • "Copper pipe DN15" → entry_type: material, material_type: metallic
 
-DISAMBIGUATION / NAMING TRAPS (override naive keyword heuristics)
-- Words like “unit/system/module/device/structure/block/frame” ALONE do NOT make it a component.
-  Check whether the described thing is delivered/installed as a functional element with separable parts made from different materials.
-  If not, classify as MATERIAL.
-- A material used for making a component (e.g., “wooden window frame”) is still MATERIAL unless the dataset includes the full 
-  installable unit (e.g., glazing assembly, frame+glass+hardware) with multiple materials.
+MINERAL materials (glass panes are materials, NOT components/infill):
+  • "Float glass 6mm" → entry_type: material, material_type: mineral
+  • "Laminated safety glass" → entry_type: material, material_type: mineral
+  • "Gypsum board 12.5mm" → entry_type: material, material_type: mineral
+  • "Mineral wool insulation" → entry_type: material, material_type: mineral
+
+COMPONENTS (only for multi-material assemblies):
+  • "Window unit with aluminium frame and double glazing" → entry_type: component
+  • "PU boards with aluminium facing" → entry_type: component (insulation_element)
+  • "ETICS system" → entry_type: component
+  • "IGU triple glazing with argon fill" → entry_type: component
 """
 
 ITEM_COMMON_CTX = Context(
@@ -247,14 +232,45 @@ TEMPLATE = (
     " Only add values in the output schema if they are explicitly present."
     " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
     " Do not include any explanatory text outside of the schema output."
+    "\n\n"
+    "CRITICAL: Follow the keyword detection rules in the field descriptions."
+    " If the product name contains material keywords (e.g., hemp, aluminum, glass, steel, PVC),"
+    " classify based on those keywords first before considering application context."
 )
 
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# %%%%%%%%% MATERIAL EXTRACTION CONTEXT %%%%%%%%%%%%%%
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+MATERIAL_COMMON_PROMPT = (
+    "You are an expert at classifying building materials by their dominant composition.\n\n"
+    "TASK: Determine the material_type based on keywords in the product name/description.\n\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+    "KEYWORD CLASSIFICATION (check product name FIRST):\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n\n"
+    "BIOBASED (non-wood plant/animal fibers) → material_type: 'biobased'\n"
+    "  Keywords: hemp, Hanf, Thermo-Hanf, Thermohanf, Hempflax, flax, Flachs, linen,\n"
+    "            jute, Jute, sheep wool, Schafwolle, straw, Stroh, cork, Kork,\n"
+    "            cotton, Baumwolle, bamboo, Bambus, coconut, Kokos, sisal, coir\n"
+    "  Examples:\n"
+    "    • 'Hempflax Thermo Hemp Combi Jute' → biobased\n"
+    "    • 'Schafwolldämmung' → biobased\n"
+    "    • 'Thermo Hanf Premium' → biobased\n"
+    "    • 'Cork insulation board' → biobased\n"
+    "    • 'Flax fiber insulation' → biobased\n\n"
+    "WOOD (tree-derived) → material_type: 'wood'\n"
+    "  Keywords: wood, Holz, timber, lumber, plywood, OSB, MDF, HDF, CLT, glulam\n\n"
+    "METALLIC → material_type: 'metallic'\n"
+    "  Keywords: steel, Stahl, aluminum, aluminium, copper, zinc, brass, iron\n\n"
+    "POLYMERIC → material_type: 'polymeric'\n"
+    "  Keywords: PVC, PE, PP, PUR, PIR, EPS, XPS, polystyrene, polyurethane, EPDM\n\n"
+    "MINERAL → material_type: 'mineral'\n"
+    "  Keywords: glass, gypsum, Gips, lime, brick, Ziegel, mineral wool, rock wool\n\n"
+    "CONCRETE → material_type: 'concrete'\n"
+    "  Keywords: concrete, Beton, precast, aerated concrete, Porenbeton\n\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+    "NEVER use 'unknown' if ANY material keyword is found in the product name.\n"
+    "═══════════════════════════════════════════════════════════════════════════════\n"
+)
 
 MATERIAL_COMMON_CTX = Context(
-    instructions=TEMPLATE.format(entry="a material"),
+    instructions=MATERIAL_COMMON_PROMPT,
     output_type=MaterialCommon
 )
 

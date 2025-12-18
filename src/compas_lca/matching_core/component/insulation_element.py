@@ -22,32 +22,40 @@ class InsulationElementFacet(BaseModel):
             Classify the product as an insulation **element** based on its form as delivered
             (geometry and assembly), not its detailed chemistry.
 
-            • Use 'sandwich_panel' for factory-made panels with a structural or semi-structural 
-              core and two outer facings, intended as wall/roof elements or similar.
-            • Use 'sandwich_board' for non-structural multilayer boards or floor/wall elements
-              where the main function is insulation or finishing, not load-bearing panel action.
-            • Use 'masonry_unit_with_infill' for blocks or bricks that integrate an insulating
-              infill into cavities or cores of the masonry unit.
-            • Use 'layered_bonded' for products built from multiple bonded layers of boards,
-              mats or sheets (e.g. laminated insulation/finishing products).
-            • Use 'profile' for linear or shaped insulating elements (e.g. strips, L/U profiles,
-              thermal breaks, perimeter or edge profiles).
-            • Use 'etics' for external thermal insulation composite systems (insulation + render/
-              adhesive layers designed as a facade system).
-            • Use 'other' if the element is clearly an insulation product but does not fit any
-              of the above types.
-            • Use 'unknown' if there is not enough information to infer the element type.
+            DISAMBIGUATION RULES (sandwich_panel vs sandwich_board vs layered_bonded):
+            
+            • `sandwich_panel` — Factory-made STRUCTURAL panels with rigid facings on BOTH sides
+              (typically metal: steel, aluminum) and an insulating core. Self-supporting, used for
+              walls, roofs, cold stores. Large format (typically >1m wide).
+              Keywords: "sandwich panel", "Sandwichelement", "PIR panel", "PUR panel", 
+              "metal-faced panel", "insulated panel system", "IPS".
+              
+            • `sandwich_board` — NON-STRUCTURAL multilayer boards with facings. Smaller format,
+              used for interior finishing, flooring underlays, or non-loadbearing applications.
+              Facings may be gypsum board, MDF, cement board, or similar.
+              Keywords: "insulation board with facing", "composite board", "laminated board",
+              "faced insulation", "thermal board".
+              
+            • `layered_bonded` — Multiple insulation layers BONDED together without distinct 
+              structural facings. Focus is on combining insulation materials, not on panel action.
+              Keywords: "laminated insulation", "bonded layers", "multi-layer insulation".
+              
+            • `masonry_unit_with_infill` — Blocks or bricks with integrated insulating infill
+              in cavities or cores.
+              Keywords: "insulated block", "filled block", "thermal block".
+              
+            • `etics` — External Thermal Insulation Composite Systems (insulation + adhesive +
+              reinforcement mesh + render). Complete facade system.
+              Keywords: "ETICS", "EIFS", "WDVS", "external insulation system".
+              
+            • `other` — Clearly an insulation element but doesn't fit above categories.
+            • `unknown` — Insufficient information to classify.
 
-            When several categories seem possible, choose the one that best describes the
-            intended use and overall product configuration. If uncertainty remains high,
-            prefer 'unknown' over guessing.
+            DECISION GUIDE:
+            - Metal facings + structural use → `sandwich_panel`
+            - Non-metal facings + non-structural → `sandwich_board`  
+            - Just bonded insulation layers → `layered_bonded`
         """).strip(),
-        examples=[
-            "sandwich_panel",
-            "sandwich_board",
-            "masonry_unit_with_infill",
-            "etics",
-        ],
     )
 
     insulation_core: InsulationCore = Field(

@@ -5,12 +5,14 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import MetallicType
 from compas_lca.enums import MetallicForm
 from compas_lca.enums import MetallicForming
 from compas_lca.enums import MetallicProduction
 from compas_lca.enums import MetallicSurfaceTreatment
+from compas_lca.matching_core.normalization import normalize_metallic_type
 
 class MetallicFacet(BaseModel):
     model_config = ConfigDict(
@@ -25,26 +27,40 @@ class MetallicFacet(BaseModel):
             This classification refers strictly to the material's chemical composition,
             not its geometry, coating, finish, or manufacturing process.
 
+            SPELLING NOTE: Use American English spelling as defined in the enum values:
+            • Use `aluminum` (NOT "aluminium")
+            
             Assign the metallic type according to the highest-priority category whose criteria are satisfied, 
             using the list below arranged from most specific to most general:
 
-            1. Stainless or corrosion-resistant steel → "stainless_steel"
+            1. `stainless_steel` — Corrosion-resistant steel with chromium content (typically ≥10.5%).
+               Keywords: "stainless", "inox", "rostfrei", "18-8", "304", "316", "1.4301", "1.4404".
+               
+            2. `low_alloy_steel` — Weathering steel (Corten) or high-strength low-alloy (HSLA) steel.
+               Keywords: "weathering", "Corten", "HSLA", "S355", "S460".
 
-            2. Weathering steel or high-strength low-alloy (HSLA) steel → "low_alloy_steel"
+            3. `cast_iron` — Cast or ductile iron products.
+               Keywords: "cast iron", "ductile iron", "Gusseisen".
 
-            3. Cast or ductile iron → "cast_iron"
-
-            4. Structural / mild / carbon steel → "carbon_steel"
-            Use for generic or structural steel without alloy-specific qualifiers.
-            Coatings (galvanized, powder-coated, painted) do not affect the metallic_type.
+            4. `carbon_steel` — Standard/mild/structural steel without special alloy qualifiers.
+               Use for generic steel, reinforcement bars (rebar), structural sections.
+               Keywords: "steel", "mild steel", "structural steel", "S235", "S275", "rebar".
+               Note: Coatings (galvanized, powder-coated) do NOT affect the metallic_type.
                            
-            5. Non-ferrous metals → use their specific enum
-            "aluminum", "copper", "brass", "bronze", "zinc", "lead".
+            5. Non-ferrous metals → use their specific enum value:
+               • `aluminum` — All aluminum/aluminium products (use American spelling)
+               • `copper`, `brass`, `bronze`, `zinc`, `lead`
                            
-            6. If none of the above categories can be confidently assigned → "unknown"
+            6. `unknown` — If none of the above can be confidently assigned.
+            
+            Choose the MOST SPECIFIC applicable type. A "stainless steel door" → `stainless_steel`;
+            a generic "steel door" → `carbon_steel` (unless stainless is specified).
         """).strip(),
-        examples=["carbon_steel", "stainless_steel", "aluminum", "copper", "other"],
     )
+    @field_validator("metallic_type", mode="before")
+    @classmethod
+    def _normalize_metallic_type(cls, value):
+        return normalize_metallic_type(value)
     metallic_form: MetallicForm = Field(
         MetallicForm.unknown,
         description=dedent("""

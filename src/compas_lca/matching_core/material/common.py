@@ -25,53 +25,78 @@ class MaterialCommon(BaseModel):
         MaterialType.unknown,
         description=dedent("""
             Classify the product by its dominant base material (composition), not shape, coating, or process.
-            Choose exactly one of: 'mineral', 'concrete', 'wood', 'biobased_nonwood', 'metallic', 
+            Choose exactly one of: 'mineral', 'concrete', 'wood', 'biobased', 'metallic', 
             'polymeric', 'bituminous', 'composite', 'unknown'.
 
-            Decision rules (apply top-down):
-
-            1) wood → Organic, lignocellulosic **wood-based** materials.
-            Map to 'wood' if the name or description contains ANY of:
-                english: wood, timber, lumber, parquet, plywood, veneer, LVL, laminated veneer lumber,
-                        glulam, CLT, cross laminated timber, OSB, MDF, HDF, particleboard, chipboard,
-                        hardboard, fibreboard/fiberboard, cork, bamboo
-                german: Holz, Brettschichtholz, Brettsperrholz, Kreuzlagenholz, Sperrholz, Furnierschichtholz,
-                        LVL, Leimholz, Mehrschichtparkett, Parkett, Spanplatte, Faserplatte, MDF, HDF, OSB
-            examples: Multi-layer parquet, Cross laminated timber (CLT), MDF (uncoated)
-
-            2) biobased_nonwood → **Bio-based materials NOT derived from wood**.
-            Use this category if the dominant constituent comes from plants, animals, or crops **other than wood**.
-            keywords: cotton, flax, linen, hemp, sheep wool, straw, cork, bamboo
-
-            3) concrete → Cementitious / hydraulic binder with aggregates.
-            keywords: concrete, reinforced concrete, RC, mortar, grout, UHPC, screed
-
-            4) mineral → Inorganic, nonmetallic, ceramic/stone/glass (excluding concrete).
-            keywords: plaster, plasterboard, brick, tile, ceramic, glass, stone, gypsum, rammed earth
-
-            5) metallic → Metals and alloys.
-            keywords: steel, stainless steel, aluminum, copper, zinc, lead, brass, bronze, cast iron
-
-            6) polymeric → Synthetic organic polymers, plastics, rubbers, resins, foams.
-            keywords: PVC, PE, PP, PET, PUR, PU, EPDM, acrylic, polyester, polyamide, nylon
-
-            7) bituminous → Hydrocarbon binders and composites.
-            keywords: asphalt, bitumen, tar, bituminous membrane
-
-            8) composite → Engineered combination where no single base material dominates OR
-            explicitly named composite.
-            keywords: FRP, GFRP, CFRP, sandwich panel (if core and skins differ and no dominant base)
-
-            9) unknown → If none of the above can be determined from available text.
-
-            Notes:
+            ═══════════════════════════════════════════════════════════════════════════════
+            PRIORITY KEYWORD DETECTION — Apply FIRST before any other analysis:
+            ═══════════════════════════════════════════════════════════════════════════════
+            
+            IF product name/description contains ANY of these keywords → classify immediately:
+            
+            • BIOBASED keywords (non-wood plant/animal fibers) → 'biobased':
+              hemp, Hanf, Thermo-Hanf, Thermohanf, flax, Flachs, linen, jute, Jute,
+              sheep wool, Schafwolle, straw, Stroh, cork, Kork, cotton, Baumwolle,
+              bamboo, Bambus, coconut, Kokos, sisal, coir, seagrass, cattail, kenaf
+              EXAMPLES: "Hempflax Thermo Hemp" → biobased, "Schafwolldämmung" → biobased
+            
+            • WOOD keywords (tree-derived) → 'wood':
+              wood, Holz, timber, lumber, plywood, Sperrholz, veneer, LVL, glulam,
+              Brettschichtholz, CLT, Brettsperrholz, OSB, MDF, HDF, particleboard,
+              Spanplatte, chipboard, fiberboard, Faserplatte, wood fiber, Holzfaser,
+              wood wool, Holzwolle, cellulose (insulation)
+            
+            • METALLIC keywords → 'metallic':
+              steel, Stahl, stainless, aluminum, aluminium, Aluminium, copper, Kupfer,
+              zinc, Zink, brass, bronze, iron, cast iron, lead
+            
+            • POLYMERIC keywords → 'polymeric':
+              PVC, polyvinyl, PE, polyethylene, PP, polypropylene, PET, polyester,
+              PUR, PIR, polyurethane, EPDM, EPS, XPS, polystyrene, acrylic, polyamide,
+              nylon, silicone, rubber, Kunststoff, plastique
+            
+            • BITUMINOUS keywords → 'bituminous':
+              asphalt, Asphalt, bitumen, Bitumen, tar, bituminous
+            
+            • CONCRETE keywords → 'concrete':
+              concrete, Beton, béton, reinforced concrete, RC, precast, Fertigbeton,
+              aerated concrete, Porenbeton, Gasbeton, AAC, Ytong, Hebel, cement screed
+            
+            • MINERAL keywords → 'mineral':
+              glass, Glas, gypsum, Gips, plaster, lime, Kite, calcium silicate,
+              Kalksandstein, ceramic, Keramik, brick, Ziegel, tile, Fliese, stone,
+              granite, marble, slate, mineral wool, Mineralwolle, glass wool, rock wool
+            
+            ═══════════════════════════════════════════════════════════════════════════════
+            COMPOSITE — Use ONLY for explicit multi-material products:
+            ═══════════════════════════════════════════════════════════════════════════════
+            
+            'composite' → ONLY when EXPLICITLY fiber-reinforced or multi-family combined:
+              - GFRP, CFRP, GFK, CFK, fiber-cement, fibre-cement, WPC, Faserzement
+              - "glass fiber reinforced", "carbon fiber reinforced", "basalt fiber reinforced"
+              - Wood-plastic composite, wood-cement composite
+            NOTE: Reinforced concrete → 'concrete' (steel reinforcement is integral)
+            NOTE: Pure resins/polymers WITHOUT fibers → 'polymeric', NOT 'composite'
+            
+            ═══════════════════════════════════════════════════════════════════════════════
+            UNKNOWN — Use ONLY as last resort:
+            ═══════════════════════════════════════════════════════════════════════════════
+            
+            'unknown' → ONLY if NO recognizable material keyword is present in the text.
+            NEVER use 'unknown' if ANY of the above keywords appear in the product name.
+            
+            ═══════════════════════════════════════════════════════════════════════════════
+            BOUNDARY CLARIFICATIONS:
+            ═══════════════════════════════════════════════════════════════════════════════
+            
+            • CONCRETE vs MINERAL: 'concrete' if cement-bonded aggregate or aerated cement product.
+              Lime plaster, gypsum board, calcium silicate, pure cement powder → 'mineral'
+            • COMPOSITE vs POLYMERIC: 'composite' ONLY if explicitly fiber-reinforced.
+              Pure polymers, foams, resins (EPS, XPS, PVC, epoxy resin) → 'polymeric'
+            • WOOD vs BIOBASED: 'wood' for tree-derived materials. 'biobased' for other plant/animal fibers.
             • Ignore surface coatings (laminates, varnish, paint) when determining the base material.
             • Always classify based on the **dominant** material by mass/volume or by explicit naming.
         """).strip(),
-        examples=[
-            "wood", "biobased_nonwood", "concrete", "mineral", 
-            "metallic", "polymeric", "bituminous", "composite"
-        ]
     )
 
     functional_types: List[FunctionalTypes] = Field(

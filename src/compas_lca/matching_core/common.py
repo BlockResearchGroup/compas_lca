@@ -26,10 +26,97 @@ class Common(BaseModel):
     entry_type: EntryType = Field(
         ...,
         description=dedent("""
-        Classify the dataset as a MATERIAL (homogeneous substance, monolithic unit, or uniform layer), 
-        COMPONENT (assembled product or system-level element), or UNKNOWN if insufficient evidence.
+        Classify the dataset as MATERIAL, COMPONENT, or UNKNOWN.
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        DEFAULT ASSUMPTION: Most products are MATERIALS unless proven otherwise.
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        DEFINITIONS:
+        • MATERIAL: A single homogeneous substance or uniform layer defined by physical/chemical nature.
+          Includes monolithic integrated composites (reinforced concrete, fiber-cement, WPC) that are
+          NOT installed as functional units by themselves.
+          Single glass panes = MATERIAL (unless multi-pane IGU with spacers/gas fill).
+          
+        • COMPONENT: A manufactured assembly or device installed as a functional building element.
+          Must involve MULTIPLE distinct materials or separable parts.
+          Examples: window units (frame+glass+seals), door assemblies, ceiling systems (tiles+grid),
+          sandwich panels (metal facing+insulation core), ETICS systems, HVAC devices.
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        MATERIAL KEYWORDS — If product is made of ONE of these materials → 'material':
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        These products are ALWAYS materials (even if shaped as profiles/sections/frames):
+        
+        • METALS: aluminum, aluminium, steel, stainless steel, copper, zinc, brass, bronze, iron
+          → "Aluminium casement frame section" = material (single metal, shaped)
+          → "Steel beam IPE 200" = material (single metal)
+          → "Aluminum profile for windows" = material (NOT component)
+        
+        • POLYMERS: PVC, PE, PP, EPS, XPS, PUR, PIR, polyurethane, EPDM, polyester, acrylic
+          → "PVC window profile" = material (single polymer)
+          → "EPS insulation board" = material
+        
+        • GLASS (single panes): float glass, laminated glass, toughened glass, safety glass
+          → "Float glass 6mm" = material (NOT component, NOT infill)
+          → "Laminated safety glass" = material
+        
+        • MINERALS: gypsum, plaster, lime, ceramic, brick, tile, stone, mineral wool, glass wool
+          → "Mineral wool batt" = material
+          → "Gypsum board" = material
+        
+        • WOOD/BIOBASED: timber, plywood, OSB, MDF, CLT, hemp, flax, cork, sheep wool
+          → "Hemp insulation" = material
+          → "CLT panel" = material
+        
+        • CONCRETE: precast, ready-mixed, aerated concrete, reinforced concrete
+          → "Precast concrete panel" = material (reinforcement is integral)
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT SIGNALS — ONLY classify as 'component' if MULTIPLE materials combined:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        REQUIRED: Product must explicitly combine 2+ DIFFERENT material families.
+        
+        • "with ... facing/cladding/core": "PU boards with aluminium facing" → component
+        • "sandwich", "composite panel": Metal + insulation core → component
+        • "ETICS", "WDVS": Insulation + adhesive + mesh + render → component
+        • "IGU", "insulating glass unit": Glass + spacer + gas fill → component
+        • Complete assemblies: "window unit", "door assembly", "ceiling system" → component
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMMON MISCLASSIFICATION TRAPS — Avoid these errors:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        ❌ WRONG: "Aluminium casement frame section" → window_fitting or component
+        ✓ RIGHT:  "Aluminium casement frame section" → material (metallic)
+        
+        ❌ WRONG: "Float glass" → component/infill
+        ✓ RIGHT:  "Float glass" → material (mineral/glass)
+        
+        ❌ WRONG: "Steel door frame profile" → component
+        ✓ RIGHT:  "Steel door frame profile" → material (metallic)
+        
+        ❌ WRONG: "PVC window profile" → window_fitting
+        ✓ RIGHT:  "PVC window profile" → material (polymeric)
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        NAMING TRAPS — These words ALONE do NOT make it a component:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        "frame", "section", "profile", "casement", "unit", "system", "module", "device",
+        "structure", "block", "element", "panel", "fitting"
+        
+        → Always check: Is it made of ONE material family or MULTIPLE?
+        → If ONE material (even shaped/formed) → material
+        → If MULTIPLE distinct materials combined → component
+        
+        DECISION ORDER:
+        1) Single material (even if shaped as profile/frame/section) → `material`
+        2) Multiple distinct material families explicitly combined → `component`
+        3) Insufficient or contradictory information → `unknown`
         """).strip(),
-        examples=["material", "component", "unknown"]
     )
     name: str = Field(
         ...,
@@ -54,7 +141,6 @@ class Common(BaseModel):
         4) If the dataset does not explicitly state structural intent, but the generic material class is one that is routinely used in 
         structural applications (e.g., ready-mixed concrete, structural-grade timber), classify as "either".
         """).strip(),
-        examples=["loadbearing", "non_loadbearing", "either"]
     )
     placement: Optional[InteriorExteriorType] = Field(      # should a value be enforced?
         None,
@@ -73,7 +159,6 @@ class Common(BaseModel):
             furniture materials, MEP components located inside conditioned spaces.
         5) If none of the above apply and placement cannot be confidently inferred → leave empty.
         """).strip(),
-        examples=["interior", "exterior", "either"]
     )
     density: Optional[DensityFloat] = Field(
         None,

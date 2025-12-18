@@ -12,10 +12,12 @@ and suffices in conjunction with MaterialCommon.
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from textwrap import dedent
 
 from compas_lca.enums import BiobasedType
+from compas_lca.matching_core.normalization import normalize_biobased_type
 
 class BiobasedFacet(BaseModel):
     model_config = ConfigDict(
@@ -47,3 +49,7 @@ class BiobasedFacet(BaseModel):
         """).strip(),
         examples=["cotton", "hemp", "straw", "other", "unknown"]
     )
+    @field_validator("biobased_type", mode="before")
+    @classmethod
+    def _normalize_biobased_type(cls, value):
+        return normalize_biobased_type(value)
