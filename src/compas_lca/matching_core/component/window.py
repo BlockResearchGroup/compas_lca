@@ -24,7 +24,7 @@ class WindowFacet(BaseModel):
         description=dedent("""
             The dominant **frame material type** of the window or glazing unit.  
             Refers to the material that forms the structural frame (e.g., aluminium, wood, PVC, steel, or composite).  
-            If the frame material is not stated or cannot be inferred, set to `"unknown"`.
+            If the SPECIFICALLY the frame material is not stated or cannot be inferred, set to `"unknown"`.
         """).strip(),
         examples=["aluminium", "wood", "unknown"]
     )

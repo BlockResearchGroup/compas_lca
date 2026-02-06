@@ -1,3 +1,4 @@
+
 from typing import Optional
 from typing import List
 
@@ -46,14 +47,15 @@ class MaterialCore(BaseModel):
         if mtype is None:
             return data
 
-        # unknown/other check
         name = getattr(mtype, "value", getattr(mtype, "name", str(mtype)))
+
         if name.lower() in {"unknown", "other"}:
             if facet is None:
                 data = {**data, "material_facet": {}}
             return data
 
         model = MODEL_BY_MAT_TYPE.get(mtype)
+
         if model is None:
             raise ValueError(f"No facet model registered for material_type={mtype!r}")
 
@@ -61,8 +63,11 @@ class MaterialCore(BaseModel):
             raise ValueError("`material_facet` cannot be None.")
 
         if isinstance(facet, dict):
-            data = {**data, "material_facet": model.model_validate(facet)}
-            return data
+            try:
+                data = {**data, "material_facet": model.model_validate(facet)}
+                return data
+            except Exception:
+                raise
 
         if not isinstance(facet, model):
             raise TypeError(
@@ -70,7 +75,6 @@ class MaterialCore(BaseModel):
                 f"got {type(facet).__name__}"
             )
         return data
-
 
 def assemble_material_core(common: MaterialCommon, material_facet: object) -> MaterialCore:
     """

@@ -20,11 +20,14 @@ class DoorFacet(BaseModel):
     door_type: DoorType = Field(
         DoorType.unknown,
         description=dedent("""
-            The primary material that forms the frame/leaf of the door.
+            The primary material that forms the leaf/infill of the door.
             If the door material is not stated or cannot be inferred, set to `"unknown"`.
             
             DISAMBIGUATION RULES:
             
+            GLASS TYPES:
+            • `glass` — Glass is mentioned as a material (regardless of frame).             
+
             STEEL TYPES (distinguish carefully):
             • `stainless_steel` — Corrosion-resistant stainless steel doors.
               Use ONLY when "stainless" is explicitly mentioned.
@@ -42,7 +45,7 @@ class DoorFacet(BaseModel):
             • `wood` — Solid wood or wood-based doors.
             • `wood_aluminium` — Composite wood-aluminum doors (wood interior, aluminum exterior).
             • `pvc` — PVC/uPVC doors.
-            • `glass` — Full glass doors (frameless or minimal frame).
+            • `glass` — Full glass doors (regardless of frame).
             • `polyurethane` — PU-filled/insulated doors.
             • `mixed_composite` — Multiple materials combined.
             

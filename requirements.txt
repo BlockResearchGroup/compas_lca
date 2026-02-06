@@ -2,7 +2,8 @@ compas >= 2
 compas_model
 compas_ifc
 dotenv
-pydantic-ai
+pydantic==2.12.5
+pydantic-ai==1.29.0
 pyyaml
 trafilatura
 pandas

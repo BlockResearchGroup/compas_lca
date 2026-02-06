@@ -1,5 +1,7 @@
 import re
 
+import traceback
+
 from math import isfinite
 
 from typing import Annotated
@@ -39,6 +41,7 @@ def _has_any(joined: str, *phrases: str) -> bool:
     return any(p in j for p in phrases)
 
 def _to_material_type(v: Any):
+
     """
     Normalize flexible inputs into MaterialType with careful precedence:
       1) explicit 'concrete' family (AAC, UHPC, RC, etc.)
@@ -135,7 +138,7 @@ def _to_material_type(v: Any):
         return MaterialType.mineral
     if (
         _has_any(joined,
-                 "cotton",
+                 "biobased", "bio-based", "bio based", "cotton",
                  "flax", "linen",
                  "hemp",
                  "sheep wool", "wool", "alpaca", "camel hair", "llama wool",
@@ -461,7 +464,7 @@ def _to_loadbearing(v: Any):
         return Loadbearing.non_loadbearing
     if s in {"either", "both", "variable", "depends", "sometimes", "mixed", "contextual", "maybe"}:
         return Loadbearing.either
-    return None
+    return Loadbearing.unknown
 
 
 def _to_inex(v: Any):

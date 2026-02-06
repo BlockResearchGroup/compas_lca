@@ -56,7 +56,7 @@ class PolymericFacet(BaseModel):
             
             OTHER:
             • `silicone` — Silicone sealants, adhesives, coatings.
-            • `rubber` — Natural or synthetic rubber products.
+            • `rubber` — Natural or synthetic rubber products. EPDM is ALWAYS rubber!
             • `polycarbonate` — PC glazing panels.
             • `polyamide` — PA/Nylon. Keywords: "polyamide", "PA", "nylon", "Polyamid".
             

@@ -26,27 +26,23 @@ class ConcreteFacet(BaseModel):
             Fundamental property of concrete or cementitious binder product.
             
             DISAMBIGUATION RULES (choose the most specific match):
-            • `aerated` — Autoclave-cured cellular concrete (AAC/autoclaved aerated concrete).
-              Contains air voids created by chemical reaction (aluminum powder). Low density (~400-800 kg/m³).
-              Keywords: "AAC", "autoclaved", "Ytong", "Hebel", "cellular concrete", "aerated concrete granulate".
+            • `ready_mixed` — Wet/fresh concrete delivered to site, or processed into an building element on site.
+              Keywords: "ready-mix", "cast-in-place", "in-situ concrete", "Ortbeton".
+            • `precast` — Factory-manufactured concrete elements, cured before delivery.
+              Keywords: "precast", "prefabricated", "factory-made", "pre-fabricated element", "Fertigteil.
+            • `cementitious_screed` — screed product applied predominantly for flooring.
+              Keywords: "screed", "Beton - CT", "Estrich"
             • `lightweight` — Concrete with lightweight aggregates (expanded clay, pumice, perlite, etc.).
               Air voids are in the aggregates, not the paste. Density typically 800-2000 kg/m³.
-              Keywords: "lightweight aggregate", "expanded clay", "Liapor", "pumice concrete".
-            • `ready_mixed` — Wet/fresh concrete delivered to site, mixed off-site in a batching plant.
-              Keywords: "ready-mix", "ready mixed", "fresh concrete", "transport concrete".
-            • `precast` — Factory-manufactured concrete elements, cured before delivery.
-              Keywords: "precast", "prefabricated", "factory-made", "pre-fabricated element".
+            • `aerated` — Autoclave-cured cellular concrete. Low density (~400-800 kg/m³).
             • `binder` — Pure cementite binder materials WITHOUT aggregates (cement powder, cement paste).
-              NOT concrete products. Keywords: "cement", "binder", "Portland cement", "CEM".
+              Keywords: "cement", "binder", "Portland cement".
             • `calcium_sulfate` — Gypsum-based binders/screeds (chemically CaSO₄).
-              Keywords: "calcium sulfate", "anhydrite", "gypsum screed".
-            • `calcium_silicate` — Calcium silicate products (sand-lime bricks, calcium silicate boards).
-              Keywords: "calcium silicate", "sand-lime", "Kalksandstein".
+            • `calcium_silicate` — Calcium silicate products.
             • `self_compacting` — Self-compacting/self-leveling concrete (flows without vibration).
-            • `foamed_concrete` — Foamed by mechanical foaming (not autoclaved). Lower strength than AAC.
+            • `foamed_concrete` — Foamed by mechanical foaming.
             
-            If uncertain between `aerated` and `lightweight`, check for "autoclaved" or "AAC" → aerated;
-            if aggregates are mentioned → lightweight.
+            If no clear match is found, assign `unknown`.
         """).strip(),
     )
     @field_validator("concrete_type", mode="before")
@@ -57,7 +53,7 @@ class ConcreteFacet(BaseModel):
         None,
         description=dedent("""
         Physical form or geometric configuration of the concrete/cementitious-based product.
-        Note: Ready-mix concrete is 'amorphous'.
+        Note: Ready-mix, or cast-in-situ concrete is ALWAYS 'amorphous'.
         """).strip(),
         examples=["cast-in-place", "masonry_unit", "amorphous"]
     )
@@ -71,7 +67,10 @@ class ConcreteFacet(BaseModel):
     )
     binder_type: Optional[BinderType] = Field(
         None,
-        description="Type of binder used for concrete product",
+        description=dedent("""
+            Type of binder used for concrete product. Only assign a binder if 
+            it is explicitly stated inside of the raw data!
+        """).strip(),
         examples=["portland_cement", "lime", "other"]
     )
     cement_type: Optional[str] = Field(
@@ -80,7 +79,7 @@ class ConcreteFacet(BaseModel):
             According to European standard EN 197-1
             I, II, III, IV, V = The main cement type category
             Subclasses (A, B, C) = The proportion of clinker and other constituents
-            Only applies if binder = cement, and a CEM type is specified
+            Only applies if binder = cement, and a CEM type is explicitly specified in the input data.
         """).strip(),
         examples=["CEM III/A", "CEM II"]
     )
@@ -118,7 +117,6 @@ class ConcreteFacet(BaseModel):
         description=dedent("""
         Exposure class (EN 206-1)
         For chloride induced corrosion (from de-icing salts)
-        Severity digits 1-3
         """).strip()
     )
     xs: Optional[Literal["XS1", "XS2", "XS3"]] = Field(
@@ -126,7 +124,6 @@ class ConcreteFacet(BaseModel):
         description=dedent("""
         Exposure class (EN 206-1)
         For chloride induced corrosion (from seawater)
-        Severity digits 1-3
         """).strip()
     )
     xf: Optional[Literal["XF1", "XF2", "XF3", "XF4"]] = Field(
@@ -134,7 +131,6 @@ class ConcreteFacet(BaseModel):
         description=dedent("""
         Exposure class (EN 206-1)
         For the impact of freezing/melting
-        Severity digits 1-4
         """).strip()
     )
     xa: Optional[Literal["XA1", "XA2", "XA3", "XA4"]] = Field(
@@ -142,6 +138,5 @@ class ConcreteFacet(BaseModel):
         description=dedent("""
         Exposure class (EN 206-1)
         For alkali-silica reaction (chemical agent)
-        Severity digits 1-4
         """).strip()
     )

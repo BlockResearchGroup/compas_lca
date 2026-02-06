@@ -530,6 +530,7 @@ class BiobasedType(str, Enum):
 # ----------------------------------------
 
 class BituminousType(str, Enum):
+    asphalt_mix = "asphalt_mix"                      # hot/cold mix asphaltic concrete for paving
     mastic_asphalt = "mastic_asphalt"                  # high binder content, voidless mastic
     bitumen = "bitumen"                                # unmodified petroleum bitumen
     polymer_modified_bitumen = "polymer_modified_bitumen"  # e.g., SBS/APP modified
@@ -909,7 +910,6 @@ class ShadingDeviceType(str, Enum):
     pergola = "pergola"                             # Roof-mounted or free-standing shading frame system
     dynamic_facade = "dynamic_facade"               # Adaptive façade modules with integrated shading control
     curtain = "curtain"                             # Fabric curtain system used for shading or privacy
-    awning = "awning"                               # Retractable or fixed fabric canopy
     other = "other"                                 # Catch-all for custom or uncommon shading products
     unknown = "unknown"
 class ShadingDeviceMaterial(str, Enum):

@@ -24,6 +24,7 @@ from compas_lca.llm.ctx.extraction_context import ITEM_COMMON_CTX
 from compas_lca.llm.ctx.extraction_context import ELEMENT_COMMON_CTX
 from compas_lca.llm.ctx.extraction_context import LAYER_COMMON_CTX
 from compas_lca.llm.ctx.extraction_context import MATERIAL_COMMON_CTX
+from compas_lca.llm.ctx.extraction_context import MATERIAL_COMMON_LAYER_CTX
 from compas_lca.llm.ctx.extraction_context import COMPONENT_COMMON_CTX
 from compas_lca.llm.ctx.speculation_context import ThicknessGuessResult
 
@@ -198,6 +199,7 @@ def extract_matching_core(
         aggregated_meta = merge_llm_meta(aggregated_meta, common_meta)
 
     common = Common.model_validate(common_dict)
+
     if common.entry_type is None:
         raise ValueError("'entry_type' was not inferred (None). Expected 'material', 'component', or 'unknown'.")
 
@@ -214,36 +216,57 @@ def extract_matching_core(
     # --- Pass 2: Entry-specific Common ---
     # -------------------------------------
     if common.entry_type == EntryType.material:
-        ctx2, model2 = MATERIAL_COMMON_CTX, MaterialCommon
+        ctx2 = MATERIAL_COMMON_LAYER_CTX if input_type == "layer" else MATERIAL_COMMON_CTX
+        model2 = MaterialCommon
         etype_attr, ctx_map, model_map = "material_type", CTX_BY_MAT_TYPE, MODEL_BY_MAT_TYPE
-    else:
+
+    elif common.entry_type == EntryType.component:
         ctx2, model2 = COMPONENT_COMMON_CTX, ComponentCommon
         etype_attr, ctx_map, model_map = "component_type", CTX_BY_COMP_TYPE, MODEL_BY_COMP_TYPE
 
-    spec_common_dict, spec_meta = extractor(
-        input_json=normalized_input,
-        context=ctx2
-    )
-    if spec_meta:
-        aggregated_meta = merge_llm_meta(aggregated_meta, spec_meta)
-
-    specific_common = model2.model_validate(spec_common_dict)
-    etype = getattr(specific_common, etype_attr)
-    name = getattr(etype, "value", getattr(etype, "name", str(etype)))
-
-    # Determine facet context/model
-    if name and isinstance(name, str) and name.lower() in {"unknown", "other"}:
-        facet_ctx = None
-        facet_model = None
-        facet = {}
-    elif etype not in ctx_map or etype not in model_map:
-        facet_ctx = None
-        facet_model = None
-        facet = {}
     else:
-        facet_ctx = ctx_map[etype]
-        facet_model = model_map[etype]
-        facet = None
+        # EntryType.unknown (or any unhandled type) -> skip pass 2 and facets entirely
+        ctx2 = None
+        model2 = None
+        etype_attr = None
+        ctx_map = None
+        model_map = None
+
+    if ctx2 is not None and model2 is not None:
+
+        spec_common_dict, spec_meta = extractor(
+            input_json=normalized_input,
+            context=ctx2
+        )
+        if spec_meta:
+            aggregated_meta = merge_llm_meta(aggregated_meta, spec_meta)
+
+        specific_common = model2.model_validate(spec_common_dict)
+
+        etype = getattr(specific_common, etype_attr)
+        name = getattr(etype, "value", getattr(etype, "name", str(etype)))
+
+        # Determine facet context/model
+        if name and isinstance(name, str) and name.lower() in {"unknown", "other"}:
+            facet_ctx = None
+            facet_model = None
+            facet = {}
+        elif etype not in ctx_map or etype not in model_map:
+            facet_ctx = None
+            facet_model = None
+            facet = {}
+        else:
+            facet_ctx = ctx_map[etype]
+            facet_model = model_map[etype]
+            facet = None
+
+    else:
+        # Unknown entry type: no entry-specific common, no facet extraction
+        specific_common = None
+        facet_ctx = None
+        facet_model = None
+        facet = {}
+
 
     # ---------------------
     # --- Pass 3: Facet ---
@@ -264,9 +287,11 @@ def extract_matching_core(
     if common.entry_type == EntryType.material:
         material_core = assemble_material_core(specific_common, facet)
         matching_core = assemble_matching_core(common, material_core)
-    else:
+    elif common.entry_type == EntryType.component:
         component_core = assemble_component_core(specific_common, facet)
         matching_core = assemble_matching_core(common, component_core)
+    else:
+        matching_core = assemble_matching_core(common, None)
 
     return matching_core, aggregated_meta
 

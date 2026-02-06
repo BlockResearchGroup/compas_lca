@@ -35,54 +35,53 @@ class MaterialCommon(BaseModel):
             IF product name/description contains ANY of these keywords → classify immediately:
             
             • BIOBASED keywords (non-wood plant/animal fibers) → 'biobased':
-              hemp, Hanf, Thermo-Hanf, Thermohanf, flax, Flachs, linen, jute, Jute,
-              sheep wool, Schafwolle, straw, Stroh, cork, Kork, cotton, Baumwolle,
-              bamboo, Bambus, coconut, Kokos, sisal, coir, seagrass, cattail, kenaf
-              EXAMPLES: "Hempflax Thermo Hemp" → biobased, "Schafwolldämmung" → biobased
-            
+              hemp, flax, linen, jute, sheep wool, straw, cork, cotton,
+              bamboo, coconut
+
             • WOOD keywords (tree-derived) → 'wood':
-              wood, Holz, timber, lumber, plywood, Sperrholz, veneer, LVL, glulam,
-              Brettschichtholz, CLT, Brettsperrholz, OSB, MDF, HDF, particleboard,
-              Spanplatte, chipboard, fiberboard, Faserplatte, wood fiber, Holzfaser,
-              wood wool, Holzwolle, cellulose (insulation)
+              wood, timber, lumber, plywood, veneer, LVL, glulam,
+              CLT, OSB, MDF, HDF, particleboard,
+              chipboard, fiberboard, wood fiber,
+              wood wool, cellulose (insulation)
             
             • METALLIC keywords → 'metallic':
-              steel, Stahl, stainless, aluminum, aluminium, Aluminium, copper, Kupfer,
-              zinc, Zink, brass, bronze, iron, cast iron, lead
+              steel, steel sheet, blech, stainless, aluminum, copper,
+              zinc, brass, bronze, iron, cast iron, lead
             
             • POLYMERIC keywords → 'polymeric':
               PVC, polyvinyl, PE, polyethylene, PP, polypropylene, PET, polyester,
               PUR, PIR, polyurethane, EPDM, EPS, XPS, polystyrene, acrylic, polyamide,
-              nylon, silicone, rubber, Kunststoff, plastique
+              nylon, silicone, rubber
             
             • BITUMINOUS keywords → 'bituminous':
-              asphalt, Asphalt, bitumen, Bitumen, tar, bituminous
+              asphalt, bitumen, tar, bituminous
             
             • CONCRETE keywords → 'concrete':
-              concrete, Beton, béton, reinforced concrete, RC, precast, Fertigbeton,
-              aerated concrete, Porenbeton, Gasbeton, AAC, Ytong, Hebel, cement screed
+              concrete, reinforced concrete, RC, precast,
+              aerated concrete, AAC, cement screed
             
             • MINERAL keywords → 'mineral':
-              glass, Glas, gypsum, Gips, plaster, lime, Kite, calcium silicate,
-              Kalksandstein, ceramic, Keramik, brick, Ziegel, tile, Fliese, stone,
-              granite, marble, slate, mineral wool, Mineralwolle, glass wool, rock wool
+              glass, gypsum, plaster, lime, calcium silicate,
+              ceramic, brick, tile, stone,
+              granite, marble, slate, mineral wool, glass wool, rock wool
             
             ═══════════════════════════════════════════════════════════════════════════════
             COMPOSITE — Use ONLY for explicit multi-material products:
             ═══════════════════════════════════════════════════════════════════════════════
             
             'composite' → ONLY when EXPLICITLY fiber-reinforced or multi-family combined:
-              - GFRP, CFRP, GFK, CFK, fiber-cement, fibre-cement, WPC, Faserzement
+              - GFRP, CFRP, fiber-cement, WPC, Linoleum
               - "glass fiber reinforced", "carbon fiber reinforced", "basalt fiber reinforced"
               - Wood-plastic composite, wood-cement composite
             NOTE: Reinforced concrete → 'concrete' (steel reinforcement is integral)
             NOTE: Pure resins/polymers WITHOUT fibers → 'polymeric', NOT 'composite'
             
             ═══════════════════════════════════════════════════════════════════════════════
-            UNKNOWN — Use ONLY as last resort:
+            UNKNOWN — Use as last resort:
             ═══════════════════════════════════════════════════════════════════════════════
             
             'unknown' → ONLY if NO recognizable material keyword is present in the text.
+            Only if the material is described as 'insulation' but contains no recognizable base material keywords, assign 'unknown'.
             NEVER use 'unknown' if ANY of the above keywords appear in the product name.
             
             ═══════════════════════════════════════════════════════════════════════════════
@@ -98,7 +97,6 @@ class MaterialCommon(BaseModel):
             • Always classify based on the **dominant** material by mass/volume or by explicit naming.
         """).strip(),
     )
-
     functional_types: List[FunctionalTypes] = Field(
         [FunctionalTypes.unknown],
         description=dedent("""
@@ -110,7 +108,6 @@ class MaterialCommon(BaseModel):
         - Add additional values ONLY if the material/product explicitly serves multiple 
         primary functions simultaneously (e.g., “thermal + acoustic insulation” panel).
         - If the role is not clearly stated in the raw data, keep “unknown”.
-        - Air is NOT assignable and results in an empty list.
         """).strip(),
         examples=[
             ["structural"],

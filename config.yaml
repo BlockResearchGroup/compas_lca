@@ -1,4 +1,4 @@
-model: claude-haiku-4-5
+model: gemini-3-pro-preview
 retries: 2
 currency: USD
 
@@ -12,8 +12,10 @@ pricing_table:
   gpt-5-mini:     { in_per_1k: 0.00025, out_per_1k: 0.002 }
   gpt-5-nano:     { in_per_1k: 0.00005, out_per_1k: 0.0004 }
   gpt-5.1:          { in_per_1k: 0.00125, out_per_1k: 0.01 }
-  claude-3-5-sonnet: { in_per_1k: 3.0, out_per_1k: 15.0 }
-  claude-opus-4-5: { in_per_1k: 0.015, out_per_1k: 0.075 }
+  gpt-5.2:          { in_per_1k: 0.00175, out_per_1k: 0.014 }
+  gpt-5.2-pro:          { in_per_1k: 0.021, out_per_1k: 0.168 }
+  claude-opus-4-5: { in_per_1k: 0.005, out_per_1k: 0.025 }
   claude-sonnet-4-5: { in_per_1k: 0.003, out_per_1k: 0.015 }
   claude-haiku-4-5: { in_per_1k: 0.001, out_per_1k: 0.005 }
   gemini-3-pro-preview: { in_per_1k: 0.002, out_per_1k: 0.012 }
+  gemini-3-flash-preview: { in_per_1k: 0.0005, out_per_1k: 0.003 }

@@ -51,7 +51,8 @@ class MetallicFacet(BaseModel):
                • `aluminum` — All aluminum/aluminium products (use American spelling)
                • `copper`, `brass`, `bronze`, `zinc`, `lead`
                            
-            6. `unknown` — If none of the above can be confidently assigned.
+            6. `unknown` — If none of the above can be confidently assigned. E.g. if the data specifies
+               a generic "metal" profile, sheet or grating element without further information, assign "unknown"
             
             Choose the MOST SPECIFIC applicable type. A "stainless steel door" → `stainless_steel`;
             a generic "steel door" → `carbon_steel` (unless stainless is specified).

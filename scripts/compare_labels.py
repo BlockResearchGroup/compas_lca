@@ -15,20 +15,162 @@ import json
 from collections import defaultdict
 from pathlib import Path
 from typing import Optional
+from typing import Any, Literal
+from dataclasses import dataclass
+from collections import Counter
+import math
+import sys
 
 # Define paths
-gt_root = Path("temp/obd_ground_truth_samples")
-test_root = Path("temp/OBD_samples_haiku1")
-output_csv = Path("temp/comparison_label_by_label.csv")
+gt_root = Path("temp/ifc_extracted/0_samples/0_ground_truth") 
+test_root = Path("temp/ifc_extracted/0_samples/tests/openai_gpt_5_mini")
+output_path = test_root / "0_labels"
+
+summary_txt = output_path / "summary.txt"
+output_csv = output_path / "comparison_label_by_label.csv"
 
 # Attributes to exclude from comparison
 EXCLUDED_ATTRIBUTES = {
     "core_id",
     "thickness_source",
+    "name"
 }
 
 # Patterns for classification fields to exclude (ending with _type)
 EXCLUDED_SUFFIXES = ("_type",)
+class Tee:
+    def __init__(self, *files):
+        self.files = files
+
+    def write(self, data):
+        for f in self.files:
+            f.write(data)
+            f.flush()
+
+    def flush(self):
+        for f in self.files:
+            f.flush()    
+
+
+
+CompareKind = Literal["string", "float", "list_str", "bool"]
+
+@dataclass(frozen=True)
+class CompareRule:
+    kind: CompareKind
+    tol: float | None = None
+    casefold: bool = True
+    strip: bool = True
+
+# Optional: tune these for item_core keys you care about
+RULES_BY_KEY: dict[str, CompareRule] = {
+    # examples (edit to match your item_core schema):
+    "facet.thickness_mm": CompareRule(kind="float", tol=0.01),
+    "facet.density": CompareRule(kind="float", tol=0.05),
+    "facet.tags": CompareRule(kind="list_str"),
+    # booleans (example):
+    # "facet.is_recycled": CompareRule(kind="bool"),
+}
+
+DEFAULT_RULE = CompareRule(kind="string")
+
+def rule_for_key(attr_key: str) -> CompareRule:
+    return RULES_BY_KEY.get(attr_key, DEFAULT_RULE)
+
+def normalize_str(s: str, casefold: bool = True, strip: bool = True) -> str:
+    if s is None:
+        return s
+    if strip:
+        s = s.strip()
+    if casefold:
+        s = s.casefold()
+    return s
+
+def safe_float(x: Any) -> float | None:
+    if x is None:
+        return None
+    if isinstance(x, (int, float)) and not isinstance(x, bool):
+        return float(x)
+    if isinstance(x, str):
+        try:
+            return float(x)
+        except ValueError:
+            return None
+    return None
+
+def safe_bool(x: Any) -> bool | None:
+    if x is None:
+        return None
+    if isinstance(x, bool):
+        return x
+    if isinstance(x, str):
+        s = x.strip().lower()
+        if s in {"true", "1", "yes", "y"}:
+            return True
+        if s in {"false", "0", "no", "n"}:
+            return False
+    return None
+
+def f1_for_string_lists(gt_list: list[Any] | None, test_list: list[Any] | None, *, casefold=True, strip=True) -> float:
+    # NOTE: missing–missing handling is done outside in score_values
+    if not gt_list and not test_list:
+        return 1.0
+    if not gt_list or not test_list:
+        return 0.0
+
+    gt_norm = [normalize_str(str(x), casefold=casefold, strip=strip) for x in gt_list]
+    test_norm = [normalize_str(str(x), casefold=casefold, strip=strip) for x in test_list]
+
+    gt_c = Counter(gt_norm)
+    test_c = Counter(test_norm)
+
+    overlap = sum((gt_c & test_c).values())
+    precision = overlap / sum(test_c.values()) if sum(test_c.values()) else 0.0
+    recall = overlap / sum(gt_c.values()) if sum(gt_c.values()) else 0.0
+    if precision + recall == 0:
+        return 0.0
+    return 2 * precision * recall / (precision + recall)
+
+def score_values(gt_value: Any, test_value: Any, rule: CompareRule) -> float | None:
+    """
+    Returns:
+      - None  => ignore (missing–missing)
+      - float in [0,1] => score for this field
+    Policy:
+      - missing–missing => ignore
+      - GT missing but test present => 0.0 (penalize)
+      - GT present but test missing => 0.0 (penalize)
+    """
+    if gt_value is None and test_value is None:
+        return None
+    if gt_value is None or test_value is None:
+        return 0.0
+
+    if rule.kind == "bool":
+        gb = safe_bool(gt_value)
+        tb = safe_bool(test_value)
+        if gb is None or tb is None:
+            return 0.0
+        return 1.0 if gb == tb else 0.0
+
+    if rule.kind == "float":
+        tol = rule.tol if rule.tol is not None else 0.0
+        gf = safe_float(gt_value)
+        tf = safe_float(test_value)
+        if gf is None or tf is None or not (math.isfinite(gf) and math.isfinite(tf)):
+            return 0.0
+        return 1.0 if abs(gf - tf) <= tol else 0.0
+
+    if rule.kind == "list_str":
+        if not isinstance(gt_value, list) or not isinstance(test_value, list):
+            return 0.0
+        return f1_for_string_lists(gt_value, test_value, casefold=rule.casefold, strip=rule.strip)
+
+    # default: string-ish exact match after normalization
+    gt_s = normalize_str(str(gt_value), casefold=rule.casefold, strip=rule.strip)
+    test_s = normalize_str(str(test_value), casefold=rule.casefold, strip=rule.strip)
+    return 1.0 if gt_s == test_s else 0.0
+
 
 
 def is_excluded(attr_key: str) -> bool:
@@ -138,58 +280,59 @@ def load_item_core(file_path: Path) -> Optional[dict]:
         return None
 
 
-def compare_values(gt_value, test_value) -> bool:
-    """Compare two values, handling None, lists, and other types."""
-    # Normalize None comparisons
+def compare_values(gt_value, test_value):
+    """
+    Compare two values.
+    - If BOTH are None => ignore (return None) so it does not affect numerator/denominator.
+    - If GT is None and test is present => penalize (return False).
+    - If GT is present and test is None => penalize (return False).
+    - Otherwise compare values (lists order-independent).
+    """
+    # Missing–missing: IGNORE (do not count)
     if gt_value is None and test_value is None:
-        return True
+        return None
+
+    # One missing: penalize
     if gt_value is None or test_value is None:
         return False
-    
-    # For lists, compare sorted versions (order-independent)
+
+    # Lists: order-independent compare
     if isinstance(gt_value, list) and isinstance(test_value, list):
         try:
             return sorted(gt_value) == sorted(test_value)
         except TypeError:
-            # If items aren't sortable, compare as-is
             return gt_value == test_value
-    
+
     return gt_value == test_value
 
 
 def print_attr_stats(scenario_name: str, stats: dict, sample_count: int):
-    """Print attribute statistics for a given scenario and return average accuracy."""
     print(f"\n--- {scenario_name} ({sample_count} samples) ---")
-    
+
     if not stats:
         print("  No data available")
         return 0.0
-    
-    # Sort attributes for consistent output
+
     sorted_attrs = sorted(stats.keys())
-    
-    # Find max attribute name length for alignment
     max_len = max(len(attr) for attr in sorted_attrs) if sorted_attrs else 0
-    
-    # Track totals for average calculation
-    total_matches = 0
+
+    total_score = 0.0
     total_comparisons = 0
-    
+
     for attr in sorted_attrs:
         data = stats[attr]
         total = data["total"]
-        match = data["match"]
-        total_matches += match
+        sum_score = data["sum_score"]
+        total_score += sum_score
         total_comparisons += total
         if total > 0:
-            pct = 100 * match / total
-            print(f"  {attr:<{max_len}}  {pct:>5.1f}% ({match}/{total})")
-    
-    # Calculate and print average accuracy
-    avg_accuracy = 100 * total_matches / total_comparisons if total_comparisons > 0 else 0.0
-    print(f"\n  {'AVERAGE ACCURACY':<{max_len}}  {avg_accuracy:>5.1f}% ({total_matches}/{total_comparisons})")
-    
-    return avg_accuracy
+            pct = 100 * sum_score / total
+            print(f"  {attr:<{max_len}}  {pct:>5.1f}% ({sum_score:.2f}/{total})")
+
+    avg = 100 * total_score / total_comparisons if total_comparisons > 0 else 0.0
+    print(f"\n  {'AVERAGE SCORE':<{max_len}}  {avg:>5.1f}% ({total_score:.2f}/{total_comparisons})")
+    return avg
+
 
 
 # Compare and generate results
@@ -198,10 +341,10 @@ label_comparisons = []  # Store per-attribute comparisons
 # Track attribute statistics for each scenario
 # Structure: {scenario: {attribute: {"match": count, "total": count}}}
 attr_stats = {
-    "overall": defaultdict(lambda: {"match": 0, "total": 0}),
-    "level_1_correct": defaultdict(lambda: {"match": 0, "total": 0}),
-    "level_2_correct": defaultdict(lambda: {"match": 0, "total": 0}),
-    "level_3_correct": defaultdict(lambda: {"match": 0, "total": 0}),
+    "overall": defaultdict(lambda: {"sum_score": 0.0, "total": 0}),
+    "level_1_correct": defaultdict(lambda: {"sum_score": 0.0, "total": 0}),
+    "level_2_correct": defaultdict(lambda: {"sum_score": 0.0, "total": 0}),
+    "level_3_correct": defaultdict(lambda: {"sum_score": 0.0, "total": 0}),
 }
 
 # Track counts for summary
@@ -257,79 +400,94 @@ for uuid, gt_path in sorted(gt_uuid_to_path.items()):
     gt_flat = flatten_dict(gt_item_core)
     test_flat = flatten_dict(test_item_core)
     
-    # Compare each attribute in ground truth
-    for attr_key, gt_value in gt_flat.items():
-        # Check if attribute should be excluded
+    # Compare each attribute over the UNION of keys so test-only fields can be penalized
+    all_keys = set(gt_flat.keys()) | set(test_flat.keys())
+
+    for attr_key in all_keys:
+        # Exclusions apply to the key name (same logic as before)
         if is_excluded(attr_key):
             excluded_attrs_found.add(attr_key)
             continue
-        
-        test_value = test_flat.get(attr_key)
-        is_match = compare_values(gt_value, test_value)
-        
-        # Store detailed comparison
+
+        gt_value = gt_flat.get(attr_key)     # may be None / missing
+        test_value = test_flat.get(attr_key) # may be None / missing
+
+        rule = rule_for_key(attr_key)
+        score = score_values(gt_value, test_value, rule)
+
+        # missing–missing => ignore completely (no CSV row, no denominator increment)
+        if score is None:
+            continue
+
+        is_match = (score == 1.0)  # keep boolean flag if you want it
+
+        # Store detailed comparison (only for counted comparisons)
         label_comparisons.append({
             "uuid": uuid,
             "attribute": attr_key,
             "gt_value": str(gt_value),
             "test_value": str(test_value),
+            "score": f"{score:.4f}",
             "match": str(is_match).lower(),
             "level_1_correct": str(level_1_match).lower(),
             "level_2_correct": str(level_2_match).lower(),
             "level_3_correct": str(level_3_match).lower(),
         })
-        
+
         # Update statistics for each scenario
         # Overall
         attr_stats["overall"][attr_key]["total"] += 1
-        if is_match:
-            attr_stats["overall"][attr_key]["match"] += 1
-        
-        # Level 1 correct
+        attr_stats["overall"][attr_key]["sum_score"] += score
+
         if level_1_match:
             attr_stats["level_1_correct"][attr_key]["total"] += 1
-            if is_match:
-                attr_stats["level_1_correct"][attr_key]["match"] += 1
-        
-        # Level 2 correct
+            attr_stats["level_1_correct"][attr_key]["sum_score"] += score
+
         if level_2_match:
             attr_stats["level_2_correct"][attr_key]["total"] += 1
-            if is_match:
-                attr_stats["level_2_correct"][attr_key]["match"] += 1
-        
-        # Level 3 correct
+            attr_stats["level_2_correct"][attr_key]["sum_score"] += score
+
         if level_3_match:
             attr_stats["level_3_correct"][attr_key]["total"] += 1
-            if is_match:
-                attr_stats["level_3_correct"][attr_key]["match"] += 1
+            attr_stats["level_3_correct"][attr_key]["sum_score"] += score
+
+
 
 # Write label-by-label comparison to CSV
-fieldnames = ["uuid", "attribute", "gt_value", "test_value", "match", "level_1_correct", "level_2_correct", "level_3_correct"]
+fieldnames = ["uuid", "attribute", "gt_value", "test_value", "score", "match",
+              "level_1_correct", "level_2_correct", "level_3_correct"]
+
 with open(output_csv, "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(label_comparisons)
 
-# Print summary
-print(f"Label-by-label comparison complete. Results written to: {output_csv}")
-print(f"\n=== Summary ===")
-print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
-print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
-print(f"UUIDs found in both: {found_count}")
-print(f"Level 1 correct: {level_1_match_count}")
-print(f"Level 2 correct: {level_2_match_count}")
-print(f"Level 3 correct: {level_3_match_count}")
+with open(summary_txt, "w", encoding="utf-8") as summary_file:
+    original_stdout = sys.stdout
+    sys.stdout = Tee(sys.stdout, summary_file)
+    try:
+        # Print summary
+        print(f"Label-by-label comparison complete. Results written to: {output_csv}")
+        print(f"\n=== Summary ===")
+        print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
+        print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
+        print(f"UUIDs found in both: {found_count}")
+        print(f"Level 1 correct: {level_1_match_count}")
+        print(f"Level 2 correct: {level_2_match_count}")
+        print(f"Level 3 correct: {level_3_match_count}")
 
-# Print excluded attributes
-print(f"\n=== Excluded Attributes ===")
-for attr in sorted(excluded_attrs_found):
-    print(f"  - {attr}")
+        # Print excluded attributes
+        print(f"\n=== Excluded Attributes ===")
+        for attr in sorted(excluded_attrs_found):
+            print(f"  - {attr}")
 
-# Print label-by-label statistics
-print(f"\n{'='*60}")
-print("=== Label-by-Label Accuracy ===")
+        # Print label-by-label statistics
+        print(f"\n{'='*60}")
+        print("=== Label-by-Label Accuracy ===")
 
-print_attr_stats("Overall", attr_stats["overall"], found_count)
-print_attr_stats("Level 1 Correct", attr_stats["level_1_correct"], level_1_match_count)
-print_attr_stats("Level 2 Correct", attr_stats["level_2_correct"], level_2_match_count)
-print_attr_stats("Level 3 Correct", attr_stats["level_3_correct"], level_3_match_count)
+        print_attr_stats("Overall", attr_stats["overall"], found_count)
+        print_attr_stats("Level 1 Correct", attr_stats["level_1_correct"], level_1_match_count)
+        print_attr_stats("Level 2 Correct", attr_stats["level_2_correct"], level_2_match_count)
+        print_attr_stats("Level 3 Correct", attr_stats["level_3_correct"], level_3_match_count)
+    finally:
+        sys.stdout = original_stdout

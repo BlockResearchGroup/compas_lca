@@ -28,6 +28,22 @@ from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 
+ITEM_COMMON_PROMPT = """
+You are an expert at extracting data from a dataset describing a building MATERIAL or COMPONENT.
+
+TASK: Extract all relevant information and populate the output schema fields.
+- Copy values exactly from the input dataset.
+- Only add values that are explicitly present.
+- If a field is missing or unclear, leave its default. Do NOT infer or invent.
+- Follow the field descriptions in the schema for classification rules.
+"""
+
+ITEM_COMMON_CTX = Context(
+    instructions=ITEM_COMMON_PROMPT,
+    output_type=Common
+)
+
+
 ELEMENT_COMMON_PROMPT = """
 TASK
 Classify a BUILDING MODEL ELEMENT record as "material", "component", or "unknown".
@@ -61,7 +77,7 @@ HARD OVERRIDES:
      → entry_type = "component".
 
    Typical examples include (when multiple materials or full units are described):
-   - windows, doors, HVAC devices, lighting fixtures, solar panels,
+   - windows, doors, HVAC devices, lighting fixtures, solar panels, stairs,
      ceiling systems with tiles and grid, composite panels with fixings.
 
 3. UNKNOWN RULE
@@ -70,61 +86,16 @@ HARD OVERRIDES:
 
 GENERAL PRINCIPLES
 
-- Prefer "material" whenever there is a single, uniform material and a uniform thickness/section for the element.
+- "Material" whenever there is a single, uniform material.
 - Use "component" only when there is clear evidence of an installable assembly with multiple separable materials.
 - Do not infer missing values; base the classification only on what is present in the record.
 """
-
-
 
 ELEMENT_COMMON_CTX = Context(
     instructions=ELEMENT_COMMON_PROMPT,
     output_type=Common
 )
 
-
-ITEM_COMMON_PROMPT = """
-You are an expert at extracting data from a dataset describing a building MATERIAL or COMPONENT.
-
-TASK: Extract all relevant information and populate the output schema fields.
-- Copy values exactly from the input dataset.
-- Only add values that are explicitly present.
-- If a field is missing or unclear, leave its default. Do NOT infer or invent.
-- Follow the field descriptions in the schema for classification rules.
-
-═══════════════════════════════════════════════════════════════════════════════
-CLASSIFICATION EXAMPLES (follow these patterns):
-═══════════════════════════════════════════════════════════════════════════════
-
-BIOBASED materials (non-wood plant/animal fibers):
-  • "Hempflax Thermo Hemp Combi Jute" → entry_type: material, material_type: biobased
-  • "Schafwolldämmung" (sheep wool insulation) → entry_type: material, material_type: biobased
-  • "Cork insulation board" → entry_type: material, material_type: biobased
-  • "Flax fiber insulation" → entry_type: material, material_type: biobased
-
-METALLIC materials (single metal profiles/sheets/sections are materials, NOT components):
-  • "Aluminium casement frame section, powder coated" → entry_type: material, material_type: metallic
-  • "Steel beam IPE 200" → entry_type: material, material_type: metallic
-  • "Aluminum profile for windows" → entry_type: material, material_type: metallic
-  • "Copper pipe DN15" → entry_type: material, material_type: metallic
-
-MINERAL materials (glass panes are materials, NOT components/infill):
-  • "Float glass 6mm" → entry_type: material, material_type: mineral
-  • "Laminated safety glass" → entry_type: material, material_type: mineral
-  • "Gypsum board 12.5mm" → entry_type: material, material_type: mineral
-  • "Mineral wool insulation" → entry_type: material, material_type: mineral
-
-COMPONENTS (only for multi-material assemblies):
-  • "Window unit with aluminium frame and double glazing" → entry_type: component
-  • "PU boards with aluminium facing" → entry_type: component (insulation_element)
-  • "ETICS system" → entry_type: component
-  • "IGU triple glazing with argon fill" → entry_type: component
-"""
-
-ITEM_COMMON_CTX = Context(
-    instructions=ITEM_COMMON_PROMPT,
-    output_type=Common
-)
 
 # Layer context (for now very specific to the IFC workflow)
 LAYER_COMMON_PROMPT = """
@@ -191,22 +162,43 @@ LAYER_COMMON_CTX = Context(
 )
 
 
-TEMPLATE_LAYER = (
-    "You are an expert at extracting important information from a dataset describing {entry}. "
-    "The dataset may include a 'target_layer' and a 'parent_element_context'. "
+MATERIAL_COMMON_PROMPT = (
+    "You are an expert at extracting important information from a dataset describing {entry}."
+    " Your task is to carefully EXTRACT all relevant information and populate the fields of the output schema."
+    " For each field in the schema, locate the corresponding value in input dataset."
+    " Only add values in the output schema if they are explicitly present."
+    " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
+    " Do not include any explanatory text outside of the schema output."
+    "\n\n"
+    "CRITICAL: Follow the keyword detection rules in the field descriptions."
+    " If the product name contains material keywords (e.g., hemp, aluminum, glass, steel, PVC),"
+    " classify based on those keywords first before considering application context."
+    "\n\n"
+)
+
+MATERIAL_COMMON_CTX = Context(
+    instructions=MATERIAL_COMMON_PROMPT.format(entry="a concrete/cementitious material"),
+    output_type=MaterialCommon
+)
+
+
+MATERIAL_COMMON_LAYER_PROMPT = (
+    "You are an expert at extracting important information from a dataset describing a single material layer. "
+    "The dataset includes a 'target_layer' and a 'parent_element_context'. "
     ""
     "DATA SOURCES & PRIORITY:\n"
     "1) For the following fields, read ONLY from 'target_layer': "
-    "   - 'material_type', 'functional_types', 'density', 'areal_density'. "
+    "   - 'material_type', 'functional_types', 'thickness', 'areal_density'. "
     "   If these fields are NOT explicitly present (or are ambiguous) in 'target_layer', leave defaults; "
     "   do NOT infer or guess from any other key.\n"
-    "2) You may consult 'parent_element_context' ONLY for 'application_areas'. "
+    "2) You may consult 'parent_element_context' for the following:"
     "   For 'application_areas', extract the element being described from 'parent_element_context' "
+    "   Any additional application_areas values may be inferred based on unambiguous relevance"
     "   (e.g., the 'entity' or, if necessary, the element referenced in 'name').\n"
     ""
     "STRICT PROHIBITIONS (NO INFERENCE FROM HOST ELEMENT):\n"
     "- Never use 'parent_element_context' (e.g., 'name' like 'Floor:Finish Floor - Wood', 'object_type', or host categories) "
-    "  to infer 'material_type', 'functional_types', 'density', or 'areal_density'. "
+    "  to infer 'material_type', 'density', or 'areal_density'. "
     "- Example: If 'target_layer.material_name' is 'Insulation' without a specified subtype, "
     "  do NOT infer 'material_type' as 'wood', 'polymeric', or 'mineral' from a host like 'Wood' in 'parent_element_context'. "
     "- If 'target_layer' does not unambiguously specify a value, leave the schema default for that field.\n"
@@ -223,99 +215,67 @@ TEMPLATE_LAYER = (
     "- Do not include any explanatory text outside of the schema output."
 )
 
+MATERIAL_COMMON_LAYER_CTX = Context(
+    instructions=MATERIAL_COMMON_LAYER_PROMPT,
+    output_type=MaterialCommon
+)
 
-TEMPLATE = (
+
+MATERIAL_TEMPLATE = (
     "You are an expert at extracting important information from a dataset describing {entry}."
-    " This dataset is either a single JSON string, a PDF file, or a TXT file."
     " Your task is to carefully EXTRACT all relevant information and populate the fields of the output schema."
     " For each field in the schema, locate the corresponding value in input dataset."
     " Only add values in the output schema if they are explicitly present."
-    " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
+    " If a field is missing or cannot be determined, leave the default value. Do not invent, infer or assume values."
     " Do not include any explanatory text outside of the schema output."
+    "\n\n"
+    "CRITICAL: If the input dataset specifies a key called **target_layer**, based your answers around the data described in that field."
+    "If the dataset has **target_layer** in dataset, and **parent_element_context** as an additional field, you may consult the parent element context"
+    "Only if there are UNAMBIGUOUS datapoints that reference the material described in the **target_layer**"
     "\n\n"
     "CRITICAL: Follow the keyword detection rules in the field descriptions."
     " If the product name contains material keywords (e.g., hemp, aluminum, glass, steel, PVC),"
     " classify based on those keywords first before considering application context."
 )
 
-MATERIAL_COMMON_PROMPT = (
-    "You are an expert at classifying building materials by their dominant composition.\n\n"
-    "TASK: Determine the material_type based on keywords in the product name/description.\n\n"
-    "═══════════════════════════════════════════════════════════════════════════════\n"
-    "KEYWORD CLASSIFICATION (check product name FIRST):\n"
-    "═══════════════════════════════════════════════════════════════════════════════\n\n"
-    "BIOBASED (non-wood plant/animal fibers) → material_type: 'biobased'\n"
-    "  Keywords: hemp, Hanf, Thermo-Hanf, Thermohanf, Hempflax, flax, Flachs, linen,\n"
-    "            jute, Jute, sheep wool, Schafwolle, straw, Stroh, cork, Kork,\n"
-    "            cotton, Baumwolle, bamboo, Bambus, coconut, Kokos, sisal, coir\n"
-    "  Examples:\n"
-    "    • 'Hempflax Thermo Hemp Combi Jute' → biobased\n"
-    "    • 'Schafwolldämmung' → biobased\n"
-    "    • 'Thermo Hanf Premium' → biobased\n"
-    "    • 'Cork insulation board' → biobased\n"
-    "    • 'Flax fiber insulation' → biobased\n\n"
-    "WOOD (tree-derived) → material_type: 'wood'\n"
-    "  Keywords: wood, Holz, timber, lumber, plywood, OSB, MDF, HDF, CLT, glulam\n\n"
-    "METALLIC → material_type: 'metallic'\n"
-    "  Keywords: steel, Stahl, aluminum, aluminium, copper, zinc, brass, iron\n\n"
-    "POLYMERIC → material_type: 'polymeric'\n"
-    "  Keywords: PVC, PE, PP, PUR, PIR, EPS, XPS, polystyrene, polyurethane, EPDM\n\n"
-    "MINERAL → material_type: 'mineral'\n"
-    "  Keywords: glass, gypsum, Gips, lime, brick, Ziegel, mineral wool, rock wool\n\n"
-    "CONCRETE → material_type: 'concrete'\n"
-    "  Keywords: concrete, Beton, precast, aerated concrete, Porenbeton\n\n"
-    "═══════════════════════════════════════════════════════════════════════════════\n"
-    "NEVER use 'unknown' if ANY material keyword is found in the product name.\n"
-    "═══════════════════════════════════════════════════════════════════════════════\n"
-)
-
-MATERIAL_COMMON_CTX = Context(
-    instructions=MATERIAL_COMMON_PROMPT,
-    output_type=MaterialCommon
-)
-
-MATERIAL_COMMON_LAYER_CTX = Context(
-    instructions=TEMPLATE_LAYER.format(entry="a material"),
-    output_type=MaterialCommon
-)
 
 BIOBASED_CTX = Context(
-    instructions=TEMPLATE.format(entry="a bio-based material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a bio-based material"),
     output_type=BiobasedFacet
 )
 
 BITUMINOUS_CTX = Context(
-    instructions=TEMPLATE.format(entry="a bituminous material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a bituminous material"),
     output_type=BituminousFacet
 )
 
 COMPOSITE_CTX = Context(
-    instructions=TEMPLATE.format(entry="a composite material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a composite material"),
     output_type=CompositeFacet
 )
 
 CONCRETE_CTX = Context(
-    instructions=TEMPLATE.format(entry="a concrete/cementitious material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a concrete/cementitious material"),
     output_type=ConcreteFacet
 )
 
 WOOD_CTX = Context(
-    instructions=TEMPLATE.format(entry="a wood-based material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a wood-based material"),
     output_type=WoodFacet
 )
 
 METALLIC_CTX = Context(
-    instructions=TEMPLATE.format(entry="a metallic material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a metallic material"),
     output_type=MetallicFacet
 )
 
 MINERAL_CTX = Context(
-    instructions=TEMPLATE.format(entry="a mineral material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a mineral material"),
     output_type=MineralFacet
 )
 
 POLYMERIC_CTX = Context(
-    instructions=TEMPLATE.format(entry="a polymeric material"),
+    instructions=MATERIAL_TEMPLATE.format(entry="a polymeric material"),
     output_type=PolymericFacet
 )
 
@@ -323,72 +283,84 @@ POLYMERIC_CTX = Context(
 # %%%%%%%%% COMPONENT EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+COMPONENT_TEMPLATE = (
+    "You are an expert at extracting important information from a dataset describing {entry}."
+    " Your task is to carefully EXTRACT all relevant information and populate the fields of the output schema."
+    " For each field in the schema, locate the corresponding value in input dataset."
+    " Only add values in the output schema if they are explicitly present."
+    " If a field is missing or cannot be determined, leave the default value. Do not invent or assume values."
+    " Do not include any explanatory text outside of the schema output."
+    "\n\n"
+    "CRITICAL: Follow the keyword detection rules in the field descriptions."
+)
+
 COMPONENT_COMMON_CTX = Context(
-    instructions=TEMPLATE.format(entry="a component or a system-level assembly"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a component or a system-level assembly"),
     output_type=ComponentCommon
 )
 
 BUILDING_SERVICE_CTX = Context(
-    instructions=TEMPLATE.format(entry="a building service system or component"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a building service system or component"),
     output_type=BuildingServiceFacet
 )
 
 CEILING_CTX = Context(
-    instructions=TEMPLATE.format(entry="a (pre-fabricated) ceiling assembly"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a (pre-fabricated) ceiling assembly"),
     output_type=CeilingFacet
 )
 
 CONVEYOR_CTX = Context(
-    instructions=TEMPLATE.format(entry="a conveyor component"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a conveyor component"),
     output_type=ConveyorFacet
 )
 
 CURTAIN_WALL_CTX = Context(
-    instructions=TEMPLATE.format(entry="a curtain wall module, component or assembly"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a curtain wall module, component or assembly"),
     output_type=CurtainWallFacet
 )
 
 DOOR_CTX = Context(
-    instructions=TEMPLATE.format(entry="a door unit or door components"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a door unit or door components"),
     output_type=DoorFacet
 )
 
 INFILL_CTX = Context(
-    instructions=TEMPLATE.format(entry="an infill for windows, doors, or curtain wall units"),
+    instructions=COMPONENT_TEMPLATE.format(entry="an infill for windows, doors, or curtain wall units"),
     output_type=InfillFacet
 )
 
 INSULATION_ELEMENT_CTX = Context(
-    instructions=TEMPLATE.format(entry="an insulation element"),
+    instructions=COMPONENT_TEMPLATE.format(entry="an insulation element"),
     output_type=InsulationElementFacet
 )
 
 ROOF_CTX = Context(
-    instructions=TEMPLATE.format(entry="a roof assembly or roof component"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a roof assembly or roof component"),
     output_type=RoofFacet
 )
 
 SHADING_CTX = Context(
-    instructions=TEMPLATE.format(entry="a shading device"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a shading device"),
     output_type=ShadingFacet
 )
 
 STAIR_CTX = Context(
-    instructions=TEMPLATE.format(entry="a stair"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a stair"),
     output_type=StairFacet
 )
 
 RAILING_CTX = Context(
-    instructions=TEMPLATE.format(entry="a railing"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a railing"),
     output_type=RailingFacet
 )
 
 WINDOW_CTX = Context(
-    instructions=TEMPLATE.format(entry="a window unit or assembly"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a window unit or assembly"),
     output_type=WindowFacet
 )
 
 WINDOW_FITTING_CTX = Context(
-    instructions=TEMPLATE.format(entry="a window fitting product"),
+    instructions=COMPONENT_TEMPLATE.format(entry="a window fitting product"),
     output_type=WindowFittingFacet
 )
