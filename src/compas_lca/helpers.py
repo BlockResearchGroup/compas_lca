@@ -1,10 +1,53 @@
 import json
 
+import yaml
+
 from pathlib import Path
 
 from typing import Union
 from typing import Any
 from typing import Dict
+
+
+def load_config(config_path: Path | str = "config.yaml") -> dict:
+    """
+    Load and validate the project configuration from a YAML file.
+
+    Parameters
+    ----------
+    config_path : Path | str
+        Path to the config.yaml file (default: project root).
+
+    Returns
+    -------
+    dict
+        Parsed configuration dictionary.
+
+    Raises
+    ------
+    FileNotFoundError
+        If config.yaml does not exist.
+    KeyError
+        If required keys are missing.
+    """
+    config_path = Path(config_path)
+
+    if not config_path.exists():
+        raise FileNotFoundError(f"Config file not found: {config_path.resolve()}")
+
+    with config_path.open("r", encoding="utf-8") as f:
+        config = yaml.safe_load(f) or {}
+
+    # ---- required keys ----
+    required_keys = ["project_folder"]
+
+    missing = [key for key in required_keys if key not in config]
+    if missing:
+        raise KeyError(f"Missing required config keys: {missing}")
+
+    return config
+
+
 
 def load_json(input_data: Union[dict, str, Path]) -> dict:
     """Load JSON from dict or file path."""
