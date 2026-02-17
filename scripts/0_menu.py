@@ -55,8 +55,7 @@ def step_01b_select_representatives(project: Project) -> None:
     project.select_representatives()
 
 def step_01c_extract_building_data(project: Project) -> None:
-    # Placeholder: implement later as project.extract_ifc()
-    not_implemented("Step 01c: extract building data with AI")(project)
+    project.extract_building_data()
 
 def step_01d_match_epds(project: Project) -> None:
     not_implemented("Step 01d: match building data with EPDs")(project)

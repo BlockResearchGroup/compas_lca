@@ -4,6 +4,8 @@ import re
 
 from pathlib import Path
 
+from math import ceil
+
 from typing import Any
 from typing import Literal
 from typing import List
@@ -12,6 +14,8 @@ from typing import Iterable
 from typing import Optional
 from typing import Dict
 from typing import Tuple
+from typing import TypeVar
+from typing import Callable
 
 from compas_lca.model.lca_element import LcaElement
 from compas_lca.model.metadata import ModelMetadata
@@ -67,16 +71,17 @@ def get_hierarchy(element, aggregates_rels):
     for rel in aggregates_rels:
         if element in rel.RelatedObjects:
             decomposes = {
-                "Name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
-                "IfcEntity": type(rel.RelatingObject).__name__,
-                "GlobalId": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
+                "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
+                "entity": type(rel.RelatingObject).__name__,
+                "eid": str(rel.RelatingObject.id()),
+                "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
             }
         if element == rel.RelatingObject:
             is_decomposed_by.extend([
                 {
-                    "Name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
-                    "IfcEntity": type(obj).__name__,
-                    "GlobalId": obj.GlobalId if hasattr(obj, "GlobalId") else None
+                    "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
+                    "entity": type(obj).__name__,
+                    "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
                 }
                 for obj in rel.RelatedObjects
             ])
@@ -430,8 +435,8 @@ def write_ml_index(index: Dict[str, List[Dict[str, str]]], output_dir: Path) -> 
     """
     index shape:
       {
-        "IfcMaterialLayerSet":      [ {"name": str|None, "global_id": str}, ... ],
-        "IfcMaterialLayerSetUsage": [ {"name": str|None, "global_id": str}, ... ],
+        "IfcMaterialLayerSet":      [ {"name": str|None, "eid": str, "global_id": str}, ... ],
+        "IfcMaterialLayerSetUsage": [ {"name": str|None, "eid": str, "global_id": str}, ... ],
       }
     """
     # Ensure keys exist even if empty (stable schema)
@@ -447,7 +452,7 @@ def write_ml_index(index: Dict[str, List[Dict[str, str]]], output_dir: Path) -> 
 def write_mm_index(items: List[Dict[str, str]], output_dir: Path) -> None:
     """
     items shape:
-      [ {"name": str|None, "global_id": str}, ... ]
+      [ {"name": str|None, "eid": str, "global_id": str}, ... ]
     """
     if not items:
         return
@@ -590,30 +595,40 @@ def _discover_multix_paths(
 # HELPERS FOR PREPROCESSED IFC DATA -> LcaModel
 # =============================================
 
-def _build_rep_guid_map(tree: dict) -> dict[str, dict]:
+def _build_rep_eid_map(tree: dict) -> dict[str, dict]:
     """
-    finds any {representative, members} dicts anywhere in the tree
+    Builds a mapping:
+        representative_eid -> {
+            "object_type": <str>,
+            "representative": <dict>,
+            "members": <list[dict]>
+        }
+
+    Assumes tree format:
+        {
+            "<object_type>": [ {rep}, {member}, ... ],
+            ...
+        }
     """
     out: dict[str, dict] = {}
-
-    def visit(node):
-        if isinstance(node, dict):
-            # if this node looks like an entry, record it
-            rep = node.get("representative")
-            mem = node.get("members")
-            if isinstance(rep, dict) and isinstance(mem, list):
-                gid = rep.get("global_id")
-                if gid:
-                    out[gid] = node
-            # recurse
-            for v in node.values():
-                visit(v)
-        elif isinstance(node, list):
-            for v in node:
-                visit(v)
-
-    visit(tree)
+    if not isinstance(tree, dict):
+        return out
+    for object_type, elements in tree.items():
+        if not isinstance(elements, list) or not elements:
+            continue
+        representative = elements[0]
+        if not isinstance(representative, dict):
+            continue
+        eid = representative.get("eid")
+        if not eid:
+            continue
+        out[eid] = {
+            "object_type": object_type,
+            "representative": representative,
+            "members": elements[1:],  # remaining items
+        }
     return out
+
 
 def _iter_subdirs(root: Path) -> Iterator[Path]:
     """Yield immediate subdirectories (skip files)."""
@@ -624,26 +639,22 @@ def _iter_subdirs(root: Path) -> Iterator[Path]:
             yield p
 
 
-def _build_guid_index(elements_dir: Path) -> dict[str, Path]:
-    """
-    Build a fast lookup from IFC global_id -> element JSON path
-    for all files under `elements_dir` (non-recursive; switch to rglob if needed).
-    """
+def _build_eid_index(elements_dir: Path) -> dict[str, Path]:
     index: dict[str, Path] = {}
     for p in elements_dir.glob("*.json"):
         try:
             data = load_json(p)
-            guid = data.get("metadata", {}).get("global_id")
-            if guid:
-                index[guid.lower()] = p
+            eid = data.get("metadata", {}).get("eid")
+            if eid is not None and str(eid).strip():
+                index[str(eid).strip().lower()] = p
         except Exception:
-            # Best-effort: skip corrupt/unexpected files
             continue
     return index
 
-def _build_guid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial"]) -> dict[str, Path]:
+
+def _build_eid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial"]) -> dict[str, Path]:
     """
-    Build {global_id: subdir_path} for multi-* layouts.
+    Build {eid: subdir_path} for multi-* layouts.
     Each subdir contains a 'global' JSON plus L{n}.json / M{n}.json parts.
     """
     index: dict[str, Path] = {}
@@ -653,9 +664,9 @@ def _build_guid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial
         except Exception:
             continue
         data = load_json(global_path)
-        guid = data.get("metadata", {}).get("global_id")
-        if guid:
-            index[guid.lower()] = sub
+        eid = str(data.get("metadata", {}).get("eid"))
+        if eid:
+            index[eid.lower()] = sub
     return index
 
 
@@ -663,8 +674,11 @@ def _save_lca_element(elem: LcaElement, out_dir: Optional[Path]) -> None:
     if out_dir is None:
         return
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = str(elem.id)
-    (out_dir / f"{stem}.json").write_text(elem.model_dump_json(indent=2), encoding="utf-8")
+    stem = str(elem.descriptor.element_eid)
+    (out_dir / f"{stem}.json").write_text(
+        elem.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
 
 def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
     if out_dir is None:
@@ -676,17 +690,17 @@ def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
 def update_descriptor_ifc(member: dict[str, Any], descriptor: ElementDescriptor) -> ElementDescriptor:
     metadata = member.get("metadata", {}) or {}
     name = metadata.get("name")
+    eid = metadata.get("eid")
     global_id = metadata.get("global_id")
-    if not isinstance(name, str) or not name.strip():
-        name = getattr(descriptor, "element_name", None)
-    if not isinstance(global_id, str) or not global_id.strip():
-        global_id = getattr(descriptor, "element_uuid", None)
     try:
         return descriptor.model_copy(update={
             "element_name": name,
-            "element_uuid": global_id,
+            "element_eid": str(eid),
+            "element_global_id": global_id
         })
     except Exception as e:
+        print("error happens here")
+        print(e)
         return descriptor
 
 def update_matching_core_ifc(member: dict[str, Any], core: MatchingCore, entry_type: Optional[str]) -> MatchingCore:
@@ -807,3 +821,11 @@ def _pick_multimaterial_bucket(
 
     # 4) default -> undefined
     return undef_list, undef_dir, None 
+
+
+
+def _dump_json(obj: Any, path: Path) -> None:
+    path.write_text(
+        json.dumps(obj, indent=2, default=lambda o: str(o)),
+        encoding="utf-8",
+    )

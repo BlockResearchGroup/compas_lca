@@ -12,13 +12,13 @@ from compas_lca.helpers import load_config
 # Therefore, the most accurate approximation is received from the test data.
 
 pricing_table = {
-    "gpt-5-mini": {"Duration/element [s]": 51.77, "Cost/element [$]": 0.0082},
-    "gpt-5.2": {"Duration/element [s]": 4.45, "Cost/element [$]": 0.0253},
-    "claude-opus-4-5": {"Duration/element [s]": 11.2, "Cost/element [$]": 0.0998},
-    "claude-sonnet-4-5": {"Duration/element [s]": 11.5, "Cost/element [$]": 0.0597},
-    "claude-haiku-4-5": {"Duration/element [s]": 4.3, "Cost/element [$]": 0.0205},
-    "gemini-3-pro-preview": {"Duration/element [s]": 55.03, "Cost/element [$]": 0.0637},
-    "gemini-3-flash-preview": {"Duration/element [s]": 19.73, "Cost/element [$]": 0.01274},
+    "gpt-5-mini": {"Duration/element [s]": 51.77, "Cost/element [$]": 0.01353},
+    "gpt-5.2": {"Duration/element [s]": 4.45, "Cost/element [$]": 0.041745},
+    "claude-opus-4-5": {"Duration/element [s]": 11.2, "Cost/element [$]": 0.16467},
+    "claude-sonnet-4-5": {"Duration/element [s]": 11.5, "Cost/element [$]": 0.098505},
+    "claude-haiku-4-5": {"Duration/element [s]": 4.3, "Cost/element [$]": 0.033825},
+    "gemini-3-pro-preview": {"Duration/element [s]": 55.03, "Cost/element [$]": 0.105105},
+    "gemini-3-flash-preview": {"Duration/element [s]": 19.73, "Cost/element [$]": 0.021021},
 }
 
 
@@ -155,7 +155,8 @@ def _write_cost_estimation(
 
 
 def create_representatives(
-    project_dir: Path,
+    input_dir: Path,
+    output_dir: Path,
     cfg: Dict[str, Any],
 ) -> None:
 
@@ -164,11 +165,9 @@ def create_representatives(
     `project_dir` is the project root.
     `cfg` is optional; if omitted, defaults are used where possible.
     """
-    project_dir = Path(project_dir)
 
-    preprocessed_dir = project_dir / "01_processed"
-    src_elements_dir = preprocessed_dir / "elements"
-    src_metadata_dir = preprocessed_dir / "metadata"
+    src_elements_dir = input_dir / "elements"
+    src_metadata_dir = input_dir / "metadata"
     object_type_json = src_metadata_dir / "object_type.json"
 
     if not object_type_json.is_file():
@@ -177,7 +176,7 @@ def create_representatives(
     print("")
     print("Selecting unique building elements for AI-based extraction...")
 
-    reps_dir = project_dir / "02_representatives"
+    reps_dir = Path(output_dir)
     reps_dir_elements = reps_dir / "elements"
     _safe_mkdir(reps_dir_elements / "multi_layer")
     _safe_mkdir(reps_dir_elements / "multi_material")

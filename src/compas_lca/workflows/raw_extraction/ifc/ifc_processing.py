@@ -399,7 +399,7 @@ def process_ifc_element(element, caches, units) -> Optional[Dict[str,Any]]:
 # ------------------------
 
 
-def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Path = Path("temp"), exclude_none: bool = False):
+def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: Path = Path("temp"), exclude_none: bool = False):
     """
     Process all IfcBuildingElements from the model and preprocess each as a JSON file in `output_dir`.
     This function will convert any IFC model into extraction-ready files for normalization,
@@ -409,7 +409,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
 
     Args:
         ifc_dir: Path to the directory with exactly one IFC file.
-        output_parent: Parent directory where new directory with IFC file stem name will be created and JSON files will be written (created if missing).
+        project_folder: Parent directory where the processed output will be stored.
         exclude_none: If True, remove all fields with None recursively from output.
 
     Returns:
@@ -450,7 +450,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
     ]
 
     # Create all dirs
-    output_dir= Path(output_parent) / "01_processed"
+    output_dir= Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     for rel in subdirs:
         (output_dir/ rel).mkdir(parents=True, exist_ok=True)
@@ -501,6 +501,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
                 object_type_index.setdefault(object_type, []).append({
                     "name": name,
                     "eid": eid,
+                    "global_id": gid,
                 })
 
             mat = data.get("material_data")  # can be None or dict
@@ -511,7 +512,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
             if is_composition:
                 bucket = "composition"
                 children = meta.get("is_decomposed_by") or []
-                comp_index.append({"name": name, "eid": eid, "children": children})
+                comp_index.append({"name": name, "eid": eid, "global_id": gid, "children": children})
             else:
                 mat_bucket = classify_material_bucket(mat)  # make sure this accepts dict/None
                 bucket = mat_bucket or "single_material"
@@ -531,11 +532,11 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
                 )
 
                 if mat_entity in ("IfcMaterialLayerSet", "IfcMaterialLayerSetUsage"):
-                    ml_index.setdefault(mat_entity, []).append({"name": name, "eid": eid})
+                    ml_index.setdefault(mat_entity, []).append({"name": name, "eid": eid, "global_id": gid})
 
             # For "IfcMaterialList"
             elif bucket == "multi_material":
-                mm_index.append({"name": name, "eid": eid})
+                psets = data.get("properties")
                 materials = (mat or {}).get("materials") or []
                 write_multimaterial_pkg(
                     output_dir / "elements" / bucket,
@@ -543,7 +544,10 @@ def process_ifc_model(ifc_dir: Path = Path("data/input/ifc"), output_parent: Pat
                     data,
                     materials,
                     meta,
+                    psets
                 )
+
+                mm_index.append({"name": name, "eid": eid, "global_id": gid})
 
             # For rest of the entities in material_data
             else:
@@ -596,7 +600,7 @@ def _material_from_path(p: Path) -> int | None:
 
 def process_ifc_model_boq(output_parent: Path | str) -> None:
     output_parent = Path(output_parent)
-    processed_directory = output_parent / "01_processed"
+    processed_directory = output_parent
 
     if not processed_directory.exists() or not processed_directory.is_dir():
         raise FileNotFoundError(

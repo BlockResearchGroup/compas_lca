@@ -58,16 +58,20 @@ def load_json(input_data: Union[dict, str, Path]) -> dict:
             return json.load(f)
     raise TypeError(f"Unsupported type for input_data: {type(input_data).__name__}")
 
-def merge_llm_meta(all_llm_meta: dict, llm_meta: dict) -> dict:
+def merge_llm_meta(all_llm_meta: dict, llm_meta: dict | None) -> dict:
     """
     Merge numeric key-value pairs from `llm_meta` into `all_llm_meta`.
     Returns the updated `all_llm_meta` dictionary.
     """
+    if not llm_meta:
+        return all_llm_meta
+
     for key, value in llm_meta.items():
         if isinstance(value, (int, float)):
             all_llm_meta[key] = all_llm_meta.get(key, 0) + value
         else:
             all_llm_meta[key] = value
+
     return all_llm_meta
 
 def coerce_to_dict(obj: Any) -> Dict[str, Any]:
