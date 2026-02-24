@@ -3,17 +3,22 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 from typing import Any
 from typing import Dict
 
 from compas_lca.helpers import load_config
+
 from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model
-from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model_boq
+
 from compas_lca.workflows.raw_extraction.ifc.ifc_representatives import create_representatives
+
 from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_model_ifc
 
+from compas_lca.workflows.raw_extraction.ifc.ifc_boq import process_ifc_model_boq
+from compas_lca.workflows.raw_extraction.ifc.ifc_boq import extract_lca_model_boq
 class ProjectError(RuntimeError):
     """Base error for project/pipeline failures."""
 
@@ -83,13 +88,17 @@ class Project:
     
     def extract_building_data(self) -> "Project":
         """
-        Step 03: AI-based extraction of representative data.
+        Step 03: AI-based extraction of representative data & updated BoQ
         """
         try:
             extract_lca_model_ifc(
                 input_dir_all=self.path / "01_processed",
                 input_dir_repr=self.path / "02_representatives",
                 output_dir=self.path / "03_extracted",
+            )
+            extract_lca_model_boq(
+                input_csv_path = self.path / "01_processed/BoQ_01_dissected.csv", 
+                output_dir = self.path / "03_extracted"
             )
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e

@@ -426,6 +426,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
                 multi_material/         -> (all IfcBuildingElements with IfcMaterialList)
                     <EID>/
                         element.json (+ material jsons)
+                no_material/            -> (all IfcBuildingElements with no material associations)
             metadata/
                 compositions.json       -> Lists the composition elements, and all child elements that it is decomposed by.
                 multilayers.json        -> Lists all multilayer elements

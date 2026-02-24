@@ -803,7 +803,6 @@ class RailingType(str, Enum):
     perforated_panel = "perforated_panel" # Metal sheet or mesh infill (perforated, expanded, or wire mesh)
     guard_wall = "guard_wall"             # Solid parapet or low wall acting as a guardrail
     # optional fallbacks
-    other = "other"
     unknown = "unknown"
 
 
