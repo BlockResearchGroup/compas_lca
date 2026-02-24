@@ -415,9 +415,7 @@ class MineralType(str, Enum):
     slate = "slate"
     basalt = "basalt"
     # Ceramics
-    earthenware = "earthenware"
-    stoneware = "stoneware"
-    porcelain = "porcelain"
+    ceramic = "ceramic"
     # Industrial minerals / additives
     shale = "shale"
     pumice = "pumice"

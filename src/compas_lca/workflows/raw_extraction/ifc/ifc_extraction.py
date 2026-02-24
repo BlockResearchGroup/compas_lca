@@ -478,9 +478,20 @@ def extract_lca_model_ifc(
     all_dir_elements = input_dir_all / "elements" / "single_material"       # directly stored json files for each element
     all_dir_multilay = input_dir_all / "elements" / "multi_layer"    # directory (with all info and each layer) for each element
     all_dir_multimat = input_dir_all / "elements" / "multi_material" # with IfcMaterialList (all separate materials for each element)
-    
-    # build GUID -> path index for "all/"
+
+    # representatives (single-like)
+    repr_dir_elements = input_dir_repr / "elements" / "single_material"
+    repr_dir_no_mat   = input_dir_repr / "elements" / "no_material"
+
+    # all elements (single-like)
+    all_dir_elements  = input_dir_all / "elements" / "single_material"
+    all_dir_no_mat    = input_dir_all / "elements" / "no_material"
+
+    # build EID -> path index for "all/" single-like buckets
     index_elements = _build_eid_index(all_dir_elements)
+    index_no_mat   = _build_eid_index(all_dir_no_mat)
+    index_single_like = dict(index_no_mat)
+    index_single_like.update(index_elements)
     index_multilay = _build_eid_dir_index(all_dir_multilay, "multilayer")
     index_multimat = _build_eid_dir_index(all_dir_multimat, "multimaterial")
 
@@ -515,11 +526,19 @@ def extract_lca_model_ifc(
     # iterate representative elements (run LLM once each)
     # ====================================================
 
-    rep_files = list(repr_dir_elements.glob("*.json"))
-    total_single = len(rep_files)
+    rep_files_single = list(repr_dir_elements.glob("*.json"))
+    rep_files_no_mat = list(repr_dir_no_mat.glob("*.json")) if repr_dir_no_mat.exists() else []
+    rep_files = rep_files_single + rep_files_no_mat
 
-    for idx, rep_path_elem in enumerate(rep_files, start=1):
-        print(f"[{idx}/{total_single}] Extracting representative single-material element with EID (STEP-ID): {rep_path_elem.stem}")
+    rep_multilay_dirs = list(_iter_subdirs(repr_dir_multilay))
+    rep_multimat_dirs = list(_iter_subdirs(repr_dir_multimat))
+
+    global_total = len(rep_files) + len(rep_multilay_dirs) + len(rep_multimat_dirs)
+    global_idx = 0
+
+    for rep_path_elem in rep_files:
+        global_idx += 1
+        print(f"[{global_idx}/{global_total}] Extracting representative single-material element with EID (STEP-ID): {rep_path_elem.stem}")
 
         rep_data = load_json(rep_path_elem)
 
@@ -565,10 +584,12 @@ def extract_lca_model_ifc(
             rep_eid = rep_data.get("metadata", {}).get("eid")
             if member_eid is None or str(member_eid) == str(rep_eid):
                 continue
-            member_path = index_elements.get(str(member_eid).lower())
+            member_path = index_single_like.get(str(member_eid).lower())
             if not member_path:
-                print(f"[warn] Member {member_eid} not found in elements/single_material index. "
-                    f"Index has {len(index_elements)} items. Check preprocessing paths.")
+                print(
+                    f"[warn] Member {member_eid} not found in elements/(single_material|no_material) index. "
+                    f"Index has {len(index_single_like)} items. Check preprocessing paths."
+                )
                 continue
 
             # load member and create LcaElement objects without Agent
@@ -596,11 +617,9 @@ def extract_lca_model_ifc(
     # iterate representative multilayers (run LLM once each)
     # ====================================================
 
-    rep_multilay_dirs = list(_iter_subdirs(repr_dir_multilay))
-    total_multilay = len(rep_multilay_dirs)
-
-    for idx, rep_dir_multilay in enumerate(rep_multilay_dirs, start=1):
-        print(f"[{idx}/{total_multilay}] Extracting representative multilayer element with EID (STEP-ID): {rep_dir_multilay.name}")
+    for rep_dir_multilay in rep_multilay_dirs:
+        global_idx += 1
+        print(f"[{global_idx}/{global_total}] Extracting representative multilayer element with EID (STEP-ID): {rep_dir_multilay.name}")
 
         # Run Agent-based extraction once for representative
         rep_elem, llm_meta = extract_lca_element_ifc(
@@ -672,11 +691,9 @@ def extract_lca_model_ifc(
     # iterate representative multimaterials (run LLM once each)
     # ====================================================
 
-    rep_multimat_dirs = list(_iter_subdirs(repr_dir_multimat))
-    total_multimat = len(rep_multimat_dirs)
-
-    for idx, rep_dir_multimat in enumerate(rep_multimat_dirs, start=1):
-        print(f"[{idx}/{total_multimat}] Extracting representative multi-material element with EID (STEP-ID): {rep_dir_multimat.name}")
+    for rep_dir_multimat in rep_multimat_dirs:
+        global_idx += 1
+        print(f"[{global_idx}/{global_total}] Extracting representative multi-material element with EID (STEP-ID): {rep_dir_multimat.name}")
         rep_elem, llm_meta = extract_lca_element_ifc(
             input_json=None,
             input_dir=rep_dir_multimat,
@@ -748,7 +765,6 @@ def extract_lca_model_ifc(
     # =========================
     # assemble LcaModel
     # =========================
-    print("IFC extraction complete — LCA model successfully assembled.\n")
     lca_model = LcaModel(
         metadata = model_metadata,
         single_materials=single_materials,

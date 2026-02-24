@@ -19,6 +19,8 @@ from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_m
 
 from compas_lca.workflows.raw_extraction.ifc.ifc_boq import process_ifc_model_boq
 from compas_lca.workflows.raw_extraction.ifc.ifc_boq import extract_lca_model_boq
+
+from compas_lca.workflows.enrich import enrich_lca_model
 class ProjectError(RuntimeError):
     """Base error for project/pipeline failures."""
 
@@ -103,6 +105,16 @@ class Project:
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e
         return self
+    
+    def enrich_building_data(self) -> "Project":
+        """
+        Step 04: (Optional) Enrich extracted data with additional sources (e.g. material properties, quantities).
+        """
+        try:
+            enrich_lca_model()
+        except FileNotFoundError as e:
+            raise MissingInput(str(e)) from e
+        return self
 
     # ---------- run entire ---------- 
 
@@ -115,4 +127,5 @@ class Project:
         return (
             self.preprocess_ifc(ifc_dir=ifc_dir, exclude_none=exclude_none)
             .select_representatives()
+            .extract_building_data()
         )

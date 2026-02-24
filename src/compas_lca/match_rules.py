@@ -21,13 +21,6 @@ approx:
 satisfies:
     Directional categorical comparison for Enum-like fields such as `loadbearing` or `placement`.
     Accepts “either” as a wildcard.
-
-
-TO DO: If all OBD has been extracted, we should do a test to see which attributes
-and fields have the most impact on the emissions. if those fields are not crucial
-for functional and semantic accuracy, but have high impact on emissions, we should
-weigh them more strongly. If they do not have high impact on emissions, then they
-are miscellaneous, and the weights should reflect this.
 """
 
 
@@ -90,30 +83,21 @@ MATCH_RULES = {
             "name": "common.fire_retardant",
             "path": "fire_redardant",
             "op": "equals_other",
-            "overspec":{"strength":0.25} 
         },
         {
             "name": "common.water_vapour_resistant",
             "path": "water_vapour_resistant",
             "op": "equals_other",
-            "overspec":{"strength":0.25} 
         },
         {
             "name": "common.manufacturer", 
             "path": "manufacturer", 
-            "op": "equals_other", # should be fuzzy matching
-            # overspec included such that overspecific products
-            # are less prioritized than generic averages in EPDs
-            "overspec":{"strength":0.15} 
-
+            "op": "equals_other",
         },
         {
             "name": "common.production_location", 
             "path": "production_location", 
-            "op": "equals_other", # should be fuzzy matching
-            # overspec included such that overspecific products
-            # are less prioritized than generic averages in EPDs
-            "overspec":{"strength":0.15} 
+            "op": "equals_other",
         }
     ],
 

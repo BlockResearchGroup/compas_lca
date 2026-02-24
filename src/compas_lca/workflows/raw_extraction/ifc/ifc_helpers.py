@@ -116,18 +116,40 @@ def clean_value(value):
         return value  # Return as-is if it's already clean
     return value  # Return numbers/booleans as-is
 
-def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> Optional[str]:
-    """ Decide bucket based on material structure. """
-    if not material_data:
-        return None
+from typing import Optional, Dict, Any
+
+def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
+    """
+    Decide bucket based on material structure.
+
+    Returns one of:
+      - "no_material"
+      - "multi_layer"
+      - "multi_material"
+      - "single_material"
+    """
+    if not material_data or not isinstance(material_data, dict):
+        return "no_material"
+
     entity = material_data.get("entity")
     layers = material_data.get("material_layers") or []
     mats   = material_data.get("materials") or []
-    if entity in {"IfcMaterialLayerSetUsage", "IfcMaterialLayerSet"} and len(layers) > 1:
-        return "multi_layer"
-    if entity == "IfcMaterialList" and len(mats) > 1:
-        return "multi_material"
-    return None
+
+    # Multi-layer: keep your original rule (>1 layer)
+    if entity in {"IfcMaterialLayerSetUsage", "IfcMaterialLayerSet"}:
+        return "multi_layer" if len(layers) > 1 else "single_material"
+
+    # Multi-material: keep your original rule (>1 material)
+    if entity == "IfcMaterialList":
+        return "multi_material" if len(mats) > 1 else "single_material"
+
+    # Plain single material
+    if entity == "IfcMaterial":
+        return "single_material"
+
+    # Unknown/unsupported material entity:
+    # choose conservative behavior; if you prefer, return "no_material" instead.
+    return "single_material"
 
 def _strip_none(x):
     """Recursively remove keys with None values. Keeps empty dicts/lists as-is."""

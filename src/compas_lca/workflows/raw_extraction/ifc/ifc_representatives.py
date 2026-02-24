@@ -3,14 +3,6 @@ import shutil
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
-from compas_lca.helpers import load_config
-
-# MAPS FOR APPROXIMATE DURATION AND COST ESTIMATION OF AI-BASED EXTRACTION (STEP 01b)
-# STATUS: 16. February 2026
-# THIS DATA IS BASED ON THE EXTRACTION OF A DIVERSE SET OF 200 DIFFERENT IFC ELEMENTS FROM 8 IFC MODELS USED FOR TESTING
-# NOTE: Not so straight-forward to interpolate due to different required tokens depending on model / matching core branch.
-# Therefore, the most accurate approximation is received from the test data.
-
 pricing_table = {
     "gpt-5-mini": {"Duration/element [s]": 51.77, "Cost/element [$]": 0.01353},
     "gpt-5.2": {"Duration/element [s]": 4.45, "Cost/element [$]": 0.041745},
@@ -50,7 +42,6 @@ def _pick_representatives(
             reps[obj_type] = eid.strip()
     return reps
 
-
 def _copy_representation(
     eid: str,
     src_elements_dir: Path,
@@ -59,13 +50,15 @@ def _copy_representation(
     """
     Copy representative identified by eid from source elements buckets into destination.
 
-    Returns the bucket used ("multi_layer" / "multi_material" / "single_material") or None if not found.
+    Returns the bucket used ("multi_layer" / "multi_material" / "single_material" / "no_material")
+    or None if not found.
     """
     src_multi_layer = src_elements_dir / "multi_layer" / eid
     src_multi_material = src_elements_dir / "multi_material" / eid
     src_single = src_elements_dir / "single_material" / f"{eid}.json"
+    src_no_material = src_elements_dir / "no_material" / f"{eid}.json"
 
-    # Prefer multi_layer -> multi_material -> single_material
+    # Prefer multi_layer -> multi_material -> single_material -> no_material
     if src_multi_layer.is_dir():
         dst = dst_elements_dir / "multi_layer" / eid
         if dst.exists():
@@ -86,6 +79,12 @@ def _copy_representation(
         shutil.copy2(src_single, dst)
         return "single_material"
 
+    if src_no_material.is_file():
+        dst = dst_elements_dir / "no_material" / f"{eid}.json"
+        _safe_mkdir(dst.parent)
+        shutil.copy2(src_no_material, dst)
+        return "no_material"
+
     return None
 
 
@@ -96,9 +95,6 @@ def _write_cost_estimation(
     selected_model: Optional[str] = None,
     currency: str = "USD",
 ) -> None:
-    """
-    Write a human-readable cost and duration estimate for the next extraction step.
-    """
     lines: List[str] = []
     lines.append("AI-based extraction cost estimation")
     lines.append("=" * 40)
@@ -107,12 +103,10 @@ def _write_cost_estimation(
         lines.append(f"Configured model (config.yaml): {selected_model}")
     lines.append("")
 
-    # Header
     lines.append(f"{'Model':28s} {'Total duration':>15s} {'Total cost':>15s}")
     lines.append(f"{'-'*28} {'-'*15:>15s} {'-'*15:>15s}")
 
     def _fmt_seconds(total_s: float) -> str:
-        # show both seconds and a rough h:m:s where helpful
         s = int(round(total_s))
         h = s // 3600
         m = (s % 3600) // 60
@@ -124,10 +118,8 @@ def _write_cost_estimation(
         return f"{sec:d}s"
 
     def _fmt_money(x: float) -> str:
-        # 4 decimals is usually enough at these scales; bump if tiny
         return f"{x:.4f}"
 
-    # Rows (sorted for stable output)
     for model_name in sorted(pricing_table.keys()):
         per = pricing_table[model_name]
         dur_per = float(per.get("Duration/element [s]", 0.0))
@@ -159,13 +151,6 @@ def create_representatives(
     output_dir: Path,
     cfg: Dict[str, Any],
 ) -> None:
-
-    """
-    Step 02: select and copy unique representative elements for AI extraction.
-    `project_dir` is the project root.
-    `cfg` is optional; if omitted, defaults are used where possible.
-    """
-
     src_elements_dir = input_dir / "elements"
     src_metadata_dir = input_dir / "metadata"
     object_type_json = src_metadata_dir / "object_type.json"
@@ -181,8 +166,11 @@ def create_representatives(
     _safe_mkdir(reps_dir_elements / "multi_layer")
     _safe_mkdir(reps_dir_elements / "multi_material")
     _safe_mkdir(reps_dir_elements / "single_material")
+    _safe_mkdir(reps_dir_elements / "no_material")
 
     object_type_index = _load_object_type_index(object_type_json)
+
+    # NEW: representative selection that skips compositions and has NO fallback
     representatives = _pick_representatives(object_type_index)
 
     copied = 0
@@ -192,9 +180,9 @@ def create_representatives(
         bucket = _copy_representation(eid, src_elements_dir, reps_dir_elements)
         if bucket is None:
             skipped += 1
+            print(f"[SKIP] Not found in supported buckets (post-filter): object_type='{obj_type}' eid={eid}")
         else:
             copied += 1
-
 
     cost_report_path = reps_dir / "cost_estimation.txt"
     _write_cost_estimation(
@@ -207,6 +195,7 @@ def create_representatives(
 
     print("")
     print(f"Unique representative elements required for AI-extraction: {copied}")
+    print(f"Representatives skipped (missing on disk): {skipped}")
     print(f"Representatives stored in: {reps_dir_elements}")
     print(f"Cost estimation written to: {cost_report_path}")
     print("")

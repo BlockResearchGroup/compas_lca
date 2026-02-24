@@ -41,6 +41,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
     single_material_dir = processed_directory / "elements" / "single_material"
     multi_layer_dir = processed_directory / "elements" / "multi_layer"
     multi_material_dir = processed_directory / "elements" / "multi_material"
+    no_material_dir = processed_directory / "elements" / "no_material"
 
     boq_rows_all: list[dict] = []
     boq_rows_dissected: list[dict] = []
@@ -91,7 +92,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                         "Net Side Area": quantities.get("net_side_area", None),
                         "Net Footprint Area": quantities.get("net_footprint_area", None),
                         "Net Surface Area": quantities.get("net_surface_area", None),
-                        "Cross-sectional Area": quantities.get("cross_sectional_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
                         "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
                         "AREAUNIT": quantities.get("AREAUNIT"),
                         "Net Volume": quantities.get("net_volume", None),
@@ -121,7 +122,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                         "Net Side Area": quantities.get("net_side_area", None),
                         "Net Footprint Area": quantities.get("net_footprint_area", None),
                         "Net Surface Area": quantities.get("net_surface_area", None),
-                        "Cross-sectional Area": quantities.get("cross_sectional_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
                         "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
                         "AREAUNIT": quantities.get("AREAUNIT"),
                         "Net Volume": quantities.get("net_volume", None),
@@ -187,7 +188,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                         "Net Side Area": quantities.get("net_side_area", None),
                         "Net Footprint Area": quantities.get("net_footprint_area", None),
                         "Net Surface Area": quantities.get("net_surface_area", None),
-                        "Cross-sectional Area": quantities.get("cross_sectional_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
                         "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
                         "AREAUNIT": quantities.get("AREAUNIT"),
                         "Net Volume": quantities.get("net_volume", None),
@@ -279,9 +280,6 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                 # Join into one CSV-safe string
                 material_name = " | ".join(material_names) if material_names else None
 
-                # IfcMaterialList has no thicknesses
-                thickness = None
-
                 boq_rows_all.append(
                     {
                         "EID": metadata.get("eid", None),
@@ -292,6 +290,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                         "Material Type": "multi_material",
                         "Material Entity": material.get("entity", None),
                         "Material Name(s)": material_name,
+                        "Thickness": None,
                         "Length": quantities.get("length", None),
                         "Width": quantities.get("width", None),
                         "Height": quantities.get("height", None),
@@ -301,7 +300,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                         "Net Side Area": quantities.get("net_side_area", None),
                         "Net Footprint Area": quantities.get("net_footprint_area", None),
                         "Net Surface Area": quantities.get("net_surface_area", None),
-                        "Cross-sectional Area": quantities.get("cross_sectional_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
                         "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
                         "AREAUNIT": quantities.get("AREAUNIT"),
                         "Net Volume": quantities.get("net_volume", None),
@@ -360,6 +359,79 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
             except Exception as e:
                 print(f"[WARN] Skipping {source_path}: {e}")
+
+    # Iterate over no-material source files
+    if no_material_dir.exists() and no_material_dir.is_dir():
+        for source_path in no_material_dir.glob("*.json"):
+            try:
+                with source_path.open("r", encoding="utf-8") as file:
+                    data = json.load(file)
+
+                metadata = data.get("metadata", {}) or {}
+                quantities = data.get("quantities", {}) or {}
+
+                boq_rows_all.append(
+                    {
+                        "EID": metadata.get("eid", None),
+                        "GlobalId": metadata.get("global_id", None),
+                        "Name": metadata.get("name", None),
+                        "Entity": metadata.get("entity", None),
+                        "Object Type": metadata.get("object_type", None),
+                        "Material Type": "no_material",
+                        "Material Entity": None,
+                        "Material Name(s)": None,
+                        "Thickness": None,
+                        "Length": quantities.get("length", None),
+                        "Width": quantities.get("width", None),
+                        "Height": quantities.get("height", None),
+                        "Depth": quantities.get("depth", None),
+                        "LENGTHUNIT": quantities.get("LENGTHUNIT"),
+                        "Net Area": quantities.get("net_area", None),
+                        "Net Side Area": quantities.get("net_side_area", None),
+                        "Net Footprint Area": quantities.get("net_footprint_area", None),
+                        "Net Surface Area": quantities.get("net_surface_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
+                        "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
+                        "AREAUNIT": quantities.get("AREAUNIT"),
+                        "Net Volume": quantities.get("net_volume", None),
+                        "BRep Volume": quantities.get("compas_brep_volume", None),
+                        "VOLUMEUNIT": quantities.get("VOLUMEUNIT"),
+                    }
+                )
+
+                # Optional: include no-material rows in dissected too (1 row per element)
+                boq_rows_dissected.append(
+                    {
+                        "EID": metadata.get("eid", None),
+                        "GlobalId": metadata.get("global_id", None),
+                        "Name": metadata.get("name", None),
+                        "Layer/Material Number": None,
+                        "Entity": metadata.get("entity", None),
+                        "Object Type": metadata.get("object_type", None),
+                        "Material Type": "no_material",
+                        "Material Entity": None,
+                        "Material Name": None,
+                        "Thickness": None,
+                        "Length": quantities.get("length", None),
+                        "Width": quantities.get("width", None),
+                        "Height": quantities.get("height", None),
+                        "Depth": quantities.get("depth", None),
+                        "LENGTHUNIT": quantities.get("LENGTHUNIT"),
+                        "Net Area": quantities.get("net_area", None),
+                        "Net Side Area": quantities.get("net_side_area", None),
+                        "Net Footprint Area": quantities.get("net_footprint_area", None),
+                        "Net Surface Area": quantities.get("net_surface_area", None),
+                        "Cross-sectional Area": quantities.get("cross_section_area", None),
+                        "OBB Largest Area": quantities.get("compas_obb_largest_area", None),
+                        "AREAUNIT": quantities.get("AREAUNIT"),
+                        "Net Volume": quantities.get("net_volume", None),
+                        "BRep Volume": quantities.get("compas_brep_volume", None),
+                        "VOLUMEUNIT": quantities.get("VOLUMEUNIT"),
+                    }
+                )
+
+            except Exception as e:
+                print(f"[WARN] Skipping {source_path.name}: {e}")
 
 
     # Export the Bill of Quantities to a CSV file
@@ -805,7 +877,8 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
     # Scaffold placeholders for undefined_elements (not implemented yet)
     # undef_payloads = json_by_category["undefined_elements"]
 
-    print(f"Updated BoQ of dissected elements stored in: {output_path}.")
+    print(f"Updated BoQ of dissected elements saved to: {output_path}.")
     print("")
+    print("IFC extraction complete — LCA model successfully assembled.\n")
 
     df.to_csv(output_path, index=False)

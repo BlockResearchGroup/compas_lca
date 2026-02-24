@@ -57,17 +57,18 @@ def step_01b_select_representatives(project: Project) -> None:
 def step_01c_extract_building_data(project: Project) -> None:
     project.extract_building_data()
 
-def step_01d_match_epds(project: Project) -> None:
-    not_implemented("Step 01d: match building data with EPDs")(project)
+def step_01d_enrich_data(project: Project) -> None:
+    not_implemented("Step 01d: enrich extracted data")(project)
 
+def step_01e_match_epds(project: Project) -> None:
+    not_implemented("Step 01e: match building data with EPDs")(project)
 
-def step_01e_create_report(project: Project) -> None:
-    not_implemented("Step 01e: create LCA report")(project)
+def step_01f_create_report(project: Project) -> None:
+    not_implemented("Step 01f: create LCA report")(project)
 
 
 def step_02a_preprocess_env(project: Project) -> None:
     not_implemented("Step 02a: preprocess environmental data")(project)
-
 
 def step_02b_normalize_env(project: Project) -> None:
     not_implemented("Step 02b: normalize environmental data with AI")(project)
@@ -104,8 +105,9 @@ MENU: List[MenuItem] = [
     MenuItem(key="01a", name="Step 1: Preprocess building data", action=step_01a_preprocess),
     MenuItem(key="01b", name="Step 2: Representative building data selection", action=step_01b_select_representatives),
     MenuItem(key="01c", name="Step 3: Extract building data with AI", action=step_01c_extract_building_data),
-    MenuItem(key="01d", name="Step 4: Match building data with EPDs", action=step_01d_match_epds),
-    MenuItem(key="01e", name="Step 5: Create LCA report", action=step_01e_create_report),
+    MenuItem(key="01d", name="Step 4: (Optional) Enrich extracted data", action=step_01d_enrich_data),
+    MenuItem(key="01e", name="Step 5: Match building data with EPDs", action=step_01e_match_epds),
+    MenuItem(key="01f", name="Step 6: Create LCA report", action=step_01f_create_report),
 
     MenuItem(key="02", name="🌱 ADD ENVIRONMENTAL DATA 🌱", is_group=True),
     MenuItem(key="02a", name="Preprocess environmental data", action=step_02a_preprocess_env),
