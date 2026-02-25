@@ -1,0 +1,923 @@
+{
+  "id": "1eecaa68-516e-4945-afe7-48693a7b0c23",
+  "item_core": {
+    "core_id": "a70f70b7-d077-49c8-ae28-99e752810f8d",
+    "entry_type": "material",
+    "name": "Pavers",
+    "loadbearing": "either",
+    "placement": "either",
+    "density": 2000.0,
+    "areal_density": 182.0,
+    "thickness": 52.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Bundesverband der Deutschen Ziegelindustrie e.V.",
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "paving_surfacing"
+      ],
+      "application_areas": [
+        "pavement",
+        "floor"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "clay",
+        "mineral_form": "paver_unit"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "feaaff18-9f56-437b-aef1-3f63928c1138",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/feaaff18-9f56-437b-aef1-3f63928c1138?version=00.07.000",
+    "registration_number": "EPD-BDZ-20230089-ICG3-DE",
+    "location_code": "DE",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Bundesverband der Deutschen Ziegelindustrie e.V.",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 22.324,
+          "A4": 1.016,
+          "A5": 0.697,
+          "C1": 0.048,
+          "C2": 0.127,
+          "C3": 0.452,
+          "C4": 0.177,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.676
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.897
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.692,
+          "A4": 0.0,
+          "A5": -0.692,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 23.027,
+          "A4": 1.016,
+          "A5": 0.00795,
+          "C1": 0.048,
+          "C2": 0.127,
+          "C3": 0.452,
+          "C4": 0.177,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.676
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.897
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 289.73,
+          "A4": 17.135,
+          "A5": 0.919,
+          "C1": 0.8,
+          "C2": 2.141,
+          "C3": 4.627,
+          "C4": 1.173,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -1.292
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -2.832
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.886,
+          "A4": 0.0,
+          "A5": -0.886,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 290.27,
+          "A4": 17.135,
+          "A5": 0.0344,
+          "C1": 0.8,
+          "C2": 2.141,
+          "C3": 4.627,
+          "C4": 1.173,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -1.292
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -2.832
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 3.092,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 92.432,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.016,
+          "A4": 0.000886,
+          "A5": 0.000471,
+          "C1": 4.15e-05,
+          "C2": 0.00011,
+          "C3": 0.0012,
+          "C4": 0.000297,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.000204
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000474
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 7.41e-08,
+          "A4": 7.95e-11,
+          "A5": 3.35e-12,
+          "C1": 3.7e-12,
+          "C2": 9.89e-12,
+          "C3": 6.22e-11,
+          "C4": 6.05e-11,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -2.45e-10
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -1.25e-10
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.269,
+          "A4": 0.00271,
+          "A5": 0.00246,
+          "C1": 0.000127,
+          "C2": 0.000339,
+          "C3": 0.00138,
+          "C4": 6.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.000919
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -1.924
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00196,
+          "A4": 0.00172,
+          "A5": 1.96e-06,
+          "C1": 8.05e-07,
+          "C2": 2.16e-06,
+          "C3": 3.56e-05,
+          "C4": 1.29e-05,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -5.84e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -8.86e-05
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 92.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.382,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.681,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0132,
+          "A4": 0.00115,
+          "A5": 3.04e-05,
+          "C1": 0.000294,
+          "C2": 0.000143,
+          "C3": 0.0012,
+          "C4": 0.000632,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -9.14e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000714
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 18.162,
+          "A4": 1.292,
+          "A5": 0.211,
+          "C1": 0.0605,
+          "C2": 0.162,
+          "C3": 0.245,
+          "C4": 0.087,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.0876
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.215
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.0378,
+          "A4": 0.0005,
+          "A5": 0.0757,
+          "C1": 0.00266,
+          "C2": 6.65e-05,
+          "C3": 0.000595,
+          "C4": 0.00265,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.000892
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000131
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 18.162,
+          "A4": 1.286,
+          "A5": 0.137,
+          "C1": 0.0627,
+          "C2": 0.161,
+          "C3": 0.244,
+          "C4": 0.09,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.0865
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.215
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.00218,
+          "A4": 0.0048,
+          "A5": 4.15e-07,
+          "C1": 0.000224,
+          "C2": 0.0006,
+          "C3": 0.000746,
+          "C4": 0.000165,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -2.09e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000492
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.00546,
+          "A4": 0.000371,
+          "A5": 8.97e-06,
+          "C1": 0.000139,
+          "C2": 4.64e-05,
+          "C3": 0.000562,
+          "C4": 0.000162,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -3.34e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000279
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 1.44e-05,
+          "A4": 2.66e-06,
+          "A5": 3.48e-09,
+          "C1": 1.24e-07,
+          "C2": 3.32e-07,
+          "C3": 5.57e-07,
+          "C4": 1.52e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -2.71e-07
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -6.05e-07
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.0595,
+          "A4": 0.00446,
+          "A5": 0.00014,
+          "C1": 0.00155,
+          "C2": 0.000557,
+          "C3": 0.00616,
+          "C4": 0.00178,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.000354
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.00308
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.1e-09,
+          "A4": 1.84e-13,
+          "A5": 1.26e-14,
+          "C1": 8.59e-15,
+          "C2": 2.3e-14,
+          "C3": 6.59e-13,
+          "C4": 2.13e-13,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -1.48e-12
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -1.71e-12
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0154,
+          "A4": 0.000995,
+          "A5": 2.46e-05,
+          "C1": 0.000391,
+          "C2": 0.000124,
+          "C3": 0.00151,
+          "C4": 0.000494,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -8.49e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.000659
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 289.73,
+          "A4": 17.135,
+          "A5": 0.0344,
+          "C1": 0.8,
+          "C2": 2.141,
+          "C3": 4.622,
+          "C4": 1.173,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -1.292
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -2.832
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 1.88e-06,
+          "A4": 1.33e-07,
+          "A5": 3.08e-10,
+          "C1": 6.22e-09,
+          "C2": 1.66e-08,
+          "C3": 2.77e-07,
+          "C4": 9.24e-09,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -3.32e-08
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -4.86e-08
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.184,
+          "A4": 0.00505,
+          "A5": 0.0201,
+          "C1": 0.000236,
+          "C2": 0.000632,
+          "C3": 0.0414,
+          "C4": 0.00978,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen",
+              "value": -0.0013
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung.",
+              "value": -0.00537
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "D": [
+        "S0",
+        "S1"
+      ]
+    }
+  }
+}

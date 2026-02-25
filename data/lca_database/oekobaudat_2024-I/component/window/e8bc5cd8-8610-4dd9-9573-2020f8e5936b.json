@@ -1,0 +1,1845 @@
+{
+  "id": "e8bc5cd8-8610-4dd9-9573-2020f8e5936b",
+  "item_core": {
+    "core_id": "47c1469a-45cc-4cc1-beca-6ec3639b511f",
+    "entry_type": "component",
+    "name": "Janisol window width x height: 1230mm x 1480mm",
+    "loadbearing": "non_loadbearing",
+    "placement": "exterior",
+    "density": null,
+    "areal_density": null,
+    "thickness": 66.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Jansen AG",
+    "provenance": "CH",
+    "production_location": "Oberriet/ Switzerland",
+    "facet": {
+      "component_type": "window",
+      "component_facet": {
+        "frame_type": "steel",
+        "glazing_count": "single_glazing",
+        "window_operation": null,
+        "acoustic_interlayer": false,
+        "roof_window": false,
+        "window_height": 1480.0,
+        "window_width": 1230.0
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "430bc64e-bda6-44bb-87f0-53c2dbe562cf",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/430bc64e-bda6-44bb-87f0-53c2dbe562cf?version=00.03.000",
+    "registration_number": "EPD-JAN-20230539-CBA1-EN",
+    "location_code": "RER",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "JANSEN AG",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 133.498481310374,
+          "A4": 0.201902268564101,
+          "A5": 0.477826003471312,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.100951134293422,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.649056353309816
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0327644282423835
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.447692517449513
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.447692517449513
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -29.4516692178062
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -17.8878619939077
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.4746972708,
+          "A4": 0.0,
+          "A5": -0.4746972708,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 133.973178581174,
+          "A4": 0.201902268564101,
+          "A5": 0.00312873267131232,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.100951134293422,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.649056353309816
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0327644282423835
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.447692517449513
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.447692517449513
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -29.4516692178062
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -17.8878619939077
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 936.75335256044,
+          "A4": 3.56006187290776,
+          "A5": 0.144300346575715,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.78003093665439,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 110.30002818189
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 107.886268637028
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.98656584554594
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.98656584554594
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -285.183746627108
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -344.42001493492
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 107.9169280382,
+          "A4": 0.0,
+          "A5": -0.130678088,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -107.7862499502
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -107.7862499502
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 1044.67028059865,
+          "A4": 3.56006187290776,
+          "A5": 0.013622258575715,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.78003093665439,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.51377823168963
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.100018686828204
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.98656584554594
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.98656584554594
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -285.183746631832
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -344.420014939644
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 14.4321007667468,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 11.7305199288285
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 13.5620651231058
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.254474001974418,
+          "A4": 0.000228341179935924,
+          "A5": 0.000154545597392651,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000114170589980823,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0199913696708134
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000669157036732917
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000757885755416971
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000757885755416971
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.160693623584404
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.167534546349721
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.90331193444439e-06,
+          "A4": 1.704828059e-11,
+          "A5": 1.33163141e-12,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 8.52414029e-12,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.4799268435e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 6.46834686e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.5336986879e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.5336986879e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 4.56360394614e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -9.2560249122733e-07
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 3.20352633519807,
+          "A4": 0.000510208240908081,
+          "A5": 0.000872571187495287,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000255104120482777,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.408833757344419
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0182952623392348
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 15.2732609669344
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 15.2732609669344
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.48051922648527
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.55886569490367
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0288786287500955,
+          "A4": 4.38483841370142e-06,
+          "A5": 7.7735574549045e-07,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.19241920709767e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 9.17452221823371e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 7.01818925784313e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 3.32348574040857e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 3.32348574040857e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.00743792079766579
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.00393618357436384
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.6961094109,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 25.5363283488
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 29.094454721
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0659110113447758,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 14.0299603776869
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.16132388912326
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.118037715014169,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 29.4155023057736
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.336344735539121
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.257002815212414,
+          "A4": 0.000252929940671635,
+          "A5": 1.08001003067042e-05,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000126464970350063,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00234127458399291
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 3.6407275698381e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00161432044375912
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.00161432044375912
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.0663997117445091
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.0682181793496825
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 83.0358373216185,
+          "A4": 0.267990116540783,
+          "A5": 0.0576850144342469,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.133995058285486,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 8.74535185420166
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.146198724848626
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.228884856482169
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.228884856482169
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -26.8095068320222
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -25.851669013854
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.257986503353304,
+          "A4": 0.00112015352482651,
+          "A5": 0.0478572729783967,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000560076762476344,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000664573646231661
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 3.70430478001831e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000766689090273712
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000766689090273712
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.0181555399257908
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.0227420551557747
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 82.7532963876174,
+          "A4": 0.265388259861048,
+          "A5": 0.00982758494634529,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.132694129945472,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 8.74461954404662
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.146155805181571
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.227697877223113
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.227697877223113
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -26.7901116888863
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -25.827147605409
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0245544306477611,
+          "A4": 0.00148170315490861,
+          "A5": 1.56509504894e-07,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.00074085157753776,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 6.77365087951566e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 5.87661925504112e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000420290168781218
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000420290168781218
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.00123960321000531
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.00177935328915994
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 1246.021374418,
+          "A4": 2.46566698257029,
+          "A5": 0.00625590833856257,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.23283349142402,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.31499884678054
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0732506246225794
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.67100881058855
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.67100881058855
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -40.8762777343181
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -88.1039579309719
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 2.40590410393074e-06,
+          "A4": 1.52998686206e-09,
+          "A5": 5.676501208e-11,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 7.6499343112e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.483585539386e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 9.0022859931e-10
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.986585387041e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.986585387041e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -8.3391210773571e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -8.4918798859158e-07
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0743692528097756,
+          "A4": 7.88019919933032e-05,
+          "A5": 3.6209355234203e-06,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 3.94009960010899e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000807180608218024
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.28200729256733e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.000412770113799855
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000412770113799855
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.010711478544124
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.0112246437278173
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 9.05195030426034e-05,
+          "A4": 7.9329552699223e-07,
+          "A5": 1.33883056144e-09,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 3.9664776354079e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 3.9300517674782e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 4.032582227221e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 3.8596530722432e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 3.8596530722432e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -9.26158575161753e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -1.43516382065027e-05
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.852043684010486,
+          "A4": 0.000946583732010622,
+          "A5": 5.01271926307431e-05,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000473291866058625,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.011536745742123
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.000176292992671951
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00453558307391882
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.00453558307391882
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.100962373995426
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.105645417239359
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 5.51579500478e-08,
+          "A4": 4.969593293e-11,
+          "A5": 4.1086959e-13,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.484796647e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 9.259542631e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.32722683e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.550265595e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.550265595e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -1.075549566523e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -1.180590659522e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.18666260171286e-06,
+          "A4": 2.57111107572e-09,
+          "A5": 1.543930983e-11,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.28555553801e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 6.14325575105e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 8.847898092e-11
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.824126704725e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.824126704725e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -3.3063738148245e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -3.6943310400693e-07
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 4.66083991573364,
+          "A4": 0.000642558453339425,
+          "A5": 0.000126463829514217,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000321279226705903,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0112504153190467
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.00084221591339266
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00369345899307278
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.00369345899307278
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.970008255834331
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.368913511643422
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 97.3600262109043,
+          "A4": 1.22208867661356,
+          "A5": 0.00394759183996836,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.611044338375609,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.674509410494769
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0354153097360375
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.620555800187465
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.620555800187465
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -8.55001143043946
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -1.15126437407275
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 4.1068193132e-10,
+          "A4": 1.592248e-14,
+          "A5": 4.95597e-15,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 7.96124e-15,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 1.2858153e-12
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 5.403867e-14
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 5.3524175e-13
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 5.3524175e-13
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -2.202129398e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -1.2463251212e-10
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.219617010615718,
+          "A4": 0.000220385218765998,
+          "A5": 9.74792177320218e-06,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000110192609395412,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00211773434150649
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 3.45115294526575e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.00125441811457704
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.00125441811457704
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -0.0400704224391154
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -0.0454505492751251
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 1042.31531022328,
+          "A4": 3.55156765617984,
+          "A5": 0.0136122771894384,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.77578382828995,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.51259112896264
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0999809354332639
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.98293388179708
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.98293388179708
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -285.050432022381
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -344.114794087374
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.000168896952274681,
+          "A4": 2.221717338967e-08,
+          "A5": 1.2120695948e-10,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.110858669609e-08,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 3.165896554424e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 1.26066760158e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 2.333854784374e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 2.333854784374e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -4.90317779377899e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -4.93271700356547e-05
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 5.53144774092774,
+          "A4": 0.00238387249564396,
+          "A5": 0.00657483334055175,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.00119193624795625,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.848184448999964
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0296933108900037
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": 0.0249691558970394
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": 0.0249691558970394
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Plastik Thermische Behandlung",
+              "value": -4.56199307113094
+            },
+            {
+              "code": "S2",
+              "description": "100% Plastik Recycling",
+              "value": -5.00903870405559
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

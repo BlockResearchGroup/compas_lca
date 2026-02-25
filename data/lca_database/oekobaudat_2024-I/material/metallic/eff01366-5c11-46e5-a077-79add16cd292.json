@@ -1,0 +1,1030 @@
+{
+  "id": "eff01366-5c11-46e5-a077-79add16cd292",
+  "item_core": {
+    "core_id": "59536bc1-5278-4f56-b8a9-e796f13dcb82",
+    "entry_type": "material",
+    "name": "Welded and painted steel structures - beams and box beams",
+    "loadbearing": "loadbearing",
+    "placement": "either",
+    "density": 7850.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "SIA MITAU STEEL",
+    "provenance": "LV",
+    "production_location": "Jelgava",
+    "facet": {
+      "material_type": "metallic",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "beam"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "metallic_type": "carbon_steel",
+        "metallic_form": "profile",
+        "steel_grade": null,
+        "yield_strength": null,
+        "metallic_production": null,
+        "metallic_forming": "rolled",
+        "metallic_surface_treatment": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1000,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "ad911be4-fabd-4ae1-8a81-a4dda81184f3",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/ad911be4-fabd-4ae1-8a81-a4dda81184f3?version=00.00.016",
+    "registration_number": "EPD-Kiwa-EE-000366-EN",
+    "location_code": "RER",
+    "reference_year": 2021,
+    "valid_until": 2029,
+    "dataset_owner": "SIA MITAU STEEL",
+    "compliance_system_name": [
+      "EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1": 1970.0,
+          "A2": 93.2,
+          "A3": 1090.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 26.6
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 9.09
+            }
+          ],
+          "C1": 0.268,
+          "C2": 1.22,
+          "C3": 9.86,
+          "C4": 0.0119,
+          "D": 129.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 146.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1": 1970.0,
+          "A2": 93.2,
+          "A3": 1230.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 26.6
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 9.09
+            }
+          ],
+          "C1": 0.268,
+          "C2": 1.22,
+          "C3": 9.86,
+          "C4": 0.0119,
+          "D": 129.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1": 23600.0,
+          "A2": 7010.0,
+          "A3": 3260.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1990.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 694.0
+            }
+          ],
+          "C1": 52.7,
+          "C2": 104.0,
+          "C3": 821.0,
+          "C4": 1.56,
+          "D": -5370.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1": 127.0,
+          "A2": 0.0,
+          "A3": 98.5,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1": 23700.0,
+          "A2": 7010.0,
+          "A3": 3360.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1990.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 694.0
+            }
+          ],
+          "C1": 52.7,
+          "C2": 104.0,
+          "C3": 821.0,
+          "C4": 1.56,
+          "D": -5370.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1": 491.0,
+          "A2": 0.0,
+          "A3": 21.2,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 940.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 411.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1": 19.7,
+          "A2": 0.695,
+          "A3": 1.66,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.199
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.068
+            }
+          ],
+          "C1": 0.00256,
+          "C2": 0.0119,
+          "C3": 0.0641,
+          "C4": 0.00157,
+          "D": -2.53
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1": 0.104,
+          "A2": 0.0173,
+          "A3": 0.00364,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.00486
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.00165
+            }
+          ],
+          "C1": 0.000135,
+          "C2": 0.000248,
+          "C3": 0.00204,
+          "C4": 2.2e-06,
+          "D": -0.0855
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1": 754.0,
+          "A2": 316.0,
+          "A3": 57.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 89.6
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 30.2
+            }
+          ],
+          "C1": 0.0588,
+          "C2": 6.2,
+          "C3": 0.99,
+          "C4": 10.0,
+          "D": -67.9
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1": 0.0549,
+          "A2": 0.045,
+          "A3": 0.0135,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0128
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.00446
+            }
+          ],
+          "C1": 0.000345,
+          "C2": 0.000642,
+          "C3": 0.00537,
+          "C4": 9.67e-06,
+          "D": 0.00343
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 50.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 42.6,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1": 9.72,
+          "A2": 1.79,
+          "A3": 1.24,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.437
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.205
+            }
+          ],
+          "C1": 0.0377,
+          "C2": 0.0376,
+          "C3": 0.573,
+          "C4": 0.0005,
+          "D": -2.82
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1": 1920.0,
+          "A2": 438.0,
+          "A3": 229.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 125.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 43.7
+            }
+          ],
+          "C1": 3.61,
+          "C2": 6.48,
+          "C3": 55.5,
+          "C4": 0.0528,
+          "D": -712.0
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1": 3.18,
+          "A2": 0.234,
+          "A3": 22.5,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0647
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0212
+            }
+          ],
+          "C1": 0.001,
+          "C2": 0.00299,
+          "C3": 0.0598,
+          "C4": 0.000104,
+          "D": 7.3
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1": 1920.0,
+          "A2": 438.0,
+          "A3": 206.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 124.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 43.6
+            }
+          ],
+          "C1": 3.61,
+          "C2": 6.48,
+          "C3": 55.5,
+          "C4": 0.0527,
+          "D": -720.0
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1": 1.33,
+          "A2": 0.153,
+          "A3": 0.26,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0452
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0164
+            }
+          ],
+          "C1": 0.000284,
+          "C2": 0.00237,
+          "C3": 0.00773,
+          "C4": 1.47e-05,
+          "D": 0.491
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1": 80900.0,
+          "A2": 5280.0,
+          "A3": 4970.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1510.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 521.0
+            }
+          ],
+          "C1": 29.9,
+          "C2": 87.1,
+          "C3": 470.0,
+          "C4": 0.955,
+          "D": -24000.0
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1": 0.000173,
+          "A2": 3.05e-05,
+          "A3": 2.14e-05,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 7.84e-06
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 2.69e-06
+            }
+          ],
+          "C1": 1e-06,
+          "C2": 5.83e-07,
+          "C3": 1.5e-05,
+          "C4": 9.72e-09,
+          "D": -4.29e-05
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1": 2.01,
+          "A2": 0.531,
+          "A3": 0.249,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0908
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.0448
+            }
+          ],
+          "C1": 0.0167,
+          "C2": 0.0132,
+          "C3": 0.25,
+          "C4": 0.000172,
+          "D": -0.521
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1": 0.115,
+          "A2": 0.00344,
+          "A3": 0.00666,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.000984
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.000338
+            }
+          ],
+          "C1": 1.31e-05,
+          "C2": 6.53e-05,
+          "C3": 0.000357,
+          "C4": 5.9e-07,
+          "D": -0.0259
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1": 21.5,
+          "A2": 5.87,
+          "A3": 2.83,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1.01
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.5
+            }
+          ],
+          "C1": 0.183,
+          "C2": 0.146,
+          "C3": 2.75,
+          "C4": 0.0019,
+          "D": -6.08
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1": 1.59e-05,
+          "A2": 1.49e-07,
+          "A3": 8.13e-07,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 4.28e-08
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1.54e-08
+            }
+          ],
+          "C1": 1.05e-09,
+          "C2": 2.83e-09,
+          "C3": 1.64e-08,
+          "C4": 2.21e-11,
+          "D": -3.27e-07
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1": 0.000187,
+          "A2": 5.76e-06,
+          "A3": 1.55e-05,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1.58e-06
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 5.43e-07
+            }
+          ],
+          "C1": 2.57e-08,
+          "C2": 9.53e-08,
+          "C3": 4.04e-07,
+          "C4": 6.79e-10,
+          "D": 0.000129
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1": 57.8,
+          "A2": 28.9,
+          "A3": 13.5,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 8.2
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 2.85
+            }
+          ],
+          "C1": 0.213,
+          "C2": 0.409,
+          "C3": 3.45,
+          "C4": 0.00604,
+          "D": 11.1
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1": 7110.0,
+          "A2": 4550.0,
+          "A3": 5700.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1290.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 437.0
+            }
+          ],
+          "C1": 6.33,
+          "C2": 84.7,
+          "C3": 116.0,
+          "C4": 3.09,
+          "D": -1140.0
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1": 0.000122,
+          "A2": 9.94e-05,
+          "A3": 3.05e-05,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 2.82e-05
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 9.85e-06
+            }
+          ],
+          "C1": 7.79e-07,
+          "C2": 1.43e-06,
+          "C3": 1.18e-05,
+          "C4": 2.17e-08,
+          "D": -1.85e-05
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1": 9.17,
+          "A2": 1.8,
+          "A3": 0.846,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.359
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.162
+            }
+          ],
+          "C1": 0.0502,
+          "C2": 0.0417,
+          "C3": 0.755,
+          "C4": 0.000551,
+          "D": -4.08
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1": 22300.0,
+          "A2": 6600.0,
+          "A3": 3140.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1880.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 653.0
+            }
+          ],
+          "C1": 49.6,
+          "C2": 97.7,
+          "C3": 774.0,
+          "C4": 1.47,
+          "D": -5160.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1": 0.0302,
+          "A2": 0.0118,
+          "A3": 0.00253,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.00338
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 0.00115
+            }
+          ],
+          "C1": 5.53e-06,
+          "C2": 0.000164,
+          "C3": 9.41e-05,
+          "C4": 4.82e-07,
+          "D": -0.000468
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1": 626.0,
+          "A2": 18.4,
+          "A3": 49.0,
+          "A4": [
+            {
+              "code": "Norway scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Norway scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 738 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 5.26
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from the production site to the construction site (A4) ? Sweden scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU), Distance: 248 km, Parameter: Maritime, Vehicle type: Ship/ Transoceanic freight ship, containers, Distance: 283 km.",
+              "value": 1.8
+            }
+          ],
+          "C1": 0.0665,
+          "C2": 0.35,
+          "C3": 1.34,
+          "C4": 0.066,
+          "D": -132.0
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "A4": [
+        "Norway scenario",
+        "Sweden scenario"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2479 @@
+{
+  "id": "8d6dc572-3c63-4408-b95a-ee7a553d9732",
+  "item_core": {
+    "core_id": "e35246be-a693-4b66-9efa-69ac6915f51b",
+    "entry_type": "material",
+    "name": "Hot Rolled Steel Coil",
+    "loadbearing": "either",
+    "placement": "either",
+    "density": 7850.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "thyssenkrupp Steel Europe AG",
+    "provenance": null,
+    "production_location": "Duisburg and Bochum",
+    "facet": {
+      "material_type": "metallic",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "other"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "metallic_type": "low_alloy_steel",
+        "metallic_form": "coil",
+        "steel_grade": null,
+        "yield_strength": null,
+        "metallic_production": "ore_bf_bof",
+        "metallic_forming": "rolled",
+        "metallic_surface_treatment": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1000,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "650ea55e-5071-45f6-adfc-df41acad90e1",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/650ea55e-5071-45f6-adfc-df41acad90e1?version=00.01.100",
+    "registration_number": "EPD-TKS-20240545-CBC1-EN",
+    "location_code": "RER",
+    "reference_year": 2025,
+    "valid_until": 2030,
+    "dataset_owner": "ThyssenKrupp",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 372.645365509295,
+          "C1": 16.0635992656346,
+          "C2": 3.54962957022718,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 34.4261078006106
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.344261078006106
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 588.630357300019
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -93.1256702361335
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 476.125802987769
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -372.160497580789
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 372.645365509295,
+          "C1": 16.0635992656346,
+          "C2": 3.54962957022718,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 34.4261078006106
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.344261078006106
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 588.630357300019
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -93.1256702361335
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 476.125802987769
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -372.160497580789
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 17648.1927563767,
+          "C1": 289.727080731151,
+          "C2": 41.212948082929,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 197.357714360219
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 1.97357714360219
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -14911.6536537323
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 2359.13374770973
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -15039.3458299008
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -17642.5632008501
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 17648.1927563767,
+          "C1": 289.727080731149,
+          "C2": 41.212948082929,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 197.357714360218
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 1.97357714360218
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -14911.653653736
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 2359.13374771031
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -15039.3458299041
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -17642.5632008501
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 136.8,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 824.32
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -136.78
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 758.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 12.0363085002805,
+          "C1": 0.0433755583753968,
+          "C2": 0.00395467233781329,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0523023011394935
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.000523023011394849
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -151.642226548749
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 23.9909202920265
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -134.529184673509
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -12.0357683048192
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": -1.3749157092156e-07,
+          "C1": 4.501807675355e-08,
+          "C2": 1.57801822677e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 4.913887003659e-08
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 4.9138870037e-10
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 1.377071231119e-07
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 1.76462117761239e-05
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -9.79622547255128e-05
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -0.000111538482530473
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 20.2348060589907,
+          "C1": 0.0328163011558854,
+          "C2": 0.00672954040627397,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 1000.93244578205
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 10.0093244578205
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -20.2338868255179
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -28.545756356196
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 156.269426872121
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 180.432513621011
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0777441503908707,
+          "C1": 0.00170323833815831,
+          "C2": 7.50681751614729e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0020688061697246
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 2.06880616972459e-05
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -0.0777338963207298
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -0.000258454680570569
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.00711570567988748
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.00163364484340739
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 1000.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 110.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 880.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 1000.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 3.73470923287888,
+          "C1": 0.19381776831042,
+          "C2": 0.00416420745286072,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.106279794877856
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.00106279794877856
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -3.73414041559764
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.580469876880312
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -3.63370955581181
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -3.6690441009828
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 2081.69056369647,
+          "C1": 20.9531376738489,
+          "C2": 3.18319502543518,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 14.9531659219002
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.149531659219002
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -2081.25574954263
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 235.879290540969
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -1538.61527370178
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -1490.94992517898
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.162947197527897,
+          "C1": -0.0858417485925639,
+          "C2": -0.0803873798190251,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -0.103063102290792
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.00103063102290791
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -0.173927853835738
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -1.39860317565464
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 7.74635936449713
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 8.8403152956541
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 2080.41017134279,
+          "C1": 21.0273476783028,
+          "C2": 3.21100729315527,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 14.966410824032
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.14966410824032
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -2079.97155812306
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 237.246325575511
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -1546.06422767436
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -1499.59070401883
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 1.11744515614875,
+          "C1": 0.0116317441386304,
+          "C2": 0.0525751120989286,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0898182001590258
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.000898182001590258
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -1.11026356573488
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.031568141112515
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.297405391918415
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -0.199536455793981
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 1.07652798714938,
+          "C1": 0.0993430046507208,
+          "C2": 0.00149593694583553,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0273589238100425
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.000273589238100425
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -1.07632364699677
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0932380873193565
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.636083234433992
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -0.589340925156297
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.0015689148926404,
+          "C1": 0.000106350830456892,
+          "C2": 1.33589106732442e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 3.40191517025087e-05
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 3.4019151702509e-07
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -0.00156709010861235
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 5.52781967820902e-05
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.000479302111726335
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -0.000349403388348633
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 11.7031990764394,
+          "C1": 1.08737705655857,
+          "C2": 0.0178147554066782,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.301269814038063
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.00301269814038063
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -11.70076563842
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.835578735929269
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -5.92648417625078
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -5.28154061748168
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": -2.9880093154e-10,
+          "C1": 8.97830503e-12,
+          "C2": 4.6086259e-13,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 4.035791385e-11
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 4.0357914e-13
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 2.9886388388e-10
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": -3.185142643e-10
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 1.80136792953e-09
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 2.01327050562e-09
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 3.43293349585519,
+          "C1": 0.269566293081811,
+          "C2": 0.00415530129124405,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0837251164714362
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.000837251164714362
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -3.43236589512686
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.378674797776394
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -2.48008364286031
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -2.39353425269785
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 17648.0242248439,
+          "C1": 289.715091916459,
+          "C2": 41.2120897855504,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 197.355243812574
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 1.97355243812573
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -17642.3947865579
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 2359.03522076392
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -15038.7802512642
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -14911.0308828983
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.000710741996010037,
+          "C1": 2.79300253924066e-06,
+          "C2": 2.7250975391503e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 9.695998707828e-07
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 9.69599870783e-09
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -0.00071070477205828
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0013433880936278
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -0.0075370971868412
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -0.00849131084414894
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 248.123976665319,
+          "C1": 1.31425779078482,
+          "C2": 0.0484510761771763,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 1.71288957240669
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": 0.0171288957240669
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Reuse",
+              "value": -248.117358404912
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verlust/ Deponierung",
+              "value": 16.0078912952675
+            },
+            {
+              "code": "S3",
+              "description": "Szenario 3",
+              "value": -116.173833480981
+            },
+            {
+              "code": "S0",
+              "description": "100 % Recycling",
+              "value": -101.18295791977
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S0",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "C4": [
+        "S0",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "D": [
+        "S0",
+        "S1",
+        "S2",
+        "S3"
+      ]
+    }
+  }
+}

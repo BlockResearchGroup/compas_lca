@@ -1,0 +1,1950 @@
+{
+  "id": "b511927f-2763-453d-af89-2d482b23feeb",
+  "item_core": {
+    "core_id": "7eb70040-7aca-407b-bfe9-43dff618698b",
+    "entry_type": "material",
+    "name": "DPM ISO-Stroh - Straw blown-in insulation",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 105.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "biobased",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "wall",
+        "ceiling",
+        "roof",
+        "floor"
+      ],
+      "insulation_info": [
+        "thermal",
+        "loose_fill"
+      ],
+      "material_facet": {
+        "biobased_type": "straw"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "15ec902a-44f0-4d3e-9d5a-e3ccb09397ba",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/15ec902a-44f0-4d3e-9d5a-e3ccb09397ba?version=00.00.022",
+    "registration_number": "Bau-EPD-DPM-ISOSTROH-2025-1-ecoinvent-Einblasdämmung",
+    "location_code": "AT",
+    "reference_year": 2025,
+    "valid_until": 2030,
+    "dataset_owner": "Bau EPD GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 254.6122215,
+          "A4": 2.371642455,
+          "A5": 11.7851030093573,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.90601166
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.9837789465
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1618.49722042022
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -150.635665635
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 1627.93388475658,
+          "A4": 0.0,
+          "A5": -9.87490079935729,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -1618.05898395722
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 1882.54610625658,
+          "A4": 2.371642455,
+          "A5": 1.91020221,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.90601166
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.9837789465
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.438236463000067
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -150.635665635
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 68.1755063802958,
+          "A4": 143.1246495,
+          "A5": 7.56348337970416,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.235214485
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 52.8169446
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 9.699438945
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -391.016750355
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 5.23950451970416,
+          "A4": 0.0,
+          "A5": -5.23950451970416,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 73.4150109,
+          "A4": 143.1246495,
+          "A5": 2.32397886,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.235214485
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 52.8169446
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 9.699438945
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -391.016750355
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.386028006,
+          "A4": 0.01795752945,
+          "A5": 0.003748108875,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.003307863405
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.006357531075
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0500223843
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.2933031192
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 0.000698023809,
+          "A4": 0.0009639563955,
+          "A5": 7.347491865e-06,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 6.8275326e-06
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0003538700235
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 5.2304805e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.0013469392692
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 1.3891164,
+          "A4": 6.91160316,
+          "A5": 0.03099473685,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0184844877
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.118643485
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.143373035
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -1.371489483
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.000120809241,
+          "A4": 8.38882212e-05,
+          "A5": 1.661700495e-05,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.649477865e-05
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.688563375e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.24728954e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.0013917814365
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 1.545285,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 187.845
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 3.905055,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 474.6
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0886675923,
+          "A4": 0.02119156935,
+          "A5": 0.0008347193085,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0005502861945
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.01422080835
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0323243235
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.0404099163615
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": -146.51241008156,
+          "A4": 10.176844514235,
+          "A5": 0.481891351162897,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.142160923023
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.76558381689
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 154.051659145282
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -24.620731505811
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -153.090778874675,
+          "A4": 0.0,
+          "A5": 0.00894787467489712,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 153.081831
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 6.5736447,
+          "A4": 10.17346722,
+          "A5": 0.472754163,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.1419748365
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.76439301
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.9694996815
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -24.604672974
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.004724093115,
+          "A4": 0.003377294235,
+          "A5": 0.000189313488,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.000186086523
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.00119080689
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0003284637825
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.016058531811
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 83.5670052,
+          "A4": 38.9436852,
+          "A5": 0.8648511165,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.702480786
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 13.8116811
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 13.20444195
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -50.605151373
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 6.33573129e-07,
+          "A4": 7.492406355e-07,
+          "A5": 4.751874225e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.444854545e-09
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.62169901e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.625000525e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -2.07571458675e-07
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.125520906,
+          "A4": 0.005090992725,
+          "A5": 0.0002528392965,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0001106559405
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.005322513
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.01617476175
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.0118802325222
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.001767055815,
+          "A4": 0.0006892296285,
+          "A5": 0.000152466132,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0001473005835
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0002475218865
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0006304803855
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.01148413503405
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.3630861675,
+          "A4": 0.05492969475,
+          "A5": 0.002510122545,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0009771683565
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0580222083
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.174808284
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.1075973940615
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 3.422991915e-08,
+          "A4": 7.22103732e-08,
+          "A5": 6.91539492e-10,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 4.147473855e-10
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.263329915e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.097400145e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -5.47893620925e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 3.126978015e-07,
+          "A4": 8.98729251e-08,
+          "A5": 3.36042105e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.63573247e-09
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.078796245e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 6.029746695e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -8.9724274857e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.2713065285,
+          "A4": 0.185647077,
+          "A5": 0.03496199175,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.03468870405
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0808255056
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0280090902
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -2.92810418985
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 307.8682635,
+          "A4": 86.4574788,
+          "A5": 0.7680412845,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.741535998
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 27.1819149
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.791870305
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -59.4858493425
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.913628045e-07,
+          "A4": 2.02350855e-07,
+          "A5": 3.987026925e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 3.46992933e-09
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 7.561116045e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 4.76628306e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -1.051330555275e-06
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.02892192135,
+          "A4": 0.03521723205,
+          "A5": 0.000739855074,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0003329781
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.02179889565
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.04627206255
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -0.052645883724
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 73.41218535,
+          "A4": 143.119662,
+          "A5": 2.32395639,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.235194115
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 52.81548405
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 9.69920091
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -391.01444256
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 5.99948643e-05,
+          "A4": 3.311292705e-05,
+          "A5": 2.670401265e-06,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.648189355e-06
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 1.20329874e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 2.32164933e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -3.73458652875e-05
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 2.237666445,
+          "A4": 0.5944817025,
+          "A5": 0.0269985009,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.02446386075
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.20079234
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.2689641675
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Energierückgewinnung",
+              "value": -3.4135092432
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

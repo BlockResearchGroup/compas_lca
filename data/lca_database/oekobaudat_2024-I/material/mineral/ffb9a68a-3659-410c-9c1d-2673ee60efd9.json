@@ -1,0 +1,391 @@
+{
+  "id": "ffb9a68a-3659-410c-9c1d-2673ee60efd9",
+  "item_core": {
+    "core_id": "d22b67f4-c25b-4922-b21e-77ac689bee07",
+    "entry_type": "material",
+    "name": "Fibre cement facade panel",
+    "loadbearing": "non_loadbearing",
+    "placement": "exterior",
+    "density": 1300.0,
+    "areal_density": null,
+    "thickness": 10.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "cladding",
+        "covering"
+      ],
+      "application_areas": [
+        "facade"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "cement",
+        "mineral_form": "board"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "161e1abd-fe38-45f6-8658-8bf4fa88eb7c",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/161e1abd-fe38-45f6-8658-8bf4fa88eb7c?version=20.24.070",
+    "registration_number": null,
+    "location_code": "DE",
+    "reference_year": 2023,
+    "valid_until": 2026,
+    "dataset_owner": "Sphera Solutions GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 46.147281947277,
+          "C2": 0.0785437153454957,
+          "C4": 0.494149513953449
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 17.28,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 63.427281947277,
+          "C2": 0.0785437153454957,
+          "C4": 0.494149513953449
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 77.1447968239695,
+          "C2": 0.709727077065692,
+          "C4": 2.82204149471211
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.174,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 77.3187968239695,
+          "C2": 0.709727077065692,
+          "C4": 2.82204149471211
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.775326959847036,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.0306371655853666,
+          "C2": 7.3376799453919e-05,
+          "C4": 0.000746618123635313
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 2.4860326224296e-07,
+          "C2": 3.455242631e-11,
+          "C4": 7.0822332436e-10
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 5.63653227729576,
+          "C2": 0.000119998844779067,
+          "C4": 14.3136713123713
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00204840587200114,
+          "C2": 1.12965006641177e-06,
+          "C4": 2.91964042514743e-05
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": 0.0,
+          "C4": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0160945835557336,
+          "C2": 7.13560705167009e-05,
+          "C4": 0.00151989633242427
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 7.31253637923039,
+          "C2": 0.0553811804015125,
+          "C4": 1.68942066455991
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -1.44299961593822,
+          "C2": 0.000281139139707943,
+          "C4": 1.47399126320192
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 8.74721472179028,
+          "C2": 0.0540603678999091,
+          "C4": 0.214144964193988
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.00832127337832737,
+          "C2": 0.00103967336189543,
+          "C4": 0.001284437164005
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.00477689255300229,
+          "C2": 2.52810909371792e-05,
+          "C4": 0.000391295659782371
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 3.80246709326189e-05,
+          "C2": 1.4719549214929e-07,
+          "C4": 4.8784009242745e-07
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.0506754303972499,
+          "C2": 0.000307176181936073,
+          "C4": 0.00430878450057047
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "C2": [],
+          "C4": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 6.543076324e-11,
+          "C2": 1.706882e-14,
+          "C4": 5.8346281e-13
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0261481701440836,
+          "C2": 6.92744941597126e-05,
+          "C4": 0.00119738932071609
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 77.143935859185,
+          "C2": 0.709714851585894,
+          "C4": 2.82200615258691
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.00458243939693881,
+          "C2": 9.17278774977e-09,
+          "C4": 1.368495605534e-08
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.29796672794334,
+          "C2": 0.000387421972763892,
+          "C4": 0.0244308622621272
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

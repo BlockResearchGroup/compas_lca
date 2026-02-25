@@ -7,13 +7,13 @@ from compas_lca.workflows.matching import score_items_to_element
 # CONFIGURATION — specify here
 # -------------------------------------------------------------------
 
-INVENTORY_DIR = Path("temp/obd_ground_truth")
+INVENTORY_DIR = Path("data/lca_database/oekobaudat_2024-I")
 
 # Root directory of the extracted and serialized LcaElements
-INPUT_ROOT = Path("temp/ifc_extracted/1072_HiLo_Model-Architecture")
+INPUT_ROOT = Path("temp/projects/duplex/03_extracted")
 
 # Root directory where matched LcaElements will be written
-OUTPUT_ROOT = Path("temp/ifc_extracted_matched/1072_HiLo_Model-Architecture")  # <-- change if you like
+OUTPUT_ROOT = Path("temp/projects/duplex/05_matched")
 
 # First-level subdirectories to process
 ALLOWED_ELEMENT_DIRS = {
@@ -24,10 +24,10 @@ ALLOWED_ELEMENT_DIRS = {
 }
 
 # How many top matches to keep
-TOP_K = 100
+TOP_K = 30
 
 # If the output should include the explanation of the score
-INCLUDE_EXPLAIN = False
+INCLUDE_EXPLAIN = True
 
 # If there should be a score-floor for items attached to the LcaElement
 SCORE_THRESHOLD = 0.5
@@ -102,7 +102,6 @@ def main():
 
     # --- Loop over all element JSON files in the allowed subdirectories ---
     for element_path, element in iter_element_files(INPUT_ROOT):
-        print(f"\n=== Processing element file: {element_path} ===")
 
         matched_element = score_items_to_element(
             items=items,
@@ -111,13 +110,6 @@ def main():
             include_explain=INCLUDE_EXPLAIN,
             score_threshold=SCORE_THRESHOLD
         )
-
-        # --- Print summary for this element ---
-        print("\n--- MATCH RESULTS ---")
-        for core_matches in matched_element.matched_items or []:
-            print(f"\nCore ID: {core_matches.core_id}")
-            for m in core_matches.matches:
-                print(f"  - {m.item_name}  →  score={m.match_score:.3f}")
 
         # --- Build output path mirroring INPUT_ROOT structure ---
         relative = element_path.relative_to(INPUT_ROOT)

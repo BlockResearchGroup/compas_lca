@@ -1,0 +1,1873 @@
+{
+  "id": "8d339ebf-fab1-41ea-9589-4966876e593f",
+  "item_core": {
+    "core_id": "fce7529b-e4fa-416c-80c9-a79fed391959",
+    "entry_type": "material",
+    "name": "Italian Ceramic Tiles",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": null,
+    "areal_density": 21.38,
+    "thickness": 10.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Confindustria Ceramica",
+    "provenance": "IT",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "covering",
+        "lining"
+      ],
+      "application_areas": [
+        "wall",
+        "floor"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "ceramic",
+        "mineral_form": "tile"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "98a6e52b-6e12-4542-afa7-371740748685",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/98a6e52b-6e12-4542-afa7-371740748685?version=00.01.000",
+    "registration_number": "EPD-COI-20220297-ICG1-EN",
+    "location_code": "IT",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Confindustria Ceramica",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 14.2922646,
+          "A4": 0.8143128573,
+          "A5": 16.98950609,
+          "B1": 0.0,
+          "B2": 0.02059698147,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.01535420038,
+          "C2": 0.03493859263,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.1112292508
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.8034356017
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -1.589828293
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.277095034
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 10.5604,
+          "A4": 0.0,
+          "A5": -10.5604,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 24.8526646,
+          "A4": 0.8143128573,
+          "A5": 6.42910609,
+          "B1": 0.0,
+          "B2": 0.02059698147,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.01535420038,
+          "C2": 0.03493859263,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.1112292508
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.8034356017
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -1.589828293
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.277095034
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 176.0691862,
+          "A4": 15.97453607,
+          "A5": 21.13313968,
+          "B1": 0.0,
+          "B2": 0.177952233,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.2224084681,
+          "C2": 0.6160582166,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.387989627
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 5.359735161
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -6.252455599
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -5.451368357
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 2.124802,
+          "A4": 0.0,
+          "A5": -2.124802,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 178.1939882,
+          "A4": 15.97453607,
+          "A5": 19.00833768,
+          "B1": 0.0,
+          "B2": 0.177952233,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.2224084681,
+          "C2": 0.6160582166,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.387989627
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 5.359735161
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -6.252455599
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -5.451368357
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.5123,
+          "A4": 0.0,
+          "A5": 0.0333,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 26.429
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.1932
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.02675060113,
+          "A4": 0.0009236660243,
+          "A5": 0.006114427036,
+          "B1": 0.0,
+          "B2": 5.294859941e-05,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.773684672e-05,
+          "C2": 3.951376833e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0003877838992
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.001360112966
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.001033598828
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.0008576415484
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 4.403165719e-07,
+          "A4": 7.526168752e-11,
+          "A5": 6.649879796e-08,
+          "B1": 0.0,
+          "B2": 1.507171596e-11,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.17680812e-12,
+          "C2": 2.95015472e-12,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.735385342e-11
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.001360112966
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -6.509226217e-09
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.0008576415484
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.7563587104,
+          "A4": 0.002203761985,
+          "A5": 1.621757129,
+          "B1": 0.0,
+          "B2": 0.00602325194,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 3.623587407e-05,
+          "C2": 8.829003265e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0003681371852
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 27.38
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -1.109492694
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.005248458347,
+          "A4": 1.951379e-05,
+          "A5": 0.0005323963323,
+          "B1": 0.0,
+          "B2": 4.253978345e-06,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 4.128542209e-07,
+          "C2": 7.587833666e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.827835477e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 2.752398309e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.0003281027116
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -6.463010201e-09
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.3379604,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 27.38266594
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.6563096769,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.9525348461,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.02499486083,
+          "A4": 0.00890812041,
+          "A5": 0.004129369731,
+          "B1": 0.0,
+          "B2": 1.525546679e-05,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0002254153042,
+          "C2": 7.216123921e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0003657239553
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.002897083303
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.0005929360306
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.0003236165299
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 11.02926873,
+          "A4": 1.224413216,
+          "A5": 3.541711301,
+          "B1": 0.0,
+          "B2": 0.01170585154,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.01725669165,
+          "C2": 0.04641006124,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.07112861713
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.4106571842
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.2660988412
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.2049331301
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -1.038673735,
+          "A4": 0.00318637456,
+          "A5": 1.302634208,
+          "B1": 0.0,
+          "B2": 0.003037021438,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 5.480470584e-05,
+          "C2": 0.0001304401449,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.212410888e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.001272953024
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.04038496465
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0395507187
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 12.06266797,
+          "A4": 1.215299263,
+          "A5": 2.237532248,
+          "B1": 0.0,
+          "B2": 0.008667647097,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.01708816916,
+          "C2": 0.04602321673,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.07078883153
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.4086299723
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.3063249925
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.2444380041
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.00527449951,
+          "A4": 0.005927578463,
+          "A5": 0.001544845335,
+          "B1": 0.0,
+          "B2": 1.183008337e-06,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0001137177744,
+          "C2": 0.0002564043648,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0003276614854
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0007542589422
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.0001588133356
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -4.58446873e-05
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.007926711942,
+          "A4": 0.002981975716,
+          "A5": 0.001419382625,
+          "B1": 0.0,
+          "B2": 1.733278768e-05,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0001016989517,
+          "C2": 2.850165841e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.000167177942
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0007407633405
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.0002051327824
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.0001074278992
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 9.815641162e-06,
+          "A4": 3.204686373e-06,
+          "A5": 1.162124515e-05,
+          "B1": 0.0,
+          "B2": 3.557356886e-06,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 6.028480183e-08,
+          "C2": 1.372774533e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 2.03330498e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 6.926590389e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -1.061799019e-06
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -7.788284536e-07
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.0873332806,
+          "A4": 0.03300251775,
+          "A5": 0.01575760502,
+          "B1": 0.0,
+          "B2": 4.368902199e-05,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.001119309629,
+          "C2": 0.0003271232787,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.001845288205
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.008139624349
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.002201264134
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.001125018716
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "B2": [],
+          "B3": [],
+          "B4": [],
+          "B5": [],
+          "B6": [],
+          "B7": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 8.982062258e-11,
+          "A4": 7.191918e-14,
+          "A5": 1.050854815e-11,
+          "B1": 0.0,
+          "B2": 3.580884e-14,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.65721e-15,
+          "C2": 2.75534e-15,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.0539161e-13
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 9.6055276e-13
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -2.10556617e-12
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.51489851e-12
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.02219218594,
+          "A4": 0.007011259858,
+          "A5": 0.003513471845,
+          "B1": 0.0,
+          "B2": 1.799012112e-05,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0003297855033,
+          "C2": 6.469411068e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0004549081624
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.002251197269
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.0006420954834
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.000378733966
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 178.0898533,
+          "A4": 15.936464,
+          "A5": 18.99307951,
+          "B1": 0.0,
+          "B2": 0.1777938381,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.221531256,
+          "C2": 0.6145883175,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 1.38496455
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 5.353217185
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -6.249603192
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -5.449208699
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 6.085665949e-05,
+          "A4": 9.410255104e-08,
+          "A5": 6.750796562e-06,
+          "B1": 0.0,
+          "B2": 1.199135008e-09,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.700911089e-09,
+          "C2": 3.844616388e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 7.85462624e-08
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 4.188370254e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -5.044761697e-08
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -3.418014881e-08
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.935044592,
+          "A4": 0.009790891386,
+          "A5": 0.1646342366,
+          "B1": 0.0,
+          "B2": 0.001502502708,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0001888108802,
+          "C2": 0.0004125221108,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.01367229564
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.04481001582
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Deponie",
+              "value": -0.01332265524
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.01079403861
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

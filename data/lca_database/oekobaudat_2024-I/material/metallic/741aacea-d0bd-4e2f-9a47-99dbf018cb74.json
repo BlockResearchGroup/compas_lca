@@ -1,0 +1,1037 @@
+{
+  "id": "741aacea-d0bd-4e2f-9a47-99dbf018cb74",
+  "item_core": {
+    "core_id": "bbf1d0e0-230b-4bde-98bf-b1ed797640ad",
+    "entry_type": "material",
+    "name": "Zinc coated steel structures",
+    "loadbearing": "either",
+    "placement": "either",
+    "density": 7850.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": null,
+    "production_location": "Daugavpils",
+    "facet": {
+      "material_type": "metallic",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "stair",
+        "balcony_terrace",
+        "column",
+        "beam",
+        "roof",
+        "wall",
+        "parapet",
+        "railing"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "metallic_type": "carbon_steel",
+        "metallic_form": "profile",
+        "steel_grade": null,
+        "yield_strength": null,
+        "metallic_production": null,
+        "metallic_forming": null,
+        "metallic_surface_treatment": "galvanized"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "7e38bb46-2c08-485d-b5b3-bda4730e0b69",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/7e38bb46-2c08-485d-b5b3-bda4730e0b69?version=00.00.007",
+    "registration_number": "EPD-BELMAST-278-EN",
+    "location_code": "RER",
+    "reference_year": 2021,
+    "valid_until": 2027,
+    "dataset_owner": "SIA BELMAST",
+    "compliance_system_name": [
+      "EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1": 1.86,
+          "A2": 0.0404,
+          "A3": 2.05,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0185
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0186
+            }
+          ],
+          "C1": 0.000268,
+          "C2": 0.00134,
+          "C3": 0.0,
+          "C4": 5.95e-05,
+          "D": -0.285
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.305,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": -0.0157
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1": 1.86,
+          "A2": 0.0404,
+          "A3": 2.37,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0185
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0186
+            }
+          ],
+          "C1": 0.000268,
+          "C2": 0.00134,
+          "C3": 0.0,
+          "C4": 0.000677,
+          "D": -0.155
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1": 22.2,
+          "A2": 3.43,
+          "A3": 12.7,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.37
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.39
+            }
+          ],
+          "C1": 0.0527,
+          "C2": 0.113,
+          "C3": 0.0,
+          "C4": 0.00782,
+          "D": -0.0998
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.035,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": -0.000293
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1": 22.2,
+          "A2": 3.43,
+          "A3": 12.1,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.37
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.39
+            }
+          ],
+          "C1": 0.0527,
+          "C2": 0.113,
+          "C3": 0.0,
+          "C4": 0.0127,
+          "D": -5.16
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1": 0.468,
+          "A2": 0.0,
+          "A3": 0.0565,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 7.12e-05
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1": 0.0185,
+          "A2": 0.000393,
+          "A3": 0.0127,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.000138
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.000139
+            }
+          ],
+          "C1": 2.55e-06,
+          "C2": 1.3e-05,
+          "C3": 0.0,
+          "C4": 1.5e-05,
+          "D": -0.00257
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1": 9.86e-05,
+          "A2": 8.19e-06,
+          "A3": 0.000863,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 3.38e-06
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 3.4e-06
+            }
+          ],
+          "C1": 1.35e-07,
+          "C2": 2.71e-07,
+          "C3": 0.0,
+          "C4": 1.48e-08,
+          "D": -8.51e-05
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1": 0.716,
+          "A2": 0.205,
+          "A3": 0.228,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0626
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0627
+            }
+          ],
+          "C1": 5.88e-05,
+          "C2": 0.00678,
+          "C3": 0.0,
+          "C4": 0.0501,
+          "D": -0.0699
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1": 5.17e-05,
+          "A2": 2.12e-05,
+          "A3": 4.83e-05,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 8.82e-06
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 8.94e-06
+            }
+          ],
+          "C1": 3.45e-07,
+          "C2": 7.02e-07,
+          "C3": 0.0,
+          "C4": 7.93e-08,
+          "D": 4.11e-06
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.114,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.95,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0496
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0853
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1": 0.00916,
+          "A2": 0.00124,
+          "A3": 0.00563,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.000261
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0003
+            }
+          ],
+          "C1": 3.77e-05,
+          "C2": 4.11e-05,
+          "C3": 0.0,
+          "C4": 3.91e-06,
+          "D": -0.00277
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1": 1.81,
+          "A2": 0.214,
+          "A3": 0.723,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0858
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.0871
+            }
+          ],
+          "C1": 0.00361,
+          "C2": 0.00709,
+          "C3": 0.0,
+          "C4": 0.000469,
+          "D": -0.702
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1": 0.00233,
+          "A2": 9.88e-05,
+          "A3": -0.0512,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 4.55e-05
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 4.48e-05
+            }
+          ],
+          "C1": 1e-06,
+          "C2": 3.27e-06,
+          "C3": 0.0,
+          "C4": 2.07e-05,
+          "D": 0.00799
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1": 1.81,
+          "A2": 0.214,
+          "A3": 0.773,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.0857
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.087
+            }
+          ],
+          "C1": 0.00361,
+          "C2": 0.00709,
+          "C3": 0.0,
+          "C4": 0.000448,
+          "D": -0.711
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1": 0.00125,
+          "A2": 7.84e-05,
+          "A3": 0.00141,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 3.08e-05
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 3.19e-05
+            }
+          ],
+          "C1": 2.84e-07,
+          "C2": 2.6e-06,
+          "C3": 0.0,
+          "C4": 1.26e-07,
+          "D": 0.000511
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1": 76.0,
+          "A2": 2.88,
+          "A3": 71.9,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.04
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.05
+            }
+          ],
+          "C1": 0.0299,
+          "C2": 0.0953,
+          "C3": 0.0,
+          "C4": 0.058,
+          "D": -24.1
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1": 1.64e-07,
+          "A2": 1.93e-08,
+          "A3": 4.77e-08,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 5.44e-09
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 5.48e-09
+            }
+          ],
+          "C1": 1e-09,
+          "C2": 6.37e-10,
+          "C3": 0.0,
+          "C4": 8.05e-11,
+          "D": -4.16e-08
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1": 0.0019,
+          "A2": 0.000437,
+          "A3": 0.00114,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 5.2e-05
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 6.08e-05
+            }
+          ],
+          "C1": 1.67e-05,
+          "C2": 1.45e-05,
+          "C3": 0.0,
+          "C4": 1.44e-06,
+          "D": -0.000518
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1": 0.000108,
+          "A2": 2.16e-06,
+          "A3": 4.86e-05,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 6.83e-07
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 6.89e-07
+            }
+          ],
+          "C1": 1.31e-08,
+          "C2": 7.15e-08,
+          "C3": 0.0,
+          "C4": 5.78e-09,
+          "D": -2.51e-05
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1": 0.0203,
+          "A2": 0.00482,
+          "A3": 0.0135,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.000582
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.00068
+            }
+          ],
+          "C1": 0.000183,
+          "C2": 0.00016,
+          "C3": 0.0,
+          "C4": 1.6e-05,
+          "D": -0.0061
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1": 1.51e-08,
+          "A2": 9.34e-11,
+          "A3": 4.19e-09,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 2.92e-11
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 3.01e-11
+            }
+          ],
+          "C1": 1.05e-12,
+          "C2": 3.09e-12,
+          "C3": 0.0,
+          "C4": 5.56e-13,
+          "D": -9.37e-11
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1": 1.78e-07,
+          "A2": 3.15e-09,
+          "A3": 1.1e-07,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.1e-09
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.11e-09
+            }
+          ],
+          "C1": 2.57e-11,
+          "C2": 1.04e-10,
+          "C3": 0.0,
+          "C4": 4.54e-11,
+          "D": 1.37e-07
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1": 0.0544,
+          "A2": 0.0135,
+          "A3": 0.055,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.00566
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.00573
+            }
+          ],
+          "C1": 0.000213,
+          "C2": 0.000448,
+          "C3": 0.0,
+          "C4": 5.99e-05,
+          "D": 0.0121
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1": 6.68,
+          "A2": 2.8,
+          "A3": 11.1,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.901
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.904
+            }
+          ],
+          "C1": 0.00633,
+          "C2": 0.0927,
+          "C3": 0.0,
+          "C4": 0.0294,
+          "D": -2.54
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1": 1.13e-07,
+          "A2": 4.72e-08,
+          "A3": 9.69e-08,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.95e-08
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.97e-08
+            }
+          ],
+          "C1": 7.79e-10,
+          "C2": 1.56e-09,
+          "C3": 0.0,
+          "C4": 1.61e-10,
+          "D": -1.77e-08
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1": 0.00866,
+          "A2": 0.00138,
+          "A3": 0.00347,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.000218
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.000244
+            }
+          ],
+          "C1": 5.02e-05,
+          "C2": 4.56e-05,
+          "C3": 0.0,
+          "C4": 4.57e-06,
+          "D": -0.00406
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1": 20.9,
+          "A2": 3.23,
+          "A3": 11.3,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 1.29
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 1.31
+            }
+          ],
+          "C1": 0.0496,
+          "C2": 0.107,
+          "C3": 0.0,
+          "C4": 0.012,
+          "D": -4.97
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1": 2.82e-05,
+          "A2": 5.42e-06,
+          "A3": 0.00672,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 2.36e-06
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 2.37e-06
+            }
+          ],
+          "C1": 5.53e-09,
+          "C2": 1.8e-07,
+          "C3": 0.0,
+          "C4": 3.94e-09,
+          "D": -4.93e-07
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1": 0.586,
+          "A2": 0.0115,
+          "A3": 0.394,
+          "A4": [
+            {
+              "code": "Finland scenario",
+              "description": "Transport from production place to the construction site (A4) ? Finland scenario: Parameter: Truck, Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*, Distance: 510 km**, Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 82 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Tallinn, Estonia (500 km) and from the port in Helsinki, Finland, to the construction site in Helsinki, Finland (10 km), *** Total distance by ferry: Tallinn ? Helsinki.]",
+              "value": 0.00366
+            },
+            {
+              "code": "Sweden scenario",
+              "description": "Transport from production place to the construction site (A4) ? Sweden scenario: Parameter: Truck,  Vehicle type: Lorry (Truck) 16-32t, EURO6 | market for (EU)*,  Distance: 510 km**,  Parameter: Maritime, Vehicle type: Ferry/ Transoceanic freight ship, containers*, Distance: 283 km***. [* Data for transport is calculated for an average load factor, including empty return trips, ** Total distance by truck: from the manufacturing site (Daugavpils, Latvia) to the terminal located in Ventspils, Latvia (450 km) and from the port in Nynashamn, Sweden, to the construction site in Stockholm, Sweden (60 km), *** Total distance by ferry: Ventspils ? Nynashamn.]",
+              "value": 0.00369
+            }
+          ],
+          "C1": 6.65e-05,
+          "C2": 0.000382,
+          "C3": 0.0,
+          "C4": 5.66e-05,
+          "D": -0.135
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "A4": [
+        "Finland scenario",
+        "Sweden scenario"
+      ]
+    }
+  }
+}

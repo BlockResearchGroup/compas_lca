@@ -1,0 +1,1284 @@
+{
+  "id": "b62564ea-f0aa-41f2-b384-111eac5930e2",
+  "item_core": {
+    "core_id": "ba98aedc-bd2e-4e65-a915-8172dc744456",
+    "entry_type": "component",
+    "name": "Laminated safety glass EUROLAMEX",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": null,
+    "areal_density": 15.4,
+    "thickness": 6.38,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Glas Trsch Holding AG",
+    "provenance": "EU",
+    "production_location": null,
+    "facet": {
+      "component_type": "infill",
+      "component_facet": {
+        "infill_type": "transparent",
+        "infill_material_family": "float_glass",
+        "infill_construction": "laminated",
+        "infill_safety_type": "laminated_safety",
+        "infill_coating": "uncoated"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "c38da3ef-e75e-4d27-8794-58be29cd37ca",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/c38da3ef-e75e-4d27-8794-58be29cd37ca?version=00.04.000",
+    "registration_number": "EPD-GLS-20230183-IBB3-DE",
+    "location_code": "RER",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "Glas Trösch Holding AG",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 13.2260647732183,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0168781500747102
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0168781500747102
+            }
+          ],
+          "C3": 0.123392829365051,
+          "C4": 0.0428598010595478,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.203079566562975
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 13.2260647732183,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0168781500747102
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0168781500747102
+            }
+          ],
+          "C3": 0.123392829365051,
+          "C4": 0.0428598010595478,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.203079566562975
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 204.932579792469,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.17153180234847
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.17153180234847
+            }
+          ],
+          "C3": 1.854450941975,
+          "C4": 2.21504887966713,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.642883349309762
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 9.950148,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 214.882727792469,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.17153180234847
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.17153180234847
+            }
+          ],
+          "C3": 1.854450941975,
+          "C4": 2.21504887966713,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.642883349309762
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 3.17668224299065,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 12.2
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.296166670220036,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.000346019733006826
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000346019733006826
+            }
+          ],
+          "C3": 0.00309516060045208,
+          "C4": 0.000300823709095955,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.00463249093433883
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 0.00064148049628516,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 7.27802358578504e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 7.27802358578504e-06
+            }
+          ],
+          "C3": 9.18021839079752e-06,
+          "C4": 1.08209859361363e-05,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -4.23775318282221e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 1.94587616509469,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.103069661023508
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.103069661023508
+            }
+          ],
+          "C3": 0.898232331876271,
+          "C4": 15.401885352277,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.011958113124386
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.000845427056923181,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 6.175479148018e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 6.175479148018e-07
+            }
+          ],
+          "C3": 6.86887977290216e-06,
+          "C4": 8.5469783118726e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -4.38028033431069e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 15.4,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.09072143265496,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.000191005749330202
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000191005749330202
+            }
+          ],
+          "C3": 0.000691734298923352,
+          "C4": 0.000562920433193772,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.000356736173295336
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 16.7484745151141,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.0793670031722201
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0793670031722201
+            }
+          ],
+          "C3": 0.333347374548576,
+          "C4": 0.092733198658145,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.0460489200998833
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.0628043328255835,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 6.92503322175593e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 6.92503322175593e-05
+            }
+          ],
+          "C3": 0.124581381191316,
+          "C4": 0.000298023795366044,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.00175933243981972
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 16.6817740532162,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.079259811623188
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.079259811623188
+            }
+          ],
+          "C3": 0.208493007174587,
+          "C4": 0.0924178892672892,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.0442576415689646
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0038961290723231,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 3.79412168145657e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 3.79412168145657e-05
+            }
+          ],
+          "C3": 0.000272986182673163,
+          "C4": 1.72855954897702e-05,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -3.19460910989486e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 309.614763716631,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.612904629538402
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.612904629538402
+            }
+          ],
+          "C3": 1.50673443631267,
+          "C4": 0.983671363932852,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.350601891514443
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 0.000156429356492967,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 7.61750796562e-09
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 7.61750796562e-09
+            }
+          ],
+          "C3": 1.39782813333e-08,
+          "C4": 1.418789679061e-08,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -7.78654664594e-09
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0135675665677807,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 5.09641240416727e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 5.09641240416727e-05
+            }
+          ],
+          "C3": 0.000273670876651905,
+          "C4": 0.0002446973349507,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.000103951044554232
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.000406269829628652,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 6.468021014053e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 6.468021014053e-07
+            }
+          ],
+          "C3": 3.51777235515151e-06,
+          "C4": 4.993002447597e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -1.08203798482182e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.222764549090854,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.000534238241450011
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000534238241450011
+            }
+          ],
+          "C3": 0.00252432771256466,
+          "C4": 0.00263194379409162,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.00141204322522683
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 4.33048995708e-09,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 3.432559494e-11
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 3.432559494e-11
+            }
+          ],
+          "C3": 2.8499002872e-10,
+          "C4": 2.957868075e-11,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -8.394151274e-11
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.6688365138677e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.05467280722e-09
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.05467280722e-09
+            }
+          ],
+          "C3": 2.96885830147e-09,
+          "C4": 7.299161979e-10,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -1.03872220269e-09
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.282953688278186,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.000563334518977785
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000563334518977785
+            }
+          ],
+          "C3": 0.00503811395502676,
+          "C4": 0.000866528680065827,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.00441606161806217
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 45.4697554906767,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.18789215038523
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.18789215038523
+            }
+          ],
+          "C3": 1.56679988350811,
+          "C4": 4.57476153191407,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -1.26889243010555
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 4.0063729616689e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.75113742968e-09
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.75113742968e-09
+            }
+          ],
+          "C3": 2.14870547754e-09,
+          "C4": 3.0219490188e-09,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -7.0982693563e-10
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0488464866362365,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.000311892637160872
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000311892637160872
+            }
+          ],
+          "C3": 0.000837952227099427,
+          "C4": 0.00104409391043485,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.000359982066729843
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 214.598665653436,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 1.17115377609516
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.17115377609516
+            }
+          ],
+          "C3": 1.84934500239926,
+          "C4": 2.21481867551952,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.642625741789407
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 9.61604809519735e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 2.1581643509026e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 2.1581643509026e-07
+            }
+          ],
+          "C3": 5.2693427388567e-07,
+          "C4": 9.18453902926e-08,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -5.9790718485174e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 8.3601385451967,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": 0.00566726003825081
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.00566726003825081
+            }
+          ],
+          "C3": 0.0827848022421196,
+          "C4": 0.00806958336786676,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Recycling",
+              "value": -0.0108503571117288
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C2": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

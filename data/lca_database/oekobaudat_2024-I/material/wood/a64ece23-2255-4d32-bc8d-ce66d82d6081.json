@@ -1,0 +1,947 @@
+{
+  "id": "a64ece23-2255-4d32-bc8d-ce66d82d6081",
+  "item_core": {
+    "core_id": "cb159b75-8119-4e60-9965-d3100af8604e",
+    "entry_type": "material",
+    "name": "Wood fiber insulation - dry process (German average)",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 30.1336495602222,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "wood",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "wall",
+        "ceiling"
+      ],
+      "insulation_info": [
+        "thermal",
+        "loose_fill"
+      ],
+      "material_facet": {
+        "wood_type": "wood_fibre",
+        "wood_form": "loose_fill",
+        "strength_class_designation": null,
+        "base_species": "other",
+        "wood_processing": null,
+        "wood_adhesive": null,
+        "drying_method": "steam_conditioned",
+        "wood_surface": "untreated",
+        "modification_method": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "5bfeefee-ad4c-474e-8efe-fbed20dc776a",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/5bfeefee-ad4c-474e-8efe-fbed20dc776a?version=00.00.064",
+    "registration_number": null,
+    "location_code": "DE",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Thünen-Institut für Holzforschung",
+    "compliance_system_name": [
+      "EN 15804+A2",
+      "EN 16485"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 46.2287086482397,
+          "A1": 4.06706905033632,
+          "A2": 0.321144470517236,
+          "A3": 41.8404951273862,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 23.7866481450492
+            }
+          ],
+          "C2": 0.108191975922535,
+          "C3": 0.191544623282811,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 347.71321442352
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 531.669397941914,
+          "A1": 508.164150916981,
+          "A2": 0.0,
+          "A3": 23.5052470249332,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": -23.5052470249332
+            }
+          ],
+          "C2": 0.0,
+          "C3": -508.164150916981,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 577.898106590154,
+          "A1": 512.231219967317,
+          "A2": 0.321144470517236,
+          "A3": 65.3457421523194,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.281401120115991
+            }
+          ],
+          "C2": 0.108191975922535,
+          "C3": -507.972606293698,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 347.71321442352
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 203.895174873649,
+          "A1": 16.2824029780327,
+          "A2": 4.54932667165684,
+          "A3": 183.06344522396,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 8.20589651390247
+            }
+          ],
+          "C2": 1.53264554401607,
+          "C3": 2.963641465024,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -373.907978973234
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 19.0551875018241,
+          "A1": 11.8278147925215,
+          "A2": 0.0,
+          "A3": 7.22737270930259,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": -7.22737270930259
+            }
+          ],
+          "C2": 0.0,
+          "C3": -11.8278147925215,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 222.950362375473,
+          "A1": 28.1102177705542,
+          "A2": 4.54932667165684,
+          "A3": 190.290817933262,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.978523804599877
+            }
+          ],
+          "C2": 1.53264554401607,
+          "C3": -8.86417332749754,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -373.907978973234
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.110566454380527,
+          "A1": 0.031437457667258,
+          "A2": 0.000353890785494264,
+          "A3": 0.0787751059277746,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.00861473023144774
+            }
+          ],
+          "C2": 0.000119224046678232,
+          "C3": 0.000174487645837927,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0751590805303672
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.4579873731402e-07,
+          "A1": 1.76208856e-10,
+          "A2": 1.683304227e-11,
+          "A3": 1.4560569541575e-07,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 9.83424036e-12
+            }
+          ],
+          "C2": 5.67096827e-12,
+          "C3": 7.94107551e-12,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -1.737807917953e-08
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.0823492852614499,
+          "A1": 0.00797050667567457,
+          "A2": 0.000655672720557958,
+          "A3": 0.0737231058652174,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0653650202559514
+            }
+          ],
+          "C2": 0.000220892880644701,
+          "C3": 0.000432124510856508,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.416410168135147
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.000875117876536134,
+          "A1": 0.000413553841205708,
+          "A2": 5.88203822178427e-06,
+          "A3": 0.000455681997108641,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 3.11981845962433e-05
+            }
+          ],
+          "C2": 1.98162944123479e-06,
+          "C3": 3.09972848347483e-06,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -0.0165896785766609
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.0
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 1.21972118857004
+            }
+          ],
+          "C2": 0.0,
+          "C3": 30.1336495602222,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.00166640937868034,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.00166640937868034,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 4.67306279275021
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.003871267706308,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.003871267706308,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 10.4674877043326
+            }
+          ],
+          "C2": 0.0,
+          "C3": 0.0,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0228403644675892,
+          "A1": 0.00978781049239876,
+          "A2": 0.00204839314075926,
+          "A3": 0.0110041608344312,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.000645930251926242
+            }
+          ],
+          "C2": 0.000690093467927286,
+          "C3": 0.00280931718004606,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -0.0169245222310367
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": -37.6316364560222,
+          "A1": -46.4609857531475,
+          "A2": 0.331254704014673,
+          "A3": 8.49809459311064,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 2.77693234286687
+            }
+          ],
+          "C2": 0.109738030997835,
+          "C3": 48.5699760890516,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -21.9953271481646
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -50.5856074305672,
+          "A1": -48.3438470593706,
+          "A2": 0.0,
+          "A3": -2.2417603711966,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 2.2417603711966
+            }
+          ],
+          "C2": 0.0,
+          "C3": 48.3438470593706,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 12.953970974545,
+          "A1": 1.88286130622307,
+          "A2": 0.331254704014673,
+          "A3": 10.7398549643072,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.535171971670269
+            }
+          ],
+          "C2": 0.109738030997835,
+          "C3": 0.226129029681037,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -21.9953271481646
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0104845304128428,
+          "A1": 0.00464747804062345,
+          "A2": 0.00100434538504428,
+          "A3": 0.00483270698717511,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.000185525660161124
+            }
+          ],
+          "C2": 0.000338358968291149,
+          "C3": 0.0012666030652302,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -0.00705505459518839
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 1.84045323659229e-05,
+          "A1": 4.5563937082758e-06,
+          "A2": 1.21677627587611e-06,
+          "A3": 1.2631362381771e-05,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 1.5108751427745e-07
+            }
+          ],
+          "C2": 4.0992587956028e-07,
+          "C3": 5.0921054144614e-07,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -7.28466246167881e-05
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.114579483150011,
+          "A1": 0.0505705481787184,
+          "A2": 0.0111360747443577,
+          "A3": 0.0528728602269352,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.00310938756839345
+            }
+          ],
+          "C2": 0.00375168823138257,
+          "C3": 0.0139330890397343,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -0.0567112483185153
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "A5": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 9.87657251e-12,
+          "A1": 8.06478403e-12,
+          "A2": 2.921623e-14,
+          "A3": 1.78257224e-12,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 5.5802393e-13
+            }
+          ],
+          "C2": 9.8428e-15,
+          "C3": 3.820704e-14,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -3.3012817672e-10
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.033826804292703,
+          "A1": 0.0117417115874568,
+          "A2": 0.00188987198042704,
+          "A3": 0.0201952207248192,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.000481028060788237
+            }
+          ],
+          "C2": 0.000636688476914198,
+          "C3": 0.00368225204869995,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -0.0178321972139876
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 215.684641908992,
+          "A1": 28.0976568601294,
+          "A2": 4.53765354999542,
+          "A3": 183.049331498867,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.977998359619314
+            }
+          ],
+          "C2": 1.52871292734763,
+          "C3": 2.96204568840699,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -385.671832864156
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 7.384543311623e-07,
+          "A1": 1.574118011703e-07,
+          "A2": 2.152525861313e-08,
+          "A3": 5.5951727137887e-07,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 4.54026073913e-09
+            }
+          ],
+          "C2": 7.25175263908e-09,
+          "C3": 1.546932430516e-08,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": -2.32875387794183e-06
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.110566454380527,
+          "A1": 0.031437457667258,
+          "A2": 0.000353890785494264,
+          "A3": 0.0787751059277746,
+          "A5": [
+            {
+              "code": "Entsorgung Verpackung",
+              "description": "Das Modul A5 enthält ausschließlich die Entsorgung der Verpackungsmaterialien",
+              "value": 0.00861473023144774
+            }
+          ],
+          "C2": 0.000119224046678232,
+          "C3": 0.000174487645837927,
+          "D": [
+            {
+              "code": "energetisch",
+              "description": "thermische Verwertung",
+              "value": 0.0751590805303672
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

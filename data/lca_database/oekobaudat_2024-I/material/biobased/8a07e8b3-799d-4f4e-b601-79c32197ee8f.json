@@ -1,0 +1,2893 @@
+{
+  "id": "8a07e8b3-799d-4f4e-b601-79c32197ee8f",
+  "item_core": {
+    "core_id": "ea597d91-0d27-4e54-99ea-42835ff64fb9",
+    "entry_type": "material",
+    "name": "FASBA e.V. Baustroh 100 kg/m³ GaBi - 2024",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 100.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": 0.052,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Baustroh GmbH",
+    "provenance": null,
+    "production_location": "Verden",
+    "facet": {
+      "material_type": "biobased",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "wall"
+      ],
+      "insulation_info": [
+        "thermal",
+        "rigid"
+      ],
+      "material_facet": {
+        "biobased_type": "straw"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "00fe2655-02ad-4ded-925a-af9b8f1a27c8",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/00fe2655-02ad-4ded-925a-af9b8f1a27c8?version=00.00.016",
+    "registration_number": "BAU-EPD-2024-1-GaBi-Baustroh",
+    "location_code": "DE",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "FASBA e.V.",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 291.32897428468,
+          "A4": 2.98444096065488,
+          "A5": 90.9146848663361,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.43435960677528
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.43435960677528
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1522.28331550233
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1556.85647501767
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -334.414138831835
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -17.4901239976939
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 1510.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -1510.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -1510.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 1801.32897428468,
+          "A4": 2.98444096065488,
+          "A5": 90.9146848663361,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.43435960677528
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.43435960677528
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 12.2833155023307
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 46.8564750176699
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -334.414138831835
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -17.4901239976939
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 151.864257479548,
+          "A4": 26.9676389812159,
+          "A5": 14.9246460619466,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 12.9609841691311
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 12.9609841691311
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 35.8198172411368
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 24.3479304534786
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -819.456981073303
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -441.423176405355
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 3.49375,
+          "A4": 0.0,
+          "A5": -3.49375,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 155.358007479548,
+          "A4": 26.9676389812159,
+          "A5": 11.4308960619466,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 12.9609841691311
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 12.9609841691311
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 35.8198172411368
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 24.3479304534786
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -819.456981073303
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -441.423176405355
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.379351663057208,
+          "A4": 0.00278811264387936,
+          "A5": 0.039070188748459,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0013400017652359
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0013400017652359
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.386432081919239
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0118878011162682
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.106462326501898
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.00640823808413704
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.750303432176e-08,
+          "A4": 1.31289532081e-09,
+          "A5": 2.42717927946e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 6.3099389163e-10
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 6.3099389163e-10
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.853256704409e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 5.788809663211e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -7.7632223274119e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -4.596547256358e-08
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.0960878590211478,
+          "A4": 0.00455961964639166,
+          "A5": 0.0611284285442448,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0021914101599812
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0021914101599812
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.09811401238985
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0397584135814224
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.467245379478003
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.0953161006819325
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00133804908036466,
+          "A4": 4.29235351877091e-05,
+          "A5": 0.000126019029581343,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.06295872040763e-05
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 2.06295872040763e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00109715179506964
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00224599124206395
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.0298363757044082
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.00153635497560943
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 7.37531320934649
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 9.78829240131826,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 186.064010300406
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 22.9280273000297,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 436.215784631989
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 1.08527441441229,
+          "A4": 0.00304119012750499,
+          "A5": 0.0559680689009675,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00137549807326859
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00137549807326859
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0288342763093379
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0228653622777134
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.0520906973842907
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.00802240992961697
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": -129.384758474953,
+          "A4": 2.10348944031878,
+          "A5": 1.54704179781891,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.00948518066425
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.00948518066425
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 151.859859869668
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 150.421488140266
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -54.482751216863
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -7.50468047419584
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -148.242555829259,
+          "A4": 0.0117507534501994,
+          "A5": 0.055466462653193,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00564756080845744
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00564756080845744
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 149.334145674849
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 148.242555829259
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.377627787072267
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.0716659967199031
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 18.4935067097017,
+          "A4": 2.05223401417397,
+          "A5": 1.47038200767865,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.984851180673695
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.984851180673695
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.52496711509294
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 2.17783327384817
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -54.0986261823274
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -7.43100355862202
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.364290644604303,
+          "A4": 0.0395046726946106,
+          "A5": 0.021193327487063,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0189864391820952
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0189864391820952
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.000747079725950942
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00109903715915114
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.00649724746332932
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.00201091885391816
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 94.8447525356484,
+          "A4": 20.9295508391043,
+          "A5": 7.0211587025123,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 10.0587465962555
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 10.0587465962555
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 14.1221806317805
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 9.41273545631129
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -121.735836693334
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -11.1579250756078
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 7.81802536845308e-06,
+          "A4": 2.778319684037e-08,
+          "A5": 4.0085269644048e-07,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.281697151433e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.281697151433e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.531153782703e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.4877120187022e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -3.6843154030059e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -6.464303710487e-08
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.22523753722856,
+          "A4": 0.00114620950130115,
+          "A5": 0.0117530073530095,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00050835411969408
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00050835411969408
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00803079448127131
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00828555379743619
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.0188231176753933
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.00316120515949567
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.00237840547151944,
+          "A4": 5.59301599194453e-06,
+          "A5": 0.000119623462462394,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.68807335264995e-06
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 2.68807335264995e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 5.62763135510322e-06
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.06055002316724e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.00014101634172929
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -8.98891469768827e-06
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 4.97902547669127,
+          "A4": 0.0137738902059707,
+          "A5": 0.257057767692924,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00613117430449647
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00613117430449647
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.138326240629002
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0906346479932317
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.199973301071204
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.0341835321282942
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 1.3441681761091e-07,
+          "A4": 4.1726528915e-10,
+          "A5": 6.80651481988e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.0053693929e-10
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 2.0053693929e-10
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.05682050255e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 5.27441738236e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -8.78952517307e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -2.14866237177e-09
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.61509373324301e-05,
+          "A4": 1.75776560355e-08,
+          "A5": 8.0963221924815e-07,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 8.4478416292e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 8.4478416292e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.52424597363e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 2.743038656856e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -3.1649562458755e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -1.9312754101406e-07
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.211887958295316,
+          "A4": 0.00452825750179343,
+          "A5": 0.0168762667679404,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00217633712151718
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00217633712151718
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.116634340987608
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.238850026351424
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -3.17479239201535
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.164974239597936
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 6674.38823902983,
+          "A4": 17.9400170614299,
+          "A5": 335.697137133611,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 8.6221963030985
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 8.6221963030985
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 12.6014854997407
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 16.7405382714317
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -218.588484157861
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -11.8552878060939
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.059540115e-11,
+          "A4": 6.4856735e-13,
+          "A5": 1.87537347e-12,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 3.1170957e-13
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 3.1170957e-13
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.545315077e-11
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 5.242032137e-11
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -6.9592611325e-10
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -3.539998272e-11
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.162639830749364,
+          "A4": 0.00298360058591384,
+          "A5": 0.00942399299973315,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0013527857433855
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0013527857433855
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0211304877574106
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0243389916799623
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.0495641443089895
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.0103370043716192
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 155.358007479547,
+          "A4": 26.9676389812159,
+          "A5": 11.4308960619465,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 12.9609841691311
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 12.9609841691311
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 35.8198172411363
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 24.347930453478
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -819.456981073288
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -441.423176405349
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 5.28262882828268e-06,
+          "A4": 3.4959613600123e-07,
+          "A5": 3.0107166961845e-07,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 1.6802027005247e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 1.6802027005247e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 2.1414163725182e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 3.5942686016918e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -5.39975639706886e-06
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -8.4620494276641e-07
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.712659741911093,
+          "A4": 0.0147209487033844,
+          "A5": 0.883154395486355,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.00707507183821532
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.00707507183821532
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 16.4390126115631
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.219631005205569
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "Szenario 1: 100% Energierückgewinnung",
+              "value": -0.741650582692696
+            },
+            {
+              "code": "Recycling",
+              "description": "Szenario 2: 100% Recycling",
+              "value": -0.0555997967130417
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C1": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C2": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C3": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C4": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "D": [
+        "Energierückgewinnung",
+        "Recycling"
+      ]
+    }
+  }
+}

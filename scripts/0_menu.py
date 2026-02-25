@@ -58,14 +58,13 @@ def step_01c_extract_building_data(project: Project) -> None:
     project.extract_building_data()
 
 def step_01d_enrich_data(project: Project) -> None:
-    not_implemented("Step 01d: enrich extracted data")(project)
+    project.enrich_building_data()
 
 def step_01e_match_epds(project: Project) -> None:
-    not_implemented("Step 01e: match building data with EPDs")(project)
+    project.match_with_inventory()
 
 def step_01f_create_report(project: Project) -> None:
-    not_implemented("Step 01f: create LCA report")(project)
-
+    project.generate_report()
 
 def step_02a_preprocess_env(project: Project) -> None:
     not_implemented("Step 02a: preprocess environmental data")(project)
@@ -145,7 +144,7 @@ def pipeline_menu() -> None:
             # Your old spacing rules; keep them if you like
             if item.key.lower() == "p":
                 print("")
-            if item.key.lower() == "01e":
+            if item.key.lower() == "01f":
                 print("")
 
         print("  Q. Quit")

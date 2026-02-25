@@ -1,0 +1,996 @@
+{
+  "id": "4009bc95-06c8-4517-b737-55f45879963b",
+  "item_core": {
+    "core_id": "00f789ac-3a7d-4fa5-b758-cd018824c465",
+    "entry_type": "material",
+    "name": "RAVATHERM XPS (X) PLUS/ULTRA",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 41.9,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Ravago Building Solutions",
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "polymeric",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "roof",
+        "floor",
+        "wall",
+        "ceiling",
+        "piping"
+      ],
+      "insulation_info": [
+        "thermal",
+        "rigid"
+      ],
+      "material_facet": {
+        "polymeric_type": "extruded_polystyrene",
+        "polymeric_form": "board",
+        "recycled_content": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "edbea38c-387d-4c0c-acfa-277b8fb861a6",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/edbea38c-387d-4c0c-acfa-277b8fb861a6?version=00.02.000",
+    "registration_number": "EPD-RAV-20220157-CBD1-EN",
+    "location_code": "RER",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Ravago Building Solutions Germany GmbH",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 114.256704381493,
+          "A4": 2.42,
+          "A5": 0.0506,
+          "C1": 0.0,
+          "C2": 0.249,
+          "C3": 3.27,
+          "C4": 3.18,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -233.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.2
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 114.256704381493,
+          "A4": 2.42,
+          "A5": 0.0506,
+          "C1": 0.0,
+          "C2": 0.249,
+          "C3": 3.27,
+          "C4": 3.18,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -233.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.2
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 2058.64121133171,
+          "A4": 43.4,
+          "A5": 31.1,
+          "C1": 0.0,
+          "C2": 4.48,
+          "C3": 1692.3,
+          "C4": 43.8,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -1040.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -20.5
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 1706.9,
+          "A4": 0.0,
+          "A5": -30.9,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": -1676.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 3765.54121133175,
+          "A4": 43.4,
+          "A5": 0.256,
+          "C1": 0.0,
+          "C2": 4.48,
+          "C3": 16.3,
+          "C4": 43.8,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -1040.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -20.5
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.632705100855559,
+          "A4": 0.00277,
+          "A5": 0.00452,
+          "C1": 0.0,
+          "C2": 0.000286,
+          "C3": 0.268,
+          "C4": 0.000403,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.229
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00261
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 2.9176904335891e-07,
+          "A4": 2.19e-09,
+          "A5": 4.56e-11,
+          "C1": 0.0,
+          "C2": 2.26e-10,
+          "C3": 2.92e-09,
+          "C4": 7.87e-09,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -2.32e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -3.07e-09
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.987439154902914,
+          "A4": 0.00644,
+          "A5": 0.0083,
+          "C1": 0.0,
+          "C2": 0.000665,
+          "C3": 0.806,
+          "C4": 41.7,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.483
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00433
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0789324628641647,
+          "A4": 5.25e-05,
+          "A5": 1.45e-05,
+          "C1": 0.0,
+          "C2": 5.41e-06,
+          "C3": 0.000924,
+          "C4": 0.000508,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.0763
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00185
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 4.47,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 254.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 7.95,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 453.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.261961717592618,
+          "A4": 0.0101,
+          "A5": 0.000209,
+          "C1": 0.0,
+          "C2": 0.00104,
+          "C3": 0.0124,
+          "C4": 0.00899,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.078
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00121
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 129.796021227348,
+          "A4": 3.26,
+          "A5": 2.1,
+          "C1": 0.0,
+          "C2": 0.336,
+          "C3": 140.0,
+          "C4": 2.97,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -59.9
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.09
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.475040836726899,
+          "A4": -0.00415,
+          "A5": 6.96e-05,
+          "C1": 0.0,
+          "C2": -0.000428,
+          "C3": 0.00435,
+          "C4": -0.0313,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.295
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00129
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 129.205295486143,
+          "A4": 3.23,
+          "A5": 2.1,
+          "C1": 0.0,
+          "C2": 0.334,
+          "C3": 140.0,
+          "C4": 3.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -59.6
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.09
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0377549044778351,
+          "A4": 0.0267,
+          "A5": 1.12e-05,
+          "C1": 0.0,
+          "C2": 0.00275,
+          "C3": 0.000772,
+          "C4": 0.00251,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.0409
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.000113
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 2093.64373740952,
+          "A4": 31.3,
+          "A5": 0.116,
+          "C1": 0.0,
+          "C2": 3.23,
+          "C3": 7.83,
+          "C4": 41.6,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -218.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -3.58
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 2.15817957759634e-06,
+          "A4": 5.4e-08,
+          "A5": 1.24e-09,
+          "C1": 0.0,
+          "C2": 5.57e-09,
+          "C3": 7.31e-08,
+          "C4": 8.81e-08,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -6.71e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.11e-08
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0597478197149693,
+          "A4": 0.00463,
+          "A5": 4.39e-05,
+          "C1": 0.0,
+          "C2": 0.000478,
+          "C3": 0.00274,
+          "C4": 0.00204,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.0222
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.000375
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.000149051023806646,
+          "A4": 9.66e-06,
+          "A5": 2.1e-08,
+          "C1": 0.0,
+          "C2": 9.97e-07,
+          "C3": 1.38e-06,
+          "C4": 0.000554,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -7.73e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -2.53e-07
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.652295996873041,
+          "A4": 0.0519,
+          "A5": 0.00098,
+          "C1": 0.0,
+          "C2": 0.00535,
+          "C3": 0.0582,
+          "C4": 0.0224,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.237
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00406
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 4.232115196904e-08,
+          "A4": 6.32e-10,
+          "A5": 1.34e-11,
+          "C1": 0.0,
+          "C2": 6.52e-11,
+          "C3": 7.75e-10,
+          "C4": 1.86e-09,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -9.82e-09
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -1.24e-10
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.75805857035229e-06,
+          "A4": 3.7e-08,
+          "A5": 4.24e-10,
+          "C1": 0.0,
+          "C2": 3.82e-09,
+          "C3": 2.55e-08,
+          "C4": 1.56e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -3.88e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -6.01e-09
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 11.7744916423921,
+          "A4": 0.00751,
+          "A5": 0.00231,
+          "C1": 0.0,
+          "C2": 0.000775,
+          "C3": 0.146,
+          "C4": 0.0729,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -12.5
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.27
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 80.7779858507118,
+          "A4": 14.9,
+          "A5": 0.0717,
+          "C1": 0.0,
+          "C2": 1.54,
+          "C3": 4.59,
+          "C4": 2.98,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -159.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.963
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 4.0448191e-13,
+          "A4": 4.16e-16,
+          "A5": 1.57e-16,
+          "C1": 0.0,
+          "C2": 4.29e-17,
+          "C3": 1.02e-14,
+          "C4": 7.24e-15,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -6.8e-13
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -6.23e-15
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.697784429108499,
+          "A4": 0.00907,
+          "A5": 0.000131,
+          "C1": 0.0,
+          "C2": 0.000936,
+          "C3": 0.00806,
+          "C4": 0.00652,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -0.0622
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.00108
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 3762.75885695248,
+          "A4": 43.3,
+          "A5": 0.256,
+          "C1": 0.0,
+          "C2": 4.47,
+          "C3": 16.3,
+          "C4": 43.8,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -1040.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -20.5
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 1.29497187854511e-05,
+          "A4": 2.48e-07,
+          "A5": 2.37e-09,
+          "C1": 0.0,
+          "C2": 2.56e-08,
+          "C3": 1.54e-07,
+          "C4": 2.06e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -9.88e-06
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -9.51e-08
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 22.2557416588844,
+          "A4": 0.0283,
+          "A5": 0.193,
+          "C1": 0.0,
+          "C2": 0.00292,
+          "C3": 11.4,
+          "C4": -0.037,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Verbrennung",
+              "value": -4.56
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -0.0444
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

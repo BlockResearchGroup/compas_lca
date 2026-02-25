@@ -1,16 +1,15 @@
 import logging
 
-import csv
-
-import re
-
-import json
-
 from pathlib import Path
 
+from collections import defaultdict
+
 from typing import Optional
+from typing import DefaultDict
 from typing import Dict
 from typing import Any
+from typing import Set
+from typing import List
 
 from .ifc_caches import IfcCaches
 
@@ -399,7 +398,12 @@ def process_ifc_element(element, caches, units) -> Optional[Dict[str,Any]]:
 # ------------------------
 
 
-def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: Path = Path("temp"), exclude_none: bool = False):
+def process_ifc_model(
+    ifc_dir: Path = Path("data/building_model"),
+    output_dir: Path = Path("temp"),
+    exclude_none: bool = False,
+    config: Optional[Dict[str, Any]] = None,
+) -> None:
     """
     Process all IfcBuildingElements from the model and preprocess each as a JSON file in `output_dir`.
     This function will convert any IFC model into extraction-ready files for normalization,
@@ -411,7 +415,7 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
         ifc_dir: Path to the directory with exactly one IFC file.
         project_folder: Parent directory where the processed output will be stored.
         exclude_none: If True, remove all fields with None recursively from output.
-
+        config: Optional dictionary to exclude certain IFC entity types from processing and output
     Returns:
         - A directory structure with exported JSON files for the IfcBuildingElement entities of the IFC model.
     
@@ -462,7 +466,15 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
     units = load_ifc_units(model)
     caches = IfcCaches(model)
     ifcmeta = load_ifc_metadata(ifc_file, model, units, caches)
-    
+
+    # Filter optional IFC entities based on config
+    allowed_entities: Optional[Set[str]] = None
+    excluded_entities: Set[str] = set()
+    if config:
+        excluded_entities = {k for k, v in config.items() if v is False}
+        if excluded_entities:
+            allowed_entities = {k for k, v in config.items() if v is True}
+
     # Get appropriate building element entity type based on schema version
     schema_version = model.schema_name
     entity_type = "IfcBuiltElement" if schema_version.upper().startswith("IFC4.3") else "IfcBuildingElement"
@@ -473,6 +485,8 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
     mm_index = init_mm_index()
     comp_index = []
     object_type_index = {}
+    skipped: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)
+    skipped_total = 0
 
     # print total count and message
     total = len(elements)
@@ -484,6 +498,22 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
     # process all building elements
     for element in elements:
         try:
+
+            # Entity filtering
+            if allowed_entities is not None:
+                elem_type = element.is_a()
+                if elem_type not in allowed_entities:
+                    name = getattr(element, "Name", None)
+                    gid = getattr(element, "GlobalId", None)
+
+                    skipped[elem_type].append({
+                        "name": name,
+                        "global_id": gid,
+                    })
+                    skipped_total += 1
+                    continue
+
+            # Process IfcBuildingElement
             data = process_ifc_element(element, caches, units)
             if not data:
                 continue
@@ -571,6 +601,32 @@ def process_ifc_model(ifc_dir: Path = Path("data/building_model"), output_dir: P
             )
             continue
 
+    # Track skipped entities if any filtering was applied, and write metadata
+    if allowed_entities is not None:
+        skipped_breakdown = {t: len(items) for t, items in skipped.items()}
+
+        # List names by type (and keep global_id if you want)
+        skipped_elements_by_type = {
+            t: [x["name"] for x in items if x.get("name")]
+            for t, items in skipped.items()
+        }
+
+        ifcmeta["Skipped Elements Overview"] = {
+            "Filter Active": True,
+            "Excluded IFC Types": sorted(excluded_entities),
+            "Total Skipped Elements": skipped_total,
+            "Breakdown by Type": skipped_breakdown,
+            "Skipped Element Names by Type": skipped_elements_by_type,
+            # optionally keep the richer records instead of names-only:
+            # "Skipped Elements (records)": dict(skipped),
+        }
+    else:
+        ifcmeta["Skipped Elements Overview"] = {
+            "Filter Active": False,
+            "Total Skipped Elements": 0,
+            "Breakdown by Type": {},
+            "Skipped Element Names by Type": {},
+        }
 
     # write metadata files once
     write_meta_ifc(ifcmeta, output_dir)

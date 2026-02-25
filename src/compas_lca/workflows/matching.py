@@ -1,11 +1,16 @@
+import json
+
 from dataclasses import dataclass
 
 from enum import Enum
+
+from pathlib import Path
 
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Iterable
+from typing import Iterator
 from typing import Tuple
 from typing import Optional
 
@@ -67,6 +72,11 @@ def _norm_str(x: Any) -> Any:
         return [_norm_str(v) for v in x]
     return x
 
+def _norm_leaf(x):
+    if isinstance(x, Enum):
+        return x.value  # or x.name, depending on your enums
+    return x
+
 def _is_unknown(value: Any) -> bool:
     if value is None:
         return True
@@ -75,6 +85,16 @@ def _is_unknown(value: Any) -> bool:
     if isinstance(value, list):
         return any(_norm_str(v) == "unknown" for v in value if isinstance(v, str))
     return False
+
+def _has_value(v: Any) -> bool:
+    """True if v is meaningfully specified (not None/unknown/empty)."""
+    if _is_unknown(v):
+        return False
+    if isinstance(v, (list, tuple, set)):
+        return len([x for x in v if not _is_unknown(x)]) > 0
+    if isinstance(v, str):
+        return v.strip() != ""
+    return True
 
 def to_dotmap(
     obj: Any,
@@ -191,15 +211,20 @@ def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
         return False
 
     if et_elem == "material":
+        # INSULATION OVERRIDE: do NOT enforce material_type identity gate
+        # If element says "insulation" by function, we only require functional intersection (below).
+        insulation_override = _element_is_insulation(elem_map)
+
         mt_elem = _norm_str(elem_map.get("facet.material_type"))
-        if mt_elem and mt_elem != "unknown":
+
+        if (not insulation_override) and mt_elem and mt_elem != "unknown":
             mt_item = _norm_str(item_map.get("facet.material_type"))
             return mt_item == mt_elem
 
-        # fallback: no material_type on element, but functional_types present
-        elem_funcs = {_norm_str(v) for v in _as_list(elem_map.get("facet.material_facet.functional_types")) if v}
+        # fallback: require intersection if element has functional_types
+        elem_funcs = {_norm_str(v) for v in _as_list(elem_map.get("facet.functional_types")) if v}
         if elem_funcs:
-            item_funcs = {_norm_str(v) for v in _as_list(item_map.get("facet.material_facet.functional_types")) if v}
+            item_funcs = {_norm_str(v) for v in _as_list(item_map.get("facet.functional_types")) if v}
             return bool(elem_funcs & item_funcs)
 
         return True
@@ -213,6 +238,10 @@ def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
 
     return False
 
+def _element_is_insulation(elem_map: Dict[str, Any]) -> bool:
+    funcs = _as_list(elem_map.get("facet.functional_types"))
+    funcs_norm = {_norm_str(v) for v in funcs if isinstance(v, str)}
+    return "insulation" in funcs_norm
 
 # -------------------------
 # Clause + Operators
@@ -229,6 +258,7 @@ class Clause:
         - value:          value for comparisons
         - elem_path:      dot-path to a field in `elem_map` (used in `equals_other`, etc.)
         - abs_tol / rel_tol:  tolerance for numeric comparisons (only `approx`)
+        - hard_fail:       if True, a mismatch on this clause results in an immediate score of 0.0 for the entire item (used for critical fields)
 
     Each clause compares a field on the element side against 
     a corresponding field on the item side ('elem_path').
@@ -239,6 +269,8 @@ class Clause:
     elem_path: Optional[str] = None    # Path to field in the ELEMENT
     abs_tol: Optional[float] = None    # Absolute tolerance (numeric ops)
     rel_tol: Optional[float] = None    # Relative tolerance (numeric ops)
+    hard_fail: bool = False 
+    source: str = "unknown"             # "common"|"material_common"|"material_facet"|...
 
 def approx_score(x: Optional[float], target: Optional[float], abs_tol: Optional[float], rel_tol: Optional[float]) -> float:
     """
@@ -319,7 +351,9 @@ def eval_clause(
 
     # equals_other: scalar equality (works for strings, numbers, booleans)
     if clause.op == "equals_other":
-        score = 1.0 if item_value == elem_value else 0.0
+        a = _norm_leaf(item_value)
+        b = _norm_leaf(elem_value)
+        score = 1.0 if a == b else 0.0
         return score, f"equals_other(item={item_value}, elem={elem_value}) → {score :.2f}"
 
     # intersects_other: list overlap
@@ -371,6 +405,11 @@ def eval_filter(item_map: Dict[str, Any],
     rules_by_group : dict, optional
         The full `MATCH_RULES` structure, referring to specific operations per field
 
+    apply_overspec : bool, default False
+        Whether to apply "overspecification" penalties for item fields that the element didn't specify but are present on the item. 
+        This allows us to subtly penalize items that are "too specific" compared to the element's requirements, 
+        while still keeping the core matching logic clean and focused on the element's specified fields.
+
     ----------------------------
     Returns
     ----------------------------
@@ -421,6 +460,9 @@ def eval_filter(item_map: Dict[str, Any],
     sim_sum = 0.0
     n_eval = 0
 
+    # --- insulation exception for missing material type ----
+    insulation_override = (_norm_str(elem_map.get("entry_type")) == "material") and _element_is_insulation(elem_map)
+
     # --- identity hard gate ---
     if not _identity_match(item_map, elem_map):
         parts = [{
@@ -430,7 +472,10 @@ def eval_filter(item_map: Dict[str, Any],
             "detail": "identity gate failed (entry_type/material_type/component_type/functional_types)",
         }]
         return 0.0, parts
+    
+    
 
+    # --- clause scoring ---
     for clause in clauses:
         clause_score, detail = eval_clause(item_map, elem_map, clause)
 
@@ -443,6 +488,21 @@ def eval_filter(item_map: Dict[str, Any],
             })
             continue
 
+        hard_fail_active = clause.hard_fail
+
+        # If element is insulation, ignore hard_fail for MATERIAL_FACETS-derived clauses
+        if insulation_override and clause.source == "material_facet":
+            hard_fail_active = False
+
+        if hard_fail_active and float(clause_score) < 1.0:
+            parts.append({
+                "path": clause.item_path,
+                "op": clause.op,
+                "score": float(clause_score),
+                "detail": detail + " [HARD_FAIL]"
+            })
+            return 0.0, parts
+
         n_eval += 1
         sim_sum += float(clause_score)
         parts.append({
@@ -452,10 +512,62 @@ def eval_filter(item_map: Dict[str, Any],
             "detail": detail
         })
 
-    final_score = (sim_sum / n_eval) if n_eval > 0 else 0.0
+    base_score = (sim_sum / n_eval) if n_eval > 0 else 0.0
 
+    # --- overspec penalties ---
+    penalty_sum = 0.0
+    if apply_overspec and rules_by_group and n_eval > 0:
+
+        # collect all rule dicts we might apply overspec to
+        candidate_rules = []
+        candidate_rules.extend(rules_by_group.get("common", []))
+
+        et = _norm_str(elem_map.get("entry_type"))
+        if et == "material":
+            candidate_rules.extend(rules_by_group.get("material_common", []))
+            mt = elem_map.get("facet.material_type")
+            if mt and mt in MATERIAL_FACETS:
+                candidate_rules.extend(MATERIAL_FACETS[mt])
+
+        elif et == "component":
+            candidate_rules.extend(rules_by_group.get("component_common", []))
+            ct = elem_map.get("facet.component_type")
+            if ct and ct in COMPONENT_FACETS:
+                candidate_rules.extend(COMPONENT_FACETS[ct])
+
+        for r in candidate_rules:
+            overspec = r.get("overspec")
+            if not isinstance(overspec, dict):
+                continue
+
+            strength = float(overspec.get("strength", 0.0))
+            if strength <= 0.0:
+                continue
+
+            item_path, elem_path = _normalize_rule_paths(r)
+
+            # element didn't specify this field -> eligible
+            elem_v = elem_map.get(elem_path, None) if elem_path else None
+            if not _is_unknown(elem_v):
+                continue
+
+            # item *did* specify -> penalize
+            item_v = item_map.get(item_path, None)
+            if not _has_value(item_v):
+                continue
+
+            penalty = (strength / n_eval)
+            penalty_sum += penalty
+
+            parts.append({
+                "path": item_path,
+                "op": "overspec",
+                "score": -penalty,
+                "detail": f"overspec penalty: item has {item_path}={item_v} but element unspecified; strength={strength}"
+            })
+
+    final_score = max(0.0, min(1.0, base_score - penalty_sum))
     return final_score, parts
-
 
 def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
     """
@@ -466,13 +578,11 @@ def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
     p = rule["path"]
     return p, p
 
-def _add_clause(clauses, element_map, rule):
-    """
-    Add a Clause if (a) this rule compares field-to-field, and
-    (b) the ELEMENT has a specified value (not None/unknown) for the item side.
-    Literal-value rules ('value' provided) are always added.
-    For 'boost_if_missing', duplicate the clause if the given element paths are missing.
-    """
+
+def _add_clause(clauses, element_map, rule, *, source: str):
+    if rule.get("ignore") is True:
+        return
+    
     item_path, elem_path = _normalize_rule_paths(rule)
 
     is_field_to_field = rule.get("value") is None
@@ -481,39 +591,16 @@ def _add_clause(clauses, element_map, rule):
         if _is_unknown(item_side):
             return
 
-    # base clause
-    def _append():
-        clauses.append(Clause(
-            item_path=item_path,
-            elem_path=elem_path if is_field_to_field else None,
-            op=rule["op"],
-            value=rule.get("value"),
-            abs_tol=rule.get("abs_tol"), # optional
-            rel_tol=rule.get("rel_tol"), # optional
-        ))
-
-    _append()
-
-    """
-    # IDEA FOR LATER IMPLEMENTATION:
-    # BOOST FOR FIELDS (e.g. functional types) if some fields missing (e.g. material type)
-
-    # Optional: duplicate if element is missing some key(s)
-    # Only important for clear functional types without material descriptors
-    # (i.e. descriptor says "rigid insulation", but no material descriptor is given,
-    # then it should match (and boost the score) for any rigid_insulation entry)
-
-    # CODE:
-
-    boost = rule.get("boost_if_missing")
-    if isinstance(boost, dict):
-        for missing_path, copies in boost.items():
-            if _is_unknown(element_map.get(missing_path)):
-                copies = max(0, int(copies))
-                for _ in range(copies):
-                    _append()
-    """
-
+    clauses.append(Clause(
+        item_path=item_path,
+        elem_path=elem_path if is_field_to_field else None,
+        op=rule["op"],
+        value=rule.get("value"),
+        abs_tol=rule.get("abs_tol"),
+        rel_tol=rule.get("rel_tol"),
+        hard_fail=bool(rule.get("hard_fail", False)),
+        source=source,
+    ))
 
 def build_clauses(element_map: dict) -> List[Clause]:
     """Create the concrete Clause list from the 3-level rules."""
@@ -526,28 +613,31 @@ def build_clauses(element_map: dict) -> List[Clause]:
 
     # common (always)
     for r in MATCH_RULES["common"]:
-        _add_clause(clauses, element_map, r)
+        _add_clause(clauses, element_map, r, source="common")
 
     # specific_common
     if elem_et == "material":
+        # material_common
         for r in MATCH_RULES["material_common"]:
-            _add_clause(clauses, element_map, r)
+            _add_clause(clauses, element_map, r, source="material_common")
+
+        # material facets (skip for insulation override)
+        if not _element_is_insulation(element_map):
+            mat_type = element_map.get("facet.material_type")
+            if mat_type and mat_type in MATERIAL_FACETS:
+                for r in MATERIAL_FACETS[mat_type]:
+                    _add_clause(clauses, element_map, r, source="material_facet")
+
     elif elem_et == "component":
+        # component_common
         for r in MATCH_RULES["component_common"]:
-            _add_clause(clauses, element_map, r)
+            _add_clause(clauses, element_map, r, source="component_common")
 
-    # facet
-    if elem_et == "material":
-        mat_type = element_map.get("facet.material_type")
-        if mat_type and mat_type in MATERIAL_FACETS:
-            for r in MATERIAL_FACETS[mat_type]:
-                _add_clause(clauses, element_map, r)
-
-    elif elem_et == "component":
-        comp_type = element_map.get("facet.component_facet.component_type")
+        # component facets
+        comp_type = element_map.get("facet.component_type") or element_map.get("facet.component_facet.component_type")
         if comp_type and comp_type in COMPONENT_FACETS:
             for r in COMPONENT_FACETS[comp_type]:
-                _add_clause(clauses, element_map, r)
+                _add_clause(clauses, element_map, r, source="component_facet")
 
     return clauses
 
@@ -583,6 +673,7 @@ def score_item_to_core(
         elem_map,
         clauses,
         rules_by_group=MATCH_RULES,
+        apply_overspec=True,
     )
 
     # Return a Match object
@@ -710,3 +801,130 @@ def score_items_to_element(
     element.matched_items = results
     return element
 
+
+# -------------------------------------------------------------------
+# Score items to LCA MODEL
+# -------------------------------------------------------------------
+
+# INTERNAL HELPERS (kept private)
+
+def _load_inventory_items(directory: Path, pattern: str = "*.json") -> list[dict[str, Any]]:
+    """Load all inventory items from directory (recursively), skipping llm_metadata.json, if present"""
+    items: list[dict[str, Any]] = []
+    for file in directory.rglob(pattern):
+        if file.name == "llm_metadata.json":
+            continue
+        try:
+            with file.open("r", encoding="utf-8") as f:
+                items.append(json.load(f))
+        except Exception as e:
+            print(f"[WARN] Could not load inventory file {file}: {e}")
+
+    return items
+
+def _iter_element_files(
+    root: Path,
+    allowed_element_dirs: set[str],
+) -> Iterator[Tuple[Path, dict[str, Any]]]:
+    """
+    Iterate over all element JSON files under root, skipping root llm_metadata.json
+    and only yielding files in allowed first-level subdirectories.
+    """
+    for file in root.rglob("*.json"):
+        if file.name == "llm_metadata.json" and file.parent == root:
+            continue
+
+        try:
+            rel = file.relative_to(root)
+        except ValueError:
+            continue
+
+        parts = rel.parts
+        if not parts:
+            continue
+
+        first_level = parts[0]
+        if first_level not in allowed_element_dirs:
+            continue
+
+        try:
+            with file.open("r", encoding="utf-8") as f:
+                yield file, json.load(f)
+        except Exception as e:
+            print(f"[WARN] Could not load element file {file}: {e}")
+
+
+# -------------------------------------------------------------------
+# EXPORTED FUNCTION
+# -------------------------------------------------------------------
+
+
+INVENTORY_DIR = Path("data/lca_database/oekobaudat_2024-I")
+INPUT_ROOT = Path("temp/projects/duplex/03_extracted")
+OUTPUT_ROOT = Path("temp/projects/duplex/05_matched")
+
+def match_lca_model(
+    *,
+    inventory_dir: Path,
+    input_root: Path,
+    output_root: Path,
+    top_k: int = 10,
+    include_explain: bool = True,
+    score_threshold: float = 0.5,
+) -> dict[str, Any]:
+    """
+    Load inventory items once, score them against each serialized LcaElement JSON
+    under input_root, and write matched elements to output_root mirroring structure.
+    """
+
+    # Define allowed dirs locally (no mutable default issue)
+    allowed_element_dirs: set[str] = {
+        "abstract_components",
+        "layered_elements",
+        "single_materials",
+        "undefined_elements",
+    }
+
+    inventory_dir = Path(inventory_dir)
+    input_root = Path(input_root)
+    output_root = Path(output_root)
+
+    items = _load_inventory_items(inventory_dir)
+    print("")
+    print("Starting matching process...")
+    print(f"Loaded {len(items)} inventory items from {inventory_dir}")
+    print("")
+
+    processed = 0
+    written_paths: list[Path] = []
+
+    for element_path, element in _iter_element_files(input_root, allowed_element_dirs):
+        matched_element = score_items_to_element(
+            items=items,
+            element=element,
+            top_k=top_k,
+            include_explain=include_explain,
+            score_threshold=score_threshold,
+        )
+
+        relative = element_path.relative_to(input_root)
+        out_path = output_root / relative
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+        out_path.write_text(
+            matched_element.model_dump_json(indent=2, exclude_none=False),
+            encoding="utf-8",
+        )
+
+        processed += 1
+        written_paths.append(out_path)
+        print(f"→ Written matched element to {out_path}")
+
+    return {
+        "inventory_dir": inventory_dir,
+        "input_root": input_root,
+        "output_root": output_root,
+        "inventory_items_loaded": len(items),
+        "elements_processed": processed,
+        "outputs_written": written_paths,
+    }

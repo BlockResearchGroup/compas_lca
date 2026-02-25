@@ -1,0 +1,1810 @@
+{
+  "id": "8212de2b-2853-45ba-871d-f2f73c832900",
+  "item_core": {
+    "core_id": "db77c095-c544-4015-ab6e-0ad1a40cd6e0",
+    "entry_type": "material",
+    "name": "Massive gypsum blocks according to DIN EN 12859 / Tool",
+    "loadbearing": "non_loadbearing",
+    "placement": "interior",
+    "density": 850.0,
+    "areal_density": 84.0,
+    "thickness": 80.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "covering"
+      ],
+      "application_areas": [
+        "wall"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "gypsum",
+        "mineral_form": "masonry_unit"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "49151a25-7935-49a4-beca-4422b158c405",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/49151a25-7935-49a4-beca-4422b158c405?version=00.02.000",
+    "registration_number": "EPD-BVG-20220073-IAG1-DE",
+    "location_code": "DE",
+    "reference_year": 2022,
+    "valid_until": 2027,
+    "dataset_owner": "Bundesverband der Gipsindustrie e.V.",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 27.0472642177855,
+          "A4": 2.27192475579886,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0224700261740374,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 790.422993821458
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 2.18866006796741
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -642.137592483107
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 27.0472642177855,
+          "A4": 2.27192475579886,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0224700261740374,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 790.422993821458
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 2.18866006796741
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -642.137592483107
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 281.054320192632,
+          "A4": 23.6080907343664,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 7.13318878309558,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1783.64904689708
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 16.7227839147414
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -6235.04948442118
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 281.054320192806,
+          "A4": 23.608090734381,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 7.13318878309617,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1783.64904689923
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 16.7227839147562
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -6235.04948443272
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.0837311240600072,
+          "A4": 0.0070332737555655,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 4.03074814261468e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.913927884573625
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.00421510003153648
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.8853445252705
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.4893896870691e-07,
+          "A4": 1.251062315892e-08,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 6.918812866e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 7.3827216079196e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 2.5490620586987e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.000314891210583193
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.11958900635904,
+          "A4": 0.0100452756286468,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.000729322077232018,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1.26535545826941
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 84.081284652341
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -1.31943896487005
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00390454216912789,
+          "A4": 0.000327974982707088,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 7.65627706855494e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.270645768934329
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.000189944185207076
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.110913432806188
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 57118.8576228475
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0170905783615147,
+          "A4": 0.00143557987076982,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.000473837336436709,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.223936687797443
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.00914045664297362
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -1.67001263497057
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 18.6299245942174,
+          "A4": 1.56488236826689,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.528098322733593,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 101.927246534625
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.2777444577425
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -452.988605776222
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.0523326862262408,
+          "A4": 0.00439585772584971,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0232285252947684,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.338153128125147
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 5.31456684762859e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1.67565467707528
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 18.5674994501989,
+          "A4": 1.55963876104149,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.50485783748991,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 101.442084827011
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.27402437329971
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -451.380845637575
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0100924577921881,
+          "A4": 0.000847749499553811,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 1.19599489146039e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.147008579489541
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.00366693877431103
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -3.28341481572222
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 38.1128436024858,
+          "A4": 3.20141483431212,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 5.05165823352101,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 762.852753719287
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 9.55071523980034
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -4372.79218089341
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 5.8929089463405e-07,
+          "A4": 4.949944516036e-08,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 2.56900119291e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1.87839447703779e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.1315189741888e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.000758482690503512
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.00592857766745914,
+          "A4": 0.000497990564255283,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.000143633952311514,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0497429602561285
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.00235255306766615
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.697540360948985
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 1.72016014760822e-05,
+          "A4": 1.44490562587839e-06,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 1.0755240214233e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.000270950444711987
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 2.18807061871804e-06
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -0.00153962238402106
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.0646281131824945,
+          "A4": 0.00542865293427085,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.00160866295756716,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.522602655856145
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0258505544996039
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -7.95576036342352
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 2.51063166124e-09,
+          "A4": 2.1088884177e-10,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 9.500739807e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 2.10725011604e-08
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.41535146951e-09
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -9.454825612319e-08
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.0798345949973e-07,
+          "A4": 9.07042918939e-09,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 4.06318864078e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 7.7627784869259e-07
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.5600131923651e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -5.29147436696665e-06
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.35231910749444,
+          "A4": 0.0295942131452701,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.00109409509485966,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 44.4038316674585
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0195193906010768
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -20.3060545850687
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 24.4906295400137,
+          "A4": 2.0571717379264,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0183151277402459,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 567.967897303005
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 3.48452601246478
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -1951.73332594708
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.1436121e-13,
+          "A4": 9.60615e-15,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 5.305e-17,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 2.23143031e-12
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 4.72131e-15
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -8.7090165e-13
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0169174294559165,
+          "A4": 0.00142103565358392,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.000419932898675663,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.136290716182776
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0071241584955183
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -1.77688361476399
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 281.034639860901,
+          "A4": 23.6064376195633,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 7.12621364748577,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 1783.28858302697
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 16.7149185723246
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -6210.41973518691
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 2.19870213364346e-06,
+          "A4": 1.8468728548034e-07,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 1.507159776829e-08,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 2.93613614462195e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 1.1440062621464e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -4.38951222082842e-05
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.400462509140437,
+          "A4": 0.0336381780042366,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.000984694726100462,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 22.1108021692606
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.133534234546414
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100%",
+              "value": -27.0791047407115
+            },
+            {
+              "code": "S2",
+              "description": "Deponierung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

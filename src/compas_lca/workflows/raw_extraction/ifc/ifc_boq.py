@@ -435,7 +435,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
 
     # Export the Bill of Quantities to a CSV file
-    boq_all_output_path = processed_directory / "BoQ_01_all.csv"
+    boq_all_output_path = processed_directory / "BoQ_processed_all.csv"
     boq_all_fieldnames = [
         "EID",
         "GlobalId",
@@ -468,7 +468,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
         writer.writeheader()
         writer.writerows(boq_rows_all)
 
-    boq_dissected_output_path = processed_directory / "BoQ_01_dissected.csv"
+    boq_dissected_output_path = processed_directory / "BoQ_processed_dissected.csv"
     boq_dissected_fieldnames = [
         "EID",
         "GlobalId",
@@ -523,7 +523,7 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
       - layered_elements/*.json enrichment (per-layer mapping using Layer/Material Number)
 
     Output:
-      - writes to: Path(output_dir) / "BoQ_02_dissected.csv"
+      - writes to: Path(output_dir) / "BoQ_extracted.csv"
     """
 
     # ----------------------
@@ -605,7 +605,7 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
     input_path = Path(input_csv_path)
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    output_path = out_dir / "BoQ_02_dissected.csv"
+    output_path = out_dir / "BoQ_extracted.csv"
 
     # ----------------------
     # Helpers

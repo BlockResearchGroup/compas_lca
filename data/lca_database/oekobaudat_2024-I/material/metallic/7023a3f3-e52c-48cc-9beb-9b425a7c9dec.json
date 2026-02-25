@@ -1,0 +1,2015 @@
+{
+  "id": "7023a3f3-e52c-48cc-9beb-9b425a7c9dec",
+  "item_core": {
+    "core_id": "afc1f4af-a0c1-42c1-b78b-6947bd74cb44",
+    "entry_type": "material",
+    "name": "Structural Steel: Heavy Plates",
+    "loadbearing": "loadbearing",
+    "placement": "either",
+    "density": 7850.0,
+    "areal_density": null,
+    "thickness": 20.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "bauforumstahl e.V.",
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "metallic",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "beam",
+        "column",
+        "slab",
+        "wall",
+        "plate"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "metallic_type": "low_alloy_steel",
+        "metallic_form": "plate",
+        "steel_grade": null,
+        "yield_strength": null,
+        "metallic_production": "ore_bf_bof",
+        "metallic_forming": "rolled",
+        "metallic_surface_treatment": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1000,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "04d1311a-ae38-4bfb-8e11-8992f1ddb14f",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/04d1311a-ae38-4bfb-8e11-8992f1ddb14f?version=00.03.000",
+    "registration_number": "EPD-BFS-20230270-IBG1-EN",
+    "location_code": "WEU",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "bauforumstahl e.V.",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 825.54459775851,
+          "C1": 15.9503920939653,
+          "C2": 2.30021187563413,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.293249927510281
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 784.940797183718
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -825.045530781121
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 597.817954120785
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 825.54459775851,
+          "C1": 15.9503920939653,
+          "C2": 2.30021187563413,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.293249927510281
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 784.940797183718
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -825.045530781121
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 597.817954120785
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 24044.9398228269,
+          "C1": 240.59140774461,
+          "C2": 33.3189998007541,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 1.95705710552659
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -12458.4253381316
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -24037.7107441945
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -13573.0422768362
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 24044.9398228269,
+          "C1": 240.59140774461,
+          "C2": 33.3189998007541,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 1.9570571055266
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -12458.4253384621
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -24037.7107441945
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -13573.0422771261
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 216.965655501313,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 4.67736669867662,
+          "C1": 0.0176258408936549,
+          "C2": 0.00265715598625235,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.000496552846100576
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -5.69111960397214
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -4.67679018708606
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -5.50686303622453
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 3.1739921129157e-07,
+          "C1": 1.61758645017e-09,
+          "C2": 1.7629755608e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 1.0049108391e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -9.619492717778e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -3.1736096077675e-07
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -1.1929470162727e-07
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 5.30339084455854,
+          "C1": 0.0375201431841187,
+          "C2": 0.00542849420905685,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 10.0096078616063
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 188.82363534462
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -5.30221304775409
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 165.058357112234
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.188362705461746,
+          "C1": 0.00121336394483976,
+          "C2": 6.18496670638526e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 2.17354001657025e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.00154916942394382
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -0.188349286208189
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.0193594448779172
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 1000.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 110.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 1000.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 880.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 5.36586636616027,
+          "C1": 0.0109985661186958,
+          "C2": 0.00264688141183735,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.00105796405203231
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -2.91345891575798
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -5.36529208379972
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -3.14595327012799
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 2528.98448544598,
+          "C1": 2.19008386994757,
+          "C2": 2.51341637274405,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.145067094344954
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -1355.70670361442
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -2528.43916041512
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -1467.39377141986
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.402631929490777,
+          "C1": -0.761221607654565,
+          "C2": -0.0247189417793992,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.00442186797809064
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.692556962082197
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -0.407995090897241
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.562651707697722
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 2527.67487111734,
+          "C1": 2.85806995415923,
+          "C2": 2.52109926128499,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.149213514444866
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -1356.37127878055
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -2527.12787916353
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -1467.8325152023
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.906982399146321,
+          "C1": 0.0932355234429085,
+          "C2": 0.017036053238456,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.000275447878178206
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -0.0279817959518219
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -0.903286160688284
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.123907925259954
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 1.32603231007642,
+          "C1": 0.0021696794280307,
+          "C2": 0.000816681543517395,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.000270514884077874
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -0.512287761030875
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -1.32585511822999
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.595237829432752
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.00109541017227247,
+          "C1": 5.10168634256909e-05,
+          "C2": 9.03126269176902e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 2.5290885228787e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -0.000246038972233606
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -0.00109345069844254
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.000336112139756795
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 14.4628371669435,
+          "C1": 0.0282958245993126,
+          "C2": 0.00986999668999276,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.00297246408376621
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -4.49737687751432
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -14.4606957166419
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -5.5359067056415
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 5.4988692671e-10,
+          "C1": 5.72284736e-12,
+          "C2": 2.4826597e-13,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 3.5055558e-13
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -2.96543027e-12
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -5.4983306152e-10
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -6.308299869e-11
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 5.67269096512054,
+          "C1": 0.00850067329252822,
+          "C2": 0.00225159228563155,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.000822103750061993
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -2.07918008985308
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -5.67220244692437
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -2.44785968967513
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 24007.2129178235,
+          "C1": 240.029966195753,
+          "C2": 33.1875847126668,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 1.95467685022244
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -12456.3660020358
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -24000.0123517519
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -13567.0889439773
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.00362794754151887,
+          "C1": 1.5169251210746e-06,
+          "C2": 2.5481339230377e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 1.529136164772e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -0.00337978022669253
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -0.00362789225576417
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -0.00336390994469387
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 139.853673392045,
+          "C1": 0.230194121409149,
+          "C2": 0.0282857471008946,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": 0.0
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": 0.0163607421657354
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Recycling",
+              "value": -251.953714584977
+            },
+            {
+              "code": "S2",
+              "description": "100% Wiederverwendung",
+              "value": -139.84753635638
+            },
+            {
+              "code": "S3",
+              "description": "Europäischer Durchschnitt: 88% Recycling, 11% Wiederverwendung, 1% Verlust",
+              "value": -236.404376439626
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "C4": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "D": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    }
+  }
+}

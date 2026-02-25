@@ -1,0 +1,1813 @@
+{
+  "id": "50c5e4b6-2390-4b02-a9a6-4dc28ee4645a",
+  "item_core": {
+    "core_id": "bf3f2a04-0b35-4362-9403-767f5bbc4c4f",
+    "entry_type": "material",
+    "name": "PLASTERBOARD / Tool",
+    "loadbearing": "non_loadbearing",
+    "placement": "interior",
+    "density": 680.0,
+    "areal_density": 10.0,
+    "thickness": 12.5,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "covering",
+        "cladding",
+        "lining"
+      ],
+      "application_areas": [
+        "wall",
+        "ceiling"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "gypsum",
+        "mineral_form": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "0773f90c-78ef-4727-a966-3b005c1a1469",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/0773f90c-78ef-4727-a966-3b005c1a1469?version=00.03.000",
+    "registration_number": "EPD-BVG-20210344-IBE1-DE",
+    "location_code": "DE",
+    "reference_year": 2022,
+    "valid_until": 2027,
+    "dataset_owner": "Bundesverband der Gipsindustrie e.V.",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 3.42801295835043,
+          "A4": 0.00492210417347524,
+          "A5": 0.00784165478453705,
+          "C1": 0.0,
+          "C2": 0.00267505661601915,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 5.84099857414445
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 5.16055998109152
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0438724102504275
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 4.9,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -4.9
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": -4.9
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 8.32801295835043,
+          "A4": 0.00492210417347524,
+          "A5": 0.00784165478453705,
+          "C1": 0.0,
+          "C2": 0.00267505661601915,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.940998574144446
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.26055998109152
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0438724102504275
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 24.3460608916188,
+          "A4": 1.56253926931465,
+          "A5": 0.0176952849194247,
+          "C1": 0.0,
+          "C2": 0.849206124627529,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.12343419033097
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.99084742504996
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.425993824554725
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 24.3460608916299,
+          "A4": 1.56253926931478,
+          "A5": 0.0176952849194461,
+          "C1": 0.0,
+          "C2": 0.849206124627599,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.12343419033353
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.99084742505173
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.425993824555514
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 5.2975,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.00601401717544965,
+          "A4": 8.82943442136032e-06,
+          "A5": 9.06692622154083e-06,
+          "C1": 0.0,
+          "C2": 4.79860566378278e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0010880311465849
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.000501807658754418
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -6.04889025036472e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.23279295933275e-06,
+          "A4": 1.5155797959e-10,
+          "A5": 7.32427506e-12,
+          "C1": 0.0,
+          "C2": 8.236846717e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 8.7891300742e-10
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 3.034658380881e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -2.151413736975e-08
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.0193903620148149,
+          "A4": 0.000159759459661828,
+          "A5": 1.25533806089144e-05,
+          "C1": 0.0,
+          "C2": 8.68257932944716e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.00150640567306973
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 10.0098769378612
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -9.01472959141561e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.000325613262534248,
+          "A4": 1.6771228044211e-06,
+          "A5": 2.68503156596932e-06,
+          "C1": 0.0,
+          "C2": 9.1147978501147e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000322203787916319
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 2.26128552489024e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -7.57787689635116e-06
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3.9025
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0025601163023325,
+          "A4": 0.000103795016221134,
+          "A5": 2.22163855685713e-06,
+          "C1": 0.0,
+          "C2": 5.64103349027902e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000266596626822856
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.00108817136334601
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.000114099346156491
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 1.0138704404845,
+          "A4": 0.115680993791439,
+          "A5": 0.0010112032249956,
+          "C1": 0.0,
+          "C2": 0.0628701053214343,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.691844386999471
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.722615477694245
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0309492890371566
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -0.554784715029117,
+          "A4": 0.0050882549228696,
+          "A5": 3.3547608252749e-06,
+          "C1": 0.0,
+          "C2": 0.00276535593634218,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.052080571299033
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0516843269918321
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000114484824267049
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 1.56563043871525,
+          "A4": 0.11059011901784,
+          "A5": 0.00100639001655464,
+          "C1": 0.0,
+          "C2": 0.0601033255531738,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.691266801986556
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.722172601641331
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0308394429337472
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.00302471679837254,
+          "A4": 2.61985072964181e-06,
+          "A5": 1.45844761568582e-06,
+          "C1": 0.0,
+          "C2": 1.42383191828359e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000175013713882298
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.000436549061081728
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.000224330927676511
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 14.5049517408125,
+          "A4": 1.10657583936924,
+          "A5": 0.00756813502752343,
+          "C1": 0.0,
+          "C2": 0.601399912700676,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.908176203302811
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.13701264929823
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.298759852632462
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 7.741992983762e-08,
+          "A4": 5.6274484931e-10,
+          "A5": 1.863523854e-11,
+          "C1": 0.0,
+          "C2": 3.0583959202e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.23622862491e-09
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.347073338772e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -5.182139179384e-08
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.000837323634791343,
+          "A4": 3.14633045217417e-05,
+          "A5": 4.9349161820768e-07,
+          "C1": 0.0,
+          "C2": 1.70996220226857e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 5.9218994184921e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.000280071442705655
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -4.76576628436377e-05
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 1.11093195887316e-05,
+          "A4": 2.355956879408e-08,
+          "A5": 2.68805420358e-09,
+          "C1": 0.0,
+          "C2": 1.280411347504e-08,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3.2256650442962e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 2.6048980715838e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -1.0519076542663e-07
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.00872165520429472,
+          "A4": 0.000352380838181001,
+          "A5": 5.18465384830618e-06,
+          "C1": 0.0,
+          "C2": 0.00019151132509837,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000622158461796741
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.00307750851317784
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.000543556998693219
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 2.2145779445e-10,
+          "A4": 2.081156056e-11,
+          "A5": 2.0905677e-13,
+          "C1": 0.0,
+          "C2": 1.131063074e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.508681263e-11
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.6849759245e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -6.45976801e-12
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.18525538681e-08,
+          "A4": 8.9004959814e-10,
+          "A5": 7.70132316e-12,
+          "C1": 0.0,
+          "C2": 4.8372260768e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 9.2415877887e-10
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.857195705511e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -3.6152646563e-10
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.0414760995254775,
+          "A4": 0.0002396637187192,
+          "A5": 0.000440523013334245,
+          "C1": 0.0,
+          "C2": 0.000130252021043043,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0528627616001094
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.00232378345105819
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00138735929456917
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 7.5069349949297,
+          "A4": 0.00401196536175634,
+          "A5": 0.0056347148478269,
+          "C1": 0.0,
+          "C2": 0.00218041595747627,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.676165781739228
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.414832821783932
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.133347192529667
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.6627354232e-10,
+          "A4": 1.162e-17,
+          "A5": 2.214e-17,
+          "C1": 0.0,
+          "C2": 6.32e-18,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.65652e-15
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 5.6207e-16
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -5.95e-17
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.00220824799856878,
+          "A4": 9.19871413207014e-05,
+          "A5": 1.35211748012996e-06,
+          "C1": 0.0,
+          "C2": 4.99930115873377e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000162254097615595
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.000848131068891453
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.000121401032779807
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 24.3364898288726,
+          "A4": 1.56101135190905,
+          "A5": 0.0176917088174467,
+          "C1": 0.0,
+          "C2": 0.848375734733181,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 2.12300505809361
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.98991105603524
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.424311059870925
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 2.2641577841107e-07,
+          "A4": 3.30146363434e-09,
+          "A5": 2.9128917335e-10,
+          "C1": 0.0,
+          "C2": 1.79427371431e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3.495470080172e-08
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 1.361939455085e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -2.99902206639e-09
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.121878744041785,
+          "A4": 0.000215699349141758,
+          "A5": 0.000219357583187539,
+          "C1": 0.0,
+          "C2": 0.00011722790714226,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0263229099825047
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0158972506227506
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00185011064031428
+            },
+            {
+              "code": "S2",
+              "description": "Szenario 2",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

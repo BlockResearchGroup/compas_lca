@@ -706,8 +706,10 @@ def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
     if out_dir is None:
         return
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = str(meta.dataset_uuid)
-    (out_dir / f"{stem}.json").write_text(meta.model_dump_json(indent=2), encoding="utf-8")
+    (out_dir / "model_metadata.json").write_text(
+        meta.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
 
 def update_descriptor_ifc(member: dict[str, Any], descriptor: ElementDescriptor) -> ElementDescriptor:
     metadata = member.get("metadata", {}) or {}

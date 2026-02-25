@@ -9,6 +9,7 @@ from pydantic import Field
 from pydantic import field_validator
 
 from compas_lca.enums import ConcreteType
+from compas_lca.enums import ConcreteStrength
 from compas_lca.enums import ConcreteForm
 from compas_lca.enums import BinderType
 from compas_lca.matching_core.normalization import normalize_concrete_type
@@ -83,16 +84,29 @@ class ConcreteFacet(BaseModel):
         """).strip(),
         examples=["CEM III/A", "CEM II"]
     )
-    strength_class: Optional[str] = Field(
+    strength_class: Optional[ConcreteStrength] = Field(
         None,
         description=dedent("""
-            Standardized in (EN 206, EN 1992-1-1), written as: C f_ck,cyl / f_ck,cube
-            C = Concrete (normal/high strength concrete classes)
-            LC = Lightweight concrete
-            f_ck,cyl = characteristic cylinder strength (MPa), tested on a 150x300 mm cylinder at 28 days
-            f_ck,cube = characteristic cube strength (MPa), tested on a 150 mm cube at 28 days
+            Concrete compressive strength class according to EN 206 / EN 1992-1-1.
+
+            Only normal-weight concrete classes ("C") are allowed.
+            Lightweight concrete classes ("LC") are NOT supported.
+
+            The value must exactly match one of the following:
+            C8/10, C12/15, C16/20, C20/25, C25/30,
+            C30/37, C35/45, C40/50, C45/55,
+            C50/60, C55/67, C60/75, C80/95.
+
+            Format:
+            C f_ck,cyl / f_ck,cube
+
+            Example:
+            C30/37
+
+            If the strength class is not explicitly stated or does not match
+            one of the allowed values, return null.
         """).strip(),
-        examples=["C20/25", "C30/37", "LC12/13"]
+        examples=["C20/25", "C30/37"]
     )
     slump_class: Optional[Literal["S1", "S2", "S3", "S4", "S5"]] = Field(
         None,

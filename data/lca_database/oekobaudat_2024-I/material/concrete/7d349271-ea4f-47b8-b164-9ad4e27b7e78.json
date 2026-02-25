@@ -1,0 +1,2272 @@
+{
+  "id": "7d349271-ea4f-47b8-b164-9ad4e27b7e78",
+  "item_core": {
+    "core_id": "96c5e4d6-bef9-4670-90e6-be8967f56254",
+    "entry_type": "material",
+    "name": "Pre-stressed carbon fibre-reinforced concrete element CPC 40-2-2",
+    "loadbearing": "loadbearing",
+    "placement": "either",
+    "density": 95.6,
+    "areal_density": null,
+    "thickness": 40.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Vetra Betonfertigteilwerke GmbH",
+    "provenance": null,
+    "production_location": "Essen (Oldenburg)",
+    "facet": {
+      "material_type": "concrete",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "slab",
+        "balcony_terrace",
+        "floor",
+        "plate"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "concrete_type": "precast",
+        "concrete_form": "panel",
+        "pre_stressed": true,
+        "binder_type": "portland_cement",
+        "cement_type": null,
+        "strength_class": "C80/95",
+        "slump_class": null,
+        "flow_class": null,
+        "xc": null,
+        "xd": null,
+        "xs": null,
+        "xf": null,
+        "xa": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "069a6b40-aa11-4f66-b385-ea9f5cc2a91e",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/069a6b40-aa11-4f66-b385-ea9f5cc2a91e?version=00.03.300",
+    "registration_number": "EPD-HOL-20240212-IBA2-DE",
+    "location_code": "RER",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "Holcim (Deutschland) GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 154.0,
+          "A4": 0.572,
+          "A5": 0.202,
+          "B1": 0.0,
+          "C1": 0.452,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.27
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.704
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -124.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.34
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.341,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.341
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 154.0,
+          "A4": 0.572,
+          "A5": 0.202,
+          "B1": 0.0,
+          "C1": 0.452,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.27
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.704
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -125.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.34
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 345.0,
+          "A4": 8.7,
+          "A5": 0.801,
+          "B1": 0.0,
+          "C1": 6.55,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 4.11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 11.2
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -326.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -32.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 11.7,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -11.7
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 357.0,
+          "A4": 8.7,
+          "A5": 0.801,
+          "B1": 0.0,
+          "C1": 6.55,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 4.11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 11.2
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -338.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -32.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 1.13,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.13
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 12.4,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -12.4
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 18.6,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -18.6
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.196,
+          "A4": 0.000443,
+          "A5": 0.00864,
+          "B1": 0.0,
+          "C1": 0.000522,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00021
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0013
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.176
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00311
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 8.06e-07,
+          "A4": 3.8e-11,
+          "A5": 7.68e-11,
+          "B1": 0.0,
+          "C1": 3.47e-11,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 1.79e-11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 2.88e-10
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -8.09e-07
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -3.47e-09
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 3.23,
+          "A4": 0.00142,
+          "A5": 0.0213,
+          "B1": 0.0,
+          "C1": 0.00107,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000669
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 4.79
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -3.23
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.9
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0109,
+          "A4": 1.09e-05,
+          "A5": 2.19e-05,
+          "B1": 0.0,
+          "C1": 1.22e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 5.17e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000334
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0115
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00162
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 1.82,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.2
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.259,
+          "A4": 0.0,
+          "A5": 6.02,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.167
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.495,
+          "A4": 0.0,
+          "A5": 11.5,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.319
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0742,
+          "A4": 0.00205,
+          "A5": 0.000652,
+          "B1": 0.0,
+          "C1": 0.00554,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000971
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00652
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0709
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00241
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 27.7,
+          "A4": 0.66,
+          "A5": 3.76,
+          "B1": -3.89,
+          "C1": 0.488,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.312
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.814
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -29.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -2.12
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -0.769,
+          "A4": -0.00258,
+          "A5": 1.91,
+          "B1": 0.0,
+          "C1": -0.00325,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00122
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00541
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.169
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00211
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 28.5,
+          "A4": 0.66,
+          "A5": 1.61,
+          "B1": -3.89,
+          "C1": 0.488,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.312
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.815
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -28.8
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -2.12
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0105,
+          "A4": 0.00252,
+          "A5": 3.07e-05,
+          "B1": 0.0,
+          "C1": 0.00335,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00119
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00367
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.00981
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.000601
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 118.0,
+          "A4": 6.65,
+          "A5": 0.35,
+          "B1": 0.0,
+          "C1": 4.63,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 3.15
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 6.24
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -109.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -5.72
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 1.05e-06,
+          "A4": 1.18e-08,
+          "A5": 3.67e-09,
+          "B1": 0.0,
+          "C1": 1.28e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 5.57e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 1.41e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -7.5e-07
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -6.03e-08
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.02,
+          "A4": 0.00096,
+          "A5": 0.000157,
+          "B1": 0.0,
+          "C1": 0.0028,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000454
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00313
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0191
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.000889
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.000219,
+          "A4": 1.31e-06,
+          "A5": 1.06e-07,
+          "B1": 0.0,
+          "C1": 1.78e-06,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 6.18e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 2e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.00019
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -7.46e-07
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.201,
+          "A4": 0.0107,
+          "A5": 0.0031,
+          "B1": 0.0,
+          "C1": 0.0308,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00506
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0344
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.192
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00973
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 1.43e-08,
+          "A4": 1.33e-10,
+          "A5": 2.55e-11,
+          "B1": 0.0,
+          "C1": 9.53e-11,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 6.31e-11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 1.97e-10
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.36e-08
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -2.64e-10
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 3.93e-07,
+          "A4": 7.67e-09,
+          "A5": 9.06e-10,
+          "B1": 0.0,
+          "C1": 7.48e-09,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 3.63e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 1.78e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -3.89e-07
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.7e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 1.49,
+          "A4": 0.00111,
+          "A5": 0.00217,
+          "B1": 0.0,
+          "C1": 0.00184,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000525
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0271
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.43
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.128
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 715.0,
+          "A4": 2.61,
+          "A5": 0.242,
+          "B1": 0.0,
+          "C1": 2.76,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 1.23
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 3.14
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -181.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.24
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 4.7e-11,
+          "A4": 1.34e-13,
+          "A5": 4.24e-13,
+          "B1": 0.0,
+          "C1": 4.88e-14,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 6.35e-14
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 7.27e-13
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -3.59e-11
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -4.19e-12
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0674,
+          "A4": 0.00187,
+          "A5": 0.000408,
+          "B1": 0.0,
+          "C1": 0.00809,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.000884
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00902
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0633
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.00238
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 357.0,
+          "A4": 8.69,
+          "A5": 0.801,
+          "B1": 0.0,
+          "C1": 6.53,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 4.11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 11.2
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -338.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -32.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 4.54e-06,
+          "A4": 6.57e-08,
+          "A5": 1.09e-08,
+          "B1": 0.0,
+          "C1": 5.01e-08,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 3.11e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 7.15e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -4.38e-06
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -1.39e-07
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": -5.22,
+          "A4": 0.00282,
+          "A5": 0.367,
+          "B1": 0.0,
+          "C1": 0.00556,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.00133
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0149
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 6.06
+            },
+            {
+              "code": "S0",
+              "description": "100 % Wiederverwendung",
+              "value": -0.014
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C2": [
+        "S0",
+        "S1"
+      ],
+      "C3": [
+        "S0",
+        "S1"
+      ],
+      "C4": [
+        "S0",
+        "S1"
+      ],
+      "D": [
+        "S0",
+        "S1"
+      ]
+    }
+  }
+}

@@ -108,6 +108,7 @@ class MaterialCommon(BaseModel):
         - Add additional values ONLY if the material/product explicitly serves multiple 
         primary functions simultaneously (e.g., “thermal + acoustic insulation” panel).
         - If the role is not clearly stated in the raw data, keep “unknown”.
+        - Whenver the material explicitly mentions "Stud Layer" assigng "stud_layer" and not "framing"
         """).strip(),
         examples=[
             ["structural"],

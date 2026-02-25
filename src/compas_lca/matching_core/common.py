@@ -40,7 +40,7 @@ class Common(BaseModel):
           
         • COMPONENT: A manufactured assembly or device installed as a functional building element.
           Must involve MULTIPLE distinct materials or separable parts.
-          Examples: window units (frame+glass+seals), stairs that are not made out of a single material, 
+          Examples: An entire roof without layered materials, window units (frame+glass+seals), stairs that are not made out of a single material, 
           door assemblies, ceiling systems (tiles+grid), sandwich panels (metal facing+insulation core), ETICS systems, PV panels, etc.
         
         ═══════════════════════════════════════════════════════════════════════════════

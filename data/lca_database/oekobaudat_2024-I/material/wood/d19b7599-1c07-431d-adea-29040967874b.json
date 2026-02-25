@@ -1,0 +1,1958 @@
+{
+  "id": "d19b7599-1c07-431d-adea-29040967874b",
+  "item_core": {
+    "core_id": "04f4b0d2-f2f2-4cdf-a3bc-e541554a7cd6",
+    "entry_type": "material",
+    "name": "Baufritz GaBi HOIZ wood chip insulation - reissue",
+    "loadbearing": "non_loadbearing",
+    "placement": "interior",
+    "density": 70.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": true,
+    "water_vapour_resistant": null,
+    "manufacturer": "Baufritz",
+    "provenance": "DE",
+    "production_location": "87746 Erkheim, Germany",
+    "facet": {
+      "material_type": "wood",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "roof",
+        "ceiling",
+        "wall"
+      ],
+      "insulation_info": [
+        "thermal",
+        "acoustic",
+        "loose_fill"
+      ],
+      "material_facet": {
+        "wood_type": "wood_fibre",
+        "wood_form": "loose_fill",
+        "strength_class_designation": null,
+        "base_species": "spruce",
+        "wood_processing": null,
+        "wood_adhesive": null,
+        "drying_method": null,
+        "wood_surface": "impregnated",
+        "modification_method": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "bcf5c14e-f6c1-4a53-bfd0-32dd6b493028",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/bcf5c14e-f6c1-4a53-bfd0-32dd6b493028?version=00.00.010",
+    "registration_number": "BAU-EPD-Baufritz-2025-1-GaBi-Hoiz",
+    "location_code": "DE",
+    "reference_year": 2025,
+    "valid_until": 2030,
+    "dataset_owner": "Bau EPD GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 266.406779185769,
+          "A4": 2.68081810506299,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.00405172474269
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1064.88926187496
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -187.938006616063
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 1057.5,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -1057.5
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 1323.90677918577,
+          "A4": 2.68081810506299,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.00405172474269
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 7.38926187496304
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -187.938006616063
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 179.853257004852,
+          "A4": 24.2240794121061,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 9.07268891839177
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 26.1076252385281
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -556.119725691822
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 179.853257004852,
+          "A4": 24.2240794121061,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 9.07268891839177
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 26.1076252385281
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -556.119725691822
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.0719752173525183,
+          "A4": 0.00250446329922588,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.000938001235665106
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.276761408840894
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.144307127842666
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 0.000185190733974424,
+          "A4": 1.17932758345e-09,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 4.4169572414e-10
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.5360252109e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -3.8017514732473e-07
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 2.68099352738356,
+          "A4": 0.00409574558900485,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00153398711198683
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 2.10410574855312
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.291128394592827
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00249095885112943,
+          "A4": 3.85566984844185e-05,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.44407110428534e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00140769609225029
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.0415351719030932
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 268.368171330605
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 148.912903778076
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.089898768228598,
+          "A4": 0.00257080589893899,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.000962848651288009
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0177369476853953
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.0328794012061881
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": -96.4407911483794,
+          "A4": 1.88672780266148,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.706639626464973
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 113.031652085706
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -31.2445656338116
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -111.209266666667,
+          "A4": 0.0105552911510072,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00395329256592038
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 111.209266666667
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.135804735694501
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 13.8437105185833,
+          "A4": 1.84068685667914,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.689395826471586
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.82135640149071
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -31.1059208735083
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.924764999703941,
+          "A4": 0.0354856548313358,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0132905074274666
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00102901754867493
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.00284002460881134
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 262.139307962417,
+          "A4": 18.7997973884015,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 7.04112261737883
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 11.2550064018763
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -79.3896108022398
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 2.80053449930428e-06,
+          "A4": 2.395491976028e-08,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 8.97188006003e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.1854828903165e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -2.6964114458712e-07
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0350501561805761,
+          "A4": 0.000950113849708235,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.000355847883785856
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.005193467236315
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.010005711028052
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.00111969725697004,
+          "A4": 5.02400909610274e-06,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.88165134685496e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 3.04245280437394e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -5.23598365247789e-05
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.374748437939932,
+          "A4": 0.0114591647751039,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00429182201314752
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0743781954093409
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.107355104154753
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 6.09253021451e-09,
+          "A4": 3.7480353952e-10,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.403758575e-10
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.12611215222e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -6.39720339245e-09
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 1.5511914248603e-07,
+          "A4": 1.578901600497e-08,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 5.91348914044e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 5.961641378761e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -1.494173994038e-07
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 0.465769536716927,
+          "A4": 0.00406757408011561,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00152343598506202
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.223220836317137
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -6.83866974001864
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 3765.93612400913,
+          "A4": 16.1148848904913,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 6.03553741216902
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 8.29618645948686
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -109.880512537339
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 6.209601408646e-08,
+          "A4": 5.8258519e-13,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 2.181967e-13
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.184045445e-11
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -2.8074791445e-10
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0441852960669544,
+          "A4": 0.00252835655438749,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.000946950020369847
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0142977347402924
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -0.0283150659292594
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 179.853257004852,
+          "A4": 24.224079412106,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 9.07268891839176
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 26.1076252385278
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -556.119725691813
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 2.70759789929405e-05,
+          "A4": 3.1402988472806e-07,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.1761418903673e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 1.2592475475184e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -2.72586963865728e-06
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 14.0246015251995,
+          "A4": 0.0132233092656244,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.00495255028675073
+            }
+          ],
+          "C3": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 11.7701828895827
+            }
+          ],
+          "C4": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Thermische Verwertung",
+              "description": "Thermische Verwertung",
+              "value": -3.43873699135577
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

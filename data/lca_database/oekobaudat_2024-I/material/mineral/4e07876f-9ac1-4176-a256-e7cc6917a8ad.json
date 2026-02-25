@@ -1,0 +1,761 @@
+{
+  "id": "4e07876f-9ac1-4176-a256-e7cc6917a8ad",
+  "item_core": {
+    "core_id": "c771a43d-038d-420d-840d-47109c5e3e3f",
+    "entry_type": "material",
+    "name": "ClayTec clay plaster Mineral 20, earth-moist",
+    "loadbearing": "non_loadbearing",
+    "placement": "interior",
+    "density": 2000.0,
+    "areal_density": null,
+    "thickness": 10.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": null,
+    "production_location": "Viersen-Süchteln",
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "plaster"
+      ],
+      "application_areas": [
+        "wall"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "clay",
+        "mineral_form": "paste_slurry"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "b6306a21-cb84-4992-bf23-8f4992ab132f",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/b6306a21-cb84-4992-bf23-8f4992ab132f?version=00.00.027",
+    "registration_number": "UPD_LPM_CLAY2023006_PKRU?5-DE",
+    "location_code": "DE",
+    "reference_year": 2022,
+    "valid_until": 2028,
+    "dataset_owner": "ClayTec GmbH & Co. KG",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.0)"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 0.0521201770028599,
+          "A1": 0.009005411,
+          "A2": 0.00501,
+          "A3": 0.03810476600286,
+          "C1": 2.18124782608696e-05,
+          "C3": 6.410445e-05,
+          "C4": 0.03272,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.017677683714
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 0.0521201770028599,
+          "A1": 0.009005411,
+          "A2": 0.00501,
+          "A3": 0.03810476600286,
+          "C1": 2.18124782608696e-05,
+          "C3": 6.410445e-05,
+          "C4": 0.03272,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.017677683714
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 0.491002680245689,
+          "A1": 0.329911789,
+          "A2": 0.0748,
+          "A3": 0.0862908912456886,
+          "C1": 0.0033194347826087,
+          "C3": 0.00975545,
+          "C4": 0.2002,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.741147649
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 0.038808,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.038808,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 0.529810680245689,
+          "A1": 0.329911789,
+          "A2": 0.0748,
+          "A3": 0.125098891245689,
+          "C1": 0.0033194347826087,
+          "C3": 0.00975545,
+          "C4": 0.2002,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.741147649
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.3552,
+          "A1": 0.3552,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.000229303574020702,
+          "A1": 0.00016188815,
+          "A2": 2.407046187e-06,
+          "A3": 6.50083778337022e-05,
+          "C1": 1.5606e-08,
+          "C3": 1.79469e-06,
+          "C4": 5.045e-05,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -4.5451128236e-05
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 8.30040447699e-08,
+          "A1": 7.41032333701e-08,
+          "A2": 5.64838248e-11,
+          "A3": 8.844327575e-09,
+          "C1": 5.53527391e-12,
+          "C3": 6.365565e-10,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -6.91905922686e-08
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.0143544590630754,
+          "A1": 0.0142894845372354,
+          "A2": 5.01669584e-06,
+          "A3": 5.995783e-05,
+          "C1": 3.79456906077e-09,
+          "C3": 4.159305e-05,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.01402145869342
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 1.11698428680507e-05,
+          "A1": 6.02363019645065e-06,
+          "A2": 4.41260716e-08,
+          "A3": 5.1020866e-06,
+          "C1": 3.05068695652e-09,
+          "C3": 3.50829e-07,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -1.1677006776e-06
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 1.0,
+          "C3": 0.95,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "C1": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0175616479179377,
+          "A1": 0.01754095309,
+          "A2": 1.864362804e-05,
+          "A3": 2.05119989775073e-06,
+          "C1": 9.239869565217e-08,
+          "C3": 2.715495e-07,
+          "C4": 0.0001065,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.01711788546684
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 0.0127463819563282,
+          "A1": 0.00313797,
+          "A2": 0.005560920625,
+          "A3": 0.00404749133132817,
+          "C1": 3.23894347826087e-05,
+          "C3": 9.518895e-05,
+          "C4": 0.01458867,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.027892630154
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -5.79434772289872e-05,
+          "A1": -1.588215e-06,
+          "A2": -1.824666386e-05,
+          "A3": -3.81085983689872e-05,
+          "C1": 3.8516086956522e-07,
+          "C3": 1.131945e-06,
+          "C4": -0.000498,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -5.81778879e-05
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 0.0127623611396869,
+          "A1": 0.00313345,
+          "A2": 0.005545863363,
+          "A3": 0.0040830477766869,
+          "C1": 3.19969565217391e-05,
+          "C3": 9.40355e-05,
+          "C4": 0.01504,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.02783196076
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 4.09885482560982e-05,
+          "A1": 5.6839e-06,
+          "A2": 3.2852208e-05,
+          "A3": 2.45244025609817e-06,
+          "C1": 5.22395217391e-09,
+          "C3": 1.5352615e-08,
+          "C4": 4.667e-05,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -6.5745349298e-06
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 1.16570131734723e-05,
+          "A1": 2.47922e-06,
+          "A2": 8.70583512e-06,
+          "A3": 4.7195805347233e-07,
+          "C1": 1.706282608696e-08,
+          "C3": 5.014575e-08,
+          "C4": 2.753e-05,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -9.64982659e-06
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 1.8446073609647e-05,
+          "A1": 5.066585e-06,
+          "A2": 1.294240111e-05,
+          "A3": 4.3708749964699e-07,
+          "C1": 4.999108695652e-08,
+          "C3": 1.4691825e-07,
+          "C4": 3.035e-05,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -7.25151929e-06
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.000130859102080118,
+          "A1": 2.7704153e-05,
+          "A2": 9.75984346e-05,
+          "A3": 5.55651448011811e-06,
+          "C1": 1.8679304347826e-07,
+          "C3": 5.48964e-07,
+          "C4": 0.0003029,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.00010684243628
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A1": [],
+          "A2": [],
+          "A3": [],
+          "C1": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 0.000243351120277606,
+          "A1": 0.000243351117592,
+          "A2": 6.8852753e-13,
+          "A3": 1.99707834e-12,
+          "C1": 4.027226e-14,
+          "C3": 1.183557e-13,
+          "C4": 8.308e-05,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -2.54934594382836e-06
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 4.51325788338306e-06,
+          "A1": 2.0610801028e-07,
+          "A2": 2.300338981e-06,
+          "A3": 2.00681089210306e-06,
+          "C1": 8.188826086957e-08,
+          "C3": 2.406605e-07,
+          "C4": 3.862e-11,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -2.0493934535512e-05
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 7.4209817784782e-07,
+          "A1": 1.472955e-07,
+          "A2": 3.956637801e-07,
+          "A3": 1.9913889774782e-07,
+          "C1": 2.64024782609e-09,
+          "C3": 7.759395e-09,
+          "C4": 6.946e-07,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -4.342871154e-07
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.122752380161072,
+          "A1": 0.02027785,
+          "A2": 0.0746703311,
+          "A3": 0.0278041990610719,
+          "C1": 0.00331743913043478,
+          "C3": 0.009749585,
+          "C4": 0.1999,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.4627534892
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.000114797504601187,
+          "A1": 3.86912e-05,
+          "A2": 2.883465673e-05,
+          "A3": 4.72716478711869e-05,
+          "C1": 2.5497782608696e-07,
+          "C3": 7.493515e-07,
+          "C4": 0.001645,
+          "D": [
+            {
+              "code": "Recycling Trockenverfahren",
+              "description": "Nach Modul C1 trocken rückgewonnene Lehmputzmörtel werden nach Modul C3 mechanisch zerkleinert und als sekundäre Ausgangsstoffe für Lehmprodukte, die im Trockendosierverfahren hergestellt werden wiederverwertet. Bei diesem Verwertungsszenario ersetzen die Bestandteile des Abbruchmaterials  ansonsten technisch getrockneten Baulehm und getrockneten Sand (IM D3). Es werden Durchschnittswerte für die Massenanteile von Baulehm (42 M.-%) und Gesteinskörnungen (58 M.-%) in rückgewonnenen Lehmputzmörteln angenommen und ein Masseverlust von 5M.- % unterstellt.",
+              "value": -0.00016176131878
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

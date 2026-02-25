@@ -1,6 +1,28 @@
 # ======= PROJECT SETTINGS =======
 project_folder: "temp/projects/duplex"
 
+# ======= ENRICHMENT SETTINGS =======
+stud_ratio: true
+concrete_strength_class: true
+
+# ======= MATCHING SETTINGS =======
+score_threshold: 0.1    # float between 0.0 and 1.0, minimum score for a match to be included in the output
+top_k_matches: 10       # int, number of top inventory item matches to consider (overruled by score threshold)
+include_explain: false  # bool, controls deterministic match rules for producing score explanation
+
+
+# ======= LCA / REPORT SETTINGS =======
+impact_report:
+  indicators:
+    - GWPtotal
+    - GWPbiogenic
+  net_stages:
+    - A1-A3
+    - A4
+    - C1
+    - C2
+    - C3
+    - D
 
 # ======= LLM SETTINGS =======
 model: claude-haiku-4-5
@@ -25,19 +47,28 @@ pricing_table:
   gemini-3-pro-preview:   { in_per_1k: 0.002, out_per_1k: 0.012 }
   gemini-3-flash-preview: { in_per_1k: 0.0005, out_per_1k: 0.003 }
 
-
 # ======= EXTRACTION SETTINGS =======
-enrichment: false
-
-
-# enrichment
-## stud layers
-## grating
-## reinforcement
-## concrete strength class inference
-
-
-# ======= MATCHING SETTINGS =======
-
-# leniency
-# dealbreakers
+IfcBeam: true
+IfcBearing: true
+IfcBuildingElementProxy: false
+IfcChimney: true
+IfcColumn: true
+IfcCovering: true
+IfcCurtainWall: true
+IfcDeepFoundatoin: true
+IfcDoor: true
+IfcFooting: true
+IfcMember: true
+IfcPlate: true
+IfcPile: true
+IfcRailing: true
+IfcRamp: true
+IfcRampFlight: true
+IfcRoof: true
+IfcShadingDevice: true
+IfcSlab: true
+IfcStair: true
+IfcStairFlight: true
+IfcWall: true
+IfcWallStandardCase: true
+IfcWindow: true
