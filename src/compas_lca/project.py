@@ -1,5 +1,7 @@
 import json
 
+import shutil
+
 from dataclasses import dataclass
 
 from pathlib import Path
@@ -13,11 +15,18 @@ from typing import Dict
 
 from compas_lca.helpers import load_config
 from compas_lca.helpers import merge_llm_meta
+from compas_lca.helpers import Spinner
 
 from compas_lca.workflows.matching import match_lca_model
 
 from compas_lca.workflows.calculation import calculate_impacts
 from compas_lca.workflows.calculation import summarize_impacts
+from compas_lca.workflows.calculation import summarize_elements
+
+from compas_lca.workflows.plots import create_plots
+from compas_lca.workflows.plots import sankey_classification
+
+from compas_lca.workflows.reporting import run_flag_report
 
 from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model
 
@@ -148,12 +157,10 @@ class Project:
         """
         try:
             all_llm_meta: Dict[str, Any] = {}
-
             create_boq_enriched(
                 input_dir=self.path / "03_extracted",
                 enriched_dir=self.path / "04_enriched",
                 )
-            
             concrete_strength_enabled = bool(
                 self.config.get("concrete_strength_class", False)
             )
@@ -198,6 +205,16 @@ class Project:
         Matching settings are read from config.yaml (with defaults).
         """
         try:
+            # ---- ensure BoQ_enriched.csv exists (mandatory artifact) ----
+            boq_enriched_path = self.path / "04_enriched" / "BoQ_enriched.csv"
+            if not boq_enriched_path.exists():
+                (self.path / "04_enriched").mkdir(parents=True, exist_ok=True)
+                create_boq_enriched(
+                    input_dir=self.path / "03_extracted",
+                    enriched_dir=self.path / "04_enriched",
+                )
+
+            # Pick LcaElement input root
             input_root = self._matching_input_root()
 
             # ---- pull settings from config.yaml (top-level keys) ----
@@ -232,28 +249,128 @@ class Project:
           generate a summary_*.csv in the SAME directory.
         """
         try:
-            report_cfg = self.config.get("impact_report", {}) or {}
 
+            spinner = Spinner("Creating impact reports... ")
+            spinner.start()
+
+            report_cfg = self.config.get("impact_report", {}) or {}
             indicators = report_cfg.get("indicators") or ["GWPtotal", "GWPbiogenic"]
             net_stages = report_cfg.get("net_stages") or ["A1-A3", "A4", "C1", "C2", "C3", "D"]
 
             epd_root = Path(self.config.get("inventory_dir", "data/lca_database/oekobaudat_2024-I"))
 
+            # Define report root
+            report_root = self.path / "06_report"
+            report_root.mkdir(parents=True, exist_ok=True)
+
+            # Calculate (will create per-indicator subfolders)
             calculate_impacts(
                 project_root=self.path,
                 epd_root=epd_root,
                 indicators=list(indicators),
                 net_stages=list(net_stages),
+                out_dir=report_root,
             )
 
-            report_dir = self.path / "06_report"
-            if not report_dir.exists():
-                raise FileNotFoundError(f"Expected report directory not found: {report_dir}")
+            # Summaries + collect produced directories
+            produced_dirs: dict[str, Path] = {}
 
-            for csv_path in sorted(report_dir.glob("all_impacts_*.csv")):
-                summarize_impacts(csv_path, report_dir)
-            for csv_path in sorted(report_dir.glob("agg_impacts_*.csv")):
-                summarize_impacts(csv_path, report_dir)
+            for ind_name in indicators:
+                safe_ind = "".join(c if c.isalnum() or c in ("-", "_") else "_" for c in str(ind_name))
+                ind_dir = report_root / safe_ind
+
+                if not ind_dir.exists():
+                    continue
+
+                # write summaries and aggregate layers to elements
+                for csv_path in sorted(ind_dir.glob("all_impacts_*.csv")):
+                    summarize_impacts(csv_path, ind_dir)
+                for csv_path in sorted(ind_dir.glob("object_type_impacts_*.csv")):
+                    summarize_impacts(csv_path, ind_dir)
+                for csv_path in sorted(ind_dir.glob("all_summary_dissected_*.csv")):
+                    summarize_elements(csv_path)
+
+                # Mark as produced only if there is at least one impacts file
+                if any(ind_dir.glob("*_impacts_*.csv")):
+                    produced_dirs[str(ind_name)] = ind_dir.resolve()
+
+                # Plots per indicator
+                try:
+                    plots_dir = create_plots(ind_dir)
+                except Exception as e:
+                    print(f"⚠️  Plotting failed for {ind_name} in {ind_dir}: {e}")
+
+            # Create sankey diagram and flag report
+            try:
+                gwp_dir = report_root / "GWPtotal"
+
+                sankey_csv = gwp_dir / "all_summary_dissected_GWPtotal.csv"
+                flag_csv_1 = gwp_dir / "object_type_summary_dissected_GWPtotal.csv"
+                flag_csv_2 = gwp_dir / "all_impacts_GWPtotal.csv"
+
+                missing = []
+                if not sankey_csv.exists():
+                    missing.append(f"Expected mandatory Sankey input not found: {sankey_csv}")
+                if not flag_csv_1.exists():
+                    missing.append(f"Expected mandatory flag input not found: {flag_csv_1}")
+                if not flag_csv_2.exists():
+                    missing.append(f"Expected mandatory flag input not found: {flag_csv_2}")
+
+                if missing:
+                    raise FileNotFoundError(" | ".join(missing))
+
+                sankey_classification(
+                    csv_path=sankey_csv,
+                    output_dir=report_root,  # write to 06_report root
+                )
+                run_flag_report(
+                    input_csv_objecttype=flag_csv_1,
+                    input_csv_elements=flag_csv_2,
+                    output_dir=report_root,  # write to 06_report root
+                )
+
+            except Exception as e:
+                print(f"⚠️  Sankey classification / flag report generation failed: {e}")
+
+            # --- NEW: copy metadata into 06_report/metadata (last action) ---
+            report_root = self.path / "06_report"  # already created above, safe to re-reference
+            dst_meta = report_root / "metadata"
+            dst_meta.mkdir(parents=True, exist_ok=True)
+
+            src_meta_enriched = self.path / "04_enriched" / "metadata"
+            src_meta_extracted = self.path / "03_extracted" / "metadata"
+
+            # Priority: 04_enriched/metadata if it exists, else 03_extracted/metadata
+            src_meta = src_meta_enriched if src_meta_enriched.is_dir() else src_meta_extracted
+
+            if src_meta.is_dir():
+                for p in src_meta.iterdir():
+                    if p.name == "model_metadata.json":
+                        continue
+                    target = dst_meta / p.name
+                    if p.is_dir():
+                        shutil.copytree(p, target, dirs_exist_ok=True)
+                    else:
+                        shutil.copy2(p, target)
+
+            # Always copy 01_processed/metadata/model.json into 06_report/metadata
+            model_src = self.path / "01_processed" / "metadata" / "model.json"
+            if model_src.exists():
+                shutil.copy2(model_src, dst_meta / "model.json")
+            else:
+                print(f"⚠️  model.json not found at: {model_src}")
+
+
+            spinner.stop()
+
+            # Single consolidated print at the end
+            if produced_dirs:
+                print("")
+                for name, p in produced_dirs.items():
+                    print(f"Created indicator reports for {name} in: {p}")
+                print("")
+            else:
+                print(f"No indicator reports created in: {report_root.resolve()}")
 
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e

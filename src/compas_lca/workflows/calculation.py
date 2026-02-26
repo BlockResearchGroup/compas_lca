@@ -1,27 +1,24 @@
 import json
-
 import csv
-
 import pandas as pd
-
 from pathlib import Path
-
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Tuple
-from typing import Iterable
+from typing import Any, Dict, List, Optional, Tuple, Iterable
 
 # ----------------------------
-# Constants
+# Constants / knobs
 # ----------------------------
 MISSING_STAGE_AS_ZERO = True
 ALLOW_MASS_FROM_DENSITY_X_VOLUME = True
-NET_STAGES = ["A1-A3", "A4", "C1", "C2", "C3", "D"]
+
+# This remains your "net_value" definition
+NET_STAGES = ["A1-A3", "A4", "A5", "C1", "C2", "C3", "C4", "D"]
+
+# Requested stage-dissection columns (scaled impacts per stage)
+STAGE_COLUMNS = ["A1-A3", "A1", "A2", "A3", "A4", "A5", "C1", "C2", "C3", "C4", "D", "Total"]
 
 # ----------------------------
-
+# Output columns (all_impacts_*.csv)
+# ----------------------------
 OUTPUT_COLUMNS = [
     "element_eid",
     "layer_number",
@@ -51,14 +48,15 @@ OUTPUT_COLUMNS = [
     "epd_ref_unit",
     "epd_ref_size",
     "epd_indicator",
-    "specific_value",
-    "net_value",
+    "specific_value",    # legacy: per-ref "net" across NET_STAGES
+    "net_value",         # legacy: scaled "net" across NET_STAGES
     "unit",
     "scaling_factor",
     "scaling_basis",
+    # NEW: scaled stage values
+    *STAGE_COLUMNS,
     "note",
 ]
-
 
 # ----------------------------
 # IO helpers
@@ -66,7 +64,6 @@ OUTPUT_COLUMNS = [
 def load_json(path: Path) -> Dict[str, Any]:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
-
 
 def build_epd_index(epd_root: Path) -> Dict[str, Dict[str, Any]]:
     epd_by_id: Dict[str, Dict[str, Any]] = {}
@@ -80,7 +77,6 @@ def build_epd_index(epd_root: Path) -> Dict[str, Dict[str, Any]]:
             print(f"[WARN] Failed to load EPD {p}: {e}")
     return epd_by_id
 
-
 def load_elements(elements_dir: Path) -> List[Dict[str, Any]]:
     elements: List[Dict[str, Any]] = []
     for p in elements_dir.rglob("*.json"):
@@ -89,7 +85,6 @@ def load_elements(elements_dir: Path) -> List[Dict[str, Any]]:
         except Exception as e:
             print(f"[WARN] Failed to load element {p}: {e}")
     return elements
-
 
 def _to_float(x: Any) -> Optional[float]:
     if x is None:
@@ -102,7 +97,6 @@ def _to_float(x: Any) -> Optional[float]:
     except ValueError:
         return None
 
-
 def _to_int_or_none(x: Any) -> Optional[int]:
     if x is None:
         return None
@@ -113,7 +107,6 @@ def _to_int_or_none(x: Any) -> Optional[int]:
         return int(float(s))
     except ValueError:
         return None
-
 
 def load_boq_rows_index(boq_csv: Path) -> Dict[Tuple[str, Optional[int]], List[Dict[str, Any]]]:
     """
@@ -135,9 +128,7 @@ def load_boq_rows_index(boq_csv: Path) -> Dict[Tuple[str, Optional[int]], List[D
             idx.setdefault((eid, layer_no), []).append(row)
             if layer_no is None:
                 idx.setdefault((eid, 1), []).append(row)
-
     return idx
-
 
 def layer_number_for_core_id(element: Dict[str, Any], core_id: str) -> Optional[int]:
     cores = element.get("element_core", []) or []
@@ -145,7 +136,6 @@ def layer_number_for_core_id(element: Dict[str, Any], core_id: str) -> Optional[
         if c.get("core_id") == core_id:
             return i + 1
     return None
-
 
 def pick_boq_row(
     boq_rows_idx: Dict[Tuple[str, Optional[int]], List[Dict[str, Any]]],
@@ -155,9 +145,7 @@ def pick_boq_row(
     rows = boq_rows_idx.get((eid, lookup_layer_no))
     if not rows:
         return None
-    # If multiple rows exist, choose the first deterministically
     return rows[0]
-
 
 def boq_value(row: Optional[Dict[str, Any]], col: str) -> Optional[str]:
     if not row:
@@ -168,9 +156,7 @@ def boq_value(row: Optional[Dict[str, Any]], col: str) -> Optional[str]:
     s = str(v).strip()
     return s if s != "" else None
 
-
 def make_ordered_row(values: Dict[str, Any]) -> Dict[str, Any]:
-    # Ensure every output column exists, in the required order
     return {k: values.get(k) for k in OUTPUT_COLUMNS}
 
 def append_note(existing: Optional[str], extra: Optional[str]) -> Optional[str]:
@@ -178,7 +164,6 @@ def append_note(existing: Optional[str], extra: Optional[str]) -> Optional[str]:
         return existing
     if not existing:
         return extra
-    # keep deterministic, readable
     return f"{existing};{extra}"
 
 def _round_floats_in_row(row: Dict[str, Any]) -> Dict[str, Any]:
@@ -189,6 +174,7 @@ def _round_floats_in_row(row: Dict[str, Any]) -> Dict[str, Any]:
         else:
             rounded[k] = v
     return rounded
+
 # ----------------------------
 # Impact calculation helpers
 # ----------------------------
@@ -219,28 +205,24 @@ def _average(values: List[float]) -> Optional[float]:
         return None
     return sum(values) / float(len(values))
 
-def stage_value(stages: Dict[str, Any], stage: str) -> Optional[float]:
+def stage_value(stages: Dict[str, Any], stage: str) -> Tuple[Optional[float], bool]:
     """
     Returns (value, used_scenario_average).
 
     Supported formats:
-      - number/string: 12.3 / "12.3"
-      - list of scenario dicts: [{"code": "...", "value": 12.3}, ...] -> average(value)
-      - list of numbers/strings: [12.3, "44.1"] -> average
-      - dict-of-scenarios (rare): {"Scenario A": 12.3, "Scenario B": 44.1} -> average(values)
-
-    used_scenario_average == True iff the stage value had multiple scenario values and we averaged them.
+      - number/string
+      - list of scenario dicts [{"code": "...", "value": 12.3}, ...] -> average(value)
+      - list of numbers/strings -> average
+      - dict-of-scenarios -> average(values)
     """
     v = stages.get(stage)
     if v is None:
         return None, False
 
-    # Plain scalar
     scalar = _as_float_or_none(v)
     if scalar is not None:
         return scalar, False
 
-    # List = scenarios or multiple values => average
     if isinstance(v, list):
         nums: List[float] = []
         for item in v:
@@ -252,20 +234,16 @@ def stage_value(stages: Dict[str, Any], stage: str) -> Optional[float]:
                 n = _as_float_or_none(item)
                 if n is not None:
                     nums.append(n)
-
         avg = _average(nums)
-        # "multiple scenarios exist" disclaimer only if there were 2+ numeric values
         used_avg = len(nums) >= 2
         return avg, used_avg
 
-    # Dict-of-scenarios => average its numeric leaf values
     if isinstance(v, dict):
         nums: List[float] = []
         for vv in v.values():
             n = _as_float_or_none(vv)
             if n is not None:
                 nums.append(n)
-
         avg = _average(nums)
         used_avg = len(nums) >= 2
         return avg, used_avg
@@ -274,8 +252,6 @@ def stage_value(stages: Dict[str, Any], stage: str) -> Optional[float]:
 
 COMPOSITE_STAGES = {
     "A1-A3": ["A1", "A2", "A3"],
-    # If you ever need more later:
-    # "C1-C4": ["C1", "C2", "C3", "C4"],
 }
 
 def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[Optional[float], List[str]]:
@@ -291,7 +267,6 @@ def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[
     for s in stages_to_use:
         v, used_avg = stage_value(stages, s)
 
-        # Composite fallback: e.g. if "A1-A3" missing, sum A1 + A2 + A3
         if v is None and s in COMPOSITE_STAGES:
             parts = COMPOSITE_STAGES[s]
             part_sum = 0.0
@@ -307,7 +282,6 @@ def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[
                     part_any = False
                     part_used_avg_any = False
                     break
-
                 part_any = True
                 part_sum += pv
                 part_used_avg_any = part_used_avg_any or p_used_avg
@@ -329,6 +303,85 @@ def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[
             scenario_avg_stages.append(s)
 
     return (total if any_present else None), scenario_avg_stages
+
+def compute_stage_breakdown_per_ref(indicator: Dict[str, Any]) -> Tuple[Dict[str, Optional[float]], List[str]]:
+    """
+    Returns:
+      stage_values_per_ref: dict with keys STAGE_COLUMNS
+        - For stages except Total: per-ref stage value (possibly composite for A1-A3)
+        - Total: EN15804-style total where A1-A3 is used if present, else A1+A2+A3,
+          plus A4, A5, C1..C4, D
+      scenario_avg_stages: list of stage codes where scenario averaging was used
+    """
+    stages = indicator.get("stages", {}) or {}
+    out: Dict[str, Optional[float]] = {}
+    scenario_avg_stages: List[str] = []
+
+    # Helper: get stage with composite fallback for A1-A3
+    def _get(stage: str) -> Optional[float]:
+        v, used_avg = stage_value(stages, stage)
+        if used_avg and stage not in scenario_avg_stages:
+            scenario_avg_stages.append(stage)
+
+        if v is None and stage in COMPOSITE_STAGES:
+            parts = COMPOSITE_STAGES[stage]
+            part_sum = 0.0
+            part_any = False
+            part_used_avg_any = False
+            for p in parts:
+                pv, p_used_avg = stage_value(stages, p)
+                if pv is None:
+                    if MISSING_STAGE_AS_ZERO:
+                        continue
+                    part_sum = 0.0
+                    part_any = False
+                    part_used_avg_any = False
+                    break
+                part_any = True
+                part_sum += pv
+                part_used_avg_any = part_used_avg_any or p_used_avg
+                if p_used_avg and p not in scenario_avg_stages:
+                    scenario_avg_stages.append(p)
+            if part_any:
+                if part_used_avg_any and stage not in scenario_avg_stages:
+                    scenario_avg_stages.append(stage)
+                return part_sum
+            return None
+        return v
+
+    # Fill all non-Total stages
+    for s in STAGE_COLUMNS:
+        if s == "Total":
+            continue
+        out[s] = _get(s)
+
+    # Compute Total with "prefer A1-A3 else A1+A2+A3"
+    total_components: List[Tuple[str, Optional[float]]] = []
+
+    a1a3 = out.get("A1-A3")
+    if a1a3 is not None:
+        total_components.append(("A1-A3", a1a3))
+    else:
+        # sum A1,A2,A3 (respect missing-as-zero knob)
+        for p in ["A1", "A2", "A3"]:
+            total_components.append((p, out.get(p)))
+
+    for s in ["A4", "A5", "C1", "C2", "C3", "C4", "D"]:
+        total_components.append((s, out.get(s)))
+
+    total = 0.0
+    any_present = False
+    for _, v in total_components:
+        if v is None:
+            if MISSING_STAGE_AS_ZERO:
+                continue
+            out["Total"] = None
+            return out, scenario_avg_stages
+        any_present = True
+        total += float(v)
+
+    out["Total"] = total if any_present else None
+    return out, scenario_avg_stages
 
 def scaling_factor_for_epd_reference_from_boq(
     boq_quantities: Dict[str, Optional[float]],
@@ -395,15 +448,19 @@ def scaling_factor_for_epd_reference_from_boq(
             mass / ref_size_f,
             f"BoQ.mass_kg(density({float(density):.1f})*BoQ.vol({float(vol):.4f})={mass:.4f}) / ref_kg({ref_size_f:.1f})",
         ), None
+
     if ref_unit_s == "pcs":
         boq_pcs = 1.0
         return (
             boq_pcs / ref_size_f,
             f"BoQ.pcs({boq_pcs:.4f}) / ref_pcs({ref_size_f:.1f})",
         ), None
+
     return None, "EPD_REF_UNIT_UNSUPPORTED"
 
-
+# ----------------------------
+# Core computation
+# ----------------------------
 def compute_element_match_rows(
     element: Dict[str, Any],
     epd_by_id: Dict[str, Dict[str, Any]],
@@ -452,7 +509,6 @@ def compute_element_match_rows(
 
         core_matches = matches_by_core_id.get(core_id, [])
 
-        # BoQ fields (safe even if boq_row is None)
         common = {
             "element_eid": eid,
             "layer_number": output_layer_no,
@@ -508,7 +564,6 @@ def compute_element_match_rows(
                 }))
                 continue
 
-            # EPD core + metadata fields
             epd_item_core = epd.get("item_core", {}) or {}
             epd_meta = epd.get("metadata", {}) or {}
             epd_ref = epd.get("reference", {}) or {}
@@ -550,37 +605,53 @@ def compute_element_match_rows(
                     }))
                     continue
 
-                # "specific_value" = per-reference net (before scaling)
-                net_per_ref, scenario_avg_stages = aggregate_net(ind, NET_STAGES)
-                scenario_note = None
-                if scenario_avg_stages:
-                    # deterministic ordering (already in encountered order; you can sort() if you prefer)
-                    scenario_note = f"SCENARIO_AVG_USED({','.join(scenario_avg_stages)})"
                 unit = ind.get("unit")
 
+                # Legacy net_value across NET_STAGES
+                net_per_ref, scenario_avg_stages_net = aggregate_net(ind, NET_STAGES)
+
+                # NEW: stage breakdown per reference, then scaled
+                per_ref_stage_vals, scenario_avg_stages_stage = compute_stage_breakdown_per_ref(ind)
+
+                scenario_avg_stages_all = []
+                for s in (scenario_avg_stages_net or []) + (scenario_avg_stages_stage or []):
+                    if s not in scenario_avg_stages_all:
+                        scenario_avg_stages_all.append(s)
+
+                scenario_note = None
+                if scenario_avg_stages_all:
+                    scenario_note = f"SCENARIO_AVG_USED({','.join(scenario_avg_stages_all)})"
+
+                row_base = {
+                    **common,
+                    "match_score": m.get("match_score"),
+                    **epd_core_fields,
+                    "epd_indicator": ind_name,
+                    "unit": unit,
+                    "scaling_factor": factor,
+                    "scaling_basis": basis,
+                }
+
+                # If stage values are missing and you're not treating missing as zero, keep them None.
+                scaled_stage_cols: Dict[str, Optional[float]] = {}
+                for s in STAGE_COLUMNS:
+                    v = per_ref_stage_vals.get(s)
+                    scaled_stage_cols[s] = (None if v is None else float(v) * float(factor))
+
+                # If legacy net missing:
                 if net_per_ref is None:
                     rows.append(make_ordered_row({
-                        **common,
-                        "match_score": m.get("match_score"),
-                        **epd_core_fields,
-                        "epd_indicator": ind_name,
-                        "unit": unit,
-                        "scaling_factor": factor,
-                        "scaling_basis": basis,
+                        **row_base,
+                        **scaled_stage_cols,
                         "note": append_note("NET_STAGE_VALUES_MISSING", scenario_note),
                     }))
                     continue
 
                 rows.append(make_ordered_row({
-                    **common,
-                    "match_score": m.get("match_score"),
-                    **epd_core_fields,
-                    "epd_indicator": ind_name,
+                    **row_base,
                     "specific_value": net_per_ref,
-                    "net_value": net_per_ref * factor,
-                    "unit": unit,
-                    "scaling_factor": factor,
-                    "scaling_basis": basis,
+                    "net_value": float(net_per_ref) * float(factor),
+                    **scaled_stage_cols,
                     "note": append_note(None, scenario_note),
                 }))
 
@@ -589,11 +660,6 @@ def compute_element_match_rows(
 # ----------------------------
 # Aggregated emissions (by object type + layer)
 # ----------------------------
-
-import pandas as pd
-from pathlib import Path
-from typing import Optional, List, Any
-
 OUTPUT_COLUMNS_AGG = [
     "object_type",
     "layer_number",
@@ -625,10 +691,12 @@ OUTPUT_COLUMNS_AGG = [
     "unit",
     "scaling_factor",
     "scaling_basis",
+    # NEW: stage columns
+    *STAGE_COLUMNS,
     "note",
 ]
 
-_NUM_SUM_COLS = ["length_m", "area_m2", "volume_m3", "net_value"]
+_NUM_SUM_COLS = ["length_m", "area_m2", "volume_m3", "net_value", *STAGE_COLUMNS]
 _NUM_FIRST_COLS = ["thickness_m", "epd_density", "epd_ref_size", "specific_value", "scaling_factor"]
 
 _TEXT_FIRST_COLS = [
@@ -655,7 +723,6 @@ def _first_non_null(s: pd.Series) -> Any:
     s2 = s.dropna()
     if s2.empty:
         return None
-    # also treat empty strings as null-ish
     for v in s2.tolist():
         if isinstance(v, str):
             vv = v.strip()
@@ -666,7 +733,6 @@ def _first_non_null(s: pd.Series) -> Any:
     return None
 
 def _sum_numeric(s: pd.Series) -> Optional[float]:
-    # Coerce to numeric; ignore non-numeric garbage
     nums = pd.to_numeric(s, errors="coerce")
     if nums.isna().all():
         return None
@@ -689,7 +755,7 @@ def _enriched_status_agg(s: pd.Series) -> Optional[str]:
             vals.append(str(v))
     if not vals:
         return None
-    uniq = list(dict.fromkeys(vals))  # stable unique
+    uniq = list(dict.fromkeys(vals))
     return uniq[0] if len(uniq) == 1 else "MIXED"
 
 def _note_agg(s: pd.Series) -> Optional[str]:
@@ -702,7 +768,7 @@ def _note_agg(s: pd.Series) -> Optional[str]:
             vals.append(vv)
     if not vals:
         return None
-    uniq = list(dict.fromkeys(vals))  # stable unique
+    uniq = list(dict.fromkeys(vals))
     return ";".join(uniq)
 
 def write_agg_impacts_csv(
@@ -710,22 +776,20 @@ def write_agg_impacts_csv(
     out_csv: Optional[Path] = None,
 ) -> Path:
     """
-    Read all_impacts_{indicator}.csv and write agg_impacts_{indicator}.csv.
+    Read all_impacts_{indicator}.csv and write object_type_impacts_{indicator}.csv.
 
     Aggregation grain:
       one row per (object_type, layer_number, epd_id, epd_indicator)
 
-    Rationale:
-      - you want one row per matched EPD per object_type+layer_number bucket
-      - quantities and net_value are summed across contributing elements
+    Quantities + net_value + stage columns are SUMMED across elements.
     """
     all_impacts_csv = Path(all_impacts_csv)
     if out_csv is None:
         name = all_impacts_csv.name
         if name.startswith("all_impacts_"):
-            out_name = name.replace("all_impacts_", "agg_impacts_", 1)
+            out_name = name.replace("all_impacts_", "object_type_impacts_", 1)
         else:
-            out_name = f"agg_{name}"
+            out_name = f"object_type_{name}"
         out_csv = all_impacts_csv.with_name(out_name)
 
     df = pd.read_csv(all_impacts_csv)
@@ -735,16 +799,16 @@ def write_agg_impacts_csv(
     if missing:
         raise ValueError(f"Input CSV missing required columns: {sorted(missing)}")
 
-    # Clean key columns a bit (avoid whitespace keys)
-    df["object_type"] = df["object_type"].astype(str).str.strip()
-    df["epd_id"] = df["epd_id"].astype(str).str.strip()
+    df["object_type"] = df["object_type"].astype("string").str.strip()
+    df["epd_id"] = df["epd_id"].astype("string").str.strip()
 
-    # Treat empty strings as missing
-    df.loc[df["object_type"] == "", "object_type"] = pd.NA
-    df.loc[df["epd_id"] == "", "epd_id"] = pd.NA
+    # normalize empties + common stringified-nulls
+    df["epd_id"] = df["epd_id"].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA, "NaN": pd.NA})
+    df["object_type"] = df["object_type"].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA, "NaN": pd.NA})
+
+    # now drop rows without a real EPD id
     df = df[df["epd_id"].notna()].copy()
 
-    # If epd_indicator exists, include it in the key for robustness.
     key_cols = ["object_type", "layer_number", "epd_id"]
     if "epd_indicator" in df.columns:
         df["epd_indicator"] = df["epd_indicator"].astype(str).str.strip()
@@ -752,25 +816,20 @@ def write_agg_impacts_csv(
         key_cols.append("epd_indicator")
 
     group_keys = set(key_cols)
+    agg_spec: Dict[str, Any] = {}
 
-    agg_spec = {}
-
-    # sums: quantities + net_value
     for c in _NUM_SUM_COLS:
         if c in df.columns and c not in group_keys:
             agg_spec[c] = _sum_numeric
 
-    # first-non-null numeric fields (thickness etc.)
     for c in _NUM_FIRST_COLS:
         if c in df.columns and c not in group_keys:
             agg_spec[c] = _first_non_null
 
-    # first-non-null text fields
     for c in _TEXT_FIRST_COLS:
         if c in df.columns and c not in group_keys:
             agg_spec[c] = _first_non_null
 
-    # specials
     if "match_score" in df.columns:
         agg_spec["match_score"] = _max_numeric
     if "enriched_status" in df.columns:
@@ -781,10 +840,9 @@ def write_agg_impacts_csv(
     g = df.groupby(key_cols, dropna=False, sort=True)
     out = g.agg(agg_spec).reset_index()
 
-    # Force layer_number to nullable integer
     out["layer_number"] = pd.to_numeric(out["layer_number"], errors="coerce").astype("Int64")
 
-    # Round aggregated numeric outputs to 3 decimals
+    # Round numeric outputs
     round_cols = [
         "length_m",
         "area_m2",
@@ -796,12 +854,12 @@ def write_agg_impacts_csv(
         "epd_ref_size",
         "specific_value",
         "scaling_factor",
+        *STAGE_COLUMNS,
     ]
     for c in round_cols:
         if c in out.columns:
             out[c] = pd.to_numeric(out[c], errors="coerce").round(3)
 
-    # Ensure columns + order
     for col in OUTPUT_COLUMNS_AGG:
         if col not in out.columns:
             out[col] = None
@@ -822,10 +880,11 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]):
         w = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS, extrasaction="ignore")
         w.writeheader()
         for r in rows:
-            rounded_row = _round_floats_in_row(r)
-            w.writerow(rounded_row)
+            w.writerow(_round_floats_in_row(r))
 
-
+# ----------------------------
+# Orchestrator
+# ----------------------------
 def calculate_impacts(
     *,
     project_root: Path,
@@ -841,11 +900,12 @@ def calculate_impacts(
     """
     compute impact CSVs from matched elements + enriched BoQ.
 
-    Returns: list of written CSV paths (one per indicator).
-    """
-    print("")
-    print("Calculating impacts...")
+    Writes:
+      - all_impacts_{indicator}.csv
+      - object_type_impacts_{indicator}.csv
 
+    Returns: list of written all_impacts CSV paths (one per indicator).
+    """
     if indicators is None:
         indicators = ["GWPtotal", "GWPbiogenic"]
 
@@ -854,6 +914,7 @@ def calculate_impacts(
 
     if out_dir is None:
         out_dir = project_root / "06_report"
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     if boq_csv is None:
         boq_csv = project_root / "04_enriched" / "BoQ_enriched.csv"
@@ -866,13 +927,10 @@ def calculate_impacts(
             project_root / "05_matched" / "layered_elements",
         ]
 
-    # set module-level knobs used by your existing helper functions
     global MISSING_STAGE_AS_ZERO, ALLOW_MASS_FROM_DENSITY_X_VOLUME, NET_STAGES
     MISSING_STAGE_AS_ZERO = missing_stage_as_zero
     ALLOW_MASS_FROM_DENSITY_X_VOLUME = allow_mass_from_density_x_volume
     NET_STAGES = net_stages
-
-    out_dir.mkdir(parents=True, exist_ok=True)
 
     epd_by_id = build_epd_index(epd_root)
     boq_rows_idx = load_boq_rows_index(boq_csv)
@@ -888,20 +946,23 @@ def calculate_impacts(
             all_rows.extend(compute_element_match_rows(el, epd_by_id, [ind_name], boq_rows_idx))
 
         safe_ind = "".join(c if c.isalnum() or c in ("-", "_") else "_" for c in ind_name)
-        out_path = out_dir / f"all_impacts_{safe_ind}.csv"
+
+        ind_dir = out_dir / safe_ind
+        ind_dir.mkdir(parents=True, exist_ok=True)
+
+        out_path = ind_dir / f"all_impacts_{safe_ind}.csv"
         write_csv(out_path, all_rows)
-        agg_path = write_agg_impacts_csv(out_path)  # auto-names to agg_impacts_{indicator}.csv
-        print(f"Wrote {safe_ind} impact report {out_path} ({len(all_rows)} rows)")
-        print(f"Wrote aggregated impact report {agg_path}")
+
+        _ = write_agg_impacts_csv(out_path)
         written.append(out_path)
 
     return written
 
-
 # ----------------------------
-# SUMMARY (for all_impacts_*.csv)
+# SUMMARY (for all_impacts_*.csv and object_type_impacts_*.csv)
+# Adds per-stage min/median/max columns:
+#   {Stage}_net_impact_min / median / max, including Total
 # ----------------------------
-
 STABLE_COLS_ALL: list[str] = [
     "element_eid",
     "layer_number",
@@ -937,10 +998,6 @@ GROUP_COLS_ALL: tuple[str, ...] = (
     "unit",
 )
 
-# ----------------------------
-# SUMMARY (for agg_impacts_*.csv)
-# ----------------------------
-
 STABLE_COLS_AGG: list[str] = [
     "object_type",
     "layer_number",
@@ -966,17 +1023,14 @@ GROUP_COLS_AGG: tuple[str, ...] = (
     "unit",
 )
 
-def _count_unique_elements_for_agg_summary(
-    agg_impacts_path: Path,
-) -> pd.DataFrame:
-    """
-    Returns a dataframe with columns:
-      object_type, layer_number, elements_count
+def _ensure_required_columns(df: pd.DataFrame, required: Iterable[str]) -> None:
+    missing = sorted(set(required) - set(df.columns))
+    if missing:
+        raise ValueError(f"Missing required columns: {missing}")
 
-    Computed from the corresponding all_impacts_*.csv file sitting next to agg_impacts_*.csv.
-    """
+def _count_unique_elements_for_agg_summary(agg_impacts_path: Path) -> pd.DataFrame:
     all_path = agg_impacts_path.with_name(
-        agg_impacts_path.name.replace("agg_impacts_", "all_impacts_", 1)
+        agg_impacts_path.name.replace("object_type_impacts_", "all_impacts_", 1)
     )
     if not all_path.exists():
         raise FileNotFoundError(
@@ -984,14 +1038,11 @@ def _count_unique_elements_for_agg_summary(
         )
 
     df_all = pd.read_csv(all_path, dtype=str)
-
     _ensure_required_columns(df_all, ["object_type", "layer_number", "element_eid"])
 
     df_all["object_type"] = df_all["object_type"].fillna("").astype(str).str.strip()
     df_all["layer_number"] = df_all["layer_number"].fillna("").astype(str).str.strip()
     df_all["element_eid"] = df_all["element_eid"].fillna("").astype(str).str.strip()
-
-    # Drop empty element ids (shouldn't happen, but defensive)
     df_all = df_all[df_all["element_eid"] != ""]
 
     counts = (
@@ -1002,28 +1053,24 @@ def _count_unique_elements_for_agg_summary(
     )
     return counts
 
-def _ensure_required_columns(df: pd.DataFrame, required: Iterable[str]) -> None:
-    missing = sorted(set(required) - set(df.columns))
-    if missing:
-        raise ValueError(f"Missing required columns: {missing}")
-
-
 def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) -> Path:
     """
     Summarize candidate EPD rows into key metrics.
 
-    - all_impacts_*.csv  -> all_summary_*.csv  (grouped by element_eid + layer_number + indicator)
-    - agg_impacts_*.csv  -> agg_summary_*.csv  (grouped by object_type + layer_number + indicator)
+    - all_impacts_*.csv         -> all_summary_dissected_*.csv
+    - object_type_impacts_*.csv -> object_type_summary_dissected_*.csv
+
+    Adds per-stage min/median/max columns:
+      {Stage}_net_impact_min / median / max
     """
     input_path = Path(input_csv_path).expanduser().resolve()
     if not input_path.exists():
         raise FileNotFoundError(f"Input CSV not found: {input_path}")
 
     is_all = input_path.name.startswith("all_impacts_")
-    is_agg = input_path.name.startswith("agg_impacts_")
-
-    if not (is_all or is_agg):
-        raise ValueError("Input filename must start with 'all_impacts_' or 'agg_impacts_'")
+    is_object_type = input_path.name.startswith("object_type_impacts_")
+    if not (is_all or is_object_type):
+        raise ValueError("Input filename must start with 'all_impacts_' or 'object_type_impacts_'")
 
     output_dir = Path(output_directory).expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -1031,84 +1078,262 @@ def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) 
     if is_all:
         stable_cols = STABLE_COLS_ALL
         group_cols = GROUP_COLS_ALL
-        output_filename = input_path.name.replace("all_impacts_", "all_summary_", 1)
+        output_filename = input_path.name.replace("all_impacts_", "all_summary_dissected_", 1)
     else:
         stable_cols = STABLE_COLS_AGG
         group_cols = GROUP_COLS_AGG
-        output_filename = input_path.name.replace("agg_impacts_", "agg_summary_", 1)
+        output_filename = input_path.name.replace("object_type_impacts_", "object_type_summary_dissected_", 1)
 
     output_path = output_dir / output_filename
 
-    # Read as strings, then coerce numerics explicitly (keeps behavior deterministic)
     df = pd.read_csv(input_path, dtype=str)
 
-    _ensure_required_columns(df, stable_cols + ["epd_indicator", "unit", "net_value"])
+    # We require stage columns too (if missing, treat as absent and create them)
+    base_required = list(stable_cols) + ["epd_indicator", "unit"]
+    _ensure_required_columns(df, base_required)
 
-    # Normalize grouping column (layer_number may be empty for single-material cases)
+    # Normalize layer_number
     df["layer_number"] = df["layer_number"].fillna("").astype(str).str.strip()
 
-    # Coerce numeric columns
-    df["net_value"] = pd.to_numeric(df["net_value"], errors="coerce")
+    # Coerce numeric stable cols
     for col in NUMERIC_STABLE_COLS:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
 
+    # Ensure all stage columns exist (string read -> convert)
+    for s in STAGE_COLUMNS:
+        if s not in df.columns:
+            df[s] = pd.NA
+        df[s] = pd.to_numeric(df[s], errors="coerce")
+
     # Build aggregation spec
     agg_spec = {col: (col, "first") for col in stable_cols}
-    agg_spec.update(
-        {
-            "net_impact_min": ("net_value", "min"),
-            "net_impact_median": ("net_value", "median"),
-            "net_impact_max": ("net_value", "max"),
-        }
-    )
+
+    # Per-stage min/median/max across candidate matches
+    for s in STAGE_COLUMNS:
+        agg_spec[f"{s}_net_impact_min"] = (s, "min")
+        agg_spec[f"{s}_net_impact_median"] = (s, "median")
+        agg_spec[f"{s}_net_impact_max"] = (s, "max")
 
     grouped = (
         df.groupby(list(group_cols), dropna=False, as_index=False)
-        .agg(**agg_spec)
+          .agg(**agg_spec)
     )
 
-    # If this is an aggregated impacts file, add unique element counts
-    if is_agg:
+    # If object_type summary, add unique element counts
+    if is_object_type:
         counts = _count_unique_elements_for_agg_summary(input_path)
-
-        # Ensure same key normalization as above
         grouped["object_type"] = grouped["object_type"].fillna("").astype(str).str.strip()
         grouped["layer_number"] = grouped["layer_number"].fillna("").astype(str).str.strip()
+        grouped = grouped.merge(counts, on=["object_type", "layer_number"], how="left")
+        grouped["elements_count"] = pd.to_numeric(grouped["elements_count"], errors="coerce").astype("Int64")
 
-        grouped = grouped.merge(
-            counts,
-            on=["object_type", "layer_number"],
-            how="left",
-        )
-
-        # Optional: make it an integer column (nullable)
-        grouped["elements_count"] = (
-            pd.to_numeric(grouped["elements_count"], errors="coerce")
-            .astype("Int64")
-        )
-
-    # Append requested indicator columns
+    # Append indicator columns (kept from your current behavior)
     grouped["indicator_name"] = grouped["epd_indicator"]
     grouped["indicator_unit"] = grouped["unit"]
 
-    # Round all float columns to 3 decimals
+    # Round float columns
     float_cols = grouped.select_dtypes(include=["float64", "float32"]).columns
     grouped[float_cols] = grouped[float_cols].round(3)
 
-    # Final column order
-    output_columns = stable_cols + [
-        "indicator_name",
-        "net_impact_min",
-        "net_impact_median",
-        "net_impact_max",
-        "indicator_unit",
-    ]
-
-    if is_agg:
+    # Column order
+    output_columns = stable_cols + ["indicator_name"]
+    for s in STAGE_COLUMNS:
+        output_columns += [
+            f"{s}_net_impact_min",
+            f"{s}_net_impact_median",
+            f"{s}_net_impact_max",
+        ]
+    output_columns += ["indicator_unit"]
+    if is_object_type:
         output_columns.append("elements_count")
 
     output_columns = [c for c in output_columns if c in grouped.columns]
-
     grouped[output_columns].to_csv(output_path, index=False)
     return output_path
+
+# ------------------------------------------------------------
+# AGGREGATE LAYERS INTO ONE SINGLE ELEMENT ROW
+# - sums per-stage min/median/max across layers
+# ------------------------------------------------------------
+def _mixed_or_value(values: Iterable[Any]) -> Optional[str]:
+    cleaned: list[str] = []
+    for v in values:
+        if v is None:
+            continue
+        if isinstance(v, float) and pd.isna(v):
+            continue
+        s = str(v).strip()
+        if s:
+            cleaned.append(s)
+    if not cleaned:
+        return None
+    uniq = list(dict.fromkeys(cleaned))
+    return uniq[0] if len(uniq) == 1 else "MIXED"
+
+def _sum_numeric_series(s: pd.Series) -> Optional[float]:
+    nums = pd.to_numeric(s, errors="coerce")
+    if nums.isna().all():
+        return None
+    return float(nums.sum(skipna=True))
+
+def _max_numeric_series(s: pd.Series) -> Optional[float]:
+    nums = pd.to_numeric(s, errors="coerce")
+    if nums.isna().all():
+        return None
+    return float(nums.max(skipna=True))
+
+def _is_multilayer_from_group(layer_series: pd.Series) -> bool:
+    if layer_series is None:
+        return False
+    vals = layer_series.fillna("").astype(str).str.strip()
+    vals = vals[vals != ""]
+    return vals.nunique(dropna=True) > 1
+
+def summarize_elements(
+    all_summary_dissected_csv: str | Path,
+    out_csv: Optional[str | Path] = None,
+) -> Path:
+    """
+    Aggregate layer-dissected ALL summary into whole-element totals (sum across layers).
+
+    Input:
+      - all_summary_dissected_*.csv
+
+    Output:
+      - all_summary_elements_*.csv
+
+    Stage columns:
+      - sums {Stage}_net_impact_{min,median,max} across layers
+    """
+    input_path = Path(all_summary_dissected_csv).expanduser().resolve()
+    if not input_path.exists():
+        raise FileNotFoundError(f"Summary CSV not found: {input_path}")
+
+    if not input_path.name.startswith("all_summary_dissected_"):
+        raise ValueError("Input filename must start with 'all_summary_dissected_'")
+
+    if out_csv is None:
+        out_name = input_path.name.replace("all_summary_dissected_", "all_summary_elements_", 1)
+        out_path = input_path.with_name(out_name)
+    else:
+        out_path = Path(out_csv).expanduser().resolve()
+
+    df = pd.read_csv(input_path, dtype=str)
+
+    # Required base columns
+    base_required = {"element_eid", "indicator_name", "indicator_unit"}
+    missing = sorted(base_required - set(df.columns))
+    if missing:
+        raise ValueError(f"Missing required columns in {input_path.name}: {missing}")
+
+    # Coerce numeric stable cols if present
+    for c in ["thickness_m", "length_m", "area_m2", "volume_m3"]:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+
+    # Coerce per-stage summary numeric columns
+    stage_summary_cols: List[str] = []
+    for s in STAGE_COLUMNS:
+        for stat in ["min", "median", "max"]:
+            col = f"{s}_net_impact_{stat}"
+            if col in df.columns:
+                stage_summary_cols.append(col)
+                df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    key_cols = ["element_eid", "indicator_name", "indicator_unit"]
+
+    DROP_ALWAYS = {"material_type", "component_type", "facet_type", "enriched_status"}
+
+    candidate_text_cols = [
+        "element_global_id",
+        "element_name",
+        "object_type",
+        "entity",
+        "material_descriptor",
+        "loadbearing",
+        "placement",
+        "entry_type",
+    ]
+    mixed_text_cols = [c for c in candidate_text_cols if c in df.columns and c not in DROP_ALWAYS]
+
+    agg_spec: dict[str, Any] = {}
+
+    for c in mixed_text_cols:
+        agg_spec[c] = (c, lambda s: _mixed_or_value(s.tolist()))
+
+    if "layer_number" in df.columns:
+        agg_spec["is_multilayer"] = ("layer_number", _is_multilayer_from_group)
+    else:
+        agg_spec["is_multilayer"] = ("element_eid", lambda s: False)
+
+    if "thickness_m" in df.columns:
+        agg_spec["thickness_m"] = ("thickness_m", _sum_numeric_series)
+    if "volume_m3" in df.columns:
+        agg_spec["volume_m3"] = ("volume_m3", _sum_numeric_series)
+    if "area_m2" in df.columns:
+        agg_spec["area_m2"] = ("area_m2", _max_numeric_series)
+    if "length_m" in df.columns:
+        agg_spec["length_m"] = ("length_m", _max_numeric_series)
+
+    # Sum stage-wise min/median/max across layers
+    for col in stage_summary_cols:
+        agg_spec[col] = (col, _sum_numeric_series)
+
+    out = df.groupby(key_cols, dropna=False, as_index=False).agg(**agg_spec)
+
+    # Round numeric outputs
+    for c in ["thickness_m", "length_m", "area_m2", "volume_m3", *stage_summary_cols]:
+        if c in out.columns:
+            out[c] = pd.to_numeric(out[c], errors="coerce").round(3)
+
+    out["is_multilayer"] = out["is_multilayer"].fillna(False).astype(bool)
+
+    for c in DROP_ALWAYS:
+        if c in out.columns:
+            out = out.drop(columns=[c])
+
+    preferred_order = [
+        "element_eid",
+        "element_global_id",
+        "element_name",
+        "object_type",
+        "is_multilayer",
+        "entity",
+        "material_descriptor",
+        "loadbearing",
+        "placement",
+        "entry_type",
+        "thickness_m",
+        "length_m",
+        "area_m2",
+        "volume_m3",
+        "indicator_name",
+        "indicator_unit",
+    ]
+
+    # Insert stage columns after indicator_name (keep tidy)
+    stage_order: List[str] = []
+    for s in STAGE_COLUMNS:
+        stage_order += [
+            f"{s}_net_impact_min",
+            f"{s}_net_impact_median",
+            f"{s}_net_impact_max",
+        ]
+    # Some might not exist, filter
+    stage_order = [c for c in stage_order if c in out.columns]
+
+    # Build final column ordering
+    final_cols = []
+    for c in preferred_order:
+        if c in out.columns:
+            final_cols.append(c)
+        if c == "indicator_name":
+            final_cols.extend(stage_order)
+
+    # Append any unexpected columns
+    final_cols += [c for c in out.columns if c not in final_cols]
+    out = out[final_cols]
+
+    out.to_csv(out_path, index=False)
+    return out_path

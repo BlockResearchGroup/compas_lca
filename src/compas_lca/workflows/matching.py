@@ -578,11 +578,10 @@ def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
     p = rule["path"]
     return p, p
 
-
 def _add_clause(clauses, element_map, rule, *, source: str):
     if rule.get("ignore") is True:
         return
-    
+
     item_path, elem_path = _normalize_rule_paths(rule)
 
     is_field_to_field = rule.get("value") is None
@@ -591,6 +590,17 @@ def _add_clause(clauses, element_map, rule, *, source: str):
         if _is_unknown(item_side):
             return
 
+    # SPECIAL CASE: concrete masonry_unit -> concrete_form is a dealbreaker
+    hard_fail = bool(rule.get("hard_fail", False))
+    if (
+        source in {"material_facet", "material_common"}  # mainly material_facet
+        and elem_path == "facet.material_facet.concrete_form"
+    ):
+        mt = _norm_str(element_map.get("facet.material_type"))
+        cf = _norm_str(element_map.get("facet.material_facet.concrete_form"))
+        if mt == "concrete" and cf == "masonry_unit":
+            hard_fail = True
+
     clauses.append(Clause(
         item_path=item_path,
         elem_path=elem_path if is_field_to_field else None,
@@ -598,7 +608,7 @@ def _add_clause(clauses, element_map, rule, *, source: str):
         value=rule.get("value"),
         abs_tol=rule.get("abs_tol"),
         rel_tol=rule.get("rel_tol"),
-        hard_fail=bool(rule.get("hard_fail", False)),
+        hard_fail=hard_fail,
         source=source,
     ))
 

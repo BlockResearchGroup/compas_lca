@@ -72,7 +72,7 @@ def step_02a_preprocess_env(project: Project) -> None:
 def step_02b_normalize_env(project: Project) -> None:
     not_implemented("Step 02b: normalize environmental data with AI")(project)
 
-def step_02c_edit_env(project: Project) -> None:
+def step_02c_add_env(project: Project) -> None:
     not_implemented("Step 02c: edit environmental data within COMPAS LCA database")(project)
 
 def preview_config(project: Project) -> None:
@@ -111,7 +111,7 @@ MENU: List[MenuItem] = [
     MenuItem(key="02", name="🌱 ADD ENVIRONMENTAL DATA 🌱", is_group=True),
     MenuItem(key="02a", name="Preprocess environmental data", action=step_02a_preprocess_env),
     MenuItem(key="02b", name="Normalize environmental data with AI", action=step_02b_normalize_env),
-    MenuItem(key="02c", name="Edit environmental data within COMPAS LCA database", action=step_02c_edit_env),
+    MenuItem(key="02c", name="Add environmental data to existing COMPAS LCA database", action=step_02c_add_env),
 ]
 
 

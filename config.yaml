@@ -1,28 +1,30 @@
 # ======= PROJECT SETTINGS =======
-project_folder: "temp/projects/duplex"
-
-# ======= ENRICHMENT SETTINGS =======
-stud_ratio: true
-concrete_strength_class: true
+project_folder: "projects/duplex"
 
 # ======= MATCHING SETTINGS =======
-score_threshold: 0.1    # float between 0.0 and 1.0, minimum score for a match to be included in the output
-top_k_matches: 10       # int, number of top inventory item matches to consider (overruled by score threshold)
-include_explain: false  # bool, controls deterministic match rules for producing score explanation
-
+score_threshold: 0.5
+top_k_matches: 10
+include_explain: false
 
 # ======= LCA / REPORT SETTINGS =======
 impact_report:
   indicators:
     - GWPtotal
-    - GWPbiogenic
+    - PENRT
+    - WDP
   net_stages:
     - A1-A3
     - A4
+    - A5
     - C1
     - C2
     - C3
+    - C4
     - D
+
+# ======= ENRICHMENT SETTINGS =======
+stud_ratio: false
+concrete_strength_class: false
 
 # ======= LLM SETTINGS =======
 model: claude-haiku-4-5

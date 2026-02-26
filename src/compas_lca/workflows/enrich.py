@@ -563,6 +563,13 @@ def _first_stud_layer_index_1based(elem: LcaElement) -> Optional[int]:
             return i + 1
     return None
 
+def _stud_layer_indices_1based(elem: LcaElement) -> list[int]:
+    cores = elem.element_core or []
+    out: list[int] = []
+    for i, c in enumerate(cores):
+        if _is_stud_layer_core(c):
+            out.append(i + 1)
+    return out
 
 # -----------------------------
 # IO helpers (by element_eid)
@@ -803,11 +810,11 @@ class StudRatioEnricher:
                 print(f"[DEBUG] rep {rep_eid} functional_types={fts}")
                 continue
 
-            ratio, explanation, layer_idx_1b = self._infer_for_rep(rep_eid, rep_elem)
-            layer_str = _layer_key(layer_idx_1b)
+            ratio, explanation, rep_layer_idx_1b = self._infer_for_rep(rep_eid, rep_elem)
 
-            # representative
-            updated_rows += self._apply_ratio(rows, boq_index, rep_eid, layer_str, ratio)
+            # apply to ALL stud layers in the rep element
+            for n in _stud_layer_indices_1based(rep_elem):
+                updated_rows += self._apply_ratio(rows, boq_index, rep_eid, str(n), ratio)
 
             # print counter line exactly like concrete enrichment
             if rep_eid not in enriched_eids:
@@ -824,14 +831,14 @@ class StudRatioEnricher:
                 "representative_name": rep_elem.descriptor.element_name,
                 "object_type": rep_elem.descriptor.object_type,
                 "stud_ratio": ratio,
-                "layer_index_1based": layer_idx_1b,
+                "layer_index_1based": rep_layer_idx_1b,
                 "explanation": explanation,
                 "members_count": len(entry.get("members") or []),
             })
 
             # members
             for m in (entry.get("members") or []):
-                me = _norm((m or {}).get("eid"))
+                me = _norm_id((m or {}).get("eid"))
                 if not me or me == rep_eid:
                     continue
                 m_path = element_index.get(me)
@@ -841,7 +848,9 @@ class StudRatioEnricher:
                 if not _has_any_stud_layer(m_elem):
                     continue
 
-                updated_rows += self._apply_ratio(rows, boq_index, me, layer_str, ratio)
+                member_indices = _stud_layer_indices_1based(m_elem)
+                for n in member_indices:
+                    updated_rows += self._apply_ratio(rows, boq_index, me, str(n), ratio)
 
                 # print counter line exactly like concrete enrichment
                 if me not in enriched_eids:
@@ -868,8 +877,9 @@ class StudRatioEnricher:
             json.dumps({"count": len(self.protocol), "items": self.protocol}, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
-        return self.llm_meta
         print(f"Stud ratio enrichment done. Updated rows: {updated_rows}. BoQ updated: {boq_path}")
+        return self.llm_meta
+        
 
     def _infer_for_rep(self, rep_eid: str, rep_elem: LcaElement) -> Tuple[float, str, Optional[int]]:
         if rep_eid in self.cache:
