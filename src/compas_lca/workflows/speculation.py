@@ -55,7 +55,6 @@ def speculate_layer_thicknesses(
     llm_output_dict, llm_meta = extractor(
         input_json=normalized_input,   # extractor expects 'input_json'
         context=THICKNESS_GUESS_CTX,
-        base_name=base_name
     )
 
     thickness_result = ThicknessGuessResult.model_validate(llm_output_dict)

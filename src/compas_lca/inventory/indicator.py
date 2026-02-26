@@ -17,11 +17,6 @@ from .constants import EN15978_STAGES
 from .constants import OBD_INDICATOR_NAME
 from .constants import OBD_INDICATOR_UNITS
 
-# TO DO:
-# add KBOB stage names, indicators, and units
-# make generalizable workflow (database-agnostic)
-# only need to load the constants from a specific databse
-
 class IndicatorScenario(BaseModel):
     """One scenario value for a stage."""
     code: Optional[str] = Field(

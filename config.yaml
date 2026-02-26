@@ -1,5 +1,5 @@
 # ======= PROJECT SETTINGS =======
-project_folder: "projects/duplex"
+project_folder: "projects/hilo"
 
 # ======= MATCHING SETTINGS =======
 score_threshold: 0.5
@@ -23,8 +23,8 @@ impact_report:
     - D
 
 # ======= ENRICHMENT SETTINGS =======
-stud_ratio: false
-concrete_strength_class: false
+stud_ratio: true
+concrete_strength_class: true
 
 # ======= LLM SETTINGS =======
 model: claude-haiku-4-5
