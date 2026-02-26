@@ -29,21 +29,24 @@ from compas_lca.inventory.indicator import Indicator
 from compas_lca.inventory.indicator import IndicatorScenario
 from compas_lca.inventory.indicator import Indicators
 
-from compas_lca.inventory.constants import EN15978_STAGES
-
 from compas_lca.workflows.extraction import extract_matching_core
 
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_ingestion import ingest_obd_item
+
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import read_csv
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import uuids_in_csv
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import subset_for_uuid
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row_for_uuid
+
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import parse_num
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_str
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_int
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import infer_bucket
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import write_item
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import uuids_in_payload_dir
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import read_payload
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import COLUMN_MAP
+
 
 
 # =======================================================
@@ -74,17 +77,9 @@ def _scan_existing_uuids(base_dir: Path) -> set:
 # Extract the matching core from an Oekobaudat entry
 # =======================================================
 
-def extract_matching_core_obd(uuid_series: pd.Series) -> MatchingCore:
-    """
-    Parse the EPD payload and construct a MatchingCore.
-    Implement source-specific logic here.
-    """
-    # Build the combined JSON (Series + URL parse) in-memory
-    obd_item_payload = ingest_obd_item(uuid_series)
-
-    # Get matching core from hybrid obd payolad (csv and URL based)
+def extract_matching_core_from_payload(obd_item_payload: Dict[str, Any]) -> Tuple[MatchingCore, dict]:
     core, meta = extract_matching_core(
-        input_type = "inventory_item",
+        input_type="inventory_item",
         input_data=obd_item_payload,
         input_format="json",
     )
@@ -252,71 +247,43 @@ def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
         compliance_system_name=compliance,
     )
 
-# ==================================================================
-# Extract and build an InventoryItem object from an Oekobaudat entry
-# ==================================================================
-
-def extract_inventory_item_obd(
-    uuid_df: pd.DataFrame,
-    uuid_series: pd.Series,
-) -> InventoryItem:
-    """
-    Orchestrate extraction and assembly of an InventoryItem from a raw EPD payload.
-
-    If write_json=True, serialize the InventoryItem to output_dir/{item.id}.json
-    (placeholder filename). Change the naming scheme later as needed.
-    """
-    # Extract
-    core, meta = extract_matching_core_obd(uuid_series)
-    indicators = extract_indicators_obd(uuid_df)
-    metadata = extract_metadata_obd(uuid_series)
-    reference = extract_reference_obd(uuid_series)
-
-    # Assemble
-    item = InventoryItem(
-        item_core=core,
-        reference=reference,
-        metadata=metadata,
-        indicators=indicators,
-    )
-
-    return item, meta
-
 # ==========================================================
 # Extract and build an Inventory object from Oekobaudat CSV
 # ==========================================================
 
 
-def _process_single_uuid(
+def _process_single_uuid_from_payload(
     obd: pd.DataFrame,
+    payload_dir: Path,
     uuid: str,
     index: int,
     total: int,
     write_json: bool,
     base_dir: Optional[Path],
 ) -> Tuple[int, Optional[InventoryItem], Optional[dict], Optional[str]]:
-    """
-    Process a single UUID and return (index, item, llm_meta, error_msg).
-    
-    This helper is designed to be called from a thread pool.
-    Returns the index to preserve ordering in the final result.
-    """
-    print(f"\n[{index}/{total}] UUID={uuid} → building InventoryItem…")
+    print(f"\n[{index}/{total}] UUID={uuid} → building InventoryItem (from payload)…")
     try:
-        # subset per UUID
+        # load payload for LLM extraction
+        obd_item_payload = read_payload(payload_dir, uuid)
+        core, llm_meta = extract_matching_core_from_payload(obd_item_payload)
+
+        # keep existing CSV-derived steps (minimal change)
         uuid_df: pd.DataFrame = subset_for_uuid(obd, uuid)
         uuid_series: pd.Series = first_row_for_uuid(uuid_df, uuid)
 
-        # extract one InventoryItem
-        item, llm_meta = extract_inventory_item_obd(
-            uuid_df=uuid_df,
-            uuid_series=uuid_series
+        indicators = extract_indicators_obd(uuid_df)
+        metadata = extract_metadata_obd(uuid_series)
+        reference = extract_reference_obd(uuid_series)
+
+        item = InventoryItem(
+            item_core=core,
+            reference=reference,
+            metadata=metadata,
+            indicators=indicators,
         )
 
         if write_json and base_dir is not None:
-            # Get info from item, dynamically create folder taxonomy
             entry_type, subdir = infer_bucket(item)
-            # Serialize the InventoryItem as JSON
             path = write_item(item, base_dir, entry_type, subdir)
             print(f"[OK] Wrote JSON → {path.as_posix()}")
         else:
@@ -332,6 +299,7 @@ def _process_single_uuid(
 
 
 def extract_inventory_obd(
+    payload_dir: Union[str, Path],
     csv_path: Union[str, Path],
     *,
     write_json: bool = True,                   # write one JSON per InventoryItem
@@ -353,6 +321,8 @@ def extract_inventory_obd(
 
     Parameters
     ----------
+    payload_dir : str | Path
+        Directory containing the extracted JSON payloads for each UUID.
     csv_path : str | Path
         Path to the input OBD CSV file.
     write_json : bool
@@ -369,116 +339,101 @@ def extract_inventory_obd(
         If provided, only process UUIDs in this list. Useful for re-running
         extraction on a subset of items (e.g., misclassified items).
     """
-    # Early validation
     if write_json and output_dir is None:
         raise ValueError("If write_json=True, you must provide an output_dir.")
 
-    # initialize base directory
+    payload_dir = Path(payload_dir)
     base_dir: Optional[Path] = Path(output_dir) if output_dir is not None else None
 
-    # initialize LLM metadata (cost, token usage)
     all_llm_meta: dict[str, Any] = {}
 
-    # Read csv -> DataFrame
+    # read csv once (still needed for indicators/reference/metadata in Option 2)
     obd: pd.DataFrame = read_csv(csv_path)
 
-    # Collect UUIDs in processing order
-    uuids: List[str] = uuids_in_csv(obd)
-    total_in_csv = len(uuids)
-    print(f"\nFound {total_in_csv} UUID(s) in {csv_path}")
+    uuids = uuids_in_payload_dir(payload_dir)
+    total_in_dir = len(uuids)
+    print(f"\nFound {total_in_dir} payload JSON(s) in {payload_dir}")
 
-    # Filter by uuid_filter if provided
+    csv_uuid_set = set(uuids_in_csv(obd))
+    payload_uuids = uuids_in_payload_dir(payload_dir)
+
+    uuids = [u for u in payload_uuids if u in csv_uuid_set]
+    missing = [u for u in payload_uuids if u not in csv_uuid_set]
+    if missing:
+        print(f"[WARN] {len(missing)} payload UUID(s) not found in CSV; skipping.")
+
     if uuid_filter is not None:
-        uuid_filter_set = set(uuid_filter)
-        original_count = len(uuids)
-        uuids = [u for u in uuids if u in uuid_filter_set]
-        print(f"UUID filter applied: {len(uuids)} of {original_count} UUID(s) match the filter.")
+        s = set(uuid_filter)
+        uuids = [u for u in uuids if u in s]
+        print(f"UUID filter applied: {len(uuids)} UUID(s) match the filter.")
 
-    # Resume: skip already processed UUIDs
     if resume and base_dir is not None:
         existing_uuids = _scan_existing_uuids(base_dir)
         if existing_uuids:
+            before = len(uuids)
             uuids = [u for u in uuids if u not in existing_uuids]
-            skipped = total_in_csv - len(uuids)
-            print(f"Resume mode: skipping {skipped} already processed UUID(s), {len(uuids)} remaining.")
+            print(f"Resume mode: skipping {before - len(uuids)} already processed UUID(s), {len(uuids)} remaining.")
 
     total = len(uuids)
     if total == 0:
         print("All UUIDs already processed. Nothing to do.")
         return Inventory([])
 
-    # Prepare indexed UUID list for ordered results
     indexed_uuids = [(i, uuid) for i, uuid in enumerate(uuids, start=1)]
-
-    # Results storage
     items: List[InventoryItem] = []
     results_by_index: Dict[int, Tuple[Optional[InventoryItem], Optional[dict]]] = {}
 
     if max_workers > 1:
-        # --- Parallel extraction ---
         print(f"Running parallel extraction with {max_workers} workers…")
         lock = threading.Lock()
         completed_count = 0
 
         executor = ThreadPoolExecutor(max_workers=max_workers)
         try:
-            # Submit all tasks
             futures = {
                 executor.submit(
-                    _process_single_uuid,
-                    obd, uuid, idx, total, write_json, base_dir
+                    _process_single_uuid_from_payload,
+                    obd, payload_dir, uuid, idx, total, write_json, base_dir
                 ): (idx, uuid)
                 for idx, uuid in indexed_uuids
             }
 
-            # Collect results as they complete (with timeout per future)
             for future in as_completed(futures):
-                try:
-                    idx, item, llm_meta, error = future.result()
-                    with lock:
-                        completed_count += 1
-                        if item is not None:
-                            results_by_index[idx] = (item, llm_meta)
-                        if llm_meta is not None:
-                            all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
-                except TimeoutError:
-                    idx, uuid = futures[future]
-                    print(f"[TIMEOUT] UUID at index {idx} timed out")
+                idx, item, llm_meta, error = future.result()
+                with lock:
+                    completed_count += 1
+                    if item is not None:
+                        results_by_index[idx] = (item, llm_meta)
+                    if llm_meta is not None:
+                        all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
 
             print(f"\nAll {completed_count}/{total} futures completed.")
 
-        except TimeoutError:
-            print(f"\n[WARNING] as_completed timed out. Completed {completed_count}/{total} items.")
         finally:
-            # Explicitly shutdown executor without waiting for pending futures
             executor.shutdown(wait=False, cancel_futures=True)
             print("Executor shutdown complete.")
 
-        # Reconstruct items in original order
         for idx in sorted(results_by_index.keys()):
             item, _ = results_by_index[idx]
             if item is not None:
                 items.append(item)
 
     else:
-        # --- Sequential extraction (original behavior) ---
         for idx, uuid in indexed_uuids:
-            idx, item, llm_meta, error = _process_single_uuid(
-                obd, uuid, idx, total, write_json, base_dir
+            idx, item, llm_meta, error = _process_single_uuid_from_payload(
+                obd, payload_dir, uuid, idx, total, write_json, base_dir
             )
             if item is not None:
                 items.append(item)
             if llm_meta is not None:
                 all_llm_meta = merge_llm_meta(all_llm_meta, llm_meta)
 
-    # write LLM metadata
     if output_dir is not None:
-        output_dir = Path(output_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-        meta_path = output_dir / "llm_metadata.json"
+        out = Path(output_dir)
+        out.mkdir(parents=True, exist_ok=True)
+        meta_path = out / "llm_metadata.json"
         with open(meta_path, "w", encoding="utf-8") as f:
             json.dump(all_llm_meta, f, indent=2)
         print(f"Aggregated LLM metadata saved to: {meta_path}")
 
-    # Return Inventory wrapper
     return Inventory(items)

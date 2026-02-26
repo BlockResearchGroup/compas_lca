@@ -8,6 +8,9 @@ from compas_lca.project import Project
 from compas_lca.project import ProjectError
 from compas_lca.project import MissingInput
 
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import preprocess_obd
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import update_obd
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import extract_preprocessed_obd
 # ----------------------------
 # Menu model
 # ----------------------------
@@ -67,13 +70,13 @@ def step_01f_create_report(project: Project) -> None:
     project.generate_report()
 
 def step_02a_preprocess_env(project: Project) -> None:
-    not_implemented("Step 02a: preprocess environmental data")(project)
+    preprocess_obd()
 
 def step_02b_normalize_env(project: Project) -> None:
-    not_implemented("Step 02b: normalize environmental data with AI")(project)
+    extract_preprocessed_obd()
 
 def step_02c_add_env(project: Project) -> None:
-    not_implemented("Step 02c: edit environmental data within COMPAS LCA database")(project)
+    update_obd()
 
 def preview_config(project: Project) -> None:
     print("\n--- Active config (loaded from config.yaml) ---")

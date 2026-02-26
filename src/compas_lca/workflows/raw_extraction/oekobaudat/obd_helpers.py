@@ -1,15 +1,156 @@
 import pandas as pd
 
+import os
+
+import shutil
+
+import json
+
+import yaml
+
 from enum import Enum
 
 from pathlib import Path
 
+from datetime import datetime, timezone
+
+from typing import Any
+from typing import List
 from typing import Dict
 from typing import Tuple
 from typing import Optional
 
 from compas_lca.inventory.item import InventoryItem
 
+def sync_trees(source_root: Path, dest_root: Path, log_output_dir: Path) -> None:
+    """
+    Copy all files from source_root into dest_root, preserving relative paths.
+    Create missing directories in dest_root. Do not overwrite existing files.
+    Ignore any file named 'llm_metadata.json'.
+    Print actions taken.
+
+    Additionally, write a LOG.txt into log_output_dir describing each copied JSON file:
+      1) item_core/name
+      2) metadata/dataset_uuid
+      3) metadata/registration_number
+      4) metadata/dataset_source
+      5) exact destination path copied into
+    """
+    source_root = source_root.resolve()
+    dest_root = dest_root.resolve()
+    log_output_dir = log_output_dir.resolve()
+
+    if not source_root.exists() or not source_root.is_dir():
+        raise ValueError(f"Source directory does not exist or is not a directory: {source_root}")
+
+    if not dest_root.exists():
+        dest_root.mkdir(parents=True, exist_ok=True)
+        print(f"[DIR CREATED] {dest_root}")
+
+    if not dest_root.is_dir():
+        raise ValueError(f"Destination is not a directory: {dest_root}")
+
+    # Ensure log output directory exists
+    log_output_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_output_dir / "LOG.txt"
+
+    created_dirs: set[Path] = set()
+    log_lines: list[str] = []
+
+    # Log header
+    started_at = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    log_lines.append(f"Sync log started: {started_at}")
+    log_lines.append(f"Source: {source_root}")
+    log_lines.append(f"Destination: {dest_root}")
+    log_lines.append("")
+    log_lines.append("Entries (copied files only):")
+    log_lines.append("-" * 80)
+
+    def _safe_get(dct: dict, path: tuple[str, ...]) -> str:
+        cur = dct
+        for key in path:
+            if not isinstance(cur, dict) or key not in cur:
+                return ""
+            cur = cur[key]
+        return "" if cur is None else str(cur)
+
+    for current_dir, dirnames, filenames in os.walk(source_root):
+        current_dir_path = Path(current_dir)
+
+        rel_dir = current_dir_path.relative_to(source_root)
+        target_dir = dest_root / rel_dir
+
+        if not target_dir.exists():
+            target_dir.mkdir(parents=True, exist_ok=True)
+            if target_dir not in created_dirs:
+                print(f"[DIR CREATED] {target_dir}")
+                created_dirs.add(target_dir)
+
+        # Ensure subdirectories exist
+        for d in dirnames:
+            src_sub = current_dir_path / d
+            rel_sub = src_sub.relative_to(source_root)
+            dst_sub = dest_root / rel_sub
+            if not dst_sub.exists():
+                dst_sub.mkdir(parents=True, exist_ok=True)
+                if dst_sub not in created_dirs:
+                    print(f"[DIR CREATED] {dst_sub}")
+                    created_dirs.add(dst_sub)
+
+        # Copy files (excluding llm_metadata.json)
+        for fname in filenames:
+            src_file = current_dir_path / fname
+            rel_file = src_file.relative_to(source_root)
+
+            if fname == "llm_metadata.json":
+                continue
+
+            dst_file = dest_root / rel_file
+
+            if dst_file.exists():
+                print(f"[SKIP EXISTS] {dst_file.name}  (at {rel_file})")
+                continue
+
+            dst_file.parent.mkdir(parents=True, exist_ok=True)
+
+            # Read JSON for logging (best-effort; still copy even if log fields missing)
+            item_name = dataset_uuid = registration_number = dataset_source = ""
+            if src_file.suffix.lower() == ".json":
+                try:
+                    with src_file.open("r", encoding="utf-8") as f:
+                        payload = json.load(f)
+                    item_name = _safe_get(payload, ("item_core", "name"))
+                    dataset_uuid = _safe_get(payload, ("metadata", "dataset_uuid"))
+                    registration_number = _safe_get(payload, ("metadata", "registration_number"))
+                    dataset_source = _safe_get(payload, ("metadata", "dataset_source"))
+                except Exception as e:
+                    # Keep fields blank but record parse error in log entry
+                    item_name = item_name or ""
+                    dataset_uuid = dataset_uuid or ""
+                    registration_number = registration_number or ""
+                    dataset_source = dataset_source or ""
+                    # Add a note line in the log for this file
+                    log_lines.append(f"FILE: {src_file}  (JSON READ ERROR: {type(e).__name__}: {e})")
+
+            shutil.copy2(src_file, dst_file)
+            print(f"[ADDED] {dst_file.name}  ->  {rel_file}")
+
+            # Only log copied JSON files (as requested: "they are always json")
+            if src_file.suffix.lower() == ".json":
+                log_lines.append(f"NAME: {item_name}")
+                log_lines.append(f"DATASET_UUID: {dataset_uuid}")
+                log_lines.append(f"REGISTRATION_NUMBER: {registration_number}")
+                log_lines.append(f"DATASET_SOURCE: {dataset_source}")
+                log_lines.append(f"COPIED_TO: {dst_file.resolve()}")
+                log_lines.append("-" * 80)
+
+    finished_at = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    log_lines.append("")
+    log_lines.append(f"Sync log finished: {finished_at}")
+
+    # Write log
+    log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
+    print(f"[LOG WRITTEN] {log_path}")
 
 def safe_str(val: any) -> Optional[str]:
     """Convert to stripped string, return None if empty or invalid."""
@@ -158,3 +299,16 @@ def write_item(
     fp = target_dir / f"{item_id}.json"
     fp.write_text(json_str)
     return fp
+
+
+def uuids_in_payload_dir(payload_dir: Path) -> List[str]:
+    return sorted([p.stem for p in payload_dir.glob("*.json") if p.name != "llm_metadata.json"])
+
+def read_payload(payload_dir: Path, uuid: str) -> Dict[str, Any]:
+    path = payload_dir / f"{uuid}.json"
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+    
+def _load_epd_parser_config(epd_parser_path: Path) -> dict:
+    with epd_parser_path.open("r", encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}

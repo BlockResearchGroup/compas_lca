@@ -55,7 +55,7 @@ NOTE: The matching parameters (score threshold and top_k matches) can be retroac
 
 ## Environmental Data Extraction Workflow
 * Review `oekobaudat_remaining.csv`
-* Add UUIDs of selected elements to `epd_parser.yaml`
+* Add UUIDs of selected elements to `epd_parser.json`
 * Run `scripts/0_menu.py`
 * Execute action points **02a to 02c** sequentially.
 
