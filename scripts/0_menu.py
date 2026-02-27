@@ -11,6 +11,7 @@ from compas_lca.project import MissingInput
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import preprocess_obd
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import update_obd
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import extract_preprocessed_obd
+
 # ----------------------------
 # Menu model
 # ----------------------------
@@ -144,7 +145,7 @@ def pipeline_menu() -> None:
         for item in MENU:
             print(f"  {item.key.upper()}. {item.name}")
 
-            # Your old spacing rules; keep them if you like
+            # spacing rules
             if item.key.lower() == "p":
                 print("")
             if item.key.lower() == "01f":

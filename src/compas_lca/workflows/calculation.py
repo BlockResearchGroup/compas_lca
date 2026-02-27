@@ -9,11 +9,7 @@ from typing import Any, Dict, List, Optional, Tuple, Iterable
 # ----------------------------
 MISSING_STAGE_AS_ZERO = True
 ALLOW_MASS_FROM_DENSITY_X_VOLUME = True
-
-# This remains your "net_value" definition
 NET_STAGES = ["A1-A3", "A4", "A5", "C1", "C2", "C3", "C4", "D"]
-
-# Requested stage-dissection columns (scaled impacts per stage)
 STAGE_COLUMNS = ["A1-A3", "A1", "A2", "A3", "A4", "A5", "C1", "C2", "C3", "C4", "D", "Total"]
 
 # ----------------------------
@@ -48,12 +44,11 @@ OUTPUT_COLUMNS = [
     "epd_ref_unit",
     "epd_ref_size",
     "epd_indicator",
-    "specific_value",    # legacy: per-ref "net" across NET_STAGES
-    "net_value",         # legacy: scaled "net" across NET_STAGES
+    "specific_value",
+    "net_value",
     "unit",
     "scaling_factor",
     "scaling_basis",
-    # NEW: scaled stage values
     *STAGE_COLUMNS,
     "note",
 ]
@@ -113,7 +108,7 @@ def load_boq_rows_index(boq_csv: Path) -> Dict[Tuple[str, Optional[int]], List[D
     (EID, layer_no) -> [raw CSV row dict, ...]
     layer_no is None if Layer/Material Number is empty.
 
-    Also: if layer_no is None, we additionally index the same row under (eid, 1)
+    Also: if layer_no is None, additionally index the same row under (eid, 1)
     so single-material elements can lookup (eid, 1).
     """
     idx: Dict[Tuple[str, Optional[int]], List[Dict[str, Any]]] = {}
@@ -607,10 +602,10 @@ def compute_element_match_rows(
 
                 unit = ind.get("unit")
 
-                # Legacy net_value across NET_STAGES
+                # net_value across NET_STAGES
                 net_per_ref, scenario_avg_stages_net = aggregate_net(ind, NET_STAGES)
 
-                # NEW: stage breakdown per reference, then scaled
+                # stage breakdown, then scaled
                 per_ref_stage_vals, scenario_avg_stages_stage = compute_stage_breakdown_per_ref(ind)
 
                 scenario_avg_stages_all = []
@@ -691,7 +686,6 @@ OUTPUT_COLUMNS_AGG = [
     "unit",
     "scaling_factor",
     "scaling_basis",
-    # NEW: stage columns
     *STAGE_COLUMNS,
     "note",
 ]
@@ -806,7 +800,7 @@ def write_agg_impacts_csv(
     df["epd_id"] = df["epd_id"].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA, "NaN": pd.NA})
     df["object_type"] = df["object_type"].replace({"": pd.NA, "nan": pd.NA, "None": pd.NA, "NaN": pd.NA})
 
-    # now drop rows without a real EPD id
+    # drop rows without a real EPD id
     df = df[df["epd_id"].notna()].copy()
 
     key_cols = ["object_type", "layer_number", "epd_id"]
@@ -960,8 +954,6 @@ def calculate_impacts(
 
 # ----------------------------
 # SUMMARY (for all_impacts_*.csv and object_type_impacts_*.csv)
-# Adds per-stage min/median/max columns:
-#   {Stage}_net_impact_min / median / max, including Total
 # ----------------------------
 STABLE_COLS_ALL: list[str] = [
     "element_eid",
@@ -1088,7 +1080,6 @@ def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) 
 
     df = pd.read_csv(input_path, dtype=str)
 
-    # We require stage columns too (if missing, treat as absent and create them)
     base_required = list(stable_cols) + ["epd_indicator", "unit"]
     _ensure_required_columns(df, base_required)
 
@@ -1312,7 +1303,7 @@ def summarize_elements(
         "indicator_unit",
     ]
 
-    # Insert stage columns after indicator_name (keep tidy)
+    # Insert stage columns after indicator_name
     stage_order: List[str] = []
     for s in STAGE_COLUMNS:
         stage_order += [

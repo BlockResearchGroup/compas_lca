@@ -592,7 +592,6 @@ def process_ifc_model(
                 print(f"Processed elements: [{processed}/{total}]", flush=True)
 
         except Exception as e:
-            # strongly recommend logging so you can see why elements fail
             logger.warning(
                 "Failed to process element %s: %s - %s",
                 getattr(element, "Name", None) or getattr(element, "eid", None) or str(element),
@@ -617,8 +616,6 @@ def process_ifc_model(
             "Total Skipped Elements": skipped_total,
             "Breakdown by Type": skipped_breakdown,
             "Skipped Element Names by Type": skipped_elements_by_type,
-            # optionally keep the richer records instead of names-only:
-            # "Skipped Elements (records)": dict(skipped),
         }
     else:
         ifcmeta["Skipped Elements Overview"] = {

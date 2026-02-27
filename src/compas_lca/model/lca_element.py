@@ -13,8 +13,11 @@ from pydantic import Field
 from compas_lca.matching_core.core import MatchingCore
 
 from compas_lca.model.metadata import ModelMetadata
+
 from compas_lca.model.quantity import Quantities
+
 from compas_lca.model.descriptor import ElementDescriptor
+
 from compas_lca.model.match import Matches
 from compas_lca.model.match import Match
 
@@ -60,14 +63,7 @@ class LcaElement(BaseModel):
     element_core: List[MatchingCore]            
     quantities: Quantities
     metadata: Optional[ModelMetadata]
-    matched_items: Optional[List[Matches]] = None # add source
-    """
-    indicator_stats: Optional[IndicatorStatistics] = None
-
-    ### Idea: after calculation, can add indicator statistics (i.e., min, max, mean) for LcaElement.
-    Not implemented yet, noted here for future reference.
-    """
-
+    matched_items: Optional[List[Matches]] = None
 
     # ----------------------------
     # Public convenience API
@@ -80,7 +76,6 @@ class LcaElement(BaseModel):
         """
         ids: List[str] = []
         for core in self.element_core:
-            # MatchingCore.core_id is UUID; store as str in Matches
             ids.append(str(core.core_id))
         return ids
 

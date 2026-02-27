@@ -1,11 +1,14 @@
-from compas_lca.workflows.raw_extraction.url.url_extraction import extract_url
-from compas_lca.workflows.raw_extraction.url.url_keys import ILCD_EPD_KEYS
+import hashlib
+
+import re
 
 from pathlib import Path
 from typing import Optional
+
 from urllib.parse import urlparse
-import hashlib
-import re
+
+from compas_lca.workflows.raw_extraction.url.url_extraction import extract_url
+from compas_lca.workflows.raw_extraction.url.url_keys import ILCD_EPD_KEYS
 
 # =======================
 # USER SETTINGS
@@ -13,10 +16,10 @@ import re
 URL: str = "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/cf3905b1-bc71-4e8d-9596-d1089b0e6f63?version=00.02.100"
 RETRIES: int = 2
 BACKOFF_S: float = 1.0
-RETURN_JSON: bool = False          # True => save .json ; False => save .txt
-SELECT_KEYS: bool = True          # only applies when RETURN_JSON=True
-OUTPUT_DIR: Path = Path("temp/url")   # directory to save file
-FILENAME_BASENAME: Optional[str] = None  # If None, derived from URL; else use this basename
+RETURN_JSON: bool = False
+SELECT_KEYS: bool = True
+OUTPUT_DIR: Path = Path("temp/url")
+FILENAME_BASENAME: Optional[str] = None
 # =======================
 
 
@@ -35,7 +38,6 @@ def _slugify_url(url: str, max_len: int = 80) -> str:
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Call your function
     content: str = extract_url(
         URL,
         retries=RETRIES,

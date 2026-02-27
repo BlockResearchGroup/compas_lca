@@ -141,7 +141,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
             eid = element_dir.name
 
-            # --- aggregate file (same as you already do) ---
+            # --- aggregate file ---
             source_path = element_dir / f"{eid}.json"
             if not source_path.exists():
                 continue
@@ -205,7 +205,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
                 for lp in layer_paths:
                     try:
-                        layer_no = _layer_from_path(lp)  # 1,2,3,...
+                        layer_no = _layer_from_path(lp)
 
                         with lp.open("r", encoding="utf-8") as f:
                             layer_data = json.load(f)
@@ -317,7 +317,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
                 for mp in material_paths:
                     try:
-                        material_no = _material_from_path(mp)  # 1,2,3,...
+                        material_no = _material_from_path(mp)
 
                         with mp.open("r", encoding="utf-8") as f:
                             material_data = json.load(f)
@@ -597,8 +597,7 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
         "wood_type",
     ]
 
-    # Assumption based on your examples: element_core[*]["thickness"] is in millimeters
-    # (e.g., 16.0 for plasterboard layer; 41.0 for stud layer; 435.0 for 435mm wall)
+    # element_core[*]["thickness"] is in millimeters
     THICKNESS_INPUT_UNIT = "mm"  # used only for conversion here
     # ----------------------
 
@@ -828,8 +827,6 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
                         df.at[i, "Volume [m3]"] = ""
                     else:
                         df.at[i, "Volume [m3]"] = str(vol_total * (t_layer_m / sum_t))
-
-                    # Done with this row
                     continue
 
         # 2) Abstract components
@@ -871,8 +868,6 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
             df.at[i, "Area [m2]"] = "" if qmap["area"] is None else str(qmap["area"])
             df.at[i, "Volume [m3]"] = "" if qmap["volume"] is None else str(qmap["volume"])
             continue
-
-        # else: no payload found; leave added columns as-is (empty)
 
     # Scaffold placeholders for undefined_elements (not implemented yet)
     # undef_payloads = json_by_category["undefined_elements"]

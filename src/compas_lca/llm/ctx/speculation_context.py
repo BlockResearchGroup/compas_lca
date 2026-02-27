@@ -233,7 +233,7 @@ ENRICH_WOOD_PLACEMENT = Context(
     instructions=(
         "placeholder"
     ),
-    output_type=LayerGuess, # # enum, use tool
+    output_type=LayerGuess, # bool + explanation, use tool
 )
 
 # If certain wood is used for loadbearing or non-loadbearing
@@ -241,7 +241,7 @@ ENRICH_WOOD_STRUCTURAL = Context(
     instructions=(
         "placeholder"
     ),
-    output_type=LayerGuess, # # enum, use tool
+    output_type=LayerGuess, # bool + explanation, use tool
 )
 
 # ======== METALLIC ENRICHMENT ========

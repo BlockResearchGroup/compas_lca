@@ -1,4 +1,5 @@
 import json
+
 import sqlite3
 
 from typing import Optional
@@ -10,13 +11,13 @@ from uuid import UUID
 from pydantic import RootModel
 from pydantic import ConfigDict
 
+from compas_lca.enums import EntryType
+
 from compas_lca.inventory.item import InventoryItem
 
 from compas_lca.matching_core.core import MatchingCore
 from compas_lca.matching_core.material.core import MaterialCore
 from compas_lca.matching_core.component.core import ComponentCore
-
-from compas_lca.enums import EntryType
 
 class Inventory(RootModel[list[InventoryItem]]):
     """
@@ -27,7 +28,7 @@ class Inventory(RootModel[list[InventoryItem]]):
     """
 
     model_config = ConfigDict(
-        frozen=False                  # allow mutation of self.root
+        frozen=False
     )
 
     # Explicit root type (annotation)
@@ -228,7 +229,7 @@ class Inventory(RootModel[list[InventoryItem]]):
         return cls(items)
 
 
-    # ---- placeholders (to implement later) ----
+    # ---- placeholders (ideas to implement later) ----
     def from_excel(self, input_path: str):
         """Load an inventory from an Excel file."""
         raise NotImplementedError("Not implemented yet")

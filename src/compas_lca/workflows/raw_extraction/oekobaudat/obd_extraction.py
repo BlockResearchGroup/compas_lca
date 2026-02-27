@@ -170,7 +170,7 @@ def extract_indicators_obd(uuid_df: pd.DataFrame) -> Indicators:
 
     return Indicators(
         indicators=indicators,
-        scenarios=scenario_summary or None  # <-- match your model field name
+        scenarios=scenario_summary or None
     )
 
 
@@ -347,7 +347,7 @@ def extract_inventory_obd(
 
     all_llm_meta: dict[str, Any] = {}
 
-    # read csv once (still needed for indicators/reference/metadata in Option 2)
+    # read csv
     obd: pd.DataFrame = read_csv(csv_path)
 
     uuids = uuids_in_payload_dir(payload_dir)

@@ -1,0 +1,1516 @@
+{
+  "id": "26d84b62-80ac-4db0-982c-544359640614",
+  "item_core": {
+    "core_id": "36ca2d94-ac16-4668-b15f-3e28cf0be704",
+    "entry_type": "material",
+    "name": "Concrete C32/40 CII/B-V, Mix code BWL2922/019, Bow plant, United Kingdom",
+    "loadbearing": "either",
+    "placement": "either",
+    "density": 2371.0,
+    "areal_density": 474.2,
+    "thickness": 200.0,
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Holcim UK (Ltd)",
+    "provenance": "GB",
+    "production_location": "Bow",
+    "facet": {
+      "material_type": "concrete",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "wall",
+        "slab",
+        "column",
+        "stair",
+        "foundation",
+        "pile"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "concrete_type": "ready_mixed",
+        "concrete_form": "amorphous",
+        "pre_stressed": null,
+        "binder_type": "portland_cement",
+        "cement_type": "CEM II/B-V",
+        "strength_class": "C30/37",
+        "slump_class": null,
+        "flow_class": null,
+        "xc": null,
+        "xd": null,
+        "xs": null,
+        "xf": null,
+        "xa": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "dfc7d402-8e29-4e94-bace-09d65cb93775",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/dfc7d402-8e29-4e94-bace-09d65cb93775?version=00.02.000",
+    "registration_number": "IBU-CEI-HOL-2205120-UK2025000337-ISUE002-EN",
+    "location_code": "UK",
+    "reference_year": 2025,
+    "valid_until": 2030,
+    "dataset_owner": "Holcim UK (Ltd)",
+    "compliance_system_name": [
+      "EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 51.10372850754902,
+          "A4": 0.7143084587290649,
+          "A5": 0.9897792359054594,
+          "B1": 0.0,
+          "C1": 0.201082918,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.07840316105
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 2.129427193856
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -2.5706343020898865
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.16731000000000001,
+          "A4": 0.0,
+          "A5": 0.0026590628145962704,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 51.27103850754902,
+          "A4": 0.7143084587290649,
+          "A5": 0.9924382987200557,
+          "B1": 0.0,
+          "C1": 0.201082918,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.07840316105
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 2.129427193856
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -2.5706343020898865
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 1329.0170155409992,
+          "A4": 22.57546703468078,
+          "A5": 48.35724022463128,
+          "B1": 0.0,
+          "C1": 124.5492952,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 60.21839801985001
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 79.51674717368999
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -68.79952967375132
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 16.216838676925,
+          "A4": 0.0,
+          "A5": 0.2577347002338046,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 1345.2577083759993,
+          "A4": 22.57546703468078,
+          "A5": 48.615354039710056,
+          "B1": 0.0,
+          "C1": 124.5492952,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 60.21839801985001
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 79.51674717368999
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -68.79952967375132
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 36.94309156725,
+          "A4": 0.0,
+          "A5": 0.5871376549082513,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 2334.6440460876584
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 253.53277690875004,
+          "A4": 0.0,
+          "A5": 4.029403976805864,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 649.13693994,
+          "A4": 0.0,
+          "A5": 10.316752725929511,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 3.043080826898739,
+          "A4": 0.001075536909392194,
+          "A5": 0.04919052998317722,
+          "B1": 0.0,
+          "C1": 0.001668491,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.00082854595
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.008365931239999999
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -3.012005762934897
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.2278112757531998,
+          "A4": 0.0032075051097486085,
+          "A5": 0.02178620298020336,
+          "B1": 0.0,
+          "C1": 0.00709116,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.014672577849999998
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.012858473588000002
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.03266955896699807
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 11.631301065316743,
+          "A4": 0.011307751983628121,
+          "A5": 0.20269368413818878,
+          "B1": 0.0,
+          "C1": 0.078949098,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.057709606525
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.05544958118
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.1403010643035303
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.03955209156247242,
+          "A4": 0.0001607810459367912,
+          "A5": 0.0008250388189012926,
+          "B1": 0.0,
+          "C1": 0.000891475,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.00042478835999999997
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.000595303567
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.0004998169398947686
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.021031227884816647,
+          "A4": 0.0,
+          "A5": 37.68270788813443,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 2371.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.4736842331726118,
+          "A4": 0.00397792394542692,
+          "A5": 0.025631852632621674,
+          "B1": 0.0,
+          "C1": 0.097039425,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.014843467675000001
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.023117370920999997
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.03101746445029246
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 243.0371516803098,
+          "A4": 1.6001627673653362,
+          "A5": 5.737753107098044,
+          "B1": -3.2843736840570283,
+          "C1": 9.00436996,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 4.355070760325
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.6437528069961584
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -4.176934542367082
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.2856788203407396,
+          "A4": 0.00020636054588470842,
+          "A5": 0.004720032660048424,
+          "B1": 0.0,
+          "C1": 0.00073148,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0003407636765
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0007726780770000001
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.004839773138996822
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 242.73790180949132,
+          "A4": 1.599960654782481,
+          "A5": 5.732806519084555,
+          "B1": -3.2843736840570283,
+          "C1": 9.003596364,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 4.354732774275
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.6429172144341577
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -4.171933267891553
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.01950105077422288,
+          "A4": 0.00002449480453720006,
+          "A5": 0.000359246936055661,
+          "B1": 0.0,
+          "C1": 0.000222212,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.000078577311
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0001651835393
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.0002734475185420631
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 495.24479071909496,
+          "A4": 10.172803721066453,
+          "A5": 16.449306573230484,
+          "B1": 0.0,
+          "C1": 41.5169361,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 28.9700248527
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 15.397398873457
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -21.714629331643387
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 2.71522205389521e-6,
+          "A4": 1.0441141626148e-7,
+          "A5": 5.2547177659599e-7,
+          "B1": 0.0,
+          "C1": 2.61384e-6,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 3.6612567075e-7
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 5.45690392e-7
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -8.0185450942522e-7
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.12269318088402359,
+          "A4": 0.0012616833892958542,
+          "A5": 0.01002080672291301,
+          "B1": 0.0,
+          "C1": 0.043553345,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0046555474125
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.010144586681
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.013537349454053629
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.01739537518070459,
+          "A4": 0.0000118415439511899,
+          "A5": 0.0003598961093694359,
+          "B1": 0.0,
+          "C1": 0.0000540351,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0000804729255
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.001183679072
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.000707567574979925
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 1.3764087943727275,
+          "A4": 0.009811925015367363,
+          "A5": 0.11014198211446531,
+          "B1": 0.0,
+          "C1": 0.477587695,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.051058832974999996
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.108463168508
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.1467992378328012
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 2.228956257324e-8,
+          "A4": 1.5726206605e-10,
+          "A5": 4.6760126023e-10,
+          "B1": 0.0,
+          "C1": 5.41719e-10,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 3.90159905e-10
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 2.145226267e-10
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -7.709461569e-10
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 2.32366878495213e-6,
+          "A4": 1.780373967075e-8,
+          "A5": 4.602228154529e-8,
+          "B1": 0.0,
+          "C1": 4.24802e-8,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 5.2091047825e-8
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 1.316170552e-8
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -2.306140376929e-8
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 13.009395114541507,
+          "A4": 0.10046501895971674,
+          "A5": 0.4100211698442165,
+          "B1": 0.0,
+          "C1": 0.549261824,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.26019152465
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 1.70310267244
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -1.0441725613035249
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 264.2520072387264,
+          "A4": 11.489216880507762,
+          "A5": 5.513967328010977,
+          "B1": 0.0,
+          "C1": 0.78785608,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.524173507725
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 16.091913260407
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -249.12977277225218
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 2.6417940798029e-6,
+          "A4": 3.7791365879574e-7,
+          "A5": 4.388369172173e-7,
+          "B1": 0.0,
+          "C1": 2.01597e-6,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 9.634736325e-7
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 5.72060654e-7
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -7.0570686367519e-7
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.3385299371255708,
+          "A4": 0.0019690505514815206,
+          "A5": 0.02648813901063027,
+          "B1": 0.0,
+          "C1": 0.114183039,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.012708145075
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.025978025098999998
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -0.03536344403103342
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 1337.0644489592164,
+          "A4": 22.576957615854266,
+          "A5": 48.48579207576117,
+          "B1": 0.0,
+          "C1": 124.5515427,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 60.21853269265
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 79.52078522379
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -68.80300595873595
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 5.70560965829873e-6,
+          "A4": 1.0417016522185e-7,
+          "A5": 1.8810372553105e-7,
+          "B1": 0.0,
+          "C1": 4.65643e-7,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 3.534603815e-7
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 1.875731294e-7
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -9.291836610548e-7
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 10.883843430227138,
+          "A4": 0.0011652868528952598,
+          "A5": 0.18194270261357476,
+          "B1": 0.0,
+          "C1": 0.032089527,
+          "C2": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.023330225075000002
+            }
+          ],
+          "C3": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.051332365761
+            }
+          ],
+          "C4": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Recycled",
+              "description": "100% Recycled",
+              "value": -8.211561790762508
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": null
+  }
+}

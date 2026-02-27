@@ -21,6 +21,7 @@ from typing import Iterable
 from typing import Optional
 
 from pydantic import BaseModel
+
 from pydantic_ai import RunContext
 
 # ---------- REBAR TOOL ----------

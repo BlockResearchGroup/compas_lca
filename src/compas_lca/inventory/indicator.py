@@ -11,8 +11,6 @@ from pydantic import computed_field
 from pydantic import field_serializer
 from pydantic import field_validator
 
-from compas_lca.validators import ParsedNumber
-
 from .constants import EN15978_STAGES
 from .constants import OBD_INDICATOR_NAME
 from .constants import OBD_INDICATOR_UNITS
@@ -73,9 +71,11 @@ class Indicator(BaseModel):
         out: Dict[EN15978_STAGES, List[IndicatorScenario]] = {}
 
         for stage, raw in v.items():
+
             # Allow: scalar → one scenario
             if isinstance(raw, (int, float)):
                 out[stage] = [IndicatorScenario(value=float(raw))]
+
             # Allow: list of dicts or list of scalars
             elif isinstance(raw, list):
                 scenarios: List[IndicatorScenario] = []
@@ -179,7 +179,7 @@ class Indicator(BaseModel):
             return sum(vals)
         if agg == "single":
             return vals[0] if len(vals) == 1 else None
-        return None  # should not happen with correct typing
+        return None
 
     def stage_dict(
         self,
@@ -262,14 +262,15 @@ class Indicators(BaseModel):
         default=None,
         description="For stages with >1 scenario, records the scenario codes that were averaged."
     )
+
     # Lookups & helpers
     def get(self, name: OBD_INDICATOR_NAME) -> List[Indicator]:
         """
         Find all indicators with the given name.
         (Multiple entries with the same name are allowed in case you want to distinguish by e.g. dataset source.)
         """
-        key = name.strip()  # `INDICATOR_NAME` is str-backed; strip for robustness
-        return [ind for ind in self.indicators if ind.name == key]  # type: ignore[comparison-overlap]
+        key = name.strip()
+        return [ind for ind in self.indicators if ind.name == key]
 
     def get_one(self, name: OBD_INDICATOR_NAME) -> Optional[Indicator]:
         """

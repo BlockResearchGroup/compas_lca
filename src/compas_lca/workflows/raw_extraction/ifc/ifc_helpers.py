@@ -4,8 +4,6 @@ import re
 
 from pathlib import Path
 
-from math import ceil
-
 from typing import Any
 from typing import Literal
 from typing import List
@@ -14,12 +12,13 @@ from typing import Iterable
 from typing import Optional
 from typing import Dict
 from typing import Tuple
-from typing import TypeVar
-from typing import Callable
 
 from compas_lca.model.lca_element import LcaElement
+
 from compas_lca.model.metadata import ModelMetadata
+
 from compas_lca.model.descriptor import ElementDescriptor
+
 from compas_lca.matching_core.core import MatchingCore
 
 from compas_lca.helpers import load_json
@@ -148,7 +147,7 @@ def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
         return "single_material"
 
     # Unknown/unsupported material entity:
-    # choose conservative behavior; if you prefer, return "no_material" instead.
+    # choose conservative behavior; could also return "no_material" instead.
     return "single_material"
 
 def _strip_none(x):
@@ -174,7 +173,6 @@ def inverse_list(obj, attr_name):
         try:
             val = val()
         except TypeError:
-            # Some libraries have callables requiring args; treat as missing
             return ()
     return val or ()
 
@@ -316,7 +314,6 @@ def _to_plain_dict(obj: Any) -> Dict[str, Any]:
         return obj.dict(exclude_none=True, by_alias=True)
     if isinstance(obj, dict):
         return obj
-    # last resort: JSON round-trip if it's something serializable
     try:
         return json.loads(json.dumps(obj))
     except Exception as e:

@@ -113,7 +113,7 @@ def sync_trees(source_root: Path, dest_root: Path, log_output_dir: Path) -> None
 
             dst_file.parent.mkdir(parents=True, exist_ok=True)
 
-            # Read JSON for logging (best-effort; still copy even if log fields missing)
+            # Read JSON for logging
             item_name = dataset_uuid = registration_number = dataset_source = ""
             if src_file.suffix.lower() == ".json":
                 try:
@@ -124,18 +124,16 @@ def sync_trees(source_root: Path, dest_root: Path, log_output_dir: Path) -> None
                     registration_number = _safe_get(payload, ("metadata", "registration_number"))
                     dataset_source = _safe_get(payload, ("metadata", "dataset_source"))
                 except Exception as e:
-                    # Keep fields blank but record parse error in log entry
                     item_name = item_name or ""
                     dataset_uuid = dataset_uuid or ""
                     registration_number = registration_number or ""
                     dataset_source = dataset_source or ""
-                    # Add a note line in the log for this file
                     log_lines.append(f"FILE: {src_file}  (JSON READ ERROR: {type(e).__name__}: {e})")
 
             shutil.copy2(src_file, dst_file)
             print(f"[ADDED] {dst_file.name}  ->  {rel_file}")
 
-            # Only log copied JSON files (as requested: "they are always json")
+            # log copied JSON files
             if src_file.suffix.lower() == ".json":
                 log_lines.append(f"NAME: {item_name}")
                 log_lines.append(f"DATASET_UUID: {dataset_uuid}")
@@ -172,7 +170,7 @@ def safe_int(val: any) -> Optional[int]:
         return None
     
     
-# Standard column names (dont require mapping)
+# Standard column names
 STD_TO_OBD: Dict[str, str] = {
     "PERE": "PERE",
     "PERM": "PERM",
@@ -276,18 +274,12 @@ def write_item(
     bucket = (entry_type or "unknown").strip().lower()
     subdir  = (str(subdir) or "unknown").strip().lower()
 
-    # one call that returns a JSON string with proper encoders
     json_str = item.model_dump_json(
         by_alias=True,
         indent=2,
     )
-
-    # pull the id from a JSON-safe dump (or from the model if you prefer)
+    
     payload = item.model_dump(by_alias=True, mode="json")
-
-    # change this to :
-    # item_id = payload.get("id")
-    # if we want to name the file as the newly generated UUID instead of the dataset UUID
     meta = payload.get("metadata")
     item_id = meta.get("dataset_uuid")
     if not item_id:

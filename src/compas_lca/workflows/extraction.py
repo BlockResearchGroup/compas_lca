@@ -26,7 +26,6 @@ from compas_lca.llm.ctx.extraction_context import LAYER_COMMON_CTX
 from compas_lca.llm.ctx.extraction_context import MATERIAL_COMMON_CTX
 from compas_lca.llm.ctx.extraction_context import MATERIAL_COMMON_LAYER_CTX
 from compas_lca.llm.ctx.extraction_context import COMPONENT_COMMON_CTX
-from compas_lca.llm.ctx.speculation_context import ThicknessGuessResult
 
 from compas_lca.maps import MAP_TO_ENTRY_TYPE
 from compas_lca.maps import CTX_BY_COMP_TYPE
@@ -38,10 +37,11 @@ from compas_lca.matching_core.common import Common
 from compas_lca.matching_core.material.common import MaterialCommon
 from compas_lca.matching_core.component.common import ComponentCommon
 
-from compas_lca.matching_core.material.core import assemble_material_core
-from compas_lca.matching_core.component.core import assemble_component_core
 from compas_lca.matching_core.core import assemble_matching_core
 from compas_lca.matching_core.core import MatchingCore
+
+from compas_lca.matching_core.material.core import assemble_material_core
+from compas_lca.matching_core.component.core import assemble_component_core
 
 from compas_lca.model.lca_element import LcaElement
 from compas_lca.model.quantity import Quantities
@@ -123,9 +123,6 @@ EXTRACTOR_BY_FORMAT = {
     "txt":  extract_txt_with_agent,
 }
 
-# Type alias for all extractor functions (JSON, PDF, TXT, etc.)
-# Each extractor must return a tuple: (parsed_data_dict, optional_metadata_dict)
-# This allows extract_matching_core() to treat all extractors interchangeably.
 ExtractorFn = Callable[..., Tuple[dict, Optional[dict]]]
 
 

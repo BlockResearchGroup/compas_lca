@@ -21,8 +21,6 @@ from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import as_completed
 
-
-# Defaults you can override at call time
 DEFAULT_KEEP_COLUMNS = [
     "UUID",
     "URL",
@@ -60,18 +58,15 @@ def obd_series_to_json(
     s_clean = s.where(~s.isna(), None)
     data = {str(k): v for k, v in s_clean.to_dict().items()}
 
-    return json.dumps(data, ensure_ascii=False, indent=2) # pretty
+    return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 def ingest_obd_item(
     series_uuid: pd.Series,
     *,
-    # series → json options
     keep_columns: Optional[list[str]] = None,
-    # url → json options
     select_keys: bool = True,
     keep_keys: Optional[Iterable[str]] = None,
-    # output (optional)
     out_path: Optional[str | Path] = None,
 ) -> Dict[str, Any]:
     """
@@ -83,7 +78,7 @@ def ingest_obd_item(
     keep_columns = keep_columns or DEFAULT_KEEP_COLUMNS
     keep_keys = keep_keys or DEFAULT_KEEP_KEYS
 
-    # 1) Series → dict
+    # Series → dict
     series_json_str = obd_series_to_json(
         series_uuid,
         columns=keep_columns or DEFAULT_KEEP_COLUMNS,
@@ -93,13 +88,13 @@ def ingest_obd_item(
     except json.JSONDecodeError:
         series_dict = {}
 
-    # 2) URL → dict (force JSON mode)
+    # URL → dict
     url_value = str(series_uuid.get("URL", "")).strip()
     url_dict: Dict[str, Any] = {}
     if url_value:
         url_json_str = extract_url(
             url_value,
-            return_json=True,          # force JSON so we can merge
+            return_json=True,
             select_keys=select_keys,
             keep_keys=(keep_keys or DEFAULT_KEEP_KEYS),
         )
@@ -108,13 +103,13 @@ def ingest_obd_item(
         except json.JSONDecodeError:
             url_dict = {}
 
-    # 3) Merge (URL fields take precedence if keys collide)
+    # Merge (URL fields take precedence if keys collide)
     combined: Dict[str, Any] = {**series_dict, **url_dict}
 
-    # 4) Serialize once
+    # Serialize once
     combined_json = json.dumps(combined, ensure_ascii=False, indent=2)
 
-    # 5) Optional write
+    # Optional write
     if out_path:
         out_path = Path(out_path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -134,7 +129,6 @@ def write_obd_payload(
     return path
 
 def build_obd_payload_for_uuid(uuid_series: pd.Series) -> Dict[str, Any]:
-    # Exactly what you do today in extract_matching_core_obd
     return ingest_obd_item(uuid_series)
 
 def extract_obd_payloads(

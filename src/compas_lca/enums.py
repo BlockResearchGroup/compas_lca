@@ -871,6 +871,7 @@ class RoofType(str, Enum):
     green_roof = "green_roof"
     flat_roof = "flat_roof"
     pitched_roof = "pitched_roof"
+    glass_roof = "glass_roof"
     other = "other"
     unknown = "unknown"
 

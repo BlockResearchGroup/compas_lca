@@ -1,10 +1,10 @@
 # ======= PROJECT SETTINGS =======
-project_folder: "projects/hilo"
+project_folder: "projects/duplex"
 
 # ======= MATCHING SETTINGS =======
-score_threshold: 0.5
-top_k_matches: 10
-include_explain: false
+score_threshold: 0.6
+top_k_matches: 7
+include_explain: true
 
 # ======= LCA / REPORT SETTINGS =======
 impact_report:
@@ -52,7 +52,7 @@ pricing_table:
 # ======= EXTRACTION SETTINGS =======
 IfcBeam: true
 IfcBearing: true
-IfcBuildingElementProxy: false
+IfcBuildingElementProxy: true
 IfcChimney: true
 IfcColumn: true
 IfcCovering: true

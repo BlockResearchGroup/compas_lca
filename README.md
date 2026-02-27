@@ -1,7 +1,5 @@
 # compas_lca
 
-bim-lca integration
-
 AI-based Life Cycle Assessment (LCA) report generator for IFC building models.
 
 `compas_lca` normalizes building data (from IFC) and environmental data (EPDs) into a unified schema that enables precise, customizable, and deterministic matching based on semantic and functional constraints.

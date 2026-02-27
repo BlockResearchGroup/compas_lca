@@ -1,8 +1,15 @@
 import json
-import shutil
-from pathlib import Path
-from typing import Dict, List, Any, Optional
 
+import shutil
+
+from pathlib import Path
+
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+
+# Based on historical testing data, adjust if need be
 pricing_table = {
     "gpt-5-mini": {"Duration/element [s]": 51.77, "Cost/element [$]": 0.01353},
     "gpt-5.2": {"Duration/element [s]": 4.45, "Cost/element [$]": 0.041745},
@@ -169,8 +176,6 @@ def create_representatives(
     _safe_mkdir(reps_dir_elements / "no_material")
 
     object_type_index = _load_object_type_index(object_type_json)
-
-    # NEW: representative selection that skips compositions and has NO fallback
     representatives = _pick_representatives(object_type_index)
 
     copied = 0

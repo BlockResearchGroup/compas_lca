@@ -74,7 +74,7 @@ def _norm_str(x: Any) -> Any:
 
 def _norm_leaf(x):
     if isinstance(x, Enum):
-        return x.value  # or x.name, depending on your enums
+        return x.value
     return x
 
 def _is_unknown(value: Any) -> bool:

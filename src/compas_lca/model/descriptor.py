@@ -8,14 +8,12 @@ from pydantic import Field
 class ElementDescriptor(BaseModel):
     """
     Descriptive high-level data not inside MatchingCore from a building model Element
-    Note: Many attributes have been shifted to the LcaMaterial class
     """
 
-    # BaseModel configuration
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra = "forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
     element_name: str = Field(
         ...,

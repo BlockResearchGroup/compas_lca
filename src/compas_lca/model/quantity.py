@@ -17,12 +17,11 @@ class Quantity(BaseModel):
         Quantity(name="length", value=2.5, unit="m")
     """
 
-    # BaseModel configuration
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
+        extra = "forbid",
         populate_by_name=True,
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        validate_assignment=True,
+        str_strip_whitespace=True 
     )
 
     name: QuantNameType             # e.g. "thickness", "length", "area", "weight"
@@ -42,12 +41,11 @@ class Quantities(BaseModel):
     collection of Quantity items for one element (e.g., length, area, volume).
     """
 
-    # BaseModel configuration
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
+        extra = "forbid",
         populate_by_name=True,
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
 
     quantities: List[Quantity] = Field(default_factory=list)

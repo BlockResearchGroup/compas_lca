@@ -66,8 +66,6 @@ def update_obd_remaining(
         if not reader.fieldnames:
             raise ValueError("Input CSV appears to have no header row.")
 
-        # Match the column name exactly as shown in your example.
-        # (If your CSV sometimes uses a different header, change this string.)
         uuid_col = "UUID"
         if uuid_col not in reader.fieldnames:
             raise ValueError(
@@ -85,5 +83,5 @@ def update_obd_remaining(
             for row in reader:
                 uuid_val = (row.get(uuid_col) or "").strip()
                 if uuid_val and uuid_val in dataset_uuids:
-                    continue  # delete this row
+                    continue
                 writer.writerow(row)

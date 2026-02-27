@@ -11,8 +11,6 @@ from compas_lca.workflows.raw_extraction.oekobaudat.obd_update_remaining import 
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import sync_trees
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import _load_epd_parser_config
 
-from pathlib import Path
-
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_ingestion import extract_obd_payloads
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_extraction import extract_inventory_obd
 
@@ -58,7 +56,9 @@ def preprocess_obd(
     )
     print("")
 
-# 2 normalize env with AI
+# ==================================================
+# 2.) NORMALIZE ENVIRONMENTAL DATA WITH AI
+# ==================================================
 def extract_preprocessed_obd(
     epd_parser_path: str | Path = "epd_parser.yaml",
 ) -> None:
@@ -89,7 +89,9 @@ def extract_preprocessed_obd(
     )
     print("")
 
-# 3 add env to database 
+# ==================================================
+# 3.) ADD ENVIRONMENTAL DATA TO DATABASE
+# ==================================================
 def update_obd(
         epd_parser_path: str | Path = "epd_parser.yaml",
         epd_existing_dir: str | Path = "data/lca_database/oekobaudat_2024-I",
@@ -98,6 +100,7 @@ def update_obd(
 ) -> None:
     print("")
     print(f"Updating LCA database: {epd_existing_dir}...")
+
     # Load working directory:
     epd_parser_path = Path(epd_parser_path)
     epd_existing_dir = Path(epd_existing_dir)
@@ -112,7 +115,7 @@ def update_obd(
     epd_extracted_dir = temporary_dir / "02_extracted"
     log_output_dir = temporary_dir / "03_log"
 
-    # Add extracted EPDs to existing OBD database directory (e.g. by copying JSON files) --- TO BE IMPLEMENTED ---
+    # Add extracted EPDs to existing OBD database directory
     sync_trees(
         epd_extracted_dir, 
         epd_existing_dir,

@@ -66,10 +66,8 @@ def create_boq_enriched(
         if not header:
             raise ValueError(f"BoQ CSV has no header: {input_path}")
 
-        # determine if Enriched already exists and its index in input
         if "Enriched" in header:
             enriched_idx = header.index("Enriched")
-            # ensure it's the last column in output
             out_header = [h for h in header if h != "Enriched"] + ["Enriched"]
         else:
             enriched_idx = None
@@ -80,10 +78,8 @@ def create_boq_enriched(
         # copy rows
         for row in reader:
             if enriched_idx is None:
-                # just append empty Enriched
                 writer.writerow(row + [""])
             else:
-                # remove existing Enriched cell and re-append empty at end
                 row_no_enriched = row[:enriched_idx] + row[enriched_idx + 1 :]
                 writer.writerow(row_no_enriched + [""])
 
@@ -227,7 +223,6 @@ def _find_preprocessed_ifc_jsons_for_concrete_cores(
     ]
     for c in single_candidates:
         if c.exists():
-            # Treat as layer/core 1 (BoQ blank is normalized to 1 in your logic)
             out[1] = c
             return out
 
@@ -280,7 +275,6 @@ class ConcreteStrengthEnricher:
 
     def run(self) -> dict:
         reps_map = json.loads(self.representatives_map_path.read_text(encoding="utf-8"))
-        # reps_map is expected: rep_eid -> {"members":[{"eid":...}, ...], ...}
 
         # build index for extracted element JSON files
         element_index = _index_lca_elements_by_eid(self.extracted_dir)
@@ -599,7 +593,6 @@ def _load_lca_element(path: Path) -> LcaElement:
 
 # -----------------------------
 # Find representative IFC JSON (preprocessed)
-# (same rules as your concrete finder, but we target the first stud_layer core)
 # -----------------------------
 
 def _find_preprocessed_ifc_json_for_stud_layer(
@@ -665,11 +658,11 @@ def _find_preprocessed_ifc_json_for_stud_layer(
 # Minimal CSV helpers
 # -----------------------------
 
-#####
+
 def _available_layers_for_eid(boq_index, eid: str) -> list[str]:
     e = _norm_id(eid)
     return sorted({ln for (xe, ln) in boq_index.keys() if xe == e})
-####
+
 def _norm(x: Any) -> str:
     if x is None:
         return ""
@@ -745,7 +738,6 @@ class StudRatioEnricher:
 
         element_index = _index_lca_elements_by_eid(self.extracted_dir)
 
-        # IMPORTANT: we update the already-created enriched BoQ
         boq_path = self.enriched_dir / "BoQ_enriched.csv"
         if not boq_path.exists():
             raise FileNotFoundError(
@@ -762,7 +754,6 @@ class StudRatioEnricher:
         if missing:
             raise ValueError(f"BoQ_enriched.csv missing columns: {missing}")
 
-        # index rows by (eid, layer_number_normalized)
         boq_index: Dict[Tuple[str, str], List[int]] = {}
         for i, r in enumerate(rows):
             eid = _norm_id(r.get("EID"))
@@ -801,7 +792,6 @@ class StudRatioEnricher:
                 continue
 
             if not rep_has:
-                # optionally inspect first few functional_types to prove it
                 fts = []
                 for c in (rep_elem.element_core or []):
                     facet = getattr(c, "facet", None)
@@ -812,11 +802,9 @@ class StudRatioEnricher:
 
             ratio, explanation, rep_layer_idx_1b = self._infer_for_rep(rep_eid, rep_elem)
 
-            # apply to ALL stud layers in the rep element
             for n in _stud_layer_indices_1based(rep_elem):
                 updated_rows += self._apply_ratio(rows, boq_index, rep_eid, str(n), ratio)
 
-            # print counter line exactly like concrete enrichment
             if rep_eid not in enriched_eids:
                 enriched_eids.add(rep_eid)
                 progress_counter += 1
@@ -852,7 +840,6 @@ class StudRatioEnricher:
                 for n in member_indices:
                     updated_rows += self._apply_ratio(rows, boq_index, me, str(n), ratio)
 
-                # print counter line exactly like concrete enrichment
                 if me not in enriched_eids:
                     enriched_eids.add(me)
                     progress_counter += 1
@@ -920,7 +907,6 @@ class StudRatioEnricher:
     ) -> int:
         """
         Apply ratio to (eid, layer_str). If no exact match and layer_str != "",
-        do NOT fallback silently (keeps behavior predictable).
         """
         key = (_norm_id(eid), _norm_id(layer_str))
         hit = boq_index.get(key, [])

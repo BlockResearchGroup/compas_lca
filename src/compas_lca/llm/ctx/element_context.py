@@ -3,6 +3,7 @@ from pydantic import ConfigDict
 from pydantic import Field
 
 from compas_lca.model.descriptor import ElementDescriptor
+
 from compas_lca.model.quantity import Quantity
 
 from compas_lca.llm.context import Context

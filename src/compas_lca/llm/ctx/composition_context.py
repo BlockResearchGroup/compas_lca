@@ -9,7 +9,7 @@ from compas_lca.llm.tools import rebar_ratio_lookup
 
 # ======== MATERIAL DECOMPOSITION CONTEXT ========
 # Agents for Material Decomposition of common composites
-# More agents to come, for now only rebar
+# For now includes only a draft for rebar ratio
 
 DECOMPOSE_REBAR_PROMPT = """
 Identify the reinforced-concrete building component mentioned by the user and
