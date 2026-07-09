@@ -50,7 +50,7 @@ def process_metadata(element, caches) -> dict:
         "name": getattr(element, "Name", None),
         "eid": eid,  # STEP entity id (str)
         "global_id": getattr(element, "GlobalId", None),
-        "entity": type(element).__name__,
+        "entity": element.is_a(),
         "object_type": getattr(element, "ObjectType", None),
         "description": getattr(element, "Description", None),
         "classification": get_classification(element, caches.classification_rels),
@@ -272,8 +272,8 @@ def process_quantities(element, units) -> Optional[Dict[str,Any]]:
     compas_brep_volume = compas_obb_largest_area = None
     compas_obb_xdim = compas_obb_ydim = compas_obb_zdim = None
     if has_valid_geometry(element):
-        compas_obb_xdim, compas_obb_ydim, compas_obb_zdim, compas_obb_largest_area = tesselated_brep_obb(element.geometry, units)
-        compas_brep_volume = tesselated_brep_volume(element.geometry, units)
+        compas_obb_xdim, compas_obb_ydim, compas_obb_zdim, compas_obb_largest_area = tesselated_brep_obb(element.visual_geometry, units)
+        compas_brep_volume = tesselated_brep_volume(element.visual_geometry, units)
 
     # IFC quantities via inverse
     for rel in inverse_list(element, "IsDefinedBy"):
@@ -633,5 +633,5 @@ def process_ifc_model(
     write_object_type_index(object_type_index, output_dir)
 
     print("")
-    print("IFC model was successfully pre-processed ✔")
+    print("IFC model was successfully pre-processed [OK]")
     print(f"Building Data stored in: {output_dir}")

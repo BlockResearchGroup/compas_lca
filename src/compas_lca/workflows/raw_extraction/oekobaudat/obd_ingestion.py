@@ -161,7 +161,7 @@ def extract_obd_payloads(
         uuid_series = first_row_for_uuid(uuid_df, uuid)
         payload = build_obd_payload_for_uuid(uuid_series)
         path = write_obd_payload(payload, payload_dir, uuid)
-        print(f"[{idx}/{total}] payload → {path.name}")
+        print(f"[{idx}/{total}] payload -> {path.name}")
         return path
 
     if max_workers > 1:

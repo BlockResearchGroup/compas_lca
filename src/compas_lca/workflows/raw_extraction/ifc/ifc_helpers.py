@@ -52,7 +52,7 @@ def get_classification(element, classification_rels):
         if element in rel.RelatedObjects:
             classification_ref = rel.RelatingClassification
             classification_data = {
-                "IfcEntity": type(classification_ref).__name__,
+                "IfcEntity": classification_ref.is_a(),
                 "Identification": getattr(classification_ref, "Identification", "Unknown"),
                 "System Name": getattr(getattr(classification_ref, "ReferencedSource", None), "Name", "Unknown"),
                 "Name": getattr(classification_ref, "Name", "Unknown")
@@ -71,7 +71,7 @@ def get_hierarchy(element, aggregates_rels):
         if element in rel.RelatedObjects:
             decomposes = {
                 "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
-                "entity": type(rel.RelatingObject).__name__,
+                "entity": rel.RelatingObject.is_a(),
                 "eid": str(rel.RelatingObject.id()),
                 "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
             }
@@ -79,7 +79,7 @@ def get_hierarchy(element, aggregates_rels):
             is_decomposed_by.extend([
                 {
                     "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
-                    "entity": type(obj).__name__,
+                    "entity": obj.is_a(),
                     "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
                 }
                 for obj in rel.RelatedObjects
@@ -224,7 +224,7 @@ def tesselated_brep_volume(geom, units, ndigits=4):
 
 def has_valid_geometry(element):
     """Return True if element has a geometry with vertices or solid data."""
-    geom = getattr(element, "geometry", None)
+    geom = getattr(element, "visual_geometry", None)
     if geom is None:
         return False
 

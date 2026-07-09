@@ -304,7 +304,7 @@ class Project:
                 try:
                     plots_dir = create_plots(ind_dir)
                 except Exception as e:
-                    print(f"⚠️  Plotting failed for {ind_name} in {ind_dir}: {e}")
+                    print(f"[!]  Plotting failed for {ind_name} in {ind_dir}: {e}")
 
             # Create sankey diagram and flag report
             try:
@@ -336,7 +336,7 @@ class Project:
                 )
 
             except Exception as e:
-                print(f"⚠️  Sankey classification / flag report generation failed: {e}")
+                print(f"[!]  Sankey classification / flag report generation failed: {e}")
 
             # --- NEW: copy metadata into 06_report/metadata (last action) ---
             report_root = self.path / "06_report"  # already created above, safe to re-reference
@@ -364,7 +364,7 @@ class Project:
             if model_src.exists():
                 shutil.copy2(model_src, dst_meta / "model.json")
             else:
-                print(f"⚠️  model.json not found at: {model_src}")
+                print(f"[!]  model.json not found at: {model_src}")
 
 
             spinner.stop()

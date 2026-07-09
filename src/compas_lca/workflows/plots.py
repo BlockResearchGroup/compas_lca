@@ -685,13 +685,13 @@ def create_plots(input_dir: str | Path) -> Path:
     for name, prefix, fn in jobs:
         csv_path = _find_single_csv(input_path, prefix)
         if csv_path is None:
-            print(f"⚠️  Skipping {name} plot: no CSV starting with '{prefix}' in {input_path}")
+            print(f"[!]  Skipping {name} plot: no CSV starting with '{prefix}' in {input_path}")
             continue
         fn(csv_path, out_dir)
         any_ran = True
 
     if not any_ran:
-        print(f"⚠️  No plots generated in {out_dir} (no matching CSV inputs).")
+        print(f"[!]  No plots generated in {out_dir} (no matching CSV inputs).")
 
     return out_dir
 

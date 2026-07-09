@@ -37,14 +37,14 @@ def safe_run(action: Action, project: Project) -> None:
     """Run an action with basic error handling."""
     try:
         action(project)
-        print("✅ Done.")
+        print("[OK] Done.")
         print("")
     except MissingInput as e:
-        print(f"❌ Missing input: {e}")
+        print(f"[X] Missing input: {e}")
     except ProjectError as e:
-        print(f"❌ Project error: {e}")
+        print(f"[X] Project error: {e}")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"[X] Unexpected error: {e}")
 
 
 
@@ -138,7 +138,7 @@ def pipeline_menu() -> None:
 
     while True:
         print("\n=================")
-        print("♻️  COMPAS LCA ♻️")
+        print("[recycle]  COMPAS LCA [recycle]")
         print("=================\n")
         print("Enter the character combination on the left of each action to run a (sub)module:\n")
 

@@ -261,7 +261,7 @@ def _process_single_uuid_from_payload(
     write_json: bool,
     base_dir: Optional[Path],
 ) -> Tuple[int, Optional[InventoryItem], Optional[dict], Optional[str]]:
-    print(f"\n[{index}/{total}] UUID={uuid} → building InventoryItem (from payload)…")
+    print(f"\n[{index}/{total}] UUID={uuid} -> building InventoryItem (from payload)...")
     try:
         # load payload for LLM extraction
         obd_item_payload = read_payload(payload_dir, uuid)
@@ -285,7 +285,7 @@ def _process_single_uuid_from_payload(
         if write_json and base_dir is not None:
             entry_type, subdir = infer_bucket(item)
             path = write_item(item, base_dir, entry_type, subdir)
-            print(f"[OK] Wrote JSON → {path.as_posix()}")
+            print(f"[OK] Wrote JSON -> {path.as_posix()}")
         else:
             print(f"[OK] Built InventoryItem object for uuid: {uuid}")
 
@@ -384,7 +384,7 @@ def extract_inventory_obd(
     results_by_index: Dict[int, Tuple[Optional[InventoryItem], Optional[dict]]] = {}
 
     if max_workers > 1:
-        print(f"Running parallel extraction with {max_workers} workers…")
+        print(f"Running parallel extraction with {max_workers} workers...")
         lock = threading.Lock()
         completed_count = 0
 
