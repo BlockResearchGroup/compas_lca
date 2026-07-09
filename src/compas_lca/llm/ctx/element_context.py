@@ -1,5 +1,9 @@
+from pydantic import BaseModel
+from pydantic import ConfigDict
+from pydantic import Field
 
 from compas_lca.model.descriptor import ElementDescriptor
+
 from compas_lca.model.quantity import Quantity
 
 from compas_lca.llm.context import Context
@@ -7,6 +11,49 @@ from compas_lca.llm.context import Context
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # %%%%%%%%% ELEMENT EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+class MultilayerBool(BaseModel):
+    """
+    Bool for whether an element is a layered construction or not.
+    """
+    model_config = ConfigDict(
+        extra = "forbid",           # Forbid extra fields
+        validate_assignment=True,   # Validate fields on assignment
+        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+    )
+    is_multilayer: bool = Field(
+        False,
+        description="""
+        Boolean flag indicating whether the element represents a **layered construction**.
+
+        Set to **True** if:
+        - The element's material composition includes **two or more distinct material layers** 
+        that are implied to be **physically adjacent** and form an **ordered stack or sequence** (e.g., interior → insulation → exterior finish), **or**
+        - The element is a **wall, roof, slab, floor, or ceiling** and has an **IfcMaterialList** with **two or more materials**
+        (treated as a layered build-up by default), **or**
+        - Each layer either has an explicitly defined numeric thickness **or** a clearly implied relative position/thickness
+        within the build-up.
+
+        Set to **False** if:
+        - The element consists of a single material, or of multiple materials that are **integrated/fused/mixed** rather than layered.
+        - Typical non-layered examples: **windows, doors, columns, beams, frames, trusses, pipes, mechanical equipment**.
+
+        In summary, this flag is **True only when the materials are explicitly or implicitly layered in sequence**, forming a stratified composition.
+        """,
+        examples=[True, False]
+    )
+
+MULTILAYER_PROMPT = """
+You are an expert at determining if a building elelment represents a layered construction or not, based on its material composition and metadata.
+"""
+
+MULTILAYER_CTX = Context(
+    instructions=MULTILAYER_PROMPT,
+    output_type=MultilayerBool
+)
+
+
+
 
 
 DESCRIPTOR_PROMPT = """

@@ -1,0 +1,1845 @@
+{
+  "id": "3e55d1c4-146a-43b3-9a75-6a8e395595c6",
+  "item_core": {
+    "core_id": "c6d54889-c88a-4655-8c14-fe0ffdff8574",
+    "entry_type": "component",
+    "name": "Janisol HI window width x height: 1230 mm x 1480 mm",
+    "loadbearing": "non_loadbearing",
+    "placement": "exterior",
+    "density": null,
+    "areal_density": null,
+    "thickness": 66.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Jansen AG",
+    "provenance": "CH",
+    "production_location": "Oberriet",
+    "facet": {
+      "component_type": "window",
+      "component_facet": {
+        "frame_type": "steel",
+        "glazing_count": null,
+        "window_operation": null,
+        "acoustic_interlayer": false,
+        "roof_window": false,
+        "window_height": 1480.0,
+        "window_width": 1230.0
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "d7d8d999-642b-4102-9588-b8f07cf51b3d",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/d7d8d999-642b-4102-9588-b8f07cf51b3d?version=00.02.000",
+    "registration_number": "EPD-JAN-20230538-CBA1-EN",
+    "location_code": "RER",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "JANSEN AG",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 243.440074182266,
+          "A4": 0.238947585949979,
+          "A5": 0.381282666642187,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.11947379297499,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.64643156121777
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0362867019804234
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.75989996273893
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.75989996273893
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -69.7483522181604
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -56.5081655280664
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.3787860852,
+          "A4": 0.0,
+          "A5": -0.3787860852,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 243.818860267466,
+          "A4": 0.238947585949979,
+          "A5": 0.00249658144218732,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.11947379297499,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.64643156121777
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0362867019804234
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.75989996273893
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.75989996273893
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -69.7483522181604
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -56.5081655280664
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 1246.94901383428,
+          "A4": 4.21326712381043,
+          "A5": 0.115144883318978,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.10663356190521,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 188.490599300861
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 185.494996287113
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 5.06930803239001
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 5.06930803239001
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -334.723380849974
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -476.0365010917
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 185.4885002552,
+          "A4": 0.0,
+          "A5": -0.104274962,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -185.3842252932
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -185.3842252932
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 1432.43751408949,
+          "A4": 4.21326712381043,
+          "A5": 0.0108699213189783,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.10663356190521,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.10637400766074
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.110770993913255
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 5.06930803239001
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 5.06930803239001
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -334.723380853745
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -476.036501095472
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 11.5775415488657,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 10.1209190341224
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 12.8741199656656
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.425196023942069,
+          "A4": 0.00027023754664419,
+          "A5": 0.000123320113992724,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000135118773322095,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0285934067195352
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.000741093413576509
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0012864127383292
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0012864127383292
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.229325300623734
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.242024335213671
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 2.2830496108381e-07,
+          "A4": 2.017632352e-11,
+          "A5": 1.0625792e-12,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.008816176e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.5537281354e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 7.16371343e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 2.6032545338e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 2.6032545338e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 9.31585608169e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -3.908028886041e-08
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 6.94273624527341,
+          "A4": 0.000603821979633011,
+          "A5": 0.000696270750071216,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000301910989816505,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.36420858347012
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0202620575963142
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 25.9243788701119
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 25.9243788701119
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.549547239433956
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.431816845459627
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0403114414400322,
+          "A4": 5.18937484549385e-06,
+          "A5": 6.202933045068e-07,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.59468742274692e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.000141870394790747
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 7.77266553097147e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 5.64118584042371e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 5.64118584042371e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.0134654202696748
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.00797753263044826
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.556502406660002,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 21.2563417603
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 26.604960442
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0525938848911628,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 21.3345384120074
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.178666688264259
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0941885410329231,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 38.2438964952349
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.372502797573755
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.392374676358324,
+          "A4": 0.000299337888413922,
+          "A5": 8.61797182950039e-06,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000149668944206961,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0046540561339991
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 4.03211664007404e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00274009950411911
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.00274009950411911
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.0856038682194503
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.0906241248873567
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 108.46605977175,
+          "A4": 0.31716132691963,
+          "A5": 0.0460299269087542,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.158580663459815,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 13.064627230975
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.161915523727574
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.38850234733244
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.38850234733244
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -29.2642467539131
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -30.693156349062
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.456434712294164,
+          "A4": 0.00132568089776404,
+          "A5": 0.038187851886865,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000662840448882022,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.000746478196403367
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 4.10252858993287e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00130135525706444
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.00130135525706444
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.0402358802933637
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.0323445831981875
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 107.980281774952,
+          "A4": 0.314082077850107,
+          "A5": 0.00784195013466887,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.157041038925054,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 13.063823946466
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.161867990068325
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.386487604044197
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.386487604044197
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -29.2217466853053
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -30.6580861301773
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0293432845041045,
+          "A4": 0.00175356817175868,
+          "A5": 1.2488722026982e-07,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000876784085879341,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 5.68063126011036e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 6.5083733487602e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.000713388031177901
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.000713388031177901
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.00226418831446154
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.00272563568647209
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 1711.93194110795,
+          "A4": 2.91807109168111,
+          "A5": 0.00499192047032626,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.45903554584056,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 1.46706553744117
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0811252851994234
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 2.83632065180954
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 2.83632065180954
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -67.5963345132952
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -157.784209636085
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 3.23662453426606e-06,
+          "A4": 1.81071104265e-09,
+          "A5": 4.529580848e-11,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 9.0535552133e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 1.899775013285e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 9.9700585818e-10
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.371970946019e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 3.371970946019e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -9.9978226793281e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -1.02496384466233e-06
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.105011039439235,
+          "A4": 9.3260694338713e-05,
+          "A5": 2.88933616278263e-06,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 4.66303471693565e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00210937171685169
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 1.41982689940376e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.000700623713532639
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.000700623713532639
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.0127403921921308
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.0144712646647841
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.000138091280945711,
+          "A4": 9.3885052638489e-07,
+          "A5": 1.06832378779e-09,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 4.6942526319244e-07,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.8313257549241e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 4.466096841617e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 6.5512603214629e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 6.5512603214629e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -1.26357459328127e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -9.71161187943327e-06
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 1.19678572644136,
+          "A4": 0.00112026427078827,
+          "A5": 3.99991409002719e-05,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000560132135394135,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0253141875141002
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.000195245015081596
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00769856380112252
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.00769856380112252
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.126061279276883
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.143859961126748
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 8.303329571141e-08,
+          "A4": 5.881421388e-11,
+          "A5": 3.2785459e-13,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.940710694e-11,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 9.466489619e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 2.57741065e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 4.3287449647e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 4.3287449647e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -1.253275581629e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -1.425373648625e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 5.10060627290269e-06,
+          "A4": 3.04286221805e-09,
+          "A5": 1.231984271e-11,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.52143110903e-09,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 4.36422179488e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 9.799073521e-11
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 4.793588666428e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 4.793588666428e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -3.5459636054821e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -4.3888212963202e-07
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 6.24537999715633,
+          "A4": 0.000760455998583602,
+          "A5": 0.00010091218487643,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000380227999291801,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0219349701641212
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.000932756635530604
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00626916743483496
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.00626916743483496
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -2.24212829679022
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -1.24222948363514
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 294.793862359186,
+          "A4": 1.44631925718508,
+          "A5": 0.00314999252507827,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.723159628592541,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.757175937194004
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0392225611394491
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 1.05331295713036
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 1.05331295713036
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -15.831291101447
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -9.32516565017974
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 3.3296165523e-10,
+          "A4": 1.884395e-14,
+          "A5": 3.95463e-15,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 9.42198e-15,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 1.08031436e-12
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 5.984799e-14
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 9.0850343e-13
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 9.0850343e-13
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -3.499770627e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -2.621136697e-11
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.30238988783976,
+          "A4": 0.000260821814324857,
+          "A5": 7.77838287979939e-06,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.000130410907162428,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0054664218101367
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 3.82216217805755e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.00212921199567207
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.00212921199567207
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -0.044895653084909
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -0.0552164572474164
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 1430.24246405267,
+          "A4": 4.20321437603247,
+          "A5": 0.0108619566424314,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 2.10160718801623,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.10454709137922
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.110729184130786
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 5.06314324515356
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 5.06314324515356
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -334.476815291522
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -475.556098446542
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.000324764564506104,
+          "A4": 2.629361218103e-08,
+          "A5": 9.671745001e-11,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 1.314680609051e-08,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 2.807931596229e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 1.39619312801e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 3.961415691706e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 3.961415691706e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -3.60832531145916e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -3.71507320127152e-05
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 7.75271187872078,
+          "A4": 0.00282126883515343,
+          "A5": 0.0052464076020586,
+          "B6": 0.0,
+          "C1": 0.0,
+          "C2": 0.00141063441757672,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 1.21653851483071
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0328854303547353
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": 0.0423819025251466
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": 0.0423819025251466
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% thermische Behandlung aller Rohstoffe mit Heizwert, einschließlich Kunststoffsystemteilen",
+              "value": -4.81152726831523
+            },
+            {
+              "code": "S2",
+              "description": "100% Recycling von Kunststoff-Systemteilen",
+              "value": -4.71206529159706
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

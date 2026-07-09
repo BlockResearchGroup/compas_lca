@@ -31,11 +31,46 @@ class WoodFacet(BaseModel):
         WoodType.unknown,
         description=dedent("""
             Classification of the wood-based material according to its primary composition and manufacturing type. 
-            Distinguishes between natural solid wood, engineered wood products , and chemically or thermally modified wood. 
+            Distinguishes between natural solid wood, engineered wood products, and chemically or thermally modified wood. 
             This field represents the dominant product family or structural form of the wood material.
-            Example mappings: '3-Schicht-Platte' or '5-Schicht-Platte' is "wood_type" = "cross_laminated_timber" 
+            
+            DISAMBIGUATION RULES FOR ENGINEERED WOOD:
+            
+            LAMINATED STRUCTURAL TIMBER (distinguish carefully):
+            • `glue_laminated_timber` — Glulam: multiple timber laminations bonded IN THE THICKNESS direction
+              to create larger cross-sections (beams, columns, arches). Laminations typically 20-45mm thick.
+              Keywords: "glulam", "Brettschichtholz", "BSH", "GL24", "GL28", "GL32", "laminated beam".
+              
+            • `finger_jointed_structural_timber` — Solid timber pieces joined END-TO-END with finger joints
+              to extend LENGTH. The cross-section remains similar to solid timber. Used for studs, joists.
+              Keywords: "finger jointed", "finger-jointed", "KVH", "Keilgezinktes Vollholz", 
+              "length-jointed", "end-jointed timber".
+              
+            • `cross_laminated_timber` — CLT: layers of timber boards stacked with alternating grain directions
+              (crosswise), forming large panels. Used for walls, floors, roofs.
+              Keywords: "CLT", "cross-laminated", "Brettsperrholz", "BSP", "X-Lam", 
+              "3-Schicht-Platte", "5-Schicht-Platte", "Massivholzplatte".
+            
+            • `laminated_veneer_lumber` — LVL: thin veneers (2-4mm) glued with parallel grain. Structural.
+              Keywords: "LVL", "laminated veneer", "Furnierschichtholz".
+            
+            PANEL PRODUCTS:
+            • `plywood` — Cross-laminated veneers (alternating grain like CLT but from thin veneers).
+            • `oriented_strand_board` — OSB: oriented wood strands bonded with resin.
+            • `particleboard` — Wood particles bonded with resin.
+            • `medium_density_fiberboard` — MDF: fine wood fibers.
+            • `high_density_fiberboard` — HDF: denser than MDF.
+            
+            INSULATION:
+            • `wood_fibre` — Rigid or flexible wood fiber insulation boards.
+            • `wood_wool` — Mineral-bonded wood wool boards (Heraklith-type).
+            • `cellulose` — Loose-fill or blown cellulose insulation.
+            
+            NATURAL WOOD:
+            • `natural_softwood` — Solid softwood (spruce, pine, fir, larch).
+            • `natural_hardwood` — Solid hardwood (oak, beech, ash, birch).
+            • `modified_wood` — Thermally or chemically modified wood (Accoya, Thermowood).
         """).strip(),
-        examples=["natural_softwood", "cross_laminated_timber", "oriented_strand_board", "modified_wood"]
     )
     wood_form: WoodForm = Field(
         WoodForm.unknown,

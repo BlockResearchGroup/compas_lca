@@ -21,7 +21,7 @@ class IfcCaches:
         #       Reverse index: IfcMaterialDefinition -> [IfcMaterialProperties, ...]
         #       Observation: IfcMaterialProperties are seldom exported (at least not from Revit).
         #       Question: Is this reverse index even needed in practice?
-        #       Note: Requires enabling “Export Material Properties” in Revit’s IFC export dialog.
+        #       Requires enabling “Export Material Properties” in Revit’s IFC export dialog, seldomly done
         
         self.material_props_by_def = defaultdict(list)
         for mprops in self.material_props:

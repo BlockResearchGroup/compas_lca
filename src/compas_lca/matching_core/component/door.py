@@ -20,10 +20,41 @@ class DoorFacet(BaseModel):
     door_type: DoorType = Field(
         DoorType.unknown,
         description=dedent("""
-            The primary material that forms infill of the door.
-            If the door material stated or cannot be inferred, set to `"unknown"`.
+            The primary material that forms the leaf/infill of the door.
+            If the door material is not stated or cannot be inferred, set to `"unknown"`.
+            
+            DISAMBIGUATION RULES:
+            
+            GLASS TYPES:
+            • `glass` — Glass is mentioned as a material (regardless of frame).             
+
+            STEEL TYPES (distinguish carefully):
+            • `stainless_steel` — Corrosion-resistant stainless steel doors.
+              Use ONLY when "stainless" is explicitly mentioned.
+              Keywords: "stainless steel", "inox", "rostfrei", "Edelstahl", "V2A", "V4A".
+              
+            • `steel` — Standard carbon/mild steel doors (including galvanized, powder-coated).
+              Use for generic "steel door" without stainless qualification.
+              Keywords: "steel", "Stahl", "metal door" (when steel is implied).
+            
+            ALUMINUM (use American spelling as per enum):
+            • `aluminium` — Aluminum doors (note: enum uses British spelling "aluminium").
+              Keywords: "aluminum", "aluminium", "Aluminium", "Alu".
+            
+            OTHER MATERIALS:
+            • `wood` — Solid wood or wood-based doors.
+            • `wood_aluminium` — Composite wood-aluminum doors (wood interior, aluminum exterior).
+            • `pvc` — PVC/uPVC doors.
+            • `glass` — Full glass doors (regardless of frame).
+            • `polyurethane` — PU-filled/insulated doors.
+            • `mixed_composite` — Multiple materials combined.
+            
+            DECISION GUIDE:
+            - "Steel door" without "stainless" → `steel`
+            - "Stainless steel door" → `stainless_steel`
+            - "Metal door" when context suggests aluminum → `aluminium`
+            - "Metal door" when context suggests steel → `steel`
         """).strip(),
-        examples=["aluminium", "wood", "unknown"]
     )
     door_operation: Optional[List[DoorOperation]] = Field(
         None,

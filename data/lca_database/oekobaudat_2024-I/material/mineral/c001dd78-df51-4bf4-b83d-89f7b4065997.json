@@ -1,0 +1,2224 @@
+{
+  "id": "c001dd78-df51-4bf4-b83d-89f7b4065997",
+  "item_core": {
+    "core_id": "073dddcd-f596-4854-894a-2ebea154e649",
+    "entry_type": "material",
+    "name": "DeFries Reuse-Brick",
+    "loadbearing": "either",
+    "placement": "exterior",
+    "density": 1801.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "DeFries",
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "covering",
+        "cladding",
+        "structural"
+      ],
+      "application_areas": [
+        "wall",
+        "facade"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "clay",
+        "mineral_form": "masonry_unit"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "7f453b20-5b30-4707-bf43-32e2d07a51f9",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/7f453b20-5b30-4707-bf43-32e2d07a51f9?version=00.02.100",
+    "registration_number": "EPD-SBZ-20240384-IBC1-DE",
+    "location_code": "DE",
+    "reference_year": 2024,
+    "valid_until": 2029,
+    "dataset_owner": "Schröder Bauzentrum GmbH, Garding & CO. KG",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 12.9539067184618,
+          "A4": 4.67212118335205,
+          "A5": 0.0114958806549022,
+          "C1": 0.0682842387400685,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 4.0035314338922
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 4.0035314338922
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.478003458567645
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 9.331735163262
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -6.79422890702546
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -6.79422890702546
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 12.9539067184618,
+          "A4": 4.67212118335205,
+          "A5": 0.0114958806549022,
+          "C1": 0.0682842387400685,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 4.0035314338922
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 4.0035314338922
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.478003458567645
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 9.331735163262
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -6.79422890702546
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -6.79422890702546
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 594.951763115585,
+          "A4": 293.687881822009,
+          "A5": 0.187189951317572,
+          "C1": 6.92915398525103,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 251.660567113975
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 251.660567113975
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 64.5624
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 141.454970878261
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 407.618498050652
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -44.5449856220646
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -44.5449856220646
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 109.733289977996,
+          "A4": 27.3891728455188,
+          "A5": 0.00806468735675842,
+          "C1": 0.669455558123055,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 23.46972823095
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 23.46972823095
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -64.5624
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -56.8752197766756
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 38.8406710072109
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -1.31414669346715
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -1.31414669346715
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 704.685053093582,
+          "A4": 321.077054667528,
+          "A5": 0.19525463867433,
+          "C1": 7.59860954337409,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 275.130295344925
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 275.130295344925
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 84.5797511015863
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 446.459169057863
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -45.8591323155318
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -45.8591323155318
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 1801.34908230557,
+          "A4": 0.181625452671733,
+          "A5": 0.000716945371263891,
+          "C1": 0.00591844248852011,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.155634492435073
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.155634492435073
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0377048908537192
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.182679828916378
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.164753068876823
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.164753068876823
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.105263154431892,
+          "A4": 0.0380270822338354,
+          "A5": 8.72376454121337e-05,
+          "C1": 0.000577988284783359,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0325853318199102
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0325853318199102
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.00257806197243454
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0601197545997855
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.3649383136343
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.3649383136343
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.451007365242245,
+          "A4": 0.126633376983342,
+          "A5": 0.000307331746720414,
+          "C1": 0.00214314703737513,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.108511891159677
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.108511891159677
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0131605283791257
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.135768999560003
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.321979700958902
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.321979700958902
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.114503723883835,
+          "A4": 0.0429366762264145,
+          "A5": 0.000776228089655634,
+          "C1": 0.000422094504017589,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0367923532360201
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0367923532360201
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.00452978401039549
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.322363914480227
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0127386339172606
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.0127386339172606
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 0.615968153668388,
+          "A4": 0.301598098930128,
+          "A5": 0.0193705321418128,
+          "C1": 0.0100549264003981,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.258438816563942
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.258438816563942
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0703288505860229
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.307809225986574
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0290758941314843
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.0290758941314843
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 91.5249109735042,
+          "A4": 27.7027363826414,
+          "A5": 0.0312342451697505,
+          "C1": 0.00616847149447342,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 23.7384202079187
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 23.7384202079187
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0521179850283224
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3607.15985686958
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.134696573241903
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.134696573241903
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.000277940485917954,
+          "A4": 9.73274511763958e-05,
+          "A5": 1.9701330597682e-07,
+          "C1": 1.49558796304532e-06,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 8.339970109374e-05
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 8.339970109374e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 9.2045726033858e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.000113092845585026
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.000109668701178895
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.000109668701178895
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 301.371610860483,
+          "A4": 0.275912953048023,
+          "A5": 0.00075059250234704,
+          "C1": 0.00680417486405927,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.236429265679537
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.236429265679537
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1801.04001737461
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.332299451535983
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -1.2685929458881
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -1.2685929458881
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.47
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.47
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3.58679964132
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 3.58679964132
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 7.173528264
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 7.173528264
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.14633493919833,
+          "A4": 0.073459861444152,
+          "A5": 0.000487389821770435,
+          "C1": 0.00514294826819116,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0629476104919897
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0629476104919897
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0594633621418551
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.158190495358103
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00565121128939716
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.00565121128939716
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 39.9346665238151,
+          "A4": 21.8514270698101,
+          "A5": 4.40022998131841,
+          "C1": 0.582143608643575,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 18.7244447898972
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 18.7244447898972
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 6.41769380900946
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 23.6531853973877
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -3.13670266435163
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -3.13670266435163
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -0.0446451890509418,
+          "A4": 0.0161243210611956,
+          "A5": 0.000206751506340202,
+          "C1": 0.000253015881750296,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0138168989384467
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0138168989384467
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.00138814073047985
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.038762976896124
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.151800586688141
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.151800586688141
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 39.9589085794909,
+          "A4": 21.8250371302028,
+          "A5": 4.40001370006386,
+          "C1": 0.581817184653299,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 18.7018313026587
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 18.7018313026587
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 6.41558392098739
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 23.6081701697268
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -2.98218320922045
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -2.98218320922045
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0204031333752056,
+          "A4": 0.0102656185460931,
+          "A5": 9.52974820549876e-06,
+          "C1": 7.34081085254756e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.00879658829999401
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.00879658829999401
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.000721747291585622
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.00625225076482862
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0027188684430409
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.0027188684430409
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 261.139071058444,
+          "A4": 153.542269978628,
+          "A5": 0.827541533704216,
+          "C1": 3.21434364720986,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 131.570068533529
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 131.570068533529
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 40.1539705997768
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 199.204299411657
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -7.35115441879001
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -7.35115441879001
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 6.39610598960731e-06,
+          "A4": 2.20528569343869e-06,
+          "A5": 3.91965385307e-09,
+          "C1": 1.4464968356731e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.88970496438619e-06
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.88970496438619e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.50518019115031e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.74015486013347e-05
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -2.83395258335e-08
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -2.83395258335e-08
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0492528638468505,
+          "A4": 0.0254290031079558,
+          "A5": 0.000241925680942365,
+          "C1": 0.00238755731295281,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0217900626460632
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0217900626460632
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0275633649671166
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0692811570083495
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00157848053859707
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.00157848053859707
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.00378785356911125,
+          "A4": 0.00155311047194583,
+          "A5": 4.30418708379433e-06,
+          "C1": 2.72452626416072e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0013308573024386
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0013308573024386
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.000196948317560905
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.00119946715450628
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00228098014840636
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.00228098014840636
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.520993089143913,
+          "A4": 0.268774609683136,
+          "A5": 0.00256440860089087,
+          "C1": 0.0259234869472106,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.230312433318882
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.230312433318882
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.299608034966742
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.74682635867745
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.0134135589856373
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.0134135589856373
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 1.664871382163e-08,
+          "A4": 9.48536192561e-09,
+          "A5": 5.2482272723e-10,
+          "C1": 2.8144629106e-10,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 8.12798793969e-09
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 8.12798793969e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.96819658121e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 9.44433641591e-09
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -8.2118731832e-10
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -8.2118731832e-10
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 3.98825965955e-07,
+          "A4": 2.3102295256059e-07,
+          "A5": 3.55438924807e-09,
+          "C1": 1.47341354319e-09,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.9796311273401e-07
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.9796311273401e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.380345625696e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.3940415799536e-07
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -2.826754080813e-08
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -2.826754080813e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 1.11568142191262,
+          "A4": 0.402841253375838,
+          "A5": 0.000787365451879601,
+          "C1": 0.00623110271171121,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.345193876071837
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.345193876071837
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0398711186687212
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.479357362731337
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.37029407455687
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.37029407455687
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 528.62591260401,
+          "A4": 324.140937527897,
+          "A5": 0.0630451143184627,
+          "C1": 0.516253197116816,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 277.755730529474
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 277.755730529474
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 5.63954603662886
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 617.567689590792
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -6.03756542203339
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -6.03756542203339
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 7.9907221055581e-07,
+          "A4": 4.7726478034772e-07,
+          "A5": 2.04767283515e-09,
+          "C1": 1.215914930063e-08,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 4.0896724965529e-07
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 4.0896724965529e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.0202771767152e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 6.0831505324785e-07
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -8.303650046563e-08
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -8.303650046563e-08
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.215610130507083,
+          "A4": 0.114372012147463,
+          "A5": 0.000693788406503122,
+          "C1": 0.00781239501536813,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0980051517973118
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0980051517973118
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0887349069630383
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.259463102441403
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.00524179481154748
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.00524179481154748
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 640.10238832151,
+          "A4": 321.066914700229,
+          "A5": 0.19524570572656,
+          "C1": 7.59854541753027,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 275.121606426931
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 275.121606426931
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 84.5790528670478
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 446.453431596811
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -45.8588142497295
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -45.8588142497295
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.000112129949388251,
+          "A4": 6.02922634816083e-05,
+          "A5": 9.746542841051e-08,
+          "C1": 2.6436662771211e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 5.16643217494501e-05
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 5.16643217494501e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 2.29767006384036e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 3.60821357593612e-05
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -1.79359193209728e-05
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -1.79359193209728e-05
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 5.73834198694516,
+          "A4": 1.65264928517413,
+          "A5": 0.0326420897090976,
+          "C1": 0.0270840723651473,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.4161519153163
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 1.4161519153163
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.209237952045452
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": 1.957549081901
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% Deponierung",
+              "value": -0.414499310595759
+            },
+            {
+              "code": "S0",
+              "description": "100% Recycling",
+              "value": -0.414499310595759
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C2": [
+        "S0",
+        "S1"
+      ],
+      "C3": [
+        "S0",
+        "S1"
+      ],
+      "C4": [
+        "S0",
+        "S1"
+      ],
+      "D": [
+        "S0",
+        "S1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,956 @@
+{
+  "id": "35a0075e-5877-4861-a8dd-b564794a3cc2",
+  "item_core": {
+    "core_id": "0115ab35-ffe1-4f22-84e4-f320d98575f6",
+    "entry_type": "material",
+    "name": "Welded and painted steel structures: Box beams (Heidelberg Materials SBC Latvia SIA)",
+    "loadbearing": "loadbearing",
+    "placement": "either",
+    "density": 2700.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Heidelberg Materials SBC Latvia SIA",
+    "provenance": null,
+    "production_location": "Mārupe, Latvia",
+    "facet": {
+      "material_type": "metallic",
+      "functional_types": [
+        "structural"
+      ],
+      "application_areas": [
+        "beam"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "metallic_type": "carbon_steel",
+        "metallic_form": "profile",
+        "steel_grade": null,
+        "yield_strength": null,
+        "metallic_production": "scrap_eaf",
+        "metallic_forming": "rolled",
+        "metallic_surface_treatment": "painted"
+      }
+    }
+  },
+  "reference": {
+    "size": 1000,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "0d77dfff-a6b0-43b9-98f3-3f671758690c",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/0d77dfff-a6b0-43b9-98f3-3f671758690c?version=00.00.005",
+    "registration_number": "EPD-Kiwa-EE-000368-EN",
+    "location_code": "RER",
+    "reference_year": 2022,
+    "valid_until": 2029,
+    "dataset_owner": "Heidelberg Materials SBC Latvia SIA",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.0)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1": 2080.0,
+          "A2": 65.5,
+          "A3": 655.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 26.7
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 9.16
+            }
+          ],
+          "C1": 0.268,
+          "C2": 1.22,
+          "C3": 9.86,
+          "C4": 0.0119,
+          "D": -6.9
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 142.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1": 2080.0,
+          "A2": 65.5,
+          "A3": 797.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 26.7
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 9.16
+            }
+          ],
+          "C1": 0.268,
+          "C2": 1.22,
+          "C3": 9.86,
+          "C4": 0.0119,
+          "D": -6.9
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1": 23500.0,
+          "A2": 4930.0,
+          "A3": 2990.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 2000.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 699.0
+            }
+          ],
+          "C1": 52.7,
+          "C2": 104.0,
+          "C3": 821.0,
+          "C4": 1.56,
+          "D": -5500.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1": 30.8,
+          "A2": 0.0,
+          "A3": 17.5,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1": 23500.0,
+          "A2": 4930.0,
+          "A3": 3010.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 2000.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 699.0
+            }
+          ],
+          "C1": 52.7,
+          "C2": 104.0,
+          "C3": 821.0,
+          "C4": 1.56,
+          "D": -5500.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1": 494.0,
+          "A2": 0.0,
+          "A3": 15.6,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 940.0,
+          "C4": 0.0,
+          "D": 0.0182
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1": 19.6,
+          "A2": 0.489,
+          "A3": 1.33,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.199
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0685
+            }
+          ],
+          "C1": 0.00256,
+          "C2": 0.0119,
+          "C3": 0.0641,
+          "C4": 0.00157,
+          "D": -2.6
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1": 0.103,
+          "A2": 0.0122,
+          "A3": 0.00334,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.00487
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.00167
+            }
+          ],
+          "C1": 0.000135,
+          "C2": 0.000248,
+          "C3": 0.00204,
+          "C4": 2.2e-06,
+          "D": -0.0876
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1": 749.0,
+          "A2": 222.0,
+          "A3": 37.1,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 89.9
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 30.4
+            }
+          ],
+          "C1": 0.0588,
+          "C2": 6.2,
+          "C3": 0.99,
+          "C4": 10.0,
+          "D": -69.8
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1": 0.0547,
+          "A2": 0.0316,
+          "A3": 0.00906,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0128
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.00449
+            }
+          ],
+          "C1": 0.000345,
+          "C2": 0.000642,
+          "C3": 0.00537,
+          "C4": 9.67e-06,
+          "D": 0.00348
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 50.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 31.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 0.0
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 22.4
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0
+            }
+          ],
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": 38.5
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1": 9.65,
+          "A2": 1.26,
+          "A3": 0.776,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.438
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.206
+            }
+          ],
+          "C1": 0.0377,
+          "C2": 0.0376,
+          "C3": 0.573,
+          "C4": 0.0005,
+          "D": -2.9
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1": 1910.0,
+          "A2": 308.0,
+          "A3": 166.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 125.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 44.0
+            }
+          ],
+          "C1": 3.61,
+          "C2": 6.48,
+          "C3": 55.5,
+          "C4": 0.0528,
+          "D": -730.0
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1": -4.03,
+          "A2": 0.164,
+          "A3": -17.2,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0648
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0214
+            }
+          ],
+          "C1": 0.001,
+          "C2": 0.00299,
+          "C3": 0.0598,
+          "C4": 0.000104,
+          "D": 7.43
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1": 1900.0,
+          "A2": 308.0,
+          "A3": 178.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 125.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 43.9
+            }
+          ],
+          "C1": 3.61,
+          "C2": 6.48,
+          "C3": 55.5,
+          "C4": 0.0527,
+          "D": -738.0
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1": 12.8,
+          "A2": 0.108,
+          "A3": 6.22,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0453
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.0165
+            }
+          ],
+          "C1": 0.000284,
+          "C2": 0.00237,
+          "C3": 0.00773,
+          "C4": 1.47e-05,
+          "D": 0.497
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1": 79800.0,
+          "A2": 3710.0,
+          "A3": 2950.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 1510.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 525.0
+            }
+          ],
+          "C1": 29.9,
+          "C2": 87.1,
+          "C3": 470.0,
+          "C4": 0.955,
+          "D": -24800.0
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1": 0.000172,
+          "A2": 2.14e-05,
+          "A3": 1.01e-05,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 7.86e-06
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 2.71e-06
+            }
+          ],
+          "C1": 1e-06,
+          "C2": 5.83e-07,
+          "C3": 1.5e-05,
+          "C4": 9.72e-09,
+          "D": -4.42e-05
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1": 2.02,
+          "A2": 0.373,
+          "A3": 0.176,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.0909
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.045
+            }
+          ],
+          "C1": 0.0167,
+          "C2": 0.0132,
+          "C3": 0.25,
+          "C4": 0.000172,
+          "D": -0.538
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1": 0.115,
+          "A2": 0.00242,
+          "A3": 0.00557,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.000986
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.000341
+            }
+          ],
+          "C1": 1.31e-05,
+          "C2": 6.53e-05,
+          "C3": 0.000357,
+          "C4": 5.9e-07,
+          "D": -0.0266
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1": 21.4,
+          "A2": 4.13,
+          "A3": 1.8,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 1.02
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.502
+            }
+          ],
+          "C1": 0.183,
+          "C2": 0.146,
+          "C3": 2.75,
+          "C4": 0.0019,
+          "D": -6.31
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1": 1.58e-05,
+          "A2": 1.04e-07,
+          "A3": 5.65e-07,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 4.29e-08
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 1.55e-08
+            }
+          ],
+          "C1": 1.05e-09,
+          "C2": 2.83e-09,
+          "C3": 1.64e-08,
+          "C4": 2.21e-11,
+          "D": -3.36e-07
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1": 0.000188,
+          "A2": 4.05e-06,
+          "A3": 1.1e-05,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 1.58e-06
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 5.47e-07
+            }
+          ],
+          "C1": 2.57e-08,
+          "C2": 9.53e-08,
+          "C3": 4.04e-07,
+          "C4": 6.79e-10,
+          "D": 0.000132
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1": 57.6,
+          "A2": 20.3,
+          "A3": 9.08,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 8.22
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 2.87
+            }
+          ],
+          "C1": 0.213,
+          "C2": 0.409,
+          "C3": 3.45,
+          "C4": 0.00604,
+          "D": 11.3
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1": 7690.0,
+          "A2": 3200.0,
+          "A3": 3990.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 1300.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 441.0
+            }
+          ],
+          "C1": 6.33,
+          "C2": 84.7,
+          "C3": 116.0,
+          "C4": 3.09,
+          "D": -1830.0
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1": 0.00012,
+          "A2": 6.99e-05,
+          "A3": 2.48e-05,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 2.83e-05
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 9.92e-06
+            }
+          ],
+          "C1": 7.79e-07,
+          "C2": 1.43e-06,
+          "C3": 1.18e-05,
+          "C4": 2.17e-08,
+          "D": -1.91e-05
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1": 9.1,
+          "A2": 1.26,
+          "A3": 0.548,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.359
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.162
+            }
+          ],
+          "C1": 0.0502,
+          "C2": 0.0417,
+          "C3": 0.755,
+          "C4": 0.000551,
+          "D": -4.19
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1": 22100.0,
+          "A2": 4640.0,
+          "A3": 2770.0,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 1880.0
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 658.0
+            }
+          ],
+          "C1": 49.6,
+          "C2": 97.7,
+          "C3": 774.0,
+          "C4": 1.47,
+          "D": -5300.0
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1": 0.0297,
+          "A2": 0.00833,
+          "A3": 0.00166,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 0.00339
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 0.00116
+            }
+          ],
+          "C1": 5.53e-06,
+          "C2": 0.000164,
+          "C3": 9.41e-05,
+          "C4": 4.82e-07,
+          "D": -0.000487
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1": 621.0,
+          "A2": 12.9,
+          "A3": 39.7,
+          "A4": [
+            {
+              "code": "Norway Scenario",
+              "value": 5.28
+            },
+            {
+              "code": "Sweden Scenario",
+              "value": 1.82
+            }
+          ],
+          "C1": 0.0665,
+          "C2": 0.35,
+          "C3": 1.34,
+          "C4": 0.066,
+          "D": -135.0
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "A4": [
+        "Norway Scenario",
+        "Sweden Scenario"
+      ]
+    }
+  }
+}

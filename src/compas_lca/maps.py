@@ -18,6 +18,7 @@ from compas_lca.llm.ctx.extraction_context import CURTAIN_WALL_CTX
 from compas_lca.llm.ctx.extraction_context import DOOR_CTX
 from compas_lca.llm.ctx.extraction_context import ROOF_CTX
 from compas_lca.llm.ctx.extraction_context import INFILL_CTX
+from compas_lca.llm.ctx.extraction_context import INSULATION_ELEMENT_CTX
 from compas_lca.llm.ctx.extraction_context import SHADING_CTX
 from compas_lca.llm.ctx.extraction_context import STAIR_CTX
 from compas_lca.llm.ctx.extraction_context import RAILING_CTX
@@ -39,6 +40,7 @@ from compas_lca.matching_core.component.conveyor import ConveyorFacet
 from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.infill import InfillFacet
+from compas_lca.matching_core.component.insulation_element import InsulationElementFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
 from compas_lca.matching_core.component.stairs import StairFacet
@@ -86,6 +88,7 @@ CTX_BY_COMP_TYPE = {
     ComponentType.curtain_wall: CURTAIN_WALL_CTX,
     ComponentType.door: DOOR_CTX,
     ComponentType.infill: INFILL_CTX,
+    ComponentType.insulation_element: INSULATION_ELEMENT_CTX,
     ComponentType.roof: ROOF_CTX,
     ComponentType.shading_device: SHADING_CTX,
     ComponentType.stairs: STAIR_CTX,
@@ -102,6 +105,7 @@ MODEL_BY_COMP_TYPE = {
     ComponentType.curtain_wall: CurtainWallFacet,
     ComponentType.door: DoorFacet,
     ComponentType.infill: InfillFacet,
+    ComponentType.insulation_element: InsulationElementFacet,
     ComponentType.roof: RoofFacet,
     ComponentType.shading_device: ShadingFacet,
     ComponentType.stairs: StairFacet,

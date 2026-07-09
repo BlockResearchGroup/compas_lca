@@ -6,10 +6,12 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import FrameType
 from compas_lca.enums import WindowOperation
 from compas_lca.enums import GlazingCount
+from compas_lca.matching_core.normalization import normalize_frame_type
 
 class WindowFacet(BaseModel):
     model_config = ConfigDict(
@@ -22,10 +24,14 @@ class WindowFacet(BaseModel):
         description=dedent("""
             The dominant **frame material type** of the window or glazing unit.  
             Refers to the material that forms the structural frame (e.g., aluminium, wood, PVC, steel, or composite).  
-            If the frame material is not stated or cannot be inferred, set to `"unknown"`.
+            If the SPECIFICALLY the frame material is not stated or cannot be inferred, set to `"unknown"`.
         """).strip(),
         examples=["aluminium", "wood", "unknown"]
     )
+    @field_validator("frame_type", mode="before")
+    @classmethod
+    def _normalize_frame_type(cls, value):
+        return normalize_frame_type(value)
     glazing_count: Optional[GlazingCount] = Field(
         None,
         description=dedent("""

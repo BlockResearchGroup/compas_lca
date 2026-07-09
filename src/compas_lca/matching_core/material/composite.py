@@ -5,12 +5,14 @@ from textwrap import dedent
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
+from pydantic import field_validator
 
 from compas_lca.enums import CompositeType
 from compas_lca.enums import CompositeMatrix
 from compas_lca.enums import CompositeForm
 from compas_lca.enums import CompositeArchitecture
 from compas_lca.enums import CompositeReinforcement
+from compas_lca.matching_core.normalization import normalize_composite_type
 
 class CompositeFacet(BaseModel):
     model_config = ConfigDict(
@@ -21,20 +23,49 @@ class CompositeFacet(BaseModel):
     composite_type: CompositeType = Field(
         CompositeType.unknown,
         description=dedent("""
-            High-level category of composite material/product, reflecting typical building use 
+            High-level category of composite material/product, reflecting typical building use. 
             Describes what 'kind' of composite material/product this is.
+            
+            DISAMBIGUATION RULES:
+            
+            CEMENTITIOUS COMPOSITES:
+            • `reinforced_concrete` — Conventional concrete with steel reinforcement (rebar, mesh).
+            • `fiber_reinforced_concrete` — Concrete with dispersed fibers (steel, glass, PP, basalt).
+            • `polymer_modified_cementitious` — Cement-based with polymer additives (PMC/PCC).
+            • `fiber_cement_composite` — Fiber-cement boards/sheets (Eternit-type). Cement matrix + cellulose/synthetic fibers.
+              Keywords: "fiber cement", "fibre cement", "Faserzement", "Eternit".
+            • `wood_cement_composite` — Wood particles/fibers bonded with cement (CBPB, wood wool cement boards).
+              Keywords: "wood cement", "Holzwolle-Zement", "CBPB", "cement-bonded particleboard".
+            
+            POLYMER-MATRIX COMPOSITES (distinguish carefully):
+            • `polymer_concrete` — Polymer resin as the BINDER/MATRIX with mineral AGGREGATES (sand, gravel).
+              The polymer replaces cement. Used for repair mortars, drainage channels, manholes.
+              Keywords: "polymer concrete", "resin concrete", "PC", "epoxy concrete".
+              
+            • `particulate_filled_polymer` — Polymer with mineral FILLERS (calcium carbonate, silica, ATH).
+              Fillers modify properties but polymer is the continuous phase. No coarse aggregates.
+              Keywords: "filled polymer", "mineral-filled", "filler", "compound".
+              
+            • `fiber_reinforced_polymer` — FRP: Polymer matrix reinforced with continuous fibers (GFRP, CFRP, BFRP).
+              Keywords: "FRP", "GFRP", "CFRP", "glass fiber reinforced", "carbon fiber reinforced",
+              "fiberglass", "pultruded", "composite rebar".
+            
+            WOOD-POLYMER:
+            • `wood_plastic_composite` — WPC: Wood particles in thermoplastic matrix (PE, PP, PVC).
+              Keywords: "WPC", "wood-plastic", "composite decking".
+            
+            METAL COMPOSITES:
+            • `metal_polymer_composite` — Metal-filled polymers or metal/polymer hybrids.
+            
+            If uncertain between `polymer_concrete` and `particulate_filled_polymer`:
+            - If aggregates (sand, gravel) are bound by resin → `polymer_concrete`
+            - If polymer contains fine mineral fillers → `particulate_filled_polymer`
         """).strip(),
-        examples=[
-            "reinforced_concrete",
-            "fiber_reinforced_concrete",
-            "polymer_modified_cementitious",
-            "polymer_concrete",
-            "fiber_cement_composite",
-            "wood_plastic_composite",
-            "fiber_reinforced_polymer",
-            "sandwich_panel"
-        ]
     )
+    @field_validator("composite_type", mode="before")
+    @classmethod
+    def _normalize_composite_type(cls, value):
+        return normalize_composite_type(value)
     composite_matrix: Optional[CompositeMatrix] = Field(
         None,
         description=dedent("""

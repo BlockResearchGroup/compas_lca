@@ -1,0 +1,2896 @@
+{
+  "id": "02ccc6dd-03f6-4375-a8cc-1f2c9453624e",
+  "item_core": {
+    "core_id": "356c4155-9d22-4090-b537-ff683d5e70c5",
+    "entry_type": "material",
+    "name": "Huppenberger-Maxit straw panels gross density 220 kg/m³",
+    "loadbearing": "non_loadbearing",
+    "placement": "interior",
+    "density": 220.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": "DE",
+    "production_location": "St. Oswald-Riedlhütte",
+    "facet": {
+      "material_type": "biobased",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "wall",
+        "ceiling",
+        "roof",
+        "floor"
+      ],
+      "insulation_info": [
+        "thermal",
+        "rigid"
+      ],
+      "material_facet": {
+        "biobased_type": "straw"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "313a4a06-07ce-41e4-a693-a756ec562589",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/313a4a06-07ce-41e4-a693-a756ec562589?version=00.00.055",
+    "registration_number": "BAU-EPD-MAXHUPP-2023-1-GaBi-Strohplatten",
+    "location_code": "RER",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "HempFlax Building Solutions GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.0)",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 361.73400724647,
+          "A4": 12.5893811547786,
+          "A5": 77.6844754629122,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 3.87365573993188
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 3.87365573993188
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 2984.49225023422
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 2939.50788117411
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -424.901991533959
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -7.83980036359833
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 3001.0107707797,
+          "A4": 0.0,
+          "A5": -33.3039323181616,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -2967.70683846154
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -2967.70683846154
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 3362.74477802617,
+          "A4": 12.5893811547786,
+          "A5": 44.3805431447506,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 3.87365573993188
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 3.87365573993188
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 16.7854117726847
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -28.1989572874259
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -424.901991533959
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -7.83980036359833
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 2482.98625301361,
+          "A4": 210.78798473269,
+          "A5": 44.6593258045852,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 64.8578414562122
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 64.8578414562122
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 308.360472088733
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 218.855987712496
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1910.68643966123
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -95.1928120850859
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 224.818530255328,
+          "A4": 0.0,
+          "A5": -3.05853025532761,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -221.76
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -221.76
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 2707.80478326894,
+          "A4": 210.78798473269,
+          "A5": 41.6007955492576,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 64.8578414562122
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 64.8578414562122
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 86.6004720887325
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -2.90401228750403
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1910.68643966123
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -95.1928120850859
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 2.42100609830419,
+          "A4": 0.0110263082306975,
+          "A5": 0.0545895993276256,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.00339271022483003
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.00339271022483003
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.968151396551885
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0238604822432505
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.413756661146576
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.093901030665728
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 3.13359768789896e-06,
+          "A4": 8.90043735211e-09,
+          "A5": 4.130249120325e-08,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 2.73859610834e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 2.73859610834e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 1.562374464295e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -1.2700824852202e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -4.2904030354576e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -2.109326017107e-08
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.926601141145115,
+          "A4": 0.0355961410758805,
+          "A5": 0.112962993379759,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0109526587925786
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0109526587925786
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 2.85903118903483
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0677021129970482
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.890639514233953
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.292975543127196
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.11301668663212,
+          "A4": 0.00025799056780795,
+          "A5": 0.00158999154769381,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 7.93817131716772e-05
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 7.93817131716772e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.00480210318924096
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.0023280452334049
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.136102914735649
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.00260610242598804
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 6.23562643764541,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 479.66357212657
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 11.1992608804867,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 861.481606191285
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.850509111186202,
+          "A4": 0.0827899921844278,
+          "A5": 0.0142262237061829,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0254738437490547
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0254738437490547
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0566016854983795
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.311239706340438
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.142461894643286
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.19856174882377
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": -115.149062872738,
+          "A4": 15.7889606968576,
+          "A5": 6.07883137468294,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 4.85814175287926
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 4.85814175287926
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 277.283674272874
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 286.460989441647
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -110.322130866654
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.45443613562386
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -274.804207705436,
+          "A4": 0.0,
+          "A5": 3.40431026953827,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 271.399897435897
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 271.399897435897
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 159.483661464129,
+          "A4": 15.6871089388036,
+          "A5": 2.67012853186172,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 4.8268027504011
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 4.8268027504011
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 5.88000244670326
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 15.0589536812283
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -110.246796785742
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.422184080975325
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.171483368568538,
+          "A4": 0.101851758054008,
+          "A5": 0.00439257328295124,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0313390024781565
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0313390024781565
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.003774390272778
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.00213832452144396
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.0753340809126147
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.0322520546485345
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": 5258.47553438899,
+          "A4": 170.131131990019,
+          "A5": 72.7454105966139,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 52.3480406123135
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 52.3480406123135
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 37.3987316341236
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 25.3961828837938
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -392.74428469721
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 181114.572622877
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": 6.35048711659109e-06,
+          "A4": 3.1605222503306e-07,
+          "A5": 9.665343532237e-08,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 9.724683847171e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 9.724683847171e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 2.837878650547e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 2.1152327441848e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1.2261696120367e-06
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -1.49278432601255e-06
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.507457607430289,
+          "A4": 0.0404178553768687,
+          "A5": 0.00791897673928001,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0124362631928827
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0124362631928827
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0185928335360195
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.00813933103784764
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.0407147406711874
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.0145213974469624
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.0269275015444301,
+          "A4": 3.29554398783034e-05,
+          "A5": 0.000350913685229738,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 1.01401353471703e-05
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 1.01401353471703e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 7.15302372312494e-06
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.000103200579206749
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.00014237351401034
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.000649472392306461
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 3.01438132854845,
+          "A4": 0.448150439384125,
+          "A5": 0.0552872091855044,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.137892442887423
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.137892442887423
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.269797286412261
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 1.41664205145524
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.436335584361824
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.863997400373596
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": 1.238295702744e-07,
+          "A4": 3.41562591956e-09,
+          "A5": 1.73930983443e-09,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 1.0509618214e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 1.0509618214e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 2.51351027097e-09
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -1.25155346519e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1.813854404635e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 2.878514676812e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": 7.47759915321092e-06,
+          "A4": 1.8221200819926e-07,
+          "A5": 1.0315193211318e-07,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 5.606523329208e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 5.606523329208e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 8.966597138576e-08
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -4.64641760708e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -7.1685552670674e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 4.04728729721826e-05
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": 17.3852142231871,
+          "A4": 0.0254254209356049,
+          "A5": 0.244766100918642,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.00782320644172459
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.00782320644172459
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.761102206359522
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.184260669281446
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -22.2891857964649
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.383680311238069
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": 3854.42389017866,
+          "A4": 66.0705104466056,
+          "A5": 52.0227985319521,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 20.3293878297253
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 20.3293878297253
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 23.7077318805168
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -462.85797180163
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -291.819536804801
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -589.370699416235
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 1.74388521311808e-05,
+          "A4": 5.64321e-15,
+          "A5": 2.2670507909984e-07,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 1.73637e-15
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 1.73637e-15
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 5.218339e-14
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -7.186798e-14
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1.23940188e-12
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -3.827052e-14
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.370617168544643,
+          "A4": 0.0781471680890749,
+          "A5": 0.00775822081259464,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0240452824889461
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0240452824889461
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0505070655969973
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0829957286927385
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -0.114357601413086
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.00331051961367661
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 2707.10205523991,
+          "A4": 210.683825354822,
+          "A5": 41.588597461576,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 64.8257924168683
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 64.8257924168683
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 86.5597613941054
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -2.91877316654766
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1910.45912774162
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -95.1747715842688
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 0.0010216931062453,
+          "A4": 1.46114137020605e-06,
+          "A5": 1.33311777755353e-05,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 4.495819600634e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 4.495819600634e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 7.9553387097927e-07
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -1.39027933778854e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -1.81297962208898e-05
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -3.55763399594331e-06
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 94.3919374849737,
+          "A4": 0.0621186040153699,
+          "A5": 2.20170112485867,
+          "B1": 0.0,
+          "B2": 0.0,
+          "B3": 0.0,
+          "B4": 0.0,
+          "B5": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "C2": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0191134166201136
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0191134166201136
+            }
+          ],
+          "C3": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 41.174650377069
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 2.19037814713858
+            }
+          ],
+          "C4": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": 0.0
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "Energierückgewinnung",
+              "description": "100% Thermische Verwertung",
+              "value": -8.21005537902168
+            },
+            {
+              "code": "Recycling",
+              "description": "100% Recycling",
+              "value": -0.263759351375985
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C1": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C2": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C3": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "C4": [
+        "Energierückgewinnung",
+        "Recycling"
+      ],
+      "D": [
+        "Energierückgewinnung",
+        "Recycling"
+      ]
+    }
+  }
+}

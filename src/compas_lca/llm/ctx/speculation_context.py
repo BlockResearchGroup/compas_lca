@@ -6,6 +6,8 @@ from pydantic import Field
 
 from compas_lca.llm.context import Context
 
+from compas_lca.enums import ConcreteStrength
+
 # ======== THICKNESS-GUESS CONTEXT ========
 """
 This is the output schema for an Agent if there are clear material names
@@ -81,39 +83,147 @@ THICKNESS_GUESS_CTX = Context(
 )
 
 
+# ======== CONCRETE ENRICHMENT ========
+
+class ConcreteStrengthResult(BaseModel):
+    strength_class: ConcreteStrength = Field(
+        ...,
+        description="Inferred EN 206 / EN 1992-1-1 compressive strength class. Must be one of the ConcreteStrength enum values."
+    )
+    explanation: str = Field(
+        ...,
+        description="1–3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied."
+    )
+
+CONCRETE_STRENGTH_PROMPT = """
+You infer a reasonable EN 206 / EN 1992-1-1 concrete compressive strength class for a building element, even if not explicitly stated.
+
+You MUST produce structured output matching the schema:
+- strength_class: one of ConcreteStrength enum values
+- explanation: 1-3 sentences (no bullet lists, no long text)
+(If confidence field exists, fill it too.)
+
+Hard constraints:
+- strength_class must be exactly one of:
+  C8/10, C12/15, C16/20, C20/25, C25/30, C30/37, C35/45, C40/50, C45/55, C50/60, C55/67, C60/75, C80/95
+- Never output a class above C40/50 unless the JSON explicitly states a higher class.
+  If you would choose above C40/50 based on inference alone, return C40/50.
+
+Procedure:
+1) Extract cues from JSON:
+   - element type/category: metadata.entity, metadata.name, metadata.object_type
+   - structural role: LoadBearing, Structural Usage, Function
+   - exposure/durability hints: IsExternal, "Foundation"/"Footing"/"Retaining"/"Basement"/"Subgrade"
+   - geometry: material layer thickness and/or Width (mm or m)
+
+2) Assign one bucket:
+   A Non-structural (finishes/screed/thin topping)
+   B Internal structural wall/slab (not foundation)
+   C External structural above-grade (weather exposure)
+   D Below-grade / foundation / retaining / ground-contact
+   E Primary highly-loaded (columns, transfer beams, long spans) if indicated
+
+3) Choose base class:
+   A -> C16/20 (or C12/15 if clearly lean/mass fill)
+   B -> C25/30
+   C -> C30/37
+   D -> C30/37
+   E -> C35/45
+
+4) Adjust by at most ±1 step unless there is strong evidence:
+   - thickness < 120mm and non-structural -> down 1 step
+   - thickness 150-250mm and structural -> keep base
+   - thickness > 300mm and (LoadBearing=True or retaining/basement cues) -> up 1 step
+   - foundation/footing/retaining/basement/subgrade implies minimum C30/37
+   - generic “Concrete - Cast In Situ” alone is not enough to go above C30/37
+
+Step ladder:
+C8/10 -> C12/15 -> C16/20 -> C20/25 -> C25/30 -> C30/37 -> C35/45 -> C40/50 -> C45/55 -> C50/60 -> C55/67 -> C60/75 -> C80/95
+
+Explain briefly which cues drove the bucket and any adjustment.
+"""
+
+CONCRETE_STRENGTH_CTX = Context(
+    instructions=CONCRETE_STRENGTH_PROMPT,
+    output_type=ConcreteStrengthResult,
+)
+
+REINFORCEMENT_RATIO_CTX = Context(
+    instructions=(
+        "placeholder"
+    ),
+    output_type=LayerGuess, # PLACEHOLDER , should be a ReinforcementRatio class with float (ratio), tool to be implemented
+)
+
 # ======== CAVITY ENRICHMENT ========
 # for stud layers, railings, gratings, etc. (to fix quantities basically)
-ENRICH_CAVITARY_ELEMENT = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # placeholder, use tool
-)
 
-# ======== CONCRETE ENRICHMENT ========
+class StudRatioResult(BaseModel):
+    stud_ratio: float = Field(
+        ...,
+        description="Inferred volumetric ratio of STUD material in a stud layer (i.e., fraction of timber or metal volume within the stud layer volume). Must be one of [0.08, 0.10, 0.12, 0.15, 0.18, 0.22, 0.25]."
+    )
+    explanation: str = Field(
+        ...,
+        description="1-3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied."
+    )
+
+STUD_RATIO_PROMPT = """
+You infer a reasonable volumetric ratio of STUD material in a stud layer
+(i.e., fraction of timber or metal volume within the stud layer volume),
+even if not explicitly stated.
+
+You MUST produce structured output matching the schema:
+- stud_ratio: exactly one of [0.08, 0.10, 0.12, 0.15, 0.18, 0.22, 0.25]
+- explanation: 1-3 sentences (no bullet lists, no long text)
+
+General meaning of levels (reference only, do not output this section):
+  0.08 → very light framing (wide spacing, minimal plates)
+  0.10 → light non-load-bearing partition
+  0.12 → typical internal partition
+  0.15 → typical load-bearing residential wall
+  0.18 → dense load-bearing or 400 mm spacing
+  0.22 → structural/shear wall with added framing
+  0.25 → very dense / double stud configuration
+
+Procedure:
+
+1) Extract cues from JSON:
+   - IsLoadBearing
+   - IsExternal
+   - ShearWall / Bracing / StructuralWall indication
+   - spacing (if stated)
+   - stud layer thickness (proxy for stud depth)
+   - explicit wording like "double stud", "dense framing", "acoustic double wall"
+   - presence of many openings
+
+2) Assign framing category:
+
+   A Light non-structural partition
+      → 0.10
+   B Standard internal partition (timber stud wall, no structural hints)
+      → 0.12
+   C Load-bearing residential wall (internal or external)
+      → 0.15
+   D Dense structural wall (400 mm spacing, bracing wall, shear wall)
+      → 0.18
+   E Heavy structural / highly detailed framing
+      → 0.22
+   F Explicit double stud or ≤300 mm spacing
+      → 0.25
+
+3) Sanity bounds:
+
+   - Typical modern residential walls should land between 0.12 and 0.18.
+   - Do not assume dense framing without explicit indication.
+   - If uncertain, choose the more conservative (lower) plausible value.
+
+Explain briefly which cues determined the category.
 """
-Just some notes: a concrete attribute speculation agent from the building
-element side would be nice. for instance, if IFC data has a
-concrete descriptor, but doesnt specify the strength class, then
-it might be good to take an educated guess. A generic slab will have enough
-compressive strength if the concrete is C20/25, and anything above would be overkill.
-Therefore it might be good to specifically instruct an agent to fill in the blanks
 
--> Should be applied to other material facets aswell.
-"""
-
-ENRICH_CONCRETE_STRENGTH = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # str / enum, use tool
-)
-
-ENRICH_REINFORCEMENT_RATIO = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # float, use tool
+STUD_RATIO_CTX = Context(
+    instructions=STUD_RATIO_PROMPT,
+    output_type=StudRatioResult,
 )
 
 
@@ -123,7 +233,7 @@ ENRICH_WOOD_PLACEMENT = Context(
     instructions=(
         "placeholder"
     ),
-    output_type=LayerGuess, # # enum, use tool
+    output_type=LayerGuess, # bool + explanation, use tool
 )
 
 # If certain wood is used for loadbearing or non-loadbearing
@@ -131,7 +241,7 @@ ENRICH_WOOD_STRUCTURAL = Context(
     instructions=(
         "placeholder"
     ),
-    output_type=LayerGuess, # # enum, use tool
+    output_type=LayerGuess, # bool + explanation, use tool
 )
 
 # ======== METALLIC ENRICHMENT ========
@@ -144,4 +254,3 @@ ENRICH_CARBON_STEEL = Context(
     ),
     output_type=LayerGuess, # bool, use tool (or maybe only additional context in instruction prompt)
 )
-

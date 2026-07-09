@@ -26,10 +26,82 @@ class Common(BaseModel):
     entry_type: EntryType = Field(
         ...,
         description=dedent("""
-        Classify the dataset as a MATERIAL (homogeneous substance, monolithic unit, or uniform layer), 
-        COMPONENT (assembled product or system-level element), or UNKNOWN if insufficient evidence.
+        Classify the dataset as MATERIAL, COMPONENT, or UNKNOWN.
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        DEFAULT ASSUMPTION: Most products are MATERIALS unless proven otherwise.
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        DEFINITIONS:
+        • MATERIAL: A single homogeneous substance or uniform layer defined by physical/chemical nature.
+          Includes monolithic integrated composites (reinforced concrete, fiber-cement, WPC, insulation) that are
+          NOT installed as functional units by themselves.
+          Single glass panes = MATERIAL (unless multi-pane IGU with spacers/gas fill).
+          
+        • COMPONENT: A manufactured assembly or device installed as a functional building element.
+          Must involve MULTIPLE distinct materials or separable parts.
+          Examples: An entire roof without layered materials, window units (frame+glass+seals), stairs that are not made out of a single material, 
+          door assemblies, ceiling systems (tiles+grid), sandwich panels (metal facing+insulation core), ETICS systems, PV panels, etc.
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        MATERIAL KEYWORDS — If product is made of ONE of these materials → 'material':
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        These products are ALWAYS materials (even if shaped as profiles/sections/frames):
+
+        • METALS: aluminum, aluminium, steel, steel sheet, blech, stainless steel, copper, zinc, brass, bronze, iron
+          → "Sheet Metal / Blech" = material (metal sheet)
+          → "Aluminium casement" = material (single metal, shaped)
+          → "Steel beam" = material (single metal)
+          → "Aluminum profile for windows" = material (NOT component)
+        
+        • POLYMERS: PVC, PE, PP, EPS, XPS, PUR, PIR, polyurethane, EPDM, polyester, acrylic
+          → "PVC window profile" = material (single polymer)
+          → "EPS insulation board" = material
+        
+        • GLASS (single panes): float glass, laminated glass, toughened glass, safety glass
+          → "Float glass 6mm" = material
+          → "Laminated safety glass" = material
+        
+        • MINERALS: gypsum, plaster, lime, ceramic, brick, tile, stone, mineral wool, glass wool
+          → "Mineral wool batt" = material
+          → "Gypsum board" = material
+        
+        • WOOD/BIOBASED: timber, plywood, OSB, MDF, CLT, hemp, flax, cork, sheep wool
+          → "Hemp insulation" = material
+          → "CLT panel" = material
+        
+        • CONCRETE: precast, ready-mixed, aerated concrete, reinforced concrete
+          → "Precast concrete panel" = material (reinforcement is integral)
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        COMPONENT SIGNALS — ONLY classify as 'component' if MULTIPLE materials combined:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        REQUIRED: Product must explicitly combine 2+ DIFFERENT material families.
+        
+        • "with ... facing/cladding/core": "PU boards with aluminium facing" → component
+        • "sandwich", "composite panel": Metal + insulation core → component
+        • "ETICS", "WDVS": Insulation + adhesive + mesh + render → component
+        • "IGU", "insulating glass unit": Glass + spacer + gas fill → component
+        • Complete assemblies: "window unit", "door assembly", "ceiling system" → component
+        
+        ═══════════════════════════════════════════════════════════════════════════════
+        NAMING TRAPS — These words ALONE do NOT make it a component:
+        ═══════════════════════════════════════════════════════════════════════════════
+        
+        "frame", "section", "profile", "casement", "unit", "system", "module", "device",
+        "structure", "block", "element", "panel", "fitting"
+        
+        → Always check: Is it made of ONE material family or MULTIPLE?
+        → If ONE material (even shaped/formed) → material
+        → If MULTIPLE distinct materials combined → component
+        
+        DECISION ORDER:
+        1) Single material (even if shaped as profile/frame/section) → `material`
+        2) Multiple distinct material families explicitly combined → `component`
+        3) Insufficient or contradictory information → `unknown`
         """).strip(),
-        examples=["material", "component", "unknown"]
     )
     name: str = Field(
         ...,
@@ -54,7 +126,6 @@ class Common(BaseModel):
         4) If the dataset does not explicitly state structural intent, but the generic material class is one that is routinely used in 
         structural applications (e.g., ready-mixed concrete, structural-grade timber), classify as "either".
         """).strip(),
-        examples=["loadbearing", "non_loadbearing", "either"]
     )
     placement: Optional[InteriorExteriorType] = Field(      # should a value be enforced?
         None,
@@ -65,28 +136,25 @@ class Common(BaseModel):
         Decision order (apply the first rule that matches):
         1) If the dataset explicitly states "interior use", "for indoor applications", or similar wording → set 'interior'.
         2) If the dataset explicitly states "exterior use", "outdoor application", or refers to weather, UV, or moisture exposure classes → set 'exterior'.
-        3) If the dataset explicitly says the product/material is suitable for both indoor and outdoor use → set 'either'.
+        3) If the dataset explicitly says the product/material is used both indoor and outdoor → set 'either'.
         4) If placement can be reliably inferred from the product type or context (implicit cues), apply:
         - **Exterior (implicit)**: façade systems, roof membranes, exterior paints/coatings, cladding, sealants, external insulation (ETICS),
-            drainage layers, exterior-grade timber, concrete exposed to weather, roofing sheets, paving materials, exterior windows and doors.
-        - **Interior (implicit)**: interior paints/coatings, gypsum boards, plasters, screeds, interior flooring, carpets, wallpapers, ceiling panels,
-            furniture materials, MEP components located inside conditioned spaces.
+            concrete exposed to weather, roofing sheets, paving materials, exterior windows and doors.
+        - **Interior (implicit)**: interior paints/coatings, gypsum boards, screeds, interior flooring, carpets, wallpapers, ceiling panels,
         5) If none of the above apply and placement cannot be confidently inferred → leave empty.
         """).strip(),
-        examples=["interior", "exterior", "either"]
     )
     density: Optional[DensityFloat] = Field(
         None,
-        ge=0,
         description=dedent("""
             The volumetric density of the material/component, expressed in kilograms per cubic metre (kg/m³).
             If the source dataset specifies a range, compute and assign the average value.
+            Only extract if it is explicitly stated in the input data. Do not infer.
         """).strip(),
         examples=[24.0, 350.8, 2850.0]
     )
     areal_density: Optional[ArealDensityFloat] = Field(
         None,
-        ge=0,
         description=dedent("""
             The numeric value of the areal (surface) density of the material/component, expressed in kilograms per square metre (kg/m²).
             Use this for materials where mass is reported per area.
@@ -96,7 +164,6 @@ class Common(BaseModel):
     )
     thickness: Optional[ThicknessFloat] = Field( # removed "thickness source", speculated values are traced in enrichment module logs
         None,
-        ge=0,
         description=dedent("""
         The numeric value of the thickness (in milimeters) of the material or component dataset.
         If the source dataset specifies a range, compute and assign the average value.
@@ -105,7 +172,6 @@ class Common(BaseModel):
     )
     thermal_conductivity: Optional[LambdaFloat] = Field(
         None,
-        ge=0,
         description=dedent("""
         The float value of the thermal conductivity (lambda) of the material or component in W/mk.
         If the source dataset specifies a range, compute and assign the average value.
@@ -114,7 +180,6 @@ class Common(BaseModel):
     )
     u_value: Optional[UValueFloat] = Field(
         None,
-        ge=0,
         description=dedent("""
         The float value of the U-Value of the component in W/m^2K.
         If the source dataset specifies a range, compute and assign the average value.
@@ -142,7 +207,7 @@ class Common(BaseModel):
     manufacturer: Optional[str] = Field(
         None,
         description=dedent("""
-        The manufacturer or brand name, taken verbatim from the source dataset if available.
+        The manufacturer, company or brand name, taken verbatim from the source dataset if available.
         If no manufacturer is specified, leave this field as null (None).
         Careful: do not mistake the "owner of the dataset" with the manufacturer, they are not always the same.
         """).strip(),

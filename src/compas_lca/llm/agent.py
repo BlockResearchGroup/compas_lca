@@ -79,7 +79,7 @@ class RunMetadata:
             "total_cost": total_cost,
         }
 
-@dataclass # Should this be a BaseModel instead?
+@dataclass
 class Run:
     result: Any
     metadata: RunMetadata

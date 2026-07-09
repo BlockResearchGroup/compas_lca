@@ -1,0 +1,1545 @@
+{
+  "id": "6f7c41dd-e3c0-4647-a01c-f5978d080218",
+  "item_core": {
+    "core_id": "07ce2e7b-7c06-41d4-8425-706eb2f8fc01",
+    "entry_type": "material",
+    "name": "blaugelb insulation panel EPS",
+    "loadbearing": "non_loadbearing",
+    "placement": "exterior",
+    "density": 150.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Meesenburg Grohandel KG",
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "polymeric",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "window",
+        "door",
+        "wall",
+        "facade"
+      ],
+      "insulation_info": [
+        "thermal",
+        "rigid"
+      ],
+      "material_facet": {
+        "polymeric_type": "expanded_polystyrene",
+        "polymeric_form": "board",
+        "recycled_content": true
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "34e9bbb7-a3c6-42fb-9b3d-0341e79def17",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/34e9bbb7-a3c6-42fb-9b3d-0341e79def17?version=00.10.000",
+    "registration_number": "EPD-MEN-20230040-IBE1-DE",
+    "location_code": "EU-27",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Meesenburg GmbH & Co. KG",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 509.506889746546,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.819312567308464
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.409656283654232
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 111.450419775469
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 12.8933288881178
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -263.933780406103
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -944.138852597917
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 37.84875,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 547.355639746546,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.819312567308464
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.409656283654232
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 111.450419775469
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 12.8933288881178
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -263.933780406103
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -944.138852597917
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 9434.8355879387,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 11.8678959777913
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 5.93394798889566
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 7100.77514773552
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 6954.73050554035
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -11333.4749951603
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -3422.35287793898
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 6911.1714,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -6900.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -6900.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 16346.0069879387,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 11.8678959777913
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 5.93394798889566
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 200.775147735519
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 54.7305055403536
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -11333.4749951603
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -3422.35287793898
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 0.39356874102632,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 155.475
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 1.45586532190555,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.000946452505483024
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.000473226252741512
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.106317050308043
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.960958705263216
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.7630315324086
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.907555359665935
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 2.06901653008276e-06,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 6.279543411e-11
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 3.139771706e-11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 1.737355350403e-08
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 5.1497742541e-09
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -7.3776813389836e-07
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -4.6258242688434e-07
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 10.5574020320774,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00193357558673388
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.000966787793366942
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.151255444090833
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 1.82519846061366
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -2.6712047285087
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -1.73284657004154
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0734659587575484,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 2.20302355822282e-05
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 1.10151177911141e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.032092293558403
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00331167526652738
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0420761826493242
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.270745898274192
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 150.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 909.043388690147
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 1619.34147785868
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.857204229806252,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00300935340347047
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00150467670173524
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0242842345036553
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0442629175611832
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.501066958224843
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.265336293102391
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 604.083958081696,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.908913738517654
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.454456869258827
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 11.1653275029284
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 505.839115292189
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -358.230631682199
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -202.193482213018
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 6.56668747068934,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0996345784322612
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0150919321368351
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.77807440834936
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -1.03223226112151
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 597.430831928016,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.902845665979008
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.451422832989504
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 11.063353116249
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 505.823531193698
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -356.418191258105
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -201.139053768665
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0864386829906821,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00606807253864609
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00303403626932305
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00233980824717263
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.000492166354008473
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.0343660157444673
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.0221961832311305
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.272540047938112,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00137601789581447
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.000688008947907236
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00544921547227067
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00965232510921512
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.137065383377098
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.0718969204155704
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 0.00722492971540789,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 3.21684584816368e-06
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 1.60842292408184e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 3.22780027071273e-05
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 4.68473844152936e-06
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.000430202703537027
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.000278039129943058
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 2.69854199329007,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0154112343299147
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00770561716495734
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0571683467321835
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.207898009143284
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -1.47822497609059
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.769924411307454
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 5.0802235319e-09,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 8.842987e-14
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 4.421493e-14
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 1.6195553284e-10
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 2.009291126e-11
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -4.723539291e-10
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -1.36671540069e-09
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 5.57102692099788,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.00270125336700101
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0013506266835005
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0147290722262873
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.0284528065423594
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -0.520942328259354
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -0.201178505001276
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 16184.0964054488,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 11.8210872318908
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 5.91054361594541
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 200.723833146878
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 54.6864290162275
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -11315.0733020427
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -3421.89046281103
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 6.2002941320299e-05,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 9.076199320788e-08
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 4.538099660394e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 3.01461327718891e-06
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 4.8648518182127e-07
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -4.15951369237155e-05
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -3.04540007523654e-05
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 18.0018720469111,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 0.0100751014812858
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 0.00503755074064288
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": 2.52333628931922
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": 41.013242959103
+            }
+          ],
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "100 % Recycling",
+              "value": -37.709496959078
+            },
+            {
+              "code": "S2",
+              "description": "100 % Verbrennung",
+              "value": -21.5292614195823
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C2": [
+        "S1",
+        "S2"
+      ],
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1243 @@
+{
+  "id": "4d32e710-f343-4581-826f-7f1f87b3458b",
+  "item_core": {
+    "core_id": "674c6683-e281-416a-91f8-424711db8431",
+    "entry_type": "material",
+    "name": "Foam concrete insulation boards",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 80.0,
+    "areal_density": null,
+    "thickness": null,
+    "thickness_source": "from_data",
+    "thermal_conductivity": 0.038,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": null,
+    "provenance": null,
+    "production_location": null,
+    "facet": {
+      "material_type": "concrete",
+      "functional_types": [
+        "insulation"
+      ],
+      "application_areas": [
+        "wall"
+      ],
+      "insulation_info": [
+        "thermal",
+        "rigid"
+      ],
+      "material_facet": {
+        "concrete_type": "foamed_concrete",
+        "concrete_form": "board",
+        "pre_stressed": null,
+        "binder_type": "other",
+        "cement_type": "CEM I",
+        "strength_class": null,
+        "slump_class": null,
+        "flow_class": null,
+        "xc": null,
+        "xd": null,
+        "xs": null,
+        "xf": null,
+        "xa": null
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m3"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "9b619143-9ea3-4573-9839-b6ebd75c71a1",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/9b619143-9ea3-4573-9839-b6ebd75c71a1?version=20.24.090",
+    "registration_number": null,
+    "location_code": "DE",
+    "reference_year": 2023,
+    "valid_until": 2026,
+    "dataset_owner": "Sphera Solutions GmbH",
+    "compliance_system_name": [
+      "EN 15804+A2 (EF 3.1)"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 120.703117103339,
+          "A4": 1.17929832473273,
+          "A5": 52.2631062636131,
+          "B1": 0.0,
+          "C2": 0.827610626777204,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.428110961660389
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.428110961660389
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -48.2691627335427
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.964297267337683
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 51.66,
+          "A4": 0.0,
+          "A5": -51.66,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 172.363117103339,
+          "A4": 1.17929832473273,
+          "A5": 0.603106263613128,
+          "B1": 0.0,
+          "C2": 0.827610626777204,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.428110961660389
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.428110961660389
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -48.2691627335427
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.964297267337683
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 506.66329749011,
+          "A4": 10.8664235457874,
+          "A5": 71.0807290672969,
+          "B1": 0.0,
+          "C2": 7.62586311957486,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 18.9635766077292
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 18.9635766077292
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -531.79113883263
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -84.1578362944181
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 83.95,
+          "A4": 0.0,
+          "A5": -69.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -14.95
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -14.95
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 590.61329749011,
+          "A4": 10.8664235457874,
+          "A5": 2.08072906729689,
+          "B1": 0.0,
+          "C2": 7.62586311957486,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 4.01357660772922
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 4.01357660772922
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -531.79113883263
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -84.1578362944181
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 14.3,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 63.304898157129
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 63.304898157129
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.111509113111968,
+          "A4": 0.00112128073111383,
+          "A5": 0.0248352158670642,
+          "B1": 0.0,
+          "C2": 0.000786894909632515,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.00119583929333597
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.00119583929333597
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.0262711470542333
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00730879684648684
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 2.4233917316957e-07,
+          "A4": 4.6282585419e-10,
+          "A5": 1.30500805949e-09,
+          "B1": 0.0,
+          "C2": 3.2480296736e-10,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 5.8073492798e-10
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 5.8073492798e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -1.1582199331078e-07
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -2.09770991169e-09
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.963759411836328,
+          "A4": 0.00179932729768424,
+          "A5": 0.130949084484245,
+          "B1": 0.0,
+          "C2": 0.00126273595186467,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.00110359676391248
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.00110359676391248
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.501785520915116
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -2.66029483521039
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.0101390236414125,
+          "A4": 1.46709685235976e-05,
+          "A5": 9.36390782784366e-05,
+          "B1": 0.0,
+          "C2": 1.02958252382789e-05,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 5.05060681169728e-05
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 5.05060681169728e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.00640882390850828
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00230134861411552
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 77.604898157129
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 77.604898157129
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 16.4763115938855,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 33.9792778349417,
+          "B1": 0.0,
+          "C2": 0.0,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.0639803204111125,
+          "A4": 0.000938600424434001,
+          "A5": 0.00166003480055341,
+          "B1": 0.0,
+          "C2": 0.000658693113750691,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0010735719227899
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0010735719227899
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.0265897444017949
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00593233971807264
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 45.0184799221588,
+          "A4": 0.867955207998032,
+          "A5": 10.3955888674484,
+          "B1": -1.4809,
+          "C2": 0.609115555106543,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.220044336300083
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.220044336300083
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -36.468016467291
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -6.38539527518134
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": -5.48096572451954,
+          "A4": -0.0232819113584481,
+          "A5": 5.58872256488009,
+          "B1": 0.0,
+          "C2": -0.0163388320392158,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.00387879052072325
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00387879052072325
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.113998739262527
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00186159534845792
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 50.4342166571081,
+          "A4": 0.875202447812175,
+          "A5": 4.80679855683057,
+          "B1": -1.4809,
+          "C2": 0.614201539339028,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.221022564778821
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.221022564778821
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -36.3457453352509
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -6.38144628538132
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.0652289895702646,
+          "A4": 0.0160346715443058,
+          "A5": 6.77457377326395e-05,
+          "B1": 0.0,
+          "C2": 0.0112528478067304,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.00290056204198602
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.00290056204198602
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.00827239277758452
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00208739445156152
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.0201046031997423,
+          "A4": 0.000313035001298769,
+          "A5": 0.000389656216498657,
+          "B1": 0.0,
+          "C2": 0.000219682406219641,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.000494201224183931
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.000494201224183931
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.0109289196777992
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00201136997510335
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 9.03714981760936e-05,
+          "A4": 2.2483219500909e-06,
+          "A5": 2.5824608894125e-07,
+          "B1": 0.0,
+          "C2": 1.57783242737446e-06,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 8.3451831000712e-07
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 8.3451831000712e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -2.38725214748284e-05
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -1.00698065727472e-06
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.22058399512279,
+          "A4": 0.00389929875324353,
+          "A5": 0.00730221357964445,
+          "B1": 0.0,
+          "C2": 0.00273645863602395,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.00546428179996371
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.00546428179996371
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.119751949490086
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.0220625780373848
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "B1": [],
+          "C2": [],
+          "C3": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 2.0854186441e-10,
+          "A4": 1.9478304e-13,
+          "A5": 1.0648541e-12,
+          "B1": 0.0,
+          "C2": 1.3669528e-13,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 3.8748353e-13
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 3.8748353e-13
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -9.850930605e-11
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -1.14474456e-12
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.0557829018062578,
+          "A4": 0.000885567978537543,
+          "A5": 0.00106928700559433,
+          "B1": 0.0,
+          "C2": 0.000621475884770194,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.00136756260274536
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.00136756260274536
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.0307429881266078
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.00573653478847543
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 590.606225677992,
+          "A4": 10.8662353762572,
+          "A5": 2.08070919621844,
+          "B1": 0.0,
+          "C2": 7.62573106553933,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 4.01351742666544
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 4.01351742666544
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -531.78704836175
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -84.1572617366388
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 5.1135517170508e-05,
+          "A4": 1.4111240963474e-07,
+          "A5": 1.005771322783e-08,
+          "B1": 0.0,
+          "C2": 9.90301837411e-08,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 2.2485770745799e-07
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 2.2485770745799e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -1.31336538244932e-06
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -7.70110867549e-08
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 1.83535027956712,
+          "A4": 0.00588672714826255,
+          "A5": 1.05773069088361,
+          "B1": 0.0,
+          "C2": 0.00413120059841015,
+          "C3": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": 0.0410274526587133
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": 0.0410274526587133
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "Stoffliches Recycling als Füllstoff in der Schaumbetonherstellung",
+              "value": -0.281663080192739
+            },
+            {
+              "code": "S2",
+              "description": "Stoffliches Recycling als Verfüllmaterial",
+              "value": -0.0348524347196715
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}

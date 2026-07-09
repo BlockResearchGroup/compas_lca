@@ -58,7 +58,7 @@ class ItemMetadata(BaseModel):
     -----------
     - Check for any preexisting `dataset_source` and `compliance_system_name` entries
       as to not create duplicates or inconsistent naming.
-    - Keep any new `dataset_source` vale concise but specific enough to disambiguate 
+    - Keep any new `dataset_source` value concise but specific enough to disambiguate 
       among databases and EPD versions. 
     - Use `location_code`, `reference_year`, and `valid_until` together to clarify
       representativeness in space and time.

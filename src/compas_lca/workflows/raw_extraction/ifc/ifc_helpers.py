@@ -2,8 +2,6 @@ import json
 
 import re
 
-from collections import OrderedDict
-
 from pathlib import Path
 
 from typing import Any
@@ -15,12 +13,12 @@ from typing import Optional
 from typing import Dict
 from typing import Tuple
 
-from pydantic import BaseModel
-from pydantic import ConfigDict
-
 from compas_lca.model.lca_element import LcaElement
+
 from compas_lca.model.metadata import ModelMetadata
+
 from compas_lca.model.descriptor import ElementDescriptor
+
 from compas_lca.matching_core.core import MatchingCore
 
 from compas_lca.helpers import load_json
@@ -30,51 +28,25 @@ from compas_lca.helpers import load_json
 # ===============
 
 def get_single_ifc(directory: Path) -> Path:
-    """
-    Find exactly one IFC file in `directory` (non-recursive).
-    - Accepts case-insensitive `.ifc` extension.
-    Raises helpful errors if zero or multiple are found.
-    """
+    """ Find exactly one IFC file in `directory` (non-recursive). """
     if not directory.exists() or not directory.is_dir():
         raise NotADirectoryError(f"Directory does not exist: {directory}")
-
     # Only scan files directly in this folder
     candidates = [
         p for p in directory.iterdir()
         if p.is_file() and p.suffix.lower() == ".ifc"
     ]
-
     if not candidates:
         raise FileNotFoundError(f"No .ifc files found in {directory}")
-
     if len(candidates) > 1:
         details = "\n  - " + "\n  - ".join(str(p) for p in candidates)
         raise ValueError(
             f"Expected exactly one .ifc file but found {len(candidates)} in {directory}:{details}"
         )
-
     return candidates[0]
 
 def get_classification(element, classification_rels):
-    """
-    Extracts classification information associated with an IFC element using IfcRelAssociatesClassification relationships.
-
-    Parameters
-    ----------
-    element : compas_ifc.entities.element.IfcBuildingElement
-        The IFC element whose classification information should be extracted.
-    rel_classifications : compas_ifc.model.get_entities_by_type("IfcRelAssociatesClassification")
-        A list of `IfcRelAssociatesClassification` relationship instances to search through.
-
-    Returns
-    -------
-    list[dict] or str
-        A list of dictionaries containing classification information for the element, where each dictionary includes:
-        - IfcEntity: The IFC entity type of the classification reference.
-        - Identification: The classification code or identifier.
-        - System Name: The name of the classification system or source.
-        - Name: The classification name or title.
-    """
+    """ Extracts classification information associated with an IFC element using IfcRelAssociatesClassification relationships. """
     classifications = []
     for rel in classification_rels:
         if element in rel.RelatedObjects:
@@ -92,39 +64,23 @@ def get_classification(element, classification_rels):
 
 
 def get_hierarchy(element, aggregates_rels):
-    """
-    Extracts hierarchical decomposition information for a given IFC element.
-
-    Parameters
-    ----------
-    element : compas_ifc.entities.element.IfcBuildingElement
-        The IFC element whose hierarchical relationships are being analyzed.
-    aggregates : compas_ifc.model.get_entities_by_type("IfcRelAggregates")
-        A list of `IfcRelAggregates` relationship instances to search through.
-
-    Returns
-    -------
-    tuple[dict, list[dict]]
-        A tuple containing:
-        - **decomposes** (`dict`): Information about the parent element that this element decomposes into.
-        - **is_decomposed_by** (`list[dict]`): A list of child elements that this element decomposes into.
-    """
-
+    """ Extracts hierarchical decomposition information for a given IFC element. """
     decomposes = {}
     is_decomposed_by = []
     for rel in aggregates_rels:
         if element in rel.RelatedObjects:
             decomposes = {
-                "Name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
-                "IfcEntity": type(rel.RelatingObject).__name__,
-                "GlobalId": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
+                "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
+                "entity": type(rel.RelatingObject).__name__,
+                "eid": str(rel.RelatingObject.id()),
+                "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
             }
         if element == rel.RelatingObject:
             is_decomposed_by.extend([
                 {
-                    "Name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
-                    "IfcEntity": type(obj).__name__,
-                    "GlobalId": obj.GlobalId if hasattr(obj, "GlobalId") else None
+                    "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
+                    "entity": type(obj).__name__,
+                    "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
                 }
                 for obj in rel.RelatedObjects
             ])
@@ -159,32 +115,66 @@ def clean_value(value):
         return value  # Return as-is if it's already clean
     return value  # Return numbers/booleans as-is
 
-Bucket = Literal["elements", "multilayers", "multimaterials"]
+from typing import Optional, Dict, Any
 
-def classify_material_bucket(material_data) -> Optional[Bucket]:
+def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
     """
-    Return which bucket the element should go to based on its material structure:
-      - "multilayers"     → IfcMaterialLayerSet/IfcMaterialLayerSetUsage with >1 layers
-      - "multimaterials"  → IfcMaterialList with >1 materials
-      - None              → single material/layer or unknown structure
+    Decide bucket based on material structure.
+
+    Returns one of:
+      - "no_material"
+      - "multi_layer"
+      - "multi_material"
+      - "single_material"
     """
-    if not material_data:
-        return None
+    if not material_data or not isinstance(material_data, dict):
+        return "no_material"
 
-    entity = getattr(material_data, "entity", None)
-    layers = getattr(material_data, "material_layers", None) or []
-    mats   = getattr(material_data, "materials", None) or []
+    entity = material_data.get("entity")
+    layers = material_data.get("material_layers") or []
+    mats   = material_data.get("materials") or []
 
-    if entity in {"IfcMaterialLayerSetUsage", "IfcMaterialLayerSet"} and len(layers) > 1:
-        return "multilayers"
-    if entity == "IfcMaterialList" and len(mats) > 1:
-        return "multimaterials"
+    # Multi-layer: keep your original rule (>1 layer)
+    if entity in {"IfcMaterialLayerSetUsage", "IfcMaterialLayerSet"}:
+        return "multi_layer" if len(layers) > 1 else "single_material"
 
-    return None
+    # Multi-material: keep your original rule (>1 material)
+    if entity == "IfcMaterialList":
+        return "multi_material" if len(mats) > 1 else "single_material"
 
-def write_bytes(path: Path, blob: bytes) -> None:
-    with path.open("wb") as f:
-        f.write(blob)
+    # Plain single material
+    if entity == "IfcMaterial":
+        return "single_material"
+
+    # Unknown/unsupported material entity:
+    # choose conservative behavior; could also return "no_material" instead.
+    return "single_material"
+
+def _strip_none(x):
+    """Recursively remove keys with None values. Keeps empty dicts/lists as-is."""
+    if isinstance(x, dict):
+        return {k: _strip_none(v) for k, v in x.items() if v is not None}
+    if isinstance(x, list):
+        return [_strip_none(v) for v in x]
+    return x
+
+def write_json(path: Path, data: Any, *, exclude_none: bool = False, indent: int = 2) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = _strip_none(data) if exclude_none else data
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=indent)
+
+def inverse_list(obj, attr_name):
+    """Return inverse attribute as an iterable, whether it's a value or a callable."""
+    val = getattr(obj, attr_name, None)
+    if val is None:
+        return ()
+    if callable(val):
+        try:
+            val = val()
+        except TypeError:
+            return ()
+    return val or ()
 
 
 # =======================
@@ -324,185 +314,107 @@ def _to_plain_dict(obj: Any) -> Dict[str, Any]:
         return obj.dict(exclude_none=True, by_alias=True)
     if isinstance(obj, dict):
         return obj
-    # last resort: JSON round-trip if it's something serializable
     try:
         return json.loads(json.dumps(obj))
     except Exception as e:
         raise TypeError(f"Cannot convert layer object of type {type(obj)} to dict") from e
 
-class IfcTargetLayer(BaseModel):
-    """Specialized container that highlights layer (from IfcMaterialLayerSet) and minimal
-    element metadata (for precision of inference, i.e., for application area, etc.)"""
-    model_config = ConfigDict(extra="forbid", populate_by_name=True)
-    target_layer: Optional[Dict] = None
-    parent_element_context: Optional[Dict] = None
-
 def write_multilayer_pkg(
     root: Path,
     gid: str,
-    element_blob: bytes,
+    element_data: dict,
     layers: List[Any],
-    metadata: dict
+    metadata: dict,
+    psets: Optional[dict] = None,
+    *,
+    exclude_none: bool = False,
 ) -> None:
-    """
-    Writes a multilayer element as a folder:
-      root/{gid}/
-        {gid}.json
-        L1.json, L2.json, ...
-
-    Each L{i}.json adheres to IfcTargetLayer schema:
-      {
-        "target_layer": { ...layer dict... },
-        "parent_element_context": { ...metadata... }
-      }
-    """
     pkg_dir = root / gid
     pkg_dir.mkdir(parents=True, exist_ok=True)
-    # main element JSON
-    write_bytes(pkg_dir / f"{gid}.json", element_blob)
+
+    # Write the main element JSON (preferred naming: {gid}.json)
+    write_json(pkg_dir / f"{gid}.json", element_data, exclude_none=exclude_none)
+
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
-    meta_filtered = {"entity": meta_dict.get("entity")} if "entity" in meta_dict else {}
-    # write each layer wrapped in IfcTargetLayer
-    for i, layer in enumerate(layers, start=1):
-        layer_dict = _to_plain_dict(layer)
-        wrapped = IfcTargetLayer(
-            target_layer=layer_dict,
-            parent_element_context=meta_filtered,
-        )
-        layer_blob = wrapped.model_dump_json(exclude_none=True, by_alias=True, indent=2).encode("utf-8")
-        write_bytes(pkg_dir / f"L{i}.json", layer_blob)
+    psets_dict = _to_plain_dict(psets) if psets is not None else {}
 
+    base_parent_context: dict = {}
+    if "name" in meta_dict:
+        base_parent_context["parent_element_name"] = meta_dict["name"]
+    if "entity" in meta_dict:
+        base_parent_context["entity"] = meta_dict["entity"]
+    if psets_dict:
+        base_parent_context["parent_element_properties"] = psets_dict
 
-class IfcTargetMaterial(BaseModel):
-    """Specialized container that highlights material (from IfcMaterialList) and minimal
-    element metadata (for precision of inference, i.e., for application area, etc.)"""
-    model_config = ConfigDict(extra="forbid", populate_by_name=True)
-    target_material: Optional[Dict] = None
-    parent_element_context: Optional[Dict] = None
+    layer_dicts: list[dict] = []
+    for layer in layers:
+        d = _to_plain_dict(layer) or {}
+        layer_dicts.append(dict(d))
+
+    for i, layer_dict in enumerate(layer_dicts, start=1):
+        other_layers = [d for j, d in enumerate(layer_dicts) if j != (i - 1)]
+        parent_context_for_file = dict(base_parent_context)
+        parent_context_for_file["other_layers"] = other_layers
+
+        wrapped = {
+            "target_layer": layer_dict,
+            "parent_element_context": parent_context_for_file,
+        }
+
+        write_json(pkg_dir / f"{gid}_L{i}.json", wrapped, exclude_none=exclude_none)
+
 
 def write_multimaterial_pkg(
     root: Path,
     gid: str,
-    element_blob: bytes,
+    element_data: dict,
     materials: List[Any],
-    metadata: dict
+    metadata: dict,
+    psets: Optional[dict] = None,
+    *,
+    exclude_none: bool = False,
 ) -> None:
-    """
-    Writes an element with material list as a folder:
-      root/{gid}/
-        {gid}.json
-        M1.json, M2.json, ...
-
-    Each M{i}.json adheres to the IfcTargetMaterial schema:
-      {
-        "target_material": { ...material dict... },
-        "parent_element_context": { ...metadata... }
-      }
-
-    Args:
-        root: Base directory where the multimaterial folder will be created.
-        gid: GlobalId of the element (used as folder name and file name).
-        element_blob: JSON bytes of the full element.
-        materials: List of IfcMaterial models (or dict-like objects).
-        metadata: Metadata to include as 'parent_element_context'.
-    """
     pkg_dir = root / gid
     pkg_dir.mkdir(parents=True, exist_ok=True)
 
     # Write the main element JSON
-    write_bytes(pkg_dir / f"{gid}.json", element_blob)
+    write_json(pkg_dir / f"{gid}.json", element_data, exclude_none=exclude_none)
+
     meta_dict = _to_plain_dict(metadata) if metadata is not None else {}
-    meta_filtered = {"entity": meta_dict.get("entity")} if "entity" in meta_dict else {}
+    psets_dict = _to_plain_dict(psets) if psets is not None else {}
 
-    # Wrap and write each material
-    for i, mat in enumerate(materials, start=1):
-        mat_dict = _to_plain_dict(mat)
+    # Same base parent context as multilayer
+    base_parent_context: Dict[str, Any] = {}
+    if "name" in meta_dict:
+        base_parent_context["parent_element_name"] = meta_dict["name"]
+    if "entity" in meta_dict:
+        base_parent_context["entity"] = meta_dict["entity"]
+    if psets_dict:
+        base_parent_context["parent_element_properties"] = psets_dict
 
-        wrapped = IfcTargetMaterial(
-            target_material=mat_dict,
-            parent_element_context=meta_filtered,
-        )
+    # Preconvert materials to dicts (like layers)
+    material_dicts: List[dict] = []
+    for mat in materials:
+        d = _to_plain_dict(mat) or {}
+        material_dicts.append(dict(d))
 
-        mat_blob = wrapped.model_dump_json(exclude_none=True, by_alias=True, indent=2).encode("utf-8")
-        write_bytes(pkg_dir / f"M{i}.json", mat_blob)
+    for i, mat_dict in enumerate(material_dicts, start=1):
+        other_materials = [d for j, d in enumerate(material_dicts) if j != (i - 1)]
 
+        parent_context_for_file = dict(base_parent_context)
+        parent_context_for_file["other_materials"] = other_materials
+
+        wrapped = {
+            "target_material": mat_dict,
+            "parent_element_context": parent_context_for_file,
+        }
+        write_json(pkg_dir / f"{gid}_M{i}.json", wrapped, exclude_none=exclude_none)
 
 
 # =================================
 # PIPELINE + MODEL METADATA HELPERS
 # =================================
 
-
-NO_OBJTYPE = "UNSPECIFIED_OBJECTTYPE"
-
-def norm_objtype(obj_type: Optional[str]) -> str:
-    return (obj_type or NO_OBJTYPE).strip() or NO_OBJTYPE
-
-def init_rep_index() -> Dict[str, Dict[str, Any]]:
-    # "<ObjectType>": {"representative": {...} | None, "members": [ {...}, ... ]}
-    return {}
-
-def update_rep_index(index: Dict[str, Dict[str, Any]],
-                      obj_type: Optional[str],
-                      name: Optional[str],
-                      gid: str) -> bool:
-    """
-    Update the index with this element.
-    Returns True if this element became the representative for its object_type.
-    """
-    key = norm_objtype(obj_type)
-    member = {"name": name, "global_id": gid}
-    entry = index.setdefault(key, {"representative": None, "members": []})
-    entry["members"].append(member)
-    if entry["representative"] is None:
-        entry["representative"] = member
-        return True
-    return False
-
-def _finalize_rep_index(index: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
-    """
-    {
-      "ObjectTypes": { ...sorted by members count desc, singles last... },
-      "UnspecifiedObjectType": { "members": [...] }
-    }
-    """
-    unspecified_members = index.get(NO_OBJTYPE, {}).get("members", [])
-
-    # Split into multi-member and single-member buckets (exclude unspecified)
-    items = [(k, v) for k, v in index.items() if k != NO_OBJTYPE]
-    multi = [(k, v) for k, v in items if len(v.get("members", [])) > 1]
-    singles = [(k, v) for k, v in items if len(v.get("members", [])) <= 1]
-
-    # Sort multi-member by size DESC (tie-breaker: name ASC)
-    multi_sorted = sorted(
-        multi,
-        key=lambda kv: (len(kv[1].get("members", [])), -ord(kv[0][0]) if kv[0] else 0),
-        reverse=True,
-    )
-    # Simpler/clearer tie-breaker:
-    multi_sorted = sorted(
-        multi, key=lambda kv: (-len(kv[1].get("members", [])), kv[0].upper())
-    )
-
-    # Sort singles by name ASC (optional; keeps it deterministic)
-    singles_sorted = sorted(singles, key=lambda kv: kv[0].upper())
-
-    # Build an ordered mapping in the desired order
-    ordered_object_types = OrderedDict()
-    for k, v in multi_sorted + singles_sorted:
-        ordered_object_types[k] = v
-
-    return {
-        "ObjectTypes": ordered_object_types,                 # ordered
-        "UnspecifiedObjectType": {"members": unspecified_members},
-    }
-
-def write_rep_index(index: Dict[str, Dict[str, Any]], output_dir: Path) -> None:
-    reps_path = output_dir / "metadata" / "representatives.json"
-    reps_path.parent.mkdir(parents=True, exist_ok=True)
-    final_payload = _finalize_rep_index(index)
-    with reps_path.open("w", encoding="utf-8") as f:
-        json.dump(final_payload, f, ensure_ascii=False, indent=2)
 
 def write_comp_index(compositions_meta: List[Dict[str, Any]], output_dir: Path) -> None:
     if not compositions_meta:
@@ -542,8 +454,8 @@ def write_ml_index(index: Dict[str, List[Dict[str, str]]], output_dir: Path) -> 
     """
     index shape:
       {
-        "IfcMaterialLayerSet":      [ {"name": str|None, "global_id": str}, ... ],
-        "IfcMaterialLayerSetUsage": [ {"name": str|None, "global_id": str}, ... ],
+        "IfcMaterialLayerSet":      [ {"name": str|None, "eid": str, "global_id": str}, ... ],
+        "IfcMaterialLayerSetUsage": [ {"name": str|None, "eid": str, "global_id": str}, ... ],
       }
     """
     # Ensure keys exist even if empty (stable schema)
@@ -559,7 +471,7 @@ def write_ml_index(index: Dict[str, List[Dict[str, str]]], output_dir: Path) -> 
 def write_mm_index(items: List[Dict[str, str]], output_dir: Path) -> None:
     """
     items shape:
-      [ {"name": str|None, "global_id": str}, ... ]
+      [ {"name": str|None, "eid": str, "global_id": str}, ... ]
     """
     if not items:
         return
@@ -587,7 +499,7 @@ def _to_decimal(angle):
         return float(angle)
     return None
 
-# helpers that mirror your extract_material_data selection logic, lightweight for counting.
+# helpers that mirror extract_material_data selection logic, lightweight for counting.
 def _kind(x):
     return x.is_a() if hasattr(x, "is_a") else type(x).__name__
 
@@ -632,28 +544,31 @@ def _best_material_rel(element, caches) -> Optional[Tuple[str, Any]]:
         return _pick_best(type_mat_rels)
     return None
 
+def write_object_type_index(index: dict, output_dir: Path):
+    sorted_index = {
+        k: sorted(v, key=lambda x: (x.get("name") or "", x.get("global_id") or ""))
+        for k, v in sorted(index.items())
+    }
+    write_json(
+        output_dir / "metadata" / "object_type.json",
+        sorted_index,
+        exclude_none=True,
+    )
+
 
 # ===============================================
 # HELPERS FOR PREPROCESSED IFC DATA -> LcaElement
 # ===============================================
 
-LAYER_RE = re.compile(r"^L(\d+)$")
-MAT_RE   = re.compile(r"^M(\d+)$")
+LAYER_RE = re.compile(r"^.+_L(\d+)$")
+MAT_RE = re.compile(r"^.+_M(\d+)$")
+
 
 def _discover_multix_paths(
     directory: Path,
     kind: Literal["multilayer", "multimaterial"],
 ) -> Tuple[Path, List[Path]]:
-    """
-    Return (global_json_path, ordered_part_paths, part_count) for a multilayer/multimaterial directory.
-
-    Rules:
-      - The "global" JSON is any *.json whose stem does NOT match L\\d+ / M\\d+.
-        Prefer a file whose stem == directory.name if present.
-      - Part files are everything matching L\\d+.json (for multilayer) or M\\d+.json (for multimaterial),
-        sorted by their numeric index (1, 2, 3, ...).
-      - part_count is the number of part files found (i.e., len(ordered_part_paths)).
-    """
+    """Return (global_json_path, ordered_part_paths) for a multilayer/multimaterial directory."""
     if not directory.exists() or not directory.is_dir():
         raise FileNotFoundError(f"Directory not found: {directory}")
 
@@ -681,53 +596,58 @@ def _discover_multix_paths(
 
     if not global_candidates:
         raise ValueError(
-            f"Expected a global JSON in {directory} (a file not named {part_prefix}N.json)."
+            f"Expected a global JSON in {directory} (a file not named '*_{part_prefix}N.json')."
         )
 
-    # Prefer file matching directory name, else the first non-part json (deterministic by sort)
-    preferred = directory.name + ".json"
-    global_path = None
-    for p in global_candidates:
-        if p.name == preferred:
-            global_path = p
-            break
+    preferred_name = f"{directory.name}.json"
+    global_path = next((p for p in global_candidates if p.name == preferred_name), None)
     if global_path is None:
         global_path = sorted(global_candidates)[0]
 
-    # Sort parts by numeric index: L1, L2, ... or M1, M2, ...
     part_paths_sorted = [p for _, p in sorted(part_paths, key=lambda t: t[0])]
 
     return global_path, part_paths_sorted
+
 
 
 # =============================================
 # HELPERS FOR PREPROCESSED IFC DATA -> LcaModel
 # =============================================
 
-def _build_rep_guid_map(tree: dict) -> dict[str, dict]:
+def _build_rep_eid_map(tree: dict) -> dict[str, dict]:
     """
-    finds any {representative, members} dicts anywhere in the tree
+    Builds a mapping:
+        representative_eid -> {
+            "object_type": <str>,
+            "representative": <dict>,
+            "members": <list[dict]>
+        }
+
+    Assumes tree format:
+        {
+            "<object_type>": [ {rep}, {member}, ... ],
+            ...
+        }
     """
     out: dict[str, dict] = {}
-
-    def visit(node):
-        if isinstance(node, dict):
-            # if this node looks like an entry, record it
-            rep = node.get("representative")
-            mem = node.get("members")
-            if isinstance(rep, dict) and isinstance(mem, list):
-                gid = rep.get("global_id")
-                if gid:
-                    out[gid] = node
-            # recurse
-            for v in node.values():
-                visit(v)
-        elif isinstance(node, list):
-            for v in node:
-                visit(v)
-
-    visit(tree)
+    if not isinstance(tree, dict):
+        return out
+    for object_type, elements in tree.items():
+        if not isinstance(elements, list) or not elements:
+            continue
+        representative = elements[0]
+        if not isinstance(representative, dict):
+            continue
+        eid = representative.get("eid")
+        if not eid:
+            continue
+        out[eid] = {
+            "object_type": object_type,
+            "representative": representative,
+            "members": elements[1:],  # remaining items
+        }
     return out
+
 
 def _iter_subdirs(root: Path) -> Iterator[Path]:
     """Yield immediate subdirectories (skip files)."""
@@ -738,26 +658,22 @@ def _iter_subdirs(root: Path) -> Iterator[Path]:
             yield p
 
 
-def _build_guid_index(elements_dir: Path) -> dict[str, Path]:
-    """
-    Build a fast lookup from IFC global_id -> element JSON path
-    for all files under `elements_dir` (non-recursive; switch to rglob if needed).
-    """
+def _build_eid_index(elements_dir: Path) -> dict[str, Path]:
     index: dict[str, Path] = {}
     for p in elements_dir.glob("*.json"):
         try:
             data = load_json(p)
-            guid = data.get("metadata", {}).get("global_id")
-            if guid:
-                index[guid.lower()] = p
+            eid = data.get("metadata", {}).get("eid")
+            if eid is not None and str(eid).strip():
+                index[str(eid).strip().lower()] = p
         except Exception:
-            # Best-effort: skip corrupt/unexpected files
             continue
     return index
 
-def _build_guid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial"]) -> dict[str, Path]:
+
+def _build_eid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial"]) -> dict[str, Path]:
     """
-    Build {global_id: subdir_path} for multi-* layouts.
+    Build {eid: subdir_path} for multi-* layouts.
     Each subdir contains a 'global' JSON plus L{n}.json / M{n}.json parts.
     """
     index: dict[str, Path] = {}
@@ -767,9 +683,9 @@ def _build_guid_dir_index(root: Path, kind: Literal["multilayer", "multimaterial
         except Exception:
             continue
         data = load_json(global_path)
-        guid = data.get("metadata", {}).get("global_id")
-        if guid:
-            index[guid.lower()] = sub
+        eid = str(data.get("metadata", {}).get("eid"))
+        if eid:
+            index[eid.lower()] = sub
     return index
 
 
@@ -777,30 +693,35 @@ def _save_lca_element(elem: LcaElement, out_dir: Optional[Path]) -> None:
     if out_dir is None:
         return
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = str(elem.id)
-    (out_dir / f"{stem}.json").write_text(elem.model_dump_json(indent=2), encoding="utf-8")
+    stem = str(elem.descriptor.element_eid)
+    (out_dir / f"{stem}.json").write_text(
+        elem.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
 
 def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
     if out_dir is None:
         return
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = str(meta.dataset_uuid)
-    (out_dir / f"{stem}.json").write_text(meta.model_dump_json(indent=2), encoding="utf-8")
+    (out_dir / "model_metadata.json").write_text(
+        meta.model_dump_json(indent=2),
+        encoding="utf-8",
+    )
 
 def update_descriptor_ifc(member: dict[str, Any], descriptor: ElementDescriptor) -> ElementDescriptor:
     metadata = member.get("metadata", {}) or {}
     name = metadata.get("name")
+    eid = metadata.get("eid")
     global_id = metadata.get("global_id")
-    if not isinstance(name, str) or not name.strip():
-        name = getattr(descriptor, "element_name", None)
-    if not isinstance(global_id, str) or not global_id.strip():
-        global_id = getattr(descriptor, "element_uuid", None)
     try:
         return descriptor.model_copy(update={
             "element_name": name,
-            "element_uuid": global_id,
+            "element_eid": str(eid),
+            "element_global_id": global_id
         })
     except Exception as e:
+        print("error happens here")
+        print(e)
         return descriptor
 
 def update_matching_core_ifc(member: dict[str, Any], core: MatchingCore, entry_type: Optional[str]) -> MatchingCore:
@@ -921,3 +842,11 @@ def _pick_multimaterial_bucket(
 
     # 4) default -> undefined
     return undef_list, undef_dir, None 
+
+
+
+def _dump_json(obj: Any, path: Path) -> None:
+    path.write_text(
+        json.dumps(obj, indent=2, default=lambda o: str(o)),
+        encoding="utf-8",
+    )

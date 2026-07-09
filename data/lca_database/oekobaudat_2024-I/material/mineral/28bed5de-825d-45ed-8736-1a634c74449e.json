@@ -1,0 +1,923 @@
+{
+  "id": "28bed5de-825d-45ed-8736-1a634c74449e",
+  "item_core": {
+    "core_id": "f2127c9c-b969-469a-b50f-60196f42ce9a",
+    "entry_type": "material",
+    "name": "Facing bricks",
+    "loadbearing": "either",
+    "placement": "either",
+    "density": 1700.0,
+    "areal_density": 159.0,
+    "thickness": 71.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": null,
+    "water_vapour_resistant": null,
+    "manufacturer": "Bundesverband der Deutschen Ziegelindustrie e.V.",
+    "provenance": "DE",
+    "production_location": null,
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "covering",
+        "structural"
+      ],
+      "application_areas": [
+        "wall"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "clay",
+        "mineral_form": "masonry_unit"
+      }
+    }
+  },
+  "reference": {
+    "size": 1,
+    "unit": "m2"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "127a23f5-d954-41c9-8f8a-ecca18aca691",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/127a23f5-d954-41c9-8f8a-ecca18aca691?version=00.12.000",
+    "registration_number": "EPD-BDZ-20230091-ICG1-DE",
+    "location_code": "DE",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Bundesverband der Deutschen Ziegelindustrie e.V.",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1-A3": 36.291,
+          "A4": 1.19,
+          "A5": 1.45,
+          "C1": 0.0769,
+          "C2": 0.206,
+          "C3": 0.605,
+          "C4": 0.286,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -1.4
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -1.45
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1-A3": 1.44,
+          "A4": 0.0,
+          "A5": -1.44,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1-A3": 37.73,
+          "A4": 1.19,
+          "A5": 0.0165,
+          "C1": 0.0769,
+          "C2": 0.206,
+          "C3": 0.605,
+          "C4": 0.286,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -1.4
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -1.45
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1-A3": 433.18,
+          "A4": 20.1,
+          "A5": 1.91,
+          "C1": 1.3,
+          "C2": 3.46,
+          "C3": 7.55,
+          "C4": 1.9,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -2.69
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -4.57
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1-A3": 1.845,
+          "A4": 0.0,
+          "A5": -1.845,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1-A3": 435.02,
+          "A4": 20.1,
+          "A5": 0.0716,
+          "C1": 1.3,
+          "C2": 3.46,
+          "C3": 7.55,
+          "C4": 1.9,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -2.69
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -4.57
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1-A3": 4.72,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 149.03,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1-A3": 0.02,
+          "A4": 0.00104,
+          "A5": 0.000981,
+          "C1": 6.7e-05,
+          "C2": 0.000179,
+          "C3": 0.00211,
+          "C4": 0.00048,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.00152
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.000765
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1-A3": 1.152659e-07,
+          "A4": 9.28e-11,
+          "A5": 6.96e-12,
+          "C1": 5.99e-12,
+          "C2": 1.6e-11,
+          "C3": 9.44e-11,
+          "C4": 9.76e-11,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -5.1e-10
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -2.02e-10
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1-A3": 0.44447,
+          "A4": 0.00318,
+          "A5": 0.00512,
+          "C1": 0.000205,
+          "C2": 0.000548,
+          "C3": 0.002,
+          "C4": 0.002,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.00191
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -3.1
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1-A3": 0.00331733,
+          "A4": 2.02e-05,
+          "A5": 4.09e-06,
+          "C1": 1.3e-06,
+          "C2": 3.48e-06,
+          "C3": 9.95e-05,
+          "C4": 9.95e-05,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.000122
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.000143
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.794,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1-A3": 0.0,
+          "A4": 0.0,
+          "A5": 1.42,
+          "C1": 0.0,
+          "C2": 0.0,
+          "C3": 0.0,
+          "C4": 0.0,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": 0.0
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1-A3": 0.02262,
+          "A4": 0.00134,
+          "A5": 6.32e-05,
+          "C1": 0.000475,
+          "C2": 0.000231,
+          "C3": 0.00199,
+          "C4": 0.00103,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.000191
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.00115
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1-A3": 27.651,
+          "A4": 1.52,
+          "A5": 0.441,
+          "C1": 0.0975,
+          "C2": 0.261,
+          "C3": 0.387,
+          "C4": 0.141,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.182
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.347
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1-A3": 0.0447,
+          "A4": 0.000621,
+          "A5": 0.156,
+          "C1": -0.0043,
+          "C2": 0.000107,
+          "C3": 6.6e-05,
+          "C4": 0.00429,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.00185
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.000211
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1-A3": 27.538,
+          "A4": 1.51,
+          "A5": 0.285,
+          "C1": 0.101,
+          "C2": 0.26,
+          "C3": 0.385,
+          "C4": 0.145,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.18
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.346
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1-A3": 0.004991,
+          "A4": 0.00563,
+          "A5": 8.64e-07,
+          "C1": 0.000363,
+          "C2": 0.00097,
+          "C3": 0.00178,
+          "C4": 0.000267,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -4.35e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.000793
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1-A3": 0.008651,
+          "A4": 0.000435,
+          "A5": 1.86e-05,
+          "C1": 0.000226,
+          "C2": 7.51e-05,
+          "C3": 0.00091,
+          "C4": 0.000262,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -6.96e-05
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.00045
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1-A3": 2.606e-05,
+          "A4": 3.12e-06,
+          "A5": 7.24e-09,
+          "C1": 2.01e-07,
+          "C2": 5.38e-07,
+          "C3": 1.11e-06,
+          "C4": 2.46e-07,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -5.65e-07
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -9.8e-07
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1-A3": 0.09482,
+          "A4": 0.00523,
+          "A5": 0.000291,
+          "C1": 0.0025,
+          "C2": 0.000902,
+          "C3": 0.01,
+          "C4": 0.00288,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.000736
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.00496
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1-A3": [],
+          "A4": [],
+          "A5": [],
+          "C1": [],
+          "C2": [],
+          "C3": [],
+          "C4": [],
+          "D": []
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1-A3": 2.2626195e-09,
+          "A4": 2.15e-13,
+          "A5": 2.62e-14,
+          "C1": 1.39e-14,
+          "C2": 3.71e-14,
+          "C3": 5.74e-13,
+          "C4": 3.44e-13,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -3.07e-12
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -2.75e-12
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1-A3": 0.024899,
+          "A4": 0.00117,
+          "A5": 5.13e-05,
+          "C1": 0.000633,
+          "C2": 0.000201,
+          "C3": 0.00248,
+          "C4": 0.000798,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.000177
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.00106
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1-A3": 433.07,
+          "A4": 20.1,
+          "A5": 0.0716,
+          "C1": 1.29,
+          "C2": 3.46,
+          "C3": 7.54,
+          "C4": 1.9,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -2.69
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -4.56
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1-A3": 2.9271e-06,
+          "A4": 1.56e-07,
+          "A5": 6.4e-10,
+          "C1": 1.01e-08,
+          "C2": 2.69e-08,
+          "C3": 4.27e-07,
+          "C4": 1.49e-08,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -6.91e-08
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -7.84e-08
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1-A3": 0.37273,
+          "A4": 0.00592,
+          "A5": 0.0418,
+          "C1": 0.000382,
+          "C2": 0.00102,
+          "C3": 0.0744,
+          "C4": 0.0158,
+          "D": [
+            {
+              "code": "S1",
+              "description": "Gutschriften infolge der thermischen Verwertung der Verpackungsmaterialien (aus Modul A5) werden in Modul D/1 ausgewiesen.",
+              "value": -0.00271
+            },
+            {
+              "code": "S0",
+              "description": "Gutschriften infolge des Recyclings der Bauschuttaufbereitung Im End of Life der Vormauerziegel und Klinker wird im Rahmen dieses Wiederverwertungsszenarios eine Materialgutschrift für Kies angesetzt.",
+              "value": -0.00866
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "D": [
+        "S0",
+        "S1"
+      ]
+    }
+  }
+}

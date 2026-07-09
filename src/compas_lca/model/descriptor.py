@@ -8,14 +8,12 @@ from pydantic import Field
 class ElementDescriptor(BaseModel):
     """
     Descriptive high-level data not inside MatchingCore from a building model Element
-    Note: Many attributes have been shifted to the LcaMaterial class
     """
 
-    # BaseModel configuration
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra = "forbid",
+        validate_assignment=True,
+        str_strip_whitespace=True
     )
     element_name: str = Field(
         ...,
@@ -27,16 +25,42 @@ class ElementDescriptor(BaseModel):
             "Type: C30/37 Concrete Wall",
             "Basic Wall:BSP 140 - 5s:2012837"]
     )
-    element_uuid: Optional[str] = Field(
+    element_eid: Optional[str] = Field(
         None,
         description="""
-        Exact element UUID or GlobalId as found in the raw building element data (if available).
-        For IFC, this should optimally be GlobalId.
+        Exact element EID as found in the raw building element data (if available).
+        For IFC, this should optimally be STEP-ID / EID.
+        """,
+        examples=[
+            "336345", 
+            "6652",
+            "23562"]
+    )
+    element_global_id: Optional[str] = Field(
+        None,
+        description="""
+        Exact element GlobalId as found in the raw building element data (if available).
         """,
         examples=[
             "0kF45Qs8L9PAM9kmb1lT2B", 
             "2OrWItJ6zAwBNp0OUxK$Dw",
             "1s1jVhK8z0pgKYcr9jt7AB"]
+    )
+    object_type: Optional[str] = Field(
+        None,
+        description="""
+        Element's object type label if present (e.g., 'ObjectType', 'Type Name', 'Layer').
+        Use the text verbatim from the source. If no "typed" information is present, leave empty.
+        """,
+        examples=["Structural - Concrete", "Type A-200"]
+    )
+    classification: Optional[str] = Field(
+        None,
+        description="""
+        Verbatim transcription of any official classification system reference if present.
+        Copy exactly as in the source text.
+        """,
+        examples=['OmniClass 21-02 10 20', 'UniClass Ss_20_10_25']
     )
     is_multilayer: bool = Field(
         False,
@@ -81,43 +105,4 @@ class ElementDescriptor(BaseModel):
         (e.g., beam, column, door, window, or equipment).
         """,
         examples=[2, 3, 5, 6]
-    )
-    has_layer_thickness: Optional[bool] = Field(
-        None,
-        description="""
-        Boolean flag indicating whether **each individual material layer** in a multilayer element
-        has its **own explicitly defined numeric thickness**.
-
-        Set to **True** if:
-        - The element is multilayered (`is_multilayer = True`), **and**
-        - Every layer has a distinct, explicitly stated numeric thickness value
-        (e.g., as in an `IfcMaterialLayerSet` where each layer defines its own thickness).
-
-        Set to **False** if:
-        - The element has multiple identifiable layers, but **thickness is only given once**
-        (e.g., a single overall or total thickness for the full build-up), **or**
-        - Layers are described qualitatively or by material names only, without individual numeric thicknesses.
-
-        Leave empty (`None`) if:
-        - The element is not multilayered (`is_multilayer = False`), or
-        - It represents a single material or non-layered composite
-        (e.g., window, door, beam, column).
-        """,
-        examples=[True, False, None]
-    )
-    object_type: Optional[str] = Field(
-        None,
-        description="""
-        Element's object type label if present (e.g., 'ObjectType', 'Type Name', 'Layer').
-        Use the text verbatim from the source. If no "typed" information is present, leave empty.
-        """,
-        examples=["Structural - Concrete", "Type A-200"]
-    )
-    classification: Optional[str] = Field(
-        None,
-        description="""
-        Verbatim transcription of any official classification system reference if present.
-        Copy exactly as in the source text.
-        """,
-        examples=['OmniClass 21-02 10 20', 'UniClass Ss_20_10_25']
     )

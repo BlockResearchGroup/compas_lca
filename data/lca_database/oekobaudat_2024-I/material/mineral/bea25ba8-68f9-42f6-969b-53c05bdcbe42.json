@@ -1,0 +1,2857 @@
+{
+  "id": "bea25ba8-68f9-42f6-969b-53c05bdcbe42",
+  "item_core": {
+    "core_id": "fcf9a2a3-5829-44e5-9c0e-df72b1249a19",
+    "entry_type": "material",
+    "name": "MASTERBOARD®",
+    "loadbearing": "non_loadbearing",
+    "placement": "either",
+    "density": 1078.0,
+    "areal_density": null,
+    "thickness": 15.0,
+    "thickness_source": "from_data",
+    "thermal_conductivity": null,
+    "u_value": null,
+    "fire_retardant": true,
+    "water_vapour_resistant": true,
+    "manufacturer": "ETEX",
+    "provenance": "CN",
+    "production_location": "Guangzhou",
+    "facet": {
+      "material_type": "mineral",
+      "functional_types": [
+        "fire_protection"
+      ],
+      "application_areas": [
+        "wall",
+        "roof",
+        "door",
+        "ceiling"
+      ],
+      "insulation_info": null,
+      "material_facet": {
+        "mineral_type": "cement",
+        "mineral_form": "board"
+      }
+    }
+  },
+  "reference": {
+    "size": 16,
+    "unit": "kg"
+  },
+  "metadata": {
+    "dataset_source": "OEKOBAUDAT 2024-I",
+    "dataset_uuid": "96cd2531-1d74-4b36-b0f4-74caad8d085d",
+    "dataset_url": "https://www.oekobaudat.de/OEKOBAU.DAT/resource/processes/96cd2531-1d74-4b36-b0f4-74caad8d085d?version=00.03.000",
+    "registration_number": "EPD-ETE-20230128-IBA2-EN",
+    "location_code": "CN",
+    "reference_year": 2023,
+    "valid_until": 2028,
+    "dataset_owner": "Etex Building Performance International",
+    "compliance_system_name": [
+      "DIN EN 15804+A2",
+      "ISO 14025"
+    ]
+  },
+  "indicators": {
+    "indicators": [
+      {
+        "name": "PERE",
+        "stages": {
+          "A1": 9.371,
+          "A2": 0.1207,
+          "A3": 8.481,
+          "A4": 0.4524,
+          "A5": 4.971,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.04009,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.1401
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0297
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.1323
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.000807
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 5.869e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.144
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERM",
+        "stages": {
+          "A1": 12.78,
+          "A2": 0.0,
+          "A3": 5.799,
+          "A4": 0.0,
+          "A5": -3.593,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -11.29
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 13.72
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.436
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PERT",
+        "stages": {
+          "A1": 22.15,
+          "A2": 0.1207,
+          "A3": 14.28,
+          "A4": 0.4524,
+          "A5": 1.378,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.04009,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.1401
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0297
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -11.16
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.000807
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 5.869e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.144
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 13.72
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.436
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRE",
+        "stages": {
+          "A1": 28.94,
+          "A2": 10.32,
+          "A3": 97.64,
+          "A4": 49.0,
+          "A5": 25.46,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.2395,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 10.02
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.124
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.013
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.004878
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001426
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.864
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRM",
+        "stages": {
+          "A1": 0.0854,
+          "A2": 0.0,
+          "A3": 0.3286,
+          "A4": 0.0,
+          "A5": -0.2126,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.1376
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1376
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "PENRT",
+        "stages": {
+          "A1": 29.02,
+          "A2": 10.32,
+          "A3": 97.97,
+          "A4": 49.0,
+          "A5": 25.25,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.2395,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 10.02
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.124
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.013
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.004878
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001426
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.864
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.1376
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1376
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "SM",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "NRSF",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "FW",
+        "stages": {
+          "A1": 0.02632,
+          "A2": 0.00058,
+          "A3": 0.01098,
+          "A4": 0.002102,
+          "A5": 0.009576,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.000152,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0007328
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0001554
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001012
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.064e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.033e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.002998
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.02575
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.002007
+            }
+          ]
+        },
+        "unit": "m3"
+      },
+      {
+        "name": "HWD",
+        "stages": {
+          "A1": 2.585e-05,
+          "A2": 2.329e-05,
+          "A3": 8.599e-05,
+          "A4": 6.207e-05,
+          "A5": 2.259e-05,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.533e-07,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.601e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 5.515e-06
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.086e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.366e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.336e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.059e-06
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -1.981e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -1.278e-05
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "NHWD",
+        "stages": {
+          "A1": 0.1781,
+          "A2": 0.3661,
+          "A3": 0.4756,
+          "A4": 0.5674,
+          "A5": 1.156,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0007384,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.5219
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1107
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.01727
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.598e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.005488
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 16.1
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.01575
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.0003536
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "RWD",
+        "stages": {
+          "A1": 0.0001243,
+          "A2": 6.662e-05,
+          "A3": 0.00012,
+          "A4": 0.0003375,
+          "A5": 7.633e-05,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.474e-06,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.733e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.428e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 5.459e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.982e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 8.392e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.906e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -3.1e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -5.77e-06
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "CRU",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MFR",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.002931,
+          "A4": 0.0,
+          "A5": 1.008,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 16.23
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1302
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "MER",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.0,
+          "A4": 0.0,
+          "A5": 0.0,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "kg"
+      },
+      {
+        "name": "EEE",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.002629,
+          "A4": 0.0,
+          "A5": 0.1646,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "EET",
+        "stages": {
+          "A1": 0.0,
+          "A2": 0.0,
+          "A3": 0.005258,
+          "A4": 0.0,
+          "A5": 0.3293,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.0,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "AP",
+        "stages": {
+          "A1": 0.01355,
+          "A2": 0.00778,
+          "A3": 0.03204,
+          "A4": 0.1023,
+          "A5": 0.01354,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 5.408e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001866
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0003957
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0005509
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.123e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 4.417e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0008617
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.001824
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.0006811
+            }
+          ]
+        },
+        "unit": "mol H+ eq"
+      },
+      {
+        "name": "GWPtotal",
+        "stages": {
+          "A1": 3.997,
+          "A2": 0.7235,
+          "A3": 6.394,
+          "A4": 3.728,
+          "A5": 2.5,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.36
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -1.2611870727781
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.009593,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.6577
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1395
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.347
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0001978
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.358e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.392
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.7294
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.4106
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPbiogenic",
+        "stages": {
+          "A1": -1.426,
+          "A2": 0.0002595,
+          "A3": -0.5941,
+          "A4": 0.001071,
+          "A5": 0.5906,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 5.277e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0002351
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 4.985e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.294
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.062e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.395e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.294
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.25
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.2492
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPfossil",
+        "stages": {
+          "A1": 5.416,
+          "A2": 0.7227,
+          "A3": 6.984,
+          "A4": 3.724,
+          "A5": 1.906,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.36
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -1.2611870727781
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.009512,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.6572
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.1393
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.05232
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0001962
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.311e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.09768
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.4785
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.1611
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "GWPluluc",
+        "stages": {
+          "A1": 0.002666,
+          "A2": 0.000517,
+          "A3": 0.002122,
+          "A4": 0.00264,
+          "A5": 0.001463,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 2.249e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0002628
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 5.572e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 8.363e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 4.537e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.771e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 7.206e-05
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.0006076
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.0002884
+            }
+          ]
+        },
+        "unit": "kg CO2 eq"
+      },
+      {
+        "name": "ETPfw",
+        "stages": {
+          "A1": 68.21,
+          "A2": 8.329,
+          "A3": 155.6,
+          "A4": 32.04,
+          "A5": 44.18,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.1276,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 7.821
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.658
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.422
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.002719
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.002031
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.604
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -6.139
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -3.745
+            }
+          ]
+        },
+        "unit": "CTUe"
+      },
+      {
+        "name": "PM",
+        "stages": {
+          "A1": 1.43e-07,
+          "A2": 4.705e-08,
+          "A3": 4.388e-07,
+          "A4": 1.487e-07,
+          "A5": 1.141e-07,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.491e-10,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 5.28e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.119e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 4.437e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.742e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.226e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.671e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.53e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -1.568e-08
+            }
+          ]
+        },
+        "unit": "disease incidence"
+      },
+      {
+        "name": "EPmarine",
+        "stages": {
+          "A1": 0.003635,
+          "A2": 0.002181,
+          "A3": 0.006125,
+          "A4": 0.02518,
+          "A5": 0.002845,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 6.898e-06,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0003709
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 7.864e-05
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0001895
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.497e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.347e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0002943
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.0004014
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.0001657
+            }
+          ]
+        },
+        "unit": "kg N eq"
+      },
+      {
+        "name": "EPfreshwater",
+        "stages": {
+          "A1": 6.941e-05,
+          "A2": 5.586e-06,
+          "A3": 0.0001349,
+          "A4": 1.729e-05,
+          "A5": 5.473e-05,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.017e-06,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 4.686e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 9.936e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 3.578e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.056e-08
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.909e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.997e-06
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.32e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -9.164e-06
+            }
+          ]
+        },
+        "unit": "kg P eq"
+      },
+      {
+        "name": "EPterrestrial",
+        "stages": {
+          "A1": 0.04148,
+          "A2": 0.02416,
+          "A3": 0.06625,
+          "A4": 0.2799,
+          "A5": 0.03151,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 7.946e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.004134
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0008765
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.002119
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.72e-06
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.488e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.003247
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.0046
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.001888
+            }
+          ]
+        },
+        "unit": "mol N eq"
+      },
+      {
+        "name": "HTPc",
+        "stages": {
+          "A1": 1.092e-09,
+          "A2": 3.21e-10,
+          "A3": 2.967e-09,
+          "A4": 2.154e-09,
+          "A5": 1.967e-08,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 3.919e-12,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.515e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 5.333e-11
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.993e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.371e-13
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.223e-13
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 4.659e-11
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 5.141e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.609e-10
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "HTPnc",
+        "stages": {
+          "A1": 4.436e-08,
+          "A2": 7.15e-09,
+          "A3": 5.906e-08,
+          "A4": 2.344e-08,
+          "A5": 3.033e-08,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 1.252e-10,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 7.903e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.676e-09
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.255e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.681e-12
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.224e-12
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 9.416e-10
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -2.937e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -2.705e-08
+            }
+          ]
+        },
+        "unit": "CTUh"
+      },
+      {
+        "name": "IRP",
+        "stages": {
+          "A1": 0.09355,
+          "A2": 0.04218,
+          "A3": 0.09289,
+          "A4": 0.211,
+          "A5": 0.0695,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.001787,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.04326
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.009172
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.006219
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.603e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.254e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.01425
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.03537
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.005685
+            }
+          ]
+        },
+        "unit": "kBq U235 eq"
+      },
+      {
+        "name": "SOP",
+        "stages": {
+          "A1": 146.8,
+          "A2": 5.953,
+          "A3": 78.12,
+          "A4": 12.02,
+          "A5": 18.6,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.03654,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 6.945
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.472
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.4131
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.002686
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.002094
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 5.26
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -28.73
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -27.21
+            }
+          ]
+        },
+        "unit": "dimensionless"
+      },
+      {
+        "name": "ODP",
+        "stages": {
+          "A1": 2.551e-07,
+          "A2": 1.513e-07,
+          "A3": 3.153e-07,
+          "A4": 7.481e-07,
+          "A5": 1.404e-07,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 4.788e-10,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.523e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.229e-08
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 8.141e-09
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.016e-11
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.564e-11
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.616e-08
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -5.001e-08
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -1.418e-08
+            }
+          ]
+        },
+        "unit": "kg CFC-11 eq"
+      },
+      {
+        "name": "POCP",
+        "stages": {
+          "A1": 0.01137,
+          "A2": 0.006539,
+          "A3": 0.01897,
+          "A4": 0.07296,
+          "A5": 0.008848,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 2.184e-05,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001589
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0003369
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0005556
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 4.807e-07
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 4.548e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0009248
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.001589
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.0008248
+            }
+          ]
+        },
+        "unit": "kg NMVOC eq"
+      },
+      {
+        "name": "ADPF",
+        "stages": {
+          "A1": 25.38,
+          "A2": 10.15,
+          "A3": 75.22,
+          "A4": 49.01,
+          "A5": 20.81,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.2016,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 9.964
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.113
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.8575
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.004104
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.001348
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.79
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -8.23
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -2.315
+            }
+          ]
+        },
+        "unit": "MJ"
+      },
+      {
+        "name": "ADPE",
+        "stages": {
+          "A1": 1.154e-05,
+          "A2": 1.505e-06,
+          "A3": 7.162e-06,
+          "A4": 5.068e-06,
+          "A5": 2.315e-05,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 5.142e-08,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.779e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 3.773e-07
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 2.385e-07
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 1.112e-09
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 1.817e-10
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 2.317e-07
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -1.335e-06
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -3.199e-07
+            }
+          ]
+        },
+        "unit": "kg Sb eq"
+      },
+      {
+        "name": "WDP",
+        "stages": {
+          "A1": 1.328,
+          "A2": 0.03445,
+          "A3": 0.6662,
+          "A4": 0.1047,
+          "A5": 0.4399,
+          "B1": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.0
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.0
+            }
+          ],
+          "B2": 0.0,
+          "B6": 0.0,
+          "B7": 0.0,
+          "C1": 0.00236,
+          "C2": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.03033
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.006431
+            }
+          ],
+          "C3": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": 0.01731
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 4.813e-05
+            }
+          ],
+          "C4": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -1.146e-05
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": 0.01304
+            }
+          ],
+          "D": [
+            {
+              "code": "S1",
+              "description": "100% recycling",
+              "value": -0.1307
+            },
+            {
+              "code": "S2",
+              "description": "100% landfill",
+              "value": -0.06612
+            }
+          ]
+        },
+        "unit": "m3 world eq. deprived"
+      }
+    ],
+    "scenarios": {
+      "B1": [
+        "S1",
+        "S2"
+      ],
+      "C2": [
+        "S1",
+        "S2"
+      ],
+      "C3": [
+        "S1",
+        "S2"
+      ],
+      "C4": [
+        "S1",
+        "S2"
+      ],
+      "D": [
+        "S1",
+        "S2"
+      ]
+    }
+  }
+}
