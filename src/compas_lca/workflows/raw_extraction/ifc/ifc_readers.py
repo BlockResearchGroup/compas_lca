@@ -174,7 +174,7 @@ def _finalize_material_breakdown(breakdown_dict) -> OrderedDict:
     # ensure all keys exist and in the desired order
     return OrderedDict((k, breakdown_dict.get(k, 0)) for k in _MATERIAL_KEYS)
 
-def load_ifc_metadata(input_file, model, units, caches) -> Dict[str, Any]:
+def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
     """
     Build overall IFC file metadata, including:
       - project/app info
@@ -262,7 +262,7 @@ def load_ifc_metadata(input_file, model, units, caches) -> Dict[str, Any]:
     material_breakdown = defaultdict(int)
 
     for elem in building_elements:
-        best = _best_material_rel(elem, caches) # choose material relationship based on predefined hierarchy
+        best = _best_material_rel(elem) # choose material relationship based on predefined hierarchy
         if not best:
             material_breakdown["No material data"] += 1
             continue

@@ -25,6 +25,7 @@ from .ifc_helpers import inverse_list
 from .ifc_helpers import get_material_props
 from .ifc_helpers import has_valid_geometry
 from .ifc_helpers import get_classification
+from .ifc_helpers import _best_material_rel
 from .ifc_helpers import tesselated_brep_obb
 from .ifc_helpers import tesselated_brep_volume
 from .ifc_helpers import classify_material_bucket
@@ -41,11 +42,11 @@ from .ifc_helpers import write_multimaterial_pkg
 # ------------------------
 # Metadata
 # ------------------------
-def process_metadata(element, caches) -> dict:
+def process_metadata(element) -> dict:
     """Process IFC element metadata and return a plain dict."""
     eid_int = element.id() if hasattr(element, "id") else None
     eid = str(eid_int) if eid_int is not None else None
-    decomposes, is_decomposed_by = get_hierarchy(element, caches.aggregates_rels)
+    decomposes, is_decomposed_by = get_hierarchy(element)
     return {
         "name": getattr(element, "Name", None),
         "eid": eid,  # STEP entity id (str)
@@ -53,7 +54,7 @@ def process_metadata(element, caches) -> dict:
         "entity": element.is_a(),
         "object_type": getattr(element, "ObjectType", None),
         "description": getattr(element, "Description", None),
-        "classification": get_classification(element, caches.classification_rels),
+        "classification": get_classification(element),
         "decomposes": decomposes,
         "is_decomposed_by": is_decomposed_by,
     }
@@ -119,52 +120,7 @@ def process_material_data(element, caches, units) -> Optional[Dict[str,Any]]:
 
     Not yet implemented: IfcMaterialConstituent(Set) and IfcMaterialProfile(Set) extraction.
     """
-
-    def _kind(x):
-        return x.is_a() if hasattr(x, "is_a") else type(x).__name__
-
-    # pass 1: gather all material rels attached to the *element*
-    elem_rels = [
-        r for r in (getattr(caches, "material_rels", []) or [])
-        if element in (getattr(r, "RelatedObjects", None) or [])
-    ]
-    def _best_candidate(rels):
-        candidates = []
-        for r in rels:
-            rel_mat = getattr(r, "RelatingMaterial", None)
-            if rel_mat is None:
-                continue
-            candidates.append((_kind(rel_mat), rel_mat))
-        if not candidates:
-            return None
-
-        priority = {
-            "IfcMaterialLayerSetUsage": 4,
-            "IfcMaterialLayerSet": 3,
-            "IfcMaterialList": 2,
-            "IfcMaterial": 1,
-        }
-        kind, rel_mat = max(candidates, key=lambda kv: priority.get(kv[0], 0))
-        return kind, rel_mat
-
-    best = _best_candidate(elem_rels)
-
-    # pass 2: if nothing on the element, try the *type*
-    if not best:
-        type_rels = (getattr(caches, "type_rels", []) or [])
-        elem_type = next(
-            (getattr(r, "RelatingType", None)
-             for r in type_rels
-             if element in (getattr(r, "RelatedObjects", None) or [])),
-            None
-        )
-        if elem_type is not None:
-            type_mat_rels = [
-                r for r in (getattr(caches, "material_rels", []) or [])
-                if elem_type in (getattr(r, "RelatedObjects", None) or [])
-            ]
-            best = _best_candidate(type_mat_rels)
-
+    best = _best_material_rel(element)
     if not best:
         return None
 
@@ -373,7 +329,7 @@ def process_ifc_element(element, caches, units) -> Optional[Dict[str,Any]]:
         - `quantities`: Geometric and derived quantities (e.g., length, area, volume).
     """
     try:
-        metadata = process_metadata(element, caches)
+        metadata = process_metadata(element)
         material_data = process_material_data(element, caches, units)
         psets = process_psets(element)
         quantities = process_quantities(element, units)
@@ -465,7 +421,7 @@ def process_ifc_model(
     model = load_ifc_file(ifc_file)
     units = load_ifc_units(model)
     caches = IfcCaches(model)
-    ifcmeta = load_ifc_metadata(ifc_file, model, units, caches)
+    ifcmeta = load_ifc_metadata(ifc_file, model, units)
 
     # Filter optional IFC entities based on config
     allowed_entities: Optional[Set[str]] = None
