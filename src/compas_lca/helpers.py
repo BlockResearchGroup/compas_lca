@@ -98,7 +98,7 @@ class Spinner:
         self._message = message
         self._running = False
         self._thread = None
-        self._frames = ["/      ", "—       ", "\\      ", "|       "]
+        self._frames = ["/      ", "-       ", "\\      ", "|       "]
 
     def start(self):
         self._running = True
