@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * `requires-python` corrected to `>=3.11` (the `llm` subpackage uses `typing.Self`); dropped the Python 3.10 classifier.
+* Docs and publish CI actions pinned to Python 3.11 (their 3.10 default cannot install the package anymore).
 
 ### Removed
 

@@ -26,5 +26,6 @@ jobs:
     steps:
       - uses: compas-dev/compas-actions.publish@v3
         with:
+          python: '3.11'
           pypi_token: ${{ secrets.PYPI }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
