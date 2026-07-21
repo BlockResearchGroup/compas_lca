@@ -14,7 +14,7 @@ organization = "BlockResearchGroup"
 
 master_doc = "index"
 source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
-templates_path = sphinx_compas2_theme.get_autosummary_templates_path()
+templates_path = ["templates"] + sphinx_compas2_theme.get_autosummary_templates_path()
 exclude_patterns = sphinx_compas2_theme.default_exclude_patterns
 add_module_names = True
 language = "en"
@@ -32,6 +32,9 @@ else:
 
 extensions = sphinx_compas2_theme.default_extensions
 extensions.remove("sphinx.ext.linkcode")
+if "sphinx.ext.autodoc.typehints" in extensions:
+    # loaded automatically by autodoc; listing it explicitly triggers a warning
+    extensions.remove("sphinx.ext.autodoc.typehints")
 
 # numpydoc options
 
@@ -61,8 +64,22 @@ autodoc_member_order = "groupwise"
 autoclass_content = "class"
 
 
+# Pydantic BaseModel docstrings are Markdown and break the RST parser,
+# so skip everything the models inherit from it.
+import pydantic
+
+_PYDANTIC_BASEMODEL_MEMBERS = set(dir(pydantic.BaseModel))
+
+
+def _skip_pydantic_members(app, what, name, obj, skip, options):
+    if name in _PYDANTIC_BASEMODEL_MEMBERS:
+        return True
+    return None
+
+
 def setup(app):
     app.connect("autodoc-skip-member", sphinx_compas2_theme.skip)
+    app.connect("autodoc-skip-member", _skip_pydantic_members)
 
 
 # autosummary options

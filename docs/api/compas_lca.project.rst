@@ -1,9 +1,13 @@
 ********************************************************************************
-compas_lca
+compas_lca.project
 ********************************************************************************
 
-.. currentmodule:: compas_lca
+.. currentmodule:: compas_lca.project
 
+.. autosummary::
+    :toctree: generated/
+    :nosignatures:
 
-.. toctree::
-    :maxdepth: 1
+    Project
+    ProjectError
+    MissingInput

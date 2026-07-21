@@ -28,7 +28,8 @@ class Indicator(BaseModel):
     """
     One LCA indicator with values per life cycle stage.
 
-    Example:
+    Example::
+
         Indicator(
             name="GWPtotal",
             stages={"A1-A3": 12.3, "A4": 0.6, "C3": 0.1}

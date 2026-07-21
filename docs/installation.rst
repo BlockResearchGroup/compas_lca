@@ -2,35 +2,38 @@
 Installation
 ********************************************************************************
 
-Stable
-======
-
-Stable releases are available on PyPI and can be installed with pip.
-
-.. code-block:: bash
-
-    pip install compas_lca
-
-
-Latest
-======
-
-The latest version can be installed from local source.
+Install from source
+===================
 
 .. code-block:: bash
 
     git clone https://github.com/BlockResearchGroup/compas_lca.git
-    cd compas_tna
+    cd compas_lca
     pip install -e .
 
-
-Development
-===========
-
-To install `compas_lca` for development, install from local source with the "dev" requirements.
+For development, install with the "dev" requirements:
 
 .. code-block:: bash
 
-    git clone https://github.com/BlockResearchGroup/compas_lca.git
-    cd compas_tna
     pip install -e ".[dev]"
+
+
+LCA database
+============
+
+Download the LCA database archive (see the repository README for the download
+link), unzip it, and move the extracted folder into the ``data`` directory so
+that the following path exists:
+
+.. code-block:: bash
+
+    data/lca_database
+
+
+Environment configuration
+=========================
+
+* Add your LLM API key(s) to a ``.env`` file in the project root.
+* Specify project configurations in ``config.yaml``.
+* Supported indicator values for ``config.yaml`` are listed in
+  ``src/compas_lca/inventory/constants.py`` under ``OBD_INDICATOR_NAME``.

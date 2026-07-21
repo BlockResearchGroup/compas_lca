@@ -226,6 +226,7 @@ class Project:
         Reads indicators + net stages from config.yaml -> impact_report.
 
         Additionally:
+
         - For each impacts_*.csv in <project_root>/06_report,
           generate a summary_*.csv in the SAME directory.
         """
