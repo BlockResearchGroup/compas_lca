@@ -50,6 +50,7 @@ check_cols = [
 # columns to delete entirely (since they reference EN15804+A1)
 drop_cols = ["GWP", "ODP", "POCP", "AP", "EP", "ADPE", "ADPF"]
 
+
 # --- main ---
 def main():
     df = pd.read_csv(in_path, sep=";", dtype=str, keep_default_na=False, encoding="latin1")  # read as strings
