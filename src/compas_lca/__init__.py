@@ -3,10 +3,10 @@ from __future__ import print_function
 import os
 
 
-__author__ = ["Eric Wuite, Li Chen"]
+__author__ = ["Eric Wuite", "Li Chen"]
 __copyright__ = "BRG"
 __license__ = "MIT License"
-__email__ = "e.b.wuite@gmail.com"
+__email__ = "e.b.wuite@gmail.com, leochen1990@gmail.com"
 __version__ = "0.1.0"
 
 

@@ -11,7 +11,8 @@ name = "compas_lca"
 description = "bim-lca integration"
 keywords = []
 authors = [
-    { name = "Eric Wuite, Li Chen", email = "e.b.wuite@gmail.com" },
+    { name = "Eric Wuite", email = "e.b.wuite@gmail.com" },
+    { name = "Li Chen", email = "leochen1990@gmail.com" },
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
