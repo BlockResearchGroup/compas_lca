@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Missing plotting dependencies in `requirements.txt` (`numpy`, `matplotlib`, `plotly`, `seaborn`) — previously only present implicitly in local environments.
+
 ### Changed
+
+* `obd_simplify.py` no longer executes at import time; its pipeline is wrapped in `main()` behind an `if __name__ == "__main__"` guard.
+* `BaseAgent` docstring usage example converted from doctest prompts to a plain code block so `invoke testdocs` does not execute it.
 
 ### Removed
 

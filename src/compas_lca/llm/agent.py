@@ -140,10 +140,12 @@ class BaseAgent:
     ----------------------------------------------------------------------
     Typical Usage
     ----------------------------------------------------------------------
-    >>> agent = BaseAgent.from_config(context=my_context)
-    >>> run = agent.execute_run({"raw_input": data})
-    >>> print(run.result)
-    >>> print(run.metadata.total_cost)
+    ::
+
+        agent = BaseAgent.from_config(context=my_context)
+        run = agent.execute_run({"raw_input": data})
+        print(run.result)
+        print(run.metadata.total_cost)
     """
 
     def __init__(self, *, settings: AgentSettings, context: Context):

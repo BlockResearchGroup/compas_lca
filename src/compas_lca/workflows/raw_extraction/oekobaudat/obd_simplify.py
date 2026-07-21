@@ -51,20 +51,25 @@ check_cols = [
 drop_cols = ["GWP", "ODP", "POCP", "AP", "EP", "ADPE", "ADPF"]
 
 # --- main ---
-df = pd.read_csv(in_path, sep=";", dtype=str, keep_default_na=False, encoding="latin1")  # read as strings
-df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)  # trim whitespace
+def main():
+    df = pd.read_csv(in_path, sep=";", dtype=str, keep_default_na=False, encoding="latin1")  # read as strings
+    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)  # trim whitespace
 
-# Keep only rows that have at least one A2 indicator filled
-cols = [c for c in check_cols if c in df.columns]
-df[cols] = df[cols].replace(r"^\s*$", "", regex=True)
-mask = (df[cols] != "").any(axis=1)
-filtered = df[mask].copy()
+    # Keep only rows that have at least one A2 indicator filled
+    cols = [c for c in check_cols if c in df.columns]
+    df[cols] = df[cols].replace(r"^\s*$", "", regex=True)
+    mask = (df[cols] != "").any(axis=1)
+    filtered = df[mask].copy()
 
-# Drop empty indicator columns (if present)
-filtered.drop(columns=[c for c in drop_cols if c in filtered.columns], inplace=True)
+    # Drop empty indicator columns (if present)
+    filtered.drop(columns=[c for c in drop_cols if c in filtered.columns], inplace=True)
 
-# Save cleaned version
-filtered.to_csv(out_path, sep=";", index=False, encoding="latin1")
+    # Save cleaned version
+    filtered.to_csv(out_path, sep=";", index=False, encoding="latin1")
 
-print(f"Rows in: {len(df)}, rows kept: {len(filtered)}, rows removed: {len(df) - len(filtered)}")
-print(f"Columns removed: {[c for c in drop_cols if c not in filtered.columns]}")
+    print(f"Rows in: {len(df)}, rows kept: {len(filtered)}, rows removed: {len(df) - len(filtered)}")
+    print(f"Columns removed: {[c for c in drop_cols if c not in filtered.columns]}")
+
+
+if __name__ == "__main__":
+    main()
