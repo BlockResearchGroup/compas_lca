@@ -42,7 +42,8 @@ The datasets, per-model extraction outputs, and the figure-generation code are
 package:
 
 ```
-Data package: <GOOGLE_DRIVE_LINK — request access from the author>
+Data package (request access from the author):
+https://drive.google.com/file/d/1W_qiDYm2ctd-1DAUxMurRsfdXOdEKELE/view?usp=drive_link
 ```
 
 Download and extract the package, then either set the environment variable:
