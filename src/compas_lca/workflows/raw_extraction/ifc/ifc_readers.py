@@ -1,18 +1,15 @@
-from pathlib import Path
-
 import os
-
-from typing import Dict
-from typing import Any
-
-from collections import defaultdict
 from collections import OrderedDict
+from collections import defaultdict
+from pathlib import Path
+from typing import Any
+from typing import Dict
 
 from compas_ifc.bim import BuildingInformationModel
 
 from compas_lca.workflows.raw_extraction.ifc.ifc_caches import IfcCaches
-from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _to_decimal
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _best_material_rel
+from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _to_decimal
 
 
 class IfcModel:
@@ -129,35 +126,33 @@ def load_ifc_units(model) -> dict:
             else:
                 factor = 1.0
         else:
-            factor = 1.0 
+            factor = 1.0
 
     units["lc_factor"] = factor
     return units
 
 
-
-
-
-
 class PsetReader:
     """Small façade over your procedural helpers. Holds caches so calls are short."""
+
     def __init__(self, caches: IfcCaches):
         self.caches = caches
 
     def element_psets(self, element) -> Dict[str, str]:
         pass
-        #return prop.extract_element_psets(element, self.caches.property_relationships)
+        # return prop.extract_element_psets(element, self.caches.property_relationships)
 
     def type_psets(self, element) -> Dict[str, str]:
         pass
-        #return prop.extract_type_psets(element, self.caches.type_relationships)
+        # return prop.extract_type_psets(element, self.caches.type_relationships)
 
     def both(self, element) -> Dict[str, Dict[str, str]]:
         return {
             "Psets Element": self.element_psets(element),
             "Psets Object Type": self.type_psets(element),
         }
-    
+
+
 _MATERIAL_KEYS = [
     "IfcMaterialLayerSetUsage (n_layer=1)",
     "IfcMaterialLayerSetUsage (n_layer>1)",
@@ -170,9 +165,11 @@ _MATERIAL_KEYS = [
     "No material data",
 ]
 
+
 def _finalize_material_breakdown(breakdown_dict) -> OrderedDict:
     # ensure all keys exist and in the desired order
     return OrderedDict((k, breakdown_dict.get(k, 0)) for k in _MATERIAL_KEYS)
+
 
 def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
     """
@@ -183,20 +180,19 @@ def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
       - breakdown by *material entity* category
     """
 
-    # ---- Project name ---- 
+    # ---- Project name ----
     projects = model.get_entities_by_type("IfcProject")
     project_name = projects[0].Name if projects and hasattr(projects[0], "Name") else "Unnamed_Project"
     project_uuid = projects[0].GlobalId if projects and hasattr(projects[0], "GlobalId") else None
 
-    # ---- Application details ---- 
+    # ---- Application details ----
     applications = model.get_entities_by_type("IfcApplication")
     if applications:
         application = applications[0]
         application_name = getattr(application, "ApplicationFullName", "Unknown Application")
         application_version = getattr(application, "Version", "Unknown Version")
         application_identifier = getattr(application, "ApplicationIdentifier", "Unknown ID")
-        application_developer = getattr(application.ApplicationDeveloper, "Name", "Unknown Developer") \
-            if hasattr(application, "ApplicationDeveloper") else "Unknown Developer"
+        application_developer = getattr(application.ApplicationDeveloper, "Name", "Unknown Developer") if hasattr(application, "ApplicationDeveloper") else "Unknown Developer"
     else:
         application_name = "Unknown Application"
         application_version = "Unknown Version"
@@ -238,15 +234,16 @@ def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
     lat = _to_decimal(lat_attr)
     lon = _to_decimal(lon_attr)
     elev = float(elev_attr) if elev_attr is not None else None
-    site_data.append({
-        "name": getattr(site, "Name", None),
-        "address": address,
-        "land_title_number": ltn,
-        "latitude": lat,
-        "longitude": lon,
-        "elevation": elev,
-    })
-    
+    site_data.append(
+        {
+            "name": getattr(site, "Name", None),
+            "address": address,
+            "land_title_number": ltn,
+            "latitude": lat,
+            "longitude": lon,
+            "elevation": elev,
+        }
+    )
 
     # ---- Breakdown by material entity ----
     # Categories:
@@ -262,7 +259,7 @@ def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
     material_breakdown = defaultdict(int)
 
     for elem in building_elements:
-        best = _best_material_rel(elem) # choose material relationship based on predefined hierarchy
+        best = _best_material_rel(elem)  # choose material relationship based on predefined hierarchy
         if not best:
             material_breakdown["No material data"] += 1
             continue
@@ -305,11 +302,11 @@ def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
             "Application Name": application_name,
             "Version": application_version,
             "Application Identifier": application_identifier,
-            "Developer": application_developer
+            "Developer": application_developer,
         },
         "Building Elements Overview": {
             "Total Building Elements": total_building_elements,
             "Breakdown by Type": breakdown,
-            "Breakdown by Material Entity": _finalize_material_breakdown(material_breakdown)
-        }
+            "Breakdown by Material Entity": _finalize_material_breakdown(material_breakdown),
+        },
     }

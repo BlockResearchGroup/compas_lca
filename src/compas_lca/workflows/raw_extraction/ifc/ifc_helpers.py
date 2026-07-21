@@ -1,52 +1,42 @@
 import json
-
 import re
-
 from pathlib import Path
-
 from typing import Any
-from typing import Literal
-from typing import List
-from typing import Iterator
-from typing import Iterable
-from typing import Optional
 from typing import Dict
+from typing import Iterable
+from typing import Iterator
+from typing import List
+from typing import Literal
+from typing import Optional
 from typing import Tuple
 
-from compas_lca.model.lca_element import LcaElement
-
-from compas_lca.model.metadata import ModelMetadata
-
-from compas_lca.model.descriptor import ElementDescriptor
-
-from compas_lca.matching_core.core import MatchingCore
-
 from compas_lca.helpers import load_json
+from compas_lca.matching_core.core import MatchingCore
+from compas_lca.model.descriptor import ElementDescriptor
+from compas_lca.model.lca_element import LcaElement
+from compas_lca.model.metadata import ModelMetadata
 
 # ===============
 # GENERIC HELPERS
 # ===============
 
+
 def get_single_ifc(directory: Path) -> Path:
-    """ Find exactly one IFC file in `directory` (non-recursive). """
+    """Find exactly one IFC file in `directory` (non-recursive)."""
     if not directory.exists() or not directory.is_dir():
         raise NotADirectoryError(f"Directory does not exist: {directory}")
     # Only scan files directly in this folder
-    candidates = [
-        p for p in directory.iterdir()
-        if p.is_file() and p.suffix.lower() == ".ifc"
-    ]
+    candidates = [p for p in directory.iterdir() if p.is_file() and p.suffix.lower() == ".ifc"]
     if not candidates:
         raise FileNotFoundError(f"No .ifc files found in {directory}")
     if len(candidates) > 1:
         details = "\n  - " + "\n  - ".join(str(p) for p in candidates)
-        raise ValueError(
-            f"Expected exactly one .ifc file but found {len(candidates)} in {directory}:{details}"
-        )
+        raise ValueError(f"Expected exactly one .ifc file but found {len(candidates)} in {directory}:{details}")
     return candidates[0]
 
+
 def get_classification(element):
-    """ Extracts classification information associated with an IFC element using IfcRelAssociatesClassification relationships. """
+    """Extracts classification information associated with an IFC element using IfcRelAssociatesClassification relationships."""
     classifications = []
     for rel in inverse_list(element, "HasAssociations"):
         if not rel.is_a("IfcRelAssociatesClassification"):
@@ -56,7 +46,7 @@ def get_classification(element):
             "IfcEntity": classification_ref.is_a(),
             "Identification": getattr(classification_ref, "Identification", "Unknown"),
             "System Name": getattr(getattr(classification_ref, "ReferencedSource", None), "Name", "Unknown"),
-            "Name": getattr(classification_ref, "Name", "Unknown")
+            "Name": getattr(classification_ref, "Name", "Unknown"),
         }
         classifications.append(classification_data)
     if not classifications:
@@ -65,7 +55,7 @@ def get_classification(element):
 
 
 def get_hierarchy(element):
-    """ Extracts hierarchical decomposition information for a given IFC element. """
+    """Extracts hierarchical decomposition information for a given IFC element."""
     decomposes = {}
     is_decomposed_by = []
     for rel in inverse_list(element, "Decomposes"):
@@ -75,19 +65,17 @@ def get_hierarchy(element):
             "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
             "entity": rel.RelatingObject.is_a(),
             "eid": str(rel.RelatingObject.id()),
-            "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
+            "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None,
         }
     for rel in inverse_list(element, "IsDecomposedBy"):
         if not rel.is_a("IfcRelAggregates"):
             continue
-        is_decomposed_by.extend([
-            {
-                "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
-                "entity": obj.is_a(),
-                "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
-            }
-            for obj in rel.RelatedObjects
-        ])
+        is_decomposed_by.extend(
+            [
+                {"name": obj.Name if hasattr(obj, "Name") and obj.Name else None, "entity": obj.is_a(), "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None}
+                for obj in rel.RelatedObjects
+            ]
+        )
     return decomposes, is_decomposed_by
 
 
@@ -111,6 +99,7 @@ def get_material_props(material_definition, caches):
         for p in mprops
     ]
 
+
 def clean_value(value):
     if isinstance(value, str):
         # Remove "<IfcType" wrappers if present
@@ -119,7 +108,6 @@ def clean_value(value):
         return value  # Return as-is if it's already clean
     return value  # Return numbers/booleans as-is
 
-from typing import Optional, Dict, Any
 
 def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
     """
@@ -136,7 +124,7 @@ def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
 
     entity = material_data.get("entity")
     layers = material_data.get("material_layers") or []
-    mats   = material_data.get("materials") or []
+    mats = material_data.get("materials") or []
 
     # Multi-layer: keep your original rule (>1 layer)
     if entity in {"IfcMaterialLayerSetUsage", "IfcMaterialLayerSet"}:
@@ -154,6 +142,7 @@ def classify_material_bucket(material_data: Optional[Dict[str, Any]]) -> str:
     # choose conservative behavior; could also return "no_material" instead.
     return "single_material"
 
+
 def _strip_none(x):
     """Recursively remove keys with None values. Keeps empty dicts/lists as-is."""
     if isinstance(x, dict):
@@ -162,11 +151,13 @@ def _strip_none(x):
         return [_strip_none(v) for v in x]
     return x
 
+
 def write_json(path: Path, data: Any, *, exclude_none: bool = False, indent: int = 2) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = _strip_none(data) if exclude_none else data
     with path.open("w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=indent)
+
 
 def inverse_list(obj, attr_name):
     """Return inverse attribute as an iterable, whether it's a value or a callable."""
@@ -205,9 +196,10 @@ def tesselated_brep_obb(geom, units, ndigits=2):
 
     # Convert to project units (e.g. m²)
     scale = units.get("lc_factor")
-    max_area_si = max_area_model * (scale ** 2)
+    max_area_si = max_area_model * (scale**2)
 
-    return round(x,ndigits), round(y,ndigits), round(z,ndigits), round(max_area_si, ndigits)
+    return round(x, ndigits), round(y, ndigits), round(z, ndigits), round(max_area_si, ndigits)
+
 
 def tesselated_brep_volume(geom, units, ndigits=4):
     """Return the COMPAS geometry volume converted to project units (e.g. m³)."""
@@ -222,9 +214,10 @@ def tesselated_brep_volume(geom, units, ndigits=4):
 
     # Convert to SI (project) units
     scale = units.get("lc_factor")
-    volume_si = volume_model * (scale ** 3)
+    volume_si = volume_model * (scale**3)
 
     return round(volume_si, ndigits)
+
 
 def has_valid_geometry(element):
     """Return True if element has a geometry with vertices or solid data."""
@@ -247,6 +240,7 @@ def has_valid_geometry(element):
 # QUANTITY HELPERS (PRIORITIZATION)
 # ======================================
 
+
 def _get_in(d: Dict[str, Any], path: Iterable[str]) -> Any:
     """Safe nested getter; returns None if any step is missing."""
     cur = d
@@ -257,6 +251,7 @@ def _get_in(d: Dict[str, Any], path: Iterable[str]) -> Any:
         if cur is None:
             return None
     return cur
+
 
 def _coerce_number(x: Any) -> Optional[float | int]:
     """Parse ints/floats from typical JSON strings; None if not parseable."""
@@ -273,6 +268,7 @@ def _coerce_number(x: Any) -> Optional[float | int]:
             return None
     return None
 
+
 def _first_numeric(input_json: Dict[str, Any], paths: List[List[str]]) -> Optional[float | int]:
     """Return the first parseable numeric across candidate paths."""
     for p in paths:
@@ -281,6 +277,7 @@ def _first_numeric(input_json: Dict[str, Any], paths: List[List[str]]) -> Option
         if num is not None:
             return num
     return None
+
 
 def _obb_dimension_range(input_json: dict) -> Optional[Tuple[float, float]]:
     """
@@ -303,9 +300,11 @@ def _obb_dimension_range(input_json: dict) -> Optional[Tuple[float, float]]:
 
     return min(dims), max(dims)
 
+
 # ======================================
 # CREATE PACKAGE (FOLDER) FOR MULTILAYER
 # ======================================
+
 
 def _to_plain_dict(obj: Any) -> Dict[str, Any]:
     """
@@ -314,7 +313,7 @@ def _to_plain_dict(obj: Any) -> Dict[str, Any]:
     """
     if hasattr(obj, "model_dump"):  # Pydantic v2
         return obj.model_dump(exclude_none=True, by_alias=True)
-    if hasattr(obj, "dict"):        # Pydantic v1 or similar
+    if hasattr(obj, "dict"):  # Pydantic v1 or similar
         return obj.dict(exclude_none=True, by_alias=True)
     if isinstance(obj, dict):
         return obj
@@ -322,6 +321,7 @@ def _to_plain_dict(obj: Any) -> Dict[str, Any]:
         return json.loads(json.dumps(obj))
     except Exception as e:
         raise TypeError(f"Cannot convert layer object of type {type(obj)} to dict") from e
+
 
 def write_multilayer_pkg(
     root: Path,
@@ -428,6 +428,7 @@ def write_comp_index(compositions_meta: List[Dict[str, Any]], output_dir: Path) 
     with compositions_path.open("w", encoding="utf-8") as f:
         json.dump(compositions_meta, f, ensure_ascii=False, indent=2)
 
+
 def init_ml_index() -> Dict[str, List[Dict[str, str]]]:
     """
     Initialize the multilayers metadata index.
@@ -441,6 +442,7 @@ def init_ml_index() -> Dict[str, List[Dict[str, str]]]:
         "IfcMaterialLayerSet": [],
         "IfcMaterialLayerSetUsage": [],
     }
+
 
 def init_mm_index() -> List[Dict[str, str]]:
     """
@@ -472,6 +474,7 @@ def write_ml_index(index: Dict[str, List[Dict[str, str]]], output_dir: Path) -> 
     with path.open("w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
+
 def write_mm_index(items: List[Dict[str, str]], output_dir: Path) -> None:
     """
     items shape:
@@ -483,6 +486,7 @@ def write_mm_index(items: List[Dict[str, str]], output_dir: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=2)
+
 
 def write_meta_ifc(ifcmeta: Dict[str, Any], output_dir: Path) -> None:
     model_path = output_dir / "metadata" / "model.json"
@@ -503,9 +507,11 @@ def _to_decimal(angle):
         return float(angle)
     return None
 
+
 # helpers that mirror extract_material_data selection logic, lightweight for counting.
 def _kind(x):
     return x.is_a() if hasattr(x, "is_a") else type(x).__name__
+
 
 def _pick_best(rels) -> Optional[Tuple[str, Any]]:
     candidates = []
@@ -525,6 +531,7 @@ def _pick_best(rels) -> Optional[Tuple[str, Any]]:
     kind, rel_mat = max(candidates, key=lambda kv: priority.get(kv[0], 0))
     return kind, rel_mat
 
+
 def _element_type(element):
     """Resolve the element's defining IfcTypeObject via inverse attributes
     (IFC4 ``IsTypedBy``; IFC2X3 ``IsDefinedBy`` + ``IfcRelDefinesByType``),
@@ -537,11 +544,12 @@ def _element_type(element):
                     return rt
     return None
 
+
 def _element_material_rels(obj):
     """All IfcRelAssociatesMaterial on an element/type, via the ``HasAssociations``
     inverse (identical set/order to iterating the model-wide cache + membership)."""
-    return [r for r in inverse_list(obj, "HasAssociations")
-            if r.is_a("IfcRelAssociatesMaterial")]
+    return [r for r in inverse_list(obj, "HasAssociations") if r.is_a("IfcRelAssociatesMaterial")]
+
 
 def _best_material_rel(element) -> Optional[Tuple[str, Any]]:
     """Best material association for an element: prefer the element's own material
@@ -554,11 +562,9 @@ def _best_material_rel(element) -> Optional[Tuple[str, Any]]:
         return _pick_best(_element_material_rels(elem_type))
     return None
 
+
 def write_object_type_index(index: dict, output_dir: Path):
-    sorted_index = {
-        k: sorted(v, key=lambda x: (x.get("name") or "", x.get("global_id") or ""))
-        for k, v in sorted(index.items())
-    }
+    sorted_index = {k: sorted(v, key=lambda x: (x.get("name") or "", x.get("global_id") or "")) for k, v in sorted(index.items())}
     write_json(
         output_dir / "metadata" / "object_type.json",
         sorted_index,
@@ -605,9 +611,7 @@ def _discover_multix_paths(
             global_candidates.append(p)
 
     if not global_candidates:
-        raise ValueError(
-            f"Expected a global JSON in {directory} (a file not named '*_{part_prefix}N.json')."
-        )
+        raise ValueError(f"Expected a global JSON in {directory} (a file not named '*_{part_prefix}N.json').")
 
     preferred_name = f"{directory.name}.json"
     global_path = next((p for p in global_candidates if p.name == preferred_name), None)
@@ -619,10 +623,10 @@ def _discover_multix_paths(
     return global_path, part_paths_sorted
 
 
-
 # =============================================
 # HELPERS FOR PREPROCESSED IFC DATA -> LcaModel
 # =============================================
+
 
 def _build_rep_eid_map(tree: dict) -> dict[str, dict]:
     """
@@ -709,6 +713,7 @@ def _save_lca_element(elem: LcaElement, out_dir: Optional[Path]) -> None:
         encoding="utf-8",
     )
 
+
 def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
     if out_dir is None:
         return
@@ -718,21 +723,19 @@ def _save_model_metadata(meta: ModelMetadata, out_dir: Optional[Path]) -> None:
         encoding="utf-8",
     )
 
+
 def update_descriptor_ifc(member: dict[str, Any], descriptor: ElementDescriptor) -> ElementDescriptor:
     metadata = member.get("metadata", {}) or {}
     name = metadata.get("name")
     eid = metadata.get("eid")
     global_id = metadata.get("global_id")
     try:
-        return descriptor.model_copy(update={
-            "element_name": name,
-            "element_eid": str(eid),
-            "element_global_id": global_id
-        })
+        return descriptor.model_copy(update={"element_name": name, "element_eid": str(eid), "element_global_id": global_id})
     except Exception as e:
         print("error happens here")
         print(e)
         return descriptor
+
 
 def update_matching_core_ifc(member: dict[str, Any], core: MatchingCore, entry_type: Optional[str]) -> MatchingCore:
     try:
@@ -743,9 +746,10 @@ def update_matching_core_ifc(member: dict[str, Any], core: MatchingCore, entry_t
                 new_name = getattr(core, "name", None)
             return core.model_copy(update={"name": new_name})
         return core
-    except Exception as e:
+    except Exception:
         return core
-    
+
+
 def _normalize_entry_type(t):
     """Return 'component' | 'material' | 'unknown' | None from enum or str."""
     if t is None:
@@ -778,28 +782,20 @@ def _is_unknownish_core(core, t_norm):
         return (mt is None) or (mt == "") or (mt == "unknown")
     return False
 
-def _pick_multilayer_bucket(
-        rep_elem, 
-        layered_list, layered_dir, 
-        undef_list, undef_dir):
+
+def _pick_multilayer_bucket(rep_elem, layered_list, layered_dir, undef_list, undef_dir):
     cores = getattr(rep_elem, "element_core", None) or []
     if not cores:
         return undef_list, undef_dir, None
 
-    types = [
-        _normalize_entry_type(getattr(c, "entry_type", None) if not isinstance(c, dict) else c.get("entry_type"))
-        for c in cores
-    ]
+    types = [_normalize_entry_type(getattr(c, "entry_type", None) if not isinstance(c, dict) else c.get("entry_type")) for c in cores]
 
     # 1) any component -> layered
     if any(t == "component" for t in types):
         return layered_list, layered_dir, "component"
 
     # 2) any material with known material_type -> layered (route as 'material')
-    if any(
-        t == "material" and (_get_material_type(c) not in (None, "", "unknown"))
-        for c, t in zip(cores, types)
-    ):
+    if any(t == "material" and (_get_material_type(c) not in (None, "", "unknown")) for c, t in zip(cores, types)):
         return layered_list, layered_dir, "material"
 
     # 3) all cores unknown-ish -> undefined
@@ -812,9 +808,12 @@ def _pick_multilayer_bucket(
 
 def _pick_multimaterial_bucket(
     rep_elem,
-    comp_list, comp_dir,        # components bucket
-    layered_list, layered_dir,  # multilayer-by-material bucket
-    undef_list, undef_dir       # undefined bucket
+    comp_list,
+    comp_dir,  # components bucket
+    layered_list,
+    layered_dir,  # multilayer-by-material bucket
+    undef_list,
+    undef_dir,  # undefined bucket
 ):
     """
     Multimaterial routing:
@@ -829,20 +828,14 @@ def _pick_multimaterial_bucket(
         return undef_list, undef_dir, None
 
     # Normalize entry types once
-    types = [
-        _normalize_entry_type(getattr(c, "entry_type", None) if not isinstance(c, dict) else c.get("entry_type"))
-        for c in cores
-    ]
+    types = [_normalize_entry_type(getattr(c, "entry_type", None) if not isinstance(c, dict) else c.get("entry_type")) for c in cores]
 
     # 1) any component -> components bucket
     if any(t == "component" for t in types):
         return comp_list, comp_dir, "component"
 
     # 2) any material with known material_type -> multilayer bucket
-    any_known_material = any(
-        (t == "material") and (_get_material_type(core) not in (None, "", "unknown"))
-        for core, t in zip(cores, types)
-    )
+    any_known_material = any((t == "material") and (_get_material_type(core) not in (None, "", "unknown")) for core, t in zip(cores, types))
     if any_known_material:
         return layered_list, layered_dir, "material"
 
@@ -851,8 +844,7 @@ def _pick_multimaterial_bucket(
         return undef_list, undef_dir, None
 
     # 4) default -> undefined
-    return undef_list, undef_dir, None 
-
+    return undef_list, undef_dir, None
 
 
 def _dump_json(obj: Any, path: Path) -> None:

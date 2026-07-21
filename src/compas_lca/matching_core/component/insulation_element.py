@@ -4,17 +4,13 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import InsulationElementType
 from compas_lca.enums import InsulationCore
+from compas_lca.enums import InsulationElementType
 from compas_lca.enums import InsulationFacing
 
 
 class InsulationElementFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
 
     insulation_element_type: InsulationElementType = Field(
         InsulationElementType.unknown,

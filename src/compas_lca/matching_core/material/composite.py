@@ -1,25 +1,21 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import CompositeType
-from compas_lca.enums import CompositeMatrix
-from compas_lca.enums import CompositeForm
 from compas_lca.enums import CompositeArchitecture
+from compas_lca.enums import CompositeForm
+from compas_lca.enums import CompositeMatrix
 from compas_lca.enums import CompositeReinforcement
+from compas_lca.enums import CompositeType
 from compas_lca.matching_core.normalization import normalize_composite_type
 
+
 class CompositeFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     composite_type: CompositeType = Field(
         CompositeType.unknown,
         description=dedent("""
@@ -62,10 +58,12 @@ class CompositeFacet(BaseModel):
             - If polymer contains fine mineral fillers → `particulate_filled_polymer`
         """).strip(),
     )
+
     @field_validator("composite_type", mode="before")
     @classmethod
     def _normalize_composite_type(cls, value):
         return normalize_composite_type(value)
+
     composite_matrix: Optional[CompositeMatrix] = Field(
         None,
         description=dedent("""
@@ -74,7 +72,7 @@ class CompositeFacet(BaseModel):
             most of the composite's physical and chemical behavior.  
             If the matrix material cannot be determined, leave empty.
         """).strip(),
-        examples=["cementitious", "bituminous", "ceramic"]
+        examples=["cementitious", "bituminous", "ceramic"],
     )
     composite_reinforcement: Optional[CompositeReinforcement] = Field(
         None,
@@ -84,23 +82,12 @@ class CompositeFacet(BaseModel):
             Reinforcements can appear as **fibers, particles, fabrics, meshes, or bars**, depending on the composite type.  
             Only specify this attribute for **reinforced composites**, otherwise leave empty.
         """).strip(),
-        examples=[
-            "steel_rebar",
-            "steel_fibers",
-            "glass_fibers",
-            "carbon_fibers",
-            "cellulose_fibers",
-            "wood_particles",
-            "mineral_aggregate"
-        ]
+        examples=["steel_rebar", "steel_fibers", "glass_fibers", "carbon_fibers", "cellulose_fibers", "wood_particles", "mineral_aggregate"],
     )
     composite_form: Optional[CompositeForm] = Field(
         None,
         description="Physical product form/geometry for the composite in construction applications.",
-        examples=[
-            "board", "panel", "sandwich_panel", "profile", "tube",
-            "rebar", "block", "precast_element", "wrap", "laminate"
-        ]
+        examples=["board", "panel", "sandwich_panel", "profile", "tube", "rebar", "block", "precast_element", "wrap", "laminate"],
     )
     composite_architecture: Optional[CompositeArchitecture] = Field(
         None,
@@ -109,5 +96,5 @@ class CompositeFacet(BaseModel):
             For example, use 'sandwich_core' for panels/boards with a core, or use
             'block_with_insert' for masonry/shuttering units with integrated insulation.
         """).strip(),
-        examples=["monolithic", "particulate_filled", "other"]
+        examples=["monolithic", "particulate_filled", "other"],
     )

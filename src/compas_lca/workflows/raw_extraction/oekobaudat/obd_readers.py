@@ -10,6 +10,7 @@ from typing import List
 
 import pandas as pd
 
+
 def read_csv(csv_path: str, *, encoding: str = "latin1") -> pd.DataFrame:
     """
     Load an ÖKOBAUDAT CSV (semicolon-separated) as strings.
@@ -25,6 +26,7 @@ def read_csv(csv_path: str, *, encoding: str = "latin1") -> pd.DataFrame:
     if "UUID" not in df.columns:
         raise ValueError("CSV missing required column 'UUID'.")
     return df
+
 
 def uuids_in_csv(df: pd.DataFrame) -> List[str]:
     """
@@ -42,6 +44,7 @@ def subset_for_uuid(df: pd.DataFrame, uuid: str) -> pd.DataFrame:
     if sub.empty:
         raise ValueError(f"UUID {uuid} not found in CSV.")
     return sub
+
 
 def first_row_for_uuid(df: pd.DataFrame, uuid: str) -> pd.Series:
     sub = df[df["UUID"].astype(str) == str(uuid).strip()]

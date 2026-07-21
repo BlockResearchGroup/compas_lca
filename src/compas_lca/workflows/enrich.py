@@ -1,35 +1,27 @@
-import json
-
 import csv
-
-from pathlib import Path
-
+import json
 from dataclasses import dataclass
 from dataclasses import field
-
+from pathlib import Path
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Tuple
 
+from compas_lca.enums import ConcreteStrength
 from compas_lca.helpers import load_json
 from compas_lca.helpers import merge_llm_meta
-
-from compas_lca.workflows.extraction import extract_json_with_agent
-
-from compas_lca.enums import ConcreteStrength
-
 from compas_lca.llm.ctx.speculation_context import CONCRETE_STRENGTH_CTX
 from compas_lca.llm.ctx.speculation_context import STUD_RATIO_CTX
-
-from compas_lca.model.lca_element import LcaElement
-
 from compas_lca.matching_core.core import MatchingCore
+from compas_lca.model.lca_element import LcaElement
+from compas_lca.workflows.extraction import extract_json_with_agent
 
 # ===================================================================
 # Enrichment CSV template (updated BoQ & Logging)
 # ===================================================================
+
 
 def create_boq_enriched(
     *,
@@ -56,9 +48,7 @@ def create_boq_enriched(
     enriched_dir.mkdir(parents=True, exist_ok=True)
     output_path = enriched_dir / output_filename
 
-    with input_path.open("r", encoding="utf-8", newline="") as f_in, \
-         output_path.open("w", encoding="utf-8", newline="") as f_out:
-
+    with input_path.open("r", encoding="utf-8", newline="") as f_in, output_path.open("w", encoding="utf-8", newline="") as f_out:
         reader = csv.reader(f_in)
         writer = csv.writer(f_out)
 
@@ -94,17 +84,14 @@ def create_boq_enriched(
 # Core mutation helpers
 # -----------------------------
 
+
 def _is_concrete_material_lca_element(elem: LcaElement) -> bool:
     cores = elem.element_core or []
     if not cores:
         return False
     if getattr(cores[0], "entry_type", None) != "material":
         return False
-    return any(
-        getattr(c.facet, "material_type", "").casefold() == "concrete"
-        for c in cores
-        if getattr(c, "facet", None) is not None
-    )
+    return any(getattr(c.facet, "material_type", "").casefold() == "concrete" for c in cores if getattr(c, "facet", None) is not None)
 
 
 def _apply_strengths_to_cores_by_index(
@@ -129,9 +116,8 @@ def _apply_strengths_to_cores_by_index(
 
 
 def _enrich_element_by_strengths(elem: LcaElement, strength_by_idx_1b: Dict[int, ConcreteStrength]) -> LcaElement:
-    return elem.model_copy(
-        update={"element_core": _apply_strengths_to_cores_by_index(elem.element_core or [], strength_by_idx_1b)}
-    )
+    return elem.model_copy(update={"element_core": _apply_strengths_to_cores_by_index(elem.element_core or [], strength_by_idx_1b)})
+
 
 def _concrete_core_indices_1based(elem: LcaElement) -> List[int]:
     idxs: List[int] = []
@@ -140,9 +126,11 @@ def _concrete_core_indices_1based(elem: LcaElement) -> List[int]:
             idxs.append(i + 1)
     return idxs
 
+
 # -----------------------------
 # IO helpers (by element_eid)
 # -----------------------------
+
 
 def _index_lca_elements_by_eid(extracted_dir: Path) -> Dict[str, Path]:
     """
@@ -196,6 +184,7 @@ def _copy_structure_base(extracted_dir: Path, enriched_dir: Path) -> None:
 # -----------------------------
 # Find representative IFC JSON (preprocessed)
 # -----------------------------
+
 
 def _find_preprocessed_ifc_jsons_for_concrete_cores(
     preprocessed_all_dir: Path,
@@ -258,9 +247,11 @@ def _find_preprocessed_ifc_jsons_for_concrete_cores(
 
     return out
 
+
 # -----------------------------
 # Main runner
 # -----------------------------
+
 
 @dataclass
 class ConcreteStrengthEnricher:
@@ -298,9 +289,7 @@ class ConcreteStrengthEnricher:
         # ---- BoQ_enriched.csv update (add concrete strength tag) ----
         boq_path = self.enriched_dir / "BoQ_enriched.csv"
         if not boq_path.exists():
-            raise FileNotFoundError(
-                f"Missing BoQ_enriched.csv: {boq_path} (call create_boq_enriched first)"
-            )
+            raise FileNotFoundError(f"Missing BoQ_enriched.csv: {boq_path} (call create_boq_enriched first)")
 
         with boq_path.open("r", encoding="utf-8", newline="") as f:
             reader = csv.DictReader(f)
@@ -348,7 +337,6 @@ class ConcreteStrengthEnricher:
 
             return updated
 
-
         enriched_eids: set[str] = set()
 
         for rep_eid, entry in reps_map.items():
@@ -370,29 +358,25 @@ class ConcreteStrengthEnricher:
             enriched_eids.add(rep_eid_str)
 
             progress_counter += 1
-            strength_summary = ", ".join(
-                f"{idx}:{st.value}" for idx, (st, _exp) in sorted(strengths.items())
-            )
+            strength_summary = ", ".join(f"{idx}:{st.value}" for idx, (st, _exp) in sorted(strengths.items()))
 
-            print(
-                f"[{progress_counter}/{total_to_enrich}] "
-                f"Enriched representative: {rep_elem.descriptor.element_name} "
-                f"(EID={rep_eid_str}) -> {strength_summary}"
-            )
+            print(f"[{progress_counter}/{total_to_enrich}] Enriched representative: {rep_elem.descriptor.element_name} (EID={rep_eid_str}) -> {strength_summary}")
 
             for idx_1b, (strength, explanation) in strengths.items():
-                self.protocol.append({
-                    "representative_eid": rep_eid_str,
-                    "representative_name": rep_elem.descriptor.element_name,
-                    "object_type": rep_elem.descriptor.object_type,
-                    "core_index_1based": idx_1b,
-                    "strength_class": strength.value,
-                    "explanation": explanation,
-                    "members_count": len(entry.get("members") or []),
-                })
+                self.protocol.append(
+                    {
+                        "representative_eid": rep_eid_str,
+                        "representative_name": rep_elem.descriptor.element_name,
+                        "object_type": rep_elem.descriptor.object_type,
+                        "core_index_1based": idx_1b,
+                        "strength_class": strength.value,
+                        "explanation": explanation,
+                        "members_count": len(entry.get("members") or []),
+                    }
+                )
 
             # members
-            for m in (entry.get("members") or []):
+            for m in entry.get("members") or []:
                 me = str((m or {}).get("eid") or "").strip()
                 if not me or me == rep_eid_str:
                     continue
@@ -405,15 +389,9 @@ class ConcreteStrengthEnricher:
                     m_elem = _enrich_element_by_strengths(m_elem, strength_by_idx)
                     apply_concrete_strengths_to_boq(me, strength_by_idx)
                     progress_counter += 1
-                    strength_summary = ", ".join(
-                        f"{idx}:{st.value}" for idx, (st, _exp) in sorted(strengths.items())
-                    )
+                    strength_summary = ", ".join(f"{idx}:{st.value}" for idx, (st, _exp) in sorted(strengths.items()))
 
-                    print(
-                        f"[{progress_counter}/{total_to_enrich}] "
-                        f"Enriched representative: {rep_elem.descriptor.element_name} "
-                        f"(EID={rep_eid_str}) -> {strength_summary}"
-                    )
+                    print(f"[{progress_counter}/{total_to_enrich}] Enriched representative: {rep_elem.descriptor.element_name} (EID={rep_eid_str}) -> {strength_summary}")
 
                 self._write_same_bucket(m_elem, m_path)
 
@@ -493,6 +471,7 @@ class ConcreteStrengthEnricher:
         }
         protocol_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
+
 def enrich_concrete_strength(
     *,
     preprocessed_all_dir: Path,
@@ -522,6 +501,7 @@ def enrich_concrete_strength(
 # Core detection helpers
 # -----------------------------
 
+
 def _as_token(x: Any) -> str:
     if x is None:
         return ""
@@ -530,6 +510,7 @@ def _as_token(x: Any) -> str:
     if v is not None:
         return str(v).strip().casefold()
     return str(x).strip().casefold()
+
 
 def _is_stud_layer_core(core: MatchingCore) -> bool:
     if getattr(core, "entry_type", None) != "material":
@@ -557,6 +538,7 @@ def _first_stud_layer_index_1based(elem: LcaElement) -> Optional[int]:
             return i + 1
     return None
 
+
 def _stud_layer_indices_1based(elem: LcaElement) -> list[int]:
     cores = elem.element_core or []
     out: list[int] = []
@@ -565,9 +547,11 @@ def _stud_layer_indices_1based(elem: LcaElement) -> list[int]:
             out.append(i + 1)
     return out
 
+
 # -----------------------------
 # IO helpers (by element_eid)
 # -----------------------------
+
 
 def _index_lca_elements_by_eid(extracted_dir: Path) -> Dict[str, Path]:
     buckets = ["single_materials", "layered_elements", "abstract_components", "undefined_elements"]
@@ -594,6 +578,7 @@ def _load_lca_element(path: Path) -> LcaElement:
 # -----------------------------
 # Find representative IFC JSON (preprocessed)
 # -----------------------------
+
 
 def _find_preprocessed_ifc_json_for_stud_layer(
     preprocessed_all_dir: Path,
@@ -654,6 +639,7 @@ def _find_preprocessed_ifc_json_for_stud_layer(
 
     return None
 
+
 # -----------------------------
 # Minimal CSV helpers
 # -----------------------------
@@ -663,11 +649,13 @@ def _available_layers_for_eid(boq_index, eid: str) -> list[str]:
     e = _norm_id(eid)
     return sorted({ln for (xe, ln) in boq_index.keys() if xe == e})
 
+
 def _norm(x: Any) -> str:
     if x is None:
         return ""
     s = str(x).strip()
     return "" if s.lower() in {"nan", "none", "null"} else s
+
 
 def _norm_id(x: Any) -> str:
     s = _norm(x)
@@ -677,6 +665,7 @@ def _norm_id(x: Any) -> str:
         s = s[:-2]
     return s
 
+
 def _norm_layer_no_1based(x: Any) -> str:
     s = _norm_id(x)
     if not s:
@@ -684,6 +673,7 @@ def _norm_layer_no_1based(x: Any) -> str:
     if s.endswith(".0"):
         s = s[:-2]
     return s
+
 
 def _parse_float(x: Any) -> Optional[float]:
     s = _norm(x)
@@ -707,6 +697,7 @@ def _fmt_float(v: float) -> str:
 def _layer_key(layer_idx_1b: Optional[int]) -> str:
     return "" if layer_idx_1b is None else str(int(layer_idx_1b))
 
+
 def _append_enriched(existing: str, token: str) -> str:
     existing = _norm(existing)
     token = _norm(token)
@@ -718,9 +709,11 @@ def _append_enriched(existing: str, token: str) -> str:
     parts.append(token)
     return "; ".join(parts)
 
+
 # -----------------------------
 # Main runner
 # -----------------------------
+
 
 @dataclass
 class StudRatioEnricher:
@@ -740,9 +733,7 @@ class StudRatioEnricher:
 
         boq_path = self.enriched_dir / "BoQ_enriched.csv"
         if not boq_path.exists():
-            raise FileNotFoundError(
-                f"Missing BoQ_enriched.csv: {boq_path} (call create_boq_enriched first)"
-            )
+            raise FileNotFoundError(f"Missing BoQ_enriched.csv: {boq_path} (call create_boq_enriched first)")
 
         with boq_path.open("r", encoding="utf-8", newline="") as f:
             reader = csv.DictReader(f)
@@ -778,7 +769,6 @@ class StudRatioEnricher:
         updated_rows = 0
 
         for rep_eid, entry in reps_map.items():
-            
             rep_eid = _norm(rep_eid)
             rep_path = element_index.get(rep_eid)
             if not rep_path:
@@ -793,7 +783,7 @@ class StudRatioEnricher:
 
             if not rep_has:
                 fts = []
-                for c in (rep_elem.element_core or []):
+                for c in rep_elem.element_core or []:
                     facet = getattr(c, "facet", None)
                     if facet:
                         fts.append(getattr(facet, "functional_types", None))
@@ -808,24 +798,22 @@ class StudRatioEnricher:
             if rep_eid not in enriched_eids:
                 enriched_eids.add(rep_eid)
                 progress_counter += 1
-                print(
-                    f"[{progress_counter}/{total_to_enrich}] "
-                    f"Enriched representative: {rep_elem.descriptor.element_name} "
-                    f"(EID={rep_eid}) -> {ratio}"
-                )
+                print(f"[{progress_counter}/{total_to_enrich}] Enriched representative: {rep_elem.descriptor.element_name} (EID={rep_eid}) -> {ratio}")
 
-            self.protocol.append({
-                "representative_eid": rep_eid,
-                "representative_name": rep_elem.descriptor.element_name,
-                "object_type": rep_elem.descriptor.object_type,
-                "stud_ratio": ratio,
-                "layer_index_1based": rep_layer_idx_1b,
-                "explanation": explanation,
-                "members_count": len(entry.get("members") or []),
-            })
+            self.protocol.append(
+                {
+                    "representative_eid": rep_eid,
+                    "representative_name": rep_elem.descriptor.element_name,
+                    "object_type": rep_elem.descriptor.object_type,
+                    "stud_ratio": ratio,
+                    "layer_index_1based": rep_layer_idx_1b,
+                    "explanation": explanation,
+                    "members_count": len(entry.get("members") or []),
+                }
+            )
 
             # members
-            for m in (entry.get("members") or []):
+            for m in entry.get("members") or []:
                 me = _norm_id((m or {}).get("eid"))
                 if not me or me == rep_eid:
                     continue
@@ -843,11 +831,7 @@ class StudRatioEnricher:
                 if me not in enriched_eids:
                     enriched_eids.add(me)
                     progress_counter += 1
-                    print(
-                        f"[{progress_counter}/{total_to_enrich}] "
-                        f"Enriched member: {m_elem.descriptor.element_name} "
-                        f"(EID={me}) -> {ratio}"
-                    )
+                    print(f"[{progress_counter}/{total_to_enrich}] Enriched member: {m_elem.descriptor.element_name} (EID={me}) -> {ratio}")
 
         # rewrite the same BoQ_enriched.csv
         self.enriched_dir.mkdir(parents=True, exist_ok=True)
@@ -866,7 +850,6 @@ class StudRatioEnricher:
         )
         print(f"Stud ratio enrichment done. Updated rows: {updated_rows}. BoQ updated: {boq_path}")
         return self.llm_meta
-        
 
     def _infer_for_rep(self, rep_eid: str, rep_elem: LcaElement) -> Tuple[float, str, Optional[int]]:
         if rep_eid in self.cache:
@@ -927,10 +910,7 @@ class StudRatioEnricher:
             if v0 is not None:
                 r["Volume [m3]"] = _fmt_float(v0 * ratio)
 
-            r["Enriched"] = _append_enriched(
-                r.get("Enriched"),
-                f"STUD_LAYER_RATIO={_fmt_float(ratio)}"
-            )
+            r["Enriched"] = _append_enriched(r.get("Enriched"), f"STUD_LAYER_RATIO={_fmt_float(ratio)}")
             updated += 1
 
         return updated
@@ -954,6 +934,3 @@ def enrich_stud_ratio(
     )
     llm_meta = enricher.run()
     return llm_meta or {}
-
-
-

@@ -1,28 +1,24 @@
+from textwrap import dedent
 from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from textwrap import dedent
-
 from compas_lca.enums import EntryType
-
-from compas_lca.validators import DensityFloat
 from compas_lca.validators import ArealDensityFloat
-from compas_lca.validators import ThicknessFloat
-from compas_lca.validators import UValueFloat
+from compas_lca.validators import DensityFloat
+from compas_lca.validators import InteriorExteriorType
 from compas_lca.validators import LambdaFloat
 from compas_lca.validators import LoadbearingType
-from compas_lca.validators import InteriorExteriorType
+from compas_lca.validators import ThicknessFloat
+from compas_lca.validators import UValueFloat
+
 
 class Common(BaseModel):
     """Shared fields for all types for all materials or components"""
-    model_config = ConfigDict(
-        extra = "forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     entry_type: EntryType = Field(
         ...,
         description=dedent("""
@@ -111,7 +107,7 @@ class Common(BaseModel):
         extract the material or component/element name VERBATIM.
         """).strip(),
     )
-    loadbearing: LoadbearingType = Field(   # enforce a value, important indicator (unless this is too risky)
+    loadbearing: LoadbearingType = Field(  # enforce a value, important indicator (unless this is too risky)
         LoadbearingType.non_loadbearing,
         description=dedent("""
         Classify whether the product/material is intended for structural loadbearing use.
@@ -127,7 +123,7 @@ class Common(BaseModel):
         structural applications (e.g., ready-mixed concrete, structural-grade timber), classify as "either".
         """).strip(),
     )
-    placement: Optional[InteriorExteriorType] = Field(      # should a value be enforced?
+    placement: Optional[InteriorExteriorType] = Field(  # should a value be enforced?
         None,
         description=dedent("""
         Classify whether the product, material, or building element is explicitly intended for
@@ -151,7 +147,7 @@ class Common(BaseModel):
             If the source dataset specifies a range, compute and assign the average value.
             Only extract if it is explicitly stated in the input data. Do not infer.
         """).strip(),
-        examples=[24.0, 350.8, 2850.0]
+        examples=[24.0, 350.8, 2850.0],
     )
     areal_density: Optional[ArealDensityFloat] = Field(
         None,
@@ -160,15 +156,15 @@ class Common(BaseModel):
             Use this for materials where mass is reported per area.
             If the source dataset specifies a range, compute and assign the average value.
         """).strip(),
-        examples=[0.85, 12.0]
+        examples=[0.85, 12.0],
     )
-    thickness: Optional[ThicknessFloat] = Field( # removed "thickness source", speculated values are traced in enrichment module logs
+    thickness: Optional[ThicknessFloat] = Field(  # removed "thickness source", speculated values are traced in enrichment module logs
         None,
         description=dedent("""
         The numeric value of the thickness (in milimeters) of the material or component dataset.
         If the source dataset specifies a range, compute and assign the average value.
         """).strip(),
-        examples=[0.5, 5.0, 18.0]
+        examples=[0.5, 5.0, 18.0],
     )
     thermal_conductivity: Optional[LambdaFloat] = Field(
         None,
@@ -176,7 +172,7 @@ class Common(BaseModel):
         The float value of the thermal conductivity (lambda) of the material or component in W/mk.
         If the source dataset specifies a range, compute and assign the average value.
         """).strip(),
-        examples=[0.3, 1.4, 2.0]
+        examples=[0.3, 1.4, 2.0],
     )
     u_value: Optional[UValueFloat] = Field(
         None,
@@ -184,7 +180,7 @@ class Common(BaseModel):
         The float value of the U-Value of the component in W/m^2K.
         If the source dataset specifies a range, compute and assign the average value.
         """).strip(),
-        examples=[0.5, 1.1, 1.4]
+        examples=[0.5, 1.1, 1.4],
     )
     fire_retardant: Optional[bool] = Field(
         None,
@@ -193,7 +189,7 @@ class Common(BaseModel):
         Assign a boolean value if this information is explicitly stated in the input dataset,
         or if the value is unambiguously clear (common sense).
         """).strip(),
-        examples=[True, False]
+        examples=[True, False],
     )
     water_vapour_resistant: Optional[bool] = Field(
         None,
@@ -202,7 +198,7 @@ class Common(BaseModel):
         Assign a boolean value if this information is explicitly stated in the input dataset,
         or if the value is unambiguously clear (common sense).
         """).strip(),
-        examples=[True, False]
+        examples=[True, False],
     )
     manufacturer: Optional[str] = Field(
         None,
@@ -211,7 +207,7 @@ class Common(BaseModel):
         If no manufacturer is specified, leave this field as null (None).
         Careful: do not mistake the "owner of the dataset" with the manufacturer, they are not always the same.
         """).strip(),
-        examples=["Knauf", "Holcim", "EcoWorx"]
+        examples=["Knauf", "Holcim", "EcoWorx"],
     )
     provenance: Optional[str] = Field(
         None,
@@ -221,7 +217,7 @@ class Common(BaseModel):
         or broader regional groupings (e.g., "EU-27", "GLO" for global).
         If no provenance is specified in the dataset, leave this field as null (None).
         """).strip(),
-        examples=["GB", "TW", "GLO", "DE", "CH", "EU-27"]
+        examples=["GB", "TW", "GLO", "DE", "CH", "EU-27"],
     )
     production_location: Optional[str] = Field(
         None,
@@ -229,5 +225,5 @@ class Common(BaseModel):
         The exact place/city/area of the plant or factory where the material or component was produced.
         If this is not explicitly stated in the dataset, leave this field as null (None).
         """).strip(),
-        examples=["Rüdersdorf", "Jerez de la Frontera", "Bulacan"]
+        examples=["Rüdersdorf", "Jerez de la Frontera", "Bulacan"],
     )

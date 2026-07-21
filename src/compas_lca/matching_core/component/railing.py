@@ -6,12 +6,9 @@ from pydantic import Field
 
 from compas_lca.enums import RailingType
 
+
 class RailingFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     railing_type: RailingType = Field(
         RailingType.unknown,
         description=dedent("""
@@ -25,5 +22,5 @@ class RailingFacet(BaseModel):
               • "other" — any railing type not captured by the above categories.
               • "unknown" — used when the dataset does not provide enough information.
         """).strip(),
-        examples=["balustrade", "cable", "other"]
+        examples=["balustrade", "cable", "other"],
     )

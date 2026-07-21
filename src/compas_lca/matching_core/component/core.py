@@ -2,16 +2,16 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import model_validator
 
-from compas_lca.maps import MODEL_BY_COMP_TYPE
-
 from compas_lca.enums import ComponentType
-
+from compas_lca.maps import MODEL_BY_COMP_TYPE
 from compas_lca.matching_core.component.common import ComponentCommon
+
 
 class ComponentCore(BaseModel):
     """
     Container for component semantics and its type-specific facet.
     """
+
     model_config = ConfigDict(
         extra="forbid",
         validate_assignment=True,
@@ -51,10 +51,7 @@ class ComponentCore(BaseModel):
             return data
 
         if not isinstance(facet, model):
-            raise TypeError(
-                f"`component_facet` must be {model.__name__} for component_type={ctype}, "
-                f"got {type(facet).__name__}"
-            )
+            raise TypeError(f"`component_facet` must be {model.__name__} for component_type={ctype}, got {type(facet).__name__}")
         return data
 
 

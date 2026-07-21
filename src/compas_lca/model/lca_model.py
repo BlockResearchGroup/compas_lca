@@ -2,23 +2,23 @@ from typing import Dict
 from typing import Iterable
 from typing import List
 from typing import Optional
-
 from uuid import UUID
 from uuid import uuid4
 
-from pydantic import Field
 from pydantic import BaseModel
 from pydantic import ConfigDict
+from pydantic import Field
 
 from compas_lca.model.lca_element import LcaElement
 from compas_lca.model.metadata import ModelMetadata
 
+
 class LcaModel(BaseModel):
     """
-    High-level container for all ElementLike records (`LcaElement` and `AggregatedLcaElement`) 
-    within a building-model context. Represents the full LCA data model after parsing, 
-    classification, and matching, organized into logical element groups. Each element type 
-    shares the same data structure (`LcaElement` or `AggregatedLcaElement`) but differs in 
+    High-level container for all ElementLike records (`LcaElement` and `AggregatedLcaElement`)
+    within a building-model context. Represents the full LCA data model after parsing,
+    classification, and matching, organized into logical element groups. Each element type
+    shares the same data structure (`LcaElement` or `AggregatedLcaElement`) but differs in
     how its material composition or function is defined.
 
     Attributes
@@ -47,9 +47,10 @@ class LcaModel(BaseModel):
     undefined_elements : list[LcaElement], optional
         Elements with incomplete or unrecognized classification (`entry_type="unknown"`),
         kept in this group to ensure the model remains lossless and can be inspected
-        or rematched later. 
+        or rematched later.
         Perhaps also include elements that failed matching (would require updating LcaModel post-matching).
     """
+
     model_config = ConfigDict(extra="forbid")
 
     id: UUID = Field(default_factory=uuid4)
@@ -59,7 +60,6 @@ class LcaModel(BaseModel):
     layered_elements: Optional[List[LcaElement]]
     abstract_components: Optional[List[LcaElement]]
     undefined_elements: Optional[List[LcaElement]]
-
 
     # ----------------------------
     # Internals
@@ -84,7 +84,6 @@ class LcaModel(BaseModel):
     """
     could reference indicator_stats of each LcaElemet to calculate project-level min/max/mean GWP
     """
-
 
     def min_total_gwp():
         pass

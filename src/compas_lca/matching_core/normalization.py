@@ -3,19 +3,17 @@ from __future__ import annotations
 from typing import Any
 from typing import Optional
 
-from compas_lca.enums import (
-    BiobasedType,
-    BituminousType,
-    CompositeType,
-    ConcreteType,
-    FrameType,
-    InsulationElementType,
-    MetallicType,
-    MineralType,
-    PolymericType,
-    WindowFittingType,
-    WoodType,
-)
+from compas_lca.enums import BiobasedType
+from compas_lca.enums import BituminousType
+from compas_lca.enums import CompositeType
+from compas_lca.enums import ConcreteType
+from compas_lca.enums import FrameType
+from compas_lca.enums import InsulationElementType
+from compas_lca.enums import MetallicType
+from compas_lca.enums import MineralType
+from compas_lca.enums import PolymericType
+from compas_lca.enums import WindowFittingType
+from compas_lca.enums import WoodType
 
 
 def _clean(value: Any) -> Optional[str]:
@@ -290,6 +288,7 @@ def normalize_frame_type(value: Any) -> Optional[str]:
 # Generic dispatcher
 # ------------------------
 
+
 def normalize_level3_value(level2_type: Optional[str], value: Any) -> Optional[str]:
     """
     Normalize a level-3 value given the level-2 type.
@@ -319,4 +318,3 @@ def normalize_level3_value(level2_type: Optional[str], value: Any) -> Optional[s
     if key == "window":
         return normalize_frame_type(value)
     return _clean(value)
-

@@ -9,22 +9,19 @@ and probably a set of enums (types) will help with any distinction
 and suffices in conjunction with MaterialCommon.
 """
 
+from textwrap import dedent
+
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from textwrap import dedent
-
 from compas_lca.enums import BiobasedType
 from compas_lca.matching_core.normalization import normalize_biobased_type
 
+
 class BiobasedFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     biobased_type: BiobasedType = Field(
         BiobasedType.unknown,
         description=dedent("""
@@ -47,8 +44,9 @@ class BiobasedFacet(BaseModel):
             If the material description is ambiguous, incomplete, or it is unclear whether the
             material is even bio-based use → "unknown"
         """).strip(),
-        examples=["cotton", "hemp", "straw", "other", "unknown"]
+        examples=["cotton", "hemp", "straw", "other", "unknown"],
     )
+
     @field_validator("biobased_type", mode="before")
     @classmethod
     def _normalize_biobased_type(cls, value):

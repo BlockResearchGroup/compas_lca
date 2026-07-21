@@ -4,9 +4,8 @@ from typing import Optional
 from pydantic import BaseModel
 from pydantic import Field
 
-from compas_lca.llm.context import Context
-
 from compas_lca.enums import ConcreteStrength
+from compas_lca.llm.context import Context
 
 # ======== THICKNESS-GUESS CONTEXT ========
 """
@@ -15,8 +14,11 @@ present in a building element, and if there is a total thickness present
 (i.e., property set thickness, or smalles OBB dimension). Then it needs to
 infer the thicknesses of each layer and reason.
 """
+
+
 class LayerGuess(BaseModel):
     """Represents a guessed thickness for one material layer."""
+
     layer_number: int = Field(..., description="Position in the buildup (1 = topmost layer)")
     layer_name: str = Field(..., description="Material or product name of this layer")
     inferred_thickness_mm: float = Field(..., ge=0, description="Guessed thickness in millimetres")
@@ -24,21 +26,12 @@ class LayerGuess(BaseModel):
 
 class ThicknessGuessResult(BaseModel):
     """Structured LLM output: total + per-layer guessed thicknesses."""
-    element_name: Optional[str] = Field(
-        None, description="Name or identifier of the IFC element"
-    )
-    element_type: Optional[str] = Field(
-        None, description="Element category (wall, slab, roof, etc.)"
-    )
-    total_thickness_mm: float = Field(
-        ..., ge=0, description="Total element thickness used or inferred (mm)"
-    )
-    reasoning: Optional[str] = Field(
-        None, description="Short textual explanation of how thicknesses were inferred"
-    )
-    layers: List[LayerGuess] = Field(
-        ..., description="List of layers with inferred thicknesses (top to bottom)"
-    )
+
+    element_name: Optional[str] = Field(None, description="Name or identifier of the IFC element")
+    element_type: Optional[str] = Field(None, description="Element category (wall, slab, roof, etc.)")
+    total_thickness_mm: float = Field(..., ge=0, description="Total element thickness used or inferred (mm)")
+    reasoning: Optional[str] = Field(None, description="Short textual explanation of how thicknesses were inferred")
+    layers: List[LayerGuess] = Field(..., description="List of layers with inferred thicknesses (top to bottom)")
 
 
 THICKNESS_GUESS_PROMPT = """
@@ -77,23 +70,16 @@ You must output a 'ThicknessGuessResult' object that strictly follows this schem
 Return only valid JSON matching this schema. Do not include explanations outside the JSON.
 """
 
-THICKNESS_GUESS_CTX = Context(
-    instructions=THICKNESS_GUESS_PROMPT,
-    output_type=ThicknessGuessResult
-)
+THICKNESS_GUESS_CTX = Context(instructions=THICKNESS_GUESS_PROMPT, output_type=ThicknessGuessResult)
 
 
 # ======== CONCRETE ENRICHMENT ========
 
+
 class ConcreteStrengthResult(BaseModel):
-    strength_class: ConcreteStrength = Field(
-        ...,
-        description="Inferred EN 206 / EN 1992-1-1 compressive strength class. Must be one of the ConcreteStrength enum values."
-    )
-    explanation: str = Field(
-        ...,
-        description="1–3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied."
-    )
+    strength_class: ConcreteStrength = Field(..., description="Inferred EN 206 / EN 1992-1-1 compressive strength class. Must be one of the ConcreteStrength enum values.")
+    explanation: str = Field(..., description="1–3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied.")
+
 
 CONCRETE_STRENGTH_PROMPT = """
 You infer a reasonable EN 206 / EN 1992-1-1 concrete compressive strength class for a building element, even if not explicitly stated.
@@ -149,24 +135,22 @@ CONCRETE_STRENGTH_CTX = Context(
 )
 
 REINFORCEMENT_RATIO_CTX = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # PLACEHOLDER , should be a ReinforcementRatio class with float (ratio), tool to be implemented
+    instructions=("placeholder"),
+    output_type=LayerGuess,  # PLACEHOLDER , should be a ReinforcementRatio class with float (ratio), tool to be implemented
 )
 
 # ======== CAVITY ENRICHMENT ========
 # for stud layers, railings, gratings, etc. (to fix quantities basically)
 
+
 class StudRatioResult(BaseModel):
     stud_ratio: float = Field(
         ...,
-        description="Inferred volumetric ratio of STUD material in a stud layer (i.e., fraction of timber or metal volume within the stud layer volume). Must be one of [0.08, 0.10, 0.12, 0.15, 0.18, 0.22, 0.25]."
+        description="Inferred volumetric ratio of STUD material in a stud layer (i.e., fraction of timber or metal volume within the stud layer volume). "
+        "Must be one of [0.08, 0.10, 0.12, 0.15, 0.18, 0.22, 0.25].",
     )
-    explanation: str = Field(
-        ...,
-        description="1-3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied."
-    )
+    explanation: str = Field(..., description="1-3 sentences explaining the cues (element type, exposure, loadbearing, thickness) and how rules were applied.")
+
 
 STUD_RATIO_PROMPT = """
 You infer a reasonable volumetric ratio of STUD material in a stud layer
@@ -230,18 +214,14 @@ STUD_RATIO_CTX = Context(
 # ======== WOOD ENRICHMENT ========
 # If certain wood can be used interior or exterior
 ENRICH_WOOD_PLACEMENT = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # bool + explanation, use tool
+    instructions=("placeholder"),
+    output_type=LayerGuess,  # bool + explanation, use tool
 )
 
 # If certain wood is used for loadbearing or non-loadbearing
 ENRICH_WOOD_STRUCTURAL = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # bool + explanation, use tool
+    instructions=("placeholder"),
+    output_type=LayerGuess,  # bool + explanation, use tool
 )
 
 # ======== METALLIC ENRICHMENT ========
@@ -249,8 +229,6 @@ ENRICH_WOOD_STRUCTURAL = Context(
 # Often generic "metal" descriptor refers to carbon steel
 # Help give context when generic "metal" should be carbon steel and not "unknown"
 ENRICH_CARBON_STEEL = Context(
-    instructions=(
-        "placeholder"
-    ),
-    output_type=LayerGuess, # bool, use tool (or maybe only additional context in instruction prompt)
+    instructions=("placeholder"),
+    output_type=LayerGuess,  # bool, use tool (or maybe only additional context in instruction prompt)
 )

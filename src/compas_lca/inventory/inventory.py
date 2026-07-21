@@ -1,23 +1,19 @@
 import json
-
 import sqlite3
-
-from typing import Optional
 from typing import Iterator
+from typing import Optional
 from typing import Union
-
 from uuid import UUID
 
-from pydantic import RootModel
 from pydantic import ConfigDict
+from pydantic import RootModel
 
 from compas_lca.enums import EntryType
-
 from compas_lca.inventory.item import InventoryItem
-
+from compas_lca.matching_core.component.core import ComponentCore
 from compas_lca.matching_core.core import MatchingCore
 from compas_lca.matching_core.material.core import MaterialCore
-from compas_lca.matching_core.component.core import ComponentCore
+
 
 class Inventory(RootModel[list[InventoryItem]]):
     """
@@ -27,9 +23,7 @@ class Inventory(RootModel[list[InventoryItem]]):
     append/extend/insert, pop/remove, slicing assignment).
     """
 
-    model_config = ConfigDict(
-        frozen=False
-    )
+    model_config = ConfigDict(frozen=False)
 
     # Explicit root type (annotation)
     root: list[InventoryItem]
@@ -116,17 +110,17 @@ class Inventory(RootModel[list[InventoryItem]]):
     @staticmethod
     def _is_material(item: InventoryItem) -> bool:
         return (
-            isinstance(item.item_core, MatchingCore) and
-            getattr(item.item_core, "entry_type", None) == EntryType.material and
-            isinstance(getattr(item.item_core, "facet", None), MaterialCore)
+            isinstance(item.item_core, MatchingCore)
+            and getattr(item.item_core, "entry_type", None) == EntryType.material
+            and isinstance(getattr(item.item_core, "facet", None), MaterialCore)
         )
 
     @staticmethod
     def _is_component(item: InventoryItem) -> bool:
         return (
-            isinstance(item.item_core, MatchingCore) and
-            getattr(item.item_core, "entry_type", None) == EntryType.component and
-            isinstance(getattr(item.item_core, "facet", None), ComponentCore)
+            isinstance(item.item_core, MatchingCore)
+            and getattr(item.item_core, "entry_type", None) == EntryType.component
+            and isinstance(getattr(item.item_core, "facet", None), ComponentCore)
         )
 
     # ---------- public querying API ----------
@@ -159,7 +153,6 @@ class Inventory(RootModel[list[InventoryItem]]):
                 out.append(it)
         return out
 
-
     # ---- Serialize (JSON/JSONL/SQLITE) ----
     def save_json(self, path: str):
         with open(path, "w", encoding="utf-8") as f:
@@ -170,8 +163,8 @@ class Inventory(RootModel[list[InventoryItem]]):
             for item in self.root:
                 f.write(json.dumps(item.model_dump(mode="json"), ensure_ascii=False) + "\n")
 
-    def save_sqlite(self, db_path: str, table: str="inventory_items") -> None:
-        """ DRAFT """
+    def save_sqlite(self, db_path: str, table: str = "inventory_items") -> None:
+        """DRAFT"""
         con = sqlite3.connect(db_path)
         con.execute(f"""CREATE TABLE IF NOT EXISTS {table} (
             id TEXT PRIMARY KEY,
@@ -184,10 +177,7 @@ class Inventory(RootModel[list[InventoryItem]]):
         con.execute(f"CREATE INDEX IF NOT EXISTS idx_{table}_mat ON {table}(material_type)")
         con.execute(f"CREATE INDEX IF NOT EXISTS idx_{table}_comp ON {table}(component_type)")
 
-        rows = [
-            (str(it.id), json.dumps(it.model_dump(mode="json"), ensure_ascii=False))
-            for it in self.root
-        ]
+        rows = [(str(it.id), json.dumps(it.model_dump(mode="json"), ensure_ascii=False)) for it in self.root]
         con.executemany(f"INSERT OR REPLACE INTO {table}(id, payload) VALUES (?, ?)", rows)
         con.commit()
         con.close()
@@ -206,11 +196,10 @@ class Inventory(RootModel[list[InventoryItem]]):
             for line in f:
                 items.append(InventoryItem.model_validate(json.loads(line)))
         return cls(items)
-    
+
     @classmethod
-    def load_sqlite(cls, db_path: str, *, entry_type=None, material_type=None,
-                    component_type=None, table: str="inventory_items") -> "Inventory":
-        """ DRAFT """
+    def load_sqlite(cls, db_path: str, *, entry_type=None, material_type=None, component_type=None, table: str = "inventory_items") -> "Inventory":
+        """DRAFT"""
         con = sqlite3.connect(db_path)
         where, params = [], []
         if entry_type is not None:
@@ -227,7 +216,6 @@ class Inventory(RootModel[list[InventoryItem]]):
         items = [InventoryItem.model_validate(json.loads(payload)) for (payload,) in rows]
         con.close()
         return cls(items)
-
 
     # ---- placeholders (ideas to implement later) ----
     def from_excel(self, input_path: str):

@@ -10,20 +10,13 @@ class ElementDescriptor(BaseModel):
     Descriptive high-level data not inside MatchingCore from a building model Element
     """
 
-    model_config = ConfigDict(
-        extra = "forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     element_name: str = Field(
         ...,
         description="""
         Exact element name as found in the raw building element data.
         """,
-        examples=[
-            "Wall W-23", 
-            "Type: C30/37 Concrete Wall",
-            "Basic Wall:BSP 140 - 5s:2012837"]
+        examples=["Wall W-23", "Type: C30/37 Concrete Wall", "Basic Wall:BSP 140 - 5s:2012837"],
     )
     element_eid: Optional[str] = Field(
         None,
@@ -31,20 +24,14 @@ class ElementDescriptor(BaseModel):
         Exact element EID as found in the raw building element data (if available).
         For IFC, this should optimally be STEP-ID / EID.
         """,
-        examples=[
-            "336345", 
-            "6652",
-            "23562"]
+        examples=["336345", "6652", "23562"],
     )
     element_global_id: Optional[str] = Field(
         None,
         description="""
         Exact element GlobalId as found in the raw building element data (if available).
         """,
-        examples=[
-            "0kF45Qs8L9PAM9kmb1lT2B", 
-            "2OrWItJ6zAwBNp0OUxK$Dw",
-            "1s1jVhK8z0pgKYcr9jt7AB"]
+        examples=["0kF45Qs8L9PAM9kmb1lT2B", "2OrWItJ6zAwBNp0OUxK$Dw", "1s1jVhK8z0pgKYcr9jt7AB"],
     )
     object_type: Optional[str] = Field(
         None,
@@ -52,7 +39,7 @@ class ElementDescriptor(BaseModel):
         Element's object type label if present (e.g., 'ObjectType', 'Type Name', 'Layer').
         Use the text verbatim from the source. If no "typed" information is present, leave empty.
         """,
-        examples=["Structural - Concrete", "Type A-200"]
+        examples=["Structural - Concrete", "Type A-200"],
     )
     classification: Optional[str] = Field(
         None,
@@ -60,7 +47,7 @@ class ElementDescriptor(BaseModel):
         Verbatim transcription of any official classification system reference if present.
         Copy exactly as in the source text.
         """,
-        examples=['OmniClass 21-02 10 20', 'UniClass Ss_20_10_25']
+        examples=["OmniClass 21-02 10 20", "UniClass Ss_20_10_25"],
     )
     is_multilayer: bool = Field(
         False,
@@ -81,7 +68,7 @@ class ElementDescriptor(BaseModel):
 
         In summary, this flag is **True only when the materials are explicitly or implicitly layered in sequence**, forming a stratified composition.
         """,
-        examples=[True, False]
+        examples=[True, False],
     )
     layer_count: Optional[int] = Field(
         None,
@@ -104,5 +91,5 @@ class ElementDescriptor(BaseModel):
         - The record clearly represents a single homogeneous material or non-layered composite
         (e.g., beam, column, door, window, or equipment).
         """,
-        examples=[2, 3, 5, 6]
+        examples=[2, 3, 5, 6],
     )

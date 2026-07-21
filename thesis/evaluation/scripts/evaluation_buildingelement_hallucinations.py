@@ -18,10 +18,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
 from _eval_paths import parse_eval_args
-
 
 # -------------------------
 # CONFIG (data is not committed; see thesis/evaluation/README.md)

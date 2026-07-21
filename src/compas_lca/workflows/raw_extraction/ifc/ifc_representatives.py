@@ -1,9 +1,6 @@
 import json
-
 import shutil
-
 from pathlib import Path
-
 from typing import Any
 from typing import Dict
 from typing import List
@@ -32,9 +29,7 @@ def _load_object_type_index(path: Path) -> Dict[str, List[Dict[str, Any]]]:
     return data
 
 
-def _pick_representatives(
-    object_type_index: Dict[str, List[Dict[str, Any]]]
-) -> Dict[str, str]:
+def _pick_representatives(object_type_index: Dict[str, List[Dict[str, Any]]]) -> Dict[str, str]:
     """
     Returns mapping: object_type -> representative_eid
     (always takes first entry in the list).
@@ -48,6 +43,7 @@ def _pick_representatives(
         if isinstance(eid, str) and eid.strip():
             reps[obj_type] = eid.strip()
     return reps
+
 
 def _copy_representation(
     eid: str,
@@ -111,7 +107,7 @@ def _write_cost_estimation(
     lines.append("")
 
     lines.append(f"{'Model':28s} {'Total duration':>15s} {'Total cost':>15s}")
-    lines.append(f"{'-'*28} {'-'*15:>15s} {'-'*15:>15s}")
+    lines.append(f"{'-' * 28} {'-' * 15:>15s} {'-' * 15:>15s}")
 
     def _fmt_seconds(total_s: float) -> str:
         s = int(round(total_s))
@@ -139,9 +135,7 @@ def _write_cost_estimation(
         if selected_model and model_name == selected_model:
             marker = "* "
 
-        lines.append(
-            f"{marker}{model_name:26s} {_fmt_seconds(total_dur):>15s} {_fmt_money(total_cost):>15s} {currency}"
-        )
+        lines.append(f"{marker}{model_name:26s} {_fmt_seconds(total_dur):>15s} {_fmt_money(total_cost):>15s} {currency}")
 
     lines.append("")
     lines.append("Notes")

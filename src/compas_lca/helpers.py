@@ -1,19 +1,13 @@
 import json
-
-import yaml
-
 import sys
-
-import time
-
 import threading
-
+import time
 from pathlib import Path
-
-from typing import Union
 from typing import Any
 from typing import Dict
+from typing import Union
 
+import yaml
 
 
 def load_config(config_path: Path | str = "config.yaml") -> dict:
@@ -55,7 +49,6 @@ def load_config(config_path: Path | str = "config.yaml") -> dict:
     return config
 
 
-
 def load_json(input_data: Union[dict, str, Path]) -> dict:
     """Load JSON from dict or file path."""
     if isinstance(input_data, dict):
@@ -64,6 +57,7 @@ def load_json(input_data: Union[dict, str, Path]) -> dict:
         with open(input_data, "r", encoding="utf-8") as f:
             return json.load(f)
     raise TypeError(f"Unsupported type for input_data: {type(input_data).__name__}")
+
 
 def merge_llm_meta(all_llm_meta: dict, llm_meta: dict | None) -> dict:
     """
@@ -81,6 +75,7 @@ def merge_llm_meta(all_llm_meta: dict, llm_meta: dict | None) -> dict:
 
     return all_llm_meta
 
+
 def coerce_to_dict(obj: Any) -> Dict[str, Any]:
     """Coerce dict / Pydantic BaseModel / dataclass-ish objects to a dict."""
     if obj is None:
@@ -92,6 +87,7 @@ def coerce_to_dict(obj: Any) -> Dict[str, Any]:
     if hasattr(obj, "__dict__"):
         return vars(obj)
     return {}
+
 
 class Spinner:
     def __init__(self, message: str = "Calculating impacts"):

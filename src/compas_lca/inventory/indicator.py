@@ -1,7 +1,7 @@
 from typing import Dict
+from typing import Iterable
 from typing import List
 from typing import Literal
-from typing import Iterable
 from typing import Optional
 
 from pydantic import BaseModel
@@ -15,17 +15,14 @@ from .constants import EN15978_STAGES
 from .constants import OBD_INDICATOR_NAME
 from .constants import OBD_INDICATOR_UNITS
 
+
 class IndicatorScenario(BaseModel):
     """One scenario value for a stage."""
-    code: Optional[str] = Field(
-        None, description="Scenario code if present (e.g., 'S1', 'S2'); None if not provided."
-    )
-    description: Optional[str] = Field(
-        None, description="Free-text scenario description from the source."
-    )
-    value: Optional[float] = Field(
-        None, description="Numeric indicator value for this scenario and stage."
-    )
+
+    code: Optional[str] = Field(None, description="Scenario code if present (e.g., 'S1', 'S2'); None if not provided.")
+    description: Optional[str] = Field(None, description="Free-text scenario description from the source.")
+    value: Optional[float] = Field(None, description="Numeric indicator value for this scenario and stage.")
+
 
 class Indicator(BaseModel):
     """
@@ -46,10 +43,7 @@ class Indicator(BaseModel):
     )
 
     name: OBD_INDICATOR_NAME
-    stages: Dict[EN15978_STAGES, List[IndicatorScenario]] = Field(
-        default_factory=dict,
-        description="Map of stage -> list of scenarios (one or many)."
-    )
+    stages: Dict[EN15978_STAGES, List[IndicatorScenario]] = Field(default_factory=dict, description="Map of stage -> list of scenarios (one or many).")
 
     # -------- inbound normalization --------
 
@@ -71,7 +65,6 @@ class Indicator(BaseModel):
         out: Dict[EN15978_STAGES, List[IndicatorScenario]] = {}
 
         for stage, raw in v.items():
-
             # Allow: scalar → one scenario
             if isinstance(raw, (int, float)):
                 out[stage] = [IndicatorScenario(value=float(raw))]
@@ -87,9 +80,7 @@ class Indicator(BaseModel):
                     elif isinstance(item, (int, float)):
                         scenarios.append(IndicatorScenario(value=float(item)))
                     else:
-                        raise TypeError(
-                            f"Unsupported scenario item type for stage {stage}: {type(item)!r}"
-                        )
+                        raise TypeError(f"Unsupported scenario item type for stage {stage}: {type(item)!r}")
                 out[stage] = scenarios
 
             # Allow: dict representing a single scenario
@@ -103,9 +94,7 @@ class Indicator(BaseModel):
     # -------- outbound compact serialization --------
 
     @field_serializer("stages", when_used="json")
-    def _serialize_stages_compact(
-        self, stages: Dict[EN15978_STAGES, List[IndicatorScenario]], _info
-    ):
+    def _serialize_stages_compact(self, stages: Dict[EN15978_STAGES, List[IndicatorScenario]], _info):
         """
         Compact JSON:
         - If a stage has exactly one scenario AND (code is None) AND (description is None),
@@ -116,11 +105,7 @@ class Indicator(BaseModel):
         for stage, scenarios in stages.items():
             present = [s for s in scenarios if s.value is not None]
 
-            if (
-                len(present) == 1
-                and present[0].code is None
-                and (present[0].description is None or present[0].description == "")
-            ):
+            if len(present) == 1 and present[0].code is None and (present[0].description is None or present[0].description == ""):
                 out[stage] = present[0].value
             else:
                 out[stage] = [s.model_dump(exclude_none=True) for s in present]
@@ -137,7 +122,7 @@ class Indicator(BaseModel):
 
     def stage_mean(self, stage: EN15978_STAGES) -> Optional[float]:
         vals = [s.value for s in self.stages.get(stage, []) if s.value is not None]
-        return sum(vals)/len(vals) if vals else None
+        return sum(vals) / len(vals) if vals else None
 
     def stage_single_value(self, stage: EN15978_STAGES) -> Optional[float]:
         """Returns the value only if exactly one scenario exists for the stage; else None."""
@@ -258,10 +243,7 @@ class Indicators(BaseModel):
     )
 
     indicators: List[Indicator] = Field(default_factory=list)
-    scenarios: Optional[Dict[EN15978_STAGES, List[str]]] = Field(
-        default=None,
-        description="For stages with >1 scenario, records the scenario codes that were averaged."
-    )
+    scenarios: Optional[Dict[EN15978_STAGES, List[str]]] = Field(default=None, description="For stages with >1 scenario, records the scenario codes that were averaged.")
 
     # Lookups & helpers
     def get(self, name: OBD_INDICATOR_NAME) -> List[Indicator]:

@@ -1,8 +1,14 @@
-import json
 import csv
-import pandas as pd
+import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Iterable
+from typing import Any
+from typing import Dict
+from typing import Iterable
+from typing import List
+from typing import Optional
+from typing import Tuple
+
+import pandas as pd
 
 # ----------------------------
 # Constants / knobs
@@ -53,12 +59,14 @@ OUTPUT_COLUMNS = [
     "note",
 ]
 
+
 # ----------------------------
 # IO helpers
 # ----------------------------
 def load_json(path: Path) -> Dict[str, Any]:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
 
 def build_epd_index(epd_root: Path) -> Dict[str, Dict[str, Any]]:
     epd_by_id: Dict[str, Dict[str, Any]] = {}
@@ -72,6 +80,7 @@ def build_epd_index(epd_root: Path) -> Dict[str, Dict[str, Any]]:
             print(f"[WARN] Failed to load EPD {p}: {e}")
     return epd_by_id
 
+
 def load_elements(elements_dir: Path) -> List[Dict[str, Any]]:
     elements: List[Dict[str, Any]] = []
     for p in elements_dir.rglob("*.json"):
@@ -80,6 +89,7 @@ def load_elements(elements_dir: Path) -> List[Dict[str, Any]]:
         except Exception as e:
             print(f"[WARN] Failed to load element {p}: {e}")
     return elements
+
 
 def _to_float(x: Any) -> Optional[float]:
     if x is None:
@@ -92,6 +102,7 @@ def _to_float(x: Any) -> Optional[float]:
     except ValueError:
         return None
 
+
 def _to_int_or_none(x: Any) -> Optional[int]:
     if x is None:
         return None
@@ -102,6 +113,7 @@ def _to_int_or_none(x: Any) -> Optional[int]:
         return int(float(s))
     except ValueError:
         return None
+
 
 def load_boq_rows_index(boq_csv: Path) -> Dict[Tuple[str, Optional[int]], List[Dict[str, Any]]]:
     """
@@ -125,12 +137,14 @@ def load_boq_rows_index(boq_csv: Path) -> Dict[Tuple[str, Optional[int]], List[D
                 idx.setdefault((eid, 1), []).append(row)
     return idx
 
+
 def layer_number_for_core_id(element: Dict[str, Any], core_id: str) -> Optional[int]:
     cores = element.get("element_core", []) or []
     for i, c in enumerate(cores):
         if c.get("core_id") == core_id:
             return i + 1
     return None
+
 
 def pick_boq_row(
     boq_rows_idx: Dict[Tuple[str, Optional[int]], List[Dict[str, Any]]],
@@ -142,6 +156,7 @@ def pick_boq_row(
         return None
     return rows[0]
 
+
 def boq_value(row: Optional[Dict[str, Any]], col: str) -> Optional[str]:
     if not row:
         return None
@@ -151,8 +166,10 @@ def boq_value(row: Optional[Dict[str, Any]], col: str) -> Optional[str]:
     s = str(v).strip()
     return s if s != "" else None
 
+
 def make_ordered_row(values: Dict[str, Any]) -> Dict[str, Any]:
     return {k: values.get(k) for k in OUTPUT_COLUMNS}
+
 
 def append_note(existing: Optional[str], extra: Optional[str]) -> Optional[str]:
     if not extra:
@@ -160,6 +177,7 @@ def append_note(existing: Optional[str], extra: Optional[str]) -> Optional[str]:
     if not existing:
         return extra
     return f"{existing};{extra}"
+
 
 def _round_floats_in_row(row: Dict[str, Any]) -> Dict[str, Any]:
     rounded = {}
@@ -170,6 +188,7 @@ def _round_floats_in_row(row: Dict[str, Any]) -> Dict[str, Any]:
             rounded[k] = v
     return rounded
 
+
 # ----------------------------
 # Impact calculation helpers
 # ----------------------------
@@ -179,6 +198,7 @@ def get_indicator(epd: Dict[str, Any], indicator_name: str) -> Optional[Dict[str
         if ind.get("name") == indicator_name:
             return ind
     return None
+
 
 def _as_float_or_none(x: Any) -> Optional[float]:
     if x is None:
@@ -195,10 +215,12 @@ def _as_float_or_none(x: Any) -> Optional[float]:
             return None
     return None
 
+
 def _average(values: List[float]) -> Optional[float]:
     if not values:
         return None
     return sum(values) / float(len(values))
+
 
 def stage_value(stages: Dict[str, Any], stage: str) -> Tuple[Optional[float], bool]:
     """
@@ -245,9 +267,11 @@ def stage_value(stages: Dict[str, Any], stage: str) -> Tuple[Optional[float], bo
 
     return None, False
 
+
 COMPOSITE_STAGES = {
     "A1-A3": ["A1", "A2", "A3"],
 }
+
 
 def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[Optional[float], List[str]]:
     """
@@ -298,6 +322,7 @@ def aggregate_net(indicator: Dict[str, Any], stages_to_use: List[str]) -> Tuple[
             scenario_avg_stages.append(s)
 
     return (total if any_present else None), scenario_avg_stages
+
 
 def compute_stage_breakdown_per_ref(indicator: Dict[str, Any]) -> Tuple[Dict[str, Optional[float]], List[str]]:
     """
@@ -378,6 +403,7 @@ def compute_stage_breakdown_per_ref(indicator: Dict[str, Any]) -> Tuple[Dict[str
     out["Total"] = total if any_present else None
     return out, scenario_avg_stages
 
+
 def scaling_factor_for_epd_reference_from_boq(
     boq_quantities: Dict[str, Optional[float]],
     epd: Dict[str, Any],
@@ -453,6 +479,7 @@ def scaling_factor_for_epd_reference_from_boq(
 
     return None, "EPD_REF_UNIT_UNSUPPORTED"
 
+
 # ----------------------------
 # Core computation
 # ----------------------------
@@ -475,10 +502,7 @@ def compute_element_match_rows(
     all_core_ids: List[Optional[str]] = [c.get("core_id") for c in cores]
 
     matched_items = element.get("matched_items", []) or []
-    matches_by_core_id: Dict[Optional[str], List[Dict[str, Any]]] = {
-        mi.get("core_id"): (mi.get("matches", []) or [])
-        for mi in matched_items
-    }
+    matches_by_core_id: Dict[Optional[str], List[Dict[str, Any]]] = {mi.get("core_id"): (mi.get("matches", []) or []) for mi in matched_items}
 
     if not all_core_ids:
         all_core_ids = [mi.get("core_id") for mi in matched_items]
@@ -532,15 +556,19 @@ def compute_element_match_rows(
 
         if boq_quantities is None:
             for m in core_matches:
-                rows.append(make_ordered_row({
-                    **common,
-                    "match_score": m.get("match_score"),
-                    "epd_id": m.get("item_id"),
-                    "epd_name": m.get("item_name"),
-                    "epd_dataset_source": m.get("dataset_source"),
-                    "epd_registration_number": m.get("registration_number"),
-                    "note": "BOQ_ROW_NOT_FOUND",
-                }))
+                rows.append(
+                    make_ordered_row(
+                        {
+                            **common,
+                            "match_score": m.get("match_score"),
+                            "epd_id": m.get("item_id"),
+                            "epd_name": m.get("item_name"),
+                            "epd_dataset_source": m.get("dataset_source"),
+                            "epd_registration_number": m.get("registration_number"),
+                            "note": "BOQ_ROW_NOT_FOUND",
+                        }
+                    )
+                )
             continue
 
         for m in core_matches:
@@ -548,15 +576,19 @@ def compute_element_match_rows(
             epd = epd_by_id.get(epd_id)
 
             if epd is None:
-                rows.append(make_ordered_row({
-                    **common,
-                    "match_score": m.get("match_score"),
-                    "epd_id": epd_id,
-                    "epd_name": m.get("item_name"),
-                    "epd_dataset_source": m.get("dataset_source"),
-                    "epd_registration_number": m.get("registration_number"),
-                    "note": "EPD_NOT_FOUND",
-                }))
+                rows.append(
+                    make_ordered_row(
+                        {
+                            **common,
+                            "match_score": m.get("match_score"),
+                            "epd_id": epd_id,
+                            "epd_name": m.get("item_name"),
+                            "epd_dataset_source": m.get("dataset_source"),
+                            "epd_registration_number": m.get("registration_number"),
+                            "note": "EPD_NOT_FOUND",
+                        }
+                    )
+                )
                 continue
 
             epd_item_core = epd.get("item_core", {}) or {}
@@ -576,12 +608,16 @@ def compute_element_match_rows(
 
             scale, scale_err = scaling_factor_for_epd_reference_from_boq(boq_quantities, epd)
             if scale is None:
-                rows.append(make_ordered_row({
-                    **common,
-                    "match_score": m.get("match_score"),
-                    **epd_core_fields,
-                    "note": scale_err or "NO_COMPATIBLE_QUANTITY_FOR_REFERENCE_UNIT",
-                }))
+                rows.append(
+                    make_ordered_row(
+                        {
+                            **common,
+                            "match_score": m.get("match_score"),
+                            **epd_core_fields,
+                            "note": scale_err or "NO_COMPATIBLE_QUANTITY_FOR_REFERENCE_UNIT",
+                        }
+                    )
+                )
                 continue
 
             factor, basis = scale
@@ -589,15 +625,19 @@ def compute_element_match_rows(
             for ind_name in indicators:
                 ind = get_indicator(epd, ind_name)
                 if ind is None:
-                    rows.append(make_ordered_row({
-                        **common,
-                        "match_score": m.get("match_score"),
-                        **epd_core_fields,
-                        "epd_indicator": ind_name,
-                        "scaling_factor": factor,
-                        "scaling_basis": basis,
-                        "note": "INDICATOR_NOT_FOUND",
-                    }))
+                    rows.append(
+                        make_ordered_row(
+                            {
+                                **common,
+                                "match_score": m.get("match_score"),
+                                **epd_core_fields,
+                                "epd_indicator": ind_name,
+                                "scaling_factor": factor,
+                                "scaling_basis": basis,
+                                "note": "INDICATOR_NOT_FOUND",
+                            }
+                        )
+                    )
                     continue
 
                 unit = ind.get("unit")
@@ -631,26 +671,35 @@ def compute_element_match_rows(
                 scaled_stage_cols: Dict[str, Optional[float]] = {}
                 for s in STAGE_COLUMNS:
                     v = per_ref_stage_vals.get(s)
-                    scaled_stage_cols[s] = (None if v is None else float(v) * float(factor))
+                    scaled_stage_cols[s] = None if v is None else float(v) * float(factor)
 
                 # If legacy net missing:
                 if net_per_ref is None:
-                    rows.append(make_ordered_row({
-                        **row_base,
-                        **scaled_stage_cols,
-                        "note": append_note("NET_STAGE_VALUES_MISSING", scenario_note),
-                    }))
+                    rows.append(
+                        make_ordered_row(
+                            {
+                                **row_base,
+                                **scaled_stage_cols,
+                                "note": append_note("NET_STAGE_VALUES_MISSING", scenario_note),
+                            }
+                        )
+                    )
                     continue
 
-                rows.append(make_ordered_row({
-                    **row_base,
-                    "specific_value": net_per_ref,
-                    "net_value": float(net_per_ref) * float(factor),
-                    **scaled_stage_cols,
-                    "note": append_note(None, scenario_note),
-                }))
+                rows.append(
+                    make_ordered_row(
+                        {
+                            **row_base,
+                            "specific_value": net_per_ref,
+                            "net_value": float(net_per_ref) * float(factor),
+                            **scaled_stage_cols,
+                            "note": append_note(None, scenario_note),
+                        }
+                    )
+                )
 
     return rows
+
 
 # ----------------------------
 # Aggregated emissions (by object type + layer)
@@ -713,6 +762,7 @@ _TEXT_FIRST_COLS = [
     "scaling_basis",
 ]
 
+
 def _first_non_null(s: pd.Series) -> Any:
     s2 = s.dropna()
     if s2.empty:
@@ -726,17 +776,20 @@ def _first_non_null(s: pd.Series) -> Any:
             return v
     return None
 
+
 def _sum_numeric(s: pd.Series) -> Optional[float]:
     nums = pd.to_numeric(s, errors="coerce")
     if nums.isna().all():
         return None
     return float(nums.sum(skipna=True))
 
+
 def _max_numeric(s: pd.Series) -> Optional[float]:
     nums = pd.to_numeric(s, errors="coerce")
     if nums.isna().all():
         return None
     return float(nums.max(skipna=True))
+
 
 def _enriched_status_agg(s: pd.Series) -> Optional[str]:
     vals = []
@@ -752,6 +805,7 @@ def _enriched_status_agg(s: pd.Series) -> Optional[str]:
     uniq = list(dict.fromkeys(vals))
     return uniq[0] if len(uniq) == 1 else "MIXED"
 
+
 def _note_agg(s: pd.Series) -> Optional[str]:
     vals: List[str] = []
     for v in s.dropna().tolist():
@@ -764,6 +818,7 @@ def _note_agg(s: pd.Series) -> Optional[str]:
         return None
     uniq = list(dict.fromkeys(vals))
     return ";".join(uniq)
+
 
 def write_agg_impacts_csv(
     all_impacts_csv: Path,
@@ -863,6 +918,7 @@ def write_agg_impacts_csv(
     out.to_csv(out_csv, index=False, encoding="utf-8")
     return out_csv
 
+
 # ----------------------------
 # CSV writing
 # ----------------------------
@@ -875,6 +931,7 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]):
         w.writeheader()
         for r in rows:
             w.writerow(_round_floats_in_row(r))
+
 
 # ----------------------------
 # Orchestrator
@@ -952,6 +1009,7 @@ def calculate_impacts(
 
     return written
 
+
 # ----------------------------
 # SUMMARY (for all_impacts_*.csv and object_type_impacts_*.csv)
 # ----------------------------
@@ -1015,19 +1073,17 @@ GROUP_COLS_AGG: tuple[str, ...] = (
     "unit",
 )
 
+
 def _ensure_required_columns(df: pd.DataFrame, required: Iterable[str]) -> None:
     missing = sorted(set(required) - set(df.columns))
     if missing:
         raise ValueError(f"Missing required columns: {missing}")
 
+
 def _count_unique_elements_for_agg_summary(agg_impacts_path: Path) -> pd.DataFrame:
-    all_path = agg_impacts_path.with_name(
-        agg_impacts_path.name.replace("object_type_impacts_", "all_impacts_", 1)
-    )
+    all_path = agg_impacts_path.with_name(agg_impacts_path.name.replace("object_type_impacts_", "all_impacts_", 1))
     if not all_path.exists():
-        raise FileNotFoundError(
-            f"Cannot compute unique element counts: missing corresponding all_impacts file: {all_path}"
-        )
+        raise FileNotFoundError(f"Cannot compute unique element counts: missing corresponding all_impacts file: {all_path}")
 
     df_all = pd.read_csv(all_path, dtype=str)
     _ensure_required_columns(df_all, ["object_type", "layer_number", "element_eid"])
@@ -1037,13 +1093,9 @@ def _count_unique_elements_for_agg_summary(agg_impacts_path: Path) -> pd.DataFra
     df_all["element_eid"] = df_all["element_eid"].fillna("").astype(str).str.strip()
     df_all = df_all[df_all["element_eid"] != ""]
 
-    counts = (
-        df_all.groupby(["object_type", "layer_number"], dropna=False)["element_eid"]
-        .nunique()
-        .reset_index()
-        .rename(columns={"element_eid": "elements_count"})
-    )
+    counts = df_all.groupby(["object_type", "layer_number"], dropna=False)["element_eid"].nunique().reset_index().rename(columns={"element_eid": "elements_count"})
     return counts
+
 
 def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) -> Path:
     """
@@ -1106,10 +1158,7 @@ def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) 
         agg_spec[f"{s}_net_impact_median"] = (s, "median")
         agg_spec[f"{s}_net_impact_max"] = (s, "max")
 
-    grouped = (
-        df.groupby(list(group_cols), dropna=False, as_index=False)
-          .agg(**agg_spec)
-    )
+    grouped = df.groupby(list(group_cols), dropna=False, as_index=False).agg(**agg_spec)
 
     # If object_type summary, add unique element counts
     if is_object_type:
@@ -1143,6 +1192,7 @@ def summarize_impacts(input_csv_path: str | Path, output_directory: str | Path) 
     grouped[output_columns].to_csv(output_path, index=False)
     return output_path
 
+
 # ------------------------------------------------------------
 # AGGREGATE LAYERS INTO ONE SINGLE ELEMENT ROW
 # - sums per-stage min/median/max across layers
@@ -1162,11 +1212,13 @@ def _mixed_or_value(values: Iterable[Any]) -> Optional[str]:
     uniq = list(dict.fromkeys(cleaned))
     return uniq[0] if len(uniq) == 1 else "MIXED"
 
+
 def _sum_numeric_series(s: pd.Series) -> Optional[float]:
     nums = pd.to_numeric(s, errors="coerce")
     if nums.isna().all():
         return None
     return float(nums.sum(skipna=True))
+
 
 def _max_numeric_series(s: pd.Series) -> Optional[float]:
     nums = pd.to_numeric(s, errors="coerce")
@@ -1174,12 +1226,14 @@ def _max_numeric_series(s: pd.Series) -> Optional[float]:
         return None
     return float(nums.max(skipna=True))
 
+
 def _is_multilayer_from_group(layer_series: pd.Series) -> bool:
     if layer_series is None:
         return False
     vals = layer_series.fillna("").astype(str).str.strip()
     vals = vals[vals != ""]
     return vals.nunique(dropna=True) > 1
+
 
 def summarize_elements(
     all_summary_dissected_csv: str | Path,

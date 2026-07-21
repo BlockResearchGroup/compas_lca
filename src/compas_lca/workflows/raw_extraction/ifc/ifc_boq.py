@@ -1,16 +1,12 @@
-import json
-
 import csv
-
+import json
 import re
-
-import pandas as pd
-
 from pathlib import Path
-
 from typing import Any
 from typing import Dict
 from typing import Optional
+
+import pandas as pd
 
 # ------------------------
 # BOQ PREPROCESSED (BOQ 01)
@@ -19,23 +15,23 @@ from typing import Optional
 _LAYER_RE = re.compile(r"_L(\d+)\.json$", re.IGNORECASE)
 _MATERIAL_RE = re.compile(r"_M(\d+)\.json$", re.IGNORECASE)
 
+
 def _layer_from_path(p: Path) -> int | None:
     m = _LAYER_RE.search(p.name)
     return int(m.group(1)) if m else None
 
+
 def _material_from_path(p: Path) -> int | None:
     m = _MATERIAL_RE.search(p.name)
     return int(m.group(1)) if m else None
+
 
 def process_ifc_model_boq(output_parent: Path | str) -> None:
     output_parent = Path(output_parent)
     processed_directory = output_parent
 
     if not processed_directory.exists() or not processed_directory.is_dir():
-        raise FileNotFoundError(
-            f"Required directory not found: {processed_directory.resolve()}\n"
-            "Run the IFC preprocessing step first (process_ifc_model)."
-        )
+        raise FileNotFoundError(f"Required directory not found: {processed_directory.resolve()}\nRun the IFC preprocessing step first (process_ifc_model).")
 
     # Directories (as Path objects)
     single_material_dir = processed_directory / "elements" / "single_material"
@@ -155,18 +151,10 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                 quantities = data.get("quantities", {}) or {}
                 layers = material.get("material_layers") or []
 
-                material_names = [
-                    layer.get("material_name")
-                    for layer in layers
-                    if isinstance(layer, dict) and layer.get("material_name")
-                ]
+                material_names = [layer.get("material_name") for layer in layers if isinstance(layer, dict) and layer.get("material_name")]
                 material_name = " | ".join(material_names) if material_names else None
 
-                thickness = sum(
-                    (layer.get("thickness") or 0.0)
-                    for layer in layers
-                    if isinstance(layer, dict)
-                )
+                thickness = sum((layer.get("thickness") or 0.0) for layer in layers if isinstance(layer, dict))
 
                 boq_rows_all.append(
                     {
@@ -248,7 +236,6 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
             except Exception as e:
                 print(f"[WARN] Skipping {source_path}: {e}")
 
-
     if multi_material_dir.exists() and multi_material_dir.is_dir():
         for element_dir in multi_material_dir.iterdir():
             if not element_dir.is_dir():
@@ -271,11 +258,7 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
                 materials = material.get("materials") or []
 
                 # Collect all material names
-                material_names = [
-                    m.get("material_name")
-                    for m in materials
-                    if isinstance(m, dict) and m.get("material_name")
-                ]
+                material_names = [m.get("material_name") for m in materials if isinstance(m, dict) and m.get("material_name")]
 
                 # Join into one CSV-safe string
                 material_name = " | ".join(material_names) if material_names else None
@@ -432,7 +415,6 @@ def process_ifc_model_boq(output_parent: Path | str) -> None:
 
             except Exception as e:
                 print(f"[WARN] Skipping {source_path.name}: {e}")
-
 
     # Export the Bill of Quantities to a CSV file
     boq_all_output_path = processed_directory / "BoQ_processed_all.csv"

@@ -1,25 +1,21 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import MetallicType
 from compas_lca.enums import MetallicForm
 from compas_lca.enums import MetallicForming
 from compas_lca.enums import MetallicProduction
 from compas_lca.enums import MetallicSurfaceTreatment
+from compas_lca.enums import MetallicType
 from compas_lca.matching_core.normalization import normalize_metallic_type
 
+
 class MetallicFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     metallic_type: MetallicType = Field(
         MetallicType.unknown,
         description=dedent("""
@@ -58,10 +54,12 @@ class MetallicFacet(BaseModel):
             a generic "steel door" → `carbon_steel` (unless stainless is specified).
         """).strip(),
     )
+
     @field_validator("metallic_type", mode="before")
     @classmethod
     def _normalize_metallic_type(cls, value):
         return normalize_metallic_type(value)
+
     metallic_form: MetallicForm = Field(
         MetallicForm.unknown,
         description=dedent("""
@@ -69,7 +67,7 @@ class MetallicFacet(BaseModel):
             Defines the geometry or manufacturing state of the product rather than its composition.
             NOTE: A stud is a profile.
         """).strip(),
-        examples=["profile", "plate", "rebar", "tube", "casting"]
+        examples=["profile", "plate", "rebar", "tube", "casting"],
     )
     steel_grade: Optional[str] = Field(
         None,
@@ -86,7 +84,7 @@ class MetallicFacet(BaseModel):
             as per a recognized steel specification. If not stated in the source, leave empty.
             Applicable only when `metallic_type` refers to a steel (e.g., carbon, low-alloy, or stainless).
         """).strip(),
-        examples=["S235JR", "S355J2", "AISI 304", "1.4301", "ASTM A36"]
+        examples=["S235JR", "S355J2", "AISI 304", "1.4301", "ASTM A36"],
     )
     yield_strength: Optional[float] = Field(
         None,
@@ -97,7 +95,7 @@ class MetallicFacet(BaseModel):
             Only applicable to metallic materials with a defined yield point
             (e.g., carbon steel, low-alloy steel, stainless steel, aluminum alloys).
         """).strip(),
-        examples=[235.0, 275.0, 355.0, 460.0]
+        examples=[235.0, 275.0, 355.0, 460.0],
     )
     metallic_production: Optional[MetallicProduction] = Field(
         None,
@@ -107,7 +105,7 @@ class MetallicFacet(BaseModel):
             This attribute includes ore-based (primary) and recycled or scrap-based 
             (secondary) routes.
         """).strip(),
-        examples=["ore_bf_bof", "scrap_eaf", "scrap_remelt"]
+        examples=["ore_bf_bof", "scrap_eaf", "scrap_remelt"],
     )
     metallic_forming: Optional[MetallicForming] = Field(
         None,
@@ -116,7 +114,7 @@ class MetallicFacet(BaseModel):
             Describes the main mechanical or thermal method that gives the material its final geometry, 
             rather than the chemical or metallurgical production route.
         """).strip(),
-        examples=["rolled", "extruded", "forged", "cast"]
+        examples=["rolled", "extruded", "forged", "cast"],
     )
     metallic_surface_treatment: Optional[MetallicSurfaceTreatment] = Field(
         None,
@@ -124,5 +122,5 @@ class MetallicFacet(BaseModel):
             Protective or decorative surface treatment applied to the metallic product. 
             Includes both organic and inorganic coatings and surface finishes or conversion treatments.
         """).strip(),
-        examples=["galvanized", "anodized", "painted", "powder_coated", "none"]
+        examples=["galvanized", "anodized", "painted", "powder_coated", "none"],
     )

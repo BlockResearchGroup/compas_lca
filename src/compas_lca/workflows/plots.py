@@ -1,25 +1,18 @@
-from pathlib import Path
-
-import hashlib
-
 import colorsys
-
-import numpy as np
-
-import pandas as pd
-
-import seaborn as sns
-
-import plotly.graph_objects as go
+import hashlib
+from pathlib import Path
+from typing import Callable
 
 import matplotlib
-
 import matplotlib.pyplot as plt
-
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+import seaborn as sns
 from matplotlib.patches import Patch
 from matplotlib.ticker import FuncFormatter
 
-from typing import Callable
+
 # --------------------------------
 # TOP 25 IMPACTS BY OBJECT TYPE AND LAYER
 # --------------------------------
@@ -48,7 +41,7 @@ def top25_impacts(
     if not csv_path.exists():
         raise FileNotFoundError(f"CSV not found: {csv_path}")
 
-    out_path = output_dir / f"top25_impacts.png"
+    out_path = output_dir / "top25_impacts.png"
 
     df = pd.read_csv(csv_path)
 
@@ -102,16 +95,8 @@ def top25_impacts(
     df["layer_number_norm"] = ln.map(_canon_layer)
 
     # Indicator label (assume one indicator per file)
-    indicator_name = (
-        str(df["indicator_name"].dropna().iloc[0])
-        if df["indicator_name"].notna().any()
-        else csv_path.stem
-    )
-    indicator_unit = (
-        str(df["indicator_unit"].dropna().iloc[0])
-        if df["indicator_unit"].notna().any()
-        else ""
-    )
+    indicator_name = str(df["indicator_name"].dropna().iloc[0]) if df["indicator_name"].notna().any() else csv_path.stem
+    indicator_unit = str(df["indicator_unit"].dropna().iloc[0]) if df["indicator_unit"].notna().any() else ""
     y_label = f"{indicator_name} [{indicator_unit}]" if indicator_unit else indicator_name
 
     grouped = df.copy()
@@ -122,9 +107,7 @@ def top25_impacts(
         layer_s = str(layer).strip()
         return f"{obj_s} L{layer_s}" if layer_s else obj_s
 
-    grouped["x_label"] = [
-        _make_label(o, l) for o, l in zip(grouped["object_type"], grouped["layer_number_norm"])
-    ]
+    grouped["x_label"] = [_make_label(o, layer) for o, layer in zip(grouped["object_type"], grouped["layer_number_norm"])]
 
     grouped["layer_group"] = np.where(
         grouped["layer_number_norm"].astype(str).str.strip().eq(""),
@@ -204,6 +187,7 @@ def top25_impacts(
     fig.tight_layout()
     fig.savefig(out_path, dpi=DPI)
     plt.close(fig)
+
 
 def plot_total_emissions_by_stage(csv_path: str | Path, output_dir: str | Path) -> None:
     """
@@ -397,16 +381,8 @@ def total_emissions(csv_path: str | Path, output_dir: str | Path) -> None:
     df = pd.read_csv(csv_path, low_memory=False)
 
     # --- indicator label (preferred over "Total emissions") ---
-    indicator_name = (
-        str(df["indicator_name"].dropna().iloc[0]).strip()
-        if "indicator_name" in df.columns and df["indicator_name"].notna().any()
-        else "Indicator"
-    )
-    indicator_unit = (
-        str(df["indicator_unit"].dropna().iloc[0]).strip()
-        if "indicator_unit" in df.columns and df["indicator_unit"].notna().any()
-        else ""
-    )
+    indicator_name = str(df["indicator_name"].dropna().iloc[0]).strip() if "indicator_name" in df.columns and df["indicator_name"].notna().any() else "Indicator"
+    indicator_unit = str(df["indicator_unit"].dropna().iloc[0]).strip() if "indicator_unit" in df.columns and df["indicator_unit"].notna().any() else ""
     y_label = f"{indicator_name} [{indicator_unit}]" if indicator_unit else indicator_name
 
     # Coerce all potentially relevant numeric columns
@@ -475,6 +451,7 @@ def total_emissions(csv_path: str | Path, output_dir: str | Path) -> None:
     fig.savefig(out_path, dpi=DPI)
     plt.close(fig)
 
+
 # --------------------------------
 # ENTITY EMISSIONS
 # --------------------------------
@@ -529,20 +506,12 @@ def entity_emissions(csv_path: str | Path, output_dir: str | Path) -> None:
         raise ValueError("No plottable rows after dropping NaNs in element_eid/entity/total_net_impact_median.")
 
     # ---- Aggregate ----
-    agg = (
-        df.groupby(["element_eid", "entity"], as_index=False)["total_net_impact_median"]
-        .sum()
-        .rename(columns={"total_net_impact_median": "impact"})
-    )
+    agg = df.groupby(["element_eid", "entity"], as_index=False)["total_net_impact_median"].sum().rename(columns={"total_net_impact_median": "impact"})
 
     # If element_eid appears with multiple entities, keep the entity with largest |impact|
     if agg["element_eid"].duplicated().any():
         agg["abs_impact"] = agg["impact"].abs()
-        agg = (
-            agg.sort_values(["element_eid", "abs_impact"], ascending=[True, False])
-            .drop_duplicates("element_eid", keep="first")
-            .drop(columns=["abs_impact"])
-        )
+        agg = agg.sort_values(["element_eid", "abs_impact"], ascending=[True, False]).drop_duplicates("element_eid", keep="first").drop(columns=["abs_impact"])
 
     if CLIP_MIN is not None or CLIP_MAX is not None:
         agg["impact"] = agg["impact"].clip(lower=CLIP_MIN, upper=CLIP_MAX)
@@ -658,9 +627,11 @@ def entity_emissions(csv_path: str | Path, output_dir: str | Path) -> None:
     plt.savefig(out_path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
 
+
 # --------------------------------
 # COMBINED FUNCTION
-# --------------------------------    
+# --------------------------------
+
 
 def _find_single_csv(dir_path: Path, prefix: str) -> Path | None:
     matches = sorted(dir_path.glob(f"{prefix}*.csv"))
@@ -670,15 +641,16 @@ def _find_single_csv(dir_path: Path, prefix: str) -> Path | None:
         raise ValueError(f"Multiple CSVs found in {dir_path} starting with '{prefix}': {matches}")
     return matches[0]
 
+
 def create_plots(input_dir: str | Path) -> Path:
     input_path = Path(input_dir).expanduser().resolve()
     out_dir = input_path / "plots"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     jobs: list[tuple[str, str, Callable[[Path, Path], None]]] = [
-        ("top25",  "object_type_summary_dissected_", top25_impacts),
-        ("total",  "all_summary_dissected_",         total_emissions),
-        ("entity", "all_summary_elements_",          entity_emissions),
+        ("top25", "object_type_summary_dissected_", top25_impacts),
+        ("total", "all_summary_dissected_", total_emissions),
+        ("entity", "all_summary_elements_", entity_emissions),
     ]
 
     any_ran = False
@@ -788,21 +760,9 @@ def sankey_classification(csv_path: str | Path, output_dir: str | Path) -> None:
             return 0
 
         # ---------- Aggregate link counts ----------
-        hop0 = (
-            df.groupby(["root_key", "root_label", "entry_key", "entry_label"], dropna=False)
-            .size()
-            .reset_index(name="count")
-        )
-        hop1 = (
-            df.groupby(["entry_key", "entry_label", "mid_key", "mid_label"], dropna=False)
-            .size()
-            .reset_index(name="count")
-        )
-        hop2 = (
-            df.groupby(["mid_key", "mid_label", "facet_key", "facet_label"], dropna=False)
-            .size()
-            .reset_index(name="count")
-        )
+        hop0 = df.groupby(["root_key", "root_label", "entry_key", "entry_label"], dropna=False).size().reset_index(name="count")
+        hop1 = df.groupby(["entry_key", "entry_label", "mid_key", "mid_label"], dropna=False).size().reset_index(name="count")
+        hop2 = df.groupby(["mid_key", "mid_label", "facet_key", "facet_label"], dropna=False).size().reset_index(name="count")
 
         # ---------- Build ordered node list (keys + base labels) ----------
         def _collect_nodes(parts: list[tuple[pd.Series, pd.Series]]) -> list[tuple[str, str]]:

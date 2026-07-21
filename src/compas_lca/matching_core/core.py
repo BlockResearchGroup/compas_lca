@@ -1,5 +1,4 @@
 from typing import Optional
-
 from uuid import UUID
 from uuid import uuid4
 
@@ -8,39 +7,35 @@ from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import model_validator
 
-from compas_lca.matching_core.common import Common
-from compas_lca.matching_core.material.core import MaterialCore
-from compas_lca.matching_core.component.core import ComponentCore
-
 from compas_lca.enums import EntryType
-
-from compas_lca.validators import LoadbearingType
+from compas_lca.matching_core.common import Common
+from compas_lca.matching_core.component.core import ComponentCore
+from compas_lca.matching_core.material.core import MaterialCore
+from compas_lca.validators import ArealDensityFloat
+from compas_lca.validators import DensityFloat
 from compas_lca.validators import InteriorExteriorType
+from compas_lca.validators import LambdaFloat
+from compas_lca.validators import LoadbearingType
 from compas_lca.validators import ManufacturerStr
 from compas_lca.validators import ThicknessFloat
-from compas_lca.validators import LambdaFloat
 from compas_lca.validators import UValueFloat
-from compas_lca.validators import DensityFloat
-from compas_lca.validators import ArealDensityFloat
 
 # Map material type to its corresponding facet model
-MODEL_BY_ENTRY_TYPE = {
-    EntryType.material: MaterialCore,
-    EntryType.component: ComponentCore,
-    EntryType.unknown: None
-}
+MODEL_BY_ENTRY_TYPE = {EntryType.material: MaterialCore, EntryType.component: ComponentCore, EntryType.unknown: None}
+
 
 class MatchingCore(BaseModel):
     """
     MatchingCore as container for any kind and nested/branched attributes of construction materials or components.
     Allows the dynamic filtering between LCA Data and building model materials/elemenets.
     """
+
     model_config = ConfigDict(
         extra="forbid",
         validate_assignment=True,
         str_strip_whitespace=True,
     )
-    core_id: UUID = Field(default_factory=uuid4) # core_id for matching InventoryItem matches to individual layers (individual MatchingCore objects)
+    core_id: UUID = Field(default_factory=uuid4)  # core_id for matching InventoryItem matches to individual layers (individual MatchingCore objects)
     entry_type: EntryType
     name: str
     loadbearing: Optional[LoadbearingType] = None
@@ -88,10 +83,7 @@ class MatchingCore(BaseModel):
             return data
 
         if not isinstance(facet, model):
-            raise TypeError(
-                f"`facet` must be {model.__name__} for entry_type={etype}, "
-                f"got {type(facet).__name__}"
-            )
+            raise TypeError(f"`facet` must be {model.__name__} for entry_type={etype}, got {type(facet).__name__}")
         return data
 
 
@@ -111,5 +103,5 @@ def assemble_matching_core(common: Common, facet: object) -> MatchingCore:
         manufacturer=common.manufacturer,
         provenance=common.provenance,
         production_location=common.production_location,
-        facet=facet
+        facet=facet,
     )

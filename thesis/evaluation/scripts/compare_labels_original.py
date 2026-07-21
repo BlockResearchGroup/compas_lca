@@ -15,10 +15,6 @@ import json
 from collections import defaultdict
 from pathlib import Path
 from typing import Optional
-from typing import Any, Literal
-from dataclasses import dataclass
-from collections import Counter
-import math
 
 from _eval_paths import parse_eval_args
 
@@ -342,7 +338,7 @@ with open(output_csv, "w", newline="", encoding="utf-8") as f:
 
 # Print summary
 print(f"Label-by-label comparison complete. Results written to: {output_csv}")
-print(f"\n=== Summary ===")
+print("\n=== Summary ===")
 print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
 print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
 print(f"UUIDs found in both: {found_count}")
@@ -351,7 +347,7 @@ print(f"Level 2 correct: {level_2_match_count}")
 print(f"Level 3 correct: {level_3_match_count}")
 
 # Print excluded attributes
-print(f"\n=== Excluded Attributes ===")
+print("\n=== Excluded Attributes ===")
 for attr in sorted(excluded_attrs_found):
     print(f"  - {attr}")
 

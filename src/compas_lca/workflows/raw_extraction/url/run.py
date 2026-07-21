@@ -1,10 +1,7 @@
 import hashlib
-
 import re
-
 from pathlib import Path
 from typing import Optional
-
 from urllib.parse import urlparse
 
 from compas_lca.workflows.raw_extraction.url.url_extraction import extract_url
@@ -44,7 +41,7 @@ def main():
         backoff_s=BACKOFF_S,
         return_json=RETURN_JSON,
         select_keys=SELECT_KEYS,
-        keep_keys= ILCD_EPD_KEYS,
+        keep_keys=ILCD_EPD_KEYS,
     )
 
     # Decide extension and filename

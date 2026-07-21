@@ -2,24 +2,24 @@ from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.model.descriptor import ElementDescriptor
-
-from compas_lca.model.quantity import Quantity
-
 from compas_lca.llm.context import Context
+from compas_lca.model.descriptor import ElementDescriptor
+from compas_lca.model.quantity import Quantity
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # %%%%%%%%% ELEMENT EXTRACTION CONTEXT %%%%%%%%%%%%%%
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 class MultilayerBool(BaseModel):
     """
     Bool for whether an element is a layered construction or not.
     """
+
     model_config = ConfigDict(
-        extra = "forbid",           # Forbid extra fields
-        validate_assignment=True,   # Validate fields on assignment
-        str_strip_whitespace=True   # Strips leading and trailing whitespace for str types
+        extra="forbid",  # Forbid extra fields
+        validate_assignment=True,  # Validate fields on assignment
+        str_strip_whitespace=True,  # Strips leading and trailing whitespace for str types
     )
     is_multilayer: bool = Field(
         False,
@@ -40,20 +40,15 @@ class MultilayerBool(BaseModel):
 
         In summary, this flag is **True only when the materials are explicitly or implicitly layered in sequence**, forming a stratified composition.
         """,
-        examples=[True, False]
+        examples=[True, False],
     )
+
 
 MULTILAYER_PROMPT = """
 You are an expert at determining if a building elelment represents a layered construction or not, based on its material composition and metadata.
 """
 
-MULTILAYER_CTX = Context(
-    instructions=MULTILAYER_PROMPT,
-    output_type=MultilayerBool
-)
-
-
-
+MULTILAYER_CTX = Context(instructions=MULTILAYER_PROMPT, output_type=MultilayerBool)
 
 
 DESCRIPTOR_PROMPT = """
@@ -66,10 +61,7 @@ If a field is missing or cannot be determined, mark is with `null`. Do not inven
 Do not include any explanatory text outside of the schema output.
 """
 
-DESCRIPTOR_CTX = Context(
-    instructions=DESCRIPTOR_PROMPT,
-    output_type=ElementDescriptor
-)
+DESCRIPTOR_CTX = Context(instructions=DESCRIPTOR_PROMPT, output_type=ElementDescriptor)
 
 """
 This is only relevant if the agent needs to extract
@@ -78,8 +70,6 @@ If it can be calculated with COMPAS, or if it can be
 extracted through a script, it should always be preferred.
 """
 QUANTITY_CTX = Context(
-    instructions=(
-        "placeholder"
-    ),
+    instructions=("placeholder"),
     output_type=Quantity,
 )

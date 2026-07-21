@@ -1,9 +1,5 @@
 import re
-
-import traceback
-
 from math import isfinite
-
 from typing import Annotated
 from typing import Any
 from typing import Optional
@@ -12,12 +8,12 @@ from typing import Union
 
 from pydantic import BeforeValidator
 
-from compas_lca.enums import MaterialType
-from compas_lca.enums import QuantUnit
-from compas_lca.enums import QuantName
-from compas_lca.enums import RefUnit
-from compas_lca.enums import Loadbearing
 from compas_lca.enums import InteriorExterior
+from compas_lca.enums import Loadbearing
+from compas_lca.enums import MaterialType
+from compas_lca.enums import QuantName
+from compas_lca.enums import QuantUnit
+from compas_lca.enums import RefUnit
 
 Number = Union[int, float]
 
@@ -26,6 +22,7 @@ Number = Union[int, float]
 # -----------------------------------------------------------------------
 
 _WORD = re.compile(r"[a-z0-9]+")
+
 
 def _norm_tokens(v: Any):
     """
@@ -36,12 +33,13 @@ def _norm_tokens(v: Any):
     joined = " ".join(tokens)
     return s, tokens, joined
 
+
 def _has_any(joined: str, *phrases: str) -> bool:
     j = joined
     return any(p in j for p in phrases)
 
-def _to_material_type(v: Any):
 
+def _to_material_type(v: Any):
     """
     Normalize flexible inputs into MaterialType with careful precedence:
       1) explicit 'concrete' family (AAC, UHPC, RC, etc.)
@@ -68,98 +66,218 @@ def _to_material_type(v: Any):
     tok = set(tokens)
 
     if (
-        _has_any(joined,
-                 "concrete", "reinforced concrete", "rc", "rcc",
-                 "precast", "prestressed", "uhpc", "uhpfrc",
-                 "shotcrete", "grout", "aac", "autoclaved aerated concrete",
-                 "lightweight concrete", "sfrc", "fiber reinforced concrete")
-        or ("aac" in tok) or ("rc" in tok) or ("uhpc" in tok) or ("uhpfrc" in tok)
+        _has_any(
+            joined,
+            "concrete",
+            "reinforced concrete",
+            "rc",
+            "rcc",
+            "precast",
+            "prestressed",
+            "uhpc",
+            "uhpfrc",
+            "shotcrete",
+            "grout",
+            "aac",
+            "autoclaved aerated concrete",
+            "lightweight concrete",
+            "sfrc",
+            "fiber reinforced concrete",
+        )
+        or ("aac" in tok)
+        or ("rc" in tok)
+        or ("uhpc" in tok)
+        or ("uhpfrc" in tok)
         or (_has_any(joined, "cementitious screed") and "concrete" in joined)
     ) and not _has_any(joined, "asphalt concrete"):  # asphalt-concrete is bituminous
         return MaterialType.concrete
     if (
-        _has_any(joined, "asphalt", "bitumen", "bituminous", "tar", "pitch",
-                 "mastic asphalt", "modified bitumen", "sbs", "app",
-                 "roofing felt", "asphalt concrete")
-        or "bitumen" in tok or "asphalt" in tok
+        _has_any(joined, "asphalt", "bitumen", "bituminous", "tar", "pitch", "mastic asphalt", "modified bitumen", "sbs", "app", "roofing felt", "asphalt concrete")
+        or "bitumen" in tok
+        or "asphalt" in tok
     ):
         return MaterialType.bituminous
-    if any(m in tok for m in [
-        "metal", "metallic", "steel", "stainless", "inox", "aluminum", "aluminium",
-        "copper", "brass", "bronze", "zinc", "titanium", "iron", "cast", "galvanized"
-    ]):
+    if any(
+        m in tok
+        for m in ["metal", "metallic", "steel", "stainless", "inox", "aluminum", "aluminium", "copper", "brass", "bronze", "zinc", "titanium", "iron", "cast", "galvanized"]
+    ):
         return MaterialType.metallic
     if (
         "composite" in tok
-        or _has_any(joined, "frp", "cfrp", "gfrp", "kfrp", "aramid",
-                    "carbon fiber", "glass fiber", "fiberglass",
-                    "fiber reinforced", "fibre reinforced",
-                    "sandwich panel", "honeycomb core",
-                    "aluminum composite material", "acm",
-                    "fiber cement", "fibre cement",
-                    "grc", "gfrc")
-        or "acm" in tok or "frp" in tok or "cfrp" in tok or "gfrp" in tok
-        or "gfrc" in tok or "grc" in tok
+        or _has_any(
+            joined,
+            "frp",
+            "cfrp",
+            "gfrp",
+            "kfrp",
+            "aramid",
+            "carbon fiber",
+            "glass fiber",
+            "fiberglass",
+            "fiber reinforced",
+            "fibre reinforced",
+            "sandwich panel",
+            "honeycomb core",
+            "aluminum composite material",
+            "acm",
+            "fiber cement",
+            "fibre cement",
+            "grc",
+            "gfrc",
+        )
+        or "acm" in tok
+        or "frp" in tok
+        or "cfrp" in tok
+        or "gfrp" in tok
+        or "gfrc" in tok
+        or "grc" in tok
     ):
         return MaterialType.composite
-    if (
-        _has_any(
-            joined,
-            "wood", "timber", "lumber", "hardwood", "softwood",
-            "parquet",
-            "plywood", "osb", "mdf", "hdf", "particleboard", "chipboard",
-            "fiberboard", "fibreboard", "hardboard",
-            "glulam", "glued laminated", "lvl", "psl", "kvh",
-            "clt", "cross laminated timber",
-            "veneer", "lamella", "straw", "bamboo", "cork",
-            "wood fibre", "wood fiber", "woodfibre"
-        )
-        or any(x in tok for x in ["wood", "timber", "plywood", "osb", "mdf", "clt", "lvl", "psl", "kvh"])
-    ):
+    if _has_any(
+        joined,
+        "wood",
+        "timber",
+        "lumber",
+        "hardwood",
+        "softwood",
+        "parquet",
+        "plywood",
+        "osb",
+        "mdf",
+        "hdf",
+        "particleboard",
+        "chipboard",
+        "fiberboard",
+        "fibreboard",
+        "hardboard",
+        "glulam",
+        "glued laminated",
+        "lvl",
+        "psl",
+        "kvh",
+        "clt",
+        "cross laminated timber",
+        "veneer",
+        "lamella",
+        "straw",
+        "bamboo",
+        "cork",
+        "wood fibre",
+        "wood fiber",
+        "woodfibre",
+    ) or any(x in tok for x in ["wood", "timber", "plywood", "osb", "mdf", "clt", "lvl", "psl", "kvh"]):
         return MaterialType.wood
     if (
-        "polymer" in tok or "polymeric" in tok or "plastic" in tok
-        or _has_any(joined, "rubber", "resin", "silicone", "epoxy", "acrylic",
-                    "polyester", "vinyl")
-        or any(abbr in tok for abbr in [
-            "pvc", "pe", "hdpe", "ldpe", "pp", "pet", "pbt", "pc",
-            "pmma", "abs", "hips", "ptfe", "pfa", "peek", "pu", "xps", "eps"
-        ])
+        "polymer" in tok
+        or "polymeric" in tok
+        or "plastic" in tok
+        or _has_any(joined, "rubber", "resin", "silicone", "epoxy", "acrylic", "polyester", "vinyl")
+        or any(abbr in tok for abbr in ["pvc", "pe", "hdpe", "ldpe", "pp", "pet", "pbt", "pc", "pmma", "abs", "hips", "ptfe", "pfa", "peek", "pu", "xps", "eps"])
     ):
         return MaterialType.polymeric
-    if (
-        _has_any(joined, "mineral", "ceramic", "porcelain", "tile", "brick", "masonry",
-                 "stone", "marble", "granite", "limestone", "sandstone", "slate",
-                 "terra cotta", "terracotta",
-                 "glass", "glass ceramic", "quartz",
-                 "gypsum", "plaster", "anhydrite", "cement", "mortar",
-                 "lime", "perlite", "vermiculite")
+    if _has_any(
+        joined,
+        "mineral",
+        "ceramic",
+        "porcelain",
+        "tile",
+        "brick",
+        "masonry",
+        "stone",
+        "marble",
+        "granite",
+        "limestone",
+        "sandstone",
+        "slate",
+        "terra cotta",
+        "terracotta",
+        "glass",
+        "glass ceramic",
+        "quartz",
+        "gypsum",
+        "plaster",
+        "anhydrite",
+        "cement",
+        "mortar",
+        "lime",
+        "perlite",
+        "vermiculite",
     ):
         return MaterialType.mineral
     if (
-        _has_any(joined,
-                 "biobased", "bio-based", "bio based", "cotton",
-                 "flax", "linen",
-                 "hemp",
-                 "sheep wool", "wool", "alpaca", "camel hair", "llama wool",
-                 "straw", "hay",
-                 "jute", "kenaf", "sisal",
-                 "coir", "coconut fiber", "coconut fibre", "coir fiber", "coir fibre",
-                 "miscanthus",
-                 "reed", "phragmites", "cattail", "typha",
-                 "rice husk", "ricehusk", "husk", "hulls", "hull",
-                 "rice hull", "olive pits", "nut shell", "nut shells",
-                 "bio-based binder", "starch binder", "casein", "natural latex", "rubber (natural)")
-        or any(x in tok for x in [
-            "cotton", "flax", "linen", "hemp", "wool", "alpaca", "camel", "llama",
-            "straw", "jute", "kenaf", "sisal", "coir", "miscanthus",
-            "reed", "typha", "husk", "hulls", "hull",
-        ])
-    ) and not _has_any(joined, "wood", "timber", "mdf", "hdf", "osb", "particleboard",
-                       "plywood", "clt", "glulam", "lvl", "bamboo board", "woodfibre"):
+        _has_any(
+            joined,
+            "biobased",
+            "bio-based",
+            "bio based",
+            "cotton",
+            "flax",
+            "linen",
+            "hemp",
+            "sheep wool",
+            "wool",
+            "alpaca",
+            "camel hair",
+            "llama wool",
+            "straw",
+            "hay",
+            "jute",
+            "kenaf",
+            "sisal",
+            "coir",
+            "coconut fiber",
+            "coconut fibre",
+            "coir fiber",
+            "coir fibre",
+            "miscanthus",
+            "reed",
+            "phragmites",
+            "cattail",
+            "typha",
+            "rice husk",
+            "ricehusk",
+            "husk",
+            "hulls",
+            "hull",
+            "rice hull",
+            "olive pits",
+            "nut shell",
+            "nut shells",
+            "bio-based binder",
+            "starch binder",
+            "casein",
+            "natural latex",
+            "rubber (natural)",
+        )
+        or any(
+            x in tok
+            for x in [
+                "cotton",
+                "flax",
+                "linen",
+                "hemp",
+                "wool",
+                "alpaca",
+                "camel",
+                "llama",
+                "straw",
+                "jute",
+                "kenaf",
+                "sisal",
+                "coir",
+                "miscanthus",
+                "reed",
+                "typha",
+                "husk",
+                "hulls",
+                "hull",
+            ]
+        )
+    ) and not _has_any(joined, "wood", "timber", "mdf", "hdf", "osb", "particleboard", "plywood", "clt", "glulam", "lvl", "bamboo board", "woodfibre"):
         return MaterialType.biobased
 
     return MaterialType.unknown
+
 
 # -------------------------------------------------------------------------------
 # Validator for Reference Units (such that any database/epd can be standardized)
@@ -173,9 +291,11 @@ def _norm_tokens(v: Any):
     joined = " ".join(tokens)
     return s, tokens, joined
 
+
 def _has_any(joined: str, *phrases: str) -> bool:
     j = joined
     return any(p in j for p in phrases)
+
 
 def _to_ref_unit(v: Any):
     """
@@ -211,31 +331,29 @@ def _to_ref_unit(v: Any):
         or any(t in tok for t in {"m3", "m^3", "m³", "cbm"})
         or _has_any(joined, "cubic meter", "cubic metre", "cu m", "kubikmeter")
     )
-    m_hit = (
-        ("m" in tok)
-        or any(t in tok for t in {"lm", "lfm", "lfdm"})
-        or _has_any(joined, "linear meter", "linear metre", "laufmeter")
-    )
-    kg_hit = (
-        ("kg" in tok)
-        or any(t in tok for t in {"kgs", "kilogram", "kilograms", "kilogramme", "kilogrammes"})
-    )
-    pcs_hit = any(t in tok for t in {
-        "pcs","pc","piece","pieces","unit","units","ea","each","stk","stck","stueck","stück"
-    })
+    m_hit = ("m" in tok) or any(t in tok for t in {"lm", "lfm", "lfdm"}) or _has_any(joined, "linear meter", "linear metre", "laufmeter")
+    kg_hit = ("kg" in tok) or any(t in tok for t in {"kgs", "kilogram", "kilograms", "kilogramme", "kilogrammes"})
+    pcs_hit = any(t in tok for t in {"pcs", "pc", "piece", "pieces", "unit", "units", "ea", "each", "stk", "stck", "stueck", "stück"})
 
     hits = []
-    if m2_hit: hits.append(RefUnit.m2)
-    if m3_hit: hits.append(RefUnit.m3)
-    if m_hit:  hits.append(RefUnit.m)
-    if kg_hit: hits.append(RefUnit.kg)
-    if pcs_hit: hits.append(RefUnit.pcs)
+    if m2_hit:
+        hits.append(RefUnit.m2)
+    if m3_hit:
+        hits.append(RefUnit.m3)
+    if m_hit:
+        hits.append(RefUnit.m)
+    if kg_hit:
+        hits.append(RefUnit.kg)
+    if pcs_hit:
+        hits.append(RefUnit.pcs)
 
     # Fallback: exact single-token strings like "m²"
     if not hits:
         single = s.replace(" ", "")
-        if single in {"m²", "m^2"}: return RefUnit.m2
-        if single in {"m³", "m^3"}: return RefUnit.m3
+        if single in {"m²", "m^2"}:
+            return RefUnit.m2
+        if single in {"m³", "m^3"}:
+            return RefUnit.m3
 
     # De-dup and decide
     dedup = []
@@ -258,19 +376,21 @@ def _to_ref_unit(v: Any):
 # Factors are for LENGTH; raise to power 2/3 for area/volume.
 _SI_PREFIX = {
     # symbols
-    "µ": 1e-6, "μ": 1e-6, "u": 1e-6,  # micrometre (ASCII 'u' accepted)
-    "m": 1e-3,                        # millimetre
-    "c": 1e-2,                        # centimetre
-    "d": 1e-1,                        # decimetre
-    "k": 1e+3,                        # kilometre
-
+    "µ": 1e-6,
+    "μ": 1e-6,
+    "u": 1e-6,  # micrometre (ASCII 'u' accepted)
+    "m": 1e-3,  # millimetre
+    "c": 1e-2,  # centimetre
+    "d": 1e-1,  # decimetre
+    "k": 1e3,  # kilometre
     # names (IFC / prose)
     "micro": 1e-6,
     "milli": 1e-3,
     "centi": 1e-2,
-    "deci":  1e-1,
-    "kilo":  1e+3,
+    "deci": 1e-1,
+    "kilo": 1e3,
 }
+
 
 def _unit_info(s: Any) -> Tuple[QuantUnit, float, int]:
     """
@@ -281,37 +401,45 @@ def _unit_info(s: Any) -> Tuple[QuantUnit, float, int]:
     if s is None or (isinstance(s, str) and not s.strip()):
         raise ValueError("unit is required")
     if isinstance(s, QuantUnit):
-        return s, 1.0, {QuantUnit.m:1, QuantUnit.m2:2, QuantUnit.m3:3}[s]
+        return s, 1.0, {QuantUnit.m: 1, QuantUnit.m2: 2, QuantUnit.m3: 3}[s]
 
     raw = str(s).strip()
     joined = re.sub(r"\s+", " ", raw).lower()
 
     power = 1
-    if any(w in joined for w in ["square ", " sq ", "sq.", "quadratic "]): power = 2
-    if "cubic " in joined: power = 3
-    if re.search(r"\b\^?\s*2\b|[²\u00b2]", joined): power = 2
-    if re.search(r"\b\^?\s*3\b|[³\u00b3]", joined): power = 3
-    if joined.startswith(("square_", "square")): power = 2
-    if joined.startswith(("cubic_", "cubic")): power = 3
+    if any(w in joined for w in ["square ", " sq ", "sq.", "quadratic "]):
+        power = 2
+    if "cubic " in joined:
+        power = 3
+    if re.search(r"\b\^?\s*2\b|[²\u00b2]", joined):
+        power = 2
+    if re.search(r"\b\^?\s*3\b|[³\u00b3]", joined):
+        power = 3
+    if joined.startswith(("square_", "square")):
+        power = 2
+    if joined.startswith(("cubic_", "cubic")):
+        power = 3
 
     # IFC names (with/without underscore): e.g. SQUARE_CENTIMETRE, CUBICMILLIMETRE, MILLIMETRE, METRE
     m_ifc = re.match(r"^(?:square_?|cubic_?)?(micro|milli|centi|deci|kilo)?metre$", joined)
     if m_ifc:
         pf = _SI_PREFIX.get(m_ifc.group(1), 1.0)
         unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
-        return unit, (pf ** power), power
+        return unit, (pf**power), power
 
     # “square meter”, “cubic metre”, etc.
     if re.search(r"\bmetre(s)?\b|\bmeter(s)?\b", joined):
         unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
         m_word = re.search(r"(micro|milli|centi|deci|kilo)\s+metre?", joined)
         pf = _SI_PREFIX[m_word.group(1)] if m_word else 1.0
-        return unit, (pf ** power), power
+        return unit, (pf**power), power
 
     # Symbolic: m, mm, cm2, mm^2, m²/m³, mm2/cm3
     token = joined.replace(" ", "").replace("linear", "")
-    if token.endswith(("^2", "²", "2")): power, token = 2, token[:-2] if token.endswith("^2") else token[:-1]
-    if token.endswith(("^3", "³", "3")): power, token = 3, token[:-2] if token.endswith("^3") else token[:-1]
+    if token.endswith(("^2", "²", "2")):
+        power, token = 2, token[:-2] if token.endswith("^2") else token[:-1]
+    if token.endswith(("^3", "³", "3")):
+        power, token = 3, token[:-2] if token.endswith("^3") else token[:-1]
 
     if token == "m":
         unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
@@ -321,7 +449,7 @@ def _unit_info(s: Any) -> Tuple[QuantUnit, float, int]:
         prefix_symbol = token[:-1]
         pf = _SI_PREFIX.get(prefix_symbol, 1.0)
         unit = QuantUnit.m if power == 1 else (QuantUnit.m2 if power == 2 else QuantUnit.m3)
-        return unit, (pf ** power), power
+        return unit, (pf**power), power
 
     raise ValueError(f"could not interpret unit {raw!r} as metres/metres²/metres³")
 
@@ -330,31 +458,47 @@ def _unit_scale_to_m(s: Any) -> Tuple[QuantUnit, float]:
     u, k, _ = _unit_info(s)
     return u, k
 
+
 # --- the validator expected by Pydantic Annotated ---
 def _to_quant_unit(v: Any) -> QuantUnit:
     """Normalize any metre/area/volume expression (incl. IFC) to QuantUnit m/m2/m3 (ignores scale)."""
     unit, _ = _unit_scale_to_m(v)
     return unit
 
+
 # maps common aliases/fields → QuantName
 _ALIAS_TO_QUANT = {
     # thickness
     "thickness": QuantName.thickness,
     "core thickness": QuantName.thickness,
-    "dicke": QuantName.thickness, "dicken": QuantName.thickness,
+    "dicke": QuantName.thickness,
+    "dicken": QuantName.thickness,
     # area
-    "area": QuantName.area, "fläche": QuantName.area, "flaeche": QuantName.area,
-    "surface": QuantName.area, "surface_area": QuantName.area,
-    "net_area": QuantName.area, "gross_area": QuantName.area,
-    "net_side_area": QuantName.area, "net_surface_area": QuantName.area,
+    "area": QuantName.area,
+    "fläche": QuantName.area,
+    "flaeche": QuantName.area,
+    "surface": QuantName.area,
+    "surface_area": QuantName.area,
+    "net_area": QuantName.area,
+    "gross_area": QuantName.area,
+    "net_side_area": QuantName.area,
+    "net_surface_area": QuantName.area,
     # volume
-    "volume": QuantName.volume, "vol": QuantName.volume,
-    "net_volume": QuantName.volume, "gross_volume": QuantName.volume,
+    "volume": QuantName.volume,
+    "vol": QuantName.volume,
+    "net_volume": QuantName.volume,
+    "gross_volume": QuantName.volume,
     # length
-    "length": QuantName.length, "len": QuantName.length, "span": QuantName.length,
-    "laufmeter": QuantName.length, "linear": QuantName.length,
-    "width": QuantName.length, "height": QuantName.length, "depth": QuantName.length,
+    "length": QuantName.length,
+    "len": QuantName.length,
+    "span": QuantName.length,
+    "laufmeter": QuantName.length,
+    "linear": QuantName.length,
+    "width": QuantName.length,
+    "height": QuantName.length,
+    "depth": QuantName.length,
 }
+
 
 def _to_quant_name(v: Any) -> QuantName:
     """
@@ -410,7 +554,6 @@ def _to_quant_name(v: Any) -> QuantName:
     raise ValueError(f"could not infer quantity name from {v!r}")
 
 
-
 # -------------------------------------------------------------------
 # Core reusable validators (helpers)
 # -------------------------------------------------------------------
@@ -429,6 +572,7 @@ def _parse_number(v: Any) -> Number:
         return float(s) if ("." in s or "e" in s.lower()) else int(s)
     except Exception as exc:
         raise ValueError(f"Cannot cast value {v!r} to number") from exc
+
 
 def _finite_fraction(v: Any) -> float:
     """
@@ -458,7 +602,7 @@ def _to_loadbearing(v: Any):
     if isinstance(v, Loadbearing):
         return v
     s = str(v).strip().lower()
-    if s in {"loadbearing","yes", "true", "y", "1", "structural", "load-bearing"}:
+    if s in {"loadbearing", "yes", "true", "y", "1", "structural", "load-bearing"}:
         return Loadbearing.loadbearing
     if s in {"non_loadbearing", "no", "false", "n", "0", "non-structural", "nonstructural", "non_load-bearing"}:
         return Loadbearing.non_loadbearing
@@ -486,11 +630,13 @@ def _to_inex(v: Any):
         return InteriorExterior.either
     return None
 
+
 # Accept common unit notations (various spellings)
 _UNIT_PATTERN = re.compile(
     r"\s*(kg\s*/?\s*m\^?3|kg\s*per\s*m3|kg\s*/\s*m3|kg\s*/?\s*m³)\s*",
     flags=re.IGNORECASE,
 )
+
 
 def _normalize_density(v: Any) -> Optional[float]:
     """
@@ -512,14 +658,15 @@ def _normalize_density(v: Any) -> Optional[float]:
     s = str(v).strip().lower()
     if not s:
         return None
-    s = s.replace("'", "") # Remove thousands separators
-    s = s.replace(",", ".") # Replace European decimal comma with dot
-    s = s.replace(" ", "") # Remove spaces
-    s = _UNIT_PATTERN.sub("", s) # Remove common unit suffixes
+    s = s.replace("'", "")  # Remove thousands separators
+    s = s.replace(",", ".")  # Replace European decimal comma with dot
+    s = s.replace(" ", "")  # Remove spaces
+    s = _UNIT_PATTERN.sub("", s)  # Remove common unit suffixes
     try:
         return float(s)
     except ValueError:
         return None
+
 
 def _normalize_areal_density(v: Any) -> Optional[float]:
     """
@@ -549,6 +696,7 @@ def _normalize_areal_density(v: Any) -> Optional[float]:
     except ValueError:
         return None
 
+
 def _normalize_thickness(v: Any) -> Optional[float]:
     """
     Normalize thickness values (in millimeters).
@@ -565,12 +713,12 @@ def _normalize_thickness(v: Any) -> Optional[float]:
     s = str(v).strip().lower()
     if not s:
         return None
-    s = s.replace(",", ".").replace(" ", "") # unify decimal separator
-    factor = 1.0 # infer approximate unit multiplier
+    s = s.replace(",", ".").replace(" ", "")  # unify decimal separator
+    factor = 1.0  # infer approximate unit multiplier
     if "cm" in s:
-        factor = 10.0        # cm → mm
+        factor = 10.0  # cm → mm
     elif "m" in s:
-        factor = 1000.0      # m → mm
+        factor = 1000.0  # m → mm
     # remove unit labels for parsing
     s = re.sub(r"(mm|millimet(er|re)s?|cm|centimet(er|re)s?|m|met(er|re)s?)", "", s)
     try:
@@ -614,6 +762,7 @@ def _parse_u_value(v: Any) -> Optional[float]:
     except ValueError:
         return None
 
+
 def _normalize_manufacturer(v: Any) -> Optional[str]:
     """
     Normalize manufacturer or brand strings:
@@ -646,7 +795,7 @@ ParsedNumber = Annotated[Number, BeforeValidator(_parse_number)]
 
 # Domain-specific enums normalized from flexible inputs
 LoadbearingType = Annotated[Loadbearing, BeforeValidator(_to_loadbearing)]
-InteriorExteriorType  = Annotated[InteriorExterior, BeforeValidator(_to_inex)]
+InteriorExteriorType = Annotated[InteriorExterior, BeforeValidator(_to_inex)]
 RefUnitType = Annotated[RefUnit, BeforeValidator(_to_ref_unit)]
 QuantUnitType = Annotated[QuantUnit, BeforeValidator(_to_quant_unit)]
 QuantNameType = Annotated[QuantName, BeforeValidator(_to_quant_name)]

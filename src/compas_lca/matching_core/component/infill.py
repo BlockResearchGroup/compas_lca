@@ -1,16 +1,16 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import InfillType
-from compas_lca.enums import InfillMaterialFamily
-from compas_lca.enums import InfillConstruction
-from compas_lca.enums import InfillSafetyType
 from compas_lca.enums import InfillCoating
+from compas_lca.enums import InfillConstruction
+from compas_lca.enums import InfillMaterialFamily
+from compas_lca.enums import InfillSafetyType
+from compas_lca.enums import InfillType
+
 
 class InfillFacet(BaseModel):
     model_config = ConfigDict(

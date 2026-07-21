@@ -12,14 +12,15 @@ from __future__ import annotations
 
 import csv
 import json
-from collections import defaultdict
-from pathlib import Path
-from typing import Optional
-from typing import Any, Literal
-from dataclasses import dataclass
-from collections import Counter
 import math
 import sys
+from collections import Counter
+from collections import defaultdict
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+from typing import Literal
+from typing import Optional
 
 from _eval_paths import parse_eval_args
 
@@ -472,7 +473,7 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
     try:
         # Print summary
         print(f"Label-by-label comparison complete. Results written to: {output_csv}")
-        print(f"\n=== Summary ===")
+        print("\n=== Summary ===")
         print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
         print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
         print(f"UUIDs found in both: {found_count}")
@@ -481,7 +482,7 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
         print(f"Level 3 correct: {level_3_match_count}")
 
         # Print excluded attributes
-        print(f"\n=== Excluded Attributes ===")
+        print("\n=== Excluded Attributes ===")
         for attr in sorted(excluded_attrs_found):
             print(f"  - {attr}")
 

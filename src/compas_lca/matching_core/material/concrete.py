@@ -1,26 +1,21 @@
+from textwrap import dedent
 from typing import Literal
 from typing import Optional
-
-from textwrap import dedent
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import ConcreteType
-from compas_lca.enums import ConcreteStrength
-from compas_lca.enums import ConcreteForm
 from compas_lca.enums import BinderType
+from compas_lca.enums import ConcreteForm
+from compas_lca.enums import ConcreteStrength
+from compas_lca.enums import ConcreteType
 from compas_lca.matching_core.normalization import normalize_concrete_type
 
 
 class ConcreteFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     concrete_type: ConcreteType = Field(
         ConcreteType.unknown,
         description=dedent("""
@@ -46,17 +41,19 @@ class ConcreteFacet(BaseModel):
             If no clear match is found, assign `unknown`.
         """).strip(),
     )
+
     @field_validator("concrete_type", mode="before")
     @classmethod
     def _normalize_concrete_type(cls, value):
         return normalize_concrete_type(value)
+
     concrete_form: Optional[ConcreteForm] = Field(
         None,
         description=dedent("""
         Physical form or geometric configuration of the concrete/cementitious-based product.
         Note: Ready-mix, or cast-in-situ concrete is ALWAYS 'amorphous'.
         """).strip(),
-        examples=["cast-in-place", "masonry_unit", "amorphous"]
+        examples=["cast-in-place", "masonry_unit", "amorphous"],
     )
     pre_stressed: Optional[bool] = Field(
         None,
@@ -64,7 +61,7 @@ class ConcreteFacet(BaseModel):
         Indicates whether the concrete element or product is **prestressed**—that is, produced or installed
         with pre-applied tensile forces (typically via steel tendons or cables) to improve its structural performance.
         """).strip(),
-        examples=[True, False]
+        examples=[True, False],
     )
     binder_type: Optional[BinderType] = Field(
         None,
@@ -72,7 +69,7 @@ class ConcreteFacet(BaseModel):
             Type of binder used for concrete product. Only assign a binder if 
             it is explicitly stated inside of the raw data!
         """).strip(),
-        examples=["portland_cement", "lime", "other"]
+        examples=["portland_cement", "lime", "other"],
     )
     cement_type: Optional[str] = Field(
         None,
@@ -82,7 +79,7 @@ class ConcreteFacet(BaseModel):
             Subclasses (A, B, C) = The proportion of clinker and other constituents
             Only applies if binder = cement, and a CEM type is explicitly specified in the input data.
         """).strip(),
-        examples=["CEM III/A", "CEM II"]
+        examples=["CEM III/A", "CEM II"],
     )
     strength_class: Optional[ConcreteStrength] = Field(
         None,
@@ -106,17 +103,13 @@ class ConcreteFacet(BaseModel):
             If the strength class is not explicitly stated or does not match
             one of the allowed values, return null.
         """).strip(),
-        examples=["C20/25", "C30/37"]
+        examples=["C20/25", "C30/37"],
     )
     slump_class: Optional[Literal["S1", "S2", "S3", "S4", "S5"]] = Field(
-        None,
-        description="Consistency class determined by slump test (cone test, EN 12350-2)",
-        examples=["S1", "S3", "unknown"]
+        None, description="Consistency class determined by slump test (cone test, EN 12350-2)", examples=["S1", "S3", "unknown"]
     )
     flow_class: Optional[Literal["F1", "F2", "F3", "F4", "F5", "F6", "unknown"]] = Field(
-        None,
-        description="Consistency class determined by flow table test (EN 206)",
-        examples=["F2", "F5", "unknown"]
+        None, description="Consistency class determined by flow table test (EN 206)", examples=["F2", "F5", "unknown"]
     )
     xc: Optional[Literal["XC1", "XC2", "XC3", "XC4"]] = Field(
         None,
@@ -124,33 +117,33 @@ class ConcreteFacet(BaseModel):
             Exposure class (EN 206-1)
             For carbonation induced corrosion (C)
             Severity digits 1-4
-        """).strip()
+        """).strip(),
     )
     xd: Optional[Literal["XD1", "XD2", "XD3"]] = Field(
         None,
         description=dedent("""
         Exposure class (EN 206-1)
         For chloride induced corrosion (from de-icing salts)
-        """).strip()
+        """).strip(),
     )
     xs: Optional[Literal["XS1", "XS2", "XS3"]] = Field(
         None,
         description=dedent("""
         Exposure class (EN 206-1)
         For chloride induced corrosion (from seawater)
-        """).strip()
+        """).strip(),
     )
     xf: Optional[Literal["XF1", "XF2", "XF3", "XF4"]] = Field(
         None,
         description=dedent("""
         Exposure class (EN 206-1)
         For the impact of freezing/melting
-        """).strip()
+        """).strip(),
     )
     xa: Optional[Literal["XA1", "XA2", "XA3", "XA4"]] = Field(
         None,
         description=dedent("""
         Exposure class (EN 206-1)
         For alkali-silica reaction (chemical agent)
-        """).strip()
+        """).strip(),
     )

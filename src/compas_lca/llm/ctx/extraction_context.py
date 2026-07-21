@@ -1,32 +1,28 @@
 from compas_lca.llm.context import Context
-
 from compas_lca.matching_core.common import Common
-
-from compas_lca.matching_core.material.common import MaterialCommon
-from compas_lca.matching_core.material.bituminous import BituminousFacet
-from compas_lca.matching_core.material.biobased import BiobasedFacet
-from compas_lca.matching_core.material.composite import CompositeFacet
-from compas_lca.matching_core.material.concrete import ConcreteFacet
-from compas_lca.matching_core.material.biobased import BiobasedFacet
-from compas_lca.matching_core.material.wood import WoodFacet
-from compas_lca.matching_core.material.metallic import MetallicFacet
-from compas_lca.matching_core.material.mineral import MineralFacet
-from compas_lca.matching_core.material.polymeric import PolymericFacet
-
-from compas_lca.matching_core.component.common import ComponentCommon
 from compas_lca.matching_core.component.building_service import BuildingServiceFacet
 from compas_lca.matching_core.component.ceiling import CeilingFacet
+from compas_lca.matching_core.component.common import ComponentCommon
 from compas_lca.matching_core.component.conveyor import ConveyorFacet
 from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.infill import InfillFacet
 from compas_lca.matching_core.component.insulation_element import InsulationElementFacet
+from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
 from compas_lca.matching_core.component.stairs import StairFacet
-from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.window import WindowFacet
 from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
+from compas_lca.matching_core.material.bituminous import BituminousFacet
+from compas_lca.matching_core.material.common import MaterialCommon
+from compas_lca.matching_core.material.composite import CompositeFacet
+from compas_lca.matching_core.material.concrete import ConcreteFacet
+from compas_lca.matching_core.material.metallic import MetallicFacet
+from compas_lca.matching_core.material.mineral import MineralFacet
+from compas_lca.matching_core.material.polymeric import PolymericFacet
+from compas_lca.matching_core.material.wood import WoodFacet
 
 ITEM_COMMON_PROMPT = """
 You are an expert at extracting data from a dataset describing a building MATERIAL or COMPONENT.
@@ -38,10 +34,7 @@ TASK: Extract all relevant information and populate the output schema fields.
 - Follow the field descriptions in the schema for classification rules.
 """
 
-ITEM_COMMON_CTX = Context(
-    instructions=ITEM_COMMON_PROMPT,
-    output_type=Common
-)
+ITEM_COMMON_CTX = Context(instructions=ITEM_COMMON_PROMPT, output_type=Common)
 
 
 ELEMENT_COMMON_PROMPT = """
@@ -91,10 +84,7 @@ GENERAL PRINCIPLES
 - Do not infer missing values; base the classification only on what is present in the record.
 """
 
-ELEMENT_COMMON_CTX = Context(
-    instructions=ELEMENT_COMMON_PROMPT,
-    output_type=Common
-)
+ELEMENT_COMMON_CTX = Context(instructions=ELEMENT_COMMON_PROMPT, output_type=Common)
 
 
 # Layer context (for now very specific to the IFC workflow)
@@ -156,10 +146,7 @@ Return ONLY a single valid JSON object strictly matching the 'Common' schema.
 Do not include any explanation, reasoning, comments, or text before or after the JSON.
 """
 
-LAYER_COMMON_CTX = Context(
-    instructions=LAYER_COMMON_PROMPT,
-    output_type=Common
-)
+LAYER_COMMON_CTX = Context(instructions=LAYER_COMMON_PROMPT, output_type=Common)
 
 
 MATERIAL_COMMON_PROMPT = (
@@ -176,10 +163,7 @@ MATERIAL_COMMON_PROMPT = (
     "\n\n"
 )
 
-MATERIAL_COMMON_CTX = Context(
-    instructions=MATERIAL_COMMON_PROMPT.format(entry="a concrete/cementitious material"),
-    output_type=MaterialCommon
-)
+MATERIAL_COMMON_CTX = Context(instructions=MATERIAL_COMMON_PROMPT.format(entry="a concrete/cementitious material"), output_type=MaterialCommon)
 
 
 MATERIAL_COMMON_LAYER_PROMPT = (
@@ -215,10 +199,7 @@ MATERIAL_COMMON_LAYER_PROMPT = (
     "- Do not include any explanatory text outside of the schema output."
 )
 
-MATERIAL_COMMON_LAYER_CTX = Context(
-    instructions=MATERIAL_COMMON_LAYER_PROMPT,
-    output_type=MaterialCommon
-)
+MATERIAL_COMMON_LAYER_CTX = Context(instructions=MATERIAL_COMMON_LAYER_PROMPT, output_type=MaterialCommon)
 
 
 MATERIAL_TEMPLATE = (
@@ -239,45 +220,21 @@ MATERIAL_TEMPLATE = (
 )
 
 
-BIOBASED_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a bio-based material"),
-    output_type=BiobasedFacet
-)
+BIOBASED_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a bio-based material"), output_type=BiobasedFacet)
 
-BITUMINOUS_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a bituminous material"),
-    output_type=BituminousFacet
-)
+BITUMINOUS_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a bituminous material"), output_type=BituminousFacet)
 
-COMPOSITE_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a composite material"),
-    output_type=CompositeFacet
-)
+COMPOSITE_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a composite material"), output_type=CompositeFacet)
 
-CONCRETE_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a concrete/cementitious material"),
-    output_type=ConcreteFacet
-)
+CONCRETE_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a concrete/cementitious material"), output_type=ConcreteFacet)
 
-WOOD_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a wood-based material"),
-    output_type=WoodFacet
-)
+WOOD_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a wood-based material"), output_type=WoodFacet)
 
-METALLIC_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a metallic material"),
-    output_type=MetallicFacet
-)
+METALLIC_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a metallic material"), output_type=MetallicFacet)
 
-MINERAL_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a mineral material"),
-    output_type=MineralFacet
-)
+MINERAL_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a mineral material"), output_type=MineralFacet)
 
-POLYMERIC_CTX = Context(
-    instructions=MATERIAL_TEMPLATE.format(entry="a polymeric material"),
-    output_type=PolymericFacet
-)
+POLYMERIC_CTX = Context(instructions=MATERIAL_TEMPLATE.format(entry="a polymeric material"), output_type=PolymericFacet)
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # %%%%%%%%% COMPONENT EXTRACTION CONTEXT %%%%%%%%%%%%%%
@@ -295,72 +252,30 @@ COMPONENT_TEMPLATE = (
     "CRITICAL: Follow the keyword detection rules in the field descriptions."
 )
 
-COMPONENT_COMMON_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a component or a system-level assembly"),
-    output_type=ComponentCommon
-)
+COMPONENT_COMMON_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a component or a system-level assembly"), output_type=ComponentCommon)
 
-BUILDING_SERVICE_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a building service system or component"),
-    output_type=BuildingServiceFacet
-)
+BUILDING_SERVICE_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a building service system or component"), output_type=BuildingServiceFacet)
 
-CEILING_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a (pre-fabricated) ceiling assembly"),
-    output_type=CeilingFacet
-)
+CEILING_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a (pre-fabricated) ceiling assembly"), output_type=CeilingFacet)
 
-CONVEYOR_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a conveyor component"),
-    output_type=ConveyorFacet
-)
+CONVEYOR_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a conveyor component"), output_type=ConveyorFacet)
 
-CURTAIN_WALL_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a curtain wall module, component or assembly"),
-    output_type=CurtainWallFacet
-)
+CURTAIN_WALL_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a curtain wall module, component or assembly"), output_type=CurtainWallFacet)
 
-DOOR_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a door unit or door components"),
-    output_type=DoorFacet
-)
+DOOR_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a door unit or door components"), output_type=DoorFacet)
 
-INFILL_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="an infill for windows, doors, or curtain wall units"),
-    output_type=InfillFacet
-)
+INFILL_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="an infill for windows, doors, or curtain wall units"), output_type=InfillFacet)
 
-INSULATION_ELEMENT_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="an insulation element"),
-    output_type=InsulationElementFacet
-)
+INSULATION_ELEMENT_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="an insulation element"), output_type=InsulationElementFacet)
 
-ROOF_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a roof assembly or roof component"),
-    output_type=RoofFacet
-)
+ROOF_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a roof assembly or roof component"), output_type=RoofFacet)
 
-SHADING_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a shading device"),
-    output_type=ShadingFacet
-)
+SHADING_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a shading device"), output_type=ShadingFacet)
 
-STAIR_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a stair"),
-    output_type=StairFacet
-)
+STAIR_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a stair"), output_type=StairFacet)
 
-RAILING_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a railing"),
-    output_type=RailingFacet
-)
+RAILING_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a railing"), output_type=RailingFacet)
 
-WINDOW_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a window unit or assembly"),
-    output_type=WindowFacet
-)
+WINDOW_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a window unit or assembly"), output_type=WindowFacet)
 
-WINDOW_FITTING_CTX = Context(
-    instructions=COMPONENT_TEMPLATE.format(entry="a window fitting product"),
-    output_type=WindowFittingFacet
-)
+WINDOW_FITTING_CTX = Context(instructions=COMPONENT_TEMPLATE.format(entry="a window fitting product"), output_type=WindowFittingFacet)

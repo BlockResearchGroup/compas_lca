@@ -1,8 +1,7 @@
+from typing import Dict
 from typing import List
 from typing import Optional
-from typing import Dict
 from typing import Union
-
 from uuid import UUID
 from uuid import uuid4
 
@@ -11,17 +10,14 @@ from pydantic import ConfigDict
 from pydantic import Field
 
 from compas_lca.matching_core.core import MatchingCore
-
+from compas_lca.model.descriptor import ElementDescriptor
+from compas_lca.model.match import Match
+from compas_lca.model.match import Matches
 from compas_lca.model.metadata import ModelMetadata
-
 from compas_lca.model.quantity import Quantities
 
-from compas_lca.model.descriptor import ElementDescriptor
-
-from compas_lca.model.match import Matches
-from compas_lca.model.match import Match
-
 Number = Union[int, float]
+
 
 # ==========================================================
 # ----------------------- LcaElement -----------------------
@@ -52,7 +48,7 @@ class LcaElement(BaseModel):
         If an LcaElement has multiple MatchingCore objects, each MatchingCore receives
         the top k matches, and is indexed by the core_id of each MatchingCore.
         This field is optional, since the same LcaElement object needs to be created
-        before the matching procedure, after which the top_k scored InventoryItems are 
+        before the matching procedure, after which the top_k scored InventoryItems are
         appended to the matched_items list -> compas_lca/workflows/matching.py
     """
 
@@ -60,7 +56,7 @@ class LcaElement(BaseModel):
 
     id: UUID = Field(default_factory=uuid4)
     descriptor: ElementDescriptor
-    element_core: List[MatchingCore]            
+    element_core: List[MatchingCore]
     quantities: Quantities
     metadata: Optional[ModelMetadata]
     matched_items: Optional[List[Matches]] = None
@@ -71,7 +67,7 @@ class LcaElement(BaseModel):
 
     def matching_core_ids(self) -> List[str]:
         """
-        Return the element's MatchingCore core_id values, 
+        Return the element's MatchingCore core_id values,
         in the same order as element.element_core has listed them
         """
         ids: List[str] = []
@@ -112,9 +108,7 @@ class LcaElement(BaseModel):
         Return the best (max score) Match per core_id.
         Output: { "<core_id_str>": Match | None }
         """
-        result: Dict[str, Optional["Match"]] = {
-            str(core.core_id): None for core in self.element_core
-        }
+        result: Dict[str, Optional["Match"]] = {str(core.core_id): None for core in self.element_core}
         if not self.matched_items:
             return result
         for cm in self.matched_items:
@@ -137,7 +131,7 @@ class LcaElement(BaseModel):
         """
         # Extract thicknesses from element_core (works if entries are Pydantic models or dicts)
         thickness_by_core: Dict[str, float] = {}
-        for core in (self.element_core or []):
+        for core in self.element_core or []:
             core_id = str(getattr(core, "core_id", None) or getattr(core, "id", None))
             if not core_id:
                 continue
@@ -154,7 +148,6 @@ class LcaElement(BaseModel):
 
         # Fallback: no ratioing (single layer or insufficient data)
         return {str(core.core_id): 1.0 for core in (self.element_core or [])}
-
 
     def get_quantity_value(self, name: str) -> Optional[float]:
         """

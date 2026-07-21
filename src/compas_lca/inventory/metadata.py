@@ -4,11 +4,12 @@ from typing import Optional
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
+
 class ItemMetadata(BaseModel):
     """
     Pydantic BaseModel that captures provenance and metadata for environmental
     datasets (e.g., EPDs, national databases like KBOB/Oekobaudat, standards-based
-    datasets). Use this to record where a dataset came from, and how/when it is valid, 
+    datasets). Use this to record where a dataset came from, and how/when it is valid,
     so downstream calculations and audits can trace sources.
 
     Parameters
@@ -58,11 +59,11 @@ class ItemMetadata(BaseModel):
     -----------
     - Check for any preexisting `dataset_source` and `compliance_system_name` entries
       as to not create duplicates or inconsistent naming.
-    - Keep any new `dataset_source` value concise but specific enough to disambiguate 
-      among databases and EPD versions. 
+    - Keep any new `dataset_source` value concise but specific enough to disambiguate
+      among databases and EPD versions.
     - Use `location_code`, `reference_year`, and `valid_until` together to clarify
       representativeness in space and time.
-    - Prefer stable identifiers: fill `dataset_uuid`, `registration_number` and 
+    - Prefer stable identifiers: fill `dataset_uuid`, `registration_number` and
       `dataset_url` whenever available to support reproducibility and auditing.
     - For multiple compliance systems, include all relevant standards in
       `compliance_system_name`.

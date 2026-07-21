@@ -4,12 +4,13 @@ from pydantic import Field
 
 from compas_lca.validators import RefUnitType
 
+
 class ReferenceInfo(BaseModel):
     """
     Reference information for an EPD / LCA intentory entry's declared unit.
 
     This model represents the declared reference size and unit used to express
-    environmental impacts in EPD datasets.  
+    environmental impacts in EPD datasets.
     It ensures that declared units follow the standardized set of allowed values
     defined in :class:`RefUnitType`.
 
@@ -29,7 +30,6 @@ class ReferenceInfo(BaseModel):
     extraction perhaps overkill, but for agent-based extraction it deserves it's
     own output schema
     """
-
 
     model_config = ConfigDict(
         extra="forbid",

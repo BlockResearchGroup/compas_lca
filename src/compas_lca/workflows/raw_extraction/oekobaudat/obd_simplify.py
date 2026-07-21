@@ -20,21 +20,35 @@ Last accessed: 28.10.2025
 
 import pandas as pd
 
-
 # config
-in_path  = "data/lca_database/OBD_2024_I_2025-10-28T13_44_07.csv"
+in_path = "data/lca_database/OBD_2024_I_2025-10-28T13_44_07.csv"
 out_path = "data/lca_database/OBD_2024_I_A2.csv"
 
 # columns to check for data presence
 check_cols = [
-    "AP (A2)","GWPtotal (A2)","GWPbiogenic (A2)","GWPfossil (A2)","GWPluluc (A2)",
-    "ETPfw (A2)","PM (A2)","EPmarine (A2)","EPfreshwater (A2)","EPterrestrial (A2)",
-    "HTPc (A2)","HTPnc (A2)","IRP (A2)","SOP (A2)","ODP (A2)","POCP (A2)",
-    "ADPF (A2)","ADPE (A2)","WDP (A2)"
+    "AP (A2)",
+    "GWPtotal (A2)",
+    "GWPbiogenic (A2)",
+    "GWPfossil (A2)",
+    "GWPluluc (A2)",
+    "ETPfw (A2)",
+    "PM (A2)",
+    "EPmarine (A2)",
+    "EPfreshwater (A2)",
+    "EPterrestrial (A2)",
+    "HTPc (A2)",
+    "HTPnc (A2)",
+    "IRP (A2)",
+    "SOP (A2)",
+    "ODP (A2)",
+    "POCP (A2)",
+    "ADPF (A2)",
+    "ADPE (A2)",
+    "WDP (A2)",
 ]
 
 # columns to delete entirely (since they reference EN15804+A1)
-drop_cols = ["GWP","ODP","POCP","AP","EP","ADPE","ADPF"]
+drop_cols = ["GWP", "ODP", "POCP", "AP", "EP", "ADPE", "ADPF"]
 
 # --- main ---
 df = pd.read_csv(in_path, sep=";", dtype=str, keep_default_na=False, encoding="latin1")  # read as strings

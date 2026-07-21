@@ -12,20 +12,19 @@ from __future__ import annotations
 
 import csv
 import json
+import math
+import sys
+from collections import Counter
 from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from typing import Optional
 from typing import Literal
-from dataclasses import dataclass
-import sys
-
-from collections import Counter
-import math
-from compas_lca.matching_core.normalization import normalize_level3_value
+from typing import Optional
 
 from _eval_paths import parse_eval_args
 
+from compas_lca.matching_core.normalization import normalize_level3_value
 
 # Define paths (data is not committed; see thesis/evaluation/README.md)
 args = parse_eval_args("A", needs_out=True)
@@ -602,7 +601,7 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
     try:
         # Print summary
         print(f"Label-by-label comparison complete. Results written to: {output_csv}")
-        print(f"\n=== Summary ===")
+        print("\n=== Summary ===")
         print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
         print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
         print(f"UUIDs found in both: {found_count}")
@@ -611,7 +610,7 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
         print(f"Level 3 correct: {level_3_match_count}")
 
         # Print excluded attributes
-        print(f"\n=== Excluded Attributes ===")
+        print("\n=== Excluded Attributes ===")
         for attr in sorted(excluded_attrs_found):
             print(f"  - {attr}")
 
@@ -625,7 +624,7 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
         print_attr_stats("Level 3 Correct", attr_stats["level_3_correct"], level_3_match_count)
 
         # Print Macro Average
-        print(f"\n=== Macro Average File Score ===")
+        print("\n=== Macro Average File Score ===")
         print(f"Overall:        {100 * file_score_sum_overall / max(file_score_count_overall,1):.1f}%")
         print(f"Level 1 correct:{100 * file_score_sum_l1 / max(file_score_count_l1,1):.1f}%")
         print(f"Level 2 correct:{100 * file_score_sum_l2 / max(file_score_count_l2,1):.1f}%")

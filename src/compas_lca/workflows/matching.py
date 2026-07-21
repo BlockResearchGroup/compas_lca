@@ -1,29 +1,22 @@
 import json
-
 from dataclasses import dataclass
-
 from enum import Enum
-
 from pathlib import Path
-
 from typing import Any
 from typing import Dict
-from typing import List
 from typing import Iterable
 from typing import Iterator
-from typing import Tuple
+from typing import List
 from typing import Optional
-
-from compas_lca.model.lca_element import LcaElement
-
-from compas_lca.model.match import Match
-from compas_lca.model.match import Matches
-
-from compas_lca.match_rules import MATCH_RULES
-from compas_lca.match_rules import MATERIAL_FACETS
-from compas_lca.match_rules import COMPONENT_FACETS
+from typing import Tuple
 
 from compas_lca.helpers import coerce_to_dict
+from compas_lca.match_rules import COMPONENT_FACETS
+from compas_lca.match_rules import MATCH_RULES
+from compas_lca.match_rules import MATERIAL_FACETS
+from compas_lca.model.lca_element import LcaElement
+from compas_lca.model.match import Match
+from compas_lca.model.match import Matches
 
 """
 MATCHING GOAL:
@@ -60,10 +53,12 @@ EXAMPLE:
 # Helpers / Utilities
 # -------------------------
 
+
 def _as_list(x):
     if x is None:
         return []
     return x if isinstance(x, list) else [x]
+
 
 def _norm_str(x: Any) -> Any:
     if isinstance(x, str):
@@ -72,10 +67,12 @@ def _norm_str(x: Any) -> Any:
         return [_norm_str(v) for v in x]
     return x
 
+
 def _norm_leaf(x):
     if isinstance(x, Enum):
         return x.value
     return x
+
 
 def _is_unknown(value: Any) -> bool:
     if value is None:
@@ -85,6 +82,7 @@ def _is_unknown(value: Any) -> bool:
     if isinstance(value, list):
         return any(_norm_str(v) == "unknown" for v in value if isinstance(v, str))
     return False
+
 
 def _has_value(v: Any) -> bool:
     """True if v is meaningfully specified (not None/unknown/empty)."""
@@ -96,12 +94,8 @@ def _has_value(v: Any) -> bool:
         return v.strip() != ""
     return True
 
-def to_dotmap(
-    obj: Any,
-    prefix: str = "",
-    out: Optional[Dict[str, Any]] = None,
-    _seen: Optional[set] = None
-) -> Dict[str, Any]:
+
+def to_dotmap(obj: Any, prefix: str = "", out: Optional[Dict[str, Any]] = None, _seen: Optional[set] = None) -> Dict[str, Any]:
     """
     Flatten nested dicts / Pydantic models into dot-path keys.
     - Lists/tuples are kept as-is (no index expansion).
@@ -162,6 +156,7 @@ def to_dotmap(
 
     return out
 
+
 def normalize_core_map(m: Dict[str, Any]) -> Dict[str, Any]:
     """
     Light normalization: lowercase str and Optional[str] fields.
@@ -171,12 +166,7 @@ def normalize_core_map(m: Dict[str, Any]) -> Dict[str, Any]:
     """
     out = dict(m)
     # Fields to normalize if present
-    stringy = [
-        "manufacturer",
-        "provenance",
-        "production_location",
-        "strength_class"
-    ]
+    stringy = ["manufacturer", "provenance", "production_location", "strength_class"]
     for k in stringy:
         if k in out and out[k] is not None:
             out[k] = _norm_str(out[k])
@@ -197,6 +187,7 @@ def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
       R3: if element has NO material_type BUT has functional_types -> require intersection
     note: item_map/elem_map are DOTMAPS (flattened), so use direct .get().
     """
+
     def _as_list(x):
         if x is None:
             return []
@@ -238,14 +229,17 @@ def _identity_match(item_map: Dict[str, Any], elem_map: Dict[str, Any]) -> bool:
 
     return False
 
+
 def _element_is_insulation(elem_map: Dict[str, Any]) -> bool:
     funcs = _as_list(elem_map.get("facet.functional_types"))
     funcs_norm = {_norm_str(v) for v in funcs if isinstance(v, str)}
     return "insulation" in funcs_norm
 
+
 # -------------------------
 # Clause + Operators
 # -------------------------
+
 
 @dataclass
 class Clause:
@@ -260,22 +254,24 @@ class Clause:
         - abs_tol / rel_tol:  tolerance for numeric comparisons (only `approx`)
         - hard_fail:       if True, a mismatch on this clause results in an immediate score of 0.0 for the entire item (used for critical fields)
 
-    Each clause compares a field on the element side against 
+    Each clause compares a field on the element side against
     a corresponding field on the item side ('elem_path').
     """
-    item_path: str                     # Path to field in the ITEM
-    op: str                            # Operator (eq, equals, approx, intersects, etc.)
+
+    item_path: str  # Path to field in the ITEM
+    op: str  # Operator (eq, equals, approx, intersects, etc.)
     value: Any = None
-    elem_path: Optional[str] = None    # Path to field in the ELEMENT
-    abs_tol: Optional[float] = None    # Absolute tolerance (numeric ops)
-    rel_tol: Optional[float] = None    # Relative tolerance (numeric ops)
-    hard_fail: bool = False 
-    source: str = "unknown"             # "common"|"material_common"|"material_facet"|...
+    elem_path: Optional[str] = None  # Path to field in the ELEMENT
+    abs_tol: Optional[float] = None  # Absolute tolerance (numeric ops)
+    rel_tol: Optional[float] = None  # Relative tolerance (numeric ops)
+    hard_fail: bool = False
+    source: str = "unknown"  # "common"|"material_common"|"material_facet"|...
+
 
 def approx_score(x: Optional[float], target: Optional[float], abs_tol: Optional[float], rel_tol: Optional[float]) -> float:
     """
     For numeric values like U-Value, thermal conductivity, density.
-    Tolerances are defined in compas_lca/match_rules.py for each specific 
+    Tolerances are defined in compas_lca/match_rules.py for each specific
     quantitative property, as reasonable ranges vary depending on the attribute
     """
     if x is None or target is None:
@@ -287,6 +283,7 @@ def approx_score(x: Optional[float], target: Optional[float], abs_tol: Optional[
         base = abs(float(target)) if float(target) != 0.0 else 1.0
         return max(0.0, 1.0 - diff / (base * float(rel_tol)))
     return 1.0 if float(x) == float(target) else 0.0
+
 
 def satisfies(item_value: Optional[str], wanted: Optional[str]) -> float:
     """
@@ -305,11 +302,12 @@ def satisfies(item_value: Optional[str], wanted: Optional[str]) -> float:
         return 1.0
     return 0.0
 
+
 def eval_clause(
-        item_map: Dict[str, Any], # dotmap
-        elem_map: Dict[str, Any], # dotmap
-        clause: Clause
-        ) -> Tuple[Optional[float], str]:
+    item_map: Dict[str, Any],  # dotmap
+    elem_map: Dict[str, Any],  # dotmap
+    clause: Clause,
+) -> Tuple[Optional[float], str]:
     """
     Evaluate a single matching rule ("clause") between an InventoryItem and an LcaElement core.
 
@@ -354,7 +352,7 @@ def eval_clause(
         a = _norm_leaf(item_value)
         b = _norm_leaf(elem_value)
         score = 1.0 if a == b else 0.0
-        return score, f"equals_other(item={item_value}, elem={elem_value}) → {score :.2f}"
+        return score, f"equals_other(item={item_value}, elem={elem_value}) → {score:.2f}"
 
     # intersects_other: list overlap
     if clause.op == "intersects_other":
@@ -378,12 +376,9 @@ def eval_clause(
     return 0.0, f"unknown_op({clause.op})"
 
 
-
-def eval_filter(item_map: Dict[str, Any],
-                elem_map: Dict[str, Any],
-                clauses: List[Clause],
-                rules_by_group: Optional[Dict[str, list]] = None,
-                apply_overspec: bool = False) -> Tuple[float, List[Dict[str, Any]]]:
+def eval_filter(
+    item_map: Dict[str, Any], elem_map: Dict[str, Any], clauses: List[Clause], rules_by_group: Optional[Dict[str, list]] = None, apply_overspec: bool = False
+) -> Tuple[float, List[Dict[str, Any]]]:
     """
     Evaluate and aggregate multiple Clause objects to compute the overall
     similarity score between an InventoryItem core (`item_map`) and an
@@ -406,8 +401,8 @@ def eval_filter(item_map: Dict[str, Any],
         The full `MATCH_RULES` structure, referring to specific operations per field
 
     apply_overspec : bool, default False
-        Whether to apply "overspecification" penalties for item fields that the element didn't specify but are present on the item. 
-        This allows us to subtly penalize items that are "too specific" compared to the element's requirements, 
+        Whether to apply "overspecification" penalties for item fields that the element didn't specify but are present on the item.
+        This allows us to subtly penalize items that are "too specific" compared to the element's requirements,
         while still keeping the core matching logic clean and focused on the element's specified fields.
 
     ----------------------------
@@ -465,27 +460,22 @@ def eval_filter(item_map: Dict[str, Any],
 
     # --- identity hard gate ---
     if not _identity_match(item_map, elem_map):
-        parts = [{
-            "path": "identity",
-            "op": "gate",
-            "score": 0.0,
-            "detail": "identity gate failed (entry_type/material_type/component_type/functional_types)",
-        }]
+        parts = [
+            {
+                "path": "identity",
+                "op": "gate",
+                "score": 0.0,
+                "detail": "identity gate failed (entry_type/material_type/component_type/functional_types)",
+            }
+        ]
         return 0.0, parts
-    
-    
 
     # --- clause scoring ---
     for clause in clauses:
         clause_score, detail = eval_clause(item_map, elem_map, clause)
 
         if clause_score is None:
-            parts.append({
-                "path": clause.item_path,
-                "op": clause.op,
-                "neutral": True,
-                "detail": detail
-            })
+            parts.append({"path": clause.item_path, "op": clause.op, "neutral": True, "detail": detail})
             continue
 
         hard_fail_active = clause.hard_fail
@@ -495,29 +485,18 @@ def eval_filter(item_map: Dict[str, Any],
             hard_fail_active = False
 
         if hard_fail_active and float(clause_score) < 1.0:
-            parts.append({
-                "path": clause.item_path,
-                "op": clause.op,
-                "score": float(clause_score),
-                "detail": detail + " [HARD_FAIL]"
-            })
+            parts.append({"path": clause.item_path, "op": clause.op, "score": float(clause_score), "detail": detail + " [HARD_FAIL]"})
             return 0.0, parts
 
         n_eval += 1
         sim_sum += float(clause_score)
-        parts.append({
-            "path": clause.item_path,
-            "op": clause.op,
-            "score": float(clause_score),
-            "detail": detail
-        })
+        parts.append({"path": clause.item_path, "op": clause.op, "score": float(clause_score), "detail": detail})
 
     base_score = (sim_sum / n_eval) if n_eval > 0 else 0.0
 
     # --- overspec penalties ---
     penalty_sum = 0.0
     if apply_overspec and rules_by_group and n_eval > 0:
-
         # collect all rule dicts we might apply overspec to
         candidate_rules = []
         candidate_rules.extend(rules_by_group.get("common", []))
@@ -556,18 +535,16 @@ def eval_filter(item_map: Dict[str, Any],
             if not _has_value(item_v):
                 continue
 
-            penalty = (strength / n_eval)
+            penalty = strength / n_eval
             penalty_sum += penalty
 
-            parts.append({
-                "path": item_path,
-                "op": "overspec",
-                "score": -penalty,
-                "detail": f"overspec penalty: item has {item_path}={item_v} but element unspecified; strength={strength}"
-            })
+            parts.append(
+                {"path": item_path, "op": "overspec", "score": -penalty, "detail": f"overspec penalty: item has {item_path}={item_v} but element unspecified; strength={strength}"}
+            )
 
     final_score = max(0.0, min(1.0, base_score - penalty_sum))
     return final_score, parts
+
 
 def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
     """
@@ -577,6 +554,7 @@ def _normalize_rule_paths(rule: dict) -> Tuple[str, Optional[str]]:
         return rule.get("item_path") or rule.get("path"), rule.get("elem_path") or rule.get("path")
     p = rule["path"]
     return p, p
+
 
 def _add_clause(clauses, element_map, rule, *, source: str):
     if rule.get("ignore") is True:
@@ -601,16 +579,19 @@ def _add_clause(clauses, element_map, rule, *, source: str):
         if mt == "concrete" and cf == "masonry_unit":
             hard_fail = True
 
-    clauses.append(Clause(
-        item_path=item_path,
-        elem_path=elem_path if is_field_to_field else None,
-        op=rule["op"],
-        value=rule.get("value"),
-        abs_tol=rule.get("abs_tol"),
-        rel_tol=rule.get("rel_tol"),
-        hard_fail=hard_fail,
-        source=source,
-    ))
+    clauses.append(
+        Clause(
+            item_path=item_path,
+            elem_path=elem_path if is_field_to_field else None,
+            op=rule["op"],
+            value=rule.get("value"),
+            abs_tol=rule.get("abs_tol"),
+            rel_tol=rule.get("rel_tol"),
+            hard_fail=hard_fail,
+            source=source,
+        )
+    )
+
 
 def build_clauses(element_map: dict) -> List[Clause]:
     """Create the concrete Clause list from the 3-level rules."""
@@ -651,6 +632,7 @@ def build_clauses(element_map: dict) -> List[Clause]:
 
     return clauses
 
+
 # ==================
 # SCORING & MATCHING
 # ==================
@@ -659,14 +641,15 @@ def build_clauses(element_map: dict) -> List[Clause]:
 # Score ONE item against ONE element core's clauses -> Match
 # ----------------------------------------------------------
 
+
 def score_item_to_core(
     item: Any,
-    elem_map: Any, # dotmap
+    elem_map: Any,  # dotmap
     clauses: Any,
     *,
     include_explain: bool = False,
 ) -> Match:
-    
+
     # Extract item fields
     item_dict = coerce_to_dict(item)
     item_id = item_dict.get("id")
@@ -696,9 +679,11 @@ def score_item_to_core(
         match_criteria=parts if include_explain else None,
     )
 
+
 # --------------------------------------------
 # Score MANY items against ONE core -> Matches
 # --------------------------------------------
+
 
 def score_items_to_core(
     items: Iterable[Any],
@@ -737,13 +722,15 @@ def score_items_to_core(
     # Return top_k matches (after threshold filter)
     return Matches(core_id=core_id, matches=scored[: max(0, int(top_k))])
 
+
 # -----------------------------------------------------------------------------------
 # Score items to each core of an LcaElement, and append matched_items = List[Matches]
 # -----------------------------------------------------------------------------------
 
+
 def score_items_to_element(
-    items: Iterable[Any],   # Many InventoryItem instances, or dicts
-    element: Any,           # LcaElement instance, or dict
+    items: Iterable[Any],  # Many InventoryItem instances, or dicts
+    element: Any,  # LcaElement instance, or dict
     *,
     top_k: int = 5,  # Default: add items with top 5 score
     include_explain: bool = True,
@@ -796,7 +783,7 @@ def score_items_to_element(
         element = LcaElement(**element)  # preserves id from the dict
 
     results: List[Matches] = []
-    for core in (element.element_core or []):
+    for core in element.element_core or []:
         results.append(
             score_items_to_core(
                 items=items,
@@ -818,6 +805,7 @@ def score_items_to_element(
 
 # INTERNAL HELPERS (kept private)
 
+
 def _load_inventory_items(directory: Path, pattern: str = "*.json") -> list[dict[str, Any]]:
     """Load all inventory items from directory (recursively), skipping llm_metadata.json, if present"""
     items: list[dict[str, Any]] = []
@@ -831,6 +819,7 @@ def _load_inventory_items(directory: Path, pattern: str = "*.json") -> list[dict
             print(f"[WARN] Could not load inventory file {file}: {e}")
 
     return items
+
 
 def _iter_element_files(
     root: Path,
@@ -872,6 +861,7 @@ def _iter_element_files(
 INVENTORY_DIR = Path("data/lca_database/oekobaudat_2024-I")
 INPUT_ROOT = Path("temp/projects/duplex/03_extracted")
 OUTPUT_ROOT = Path("temp/projects/duplex/05_matched")
+
 
 def match_lca_model(
     *,

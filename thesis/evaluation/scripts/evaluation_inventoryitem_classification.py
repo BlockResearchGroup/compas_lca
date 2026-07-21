@@ -1,13 +1,14 @@
 import csv
 import json
-from collections import Counter, defaultdict
-from pathlib import Path
 import sys
+from collections import Counter
+from collections import defaultdict
+from pathlib import Path
 from typing import Optional
 
-from compas_lca.matching_core.normalization import normalize_level3_value
-
 from _eval_paths import parse_eval_args
+
+from compas_lca.matching_core.normalization import normalize_level3_value
 
 # Define paths (data is not committed; see thesis/evaluation/README.md)
 args = parse_eval_args("B", needs_out=True)
@@ -275,18 +276,20 @@ with open(summary_txt, "w", encoding="utf-8") as summary_file:
     sys.stdout = Tee(sys.stdout, summary_file)
     try:
         print(f"Comparison complete. Results written to: {output_csv}")
-        print(f"\n=== Summary ===")
+        print("\n=== Summary ===")
         print(f"Total UUIDs in ground truth: {len(gt_uuid_to_path)}")
         print(f"Total UUIDs in test: {len(test_uuid_to_path)}")
         print(f"UUIDs found in both: {len(found_results)}")
         print(f"UUIDs not found in test: {not_found_count}")
         print(f"\n=== Accuracy (for {len(found_results)} matched UUIDs) ===")
         print(f"Level 1 match (e.g., material vs component): {level_1_match_count}/{len(found_results)} ({100*level_1_match_count/len(found_results):.1f}%)")
-        print(f"Level 2 match (level 2 accuracy when level 1 is correct): {level_2_match_count}/{level_1_match_count if level_1_match_count > 0 else 1} ({100*level_2_match_count/(level_1_match_count if level_1_match_count > 0 else 1):.1f}%)")
-        print(f"Level 3 match (level 3 accuracy when level 2 is correct): {level_3_match_count}/{level_2_match_count if level_2_match_count > 0 else 1} ({100*level_3_match_count/(level_2_match_count if level_2_match_count > 0 else 1):.1f}%)")
+        l1_den = level_1_match_count if level_1_match_count > 0 else 1
+        l2_den = level_2_match_count if level_2_match_count > 0 else 1
+        print(f"Level 2 match (level 2 accuracy when level 1 is correct): {level_2_match_count}/{l1_den} ({100*level_2_match_count/l1_den:.1f}%)")
+        print(f"Level 3 match (level 3 accuracy when level 2 is correct): {level_3_match_count}/{l2_den} ({100*level_3_match_count/l2_den:.1f}%)")
         print(f"Full match (level 3 correct): {full_match_count}/{len(found_results)} ({100*full_match_count/len(found_results):.1f}%)")
 
-        print(f"\n=== Misclassified Items ===")
+        print("\n=== Misclassified Items ===")
         print(f"Total misclassified items: {len(misclassified)}")
         print(f"Misclassified items written to: {misclassified_csv}")
         print(f"Confusion summary written to: {confusion_report}")

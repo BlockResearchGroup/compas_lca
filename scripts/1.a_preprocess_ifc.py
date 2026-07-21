@@ -1,5 +1,6 @@
 from compas_lca.project import Project
 
+
 def main():
     # 1. Create project from config.yaml
     project = Project.from_config_yaml()

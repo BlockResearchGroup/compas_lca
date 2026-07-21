@@ -1,22 +1,18 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import PolymericType
 from compas_lca.enums import PolymericForm
+from compas_lca.enums import PolymericType
 from compas_lca.matching_core.normalization import normalize_polymeric_type
 
+
 class PolymericFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     polymeric_type: PolymericType = Field(
         PolymericType.unknown,
         description=dedent("""
@@ -63,17 +59,19 @@ class PolymericFacet(BaseModel):
             Always choose the MOST SPECIFIC type. Use `resin` only when no specific resin type is indicated.
         """).strip(),
     )
+
     @field_validator("polymeric_type", mode="before")
     @classmethod
     def _normalize_polymeric_type(cls, value):
         return normalize_polymeric_type(value)
+
     polymeric_form: Optional[PolymericForm] = Field(
         None,
         description=dedent("""
             Physical form or manufactured configuration in which the polymeric material appears. 
             Describes the product geometry or application type.
         """).strip(),
-        examples=["sheet_membrane", "profile_rigid", "floor_tile_modular"]
+        examples=["sheet_membrane", "profile_rigid", "floor_tile_modular"],
     )
     recycled_content: Optional[bool] = Field(
         None,
@@ -82,5 +80,5 @@ class PolymericFacet(BaseModel):
             Assign a boolean value if this information is explicitly stated in the input dataset,
             or if the value unambiguously clear (common sense).
         """).strip(),
-        examples=[True, False]
+        examples=[True, False],
     )

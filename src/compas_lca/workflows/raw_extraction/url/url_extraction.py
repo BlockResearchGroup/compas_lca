@@ -1,15 +1,13 @@
-import time
-
-import re
-
 import json
+import re
+import time
+from typing import Any
+from typing import Dict
+from typing import Iterable
+from typing import Optional
 
 import trafilatura
 
-from typing import Dict
-from typing import Any
-from typing import Iterable
-from typing import Optional
 
 def extract_url(
     url: str,
@@ -56,7 +54,7 @@ def extract_url(
 
     # Fetch + extract text with light retries
     text: Optional[str] = None
-    for attempt in range(3): # 2 retries
+    for attempt in range(3):  # 2 retries
         try:
             downloaded = trafilatura.fetch_url(url)
             if not downloaded:
@@ -73,7 +71,7 @@ def extract_url(
             raise RuntimeError("extract returned empty")
         except Exception:
             if attempt < 2:
-                time.sleep(1.0 * (2 ** attempt)) # backoff_s: float = 1.0,
+                time.sleep(1.0 * (2**attempt))  # backoff_s: float = 1.0,
             else:
                 return "{}" if return_json else ""
 

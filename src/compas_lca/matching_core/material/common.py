@@ -1,26 +1,22 @@
+from textwrap import dedent
 from typing import List
 from typing import Optional
-
-from textwrap import dedent
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import MaterialType
 from compas_lca.enums import ApplicationAreas
 from compas_lca.enums import FunctionalTypes
 from compas_lca.enums import InsulationInfo
-
+from compas_lca.enums import MaterialType
 from compas_lca.validators import MaterialTypeValidated
+
 
 class MaterialCommon(BaseModel):
     """Shared fields for all types for all materials (regardless of facet)"""
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     material_type: MaterialTypeValidated = Field(
         MaterialType.unknown,
         description=dedent("""
@@ -110,12 +106,7 @@ class MaterialCommon(BaseModel):
         - If the role is not clearly stated in the raw data, keep “unknown”.
         - Whenver the material explicitly mentions "Stud Layer" assigng "stud_layer" and not "framing"
         """).strip(),
-        examples=[
-            ["structural"],
-            ["insulation"],
-            ["covering", "lining"],
-            ["membrane", "waterproofing"]
-        ]
+        examples=[["structural"], ["insulation"], ["covering", "lining"], ["membrane", "waterproofing"]],
     )
     application_areas: List[ApplicationAreas] = Field(
         [ApplicationAreas.unknown],
@@ -125,12 +116,7 @@ class MaterialCommon(BaseModel):
             Only assign application areas that are explicitly stated in the raw data, or unambiguously
             common sense (e.g., ready-mixed concrete can be used for slabs, walls, columns, etc.)
         """).strip(),
-        examples=[
-            ["balcony", "railing"],
-            ["wall", "slab", "column"],
-            ["floor", "ceiling"],
-            ["roof"]
-        ]
+        examples=[["balcony", "railing"], ["wall", "slab", "column"], ["floor", "ceiling"], ["roof"]],
     )
     insulation_info: Optional[List[InsulationInfo]] = Field(
         None,
@@ -143,9 +129,5 @@ class MaterialCommon(BaseModel):
             - Mineral wool slab declared for thermal + acoustic walls → ['thermal', 'acoustic', 'semi_rigid']
             - Underlay roll with ΔLw rating → ['impact_sound', 'flexible_roll_batt']
         """).strip(),
-        examples=[
-            ["thermal", "rigid"],
-            ["thermal", "acoustic", "semi_rigid"],
-            ["impact_sound", "flexible_roll_batt"]
-        ]
+        examples=[["thermal", "rigid"], ["thermal", "acoustic", "semi_rigid"], ["impact_sound", "flexible_roll_batt"]],
     )

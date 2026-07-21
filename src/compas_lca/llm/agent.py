@@ -1,23 +1,18 @@
-import yaml
-
 import time
-
 from dataclasses import dataclass
-
 from pathlib import Path
-
 from typing import Any
 from typing import Optional
 from typing import Self
 
+import yaml
 from pydantic import ValidationError
-
 from pydantic_ai import Agent as PydanticAgent
 from pydantic_ai.usage import RunUsage
 
 from .context import Context
-
 from .settings import AgentSettings
+
 
 @dataclass
 class RunMetadata:
@@ -58,8 +53,9 @@ class RunMetadata:
     def to_json(self, *, indent: int = 2, ensure_ascii: bool = False) -> str:
         """Return a JSON string representation of the metadata."""
         import json
+
         return json.dumps(self.to_dict(), indent=indent, ensure_ascii=ensure_ascii)
-    
+
     def summary(self) -> dict:
         """
         Flat summary used by downstream aggregation/merging.
@@ -79,6 +75,7 @@ class RunMetadata:
             "total_cost": total_cost,
         }
 
+
 @dataclass
 class Run:
     result: Any
@@ -91,12 +88,13 @@ class Run:
         p.write_text(self.metadata.to_json(), encoding="utf-8")
         return p
 
+
 class BaseAgent:
     """
     High-level wrapper around `pydantic_ai.Agent` that centralizes
     configuration, execution, usage tracking, and cost estimation for
     model-agnostic LLM-based extraction and reasoning workflows.
-    
+
     ----------------------------------------------------------------------
     Parameters (constructor)
     ----------------------------------------------------------------------
@@ -106,7 +104,7 @@ class BaseAgent:
     context : Context
         Provides runtime information such as tools, system prompts,
         environment settings, or any additional information required by
-        the agent during execution.    
+        the agent during execution.
 
     ----------------------------------------------------------------------
     Core Responsibilities
@@ -147,6 +145,7 @@ class BaseAgent:
     >>> print(run.result)
     >>> print(run.metadata.total_cost)
     """
+
     def __init__(self, *, settings: AgentSettings, context: Context):
         self._settings = settings
         self._context = context
@@ -184,7 +183,7 @@ class BaseAgent:
             data = yaml.safe_load(Path(config_path).read_text(encoding="utf-8")) or {}
             settings = AgentSettings.model_validate(data)
         except FileNotFoundError as e:
-            raise FileNotFoundError(f"config.yaml file not found") from e
+            raise FileNotFoundError("config.yaml file not found") from e
         except ValidationError as e:
             raise ValueError(f"Invalid config.yaml: {e}") from e
         return cls(settings=settings, context=context)

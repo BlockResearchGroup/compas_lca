@@ -1,37 +1,32 @@
-
-from typing import Optional
 from typing import List
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import model_validator
 
-from compas_lca.maps import MODEL_BY_MAT_TYPE
-
-from compas_lca.enums import MaterialType
 from compas_lca.enums import ApplicationAreas
 from compas_lca.enums import FunctionalTypes
 from compas_lca.enums import InsulationInfo
-
+from compas_lca.enums import MaterialType
+from compas_lca.maps import MODEL_BY_MAT_TYPE
 from compas_lca.matching_core.material.common import MaterialCommon
+
 
 class MaterialCore(BaseModel):
     """
     Container for material semantics (type + common fields) and its type-specific facet.
     """
+
     model_config = ConfigDict(
         extra="forbid",
         validate_assignment=True,
         str_strip_whitespace=True,
     )
     material_type: MaterialType
-    functional_types: list[FunctionalTypes] = Field(
-        default_factory=lambda: [FunctionalTypes.unknown]
-    )
-    application_areas: list[ApplicationAreas] = Field(
-        default_factory=lambda: [ApplicationAreas.unknown]
-    )
+    functional_types: list[FunctionalTypes] = Field(default_factory=lambda: [FunctionalTypes.unknown])
+    application_areas: list[ApplicationAreas] = Field(default_factory=lambda: [ApplicationAreas.unknown])
     insulation_info: Optional[List[InsulationInfo]] = Field(default_factory=list)
     material_facet: object
 
@@ -70,11 +65,9 @@ class MaterialCore(BaseModel):
                 raise
 
         if not isinstance(facet, model):
-            raise TypeError(
-                f"`material_facet` must be {model.__name__} for material_type={mtype}, "
-                f"got {type(facet).__name__}"
-            )
+            raise TypeError(f"`material_facet` must be {model.__name__} for material_type={mtype}, got {type(facet).__name__}")
         return data
+
 
 def assemble_material_core(common: MaterialCommon, material_facet: object) -> MaterialCore:
     """

@@ -1,25 +1,21 @@
-
 import json
-
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import as_completed
 from pathlib import Path
-from typing import Dict
 from typing import Any
-from typing import Optional
+from typing import Dict
 from typing import Iterable
 from typing import List
+from typing import Optional
 from typing import Union
 
 import pandas as pd
 
-from compas_lca.workflows.raw_extraction.url.url_extraction import extract_url
-
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import read_csv
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import uuids_in_csv
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import subset_for_uuid
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row_for_uuid
-
-from concurrent.futures import ThreadPoolExecutor
-from concurrent.futures import as_completed
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import read_csv
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import subset_for_uuid
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import uuids_in_csv
+from compas_lca.workflows.raw_extraction.url.url_extraction import extract_url
 
 DEFAULT_KEEP_COLUMNS = [
     "UUID",
@@ -128,8 +124,10 @@ def write_obd_payload(
         json.dump(payload, f, indent=2, ensure_ascii=False)
     return path
 
+
 def build_obd_payload_for_uuid(uuid_series: pd.Series) -> Dict[str, Any]:
     return ingest_obd_item(uuid_series)
+
 
 def extract_obd_payloads(
     csv_path: Union[str, Path],

@@ -1,15 +1,15 @@
-from uuid import uuid4
 from uuid import UUID
+from uuid import uuid4
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.matching_core.core import MatchingCore
-
 from compas_lca.inventory.indicator import Indicators
 from compas_lca.inventory.metadata import ItemMetadata
 from compas_lca.inventory.reference import ReferenceInfo
+from compas_lca.matching_core.core import MatchingCore
+
 
 class InventoryItem(BaseModel):
     """
@@ -24,8 +24,8 @@ class InventoryItem(BaseModel):
     reference : ReferenceInfo
         Includes reference_size -> Numerical magnitude of the declared unit (e.g., 1, 1000).
         Must be positive. Typically left as 1 for standard EPD declared units.
-        Includes reference_unit (RefUnitType) -> Declared/reference unit for the item 
-        (e.g. "kg", "m", "m2", "m3", "pcs"). Flexible inputs are normalized to the `RefUnit` 
+        Includes reference_unit (RefUnitType) -> Declared/reference unit for the item
+        (e.g. "kg", "m", "m2", "m3", "pcs"). Flexible inputs are normalized to the `RefUnit`
         enum by a validator.
     metadata : Optional[ItemMetadata]
         Provenance of the EPD or dataset (e.g., “Ökobau.dat”, “KBOB”), including any

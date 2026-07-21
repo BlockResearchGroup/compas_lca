@@ -1,26 +1,21 @@
-import pandas as pd
-
-import os
-
-import shutil
-
 import json
+import os
+import shutil
+from datetime import datetime
+from datetime import timezone
+from enum import Enum
+from pathlib import Path
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
 
+import pandas as pd
 import yaml
 
-from enum import Enum
-
-from pathlib import Path
-
-from datetime import datetime, timezone
-
-from typing import Any
-from typing import List
-from typing import Dict
-from typing import Tuple
-from typing import Optional
-
 from compas_lca.inventory.item import InventoryItem
+
 
 def sync_trees(source_root: Path, dest_root: Path, log_output_dir: Path) -> None:
     """
@@ -150,12 +145,14 @@ def sync_trees(source_root: Path, dest_root: Path, log_output_dir: Path) -> None
     log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
     print(f"[LOG WRITTEN] {log_path}")
 
+
 def safe_str(val: any) -> Optional[str]:
     """Convert to stripped string, return None if empty or invalid."""
     if pd.isna(val):
         return None
     s = str(val).strip()
     return s if s and s.lower() not in {"nan", "none"} else None
+
 
 def safe_int(val: any) -> Optional[int]:
     """Convert to int, return None if empty or invalid."""
@@ -168,8 +165,8 @@ def safe_int(val: any) -> Optional[int]:
         return int(float(s))
     except ValueError:
         return None
-    
-    
+
+
 # Standard column names
 STD_TO_OBD: Dict[str, str] = {
     "PERE": "PERE",
@@ -217,6 +214,7 @@ A2_TO_OBD: Dict[str, str] = {
 
 COLUMN_MAP: Dict[str, str] = {**STD_TO_OBD, **A2_TO_OBD}
 
+
 def parse_num(x):
     """Empty: None, else float using decimal dot (silently ignore non-numeric)."""
     if x is None:
@@ -228,7 +226,7 @@ def parse_num(x):
         return float(s)
     except ValueError:
         return None
-    
+
 
 def infer_bucket(item: "InventoryItem") -> Tuple[str, str]:
     """
@@ -251,12 +249,10 @@ def infer_bucket(item: "InventoryItem") -> Tuple[str, str]:
 
     if entry_type == "material":
         # prefer facet.material_type, then core.material_type
-        sub = (getattr(facet, "material_type", None) if facet is not None else None) \
-              or getattr(core, "material_type", None)
+        sub = (getattr(facet, "material_type", None) if facet is not None else None) or getattr(core, "material_type", None)
     else:  # component
         # prefer facet.component_type, then core.component_type
-        sub = (getattr(facet, "component_type", None) if facet is not None else None) \
-              or getattr(core, "component_type", None)
+        sub = (getattr(facet, "component_type", None) if facet is not None else None) or getattr(core, "component_type", None)
 
     if isinstance(sub, Enum):
         sub = sub.name
@@ -272,13 +268,13 @@ def write_item(
     subdir: str,
 ) -> Path:
     bucket = (entry_type or "unknown").strip().lower()
-    subdir  = (str(subdir) or "unknown").strip().lower()
+    subdir = (str(subdir) or "unknown").strip().lower()
 
     json_str = item.model_dump_json(
         by_alias=True,
         indent=2,
     )
-    
+
     payload = item.model_dump(by_alias=True, mode="json")
     meta = payload.get("metadata")
     item_id = meta.get("dataset_uuid")
@@ -296,11 +292,13 @@ def write_item(
 def uuids_in_payload_dir(payload_dir: Path) -> List[str]:
     return sorted([p.stem for p in payload_dir.glob("*.json") if p.name != "llm_metadata.json"])
 
+
 def read_payload(payload_dir: Path, uuid: str) -> Dict[str, Any]:
     path = payload_dir / f"{uuid}.json"
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-    
+
+
 def _load_epd_parser_config(epd_parser_path: Path) -> dict:
     with epd_parser_path.open("r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}

@@ -7,38 +7,37 @@ This file would hold any python dictionaries, functions, etc. that require more 
 than only CSV, JSON, TXT, or similar data files.
 """
 
-from dataclasses import dataclass
-
 import csv
-
 import re
-
+from dataclasses import dataclass
 from pathlib import Path
-
 from typing import Dict
-from typing import Tuple
 from typing import Iterable
 from typing import Optional
+from typing import Tuple
 
 from pydantic import BaseModel
-
 from pydantic_ai import RunContext
 
 # ---------- REBAR TOOL ----------
 
 # input csv rebar tool path
-REBAR_RATIO_CSV = (Path(__file__).resolve().parent / "data" / "tools" / "rebar_ratios.csv")
+REBAR_RATIO_CSV = Path(__file__).resolve().parent / "data" / "tools" / "rebar_ratios.csv"
+
 
 class RebarRatio(BaseModel):
     """Output model"""
+
     component: str  # matched canonical key
     min_ratio: float  # volume fraction m3/m3
     max_ratio: float  # volume fraction m3/m3
     basis: str = "volume_fraction_m3_per_m3"
 
+
 @dataclass
 class RebarTable:
     """Holds normalized lookup from component -> (min, max)."""
+
     ratios: Dict[str, Tuple[float, float]]
 
     @staticmethod
@@ -83,6 +82,7 @@ class RebarTable:
                 return k, self.ratios[k]
         return None
 
+
 def rebar_ratio_lookup(ctx: RunContext[RebarTable], component: str) -> RebarRatio:
     """
     Tool: given a building component description, return min/max rebar ratios (m3/m3).
@@ -90,9 +90,6 @@ def rebar_ratio_lookup(ctx: RunContext[RebarTable], component: str) -> RebarRati
     """
     match = ctx.deps.best_match(component)
     if not match:
-        raise ValueError(
-            f"Unknown component '{component}'. "
-            f"Try one of: {', '.join(sorted(ctx.deps.keys()))}"
-        )
+        raise ValueError(f"Unknown component '{component}'. Try one of: {', '.join(sorted(ctx.deps.keys()))}")
     key, (mn, mx) = match
     return RebarRatio(component=key, min_ratio=mn, max_ratio=mx)

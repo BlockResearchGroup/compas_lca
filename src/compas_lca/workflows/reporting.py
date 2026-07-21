@@ -33,18 +33,15 @@ CHAPTER 2 — Element + Layer flags (and ONLY these):
 """
 
 from dataclasses import dataclass
-
 from pathlib import Path
-
 from typing import Any
+from typing import Callable
 from typing import Dict
+from typing import Iterable
 from typing import List
 from typing import Tuple
-from typing import Callable
-from typing import Iterable
 
 import pandas as pd
-
 
 # ----------------------------
 # User-editable paths (used in __main__)
@@ -398,7 +395,6 @@ def iter_unique_element_keys(df: pd.DataFrame) -> Iterable[ElementKey]:
     Return unique (element_name, layer_number, element_eid) triplets.
     Keeps None if missing.
     """
-    need = set(ELEMENT_KEYS)
     missing_cols = [c for c in ELEMENT_KEYS if c not in df.columns]
     if missing_cols:
         raise ValueError(f"Elements CSV missing required columns: {missing_cols}")
@@ -438,6 +434,7 @@ def element_is_underdefined(rows: pd.DataFrame) -> bool:
     Underdefined if ANY row indicates unknown for entry/material/component type.
     We treat case-insensitively and trim whitespace.
     """
+
     def col_has_unknown(col: str) -> bool:
         if col not in rows.columns:
             # If the column doesn't exist, we do NOT auto-flag as underdefined;
@@ -464,9 +461,7 @@ def write_chapter_elements(lines: List[str], df_elements: pd.DataFrame) -> None:
     no_epd: List[ElementKey] = []
     for (element_name, layer_number, element_eid), g in grouped:
         if not element_has_any_epd_match(g):
-            no_epd.append(
-                ElementKey(norm_str(element_name), norm_str(layer_number), norm_str(element_eid))
-            )
+            no_epd.append(ElementKey(norm_str(element_name), norm_str(layer_number), norm_str(element_eid)))
 
     if not no_epd:
         lines.append("(none)")
@@ -484,9 +479,7 @@ def write_chapter_elements(lines: List[str], df_elements: pd.DataFrame) -> None:
     under: List[ElementKey] = []
     for (element_name, layer_number, element_eid), g in grouped:
         if element_is_underdefined(g):
-            under.append(
-                ElementKey(norm_str(element_name), norm_str(layer_number), norm_str(element_eid))
-            )
+            under.append(ElementKey(norm_str(element_name), norm_str(layer_number), norm_str(element_eid)))
 
     if not under:
         lines.append("(none)")

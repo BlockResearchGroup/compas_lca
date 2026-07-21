@@ -3,7 +3,8 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
-from typing import Iterable, Set
+from typing import Iterable
+from typing import Set
 
 
 def _iter_json_files(root: Path) -> Iterable[Path]:
@@ -68,10 +69,7 @@ def update_obd_remaining(
 
         uuid_col = "UUID"
         if uuid_col not in reader.fieldnames:
-            raise ValueError(
-                f"Input CSV header does not contain '{uuid_col}'. "
-                f"Found columns: {reader.fieldnames}"
-            )
+            raise ValueError(f"Input CSV header does not contain '{uuid_col}'. Found columns: {reader.fieldnames}")
 
         # Ensure output directory exists
         output_csv_path.parent.mkdir(parents=True, exist_ok=True)

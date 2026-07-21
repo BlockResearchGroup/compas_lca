@@ -1,19 +1,20 @@
-from typing import Optional
 from typing import Any
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
+
 class ModelMetadata(BaseModel):
     """
     Pydantic BaseModel that captures provenance and metadata for building model element
-    datasets (e.g., 3dm, IFC, RVGT, etc.). Use this to record where a dataset came from, 
+    datasets (e.g., 3dm, IFC, RVGT, etc.). Use this to record where a dataset came from,
     so downstream calculations and audits can trace sources.
 
     Parameters
     ----------
     dataset_source : str
-        The origin software/dataformat of the dataset. 
+        The origin software/dataformat of the dataset.
         Examples: "IFC", "RVT", "OBJ"
 
     source_version : Optional[str]
@@ -55,4 +56,3 @@ class ModelMetadata(BaseModel):
     location_data: Optional[Any] = None
     reference_date: Optional[str] = None
     dataset_owner: Optional[str] = None
-    

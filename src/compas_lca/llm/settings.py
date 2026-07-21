@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from pydantic import Field
 from pydantic import field_validator
 
+
 class AgentSettings(BaseModel):
     """
     Configuration model for initializing and pricing LLM agents. This class
@@ -57,10 +58,12 @@ class AgentSettings(BaseModel):
         tbl.setdefault(model, {})
         tbl[model]["in_per_1k"] = float(in_per_1k)
         tbl[model]["out_per_1k"] = float(out_per_1k)
-        return self.model_copy(update={
-            "pricing_table": tbl,
-            "currency": currency or self.currency,
-        })
+        return self.model_copy(
+            update={
+                "pricing_table": tbl,
+                "currency": currency or self.currency,
+            }
+        )
 
     def estimate_cost(self, *, usage_in_tokens: Tuple[int, int]) -> Dict[str, Optional[float]]:
         """
@@ -77,7 +80,7 @@ class AgentSettings(BaseModel):
         return {"input_cost": ic, "output_cost": oc, "total_cost": ic + oc}
 
     def with_model_settings(self, **updates: Any) -> "AgentSettings":
-        """     
+        """
         Return a new AgentSettings with additional or updated model
         configuration parameters.
         """

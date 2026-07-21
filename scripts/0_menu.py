@@ -1,16 +1,14 @@
 from dataclasses import dataclass
-
 from typing import Callable
-from typing import Optional
 from typing import List
+from typing import Optional
 
+from compas_lca.project import MissingInput
 from compas_lca.project import Project
 from compas_lca.project import ProjectError
-from compas_lca.project import MissingInput
-
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import extract_preprocessed_obd
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import preprocess_obd
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import update_obd
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_project import extract_preprocessed_obd
 
 # ----------------------------
 # Menu model

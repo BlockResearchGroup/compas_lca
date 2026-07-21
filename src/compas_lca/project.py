@@ -1,45 +1,32 @@
 import json
-
 import shutil
-
 from dataclasses import dataclass
-
 from pathlib import Path
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
 from typing import Any
 from typing import Dict
 
+from dotenv import load_dotenv
+
+from compas_lca.helpers import Spinner
 from compas_lca.helpers import load_config
 from compas_lca.helpers import merge_llm_meta
-from compas_lca.helpers import Spinner
-
-from compas_lca.workflows.matching import match_lca_model
-
 from compas_lca.workflows.calculation import calculate_impacts
-from compas_lca.workflows.calculation import summarize_impacts
 from compas_lca.workflows.calculation import summarize_elements
-
-from compas_lca.workflows.plots import create_plots
-from compas_lca.workflows.plots import sankey_classification
-
-from compas_lca.workflows.reporting import run_flag_report
-
-from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model
-
-from compas_lca.workflows.raw_extraction.ifc.ifc_representatives import create_representatives
-
-from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_model_ifc
-
-from compas_lca.workflows.raw_extraction.ifc.ifc_boq import process_ifc_model_boq
-from compas_lca.workflows.raw_extraction.ifc.ifc_boq import extract_lca_model_boq
-
+from compas_lca.workflows.calculation import summarize_impacts
 from compas_lca.workflows.enrich import create_boq_enriched
 from compas_lca.workflows.enrich import enrich_concrete_strength
 from compas_lca.workflows.enrich import enrich_stud_ratio
+from compas_lca.workflows.matching import match_lca_model
+from compas_lca.workflows.plots import create_plots
+from compas_lca.workflows.plots import sankey_classification
+from compas_lca.workflows.raw_extraction.ifc.ifc_boq import extract_lca_model_boq
+from compas_lca.workflows.raw_extraction.ifc.ifc_boq import process_ifc_model_boq
+from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_model_ifc
+from compas_lca.workflows.raw_extraction.ifc.ifc_processing import process_ifc_model
+from compas_lca.workflows.raw_extraction.ifc.ifc_representatives import create_representatives
+from compas_lca.workflows.reporting import run_flag_report
+
+load_dotenv()
 
 # Resolve repo root so data/ paths work regardless of CWD.
 # Assumes: <repo>/src/compas_lca/project.py  ->  repo = 3 parents up
@@ -49,8 +36,10 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 class ProjectError(RuntimeError):
     """Base error for project/pipeline failures."""
 
+
 class MissingInput(ProjectError):
     pass
+
 
 @dataclass(frozen=True)
 class Project:
@@ -59,6 +48,7 @@ class Project:
 
     Folder structure is created by the pipeline functions themselves.
     """
+
     path: Path
     config: Dict[str, Any]
 
@@ -72,13 +62,10 @@ class Project:
         required_keys = ("project_folder", "model")
         missing = [k for k in required_keys if k not in cfg]
         if missing:
-            raise KeyError(
-                f"config.yaml must define required keys: {', '.join(missing)}."
-            )
+            raise KeyError(f"config.yaml must define required keys: {', '.join(missing)}.")
 
         root = Path(cfg["project_folder"]).expanduser().resolve()
         return cls(path=root, config=cfg)
-
 
     @property
     def name(self) -> str:
@@ -128,15 +115,11 @@ class Project:
         Step 02: select and copy unique representative elements for AI-based extraction.
         """
         try:
-            create_representatives(
-                input_dir=self.path / "01_processed",
-                output_dir=self.path / "02_representatives", 
-                cfg=self.config
-                )
+            create_representatives(input_dir=self.path / "01_processed", output_dir=self.path / "02_representatives", cfg=self.config)
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e
         return self
-    
+
     def extract_building_data(self) -> "Project":
         """
         Step 03: AI-based extraction of representative data & updated BoQ
@@ -147,14 +130,11 @@ class Project:
                 input_dir_repr=self.path / "02_representatives",
                 output_dir=self.path / "03_extracted",
             )
-            extract_lca_model_boq(
-                input_csv_path = self.path / "01_processed/BoQ_processed_dissected.csv", 
-                output_dir = self.path / "03_extracted"
-            )
+            extract_lca_model_boq(input_csv_path=self.path / "01_processed/BoQ_processed_dissected.csv", output_dir=self.path / "03_extracted")
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e
         return self
-    
+
     def enrich_building_data(self) -> "Project":
         """
         Step 04: (Optional) Enrich extracted data with LLM inferences.
@@ -165,10 +145,8 @@ class Project:
             create_boq_enriched(
                 input_dir=self.path / "03_extracted",
                 enriched_dir=self.path / "04_enriched",
-                )
-            concrete_strength_enabled = bool(
-                self.config.get("concrete_strength_class", False)
             )
+            concrete_strength_enabled = bool(self.config.get("concrete_strength_class", False))
             if concrete_strength_enabled:
                 print("")
                 print("Enriching concrete strength classes...")
@@ -179,9 +157,7 @@ class Project:
                 )
                 all_llm_meta = merge_llm_meta(all_llm_meta, meta)
 
-            stud_ratio_enabled = bool(
-                self.config.get("stud_ratio", False)
-            )
+            stud_ratio_enabled = bool(self.config.get("stud_ratio", False))
             if stud_ratio_enabled:
                 print("")
                 print("Enriching stud ratios...")
@@ -197,12 +173,12 @@ class Project:
 
             llm_meta_path = meta_dir / "llm_metadata_enrichment.json"
             llm_meta_path.write_text(json.dumps(all_llm_meta, indent=2), encoding="utf-8")
-            
+
         except FileNotFoundError as e:
             raise MissingInput(str(e)) from e
 
         return self
-    
+
     def match_with_inventory(self) -> "Project":
         """
         Step 05: Match LcaElements with inventory items.
@@ -254,7 +230,6 @@ class Project:
           generate a summary_*.csv in the SAME directory.
         """
         try:
-
             spinner = Spinner("Creating impact reports... ")
             spinner.start()
 
@@ -302,7 +277,7 @@ class Project:
 
                 # Plots per indicator
                 try:
-                    plots_dir = create_plots(ind_dir)
+                    create_plots(ind_dir)
                 except Exception as e:
                     print(f"[!]  Plotting failed for {ind_name} in {ind_dir}: {e}")
 
@@ -366,7 +341,6 @@ class Project:
             else:
                 print(f"[!]  model.json not found at: {model_src}")
 
-
             spinner.stop()
 
             # Single consolidated print at the end
@@ -383,7 +357,7 @@ class Project:
 
         return self
 
-    # ---------- run entire ---------- 
+    # ---------- run entire ----------
 
     def run_all(
         self,

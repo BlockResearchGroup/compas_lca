@@ -1,6 +1,6 @@
+from collections import defaultdict
 from typing import Any
 
-from collections import defaultdict
 
 class IfcCaches:
     """Cache the rarely-populated ``IfcMaterialProperties`` reverse index.
@@ -10,6 +10,7 @@ class IfcCaches:
     attributes (see ``ifc_helpers`` / ``ifc_processing``), so no model-wide
     relationship caches or O(n) membership scans are needed.
     """
+
     def __init__(self, model: Any):
         self.material_props = model.get_entities_by_type("IfcMaterialProperties")
 

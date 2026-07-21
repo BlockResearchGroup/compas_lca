@@ -1,23 +1,18 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import BituminousType
 from compas_lca.enums import BituminousForm
+from compas_lca.enums import BituminousType
 from compas_lca.matching_core.normalization import normalize_bituminous_type
 
 
 class BituminousFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     bituminous_type: BituminousType = Field(
         BituminousType.unknown,
         description=dedent("""
@@ -41,16 +36,18 @@ class BituminousFacet(BaseModel):
         Use when the material is known to be bituminous, but the binder or chemistry family
         cannot be determined from the available information.
         """).strip(),
-        examples=["asphalt_mix", "mastic_asphalt", "bitumen_emulsion"]
+        examples=["asphalt_mix", "mastic_asphalt", "bitumen_emulsion"],
     )
+
     @field_validator("bituminous_type", mode="before")
     @classmethod
     def _normalize_bituminous_type(cls, value):
         return normalize_bituminous_type(value)
+
     bituminous_form: Optional[BituminousForm] = Field(
         None,
         description="Physical form or application configuration in which the bituminous material is supplied/installed.",
-        examples=["sheet_membrane_torch_on", "shingle", "liquid_coating", "hot_mix"]
+        examples=["sheet_membrane_torch_on", "shingle", "liquid_coating", "hot_mix"],
     )
     sd_value: Optional[float] = Field(
         None,
@@ -58,5 +55,5 @@ class BituminousFacet(BaseModel):
             The measure of how much resistance to moisture diffusion th medium has, when compared to a meter of air.
             Only applicable to bituminous vapor barriers or retarders.
         """).strip(),
-        examples=["10", "200"]
+        examples=["10", "200"],
     )

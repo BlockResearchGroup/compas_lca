@@ -1,22 +1,18 @@
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 from pydantic import field_validator
 
-from compas_lca.enums import MineralType
 from compas_lca.enums import MineralForm
+from compas_lca.enums import MineralType
 from compas_lca.matching_core.normalization import normalize_mineral_type
 
+
 class MineralFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     mineral_type: MineralType = Field(
         MineralType.unknown,
         description=dedent("""
@@ -59,10 +55,12 @@ class MineralFacet(BaseModel):
             origin is indicated. Prefer `foam_glass` over `glass` when cellular structure is mentioned.
         """).strip(),
     )
+
     @field_validator("mineral_type", mode="before")
     @classmethod
     def _normalize_mineral_type(cls, value):
         return normalize_mineral_type(value)
+
     mineral_form: Optional[MineralForm] = Field(
         None,
         description=dedent("""
@@ -92,5 +90,5 @@ class MineralFacet(BaseModel):
             Choose the value that best describes the *physical configuration* of the mineral material as 
             it appears in manufacture or application.
         """).strip(),
-        examples=["masonry_unit", "board", "aggregate"]
+        examples=["masonry_unit", "board", "aggregate"],
     )

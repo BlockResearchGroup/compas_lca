@@ -1,39 +1,27 @@
-from compas_lca.enums import MaterialType
-from compas_lca.enums import EntryType
 from compas_lca.enums import ComponentType
-
-from compas_lca.llm.ctx.extraction_context import MINERAL_CTX
-from compas_lca.llm.ctx.extraction_context import CONCRETE_CTX
-from compas_lca.llm.ctx.extraction_context import WOOD_CTX
-from compas_lca.llm.ctx.extraction_context import METALLIC_CTX
-from compas_lca.llm.ctx.extraction_context import POLYMERIC_CTX
+from compas_lca.enums import EntryType
+from compas_lca.enums import MaterialType
 from compas_lca.llm.ctx.extraction_context import BIOBASED_CTX
 from compas_lca.llm.ctx.extraction_context import BITUMINOUS_CTX
-from compas_lca.llm.ctx.extraction_context import COMPOSITE_CTX
-
 from compas_lca.llm.ctx.extraction_context import BUILDING_SERVICE_CTX
 from compas_lca.llm.ctx.extraction_context import CEILING_CTX
+from compas_lca.llm.ctx.extraction_context import COMPOSITE_CTX
+from compas_lca.llm.ctx.extraction_context import CONCRETE_CTX
 from compas_lca.llm.ctx.extraction_context import CONVEYOR_CTX
 from compas_lca.llm.ctx.extraction_context import CURTAIN_WALL_CTX
 from compas_lca.llm.ctx.extraction_context import DOOR_CTX
-from compas_lca.llm.ctx.extraction_context import ROOF_CTX
 from compas_lca.llm.ctx.extraction_context import INFILL_CTX
 from compas_lca.llm.ctx.extraction_context import INSULATION_ELEMENT_CTX
+from compas_lca.llm.ctx.extraction_context import METALLIC_CTX
+from compas_lca.llm.ctx.extraction_context import MINERAL_CTX
+from compas_lca.llm.ctx.extraction_context import POLYMERIC_CTX
+from compas_lca.llm.ctx.extraction_context import RAILING_CTX
+from compas_lca.llm.ctx.extraction_context import ROOF_CTX
 from compas_lca.llm.ctx.extraction_context import SHADING_CTX
 from compas_lca.llm.ctx.extraction_context import STAIR_CTX
-from compas_lca.llm.ctx.extraction_context import RAILING_CTX
-from compas_lca.llm.ctx.extraction_context import WINDOW_FITTING_CTX
 from compas_lca.llm.ctx.extraction_context import WINDOW_CTX
-
-from compas_lca.matching_core.material.bituminous import BituminousFacet
-from compas_lca.matching_core.material.concrete import ConcreteFacet
-from compas_lca.matching_core.material.wood import WoodFacet
-from compas_lca.matching_core.material.metallic import MetallicFacet
-from compas_lca.matching_core.material.mineral import MineralFacet
-from compas_lca.matching_core.material.biobased import BiobasedFacet
-from compas_lca.matching_core.material.polymeric import PolymericFacet
-from compas_lca.matching_core.material.composite import CompositeFacet
-
+from compas_lca.llm.ctx.extraction_context import WINDOW_FITTING_CTX
+from compas_lca.llm.ctx.extraction_context import WOOD_CTX
 from compas_lca.matching_core.component.building_service import BuildingServiceFacet
 from compas_lca.matching_core.component.ceiling import CeilingFacet
 from compas_lca.matching_core.component.conveyor import ConveyorFacet
@@ -41,12 +29,20 @@ from compas_lca.matching_core.component.curtain_wall import CurtainWallFacet
 from compas_lca.matching_core.component.door import DoorFacet
 from compas_lca.matching_core.component.infill import InfillFacet
 from compas_lca.matching_core.component.insulation_element import InsulationElementFacet
+from compas_lca.matching_core.component.railing import RailingFacet
 from compas_lca.matching_core.component.roof import RoofFacet
 from compas_lca.matching_core.component.shading import ShadingFacet
 from compas_lca.matching_core.component.stairs import StairFacet
-from compas_lca.matching_core.component.railing import RailingFacet
-from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
 from compas_lca.matching_core.component.window import WindowFacet
+from compas_lca.matching_core.component.window_fitting import WindowFittingFacet
+from compas_lca.matching_core.material.biobased import BiobasedFacet
+from compas_lca.matching_core.material.bituminous import BituminousFacet
+from compas_lca.matching_core.material.composite import CompositeFacet
+from compas_lca.matching_core.material.concrete import ConcreteFacet
+from compas_lca.matching_core.material.metallic import MetallicFacet
+from compas_lca.matching_core.material.mineral import MineralFacet
+from compas_lca.matching_core.material.polymeric import PolymericFacet
+from compas_lca.matching_core.material.wood import WoodFacet
 
 # Map entry type Literal for optional forcing of EntryType
 MAP_TO_ENTRY_TYPE = {

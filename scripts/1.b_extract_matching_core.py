@@ -2,11 +2,11 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv()
-
 from compas_lca.helpers import load_json
-from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_element_ifc
 from compas_lca.model.lca_element import LcaElement
+from compas_lca.workflows.raw_extraction.ifc.ifc_extraction import extract_lca_element_ifc
+
+load_dotenv()
 
 # Path to your json
 INPUT_JSON = Path("")

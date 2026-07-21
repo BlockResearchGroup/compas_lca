@@ -3,30 +3,25 @@ Note:
 Should perhaps convert to WOOD-BASED facet instead of LIGNEOUS
 """
 
-from typing import Optional
-
 from textwrap import dedent
+from typing import Optional
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import Field
 
-from compas_lca.enums import WoodType
-from compas_lca.enums import WoodForm
-from compas_lca.enums import WoodSurface
 from compas_lca.enums import BaseSpecies
-from compas_lca.enums import WoodProcessing
-from compas_lca.enums import WoodAdhesive
 from compas_lca.enums import DryingMethod
 from compas_lca.enums import ModificationMethod
+from compas_lca.enums import WoodAdhesive
+from compas_lca.enums import WoodForm
+from compas_lca.enums import WoodProcessing
+from compas_lca.enums import WoodSurface
+from compas_lca.enums import WoodType
 
 
 class WoodFacet(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-        validate_assignment=True,
-        str_strip_whitespace=True
-    )
+    model_config = ConfigDict(extra="forbid", validate_assignment=True, str_strip_whitespace=True)
     wood_type: WoodType = Field(
         WoodType.unknown,
         description=dedent("""
@@ -78,7 +73,7 @@ class WoodFacet(BaseModel):
             Physical form or geometric configuration of the wood-based product. 
             Describes how the wood material appears in its final product state
         """).strip(),
-        examples=["panel", "beam", "flooring"]
+        examples=["panel", "beam", "flooring"],
     )
     strength_class_designation: Optional[str] = Field(
         None,
@@ -88,7 +83,7 @@ class WoodFacet(BaseModel):
             e.g. 'C24', 'D40', and EN 14080 glulam classes with suffix 'c' (combined) or 'h' (homogeneous),
             e.g. 'GL28c', 'GL32h'. Use None when not clearly stated or not applicable (e.g. panels like OSB/MDF).
         """).strip(),
-        examples=["C24", "D40", "GL28c", "GL32h"]
+        examples=["C24", "D40", "GL28c", "GL32h"],
     )
     base_species: Optional[BaseSpecies] = Field(
         None,
@@ -96,7 +91,7 @@ class WoodFacet(BaseModel):
             Dominant wood species or species group used as the raw material basis for the product. 
             Refers to the primary botanical source of the lignocellulosic material.
         """).strip(),
-        examples=["spruce", "larch", "oak", "other"]
+        examples=["spruce", "larch", "oak", "other"],
     )
     wood_processing: Optional[WoodProcessing] = Field(
         None,
@@ -104,7 +99,7 @@ class WoodFacet(BaseModel):
             Primary processing state or manufacturing treatment applied to the wood material. 
             Refers to how the wood has been converted or finished from its raw form.
         """).strip(),
-        examples=["rough_sawn", "planed_surfaced", "machine_graded"]
+        examples=["rough_sawn", "planed_surfaced", "machine_graded"],
     )
     wood_adhesive: Optional[WoodAdhesive] = Field(
         None,
@@ -113,12 +108,10 @@ class WoodFacet(BaseModel):
             Adhesives determine moisture resistance and durability of the product.
             Only if the material explicitly has an adhesive system, otherwise None.
         """).strip(),
-        examples=["MUF", "pMDI", "PF"]
+        examples=["MUF", "pMDI", "PF"],
     )
     drying_method: Optional[DryingMethod] = Field(
-        None,
-        description="The method used to reduce the moisture content of the wood prior to use or further processing.",
-        examples=["fresh_green", "air_dried", "vacuum_dried"]
+        None, description="The method used to reduce the moisture content of the wood prior to use or further processing.", examples=["fresh_green", "air_dried", "vacuum_dried"]
     )
     wood_surface: Optional[WoodSurface] = Field(
         None,
@@ -127,10 +120,8 @@ class WoodFacet(BaseModel):
             Indicates whether the surface is treated for aesthetic appearance or protective performance. 
             This field captures the final visible and tactile surface condition of the wood material.
         """).strip(),
-        examples=["oiled", "glazed", "untreated"]
+        examples=["oiled", "glazed", "untreated"],
     )
     modification_method: Optional[ModificationMethod] = Field(
-        None,
-        description="The chemical, thermal, or physical process used to alter the properties of the wood material.",
-        examples=["thermally_modified", "acetylated", "other"]
+        None, description="The chemical, thermal, or physical process used to alter the properties of the wood material.", examples=["thermally_modified", "acetylated", "other"]
     )

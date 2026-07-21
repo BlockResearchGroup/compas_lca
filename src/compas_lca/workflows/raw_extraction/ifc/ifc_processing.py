@@ -1,43 +1,39 @@
 import logging
-
-from pathlib import Path
-
 from collections import defaultdict
-
-from typing import Optional
+from pathlib import Path
+from typing import Any
 from typing import DefaultDict
 from typing import Dict
-from typing import Any
-from typing import Set
 from typing import List
+from typing import Optional
+from typing import Set
 
 from .ifc_caches import IfcCaches
-
-from .ifc_readers import load_ifc_file
-from .ifc_readers import load_ifc_units
-from .ifc_readers import load_ifc_metadata
-
-from .ifc_helpers import get_single_ifc
-from .ifc_helpers import clean_value
-from .ifc_helpers import write_json
-from .ifc_helpers import get_hierarchy
-from .ifc_helpers import inverse_list
-from .ifc_helpers import get_material_props
-from .ifc_helpers import has_valid_geometry
-from .ifc_helpers import get_classification
 from .ifc_helpers import _best_material_rel
-from .ifc_helpers import tesselated_brep_obb
-from .ifc_helpers import tesselated_brep_volume
 from .ifc_helpers import classify_material_bucket
+from .ifc_helpers import clean_value
+from .ifc_helpers import get_classification
+from .ifc_helpers import get_hierarchy
+from .ifc_helpers import get_material_props
+from .ifc_helpers import get_single_ifc
+from .ifc_helpers import has_valid_geometry
 from .ifc_helpers import init_ml_index
 from .ifc_helpers import init_mm_index
+from .ifc_helpers import inverse_list
+from .ifc_helpers import tesselated_brep_obb
+from .ifc_helpers import tesselated_brep_volume
+from .ifc_helpers import write_comp_index
+from .ifc_helpers import write_json
+from .ifc_helpers import write_meta_ifc
 from .ifc_helpers import write_ml_index
 from .ifc_helpers import write_mm_index
-from .ifc_helpers import write_comp_index
-from .ifc_helpers import write_object_type_index
-from .ifc_helpers import write_meta_ifc
 from .ifc_helpers import write_multilayer_pkg
 from .ifc_helpers import write_multimaterial_pkg
+from .ifc_helpers import write_object_type_index
+from .ifc_readers import load_ifc_file
+from .ifc_readers import load_ifc_metadata
+from .ifc_readers import load_ifc_units
+
 
 # ------------------------
 # Metadata
@@ -72,12 +68,14 @@ def process_material(relating_material, caches) -> dict:
         "material_properties": get_material_props(relating_material, caches),
     }
 
+
 def process_material_list(relating_material, caches) -> dict:
     mats = getattr(relating_material, "Materials", None) or []
     return {
         "entity": "IfcMaterialList",
         "materials": [process_material(m, caches) for m in mats if m is not None],
     }
+
 
 def process_layer(relating_material, caches, units) -> dict:
     mat = getattr(relating_material, "Material", None)
@@ -91,14 +89,16 @@ def process_layer(relating_material, caches, units) -> dict:
         "material_properties": get_material_props(mat, caches) if mat else None,
     }
 
+
 def process_layerset(relating_material, caches, units) -> dict:
     layers = getattr(relating_material, "MaterialLayers", None) or []
     return {
         "entity": "IfcMaterialLayerSet",
         "layer_set_name": getattr(relating_material, "LayerSetName", None),
         "layer_set_description": getattr(relating_material, "Description", None),
-        "material_layers": [process_layer(l, caches, units) for l in layers if l is not None],
+        "material_layers": [process_layer(layer, caches, units) for layer in layers if layer is not None],
     }
+
 
 def process_layerset_usage(relating_material, caches, units) -> dict:
     layer_set = getattr(relating_material, "ForLayerSet", None)
@@ -107,12 +107,13 @@ def process_layerset_usage(relating_material, caches, units) -> dict:
         "entity": "IfcMaterialLayerSetUsage",
         "layer_set_name": getattr(layer_set, "LayerSetName", None) if layer_set else None,
         "layer_set_description": getattr(layer_set, "Description", None) if layer_set else None,
-        "material_layers": [process_layer(l, caches, units) for l in layers if l is not None],
+        "material_layers": [process_layer(layer, caches, units) for layer in layers if layer is not None],
         "layer_set_direction": str(getattr(relating_material, "LayerSetDirection", None)),
         "direction_sense": str(getattr(relating_material, "DirectionSense", None)),
     }
 
-def process_material_data(element, caches, units) -> Optional[Dict[str,Any]]:
+
+def process_material_data(element, caches, units) -> Optional[Dict[str, Any]]:
     """
     Return the *best* material association for an element (because an element can have multiple IfcRelAssociatesMaterial).
     Preference: IfcMaterialLayerSetUsage > IfcMaterialLayerSet > IfcMaterialList > IfcMaterial.
@@ -211,14 +212,17 @@ def process_psets(element) -> Optional[Dict[str, Any]]:
         "psets_type": psets_type or None,
     }
 
+
 # ------------------------
 # Quantities
 # ------------------------
 
+
 def _norm(name: str) -> str:
     return (name or "").lower().replace(" ", "").replace("_", "")
 
-def process_quantities(element, units) -> Optional[Dict[str,Any]]:
+
+def process_quantities(element, units) -> Optional[Dict[str, Any]]:
     width = length = height = depth = None
     net_area = net_side_area = net_footprint_area = None
     cross_section_area = net_surface_area = None
@@ -272,20 +276,36 @@ def process_quantities(element, units) -> Optional[Dict[str,Any]]:
                 elif "depth" in qname:
                     depth = L
 
-    if all(v is None for v in (
-        width, length, height, depth,
-        net_area, net_side_area, net_footprint_area, net_surface_area,
-        cross_section_area, net_volume,
-        compas_obb_xdim, compas_obb_ydim, compas_obb_zdim,
-        compas_obb_largest_area, compas_brep_volume,
-    )):
+    if all(
+        v is None
+        for v in (
+            width,
+            length,
+            height,
+            depth,
+            net_area,
+            net_side_area,
+            net_footprint_area,
+            net_surface_area,
+            cross_section_area,
+            net_volume,
+            compas_obb_xdim,
+            compas_obb_ydim,
+            compas_obb_zdim,
+            compas_obb_largest_area,
+            compas_brep_volume,
+        )
+    ):
         return None
 
     return {
         "LENGTHUNIT": units.get("LENGTHUNIT"),
         "AREAUNIT": units.get("AREAUNIT"),
         "VOLUMEUNIT": units.get("VOLUMEUNIT"),
-        "width": width, "length": length, "height": height, "depth": depth,
+        "width": width,
+        "length": length,
+        "height": height,
+        "depth": depth,
         "net_area": net_area,
         "net_side_area": net_side_area,
         "net_footprint_area": net_footprint_area,
@@ -306,27 +326,28 @@ def process_quantities(element, units) -> Optional[Dict[str,Any]]:
 
 logger = logging.getLogger(__name__)
 
-def process_ifc_element(element, caches, units) -> Optional[Dict[str,Any]]:
+
+def process_ifc_element(element, caches, units) -> Optional[Dict[str, Any]]:
     """
-    process and compile all available IFC element data into a processd container.
+     process and compile all available IFC element data into a processd container.
 
-    Parameters
-    ----------
-    element : compas_ifc.entities.element.IfcBuildingElement
-        The IFC element to be processed.
-    caches: IfcCaches
-        Storage of pre-processed IFC relationship collections for fast lookups.
-   units: dict
-        dictionary of units as defined by IFC metadata & length conversion factor
-        to standardize any computed geometric quantities with compas to m, m^2, m^3
+     Parameters
+     ----------
+     element : compas_ifc.entities.element.IfcBuildingElement
+         The IFC element to be processed.
+     caches: IfcCaches
+         Storage of pre-processed IFC relationship collections for fast lookups.
+    units: dict
+         dictionary of units as defined by IFC metadata & length conversion factor
+         to standardize any computed geometric quantities with compas to m, m^2, m^3
 
-    Returns
-    -------
-    Dict[str, Any]: A compiled dictionary containing:
-        - `metadata`: Basic element identification and classification info.
-        - `material_data`: Any linked material or material layer set usage.
-        - `properties`: Property sets and type property sets (if any).
-        - `quantities`: Geometric and derived quantities (e.g., length, area, volume).
+     Returns
+     -------
+     Dict[str, Any]: A compiled dictionary containing:
+         - `metadata`: Basic element identification and classification info.
+         - `material_data`: Any linked material or material layer set usage.
+         - `properties`: Property sets and type property sets (if any).
+         - `quantities`: Geometric and derived quantities (e.g., length, area, volume).
     """
     try:
         metadata = process_metadata(element)
@@ -343,9 +364,7 @@ def process_ifc_element(element, caches, units) -> Optional[Dict[str,Any]]:
 
     except Exception as e:
         element_name = getattr(element, "Name", None)
-        logger.warning(
-            f"Failed to process element {element_name or element}: {type(e).__name__} - {e}"
-        )
+        logger.warning(f"Failed to process element {element_name or element}: {type(e).__name__} - {e}")
         return None
 
 
@@ -374,11 +393,11 @@ def process_ifc_model(
         config: Optional dictionary to exclude certain IFC entity types from processing and output
     Returns:
         - A directory structure with exported JSON files for the IfcBuildingElement entities of the IFC model.
-    
+
     Output structure:
         output_dir/
             elements/
-                composition/            -> (any element that has a none-empty "is_decomposed_by" dictionary)       
+                composition/            -> (any element that has a none-empty "is_decomposed_by" dictionary)
                 single_material/        -> (all IfcBuildingElements with one material or one material layer)
                 multi_layer/            -> (all IfcBuildingElements with IfcMaterialLayerSet or IfcMaterialLayerSetUsage)
                     <EID>/
@@ -412,10 +431,10 @@ def process_ifc_model(
     ]
 
     # Create all dirs
-    output_dir= Path(output_dir)
+    output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     for rel in subdirs:
-        (output_dir/ rel).mkdir(parents=True, exist_ok=True)
+        (output_dir / rel).mkdir(parents=True, exist_ok=True)
 
     # Load the IFC model, units, caches
     model = load_ifc_file(ifc_file)
@@ -454,7 +473,6 @@ def process_ifc_model(
     # process all building elements
     for element in elements:
         try:
-
             # Entity filtering
             if allowed_entities is not None:
                 elem_type = element.is_a()
@@ -462,10 +480,12 @@ def process_ifc_model(
                     name = getattr(element, "Name", None)
                     gid = getattr(element, "GlobalId", None)
 
-                    skipped[elem_type].append({
-                        "name": name,
-                        "global_id": gid,
-                    })
+                    skipped[elem_type].append(
+                        {
+                            "name": name,
+                            "global_id": gid,
+                        }
+                    )
                     skipped_total += 1
                     continue
 
@@ -493,11 +513,13 @@ def process_ifc_model(
 
             # ONLY index non-composition elements
             if object_type and not is_composition:
-                object_type_index.setdefault(object_type, []).append({
-                    "name": name,
-                    "eid": eid,
-                    "global_id": gid,
-                })
+                object_type_index.setdefault(object_type, []).append(
+                    {
+                        "name": name,
+                        "eid": eid,
+                        "global_id": gid,
+                    }
+                )
 
             if is_composition:
                 bucket = "composition"
@@ -526,14 +548,7 @@ def process_ifc_model(
             elif bucket == "multi_material":
                 psets = data.get("properties")
                 materials = (mat or {}).get("materials") or []
-                write_multimaterial_pkg(
-                    output_dir / "elements" / bucket,
-                    eid,
-                    data,
-                    materials,
-                    meta,
-                    psets
-                )
+                write_multimaterial_pkg(output_dir / "elements" / bucket, eid, data, materials, meta, psets)
 
                 mm_index.append({"name": name, "eid": eid, "global_id": gid})
 
@@ -561,10 +576,7 @@ def process_ifc_model(
         skipped_breakdown = {t: len(items) for t, items in skipped.items()}
 
         # List names by type (and keep global_id if you want)
-        skipped_elements_by_type = {
-            t: [x["name"] for x in items if x.get("name")]
-            for t, items in skipped.items()
-        }
+        skipped_elements_by_type = {t: [x["name"] for x in items if x.get("name")] for t, items in skipped.items()}
 
         ifcmeta["Skipped Elements Overview"] = {
             "Filter Active": True,

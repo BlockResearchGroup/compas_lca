@@ -1,15 +1,9 @@
-from pathlib import Path
-
-import traceback
+import json
 import threading
-
+import traceback
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import as_completed
-
-import pandas as pd
-
-import json
-
+from pathlib import Path
 from typing import Any
 from typing import Dict
 from typing import List
@@ -17,41 +11,35 @@ from typing import Optional
 from typing import Tuple
 from typing import Union
 
+import pandas as pd
+
 from compas_lca.helpers import merge_llm_meta
-
-from compas_lca.matching_core.core import MatchingCore
-
+from compas_lca.inventory.indicator import Indicator
+from compas_lca.inventory.indicator import Indicators
+from compas_lca.inventory.indicator import IndicatorScenario
 from compas_lca.inventory.inventory import Inventory
 from compas_lca.inventory.item import InventoryItem
 from compas_lca.inventory.metadata import ItemMetadata
 from compas_lca.inventory.reference import ReferenceInfo
-from compas_lca.inventory.indicator import Indicator
-from compas_lca.inventory.indicator import IndicatorScenario
-from compas_lca.inventory.indicator import Indicators
-
+from compas_lca.matching_core.core import MatchingCore
 from compas_lca.workflows.extraction import extract_matching_core
-
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_ingestion import ingest_obd_item
-
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import read_csv
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import uuids_in_csv
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import subset_for_uuid
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row_for_uuid
-
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import parse_num
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_str
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_int
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import infer_bucket
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import write_item
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import uuids_in_payload_dir
-from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import read_payload
 from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import COLUMN_MAP
-
-
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import infer_bucket
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import parse_num
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import read_payload
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_int
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import safe_str
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import uuids_in_payload_dir
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_helpers import write_item
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import first_row_for_uuid
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import read_csv
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import subset_for_uuid
+from compas_lca.workflows.raw_extraction.oekobaudat.obd_readers import uuids_in_csv
 
 # =======================================================
 # Helper: Scan output directory for existing UUIDs
 # =======================================================
+
 
 def _scan_existing_uuids(base_dir: Path) -> set:
     """
@@ -61,7 +49,7 @@ def _scan_existing_uuids(base_dir: Path) -> set:
     existing = set()
     if not base_dir.exists():
         return existing
-    
+
     for json_file in base_dir.rglob("*.json"):
         # Skip metadata files
         if json_file.name == "llm_metadata.json":
@@ -69,13 +57,14 @@ def _scan_existing_uuids(base_dir: Path) -> set:
         # UUID is the filename without extension
         uuid = json_file.stem
         existing.add(uuid)
-    
+
     return existing
 
 
 # =======================================================
 # Extract the matching core from an Oekobaudat entry
 # =======================================================
+
 
 def extract_matching_core_from_payload(obd_item_payload: Dict[str, Any]) -> Tuple[MatchingCore, dict]:
     core, meta = extract_matching_core(
@@ -89,6 +78,7 @@ def extract_matching_core_from_payload(obd_item_payload: Dict[str, Any]) -> Tupl
 # ============================================
 # Extract Indicators from an Oekobaudat entry
 # ============================================
+
 
 def extract_indicators_obd(uuid_df: pd.DataFrame) -> Indicators:
     """
@@ -118,9 +108,7 @@ def extract_indicators_obd(uuid_df: pd.DataFrame) -> Indicators:
         df["Szenario"] = None
 
     if "Szenariobeschreibung" in df.columns:
-        df["Szenariobeschreibung"] = (
-            df["Szenariobeschreibung"].astype(str).str.strip().replace({"": None})
-        )
+        df["Szenariobeschreibung"] = df["Szenariobeschreibung"].astype(str).str.strip().replace({"": None})
     else:
         df["Szenariobeschreibung"] = None
 
@@ -168,16 +156,13 @@ def extract_indicators_obd(uuid_df: pd.DataFrame) -> Indicators:
     for ind_name, stage_map in buckets.items():
         indicators.append(Indicator(name=ind_name, stages=stage_map))  # type: ignore[arg-type]
 
-    return Indicators(
-        indicators=indicators,
-        scenarios=scenario_summary or None
-    )
-
+    return Indicators(indicators=indicators, scenarios=scenario_summary or None)
 
 
 # ===============================================================================================
 # Extract Reference Quantities (Bezugsgroesse) and unit (Bezugseinheit) from an Oekobaudat entry
 # ===============================================================================================
+
 
 def extract_reference_obd(uuid_series: pd.Series) -> ReferenceInfo:
     """
@@ -203,9 +188,11 @@ def extract_reference_obd(uuid_series: pd.Series) -> ReferenceInfo:
 
     return ReferenceInfo(size=size, unit=unit)
 
+
 # =======================================================
 # Extract data for EnvDataSource from an Oekobaudat entry
 # =======================================================
+
 
 def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
     """
@@ -213,7 +200,7 @@ def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
     Empty cells are mapped to None (consistent with Optional fields in the model).
     """
 
-    source = "OEKOBAUDAT 2024-I" # hardcoded; update as needed
+    source = "OEKOBAUDAT 2024-I"  # hardcoded; update as needed
 
     # Extract from series
     uuid = safe_str(uuid_series.get("UUID"))
@@ -227,11 +214,7 @@ def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
     # Parse compliance field (list of strings or None)
     raw_compliance = safe_str(uuid_series.get("Konformitaet"))
     if raw_compliance:
-        compliance = [
-            part.strip().strip("'").strip('"')
-            for part in raw_compliance.split("/")
-            if part.strip()
-        ] or None
+        compliance = [part.strip().strip("'").strip('"') for part in raw_compliance.split("/") if part.strip()] or None
     else:
         compliance = None
 
@@ -246,6 +229,7 @@ def extract_metadata_obd(uuid_series: pd.Series) -> ItemMetadata:
         dataset_owner=owner,
         compliance_system_name=compliance,
     )
+
 
 # ==========================================================
 # Extract and build an Inventory object from Oekobaudat CSV
@@ -302,11 +286,11 @@ def extract_inventory_obd(
     payload_dir: Union[str, Path],
     csv_path: Union[str, Path],
     *,
-    write_json: bool = True,                   # write one JSON per InventoryItem
-    output_dir: Optional[Path | str] = None,   # where to write those JSON files
-    max_workers: int = 1,                      # number of parallel workers (1 = sequential)
-    resume: bool = True,                       # skip already processed UUIDs
-    uuid_filter: Optional[List[str]] = None,   # only process these UUIDs (if provided)
+    write_json: bool = True,  # write one JSON per InventoryItem
+    output_dir: Optional[Path | str] = None,  # where to write those JSON files
+    max_workers: int = 1,  # number of parallel workers (1 = sequential)
+    resume: bool = True,  # skip already processed UUIDs
+    uuid_filter: Optional[List[str]] = None,  # only process these UUIDs (if provided)
 ) -> Inventory:
     """
     Build an Inventory from an OBD CSV.
@@ -390,13 +374,7 @@ def extract_inventory_obd(
 
         executor = ThreadPoolExecutor(max_workers=max_workers)
         try:
-            futures = {
-                executor.submit(
-                    _process_single_uuid_from_payload,
-                    obd, payload_dir, uuid, idx, total, write_json, base_dir
-                ): (idx, uuid)
-                for idx, uuid in indexed_uuids
-            }
+            futures = {executor.submit(_process_single_uuid_from_payload, obd, payload_dir, uuid, idx, total, write_json, base_dir): (idx, uuid) for idx, uuid in indexed_uuids}
 
             for future in as_completed(futures):
                 idx, item, llm_meta, error = future.result()
@@ -420,9 +398,7 @@ def extract_inventory_obd(
 
     else:
         for idx, uuid in indexed_uuids:
-            idx, item, llm_meta, error = _process_single_uuid_from_payload(
-                obd, payload_dir, uuid, idx, total, write_json, base_dir
-            )
+            idx, item, llm_meta, error = _process_single_uuid_from_payload(obd, payload_dir, uuid, idx, total, write_json, base_dir)
             if item is not None:
                 items.append(item)
             if llm_meta is not None:
