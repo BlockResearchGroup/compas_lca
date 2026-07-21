@@ -10,12 +10,14 @@ AI-based Life Cycle Assessment (LCA) report generation for IFC building models.
 into a unified schema — the *Matching Core* — that enables precise, customizable,
 and deterministic matching based on semantic and functional constraints.
 
-.. figure:: /_images/matching_overview.png
+.. figure:: /_images/data_model_containers.png
    :figclass: figure
    :class: figure-img img-fluid
 
-   Building elements and inventory items are both extracted into a shared
-   Matching Core, on which deterministic constraint matching operates.
+   BuildingElement and InventoryItem containers with their shared Matching
+   Core: building data and environmental data are both extracted into the
+   same normalized schema, on which filtering and deterministic matching
+   operate.
 
 In conventional BIM and environmental data schemas, critical classification and
 attribute information is distributed across semi-structured and highly variable
