@@ -30,10 +30,7 @@ class Indicator(BaseModel):
 
     Example::
 
-        Indicator(
-            name="GWPtotal",
-            stages={"A1-A3": 12.3, "A4": 0.6, "C3": 0.1}
-        )
+        Indicator(name="GWPtotal", stages={"A1-A3": 12.3, "A4": 0.6, "C3": 0.1})
     """
 
     model_config = ConfigDict(
