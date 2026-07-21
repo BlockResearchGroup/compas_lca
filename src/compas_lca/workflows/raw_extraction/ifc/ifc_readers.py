@@ -8,15 +8,43 @@ from typing import Any
 from collections import defaultdict
 from collections import OrderedDict
 
-from compas_ifc.model import Model
+from compas_ifc.bim import BuildingInformationModel
 
 from compas_lca.workflows.raw_extraction.ifc.ifc_caches import IfcCaches
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _to_decimal
 from compas_lca.workflows.raw_extraction.ifc.ifc_helpers import _best_material_rel
 
+
+class IfcModel:
+    """Thin adapter over compas_ifc 2.0's ``BuildingInformationModel``.
+
+    compas_ifc 2.0 renamed the model class and moved ``get_entities_by_type``
+    onto the underlying ``IFCFile`` (``model._file``). This wrapper preserves the
+    minimal, entity-level surface COMPAS LCA relies on, so that every downstream
+    ``model.get_entities_by_type(...)`` / ``model.schema_name`` call keeps working
+    unchanged. Entities are returned as ``compas_ifc`` ``Base`` wrappers (raw
+    ifcopenshell attribute access, inverse psets, materials, ``is_a()``, ``id()``
+    and identity-based membership all preserved).
+    """
+
+    def __init__(self, bim: BuildingInformationModel):
+        self._bim = bim
+
+    def get_entities_by_type(self, ifc_type: str):
+        return self._bim._file.get_entities_by_type(ifc_type)
+
+    @property
+    def schema_name(self) -> str:
+        return self._bim.schema_name
+
+    def __getattr__(self, name):
+        # Delegate anything else to the underlying BuildingInformationModel.
+        return getattr(self._bim, name)
+
+
 def load_ifc_file(filepath, use_occ: bool = False):
     """
-    Load an IFC file using COMPAS-IFC Model class.
+    Load an IFC file using the COMPAS-IFC front-end model (compas_ifc 2.0).
 
     Parameters
     ----------
@@ -27,20 +55,20 @@ def load_ifc_file(filepath, use_occ: bool = False):
 
     Returns
     -------
-    Model
-        The loaded IFC model.
+    IfcModel
+        Adapter over the loaded ``BuildingInformationModel``.
     """
     path = Path(filepath).expanduser().resolve()
     if not path.exists():
         raise FileNotFoundError(f"'{path}' does not exist.")
     try:
-        model = Model(str(path), use_occ=use_occ)
-        return model
+        model = BuildingInformationModel(str(path), use_occ=use_occ)
+        return IfcModel(model)
     except Exception as e:
         raise RuntimeError(f"Failed to load file: {e}")
 
 
-def load_ifc_units(model: Model) -> dict:
+def load_ifc_units(model) -> dict:
     """
     Returns IFC units exactly as defined (no conversions or remapping),
     but each unit is represented as a string like "MILLIMETRE" or "SQUARE_METRE".
@@ -146,7 +174,7 @@ def _finalize_material_breakdown(breakdown_dict) -> OrderedDict:
     # ensure all keys exist and in the desired order
     return OrderedDict((k, breakdown_dict.get(k, 0)) for k in _MATERIAL_KEYS)
 
-def load_ifc_metadata(input_file, model, units, caches) -> Dict[str, Any]:
+def load_ifc_metadata(input_file, model, units) -> Dict[str, Any]:
     """
     Build overall IFC file metadata, including:
       - project/app info
@@ -186,7 +214,7 @@ def load_ifc_metadata(input_file, model, units, caches) -> Dict[str, Any]:
     # ---- Breakdown by element type ----
     breakdown = {}
     for elem in building_elements:
-        elem_type = type(elem).__name__
+        elem_type = elem.is_a()
         breakdown[elem_type] = breakdown.get(elem_type, 0) + 1
 
     # ---- Get Author / Owner of dataset ----
@@ -234,7 +262,7 @@ def load_ifc_metadata(input_file, model, units, caches) -> Dict[str, Any]:
     material_breakdown = defaultdict(int)
 
     for elem in building_elements:
-        best = _best_material_rel(elem, caches) # choose material relationship based on predefined hierarchy
+        best = _best_material_rel(elem) # choose material relationship based on predefined hierarchy
         if not best:
             material_breakdown["No material data"] += 1
             continue

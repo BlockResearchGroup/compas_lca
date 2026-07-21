@@ -1,6 +1,7 @@
 compas >= 2
 compas_model
-compas_ifc
+compas_ifc == 2.0.0
+ifcopenshell == 0.8.4.post1
 dotenv
 pydantic==2.12.5
 pydantic-ai==1.29.0

@@ -45,45 +45,49 @@ def get_single_ifc(directory: Path) -> Path:
         )
     return candidates[0]
 
-def get_classification(element, classification_rels):
+def get_classification(element):
     """ Extracts classification information associated with an IFC element using IfcRelAssociatesClassification relationships. """
     classifications = []
-    for rel in classification_rels:
-        if element in rel.RelatedObjects:
-            classification_ref = rel.RelatingClassification
-            classification_data = {
-                "IfcEntity": type(classification_ref).__name__,
-                "Identification": getattr(classification_ref, "Identification", "Unknown"),
-                "System Name": getattr(getattr(classification_ref, "ReferencedSource", None), "Name", "Unknown"),
-                "Name": getattr(classification_ref, "Name", "Unknown")
-            }
-            classifications.append(classification_data)
+    for rel in inverse_list(element, "HasAssociations"):
+        if not rel.is_a("IfcRelAssociatesClassification"):
+            continue
+        classification_ref = rel.RelatingClassification
+        classification_data = {
+            "IfcEntity": classification_ref.is_a(),
+            "Identification": getattr(classification_ref, "Identification", "Unknown"),
+            "System Name": getattr(getattr(classification_ref, "ReferencedSource", None), "Name", "Unknown"),
+            "Name": getattr(classification_ref, "Name", "Unknown")
+        }
+        classifications.append(classification_data)
     if not classifications:
         return None
     return classifications
 
 
-def get_hierarchy(element, aggregates_rels):
+def get_hierarchy(element):
     """ Extracts hierarchical decomposition information for a given IFC element. """
     decomposes = {}
     is_decomposed_by = []
-    for rel in aggregates_rels:
-        if element in rel.RelatedObjects:
-            decomposes = {
-                "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
-                "entity": type(rel.RelatingObject).__name__,
-                "eid": str(rel.RelatingObject.id()),
-                "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
+    for rel in inverse_list(element, "Decomposes"):
+        if not rel.is_a("IfcRelAggregates"):
+            continue
+        decomposes = {
+            "name": rel.RelatingObject.Name if hasattr(rel.RelatingObject, "Name") and rel.RelatingObject.Name else None,
+            "entity": rel.RelatingObject.is_a(),
+            "eid": str(rel.RelatingObject.id()),
+            "global_id": rel.RelatingObject.GlobalId if hasattr(rel.RelatingObject, "GlobalId") else None
+        }
+    for rel in inverse_list(element, "IsDecomposedBy"):
+        if not rel.is_a("IfcRelAggregates"):
+            continue
+        is_decomposed_by.extend([
+            {
+                "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
+                "entity": obj.is_a(),
+                "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
             }
-        if element == rel.RelatingObject:
-            is_decomposed_by.extend([
-                {
-                    "name": obj.Name if hasattr(obj, "Name") and obj.Name else None,
-                    "entity": type(obj).__name__,
-                    "global_id": obj.GlobalId if hasattr(obj, "GlobalId") else None
-                }
-                for obj in rel.RelatedObjects
-            ])
+            for obj in rel.RelatedObjects
+        ])
     return decomposes, is_decomposed_by
 
 
@@ -224,7 +228,7 @@ def tesselated_brep_volume(geom, units, ndigits=4):
 
 def has_valid_geometry(element):
     """Return True if element has a geometry with vertices or solid data."""
-    geom = getattr(element, "geometry", None)
+    geom = getattr(element, "visual_geometry", None)
     if geom is None:
         return False
 
@@ -521,27 +525,33 @@ def _pick_best(rels) -> Optional[Tuple[str, Any]]:
     kind, rel_mat = max(candidates, key=lambda kv: priority.get(kv[0], 0))
     return kind, rel_mat
 
-def _best_material_rel(element, caches) -> Optional[Tuple[str, Any]]:
-    elem_rels = [
-        r for r in (getattr(caches, "material_rels", []) or [])
-        if element in (getattr(r, "RelatedObjects", None) or [])
-    ]
-    best = _pick_best(elem_rels)
+def _element_type(element):
+    """Resolve the element's defining IfcTypeObject via inverse attributes
+    (IFC4 ``IsTypedBy``; IFC2X3 ``IsDefinedBy`` + ``IfcRelDefinesByType``),
+    mirroring the dual used in ``process_psets``."""
+    for attr in ("IsTypedBy", "IsDefinedBy"):
+        for rel in inverse_list(element, attr):
+            if rel.is_a("IfcRelDefinesByType"):
+                rt = getattr(rel, "RelatingType", None)
+                if rt is not None:
+                    return rt
+    return None
+
+def _element_material_rels(obj):
+    """All IfcRelAssociatesMaterial on an element/type, via the ``HasAssociations``
+    inverse (identical set/order to iterating the model-wide cache + membership)."""
+    return [r for r in inverse_list(obj, "HasAssociations")
+            if r.is_a("IfcRelAssociatesMaterial")]
+
+def _best_material_rel(element) -> Optional[Tuple[str, Any]]:
+    """Best material association for an element: prefer the element's own material
+    (LayerSetUsage > LayerSet > List > Material), else fall back to its type's."""
+    best = _pick_best(_element_material_rels(element))
     if best:
         return best
-    type_rels = (getattr(caches, "type_rels", []) or [])
-    elem_type = next(
-        (getattr(r, "RelatingType", None)
-            for r in type_rels
-            if element in (getattr(r, "RelatedObjects", None) or [])),
-        None
-    )
+    elem_type = _element_type(element)
     if elem_type is not None:
-        type_mat_rels = [
-            r for r in (getattr(caches, "material_rels", []) or [])
-            if elem_type in (getattr(r, "RelatedObjects", None) or [])
-        ]
-        return _pick_best(type_mat_rels)
+        return _pick_best(_element_material_rels(elem_type))
     return None
 
 def write_object_type_index(index: dict, output_dir: Path):

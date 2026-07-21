@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "compas_lca: AI-based Life Cycle Assessment report generation for IFC building models"
+type: software
+authors:
+  - family-names: Wuite
+    given-names: Eric
+  - family-names: Chen
+    given-names: Li
+version: 0.1.0
+date-released: "2026-07-21"
+license: MIT
+repository-code: "https://github.com/BlockResearchGroup/compas_lca"
+abstract: >-
+  compas_lca normalizes building data (from IFC) and environmental data (EPDs)
+  into a unified schema that enables deterministic building-element to EPD
+  matching and reproducible LCA report generation.

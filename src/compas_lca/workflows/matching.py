@@ -928,7 +928,7 @@ def match_lca_model(
 
         processed += 1
         written_paths.append(out_path)
-        print(f"→ Written matched element to {out_path}")
+        print(f"-> Written matched element to {out_path}")
 
     return {
         "inventory_dir": inventory_dir,

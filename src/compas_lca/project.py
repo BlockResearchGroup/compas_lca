@@ -41,6 +41,11 @@ from compas_lca.workflows.enrich import create_boq_enriched
 from compas_lca.workflows.enrich import enrich_concrete_strength
 from compas_lca.workflows.enrich import enrich_stud_ratio
 
+# Resolve repo root so data/ paths work regardless of CWD.
+# Assumes: <repo>/src/compas_lca/project.py  ->  repo = 3 parents up
+_REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+
 class ProjectError(RuntimeError):
     """Base error for project/pipeline failures."""
 
@@ -101,7 +106,7 @@ class Project:
     def preprocess_ifc(
         self,
         *,
-        ifc_dir: Path = Path("data/building_model"),
+        ifc_dir: Path = _REPO_ROOT / "data" / "building_model",
         exclude_none: bool = True,
     ) -> "Project":
         """
@@ -223,7 +228,7 @@ class Project:
             include_explain = bool(self.config.get("include_explain", False))
 
             # (optional) inventory dir in config later if other inventories are added
-            inventory_dir = Path("data/lca_database/oekobaudat_2024-I")
+            inventory_dir = _REPO_ROOT / "data" / "lca_database" / "oekobaudat_2024-I"
 
             match_lca_model(
                 inventory_dir=inventory_dir,
@@ -257,7 +262,8 @@ class Project:
             indicators = report_cfg.get("indicators") or ["GWPtotal", "GWPbiogenic"]
             net_stages = report_cfg.get("net_stages") or ["A1-A3", "A4", "C1", "C2", "C3", "D"]
 
-            epd_root = Path(self.config.get("inventory_dir", "data/lca_database/oekobaudat_2024-I"))
+            _default_inv = _REPO_ROOT / "data" / "lca_database" / "oekobaudat_2024-I"
+            epd_root = Path(self.config.get("inventory_dir", str(_default_inv)))
 
             # Define report root
             report_root = self.path / "06_report"
@@ -298,7 +304,7 @@ class Project:
                 try:
                     plots_dir = create_plots(ind_dir)
                 except Exception as e:
-                    print(f"⚠️  Plotting failed for {ind_name} in {ind_dir}: {e}")
+                    print(f"[!]  Plotting failed for {ind_name} in {ind_dir}: {e}")
 
             # Create sankey diagram and flag report
             try:
@@ -330,7 +336,7 @@ class Project:
                 )
 
             except Exception as e:
-                print(f"⚠️  Sankey classification / flag report generation failed: {e}")
+                print(f"[!]  Sankey classification / flag report generation failed: {e}")
 
             # --- NEW: copy metadata into 06_report/metadata (last action) ---
             report_root = self.path / "06_report"  # already created above, safe to re-reference
@@ -358,7 +364,7 @@ class Project:
             if model_src.exists():
                 shutil.copy2(model_src, dst_meta / "model.json")
             else:
-                print(f"⚠️  model.json not found at: {model_src}")
+                print(f"[!]  model.json not found at: {model_src}")
 
 
             spinner.stop()
@@ -382,7 +388,7 @@ class Project:
     def run_all(
         self,
         *,
-        ifc_dir: Path = Path("data/building_model"),
+        ifc_dir: Path = _REPO_ROOT / "data" / "building_model",
         exclude_none: bool = True,
     ) -> "Project":
         return (

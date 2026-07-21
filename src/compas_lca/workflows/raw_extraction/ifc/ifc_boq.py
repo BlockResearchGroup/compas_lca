@@ -874,6 +874,6 @@ def extract_lca_model_boq(input_csv_path: str, output_dir: str) -> None:
 
     print(f"Updated BoQ of dissected elements saved to: {output_path}.")
     print("")
-    print("IFC extraction complete — LCA model successfully assembled.\n")
+    print("IFC extraction complete - LCA model successfully assembled.\n")
 
     df.to_csv(output_path, index=False)

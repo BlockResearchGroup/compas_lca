@@ -8,13 +8,7 @@ In conventional BIM and environmental data schemas, critical classification and 
 
 ## Installation
 
-Stable releases can be installed from PyPI.
-
-```bash
-pip install compas_lca
-```
-
-To install the latest version for development, do:
+Install from source:
 
 ```bash
 git clone https://github.com/BlockResearchGroup/compas_lca.git
@@ -53,16 +47,18 @@ NOTE: The matching parameters (score threshold and top_k matches) can be retroac
 
 ## Environmental Data Extraction Workflow
 * Review `oekobaudat_remaining.csv`
-* Add UUIDs of selected elements to `epd_parser.json`
+* Add UUIDs of selected elements to `epd_parser.yaml`
 * Run `scripts/0_menu.py`
 * Execute action points **02a to 02c** sequentially.
 
 This workflow parses and integrates additional Environmental Product Declarations (EPDs) into the existing LCA database.
 
-## Documentation
+## Thesis Evaluation & Data Availability
 
-For further "getting started" instructions, a tutorial, examples, and an API reference,
-please check out the online documentation here: [compas_lca docs](https://BlockResearchGroup.github.io/compas_lca)
+The multi-LLM benchmark scripts accompanying the thesis chapter "Data Model for AI"
+live in [`thesis/evaluation/`](thesis/evaluation/README.md). The benchmark datasets,
+model outputs, and case-study artifacts are distributed as a separate data package
+(see that README for access details); they are not committed to this repository.
 
 ## Issue Tracker
 
