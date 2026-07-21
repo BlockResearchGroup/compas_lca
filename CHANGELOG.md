@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* CI workflows aligned with `compas_ifc`: build (3 OS x Python 3.11/3.12), PR changelog check, and tag-triggered release.
+
 ### Changed
+
+* `requires-python` corrected to `>=3.11` (the `llm` subpackage uses `typing.Self`); dropped the Python 3.10 classifier.
 
 ### Removed
 
