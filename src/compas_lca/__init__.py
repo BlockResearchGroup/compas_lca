@@ -7,7 +7,7 @@ __author__ = ["Eric Wuite", "Li Chen"]
 __copyright__ = "BRG"
 __license__ = "MIT License"
 __email__ = "e.b.wuite@gmail.com, leochen1990@gmail.com"
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 
 HERE = os.path.dirname(__file__)
