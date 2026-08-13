@@ -4,7 +4,7 @@ compas_ifc == 2.0.0
 ifcopenshell == 0.8.4.post1
 dotenv
 pydantic==2.12.5
-pydantic-ai==1.102.0
+pydantic-ai==1.106.0
 pyyaml
 trafilatura
 pandas
